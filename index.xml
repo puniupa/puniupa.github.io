@@ -15,36 +15,1073 @@
 <link>https://Legal-Dragoman.github.io/</link>
 </image>
 <generator>quarto-1.4.556</generator>
-<lastBuildDate>Sun, 28 Jan 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 09 Mar 2024 00:00:00 GMT</lastBuildDate>
 <item>
-  <title>刑法各論［期末試験対策］（２）</title>
-  <link>https://Legal-Dragoman.github.io/posts/刑法各論（期末試験対策）2.html</link>
+  <title>刑事訴訟法［司法試験対策］</title>
+  <link>https://Legal-Dragoman.github.io/posts/刑訴法/刑事訴訟法［司法試験］.html</link>
   <description><![CDATA[ 
 
 
 
 
-<pre><code>                &lt;wfw:commentRss&gt;https://dragoman8.wordpress.com/2024/01/28/%e5%88%91%e6%b3%95%e5%90%84%e8%ab%96%e3%80%80%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e5%af%be%e7%ad%96/feed/&lt;/wfw:commentRss&gt;
-        &lt;slash:comments&gt;0&lt;/slash:comments&gt;
-    
-    
-    
-    &lt;media:content url="https://0.gravatar.com/avatar/6efd6e6d120f53814883fd3d6d5f6d193f7a9e42949739c9d8a86f3b3c52476b?s=96&amp;#38;d=identicon&amp;#38;r=G" medium="image"&gt;
-        &lt;media:title type="html"&gt;tldhfl&lt;/media:title&gt;
-    &lt;/media:content&gt;
-&lt;/item&gt;
-    &lt;item&gt;
-    &lt;title&gt;民事実務　[期末試験対策]&lt;/title&gt;
-    &lt;link&gt;https://dragoman8.wordpress.com/2024/01/23/%e6%b0%91%e4%ba%8b%e5%ae%9f%e5%8b%99%e3%80%80%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e5%af%be%e7%ad%96/&lt;/link&gt;
-                &lt;comments&gt;https://dragoman8.wordpress.com/2024/01/23/%e6%b0%91%e4%ba%8b%e5%ae%9f%e5%8b%99%e3%80%80%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e5%af%be%e7%ad%96/#respond&lt;/comments&gt;
-    
-    &lt;dc:creator&gt;&lt;![CDATA[tldhfl]]&gt;&lt;/dc:creator&gt;
-    &lt;pubDate&gt;Tue, 23 Jan 2024 05:04:29 +0000&lt;/pubDate&gt;
-            &lt;category&gt;&lt;![CDATA[日々の勉強]]&gt;&lt;/category&gt;
-    &lt;guid isPermaLink="false"&gt;http://dragoman8.wordpress.com/?p=100&lt;/guid&gt;
+<section id="r5" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="r5"><span class="header-section-number">1</span> R5</h2>
+<ul>
+<li><p>領置（刑訴法221条）</p>
+<ul>
+<li>「被疑者その他の者が遺留した物」（遺留物）</li>
+</ul>
+<p>「所有者、所持者若しくは保管者が任意に提出した物」（任意提出物）</p>
+<ul>
+<li>占有取得の過程に強制の要素がない</li>
+</ul>
+<p>but　占有を継続する時点で強制処分の性質を有する</p>
+<ul>
+<li>「遺留物」＞遺失物</li>
+</ul>
+<p>自己の意思によらずに占有を喪失した場合に限られず、自己の意思によって占有を放棄し、離脱させた物も含むと定義する必要がある（ここでの占有は物理的な支配） * 被疑者は占有を放棄していたとしても、その場の管理者の占有が及んでいるのではないか？</p>
+<ul>
+<li>（遺留物に当たるかどうかの問題とは別に）</li>
+</ul>
+<p>プライバシーの利益が法的に保護されるか？</p>
+<p>→ 具体的状況下における必要性・相当性の判断</p>
+<ul>
+<li>最決平成20年4月15日刑62巻5号1398頁</li>
+</ul>
+<blockquote class="blockquote">
+<p>ダウンベスト等の領置手続についてみると，被告人及びその妻は，これらを入れたごみ袋を不要物として公道上のごみ集積所に排出し，その占有を放棄していたものであって，排出されたごみについては，通常，そのまま収集されて他人にその内容が見られることはないという期待があるとしても，捜査の必要がある場合には，刑訴法２２１条により，これを遺留物として領置することができるというべきである。また，市区町村がその処理のためにこれを収集することが予定されているからといっても，それは廃棄物の適正な処理のためのものであるから，これを遺留物として領置することが妨げられるものではない。</p>
+</blockquote>
+<ul>
+<li>実況見分調書の証拠能力（伝聞法則）
+<ul>
+<li>誰の公判期日外の供述を問題にしているのか？</li>
+<li>供述書面の性質（321条3項適用の理由）</li>
+<li>最決平成17年9月27日刑集59巻7号753頁</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="r4" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="r4"><span class="header-section-number">2</span> R4</h2>
+<ul>
+<li>おとり捜査の適法性
+<ul>
+<li>最決平成16年7月12日刑集58巻5号333頁</li>
+<li>おとり捜査の意義（正確に）</li>
+<li>法的性質から限界を導く</li>
+</ul></li>
+<li>訴因変更の要否
+<ul>
+<li>最決平成13年4月11日刑集55巻3号127頁</li>
+<li>最決平成24年2月29日刑集66巻4号589頁</li>
+<li>検察官の釈明内容が訴因となるか？（訴因の特定に不可欠な事項か？）</li>
+<li>最判昭和58年12月13日刑集37巻10号1581頁（被告人の謀議への関与について、審理における争点として顕在化させることなく認定した事例）</li>
+</ul></li>
+</ul>
+</section>
+<section id="r3" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="r3"><span class="header-section-number">3</span> R3</h2>
+<ul>
+<li>令状に基づく捜索差押え
+<ul>
+<li>①令状に明記された物件に当てはまること（憲法35条、法219条1項）</li>
+</ul>
+②被疑事実との関連性（憲法35条、222条1項・99条1項）
+<ul>
+<li>最判昭和51年11月18日判時837号104頁：情状事実や背景事情に関する物も被疑事実との関連性が認められる証拠に含めるべきか？</li>
+<li>可視性・可読性のない電磁的記録媒体について、無愛用を確認せずに差押えができるか？ 最決平成10年5月1日刑集52巻4号275頁</li>
+</ul></li>
+<li>伝聞法則（320条1項）
+<ul>
+<li>犯行メモの位置付け（要証事実の考え方）</li>
+</ul>
+<blockquote class="blockquote">
+<p>①そのメモの内容が客観的な犯罪事実と一致している場合，偶然の一致は考えにくいような事項の一致が認められ，かつ，それが犯罪発生前に作成されたことが判明していれば，そこから直ちに犯罪がそのメモに記載された犯行計画にのっとって遂行されたことを推認でき，かかる一致の認められるメモの作成者が判明していれば，そのこと自体から，メモの作成者と犯行の実行者の間で当該メモに記載された内容の共謀が推認し得るとする考え方， ②犯行計画を記載したメモは，その作成者が作成当時に有していた犯行計画ないし犯罪意思を述べたものとて，心理状態の供述に当たり，原供述者の原供述時における心理状態を立証する上では，内心の状態について知覚と記憶の過程は問題にならないため，供述者の外界の事実の存在を示す典型的な供述証拠に比べて誤りの危険は小さく，また，真摯性，叙述の点について誤りの有無・程度を吟味する必要はあるものの，それは原供述者の尋問によらなくても，その記載内容や作成状況等から誤りの有無・程度の吟味が可能であることなどから，非伝聞証拠として，刑事訴訟法第３２０条第１項の適用はなく，かつ，その記載内容が客観的な犯罪事実と一致し，当該犯罪をメモの作成者以外の者が実行した場合には，作成者と実行者の間で当該メモに記載された内容の共謀が形成されたことを推認し得るとする考え方<sup>1</sup></p>
+</blockquote></li>
+</ul>
+</section>
+<section id="r2" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="r2"><span class="header-section-number">4</span> R2</h2>
+<ul>
+<li>任意取り調べ（198条1項）の適法性
+<ul>
+<li>最決昭和59年2月29日刑集38巻3号279頁（高輪グリーン・マンション殺人事件）の規範</li>
+</ul>
+事案の性質、被疑者に対する容疑の程度、被疑者の態度等の諸般の事情を考慮
+<ul>
+<li>「強制手段に当たるか」と「任意手段の限界を超えていないか」という二段階で示す。</li>
+<li>比較衡量説と行為規範説への意識</li>
+</ul></li>
+<li>自白法則（319条1項）
+<ul>
+<li>供述証拠である自白に対しても、違法収集証拠排除法則の適用があるか？（二元説）</li>
+</ul>
+cf.&nbsp;東京高判平成14年9月4日判時1808号144頁（ロザール事件控訴審判決）
+<ul>
+<li>仮に適用があるとしても、同様の基準が適用されるか？</li>
+</ul></li>
+<li>類似事実による犯人性の証明の可否（前科証拠）</li>
+</ul>
+</section>
+<section id="r1" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="r1"><span class="header-section-number">5</span> R1</h2>
+<ul>
+<li>別件逮捕・勾留の適法性
+<ul>
+<li>本件基準説、別件基準説</li>
+<li>どの事実を考慮に入れるべきか？</li>
+</ul></li>
+<li>訴因変更の
+<ul>
+<li>公訴事実の同一性（312条1項）</li>
+<li>公判前整理手続の後に行う訴因変更の許否</li>
+</ul>
+cf.&nbsp;「公判前整理手続を経た後の公判においては，充実した公判審理のための争点整理や審理計画の策定がされた趣旨を没却するような訴因変更は許されない」とした下級審裁判例として，東京高判平成20年11月18日高刑集61巻4号6頁がある。</li>
+</ul>
 
-                &lt;description&gt;&lt;![CDATA[書き方 訴訟物 請求原因事実以下の要件事実 執行不奏功の場合の代償請求 執行不奏効の場合の代償請求（民執 31Ⅱ）「第1項の引渡しの執行が目的を達することができ ないときは、被告は、原告に対し、350万円を支払え。」「よ [&amp;#8230;]]]&gt;&lt;/description&gt;
-                                    &lt;content:encoded&gt;&lt;![CDATA[</code></pre>
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>出題趣旨 より．↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>刑訴法</category>
+  <category>司法試験対策</category>
+  <guid>https://Legal-Dragoman.github.io/posts/刑訴法/刑事訴訟法［司法試験］.html</guid>
+  <pubDate>Sat, 09 Mar 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>刑事訴訟法（訴訟）</title>
+  <link>https://Legal-Dragoman.github.io/posts/刑訴法/捜査.html</link>
+  <description><![CDATA[ 
+
+
+
+
+
+
+
+ ]]></description>
+  <category>刑事訴訟法</category>
+  <guid>https://Legal-Dragoman.github.io/posts/刑訴法/捜査.html</guid>
+  <pubDate>Mon, 04 Mar 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>刑事訴訟法（訴訟）</title>
+  <link>https://Legal-Dragoman.github.io/posts/刑訴法/訴訟.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="公訴の提起" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="公訴の提起"><span class="header-section-number">1</span> 公訴の提起</h2>
+<ul>
+<li>審判対象を選択するのは、検察官（訴追裁量権・起訴独占主義、刑訴法248条）。
+<ul>
+<li>裁判所も検察官の訴因選択に拘束されて、訴因に記載された犯罪事実に限って審判する。それに応じて、被告人・弁護人も審判対象たる訴因以外の事実については、主張することができない。</li>
+</ul></li>
+<li>訴因外の事実について審理するか？
+<ul>
+<li>訴因記載の犯罪の成立を妨げる事情は、訴因外の事実であっても審理の対象となる（実体法的解釈に依存する）。</li>
+<li>単独正犯を訴因とする事件で、訴因外の事実として共謀者がいる場合</li>
+</ul>
+<blockquote class="blockquote">
+<p>「<u>被告人1人の行為により犯罪構成要件のすべてが満たされたと認められるとき</u> は、 他に共謀共同正犯者が存在するとしてもその犯罪の成否は左右されない」</p>
+</blockquote>
+<span class="color-minty"><i class="fa-solid fa-arrow-left" aria-label="arrow-left"></i></span> この意味で、刑法60条には、①実行行為の全部を行っていない者が正犯として責任を負うために適用される場合と②単独正犯としても責任を問い得るが、他人との共謀があるために適用される場合とがある。</li>
+<li>量刑上の不利益をもたらす一部起訴　e.g., かすがい現象
+<ul>
+<li>被告人の不利益になるような訴因の設定は <u>検察官の訴追権を逸脱して違法である</u> とする見解
+<ul>
+<li>訴因変更が必要となるとする立場が一方である。</li>
+<li>罪数判断のために考慮するだけであれば、その事実について被告人を有罪として処罰するわけでないから、訴因変更手続を経なくとも訴因外の事実を考慮できるとする立場もある。</li>
+</ul></li>
+<li>このような一部起訴も許されるとする見解 <span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 訴因外の事実は考慮できないため、量刑の場面で、一罪として処罰する場合の処断刑の範囲内で刑を言い渡さなければならない。</li>
+</ul></li>
+</ul>
+</section>
+<section id="訴因の特定明示" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="訴因の特定明示"><span class="header-section-number">2</span> 訴因の特定・明示</h2>
+<ul>
+<li><p>起訴状の記載事項である「公訴事実」（256条2項）</p>
+<ul>
+<li>公訴事実は訴因を明示して記載しなければならない。</li>
+</ul></li>
+<li><p>訴因：訴因には六何の原則に従った事項だけではなく、構成要件の修正形式である共犯や未遂に該当する事実も含まれる。</p>
+<ul>
+<li>犯罪の主体・客体・行為と結果 <span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> それ自体「罪となるべき事実」であると共に、その具体的記載によって訴因が特定される。</li>
+<li>日時・場所・方法 <span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 犯罪の構成要素となっている場合を除き、「罪となるべき事実」には当たらない。しかし、訴因を特定する手段となる。</li>
+</ul></li>
+<li><p>特定の趣旨（識別説と防御権説）</p>
+<ul>
+<li>①裁判所に対して審判の対象を限定する</li>
+<li>②被告人に対して防御の範囲を示す</li>
+</ul></li>
+<li><p>訴因の特定の判断基準</p>
+<p>【絶対的要請】 1. 「罪となるべき事実」の記載</p>
+<pre><code>  cf. 有罪判決の場面と共通の問題
+
+  ①特定の構成要件
+
+  ②全ての構成要件要素　
+
+  ③事実の具体性（反証をおよそ不可能にするか）
+
+  2. 他の犯罪との識別　「特定」できているか？</code></pre>
+<p>【相対的要請】</p>
+<p>「できる限り」＝特殊事情の存在</p>
+<p>「犯罪の種類、性質等のいかんにより、これを詳らかにできない特殊事情がある場合」</p></li>
+<li><p>特別な構成要件（？）からの要請</p>
+<ul>
+<li>過失犯における「過失の態様」の位置付け</li>
+</ul>
+<p><span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> ②の問題とするか、③の問題とするか（構成要件要素と捉えるかどうかによる）</p>
+<ul>
+<li>連続的包括一罪：「単一の意思」と「共通ないし類似した態様の行為」が構成要件とされる
+<ul>
+<li>被害者を明示し、一定期間内に行われた実行行為をまとめて一罪として構成することによって、他の犯罪と区別することができる。</li>
+<li>構成要件であると解すると、個々の傷害行為について特定されていないとしても、共通ないし類似した傷害行為が継続して行われていたことが示されていれば、構成要件要素については十分に示されていると言える。訴因の記載の仕方からしておよそ証明不可能であると言えるほどまでに不明確であるわけでもない。</li>
+</ul></li>
+<li>共同正犯
+<ul>
+<li>共謀の日時、場所は訴因の特定に不可欠な事実ではない。</li>
+<li>実行行為者が誰かは共同正犯の成否に関係ない。</li>
+</ul></li>
+<li>覚醒剤使用等の罪
+<ul>
+<li>最終行為説、最低一行為説による特定</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="訴因変更" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="訴因変更"><span class="header-section-number">3</span> 訴因変更</h2>
+<section id="訴因変更の要否" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="訴因変更の要否"><span class="header-section-number">3.1</span> 訴因変更の要否</h3>
+<ul>
+<li>第1段階：訴因の特定のために不可欠な事項か？（裁判所が審判対象を変更し、検察官の訴因設定権を奪ってはならない）
+<ul>
+<li>訴因の識別機能とリンクする</li>
+<li>第一段階には例外はない</li>
+</ul></li>
+<li>第2段階：被告人の防御にとって重要なのか？ （争点明確化のために書き込まれた事項について、被告人の不意打ち防止を図る）
+<ul>
+<li>一般的に被告人の防御にとって重要な事項については、争点の明確化などのために実行行為者を明示するのが望ましい。明示した場合には、原則としてそれと異なる事実認定をする場合に訴因変更手続を要する。</li>
+<li>第2段階の例外：ただし、被告人の防御の具体的な状況等の審理の経過に照らし、
+<ul>
+<li>①被告人に不意打ちを与えるものではないと認められ、かつ、</li>
+<li>②判決で認定される事実が被告人にとってより不利益であるとは言えない場合には、例外的に、訴因変更手続を経る必要がない。</li>
+</ul></li>
+<li>訴因の防御範囲を示す機能とリンクするとも。しかし、訴因の機能は両者一体となっていると解する立場に立てば、第２段階では異なる立場になるのではないか。むしろ、訴訟全般で要求される争点の明確化に伴う不意打ち防止の要請が趣旨なのではないか。</li>
+</ul></li>
+<li>「訴因の記載として不可欠な事項」について異なる事実認定をした場合（第一段階の問題）には、不告不利原則違反として378条3号の絶対的控訴理由に該当するのに対して、訴因の記載として必須ではない事項について（第二段階の問題）は、379条違反として相対的控訴理由となる。</li>
+</ul>
+</section>
+<section id="訴因変更の可否" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="訴因変更の可否"><span class="header-section-number">3.2</span> 訴因変更の可否</h3>
+<ul>
+<li>「公訴事実の同一性を害しない限度において」（刑訴312条1項）検察官の訴因変更請求を許さなければならない。</li>
+<li>①公訴事実の単一性＋②（狭義の）公訴事実の同一性
+<ul>
+<li>単一性は、訴訟係属中2つの時点で比較する場合と特定の時点で2つの事実を比較する場合とで同様に問題になる。両事実が実体法上の一罪を構成すれば、公訴事実の同一性が認められる。</li>
+<li>狭義の同一性は、両事実が実体法上の一罪を構成しないけれども、公訴事実の同一性が認められる場合。</li>
+</ul>
+<span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 基本的事実関係の同一性によって判断 （事実上の共通性が弱い場合にも、非両立性を相補的に考慮）</li>
+<li>「非両立性」の意味
+<ul>
+<li>事実の両立可能性（香城説）</li>
+</ul>
+<span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 同一の社会的事実に帰属するものか
+<ul>
+<li>実体法上の両立可能性（大澤説）</li>
+</ul>
+<span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 同一刑罰権に対する二重処罰に当たるかどうか</li>
+</ul>
+</section>
+<section id="訴因変更の許否" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="訴因変更の許否"><span class="header-section-number">3.3</span> 訴因変更の許否</h3>
+<ul>
+<li><u>公訴事実の同一性の範囲内であったとしても</u> 、訴因変更に制約を課すべき場合がないか？</li>
+<li>訴因変更に伴い、被告人に重大な不利益が生じる場合：訴因変更の時機
+<ul>
+<li>被告人に十分な防御の準備をさせるために公判手続を停止（312条4項）</li>
+<li>訴因変更によって、被告人が新たな訴因につき防御を強いられることになるとしても、そのことだけで訴因変更が許されなくなるわけではなく、＋αが必要。</li>
+</ul>
+<span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> ①訴因変更の時期・段階、②両訴因の関係（訴因の骨格となる事実関係の共通性）、③審理の経過（検察官の立証の経過、被告人側の防御の内容とその程度）、④被告人に対する不意打ちの程度、変更後に予想される被告人側の不利益・負担の程度、⑤事案の重大性 などに鑑みて<u>、訴因変更請求が検察官の誠実な権利の行使と認められないような場合</u> があり得る。</li>
+<li>訴因変更により実体的真実の解明とそれに基づく処罰が妨げられる場合：変更前の訴因が成立する場合の訴因変更
+<ul>
+<li>最高裁の判例はまだない。</li>
+<li>刑法312条1項+検察官に起訴猶予権限（248）・公訴取消権限（257）→訴因変更の場面でも、検察官がそもそも処罰を求めないのであれば裁判所はそれに従うべき？</li>
+</ul></li>
+</ul>
+</section>
+<section id="訴因変更命令" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="訴因変更命令"><span class="header-section-number">3.4</span> 訴因変更命令</h3>
+<ul>
+<li>訴因変更命令・勧告の義務が認められる場合があるか？
+<ul>
+<li>仮にあると尽くさなかった場合には審理不尽によって当該措置は違法となる。</li>
+<li>当事者主義の構造</li>
+</ul>
+but 重大な犯罪について訴因変更すれば有罪となることが明白であるような場合には、著しく正義に反する結果が生じるとして、訴因変更命令が義務的になる。
+<ul>
+<li>ただし、犯罪の重大性と証拠の明白性だけでなく、<u>検察官の訴追意思や被告人の防御上の利益などの手続上の要素、および事案の性質・内容、被告人の花校への関与の程度、共犯者との処分の均衡</u> などの実体面における要素も考慮している（最判昭和58年9月6日参照）。</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="証拠の関連性" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="証拠の関連性"><span class="header-section-number">4</span> 証拠の関連性</h2>
+<section id="前科証拠" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="前科証拠"><span class="header-section-number">4.1</span> 前科証拠</h3>
+<ul>
+<li><p>関連性否定の趣旨（自然的関連性まで否定されるわけでない）</p></li>
+<li><p>「前科に係る犯罪事実が顕著な特徴を有し、かつ、それが起訴に係る犯罪事実と相当程度類似する」場合には、前科証拠を被告人と犯人の同一性を証明するために用いることが許される。</p>
+<ul>
+<li>顕著な特徴を有する前科犯罪事実と同じ犯罪事実であるならば、悪性格の推認を介在させずに犯人性を推認できるから。</li>
+</ul></li>
+<li><p>「行動傾向の固着化」や「強固な犯罪傾向」に対する考え方</p>
+<ul>
+<li>他に選択の余地がないほどに強固に習慣化しているか、被告人の性格の中に根付いているといえる程度があれば、前科証拠を利用できるとする立場を認めて良いか？</li>
+<li>被告人の犯罪性向を介した推認だとしても、推認力が相当程度に大きい場合には多少弊害があっても比較衡量したら満たされるというふうに考える余地も出てくるのではないか？というのが近時の有力説。</li>
+</ul></li>
+<li><p>注意：「顕著な特徴」と「強固な犯罪傾向」の違い（基礎にある経験則）</p>
+<ul>
+<li>顕著な特徴：その人以外がやった可能性がない、その人しかできないというような手法である（第三者がやった可能性を排斥する方向の推認）</li>
+<li>強固な犯罪傾向：その人自身が特定の状況下において一定の行動に出る可能性が高いので本件犯行をやった可能性が高いという方向の推認</li>
+</ul></li>
+<li><p>①被告人の犯罪性向といった実証的根拠に乏しい人格評価につながりやすく、そのために事実認定を誤らせるおそれがあること</p>
+<p>「過去の同種犯罪事実」→「被告人の犯罪性向・悪性格」→「本件犯罪における犯人性」という推認過程</p>
+<p>2個目の推認について、裁判官が被告人に対する安直な偏見を持って判断し、<u>推認力が過大評価されてしまう危険</u> がある。</p></li>
+<li><p>②当事者が前科の内容に立ち入った攻撃防御を行う必要が生じるなど、その <u>取り調べに付随して争点が拡散するおそれ</u> がある。</p></li>
+<li><p>同種事件が併合審理されている場合に、①②のいずれも妥当するのか？（金築裁判官の指摘）</p></li>
+</ul>
+</section>
+<section id="科学的証拠" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="科学的証拠"><span class="header-section-number">4.2</span> 科学的証拠</h3>
+<ul>
+<li><p>「科学的証拠」に対して過信し、証拠力を過大評価する恐れ</p></li>
+<li><p>DNA鑑定</p>
+<p>①「科学的原理が理論的正確性を有し、具体的な実施の方法も、その技術を習得した者により、科学的に信頼される方法で行われた」（抽象的な信頼性）</p>
+<p>②本件事案における具体的な実施方法の適切性</p></li>
+<li><p>犬の臭気選別試験</p>
+<p><span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 以下から証拠能力を認めた（科学的原理の理論的正確性は未だ不明確・解明されてもいないので専門化した経験則を噛ませている）。</p>
+<ul>
+<li>専門的な知識・経験を有する指導手が行ったこと</li>
+<li>臭気選別能力が優れ、選別時において体調等も良好でその能力がよく保持されている警察犬を使用して実施したこと</li>
+<li>臭気の採取、保管の過程、臭気選別方法に不適切な点がないこと</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="自白の証拠能力" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="自白の証拠能力"><span class="header-section-number">5</span> 自白の証拠能力</h2>
+<ul>
+<li>不任意自白の排除を要求する趣旨
+<ul>
+<li>人権擁護説：意思決定の自由や黙秘権を侵害したら自白の任意性が疑われるという考え方</li>
+</ul>
+（→約束による自白を捕捉できない）
+<ul>
+<li>虚偽排除説：<u>強い利益誘導の下でなされた自白</u> は、一般的類型的に虚偽である疑いが高まるので証拠能力が否定されるという考え方</li>
+</ul>
+<span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 供述状況に着目して一般的類型的に虚偽自白が誘発されやすい状況かどうかを判断する
+<ul>
+<li>違法排除説：手続の適正の確保（司法の廉潔性、将来違法捜査の抑止）の観点から自白が排除されるという考え方</li>
+</ul></li>
+<li><u>利益の提供主体と提示された具体的利益</u> の両方を見る。</li>
+<li>派生証拠（違法収集証拠排除法則の適用）
+<ul>
+<li>虚偽排除説から根拠づけようとすると難しい面。</li>
+<li>違法収集証拠排除法則は、供述証拠に対しても適用されるから、手続の違法が重大であり、これを証拠とすることが違法捜査抑止の見地から相当でない場合には、証拠能力を否定する。</li>
+<li>ただし、物的証拠に対する違法収集証拠排除法則の基準との関係性はなお問題。</li>
+</ul></li>
+<li>問題の処理
+<ul>
+<li>現在は自白に対しては自白法則と違法収集証拠排除法則の両方が適用されるとする考え方が支配的で、その上で実務では一般的に二元説といった考え方が取られる。</li>
+<li>まず <u>自白法則は虚偽排除と人権擁護だけで説明する（任意性説）</u> 。これに対して、手続の違法問題は全部、違法収集証拠排除法則で考える。このように、ある種自白法則と違法収集排除法則の根拠を完全に住み分けてしまう見解というのが実務では支配的である。</li>
+</ul></li>
+</ul>
+</section>
+<section id="伝聞証拠" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="伝聞証拠"><span class="header-section-number">6</span> 伝聞証拠</h2>
+<ul>
+<li>伝聞証拠排除の趣旨（伝聞と非伝聞）
+<ul>
+<li>供述者の <strong>知覚、記憶、叙述</strong> という過程を経て供述されるところ、誤りが介在する恐れ</li>
+<li>公判廷において、宣誓、反対尋問、裁判官による供述態度の観察によって誤りを排除することができない</li>
+</ul></li>
+<li>要証事実（当該証拠によって直接証明しようとする事実）が何か？
+<ul>
+<li>要証事実との関係で、<strong>供述内容の真実性</strong> を立証しようとする場合には、伝聞証拠となる。</li>
+<li>精神状態に対する供述が伝聞証拠に当たらない理由
+<ul>
+<li>内心の事情は、<strong>知覚・記憶の過程</strong> が欠如しているため、非伝聞と評価されるのが通説（表現の真摯性・叙述に誤りが入る可能性については、公判廷で確認できる）。</li>
+<li>伝聞証拠だとしてしまうと、本人の供述が最高の証拠で何としても採用したいとする場合には324条の準用する321条1項3号になる。あまりに重すぎ。</li>
+<li>非供述的用法の場合には、発言をしたこと自体が要証事実になる（謀議の場合など）。この場合にも、真摯性が問題になる（非伝聞証拠でも関連性が問題になる）。</li>
+</ul></li>
+<li>犯行計画メモ：犯行の意思・計画を要証事実とした場合には、知覚・記憶の部分が欠落している犯行計画メモについては、その作成が真摯になされたことが証明されれば、その信用性をテストする必要はない。</li>
+<li>謀議参加者の1人が合意された結果を書き留めた書面
+<ul>
+<li>共謀加担者の意図・計画は独立して存在するので、全員の心理状態が記述されていると見るには状況を限定する必要がある。</li>
+<li>最低限記述者の意図しか示していない。しかし、その場にいた全員の意思が合致していることを別途立証できれば証拠として利用できるのでは（署名など）。</li>
+<li>共同意思形成をする上で用いられた手段を構成する証拠物としての利用</li>
+</ul></li>
+</ul></li>
+<li>検察官の立証事項を維持すると伝聞証拠に当たり原則として証明能力が求められないことになる場合には、<u>対象証拠それ自体から直接抽き出しうる限度に立証事項を裁判所が減縮することができる</u> としている。
+<ul>
+<li>一次的には検察官の立証趣旨を尊重し（⇦当事者主義）、そのままだと証拠能力が認められなくなってしまうという場合に、二次的に立証事項が変更される。</li>
+<li>検察官が主張する要証事実であると、およそ推認過程が経験則で成り立たないという場合には自然的関連性が否定されるので、裁判所が適切な要証事実を設定する必要がある。</li>
+</ul></li>
+</ul>
+<section id="伝聞例外" class="level3" data-number="6.1">
+<h3 data-number="6.1" class="anchored" data-anchor-id="伝聞例外"><span class="header-section-number">6.1</span> 伝聞例外</h3>
+<ul>
+<li><p>検察官調書（321条1項2号）</p>
+<ul>
+<li>「公判期日において供述することができない」</li>
+</ul>
+<p><span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 「検察官面前調書が作成され証拠請求されるに至った事情や、供者が国外にいることになった事由のいかんによっては」 検察官面前調書の証拠能力が否定されるべき場合がありうる。 * 手続的正義の観点から公正さを欠く場合（∵憲法37条2項が証人審問権を保障している） * 被告人側の不利益：証人審問権、手続上の不公正</p>
+<pre><code>  対立利益：真実の発見、事案の真相解明
+
+  []{.color-minty} この比較衡量によって判断するのだから、退去強制の一事だけで決まるものではない</code></pre>
+<ul>
+<li><p>全面的供述拒否と一部記憶喪失（前段と後段）</p>
+<ul>
+<li>相反性が認められる場合には2つある</li>
+</ul>
+<p><span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 他の証拠と相まって要証事実につき異なる認定を生ずる蓋然性がある場合</p>
+<p><span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 公判期日の証言によっては具体的な心証形成ができない場合</p></li>
+<li><p>特信性：基本的には外部的付随事情（取調べ状況、公判の状況等）を考慮する。ただし、内容も外部的付随事情を推認させるために考慮要素として使うことはできる。</p>
+<ul>
+<li>客観的事実への合致は証明力判断であるから、証拠能力の判断段階で考慮すべきではない（現行法の立て付けに合わない）。</li>
+</ul></li>
+</ul></li>
+<li><p>検証調書・鑑定書（321条3項）</p>
+<ul>
+<li>実況見分調書にも同項の適用がある。</li>
+</ul></li>
+<li><p>弾劾証拠（328条）※非伝聞証拠の確認規定</p>
+<ul>
+<li>「公判準備または公判期日における被告人、証人その他の者の供述が、別の機会にしたその者の供述と矛盾する場合に、<u>矛盾する供述をしたこと自体の立証を許すことにより公判準備または公判期日におけるその者の供述の信用性の減殺を図る</u> ことを許容する趣旨」</li>
+<li>自己矛盾供述にのみ適用</li>
+<li>補助事実についても厳格な証明が必要なのか？</li>
+</ul>
+<p><span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 主要事実や間接事実の認定に直接重大な影響を及ぼす重要な証拠であるため、自由な証明では足りないと考えるのは一つの方法だが、従来は <strong>自由な証明で足りる</strong> と考えられてきた（実務家はこれを維持したい）。</p>
+<ul>
+<li>増強証拠の可否 <span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 不可</li>
+</ul>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbecause"> 経験則上 <u>要証事実を立証することに使えないので関連性が否定される</u> 上、仮に、捜査段階で言っていた供述内容が信用できるから、同じ内容の公判証言も信用できるのだというロジックを取ろうとすると、それは公判外の供述内容の真実性の話になので、伝聞法則の潜脱だから許されない。</p></li>
+<li><p>写真、録音テープ、ビデオ</p>
+<ul>
+<li>関連性（ある証拠から <u>最終的な立証命題までを経験則に従って推認していくことができるか</u> と、<u>最終的な立証命題が本件の訴訟の結論に影響するか</u> の2つのレベルがありうる）</li>
+<li>検証調書等に添付される写真：検証調書等の説明的供述部分を補完する趣旨のもので、検証調書に添付された写真は検証調書に記載された供述の一部として取り込まれているから、供述調書として扱われる。
+<ul>
+<li>添付写真の事件との関連性は、説明部分の証拠能力があることによって初めて基礎付けられるから、検証調書の他の叙述の証拠能力に従う。</li>
+</ul></li>
+</ul></li>
+<li><p>再現実況見分調書（いわゆる現場指示と現場供述の違い）</p>
+<ul>
+<li>立会人の指示説明は実況見分の一つの手段に止まるにすぎないので、結局実況見分の結果を記載するのに他ならない。あくまで手がかりであって実況見分の動機を基礎付けるものにすぎない。</li>
+</ul>
+<p>e.g., 「ここで轢きました」 <span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> ブレーキ痕発見 <span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 実況見分調書へ記録（なぜブレーキ痕を検証したかを示すために被告人の供述を記載する）</p></li>
+</ul>
+</section>
+</section>
+<section id="違法収集証拠" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="違法収集証拠"><span class="header-section-number">7</span> 違法収集証拠</h2>
+<ul>
+<li><p>適正手続の保障・司法の廉潔性・将来の違法捜査の抑止</p>
+<p><span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 違法収集証拠排除法則</p>
+<ul>
+<li>適正手続の要請（憲法35条、31条）を直接の根拠とするのではなく、その趣旨を考慮している。</li>
+<li>違法収集証拠の証拠能力はあくまで刑訴法の解釈に委ねられている。</li>
+</ul></li>
+<li><p>考慮要素：<strong>①手続違反の程度、②手続違反のなされた状況、③手続違反の有意性（捜査機関の意図）、④手続違反の頻発性、⑤事件の重大性</strong></p>
+<ul>
+<li>強制捜査であると違法かどうかとその程度を区別する実益が出てくる。</li>
+</ul></li>
+<li><p>「①令状主義の精神を没却するような重大な違法があり（違法の重大性）</p>
+<p>⏪司法の廉潔性維持：軽微な違法のある証拠についてもどんどん排除するような司法を国民は信頼してくれないが、一方で重大な違法のある証拠について採用すればこれまた国民の信頼を害する（違法の重大性によって司法の廉潔性が傷つけられる程度が違う　※利益衡量の臨界点</p>
+<p>②これを証拠として許容することが、将来における違法な捜査の抑制の見地からして相当でない（排除相当性）と認められる場合」</p>
+<p>⏪将来の違法捜査の抑止と真相解明の必要性との比較衡量</p></li>
+<li><p>①違法性の承継</p>
+<ul>
+<li><u>一連の違法な手続によりもたらされた状態を直接利用してなされる手続</u> は違法性を承継する。</li>
+<li>違法収集証拠排除法則の2要件は、後続の手続に適用される。</li>
+<li>違法行為と証拠との間に厳密な因果関係を必要とするわけではない。とはいえ、時間的な先後関係のみで限界づけるわけでもない。</li>
+</ul></li>
+<li><p>②毒樹の果実論</p>
+<ul>
+<li>理由：①違法収集証拠排除法則の骨抜きを防ぐ②捜査というものが連続した繋がりをもつ手続きである以上、その範囲が広汎になりすぎる恐れ</li>
+<li>考慮要素（通説）：第一次証拠の獲得手続の違法の程度、第一次証拠と派生証拠との関連性の程度、証拠の重要性、事案の重大性</li>
+</ul></li>
+<li><p>③川出説</p>
+<ul>
+<li><u>違法な手続と証拠との（密接な）関連性</u> を問題にする。</li>
+<li>違法収集証拠排除法則の2要件は先行する手続に適用される。</li>
+<li>相互排他的な基準ではない。</li>
+</ul></li>
+<li><p>④強制処分が介在する場合には、違法収集証拠1による令状発布が違法となって捜索bが違法になる。</p></li>
+</ul>
+</section>
+<section id="裁判" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="裁判"><span class="header-section-number">8</span> 裁判</h2>
+<section id="概括的認定択一的認定" class="level3" data-number="8.1">
+<h3 data-number="8.1" class="anchored" data-anchor-id="概括的認定択一的認定"><span class="header-section-number">8.1</span> 概括的認定・択一的認定</h3>
+<ul>
+<li><p>同一構成要件内：「罪となるべき事実」の特定がなされればよい（訴因の特定の問題と共通）。</p></li>
+<li><p>異なる構成要件にまたがる場合</p>
+<ul>
+<li>問題</li>
+</ul>
+<p>①利益原則違反：それぞれについて合理的な疑いを挟まない程度の証明がないにもかかわらず、「AまたはB」の関係にして処罰することは利益原則に反する。</p>
+<p>②罪刑法定主義違反：2つの犯罪を1つの罪名として考えることになり、新たな構成要件（合成的構成要件）を作り出してしまう</p>
+<ul>
+<li>同意殺人と殺人、死体遺棄と保護責任者遺棄（論理的な択一関係にある場合には、軽い方の罪を認定して良いのか？）</li>
+</ul></li>
+<li><p>①証明の単位を超えるような択一的認定</p>
+<ul>
+<li>利益原則との関係：実務家の間では重い罪に利益原則を適用して事実を擬制すれば、軽い罪で有罪認定できるという風な考え方が有力な一方、学説は一般にこういう事実擬制に批判的であって、大澤先生を中心に利益原則は事実の擬制をもたらすものではないのであって、むしろ刑法解釈を捉え直すべきだという主張をなされる。</li>
+<li>罪刑法定主義との関係：罪刑法定主義が国民への処罰範囲の告知のみなのであれば、異なる構成要件間で択一的認定をしても罪刑法定主義には反しないという風な結論が出てくるが、それに留まらずに法定主義というところに重みをもたせて、立法府が構成要件ごとに刑罰権を設定するというところまで含むのだと考えると、異なる構成要件間で択一的認定をするというのは、裁判所が勝手に構成要件を作ることになるので、やはり罪刑法定主義違反となる。</li>
+</ul></li>
+<li><p>②証明の単位内の択一的認定（堂々と択一的認定を行って良い）</p></li>
+<li><p>証明の単位：利益原則の適用単位が構成要件（多数説）　or 訴因（川出先生）。</p></li>
+</ul>
+</section>
+<section id="一事不再理効" class="level3" data-number="8.2">
+<h3 data-number="8.2" class="anchored" data-anchor-id="一事不再理効"><span class="header-section-number">8.2</span> 一事不再理効</h3>
+<ul>
+<li><p>有罪判決の内容的確定力：有罪判決が示された犯罪自体に及ぶ</p></li>
+<li><p>一事不再理効：検察官が設定する訴因に基づいて判断される。公訴事実の同一性のある範囲で訴因変更というのが認められて、その範囲であれば審理される危険というのはあるから、<u>公訴事実の同一性の範囲で一事不再理効の効力が及ぶかどうか</u> を判断すべき。</p>
+<ul>
+<li>根拠：憲法39条の二重の危険の解釈</li>
+<li>有罪判決の内容的確定力が及ぶ範囲と公訴事実の同一性の範囲で一事不再理効が及ぶ範囲がずれる。</li>
+<li>両訴因の処罰をしようとする場合→公訴事実の単一性（牽連犯で一罪と評価されるので変更可能）</li>
+</ul></li>
+<li><p>単純窃盗と常習窃盗</p>
+<ul>
+<li>前訴と後訴の公訴事実の同一性によって判断。それぞれの訴因のみを基準として比較対照することによって行う。</li>
+</ul>
+<p>①検察官の訴因を尊重するべき（訴追裁量権）</p>
+<p>②それぞれの行為の独立性も強いので、検察官がそれぞれに起訴することにも合理的な理由がある（常習特殊窃盗の性質）</p>
+<ul>
+<li>ただし、一方の訴因が常習窃盗罪である場合には、<u>訴因自体において一方の単純窃盗罪が他方の常習窃盗罪と実体的に一罪を構成するかどうかにつき検討すべき契機が存在する</u> として、単純窃盗罪が常習性の発露として行われたか否かについて付随的に心証形成する必要がある。</li>
+</ul></li>
+</ul>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>刑事訴訟法</category>
+  <guid>https://Legal-Dragoman.github.io/posts/刑訴法/訴訟.html</guid>
+  <pubDate>Mon, 04 Mar 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>知的財産法［司法試験対策］</title>
+  <link>https://Legal-Dragoman.github.io/posts/知的財産法/知的財産法［司法試験］.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="r5" class="level2" data-number="1">
+
+<section id="特許法" class="level3" data-number="1.1">
+
+<ul>
+<li>発明者の認定</li>
+<li>発明者名誉権に基づく補正手続請求
+<ul>
+<li>大阪地判平成14年5月23日判時1825号116 頁【希土類の回収方法事件】</li>
+</ul></li>
+<li>職務発明 に係る相当利益請求権の消滅時効
+<ul>
+<li>最判平成15年4月22日民集57巻4号477頁【オリンパス事件】</li>
+</ul></li>
+<li>無効審判不成立審決の取消判決の拘束力
+<ul>
+<li>最判平成4年4月28日民集46巻4号245頁【高速旋回式バレル研磨法事 件】</li>
+</ul></li>
+<li>用途発明
+<ul>
+<li>顕著な効果</li>
+<li>用途発明に係る特許権の効力</li>
+</ul></li>
+</ul>
+</section>
+<section id="著作権法" class="level3" data-number="1.2">
+
+<ul>
+<li>著作物性：どの部分に創作性が認められるか？</li>
+<li>権利侵害行為
+<ul>
+<li>複製、頒布、譲渡</li>
+</ul></li>
+<li>著作物の享受を目的としない利用行為（30条の4）</li>
+</ul>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>知的財産法</category>
+  <category>司法試験対策</category>
+  <guid>https://Legal-Dragoman.github.io/posts/知的財産法/知的財産法［司法試験］.html</guid>
+  <pubDate>Thu, 29 Feb 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>行政法［司法試験対策］</title>
+  <link>https://Legal-Dragoman.github.io/posts/行政法/行政法［司法試験］.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="r5" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="r5"><span class="header-section-number">1</span> R5</h2>
+<ul>
+<li>処分性
+<ul>
+<li>病院開設中止勧告事件(最判平成17年7月15日民集59巻6号1661頁)</li>
+</ul></li>
+</ul>
+<blockquote class="blockquote">
+<p>上記の医療法及び健康保険法の規定の内容やその運用の実情に照らすと，医療法３０条の７の規定に基づく病院開設中止の勧告は，医療法上は当該勧告を受けた者が任意にこれに従うことを期待してされる行政指導として定められているけれども，当該勧告を受けた者に対し，これに従わない場合には，相当程度の確実さをもって，病院を開設しても保険医療機関の指定を受けることができなくなるという結果をもたらすものということができる。そして，いわゆる国民皆保険制度が採用されている我が国においては，健康保険，国民健康保険等を利用しないで病院で受診する者はほとんどなく，保険医療機関の指定を受けずに診療行為を行う病院がほとんど存在しないことは公知の事実であるから，保険医療機関の指定を受けることができない場合には，実際上病院の開設自体を断念せざるを得ないことになる。このような医療法３０条の７の規定に基づく病院開設中止の勧告の保険医療機関の指定に及ぼす効果及び病院経営における保険医療機関の指定の持つ意義を併せ考えると，この勧告は，行政事件訴訟法３条２項にいう「行政庁の処分その他公権力の行使に当たる行為」に当たると解するのが相当である。後に保険医療機関の指定拒否処分の効力を抗告訴訟によって争うことができるとしても，そのことは上記の結論を左右するものではない。</p>
+</blockquote>
+<p>救済のタイミングの考慮</p>
+<p>相当程度の確実な連動＋後続処分の不利益性の深刻度（実効的救済の困難）</p>
+<p>ちなみに、この判例は前倒し的な法効果に言及していない点で特徴的。これは、勧告不服従に対する指定拒否を許容はするけれど、指定拒否処分（後続処分）との連動性が相対的には弱かったからではないか？</p>
+<ul>
+<li>原告適格
+<ul>
+<li>処分の名宛人以外の者についても認めた事案 第二次納税義務者に不服申立適格を認めた事例（最判平成18年1月19日民集60巻1号65頁）</li>
+</ul>
+滞納者の財産が差し押さえられた場合の当該財産の共有者に原告適格を認めた事例（最判平25 年7月12日集民244号43頁）
+<ul>
+<li>複数の処分の効果の連動（ただし、平成18年判決の方がその連動は弱く、主たる課税処分の時点では第二次納税義務者に対する課税処分が確定しているわけではない）</li>
+<li>「処分の名宛人以外の者が処分の法的効果による権利の制限を受ける場合には，その者は，処分の名宛人として権利の制限を受ける者と同様に，当該処分により自己の権利を侵害され又は必然的に侵害されるおそれのある者として，当該処分の取消しを求めるにつき法律上の利益を有する者に当たり，その取消訴訟における原告適格を有する」</li>
+<li>行訴法第9条第2項による検討を経ることなく、「法律上の利益」の有無を論じた（処分の相手方に準じる立場にある者）</li>
+</ul></li>
+<li>執行停止の申立て（行訴法25条）「重大な損害」の有無
+<ul>
+<li>最決平成19年12月18日集民226号603頁</li>
+<li>25条3項に掲げられる事項と事実関係との結びつき</li>
+</ul></li>
+<li>裁量権の逸脱濫用
+<ul>
+<li>他事考慮・考慮不尽</li>
+<li>比例原則</li>
+</ul></li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>行政法</category>
+  <category>司法試験対策</category>
+  <guid>https://Legal-Dragoman.github.io/posts/行政法/行政法［司法試験］.html</guid>
+  <pubDate>Sat, 17 Feb 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>会社法上の大きな問題</title>
+  <link>https://Legal-Dragoman.github.io/posts/会社法/会社法上の大きな問題.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="問題状況1-少数株主の締め出し" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="問題状況1-少数株主の締め出し"><span class="header-section-number">1</span> 問題状況1: 少数株主の締め出し</h2>
+<ul>
+<li><p>株式併合や支配株主による株式買取請求（いわゆるスクイーズアウトの場面における少数株主の取り得る対処法）</p>
+<ul>
+<li>株式買取請求を行う場合の問題（算定日）</li>
+</ul></li>
+<li><p>解散請求：業務は行えたとしても、不公平な状況が恒常的に続いている場合に、解散以外他に公正・相当な打開方法がないのであれば認められるのでは？</p>
+<p><span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 交渉力を補強することに繋がる。</p></li>
+<li><p>株主平等原則（趣旨のレベルでの適用も）</p></li>
+</ul>
+</section>
+<section id="問題状況2-経営陣と株主の利益相反" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="問題状況2-経営陣と株主の利益相反"><span class="header-section-number">2</span> 問題状況2: 経営陣と株主の利益相反</h2>
+<ul>
+<li>利益相反取引や競業取引の規制（効力と取締役の責任）</li>
+<li>MBOの事例（取締役の責任、社外取締役との関係で348条の2）</li>
+<li>敵対的買収に対する支配権維持目的の新株発行・新株予約権発行（無償割り当て）</li>
+</ul>
+</section>
+<section id="問題状況3-債権者保護" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="問題状況3-債権者保護"><span class="header-section-number">3</span> 問題状況3: 債権者保護</h2>
+<ul>
+<li>法人格否認の法理</li>
+<li>分配可能額規制（461条以下・取締役の責任を含む）</li>
+<li>経営状態悪化時の取締役の義務（株主利益最大化原則から、債権者利益最大化原則へのシフトがあり得るか？）</li>
+</ul>
+</section>
+<section id="問題状況4-瑕疵の積み重ね" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="問題状況4-瑕疵の積み重ね"><span class="header-section-number">4</span> 問題状況4: 瑕疵の積み重ね</h2>
+<ul>
+<li>取締役会決議のない取引の効力</li>
+<li>取締役会の無効・不存在の後の株主総会</li>
+<li>瑕疵のある株主総会後の新株発行</li>
+<li>瑕疵のある株主総会後の株主総会（瑕疵の連鎖）</li>
+</ul>
+
+
+</section>
+
+ ]]></description>
+  <category>会社法</category>
+  <guid>https://Legal-Dragoman.github.io/posts/会社法/会社法上の大きな問題.html</guid>
+  <pubDate>Mon, 12 Feb 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>商法［司法試験対策］</title>
+  <link>https://Legal-Dragoman.github.io/posts/商法/商法［司法試験］.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="r5" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="r5"><span class="header-section-number">1</span> R5</h2>
+<ul>
+<li>423条1項・429条の取締役の責任：任務懈怠
+<ul>
+<li>唯一の株主であり、取締役でもあった場合</li>
+<li>株主の経済的利益最大化の原則の限界？<sup>1</sup></li>
+</ul></li>
+<li>総株主による責任免除（424条）</li>
+<li>株主総会決議取消の訴えの利益
+<ul>
+<li>瑕疵の連鎖</li>
+<li>権利（代表）取締役：346条、351条</li>
+</ul></li>
+<li>株式を共同相続した場合の権利行使者の指定（106条）</li>
+</ul>
+</section>
+<section id="r4" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="r4"><span class="header-section-number">2</span> R4</h2>
+<ul>
+<li>取締役の任期を短縮する定款変更
+<ul>
+<li>取締役の地位を失った者による損害賠償請求</li>
+</ul></li>
+<li>親会社の圧力の下でいわゆるデュー・ディリジェンスを行うことなく事業を譲り受けたことに関する取締役の任務懈怠責任
+<ul>
+<li>構造的な利益相反</li>
+</ul></li>
+<li>事業を譲渡した会社（譲渡会社）の商号の一部が含まれている商標を使用した場合における事業を譲り受けた会社（譲受会社）の責任（会社法22条）</li>
+</ul>
+</section>
+<section id="r3" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="r3"><span class="header-section-number">3</span> R3</h2>
+<ul>
+<li>利益相反取引（間接取引）
+<ul>
+<li>取引の有効性について判例に従って適切に論じる</li>
+</ul></li>
+<li>多額の借財</li>
+<li>実質的な株式引受人
+<ul>
+<li>形式説と実質説の論理的な理由づけ</li>
+</ul></li>
+<li>代表取締役の権限に対する制限（349条5項）</li>
+<li>議決権の代理行使（310条1項）</li>
+</ul>
+</section>
+<section id="r2" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="r2"><span class="header-section-number">4</span> R2</h2>
+<ul>
+<li>新株発行の無効の訴え
+<ul>
+<li>非公開会社における特別決議を経ないでなされた株式発行の効力</li>
+<li>有利発行→理由の説明（199条3項）、招集通知への記載（299条2項2号・取締役会設置会社、298条1行2号、規則63条7号ホ）</li>
+<li>株主総会決議における取消事由と無効原因との関係</li>
+</ul></li>
+<li>株式併合に先立つ対処法
+<ul>
+<li>差止め請求（種類株主としての116条1項関連⇄182条の4 ※適用のための要件が異なるので注意）</li>
+<li>反対株主による株式買取請求</li>
+<li>株主総会決議に取消事由があることを無効原因とする</li>
+</ul></li>
+</ul>
+</section>
+<section id="r1" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="r1"><span class="header-section-number">5</span> R1</h2>
+<ul>
+<li>少数株主による議題提案権（303条1項）など、少数株主が取ることができる手段の具体的比較</li>
+<li>買収防衛策としての新株予約券の無償割当て
+<ul>
+<li>株主平等原則（の趣旨）との関係</li>
+<li>不公正発行にあたるか（主要目的ルール＋α）</li>
+</ul></li>
+<li>取締役の責任（423条1項）
+<ul>
+<li>株主総会決議に対する遵守義務と、会社の利益を保護する義務との関係</li>
+</ul></li>
+</ul>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>田中亘「株主第一主義の合理性と限界(上)（下）」法律時報92巻5号123頁、92巻7号79頁（2020）↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>商法</category>
+  <category>司法試験対策</category>
+  <guid>https://Legal-Dragoman.github.io/posts/商法/商法［司法試験］.html</guid>
+  <pubDate>Sat, 10 Feb 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>刑法［司法試験対策］</title>
+  <link>https://Legal-Dragoman.github.io/posts/刑法/刑法［司法試験］.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="r5" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="r5"><span class="header-section-number">1</span> R5</h2>
+<section id="実行の着手時期" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="実行の着手時期"><span class="header-section-number">1.1</span> 実行の着手時期</h3>
+</section>
+<section id="共謀の射程" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="共謀の射程"><span class="header-section-number">1.2</span> 共謀の射程</h3>
+</section>
+<section id="因果関係" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="因果関係"><span class="header-section-number">1.3</span> 因果関係</h3>
+</section>
+<section id="公務執行妨害罪と業務執行妨害罪" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="公務執行妨害罪と業務執行妨害罪"><span class="header-section-number">1.4</span> 公務執行妨害罪と業務執行妨害罪</h3>
+</section>
+</section>
+<section id="r4" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="r4"><span class="header-section-number">2</span> R4</h2>
+<section id="正当防衛急迫性" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="正当防衛急迫性"><span class="header-section-number">2.1</span> 正当防衛：急迫性</h3>
+</section>
+<section id="自招危難自招侵害との比較" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="自招危難自招侵害との比較"><span class="header-section-number">2.2</span> 自招危難（自招侵害との比較）</h3>
+</section>
+<section id="横領罪占有横領行為" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="横領罪占有横領行為"><span class="header-section-number">2.3</span> 横領罪：「占有」「横領行為」</h3>
+</section>
+<section id="窃盗罪" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="窃盗罪"><span class="header-section-number">2.4</span> 窃盗罪</h3>
+</section>
+</section>
+<section id="r3" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="r3"><span class="header-section-number">3</span> R3</h2>
+<ul>
+<li>共犯の錯誤</li>
+<li>共犯関係の解消</li>
+<li>財産犯における「占有」：窃盗罪</li>
+<li>盗品等関与罪</li>
+<li>207条の適用可否</li>
+</ul>
+<section id="論点" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="論点"><span class="header-section-number">3.1</span> 論点</h3>
+<ul>
+<li><p>強盗罪</p>
+<ul>
+<li>財物奪取に向けられた暴行・脅迫行為</li>
+</ul></li>
+<li><p>窃盗罪</p>
+<ul>
+<li>上位・下位者の占有の有無</li>
+<li>占有補助者か？</li>
+</ul></li>
+<li><p>盗品等関与罪</p></li>
+<li><p>順次共謀</p></li>
+<li><p>共犯関係</p>
+<p>共犯の錯誤（部分的犯罪共同説）</p>
+<p>⇦共同正犯の本質論と抽象的事実の錯誤の関係については，様々な考え方があり得るところであり，共同正犯の本質論を論じれば重ねて抽象的事実の錯誤を論じる必要はないとする立場，もっぱら抽象的事実の錯誤の問題として処理すべきとする立場などがあり得るが，いかなる立場に立つにせよ，自説の論理的整合性を保ちつつ論じる必要がある。</p></li>
+<li><p>幇助犯・教唆犯</p></li>
+<li><p>共犯関係の解消</p></li>
+<li><p>207条の適用の仕方</p>
+<ul>
+<li>一部の実行行為に共犯関係がある場合に適用できるか？</li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="r2" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="r2"><span class="header-section-number">4</span> R2</h2>
+<ul>
+<li>実行行為の着手</li>
+<li>因果関係の錯誤</li>
+<li>恐喝罪</li>
+<li>強盗罪の構成要件</li>
+</ul>
+<section id="論点-1" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="論点-1"><span class="header-section-number">4.1</span> 論点</h3>
+<ul>
+<li>恐喝罪
+<ul>
+<li>罪質・財産上の損害</li>
+<li>現実の現金の移転がない場合には、1項か2項か？</li>
+<li>「脅迫」の意義</li>
+</ul></li>
+<li>強盗罪
+<ul>
+<li>暴行の意義</li>
+<li>昏酔強盗は財物に対するものだけ</li>
+</ul></li>
+<li>実行行為の着手</li>
+<li>因果関係
+<ul>
+<li>被害者の素因を含むか？</li>
+</ul></li>
+</ul>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>刑法</category>
+  <category>司法試験対策</category>
+  <guid>https://Legal-Dragoman.github.io/posts/刑法/刑法［司法試験］.html</guid>
+  <pubDate>Sat, 10 Feb 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>会社法［期末試験対策］</title>
+  <link>https://Legal-Dragoman.github.io/posts/会社法/会社法（期末試験対策）.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="他人名義による株式の引き受け" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="他人名義による株式の引き受け"><span class="header-section-number">1</span> 他人名義による株式の引き受け</h2>
+<p>実質上の引受人すなわち名義借用者がその株主となる</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbecause"> 一般私法上の法律行為の場合と同じく、真に契約の当事者として申込をした者が引受人としての権利を取得し、義務を負担する</p>
+<p><span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 通常は、経済的出捐をした者が契約の当事者と認定されるだろう。</p>
+</section>
+<section id="株式の相続" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="株式の相続"><span class="header-section-number">2</span> 株式の相続</h2>
+<ul>
+<li>株式の持分は、株主たる資格において会社に対して有する法律上の地位を意味する</li>
+</ul>
+<p>相続人は被相続人の法律上の地位を包括的に承継するのであるから、持分の取得により株主たる地位をも当然に承継したといえる</p>
+<ul>
+<li><p>権利行使者の指定（106条）がない限り、特段の事情がない限り、原告適格を有しない。持分の準共有者間において権利行使者を決めるに当たっては、持分の価格に従い、その過半数を持ってこれを決定する（民法252条）ことができる。</p>
+<ul>
+<li>106条の趣旨は、1人でも反対すれば全体の権利行使が不可能となると解すると会社の運営にも支障を来たす恐れがあることから、会社の事務処理上の便宜のため。</li>
+<li>民法264条の「特別の定め」</li>
+<li>議決権行使は、直ちに株式を処分し、又は株式の内容を変更することになるなどの特段の事情がない限り、株式の管理に関する行為に当たる。</li>
+</ul></li>
+<li><p>権利行使者の通知なくして株主総会不存在訴訟を提起した場合</p>
+<p>会社の立場</p>
+<ul>
+<li>株主総会における決議の成立を主張・立証しなければならない</li>
+<li>手続きの欠缺を主張して原告適格を争う</li>
+</ul>
+<p><span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 規定の趣旨を同一訴訟手続内で恣意的に使い分けるものとして、訴訟上の防御権を濫用し、著しく信義則に反して許されない</p></li>
+</ul>
+</section>
+<section id="株主平等原則109条" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="株主平等原則109条"><span class="header-section-number">3</span> 株主平等原則（109条）</h2>
+<ul>
+<li><p>多数決の濫用や会社経営者による恣意的な権限行使から、個々の株主の利益を保護するため、会社は、株主をその有する株式の内容及び数に応じて平等に取り扱わなければならない。</p></li>
+<li><p>正義・衡平の理念を基礎として全ての団体に共通する原則</p>
+<p><span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 属人的定めの制度（2項）にも株主平等原則の趣旨に及ぶ規制が及ぶ</p>
+<p>差別的取り扱いが合理的な理由に基づかず、その目的において正当性を欠いている場合</p></li>
+</ul>
+<p>手段の必要性や相当性を欠くような場合 にはそのような定款変更は無効</p>
+</section>
+<section id="譲渡制限株式" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="譲渡制限株式"><span class="header-section-number">4</span> 譲渡制限株式</h2>
+<p>趣旨：専ら会社にとって好ましくない者が株主となることを防止し、持って譲渡人以外の株主の利益を保護する</p>
+<p>非公開会社</p>
+<p>会社の支配権に関わる持株比率の維持に係る既存株主の利益の保護が重視される</p>
+<p>２．株式の発行</p>
+<p>「不公正な発行価額」（公正発行価額）</p>
+<p>上場会社が額面普通株式を株主以外の第三者に対して有利な資本調達を企図する場合</p>
+<pre><code>* 本来：新株主に旧株主と同等の資本的寄与を求めるべき。発行価額は旧株の時価と等しくするべき。
+* But　新株を消化し資本調達の目的を達成するためには、原則として発行価額を時価よりも多少引き下げる必要がある。
+* 諸事情を考慮して、旧株主の利益と会社が有利な資本調達を実現するという利益との調和との中に求められる。</code></pre>
+</section>
+<section id="新株予約権の第三者割り当て" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="新株予約権の第三者割り当て"><span class="header-section-number">5</span> 新株（＋予約権）の第三者割り当て</h2>
+<p>不公正発行の該当性</p>
+<p>⓪前提の論理</p>
+<p>取締役は株主の資本多数決によって選任される執行機関にすぎない</p>
+<p>被選任者たる取締役に選任者たる株主構成の変更を主要な目的とする新株発行を一般的に許容することは、機関権限の分配を定めた法意に反する</p>
+<p><span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 誰を経営者としてどのような事業構成の方針で会社を経営させるかは、株主総会における取締役選任を通じて株主が資本多数決によって決すべき</p>
+<p>①主要目的ルール</p>
+<ol type="1">
+<li>会社の支配権につき争いがあり</li>
+<li>現経営陣が、支配権を争う特定の株主の持株比率を低下させ、もって自らの支配権を維持・確保することなどを主要な目的としている</li>
+</ol>
+<p>②例外：正当化事情</p>
+<p>株主全体の利益の保護という観点から新株発行等を正当化する特段の事情</p>
+<p>会社の企業価値が毀損され、会社の利益ひいては株主の共同の利益を害するような場合には、それを防止することが事情になる</p>
+<p>敵対的買収に対する対抗手段として必要性や相当性が認められる限り、正当性が認められうる</p>
+<p>３．株主総会</p>
+<p>代理人資格を株主に制限する定款（有効性）</p>
+<p>合理的な理由がある場合に、相当と認められる程度の制限を加えることは許される</p>
+<p>趣旨：株主以外の第三者によって攪乱されることを防止し、会社の利益を保護する</p>
+</section>
+<section id="利益供与" class="level2" data-number="6">
+<h2 data-number="6" class="anchored" data-anchor-id="利益供与"><span class="header-section-number">6</span> 利益供与</h2>
+<p>株主の権利行使に影響を及ぼす恐れのない正当な目的に基づき許与される場合で、</p>
+<p>かつ、個々の株主に供与される額が社会通念上許容される範囲のもので、株主全体に供与される総額も会社の財産的基礎に影響を及ぼすものではない</p>
+
+
+</section>
+
+ ]]></description>
+  <category>会社法</category>
+  <category>期末試験対策</category>
+  <guid>https://Legal-Dragoman.github.io/posts/会社法/会社法（期末試験対策）.html</guid>
+  <pubDate>Thu, 01 Feb 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>刑法各論［期末試験対策］（２）</title>
+  <link>https://Legal-Dragoman.github.io/posts/刑法/刑法各論（期末試験対策）2.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<!-- 
+                    <wfw:commentRss>https://dragoman8.wordpress.com/2024/01/28/%e5%88%91%e6%b3%95%e5%90%84%e8%ab%96%e3%80%80%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e5%af%be%e7%ad%96/feed/</wfw:commentRss>
+            <slash:comments>0</slash:comments>
+        
+        
+        
+        <media:content url="https://0.gravatar.com/avatar/6efd6e6d120f53814883fd3d6d5f6d193f7a9e42949739c9d8a86f3b3c52476b?s=96&#38;d=identicon&#38;r=G" medium="image">
+            <media:title type="html">tldhfl</media:title>
+        </media:content>
+    </item>
+        <item>
+        <title>民事実務　[期末試験対策]</title>
+        <link>https://dragoman8.wordpress.com/2024/01/23/%e6%b0%91%e4%ba%8b%e5%ae%9f%e5%8b%99%e3%80%80%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e5%af%be%e7%ad%96/</link>
+                    <comments>https://dragoman8.wordpress.com/2024/01/23/%e6%b0%91%e4%ba%8b%e5%ae%9f%e5%8b%99%e3%80%80%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e5%af%be%e7%ad%96/#respond</comments>
+        
+        <dc:creator><![CDATA[tldhfl]]></dc:creator>
+        <pubDate>Tue, 23 Jan 2024 05:04:29 +0000</pubDate>
+                <category><![CDATA[日々の勉強]]></category>
+        <guid isPermaLink="false">http://dragoman8.wordpress.com/?p=100</guid>
+
+                    <description><![CDATA[書き方 訴訟物 請求原因事実以下の要件事実 執行不奏功の場合の代償請求 執行不奏効の場合の代償請求（民執 31Ⅱ）「第1項の引渡しの執行が目的を達することができ ないときは、被告は、原告に対し、350万円を支払え。」「よ [&#8230;]]]></description>
+                                        <content:encoded><![CDATA[ -->
 <h1 class="wp-block-heading" id="書き方">
 書き方
 </h1>
@@ -392,30 +1429,45 @@ YZ間の転貸借契約はXに対する背信的行為と認めるに足りな�
 <p>
 【変造ver.】<br>　本件で被告は、【本件文書は署名押印後に変造された】と主張しているため、文書全体が被告の意思に基づくわけではない、と二段目の推定を争っていると解される。そこで、裁判所はかかる事情の主張・立証を被告に求めるべきである。その際、法228Ⅳの「推定」は、法定証拠法則を定めたものであって、証明責任を転換したものではないため、被告としては、本件文書が署名押印後に変造されたことについて真偽不明に持ち込めば足りる。
 </p>
-<p>
-</p>
-<p>]]&gt;</p>
-<pre><code>                &lt;wfw:commentRss&gt;https://dragoman8.wordpress.com/2024/01/23/%e6%b0%91%e4%ba%8b%e5%ae%9f%e5%8b%99%e3%80%80%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e5%af%be%e7%ad%96/feed/&lt;/wfw:commentRss&gt;
-        &lt;slash:comments&gt;0&lt;/slash:comments&gt;
-    
-    
-    
-    &lt;media:content url="https://0.gravatar.com/avatar/6efd6e6d120f53814883fd3d6d5f6d193f7a9e42949739c9d8a86f3b3c52476b?s=96&amp;#38;d=identicon&amp;#38;r=G" medium="image"&gt;
-        &lt;media:title type="html"&gt;tldhfl&lt;/media:title&gt;
-    &lt;/media:content&gt;
-&lt;/item&gt;
-    &lt;item&gt;
-    &lt;title&gt;刑法総論　[期末試験対策]&lt;/title&gt;
-    &lt;link&gt;https://dragoman8.wordpress.com/2024/01/18/%e5%88%91%e6%b3%95%e7%b7%8f%e8%ab%96%e3%80%80%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e5%af%be%e7%ad%96/&lt;/link&gt;
-                &lt;comments&gt;https://dragoman8.wordpress.com/2024/01/18/%e5%88%91%e6%b3%95%e7%b7%8f%e8%ab%96%e3%80%80%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e5%af%be%e7%ad%96/#respond&lt;/comments&gt;
-    
-    &lt;dc:creator&gt;&lt;![CDATA[tldhfl]]&gt;&lt;/dc:creator&gt;
-    &lt;pubDate&gt;Thu, 18 Jan 2024 12:09:23 +0000&lt;/pubDate&gt;
-            &lt;category&gt;&lt;![CDATA[日々の勉強]]&gt;&lt;/category&gt;
-    &lt;guid isPermaLink="false"&gt;http://dragoman8.wordpress.com/?p=62&lt;/guid&gt;
 
-                &lt;description&gt;&lt;![CDATA[因果関係 実行行為の危険性が結果に現実化した場合に刑法上の因果関係を認める見解に立つ。 間接的実現類型 直接的実現類型 中間的な類型？（危険な状況を設定する類型） 実行行為によって結果発生の危険性の高い状況が設定された場 [&amp;#8230;]]]&gt;&lt;/description&gt;
-                                    &lt;content:encoded&gt;&lt;![CDATA[</code></pre>
+
+
+ ]]></description>
+  <category>刑法</category>
+  <category>期末試験対策</category>
+  <guid>https://Legal-Dragoman.github.io/posts/刑法/刑法各論（期末試験対策）2.html</guid>
+  <pubDate>Sun, 28 Jan 2024 00:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>刑法各論［期末試験対策］（３）</title>
+  <link>https://Legal-Dragoman.github.io/posts/刑法/刑法各論（期末試験対策）3.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<!--                    
+                    <wfw:commentRss>https://dragoman8.wordpress.com/2024/01/23/%e6%b0%91%e4%ba%8b%e5%ae%9f%e5%8b%99%e3%80%80%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e5%af%be%e7%ad%96/feed/</wfw:commentRss>
+            <slash:comments>0</slash:comments>
+        
+        
+        
+        <media:content url="https://0.gravatar.com/avatar/6efd6e6d120f53814883fd3d6d5f6d193f7a9e42949739c9d8a86f3b3c52476b?s=96&#38;d=identicon&#38;r=G" medium="image">
+            <media:title type="html">tldhfl</media:title>
+        </media:content>
+    </item>
+        <item>
+        <title>刑法総論　[期末試験対策]</title>
+        <link>https://dragoman8.wordpress.com/2024/01/18/%e5%88%91%e6%b3%95%e7%b7%8f%e8%ab%96%e3%80%80%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e5%af%be%e7%ad%96/</link>
+                    <comments>https://dragoman8.wordpress.com/2024/01/18/%e5%88%91%e6%b3%95%e7%b7%8f%e8%ab%96%e3%80%80%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e5%af%be%e7%ad%96/#respond</comments>
+        
+        <dc:creator><![CDATA[tldhfl]]></dc:creator>
+        <pubDate>Thu, 18 Jan 2024 12:09:23 +0000</pubDate>
+                <category><![CDATA[日々の勉強]]></category>
+        <guid isPermaLink="false">http://dragoman8.wordpress.com/?p=62</guid>
+
+                    <description><![CDATA[因果関係 実行行為の危険性が結果に現実化した場合に刑法上の因果関係を認める見解に立つ。 間接的実現類型 直接的実現類型 中間的な類型？（危険な状況を設定する類型） 実行行為によって結果発生の危険性の高い状況が設定された場 [&#8230;]]]></description>
+                                        <content:encoded><![CDATA[ -->
 <ol>
 <li>
 <a class="wp-block-table-of-contents__entry" href="https://dragoman8.wordpress.com/2024/01/18/%e5%88%91%e6%b3%95%e7%b7%8f%e8%ab%96%e3%80%80%e6%9c%9f%e6%9c%ab%e8%a9%a6%e9%a8%93%e5%af%be%e7%ad%96/#因果関係">因果関係</a>
@@ -1452,12 +2504,12 @@ R5年に改正があり、保釈に関わる犯罪や報告命令制度に関す
  ]]></description>
   <category>刑法</category>
   <category>期末試験対策</category>
-  <guid>https://Legal-Dragoman.github.io/posts/刑法各論（期末試験対策）2.html</guid>
+  <guid>https://Legal-Dragoman.github.io/posts/刑法/刑法各論（期末試験対策）3.html</guid>
   <pubDate>Sun, 28 Jan 2024 00:00:00 GMT</pubDate>
 </item>
 <item>
   <title>刑法各論［期末試験対策］（１）</title>
-  <link>https://Legal-Dragoman.github.io/posts/刑法各論（期末試験対策）1.html</link>
+  <link>https://Legal-Dragoman.github.io/posts/刑法/刑法各論（期末試験対策）1.html</link>
   <description><![CDATA[ 
 
 
@@ -2340,7 +3392,7 @@ R5年に改正があり、保釈に関わる犯罪や報告命令制度に関す
  ]]></description>
   <category>刑法</category>
   <category>期末試験対策</category>
-  <guid>https://Legal-Dragoman.github.io/posts/刑法各論（期末試験対策）1.html</guid>
+  <guid>https://Legal-Dragoman.github.io/posts/刑法/刑法各論（期末試験対策）1.html</guid>
   <pubDate>Sun, 28 Jan 2024 00:00:00 GMT</pubDate>
 </item>
 </channel>
