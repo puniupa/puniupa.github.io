@@ -1,7 +1,7 @@
 ---
 title: "刑事訴訟法（訴訟）"
 date: 3/4/2024
-categories: [刑事訴訟法]
+categories: [刑訴法, まとめ]
 ---
 
 ## 公訴の提起

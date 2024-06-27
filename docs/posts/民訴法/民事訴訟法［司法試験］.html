@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Legal Dragoman - 会社法［期末試験対策］</title>
+<title>Legal Dragoman - 民事訴訟法［司法試験対策］</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -40,8 +40,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
-<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -68,44 +66,13 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../styles.css">
-<meta property="og:title" content="Legal Dragoman - 会社法［期末試験対策］">
-<meta property="og:description" content="法学で世界を渡り歩こう">
-<meta property="og:image" content="https://Legal-Dragoman.github.io/posts/会社法/サンショウウオ.jpg">
+<meta property="og:title" content="Legal Dragoman - 民事訴訟法［司法試験対策］">
+<meta property="og:image" content="https://Legal-Dragoman.github.io/posts/民訴法/サンショウウオ.jpg">
 <meta property="og:site_name" content="Legal Dragoman">
-<meta name="twitter:title" content="Legal Dragoman - 会社法［期末試験対策］">
-<meta name="twitter:description" content="法学で世界を渡り歩こう">
-<meta name="twitter:image" content="https://Legal-Dragoman.github.io/posts/会社法/サンショウウオ.jpg">
+<meta name="twitter:title" content="Legal Dragoman - 民事訴訟法［司法試験対策］">
+<meta name="twitter:image" content="https://Legal-Dragoman.github.io/posts/民訴法/サンショウウオ.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -136,8 +103,8 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#他人名義による株式の引き受け" id="toc-他人名義による株式の引き受け" class="nav-link active" data-scroll-target="#他人名義による株式の引き受け"><span class="header-section-number">1</span> 他人名義による株式の引き受け</a></li>
-  <li><a href="#株式の相続" id="toc-株式の相続" class="nav-link" data-scroll-target="#株式の相続"><span class="header-section-number">2</span> 株式の相続</a></li>
+  <li><a href="#r5" id="toc-r5" class="nav-link active" data-scroll-target="#r5"><span class="header-section-number">1</span> R5</a></li>
+  <li><a href="#r4" id="toc-r4" class="nav-link" data-scroll-target="#r4"><span class="header-section-number">2</span> R4</a></li>
   </ul>
 </nav>
     </div>
@@ -146,10 +113,10 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">会社法［期末試験対策］</h1>
+<h1 class="title">民事訴訟法［司法試験対策］</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">会社法</div>
-    <div class="quarto-category">期末試験対策</div>
+    <div class="quarto-category">民訴法</div>
+    <div class="quarto-category">司法試験対策</div>
   </div>
   </div>
 
@@ -161,7 +128,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">2/01/2024</p>
+      <p class="date">3/14/2024</p>
     </div>
   </div>
   
@@ -173,67 +140,23 @@ window.Quarto = {
 </header>
 
 
-<section id="他人名義による株式の引き受け" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="他人名義による株式の引き受け"><span class="header-section-number">1</span> 他人名義による株式の引き受け</h2>
-<p>実質上の引受人すなわち名義借用者がその株主となる</p>
-<p><span class="math inline">\(\because\)</span> 一般私法上の法律行為の場合と同じく、真に契約の当事者として申込をした者が引受人としての権利を取得し、義務を負担する</p>
-<p>→ 通常は、経済的出捐をした者が契約の当事者と認定されるだろう。</p>
+<section id="r5" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="r5"><span class="header-section-number">1</span> R5</h2>
+<ul>
+<li>不当な方法で収集した証拠の証拠能力</li>
+<li>利益変更・不利益変更の禁止</li>
+<li>反射効</li>
+<li>補助参加における参加的効力（46条）</li>
+</ul>
 </section>
-<section id="株式の相続" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="株式の相続"><span class="header-section-number">2</span> 株式の相続</h2>
+<section id="r4" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="r4"><span class="header-section-number">2</span> R4</h2>
 <ul>
-<li>株式の持分は、株主たる資格において会社に対して有する法律上の地位を意味する</li>
+<li>当事者の確定</li>
+<li>自白の撤回</li>
+<li>主観的追加的併合</li>
+<li>USBテープの文書性 cf.&nbsp;231条適用可能性</li>
 </ul>
-<p>相続人は被相続人の法律上の地位を包括的に承継するのであるから、持分の取得により株主たる地位をも当然に承継したといえる</p>
-<ul>
-<li><p>権利行使者の指定（106条）がない限り、特段の事情がない限り、原告適格を有しない。持分の準共有者間において権利行使者を決めるに当たっては、持分の価格に従い、その過半数を持ってこれを決定する（民法252条）ことができる。</p>
-<ul>
-<li>106条の趣旨は、1人でも反対すれば全体の権利行使が不可能となると解すると会社の運営にも支障を来たす恐れがあることから、会社の事務処理上の便宜のため。</li>
-<li>民法264条の「特別の定め」</li>
-<li>議決権行使は、直ちに株式を処分し、又は株式の内容を変更することになるなどの特段の事情がない限り、株式の管理に関する行為に当たる。</li>
-</ul></li>
-<li><p>権利行使者の通知なくして株主総会不存在訴訟を提起した場合</p>
-<p>会社の立場</p>
-<ul>
-<li>株主総会における決議の成立を主張・立証しなければならない</li>
-<li>手続きの欠缺を主張して原告適格を争う</li>
-</ul>
-<p><span class="color-minty"><i class="fa-solid fa-arrow-right" aria-label="arrow-right"></i></span> 規定の趣旨を同一訴訟手続内で恣意的に使い分けるものとして、訴訟上の防御権を濫用し、著しく信義則に反して許されない</p></li>
-</ul>
-<p>株主平等原則（109条）</p>
-<pre><code>多数決の濫用や会社経営者による恣意的な権限行使から、個々の株主の利益を保護するため、会社は、株主をその有する株式の内容及び数に応じて平等に取り扱わなければならない。
-正義・衡平の理念を基礎として全ての団体に共通する原則
-→属人的定めの制度（2項）にも株主平等原則の趣旨に及ぶ規制が及ぶ
-差別的取り扱いが合理的な理由に基づかず、その目的において正当性を欠いている場合</code></pre>
-<p>手段の必要性や相当性を欠くような場合 にはそのような定款変更は無効 譲渡制限株式</p>
-<p>趣旨：専ら会社にとって好ましくない者が株主となることを防止し、持って譲渡人以外の株主の利益を保護する</p>
-<p>非公開会社</p>
-<p>会社の支配権に関わる持株比率の維持に係る既存株主の利益の保護が重視される</p>
-<pre><code>株式の発行</code></pre>
-<p>「不公正な発行価額」（公正発行価額）</p>
-<p>上場会社が額面普通株式を株主以外の第三者に対して有利な資本調達を企図する場合</p>
-<pre><code>本来：新株主に旧株主と同等の資本的寄与を求めるべき。発行価額は旧株の時価と等しくするべき。
-But　新株を消化し資本調達の目的を達成するためには、原則として発行価額を時価よりも多少引き下げる必要がある。
-諸事情を考慮して、旧株主の利益と会社が有利な資本調達を実現するという利益との調和との中に求められる。</code></pre>
-<p>新株（＋予約権）の第三者割り当て</p>
-<p>不公正発行の該当性</p>
-<p>⓪前提の論理</p>
-<p>取締役は株主の資本多数決によって選任される執行機関にすぎない</p>
-<p>被選任者たる取締役に選任者たる株主構成の変更を主要な目的とする新株発行を一般的に許容することは、機関権限の分配を定めた法意に反する</p>
-<p>→誰を経営者としてどのような事業構成の方針で会社を経営させるかは、株主総会における取締役選任を通じて株主が資本多数決によって決すべき</p>
-<p>①主要目的ルール</p>
-<pre><code>会社の支配権につき争いがあり
-現経営陣が、支配権を争う特定の株主の持株比率を低下させ、もって自らの支配権を維持・確保することなどを主要な目的としている</code></pre>
-<p>②例外：正当化事情</p>
-<p>株主全体の利益の保護という観点から新株発行等を正当化する特段の事情</p>
-<p>会社の企業価値が毀損され、会社の利益ひいては株主の共同の利益を害するような場合には、それを防止することが事情になる</p>
-<p>敵対的買収に対する対抗手段として必要性や相当性が認められる限り、正当性が認められうる</p>
-<pre><code>株主総会</code></pre>
-<p>代理人資格を株主に制限する定款（有効性）</p>
-<p>合理的な理由がある場合に、相当と認められる程度の制限を加えることは許される</p>
-<p>趣旨：株主以外の第三者によって攪乱されることを防止し、会社の利益を保護する 利益供与</p>
-<p>株主の権利行使に影響を及ぼす恐れのない正当な目的に基づき許与される場合で、</p>
-<p>かつ、個々の株主に供与される額が社会通念上許容される範囲のもので、株主全体に供与される総額も会社の財産的基礎に影響を及ぼすものではない</p>
 
 
 </section>

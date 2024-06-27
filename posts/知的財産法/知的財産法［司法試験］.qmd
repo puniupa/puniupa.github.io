@@ -2,6 +2,8 @@
 title: "知的財産法［司法試験対策］"
 date: 2/29/2024
 categories: [知的財産法, 司法試験対策]
+abstract-title: 概要
+abstract: 令和５年度のみ復元
 ---
 
 ## R5
