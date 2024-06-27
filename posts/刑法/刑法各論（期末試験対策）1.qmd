@@ -2,11 +2,6 @@
 title: "刑法各論［期末試験対策］（１）"
 date: 1/28/2024
 categories: [刑法, 期末試験対策]
-format:
-    html:
-        code-fold: false
-execute:
-    cache: true
 ---
 
 <!-- <?xml version="1.0" encoding="UTF-8"?><rss version="2.0"

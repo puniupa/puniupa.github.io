@@ -11,7 +11,7 @@ website:
   image: サンショウウオ.jpg
   favicon: サンショウウオ.jpg
   site-url: https://Legal-Dragoman.github.io/
-  description: "A website by a Legal Dragoman"
+  description: "法学で世界を渡り歩こう"
   navbar:
     # right:
     #   - text: "Blog"
