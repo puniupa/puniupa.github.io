@@ -1,0 +1,97 @@
+project:
+  type: website
+  output-dir: docs
+  # render: # https://quarto.org/docs/projects/quarto-projects.html#render-targets
+  #   - "/posts/*"
+  #   - "/static/*"
+  #   - "*.qmd"
+
+website:
+  title: "Legal Dragoman"
+  image: サンショウウオ.jpg
+  favicon: サンショウウオ.jpg
+  site-url: https://Legal-Dragoman.github.io/
+  description: "A website by a Legal Dragoman"
+  navbar:
+    # right:
+    #   - text: "Blog"
+    #     file: blog.qmd
+    #   - text: "Sessions"
+    #     file: ./static/Sessions.qmd
+    #   - text: "Slides"
+    #     file: ./static/Slides.qmd
+    #   - text: "自己紹介"
+    #     file: ./static/Japanese.qmd
+    tools:
+      - icon: github
+        href: https://github.com/Legal-Dragoman/Legal-Dragoman.github.io/
+      # - icon: envelope
+      #   href: mailto:shiba.hirofumi@ism.ac.jp
+      # - icon: twitter
+      #   href: https://twitter.com/ano2math5
+  # back-to-top-navigation: true
+  page-navigation: true
+  # page-footer: 
+  #   # border: true
+  #   left: 
+  #     - text: "Hirofumi Shiba"
+  #       href: https://162348.github.io/
+  #   right:
+  #     - icon: github
+  #       href: https://github.com/162348/162348.github.io/
+  #     - icon: twitter
+  #       href: https://twitter.com/ano2math5
+  #     - icon: envelope
+  #       href: mailto:shiba.hirofumi@ism.ac.jp
+  #     - icon: rss
+  #       href: blog.xml
+  #   background: "#80c4ac"
+  # repo-url: https://github.com/162348/162348.github.io/
+  # repo-actions: [edit, issue]
+  search:
+    keyboard-shortcut: ["?", "H"]
+  open-graph: true
+  twitter-card: true
+  # google-analytics: "G-36GX2G6GLL"
+  # comments:
+  #   giscus:
+  #     repo: 162348/162348.github.io
+  #     repo-id: R_kgDOKlfKYQ
+  #     category: Announcements
+  #     category-id: DIC_kwDOKlfKYc4CgDmb
+  #     mapping: pathname
+  #     reactions-enabled: true
+  #     loading: lazy
+  #     input-position: top
+
+format:
+  html:
+    theme: minty
+    # theme: 
+    # light: minty
+    # dark: cyborg
+    css: styles.css
+    toc: true
+    number-sections: true
+    highlight-style: ayu
+    code-block-bg: true
+    code-block-border-left: "#7CC4AC"
+    code-overflow: scroll
+    code-fold: true
+    code-annotations: select
+    # license: "CC BY-NC-ND"
+    fig-width: 6
+    fig-height: 4
+
+crossref:
+    eq-prefix: 式
+    def-prefix: 定義
+    def-title: 定義
+    thm-prefix: 定理
+    thm-title: 定理
+    fig-prefix: 図
+    fig-title: 図
+date-format: "M/DD/YYYY"
+
+execute:
+  freeze: true
