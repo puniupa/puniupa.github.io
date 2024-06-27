@@ -53,16 +53,16 @@ website:
   open-graph: true
   twitter-card: true
   # google-analytics: "G-36GX2G6GLL"
-  # comments:
-  #   giscus:
-  #     repo: 162348/162348.github.io
-  #     repo-id: R_kgDOKlfKYQ
-  #     category: Announcements
-  #     category-id: DIC_kwDOKlfKYc4CgDmb
-  #     mapping: pathname
-  #     reactions-enabled: true
-  #     loading: lazy
-  #     input-position: top
+  comments:
+    giscus:
+      repo: Legal-Dragoman/Legal-Dragoman.github.io
+      repo-id: R_kgDOMOsIVA
+      category: Announcements
+      category-id: DIC_kwDOMOsIVM4CgazP
+      mapping: pathname
+      reactions-enabled: true
+      loading: lazy
+      input-position: top
 
 format:
   html:
