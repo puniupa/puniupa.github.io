@@ -13,9 +13,9 @@ website:
   site-url: https://Legal-Dragoman.github.io/
   description: "法学で世界を渡り歩こう"
   navbar:
-    # right:
-    #   - text: "Blog"
-    #     file: blog.qmd
+    right:
+      - text: "日々の勉強"
+        file: ./static/AllCategories.qmd
     #   - text: "Sessions"
     #     file: ./static/Sessions.qmd
     #   - text: "Slides"
@@ -82,6 +82,8 @@ format:
     # license: "CC BY-NC-ND"
     fig-width: 6
     fig-height: 4
+    toc-title: "目次"
+    abstract-title: "概要"
 
 crossref:
     eq-prefix: 式
