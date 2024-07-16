@@ -322,6 +322,13 @@
     "text": "Footnotes\n\n\n(Böer and Pohl, 2018, p. 4), (Huebener, 2019, p. 73) Chapter 6．金属が電気を通すのは，伝導帯が部分的に電子によって占められているためである．半導体は，（例えば温度を上げることなどにより）価電子帯の電子を簡単に伝導帯に移すことができるため，思い通りに金属のような振る舞いも，絶縁体のような振る舞いも引き出すことができる．しかし，半導体の自由電子は，金属に比べて極めて少なく．Boltzmann 統計に従い，金属の自由電子は Fermi 統計に従う (Madelung, 1978, p. 17)．一方で，金属の導電性は電子の密度とは関係がなく，金属内の電子密度は温度により一定である (Madelung, 1978, p. 211)．↩︎\n(Huebener, 2019, p. 75)．↩︎\n(Huebener, 2019, p. 73) 特に伝導体と半導体の境界部分で強く見られた．↩︎\n現代では，このような接合を金属-半導体接合 (metal-semiconductor contact) または Schottky 接合 といい，Ohmic 接合と対比する．↩︎\n(Patterson and Hennessy, 2014, p. 27) も参照．↩︎\n一方で GaAs の形成は Bridgman 法 (Bridgman, 1925) による．最も，この化合物が半導体であると発見されたのは (Welker, 1952) になってようやくのことである．(Sze and Lee, 2012, p. 6) も参照．↩︎\n(Sze and Lee, 2012, p. 6) など．↩︎\n今日の IC ではトランジスタ層は１層のみで，絶縁層で仕切ることで２〜８層の金属導体の配線層をその上に設ける． (Patterson and Hennessy, 2014, p. 26)．↩︎\n(Sze and Lee, 2012, p. 4) など．↩︎\n(Patterson and Hennessy, 2014, p. 41)．↩︎\n(Patterson and Hennessy, 2014, p. 379)．↩︎\n(Hoff et al., 1996) が開発者自ら歴史を振り返っている．当時は Intel も出来て３年しか経っていない新興企業であった．↩︎\n(Sze and Lee, 2012, p. 8) など．↩︎\n(Patterson and Hennessy, 2014, p. 379)．↩︎\n(Sze and Lee, 2012, p. 8)，(Patterson and Hennessy, 2014, p. 379) 参照．↩︎"
   },
   {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Recent Posts",
+    "section": "",
+    "text": "GitHub の使い方\n\n\n\n\n\n\nLifestyle\n\n\n\n今年の都知事選では，GitHub…\n\n\n\n\n\n7/16/2024\n\n\n司馬 博文\n\n\n\n\n\n\n\n\n\n\n\n\n半導体の微細化技術\n\n\n\n\n\n\n半導体\n\n\n\n半導体デバイスの微細化技術をレビューする．\n\n\n\n\n\n3/23/2024\n\n\n司馬 博文\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\nスライド\n\n\n\n井形研 RA 半導体読書会 駒場IIキャンパス４号館 \n\n\n\n\n\n3/20/2024\n\n\n司馬博文\n\n\n\n\n\n\n\n\n\n\n\n\nこれからはじめるベイズ機械学習\n\n\n所信表明を兼ねて\n\n\n\nベイズ統計\n\n\nAI\n\n\n\n\n\n\n\n\n\n3/20/2024\n\n\n司馬博文\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\n\n半導体デバイスの基本原理と製造方法を物理から理解することを目指す．\n\n\n\n\n\n2/26/2024\n\n\n司馬博文\n\n\n\n\n\n\nNo matching items"
+  },
+  {
     "objectID": "static/AboutUs.html#司馬博文ぷに-hp",
     "href": "static/AboutUs.html#司馬博文ぷに-hp",
     "title": "ぷにうぱ",
@@ -350,11 +357,18 @@
     "text": "興味・関心\n生成 AI，半導体をはじめとした世界を変える科学技術を，最もよく伸ばす環境を日本に作りたい，という思いで活動しています．先端技術には技術的側面と社会的側面の２つの側面があり，技術とコミュニティの双方の発展には知見の交流が何より重要です．そのきっかけとして，このブログでは日々の活動と学びを発信していきたいと考えています．"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Recent Posts",
+    "objectID": "posts/2024/Lifestyle/Git.html",
+    "href": "posts/2024/Lifestyle/Git.html",
+    "title": "GitHub の使い方",
     "section": "",
-    "text": "半導体の微細化技術\n\n\n\n\n\n\n半導体\n\n\n\n半導体デバイスの微細化技術をレビューする．\n\n\n\n\n\n3/23/2024\n\n\n司馬 博文\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\nスライド\n\n\n\n井形研 RA 半導体読書会 駒場IIキャンパス４号館 \n\n\n\n\n\n3/20/2024\n\n\n司馬博文\n\n\n\n\n\n\n\n\n\n\n\n\nこれからはじめるベイズ機械学習\n\n\n所信表明を兼ねて\n\n\n\nベイズ統計\n\n\nAI\n\n\n\n\n\n\n\n\n\n3/20/2024\n\n\n司馬博文\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\n\n半導体デバイスの基本原理と製造方法を物理から理解することを目指す．\n\n\n\n\n\n2/26/2024\n\n\n司馬博文\n\n\n\n\n\n\nNo matching items"
+    "text": "まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．\n\n\n\n\n\n\n\nGitHub = コードに特化した Google Drive\nGit = コードベースで動く，ローカル上の Google Drive\n\n\n\n\nローカル上の Google Drive のスクリーンショット"
+  },
+  {
+    "objectID": "posts/2024/Lifestyle/Git.html#github-とは何か",
+    "href": "posts/2024/Lifestyle/Git.html#github-とは何か",
+    "title": "GitHub の使い方",
+    "section": "",
+    "text": "まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．\n\n\n\n\n\n\n\nGitHub = コードに特化した Google Drive\nGit = コードベースで動く，ローカル上の Google Drive\n\n\n\n\nローカル上の Google Drive のスクリーンショット"
   },
   {
     "objectID": "static/AllCategories.html",
