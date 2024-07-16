@@ -6,97 +6,25 @@ page-layout: full
 number-sections: false
 comments: false
 listing:
-    -   id: 憲法-listing
+    -   id: 半導体-listing
         type: grid
         sort: "date desc"
         contents:
             - "../posts/**"
         include:
-            categories: [憲法]
+            categories: [半導体]
         date-format: iso
         fields: [title,image,date,subtitle,categories]
         page-size: 3
         filter-ui: true
         sort-ui: true
-    -   id: 行政法-listing
+    -   id: AI-listing
         type: grid
         sort: "date desc"
         contents:
             - "../posts/**"
         include:
-            categories: [行政法]
-        date-format: iso
-        fields: [title,image,date,subtitle,categories]
-        page-size: 3
-        filter-ui: true
-        sort-ui: true
-    -   id: 民法-listing
-        type: grid
-        sort: "date desc"
-        contents:
-            - "../posts/**"
-        include:
-            categories: [民法]
-        date-format: iso
-        fields: [title,image,date,subtitle,categories]
-        page-size: 3
-        filter-ui: true
-        sort-ui: true
-    -   id: 商法-listing
-        type: grid
-        sort: "date desc"
-        contents:
-            - "../posts/**"
-        include:
-            categories: [商法]
-        date-format: iso
-        fields: [title,image,date,subtitle,categories]
-        page-size: 3
-        filter-ui: true
-        sort-ui: true
-    -   id: 民訴法-listing
-        type: grid
-        sort: "date desc"
-        contents:
-            - "../posts/**"
-        include:
-            categories: [民訴法]
-        date-format: iso
-        fields: [title,image,date,subtitle,categories]
-        page-size: 3
-        filter-ui: true
-        sort-ui: true
-    -   id: 刑法-listing
-        type: grid
-        sort: "date desc"
-        contents:
-            - "../posts/**"
-        include:
-            categories: [刑法]
-        date-format: iso
-        fields: [title,image,date,subtitle,categories]
-        page-size: 3
-        filter-ui: true
-        sort-ui: true
-    -   id: 刑訴法-listing
-        type: grid
-        sort: "date desc"
-        contents:
-            - "../posts/**"
-        include:
-            categories: [刑訴法]
-        date-format: iso
-        fields: [title,image,date,subtitle,categories]
-        page-size: 3
-        filter-ui: true
-        sort-ui: true
-    -   id: 知的財産法-listing
-        type: grid
-        sort: "date desc"
-        contents:
-            - "../posts/**"
-        include:
-            categories: [知的財産法]
+            categories: [AI]
         date-format: iso
         fields: [title,image,date,subtitle,categories]
         page-size: 3
@@ -105,56 +33,14 @@ listing:
 ---
 
 
-# 公法
+### [半導体](https://162348.github.io/notes.html#category=半導体)
 
-### [憲法](https://162348.github.io/notes.html#category=憲法)
-
-::: {#憲法-listing}
+::: {#半導体-listing}
 :::
 
-### [行政法](https://162348.github.io/notes.html#category=行政法)
+### [AI](https://162348.github.io/notes.html#category=AI)
 
-::: {#行政法-listing}
-:::
-
----
-
-# 民事
-
-### [民法](https://162348.github.io/notes.html#category=民法)
-
-::: {#民法-listing}
-:::
-
-### [商法](https://162348.github.io/notes.html#category=商法)
-
-::: {#商法-listing}
-:::
-
-### [民事訴訟法](https://162348.github.io/notes.html#category=民訴法)
-
-::: {#民訴法-listing}
+::: {#AI-listing}
 :::
 
 ---
-
-# 刑事
-
-### [刑法](https://162348.github.io/notes.html#category=刑法)
-
-::: {#刑法-listing}
-:::
-
-### [刑事訴訟法](https://162348.github.io/notes.html#category=刑訴法)
-
-::: {#刑訴法-listing}
-:::
-
----
-
-# 知的財産
-
-### [知的財産法](https://162348.github.io/notes.html#category=知的財産法)
-
-::: {#知的財産法-listing}
-:::

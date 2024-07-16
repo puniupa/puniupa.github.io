@@ -9,23 +9,13 @@ code-block-bg: true
 code-block-border-left: "#5AB5BA"
 code-overflow: wrap
 code-fold: true
-image: Images/chipwar.jpg
+image: Images/反射率.png
 bibliography: 
     - ../../../mathematics.bib
     - ../../../bib.bib
 csl: ../../../apalike.csl
 abstract-title: 概要
 abstract: 半導体デバイスの微細化技術をレビューする．
-crossref:
-    sec-prefix: 節
-    eq-prefix: 式
-    def-prefix: 定義
-    def-title: 定義
-    thm-prefix: 定理
-    thm-title: 定理
-format:
-    html:
-        include-in-header: ../../../forSlides.html
 ---
 
 [![[@内山貴之2015] より．](Images/次世代技術.png)](https://www.heas.jp/lecture/files/uchiyama.pdf)

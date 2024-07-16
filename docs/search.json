@@ -4,7 +4,14 @@
     "href": "index.html",
     "title": "Recent Posts",
     "section": "",
-    "text": "カテゴリ一覧\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n半導体の微細化技術\n\n\n\n\n\n\n半導体\n\n\n\n半導体デバイスの微細化技術をレビューする．\n\n\n\n\n\n3/23/2024\n\n\n司馬 博文\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\nSlide\n\n\n\n井形研 RA 半導体読書会 駒場IIキャンパス４号館 \n\n\n\n\n\n3/20/2024\n\n\n司馬博文\n\n\n\n\n\n\n\n\n\n\n\n\nこれからはじめるベイズ機械学習\n\n\n所信表明を兼ねて\n\n\n\nベイズ統計\n\n\nAI\n\n\n\n\n\n\n\n\n\n3/20/2024\n\n\n司馬博文\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\n\n半導体デバイスの基本原理と製造方法を物理から理解することを目指す．\n\n\n\n\n\n2/26/2024\n\n\n司馬博文\n\n\n\n\n\n\nNo matching items"
+    "text": "半導体の微細化技術\n\n\n\n\n\n\n半導体\n\n\n\n半導体デバイスの微細化技術をレビューする．\n\n\n\n\n\n3/23/2024\n\n\n司馬 博文\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\nスライド\n\n\n\n井形研 RA 半導体読書会 駒場IIキャンパス４号館 \n\n\n\n\n\n3/20/2024\n\n\n司馬博文\n\n\n\n\n\n\n\n\n\n\n\n\nこれからはじめるベイズ機械学習\n\n\n所信表明を兼ねて\n\n\n\nベイズ統計\n\n\nAI\n\n\n\n\n\n\n\n\n\n3/20/2024\n\n\n司馬博文\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\n\n半導体デバイスの基本原理と製造方法を物理から理解することを目指す．\n\n\n\n\n\n2/26/2024\n\n\n司馬博文\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "static/AllCategories.html",
+    "href": "static/AllCategories.html",
+    "title": "Categories",
+    "section": "",
+    "text": "半導体\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n半導体の微細化技術\n\n\n\n半導体\n\n\n\n\n2024-03-23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\nSlide\n\n\n\n\n2024-03-20\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\n\n\n2024-02-26\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\nAI\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\nこれからはじめるベイズ機械学習\n\n\n所信表明を兼ねて\n\n\n\nベイズ統計\n\n\nAI\n\n\n\n\n2024-03-20\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/2024/AI/BAI.html",
@@ -56,32 +63,53 @@
     "text": "Footnotes\n\n\nこれは Human-AI interaction におけるガイドライン (Amershi et al., 2019), (Bansal et al., 2019) でも明確にされている点である．この方向への試みの代表がベイズ機械学習，というわけではないが，筆者はベイズ機械学習の興隆は信頼のおける AI システムの構築にための極めて盤石な土台になるだろうと論じる．↩︎\n本稿執筆後に，ほとんど同じ論調を，深層学習や基盤モデルを中心に，遥かに明瞭に述べた論文 (Papamarkou et al., 2024) を見つけたので，賢明な読者はぜひこちらを参考にしていただきたい．↩︎\n(Broderick et al., 2023, p. 2) など．↩︎\nこの違いが「過学習」という現象に見舞われるかの違いでもある．“Fortunately, Bayesian approaches are not prone to this kind of overfitting since they average over, rather than fit, the parameters” (Ghahramani, 2015, p. 454)．↩︎\n“for Bayesian researchers the main computational problem is integration, whereas for much of the rest of the community the focus is on optimization of model parameters.” (Ghahramani, 2015, p. 454)．このように，その用いる手法も鮮やかに対照的に見えるが，積分は変分近似を通じて最適化問題としても解けるし，Lengevin 法や HMC などの最適化手法は積分問題を解ける．↩︎\n(Broderick et al., 2023) が極めて説得的にこの点を指摘している．↩︎\n合理的な信念の度合い (degree of belief) は確率の公理を満たす必要がある，という主張は Cox の名前でも呼ばれる．この点から，Bayes の定理は，帰納的推論の確率論的な拡張だとも捉えられる．“This justifies the use of subjective Bayesian probabilistic representations in artificial intelligence.” “Probabilistic modelling also has some conceptual advantages over alternatives because it is a normative theory for learning in artificially intelligent systems.” (Ghahramani, 2015, p. 453)．↩︎\n現状，日本にてベイズ機械学習を専業として研究を進めている人は Emtiyaz Khan に限ると思われる．(Ghahramani, 2015, p. 452) でも “Probabilistic approaches have only recently become a mainstream approach to artificial intellifence, robotics, and machine learning.” と述べられている．↩︎\n“The uncertainty quantification of prediction models (e.g., neural networks) is crucial for their adoption in many robotics applications. This is arguably as important as making accurate predictions, especially for safety-critical applications such as self-driving cars.” (Chen et al., 2023)．↩︎\nモデルの予測結果に不確実性の定量化が伴われていたならば，モデルを信用出来ない場面で意思決定者がこれを信用したため責任があるのか，使用者には非難可能性がないのか，モデル設計者に過失があったと言えるのかの議論に，足場を与えることが出来るだろう．↩︎\n(Gal and Ghahramani, 2016) も参照．↩︎\n心理学においては「再現性問題が大きく注目される大きな契機となった「超能力論文」が出版されたのが 2011 年である」 (平石界 and 中村大輝, 2022) ようである．計量経済学における 信頼性革命 (Angrist and Pischke, 2010) は，再現性の危機の，もう一つの革新的な解決法である．↩︎\n「それでは，信頼区間は不確実性の正しい定量化を与えないではないか！」ということになるが，その通りなのである．\\(P\\)-値を計算する過程とは，帰無仮説で条件付けているだけであり，データの関数でもある．\\(P\\)-値の確率変数としての分散が大きいほど，何回か同じ実験を繰り返せばすぐに小さな \\(P\\)-値が得られることになる．これは 基準確率の誤謬 と似ている．↩︎\n“Confidence intervals suffer from an inverse inference problem that is not very different from that suffered by the NHSTP. In the NHSTP, the problem is in traversing the distance from the probability of the finding, given the null hypothesis, to the probability of the null hypothesis, given the finding.” (Trafimow and Marks, 2015)↩︎\n(Nuzzo, 2014) には，Fisher が最初に用いてから，Neyman-Pearson 理論がこれを排除したものの，コミュニティが \\(P\\)-値を誤解して都合の良いように利用するようになるまでに至った歴史が説明されている．↩︎\n(Murphy, 2022, p. 201) の議論も参照．↩︎\n(Efron, 1986) も示唆深い．↩︎\n(Mohri and Hashimoto, 2024), (Papamarkou et al., 2024, p. 3) 2.1節 なども指摘している．↩︎\n(Novello et al., 2024) では out-of-distribution detection, (Mohri and Hashimoto, 2024) は LLM の hallucination への応用．↩︎\n「筆者は，conformal prediction などの post-hoc な手法は，便利かも知れないが，「信頼区間」や「\\(P\\)-値」のような側面（第 2.3 節）も併せ持つのではないかと危惧しながら見ている．」と当初は書いていたが，どうもそう簡単な話ではないようである．(Papamarkou et al., 2024) を読んで思った．↩︎\n(Papamarkou et al., 2024, p. 5) 3.4節．↩︎\n(Wang et al., 2024) が最新のサーベイであるようだ．↩︎\nPhilipp Hennig Probabilistic ML - Lecture 1 - Introduction “Statistical Learning Theory is about Bayesian Reasoning when you don’t say out aloud what the prior is.”↩︎\nこれを 証拠 (model evidence) ともいう．↩︎\n事前分布として非有限な測度を用いた場合など，例外もある．↩︎\n“most conventional optimization-based machine-learning approaches have probabilistic analogues that handle uncertainty in a more principled manner.” (Ghahramani, 2015, p. 458)．↩︎\n(Neal and Hinton, 1998) など．↩︎\n(Ghahramani, 2015, p. 458) はこれを モデルの属人化 (personalization of models) と呼んでいる．↩︎\n(Ghahramani, 2015, p. 453) “probabilistic programming offers an elegant way of generalizing graphical models, allowing a much richer representation of models.”．↩︎\n“More generally, Bayesian optimization is a special case of Bayesian numerical computation, which is re-emerging as a very active area of research, and includes topics such as solving ordinary differential equations and numerical integration.” (Ghahramani, 2015, p. 456)．↩︎\n“All commonly used lossless data compression algorithms (for example, gzip) can be viewed as probabilistic models of sequences of symbols.” (Ghahramani, 2015, p. 456)．↩︎\n(Steinruecken et al., 2015) は記号列に対するノンパラメトリックモデルを改良することで，データ圧縮アルゴリズム PPM を改良した良い例である．↩︎"
   },
   {
-    "objectID": "static/AboutUs.html#学歴",
-    "href": "static/AboutUs.html#学歴",
-    "title": "ぷにうぱ",
-    "section": "学歴",
-    "text": "学歴\n\n 博士（統計科学） 2028（見込み）\n総合研究大学院大学（統計科学コース）\n\n\n 学士（理学） 2023\n東京大学理学部数学科"
+    "objectID": "posts/2024/半導体/Semiconductor0.html",
+    "href": "posts/2024/半導体/Semiconductor0.html",
+    "title": "半導体入門",
+    "section": "",
+    "text": "価電子帯と伝導帯の間の 禁制帯 (band gap) が十分に小さくて遷移を制御することが可能で，基底状態では価電子帯は完全に埋まっているものの伝導帯は空いているような物質を 半導体 という．1\nこのような半導体では，熱や光，また外部電磁場などにより価電子が励起され，伝導帯に移る．この電子に加えて，価電子帯に生じた正孔も導電性に寄与する．2 この 正孔 (hole) を擬似的に粒子と扱い，正孔の波動方程式を議論したのが (Heisenberg, 1931) である．\n\n\n\n(Faraday, 1833) は，通常金属では温度の上昇と共に電気抵抗が増すが，硫化銀 Ag2S を初めとしたいくつかの物質では逆に電気抵抗が減少することを報告している．\n(Braun, 1874) は 方鉛鉱 PbS に電流を流そうとしても，単一方向にしか電流が流れない整流作用を示すことを発見し，3 その後20世紀に入るとラジオに応用された．これが人類が初めて出会った半導体デバイスだったと言える (Sze and Lee, 2012, p. 1)．4\nBraun はその後ブラウン管を発明し，こちらの業績により 1909 年にノーベル物理学賞を受賞する．\n(Round, 1907) はダイオードが電界を印加することで発行することがある (electroluminescence) ことを発見した．\n\n\n\n半導体素子には，トランジスタやダイオードなどがある．これらを配線によって相互接続したものが IC チップである．IC チップはシリコンのインゴットを円板状に切り出した ウエハ (wafer) 上に構築する．IC チップは平面的な印象を受けるが，実際は層に分けて構成されている，高度に立体的な構造物である．\n\n\n\nチップの断面構造\n\n\n一つのウエハから多数のチップが作成され，その各単位を ダイ (die) ともいう．\nしかし，普段我々が目にする IC チップ は パッケージ されたもの，で．IC チップそのもの（ダイそのもの）を目にすることはない．\n32nm などというときは，ダイの大きさではなく，ダイ上の最小のトランジスタのサイズをいう．5\n\n\n\nまず回路を設計し，原版（マスター）を作る．これを フォトマスク (photomask) または レティクル (reticle) という．\nこれをウエハに転写するには，フォトリソグラフィ (Photolithography) を用いる．シリコンウエハの形成は，Czochralski 法 (Czochralski, 1918) による．6\nリソグラフィ自体は 1798 年からあり，Niépce が 歴青 が感光剤の役割を果たすことを発見し，カメラの発明と同時に発見された．\nエッチングに耐性のある感光剤を使えば，半導体デバイスの製造に応用できると気づいたのは (Andrus, 1957) である．この技術は半導体製造コストの 35 %を占めており，半導体市場の急成長はほとんどこの技術の進歩と両輪であると言う者も多い．7\nシリコン表面に酸化被膜を形成することで不純物原子の移動を阻止できることは (Frosch and Derick, 1957) が発見した．\n以上の技術を用いて，最初の IC は (Kilby, 1959) が作った．Jack Kilby はその後 2000 年にノーベル物理学賞を受賞する．\nしかし真に大量生産可能にし，半導体産業を大きくしたのは (Noyce, 1959) の発明であった．これは，現在主流の製法の基である Planar Process (Hoerni, 1960) で作られた．\n実際に，どのように半導体チップを製造するかについては次節 2 で詳しく解説する．"
   },
   {
-    "objectID": "static/AboutUs.html#学歴-1",
-    "href": "static/AboutUs.html#学歴-1",
-    "title": "ぷにうぱ",
-    "section": "学歴",
-    "text": "学歴\n\n 法務博士（専門職） 2025（見込み）\n東京大学大学院法学政治学研究科\n\n\n 学士（法学） 2023\n東京大学法学部第１類"
+    "objectID": "posts/2024/半導体/Semiconductor0.html#半導体入門",
+    "href": "posts/2024/半導体/Semiconductor0.html#半導体入門",
+    "title": "半導体入門",
+    "section": "",
+    "text": "価電子帯と伝導帯の間の 禁制帯 (band gap) が十分に小さくて遷移を制御することが可能で，基底状態では価電子帯は完全に埋まっているものの伝導帯は空いているような物質を 半導体 という．1\nこのような半導体では，熱や光，また外部電磁場などにより価電子が励起され，伝導帯に移る．この電子に加えて，価電子帯に生じた正孔も導電性に寄与する．2 この 正孔 (hole) を擬似的に粒子と扱い，正孔の波動方程式を議論したのが (Heisenberg, 1931) である．\n\n\n\n(Faraday, 1833) は，通常金属では温度の上昇と共に電気抵抗が増すが，硫化銀 Ag2S を初めとしたいくつかの物質では逆に電気抵抗が減少することを報告している．\n(Braun, 1874) は 方鉛鉱 PbS に電流を流そうとしても，単一方向にしか電流が流れない整流作用を示すことを発見し，3 その後20世紀に入るとラジオに応用された．これが人類が初めて出会った半導体デバイスだったと言える (Sze and Lee, 2012, p. 1)．4\nBraun はその後ブラウン管を発明し，こちらの業績により 1909 年にノーベル物理学賞を受賞する．\n(Round, 1907) はダイオードが電界を印加することで発行することがある (electroluminescence) ことを発見した．\n\n\n\n半導体素子には，トランジスタやダイオードなどがある．これらを配線によって相互接続したものが IC チップである．IC チップはシリコンのインゴットを円板状に切り出した ウエハ (wafer) 上に構築する．IC チップは平面的な印象を受けるが，実際は層に分けて構成されている，高度に立体的な構造物である．\n\n\n\nチップの断面構造\n\n\n一つのウエハから多数のチップが作成され，その各単位を ダイ (die) ともいう．\nしかし，普段我々が目にする IC チップ は パッケージ されたもの，で．IC チップそのもの（ダイそのもの）を目にすることはない．\n32nm などというときは，ダイの大きさではなく，ダイ上の最小のトランジスタのサイズをいう．5\n\n\n\nまず回路を設計し，原版（マスター）を作る．これを フォトマスク (photomask) または レティクル (reticle) という．\nこれをウエハに転写するには，フォトリソグラフィ (Photolithography) を用いる．シリコンウエハの形成は，Czochralski 法 (Czochralski, 1918) による．6\nリソグラフィ自体は 1798 年からあり，Niépce が 歴青 が感光剤の役割を果たすことを発見し，カメラの発明と同時に発見された．\nエッチングに耐性のある感光剤を使えば，半導体デバイスの製造に応用できると気づいたのは (Andrus, 1957) である．この技術は半導体製造コストの 35 %を占めており，半導体市場の急成長はほとんどこの技術の進歩と両輪であると言う者も多い．7\nシリコン表面に酸化被膜を形成することで不純物原子の移動を阻止できることは (Frosch and Derick, 1957) が発見した．\n以上の技術を用いて，最初の IC は (Kilby, 1959) が作った．Jack Kilby はその後 2000 年にノーベル物理学賞を受賞する．\nしかし真に大量生産可能にし，半導体産業を大きくしたのは (Noyce, 1959) の発明であった．これは，現在主流の製法の基である Planar Process (Hoerni, 1960) で作られた．\n実際に，どのように半導体チップを製造するかについては次節 2 で詳しく解説する．"
   },
   {
-    "objectID": "static/AboutUs.html#キーワード",
-    "href": "static/AboutUs.html#キーワード",
-    "title": "ぷにうぱ",
-    "section": "キーワード",
-    "text": "キーワード\n\n科学技術政策\n知的財産\nAI と法\n信頼のおける AI"
+    "objectID": "posts/2024/半導体/Semiconductor0.html#sec-manufacturing",
+    "href": "posts/2024/半導体/Semiconductor0.html#sec-manufacturing",
+    "title": "半導体入門",
+    "section": "2 半導体の製造",
+    "text": "2 半導体の製造\n半導体の製造段階は，典型的には次の３つに大別される．\n\n設計\n\n回路・レイアウト作成 (design)\nフォトマスク (photomask) 作成\n\n前工程：次の３工程を繰り返ことで何層もの膜を積層する\n\n成膜 (deposition)\nパターン転写 (exposure)\n食刻 (etching)\n\n後工程\n\n角切り (dicing)\n封入 (packaging)\n品質検査 (inspection)\n\n\n日立の解説 も参照．\n\n2.1 設計工程\n18に分類されることもある．\n\n2.1.1 回路・レイアウト作成\nEDA (Eleotron Design Automation) を用いて設計を行う．\n\n\n\n2.2 前工程\n\n2.2.1 基本３工程\n成膜，パターン転写，食刻の３工程を繰り返すことでウエハ上に構造を作っていくのであるが，その目的は大きく５つに分類出来る．\n\n素子分離領域形成\n酸化被膜により，素子間の絶縁を形成する．\nwell 形成\nトランジスタの基盤となる領域に，食刻の代わりにイオンの添加する．\nトランジスタ形成\nウエハ基盤上にトランジスタ素子を形成する．\n電極形成\nシリコン基盤上のトランジスタに届くように，すでに形成された層に穴 (contact hole) をあけ，導体を埋め込む．\n配線層形成\n基本３工程を繰り返すことで，トランジスタ層上を分厚い配線層で覆う．8\n\n\n\n2.2.2 異物検査と洗浄\nほとんどの工程間に，異物検査と洗浄の工程が必要になる．\n日立の製品例，ウェーハ欠陥検査\n\n\n2.2.3 表面酸化\n熱酸化法では，酸素や高温のスチームを当てることで，表面に SiO2 の酸化被膜を形成し，絶縁体として用いる．\n\n\n2.2.4 成膜\n\n\n2.2.5 パターン転写\nフォトマスク上から紫外線を当てることで，フォトレジストを感光させる．次の工程で感光部分のみを食刻することで，パターン該当部分のみに酸化被膜を残すことが出来る．\n\n\n2.2.6 食刻\n現像後は，寸法計測を行う (ADI: After Development Inspection)．これは走査性電子顕微鏡 (SEM: Scanning Electron Microscope) である CD-SEM などを用いて行う（日立の製品例）\nこれにより，正しくパターンが転写されていることが確認されたのち，食刻を行い，再び寸法計測を行う（AEI: After Etch Inspection などと呼び分ける）．\n最後に，残ったフォトレジストはオゾンやプラズマにより灰化 (ashing) により除去する．\nコンダクターエンチング（日立の例）\n\n\n2.2.7 イオン添加\nイオンを注入するとアモルファスとなるため，一度再加熱をして (annealing) 再結晶化する．\n\n\n\n2.3 後工程"
   },
   {
-    "objectID": "static/AboutUs.html#興味関心",
-    "href": "static/AboutUs.html#興味関心",
-    "title": "ぷにうぱ",
-    "section": "興味・関心",
-    "text": "興味・関心\n生成 AI，半導体をはじめとした世界を変える科学技術を，最もよく伸ばす環境を日本に作りたい，という思いで活動しています．先端技術には技術的側面と社会的側面の２つの側面があり，技術とコミュニティの双方の発展には知見の交流が何より重要です．そのきっかけとして，このブログでは日々の活動と学びを発信していきたいと考えています．"
+    "objectID": "posts/2024/半導体/Semiconductor0.html#半導体デバイス",
+    "href": "posts/2024/半導体/Semiconductor0.html#半導体デバイス",
+    "title": "半導体入門",
+    "section": "3 半導体デバイス",
+    "text": "3 半導体デバイス\n\n3.1 構成要素\n整流作用を示す接合には，ショットキー接合と pn 接合がある．\n\n\n3.2 双極から MOS へ\nMOS (Metal-Oxide-Semiconductor) の３層構造を用いたトランジスタが採用される前は，双極トランジスタ (bipolar transistor) (Shockley, 1949) を用いた TTL (Transistor-Transistor Logic) 回路が主流であった．\nしかしこれは，トランジスタの間の絶縁が難しく，密度を上げることが難しかった．そのような中で MOSFET (Metal-Oxide-Silicon Field-Effect Transistor) が開発された (Kahng and Atalla, 1960)．MOSFET 技術は現代の半導体市場の 95% に関連する．9\nMOSFET は自己絶縁構造を持つため，これ以上の絶縁処理を必要とせず，双極トランジスタの 10 %の面積で済んだ．\n\n\n3.3 CMOS (Complementary Metal-Oxide-Semiconductor)\nMOS が初め採用した設計論理のは NMOS や PMOS であったが，常に直流電流を消費する必要があった．\nしかし現代では，P 型と N 型の MOSFET を相補的に用いる CMOS が集積回路における支配的な技術である．\nその秘訣は消費電力の少なさにあり，トランジスタの \\(0,1\\) の切り替えの際に生じる電力（動的エネルギー）のみが消費される．10\n\nCMOS技術は、当初アメリカの半導体業界では、当時より高性能だったNMOSを優先して見過ごされていた。しかし、CMOSは低消費電力であることから日本の半導体メーカーにいち早く採用され、さらに進化し、日本の半導体産業の隆盛につながった。CMOS\n\n\n\n3.4 現代に汎在する半導体\n計算機を構成する要素は多いが，Moore の法則により，多くが同一のチップの上に載ってしまい，不可視化が進んでいる．11\n\n3.4.1 プロセッサ\nコンピュータの CPU と言ったときに，１枚のチップを意味するようになったのは 1971 年の Intel 4004 が初めてである．12\n3mm × 4mm のチップ上に 2300 の MOSFET を備え，大きな机ほどの CPU を備えた IBM コンピュータに匹敵する処理能力を持っていた．13\n\n\n3.4.2 半導体メモリ\n現代でメモリといえば RAM (Random Access Memory) を指す．本来はアクセスする順番に制約があった SAM (Sequential Access Memory) に対して作られた言葉であったが，現代では ROM (Read Only Memory) との対義語として理解されることが多いようである．\nSRAM (Static RAM) は半導体メモリの一種であり，DRAM (Dynamic RAM) と比べて高速である．１ビットあたり６から８のトランジスタを使用したフリップフロップ回路により情報を記憶するため，定期的なリフレッシュが不要で高速な読み書きが可能であるが，集積率を上げることが出来ず，大容量メモリには向かない．14\nDRAM (Dynamic RAM) (Dennard, 1967) はチップ内にコンデンサを備えており，１つのコンデンサで１ビットを表現する．これを読み出すのに１つのトランジスタ MOSFET を使うのみであるから，SRAM に比べて安価であるが，電荷は時間と共に散逸するため，定期的にリフレッシュする必要があり，消費電力は大きい．15\n\n\n\nFrom (Patterson and Hennessy, 2014, p. 380)\n\n\nDRAM と SRAM はいずれも揮発性である．不揮発性の半導体メモリには フィラッシュメモリ がある．これには 蜉蝣ゲートMOSFET という素子で捉えた電子により情報を記憶することで不揮発性を実現している．\nフラッシュメモリには NAND 型と NOR 型があり，前者が主流である．\n\n\n\nMemory Revenue May, 2022. Source: Omedia\n\n\n\n\n3.4.3 Graphics Processing Unit\n描画を扱うチップは従来 VGA コントローラーと呼ばれていたが，1999 年には１つのチップで描画タスクの殆どをこなせるようになり，特に NVIDIA GeForce 256 は GPU という名称で売り出された．\nこうして GPU は元来の 3D グラフィクスに特化した存在から，徐々に CPU を補完する多様なタスクに柔軟に対応できるように，プログラム可能で，大量のコアを持って並列計算可能なものに進化していった．近年の CPU はマルチコアのものが多いが，現在の GPU は 1000 コアを超えるものも多い．\n\n\n3.4.4 Language Processing Unit\nLPU は，Google で TSU (Tensor Processing Unit) のプロジェクトに初期から従事していたエンジニア Jonathan Ross が 2016 年に創業したスタートアップ Groq の 登録商標 である．\nGroq が Samsung と協力して 実現した LPU (Abts et al., 2022) は eDRAM を持つ ASIC (Application Specific Integrated Circuit) であり，メモリのバンド幅と計算密度を増やし，逐次処理に特化することで特に言語処理に特化している．\n2/20/2024 に デモ を公開した．\nLPU は推論に，GPU は学習に特化しており，相補的な役割を演じながら AI の進化を支えていく可能性がある．"
+  },
+  {
+    "objectID": "posts/2024/半導体/Semiconductor0.html#物理",
+    "href": "posts/2024/半導体/Semiconductor0.html#物理",
+    "title": "半導体入門",
+    "section": "4 物理",
+    "text": "4 物理\n\n4.1 単体の半導体"
+  },
+  {
+    "objectID": "posts/2024/半導体/Semiconductor0.html#文献レビュー",
+    "href": "posts/2024/半導体/Semiconductor0.html#文献レビュー",
+    "title": "半導体入門",
+    "section": "5 文献レビュー",
+    "text": "5 文献レビュー\n(Rudan et al., 2023) は辞典として使える．(Van Rossum, 2005) は凝縮系物理学のハンドブック内でのエントリ．\n\n5.1 産業\n(Miller, 2022) は Tufts 大学の Chris Miller による書籍．\n和書としては，(菊池正典, 2023) は NEC 社員による半導体業界の解説書．\n\n\n5.2 教科書\n(Sze and Lee, 2012) は浮遊ゲート MOSFET の発明者でもある Simon Min Sze（施敏）の著作で，半導体分野で最も多く引用される教科書とされている．第２版なら 和訳 もある．\n(May and Spanos, 2006) は California 大学 Davis 校の現学長 Gary May と California 大学 Berkeley 校の Costas Spanos による書籍．\n(May and Sze, 2003) もある．さらに発展的なものは (Pierret, 2003)．\n\n\n5.3 理論\n(Kittel, 2018) が固体物理学の標準的な入門書とされている．(Böer and Pohl, 2018) が特に半導体物理学の専門書になる．(Huebener, 2019) は前２つの橋渡しの役割をするが，重点は超伝導にある．\n\n\n5.4 その他\n(Richard, 2023) は SignalFire という VC に所属する著者による書．\n(Lau, 2021) は AMS Pacific Technology の 技術アドバイザー による書籍．\n(Evstigneev, 2022) はカナダ Memorial 大学 の 凝縮系物理学者 が書いた．"
+  },
+  {
+    "objectID": "posts/2024/半導体/Semiconductor0.html#footnotes",
+    "href": "posts/2024/半導体/Semiconductor0.html#footnotes",
+    "title": "半導体入門",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\n(Böer and Pohl, 2018, p. 4), (Huebener, 2019, p. 73) Chapter 6．金属が電気を通すのは，伝導帯が部分的に電子によって占められているためである．半導体は，（例えば温度を上げることなどにより）価電子帯の電子を簡単に伝導帯に移すことができるため，思い通りに金属のような振る舞いも，絶縁体のような振る舞いも引き出すことができる．しかし，半導体の自由電子は，金属に比べて極めて少なく．Boltzmann 統計に従い，金属の自由電子は Fermi 統計に従う (Madelung, 1978, p. 17)．一方で，金属の導電性は電子の密度とは関係がなく，金属内の電子密度は温度により一定である (Madelung, 1978, p. 211)．↩︎\n(Huebener, 2019, p. 75)．↩︎\n(Huebener, 2019, p. 73) 特に伝導体と半導体の境界部分で強く見られた．↩︎\n現代では，このような接合を金属-半導体接合 (metal-semiconductor contact) または Schottky 接合 といい，Ohmic 接合と対比する．↩︎\n(Patterson and Hennessy, 2014, p. 27) も参照．↩︎\n一方で GaAs の形成は Bridgman 法 (Bridgman, 1925) による．最も，この化合物が半導体であると発見されたのは (Welker, 1952) になってようやくのことである．(Sze and Lee, 2012, p. 6) も参照．↩︎\n(Sze and Lee, 2012, p. 6) など．↩︎\n今日の IC ではトランジスタ層は１層のみで，絶縁層で仕切ることで２〜８層の金属導体の配線層をその上に設ける． (Patterson and Hennessy, 2014, p. 26)．↩︎\n(Sze and Lee, 2012, p. 4) など．↩︎\n(Patterson and Hennessy, 2014, p. 41)．↩︎\n(Patterson and Hennessy, 2014, p. 379)．↩︎\n(Hoff et al., 1996) が開発者自ら歴史を振り返っている．当時は Intel も出来て３年しか経っていない新興企業であった．↩︎\n(Sze and Lee, 2012, p. 8) など．↩︎\n(Patterson and Hennessy, 2014, p. 379)．↩︎\n(Sze and Lee, 2012, p. 8)，(Patterson and Hennessy, 2014, p. 379) 参照．↩︎"
   },
   {
     "objectID": "posts/2024/半導体/Semiconductor2.html",
@@ -98,179 +126,109 @@
     "text": "1 EUV リトグラフィ\n極端紫外線リソグラフィ (Extreme Ultraviolet Lithography) は波長 13.5 nm で露光する技術である．\nオランダの ASML 社が唯一 EUV 露光装置を製造している．\n\nChina asks Netherlands, with world-leading chipmaking equipment, to not decouple\nここまで短い波長では光を透過するレンズはなく，反射鏡で光学系を構成する必要がある．13.5 nm という波長はミラーの反射率の極大点の１つをとって決定された． \\(0.68^{12}=0.98\\) というように重ねて用いる．\n\n\n\n(内山貴之, 2015)　より．"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor.html",
-    "href": "posts/2024/半導体/Semiconductor.html",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#半導体",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#半導体",
     "title": "半導体入門",
-    "section": "",
-    "text": "スライドを全画面で開くにはこちら"
+    "section": "1.1 半導体",
+    "text": "1.1 半導体\n\n\n21世紀に入った時点で，大きく分けて 18 の半導体デバイスが存在する (Ng, 2002)．\n細かいものを含めると 140．\n全てトランジスタの組み合わせからなる．"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor.html#半導体入門",
-    "href": "posts/2024/半導体/Semiconductor.html#半導体入門",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#半導体産業",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#半導体産業",
     "title": "半導体入門",
-    "section": "1 半導体入門",
-    "text": "1 半導体入門\n\n1.1 半導体とは？\n価電子帯と伝導帯の間の 禁制帯 (band gap) が十分に小さくて遷移を制御することが可能で，基底状態では価電子帯は完全に埋まっているものの伝導帯は空いているような物質を 半導体 という．1\nこのような半導体では，熱や光，また外部電磁場などにより価電子が励起され，伝導帯に移る．この電子に加えて，価電子帯に生じた正孔も導電性に寄与する．2 この 正孔 (hole) を擬似的に粒子と扱い，正孔の波動方程式を議論したのが (Heisenberg, 1931) である．\n\n\n1.2 半導体発見の歴史\n(Faraday, 1833) は，通常金属では温度の上昇と共に電気抵抗が増すが，硫化銀 Ag2S を初めとしたいくつかの物質では逆に電気抵抗が減少することを報告している．\n(Braun, 1874) は 方鉛鉱 PbS に電流を流そうとしても，単一方向にしか電流が流れない整流作用を示すことを発見し，3 その後20世紀に入るとラジオに応用された．これが人類が初めて出会った半導体デバイスだったと言える (Sze and Lee, 2012, p. 1)．4\nBraun はその後ブラウン管を発明し，こちらの業績により 1909 年にノーベル物理学賞を受賞する．\n(Round, 1907) はダイオードが電界を印加することで発行することがある (electroluminescence) ことを発見した．\n\n\n1.3 基本用語のまとめ\n半導体素子には，トランジスタやダイオードなどがある．これらを配線によって相互接続したものが IC チップである．IC チップはシリコンのインゴットを円板状に切り出した ウエハ (wafer) 上に構築する．IC チップは平面的な印象を受けるが，実際は層に分けて構成されている，高度に立体的な構造物である．\n\n\n\nチップの断面構造\n\n\n一つのウエハから多数のチップが作成され，その各単位を ダイ (die) ともいう．\nしかし，普段我々が目にする IC チップ は パッケージ されたもの，で．IC チップそのもの（ダイそのもの）を目にすることはない．\n32nm などというときは，ダイの大きさではなく，ダイ上の最小のトランジスタのサイズをいう．5\n\n\n1.4 集積回路が出来るまで\nまず回路を設計し，原版（マスター）を作る．これを フォトマスク (photomask) または レティクル (reticle) という．\nこれをウエハに転写するには，フォトリソグラフィ (Photolithography) を用いる．シリコンウエハの形成は，Czochralski 法 (Czochralski, 1918) による．6\nリソグラフィ自体は 1798 年からあり，Niépce が 歴青 が感光剤の役割を果たすことを発見し，カメラの発明と同時に発見された．\nエッチングに耐性のある感光剤を使えば，半導体デバイスの製造に応用できると気づいたのは (Andrus, 1957) である．この技術は半導体製造コストの 35 %を占めており，半導体市場の急成長はほとんどこの技術の進歩と両輪であると言う者も多い．7\nシリコン表面に酸化被膜を形成することで不純物原子の移動を阻止できることは (Frosch and Derick, 1957) が発見した．\n以上の技術を用いて，最初の IC は (Kilby, 1959) が作った．Jack Kilby はその後 2000 年にノーベル物理学賞を受賞する．\nしかし真に大量生産可能にし，半導体産業を大きくしたのは (Noyce, 1959) の発明であった．これは，現在主流の製法の基である Planar Process (Hoerni, 1960) で作られた．\n実際に，どのように半導体チップを製造するかについては次節 2 で詳しく解説する．"
+    "section": "1.2 半導体産業",
+    "text": "1.2 半導体産業\n世界の半導体出荷額は直近 10 年で２倍になっている"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor.html#sec-manufacturing",
-    "href": "posts/2024/半導体/Semiconductor.html#sec-manufacturing",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#半導体とは",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#半導体とは",
     "title": "半導体入門",
-    "section": "2 半導体の製造",
-    "text": "2 半導体の製造\n半導体の製造段階は，典型的には次の３つに大別される．\n\n設計\n\n回路・レイアウト作成 (design)\nフォトマスク (photomask) 作成\n\n前工程：次の３工程を繰り返ことで何層もの膜を積層する\n\n成膜 (deposition)\nパターン転写 (exposure)\n食刻 (etching)\n\n後工程\n\n角切り (dicing)\n封入 (packaging)\n品質検査 (inspection)\n\n\n日立の解説 も参照．\n\n2.1 設計工程\n18に分類されることもある．\n\n2.1.1 回路・レイアウト作成\nEDA (Eleotron Design Automation) を用いて設計を行う．\n\n\n\n2.2 前工程\n\n2.2.1 基本３工程\n成膜，パターン転写，食刻の３工程を繰り返すことでウエハ上に構造を作っていくのであるが，その目的は大きく５つに分類出来る．\n\n素子分離領域形成\n酸化被膜により，素子間の絶縁を形成する．\nwell 形成\nトランジスタの基盤となる領域に，食刻の代わりにイオンの添加する．\nトランジスタ形成\nウエハ基盤上にトランジスタ素子を形成する．\n電極形成\nシリコン基盤上のトランジスタに届くように，すでに形成された層に穴 (contact hole) をあけ，導体を埋め込む．\n配線層形成\n基本３工程を繰り返すことで，トランジスタ層上を分厚い配線層で覆う．8\n\n\n\n2.2.2 異物検査と洗浄\nほとんどの工程間に，異物検査と洗浄の工程が必要になる．\n日立の製品例，ウェーハ欠陥検査\n\n\n2.2.3 表面酸化\n熱酸化法では，酸素や高温のスチームを当てることで，表面に SiO2 の酸化被膜を形成し，絶縁体として用いる．\n\n\n2.2.4 成膜\n\n\n2.2.5 パターン転写\nフォトマスク上から紫外線を当てることで，フォトレジストを感光させる．次の工程で感光部分のみを食刻することで，パターン該当部分のみに酸化被膜を残すことが出来る．\n\n\n2.2.6 食刻\n現像後は，寸法計測を行う (ADI: After Development Inspection)．これは走査性電子顕微鏡 (SEM: Scanning Electron Microscope) である CD-SEM などを用いて行う（日立の製品例）\nこれにより，正しくパターンが転写されていることが確認されたのち，食刻を行い，再び寸法計測を行う（AEI: After Etch Inspection などと呼び分ける）．\n最後に，残ったフォトレジストはオゾンやプラズマにより灰化 (ashing) により除去する．\nコンダクターエンチング（日立の例）\n\n\n2.2.7 イオン添加\nイオンを注入するとアモルファスとなるため，一度再加熱をして (annealing) 再結晶化する．\n\n\n\n2.3 後工程"
+    "section": "1.3 半導体とは？",
+    "text": "1.3 半導体とは？\n\n\n\n\n\n\n\n物質としての半導体\n\n\n価電子帯と伝導帯の間の 禁制帯 (band gap) が十分に小さくて遷移を制御することが可能で，基底状態では価電子帯は完全に埋まっているものの伝導帯は空いているような物質を 半導体 という．1\n\n\n\n\n(Böer and Pohl, 2018, p. 4), (Huebener, 2019, p. 73) Chapter 6．金属が電気を通すのは，伝導帯が部分的に電子によって占められているためである．半導体は，（例えば温度を上げることなどにより）価電子帯の電子を簡単に伝導帯に移すことができるため，思い通りに金属のような振る舞いも，絶縁体のような振る舞いも引き出すことができる．しかし，半導体の自由電子は，金属に比べて極めて少なく．Boltzmann 統計に従い，金属の自由電子は Fermi 統計に従う (Madelung, 1978, p. 17)．一方で，金属の導電性は電子の密度とは関係がなく，金属内の電子密度は温度により一定である (Madelung, 1978, p. 211)．"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor.html#半導体デバイス",
-    "href": "posts/2024/半導体/Semiconductor.html#半導体デバイス",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#半導体の物理",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#半導体の物理",
     "title": "半導体入門",
-    "section": "3 半導体デバイス",
-    "text": "3 半導体デバイス\n\n3.1 構成要素\n整流作用を示す接合には，ショットキー接合と pn 接合がある．\n\n\n3.2 双極から MOS へ\nMOS (Metal-Oxide-Semiconductor) の３層構造を用いたトランジスタが採用される前は，双極トランジスタ (bipolar transistor) (Shockley, 1949) を用いた TTL (Transistor-Transistor Logic) 回路が主流であった．\nしかしこれは，トランジスタの間の絶縁が難しく，密度を上げることが難しかった．そのような中で MOSFET (Metal-Oxide-Silicon Field-Effect Transistor) が開発された (Kahng and Atalla, 1960)．MOSFET 技術は現代の半導体市場の 95% に関連する．9\nMOSFET は自己絶縁構造を持つため，これ以上の絶縁処理を必要とせず，双極トランジスタの 10 %の面積で済んだ．\n\n\n3.3 CMOS (Complementary Metal-Oxide-Semiconductor)\nMOS が初め採用した設計論理のは NMOS や PMOS であったが，常に直流電流を消費する必要があった．\nしかし現代では，P 型と N 型の MOSFET を相補的に用いる CMOS が集積回路における支配的な技術である．\nその秘訣は消費電力の少なさにあり，トランジスタの \\(0,1\\) の切り替えの際に生じる電力（動的エネルギー）のみが消費される．10\n\nCMOS技術は、当初アメリカの半導体業界では、当時より高性能だったNMOSを優先して見過ごされていた。しかし、CMOSは低消費電力であることから日本の半導体メーカーにいち早く採用され、さらに進化し、日本の半導体産業の隆盛につながった。CMOS\n\n\n\n3.4 現代に汎在する半導体\n計算機を構成する要素は多いが，Moore の法則により，多くが同一のチップの上に載ってしまい，不可視化が進んでいる．11\n\n3.4.1 プロセッサ\nコンピュータの CPU と言ったときに，１枚のチップを意味するようになったのは 1971 年の Intel 4004 が初めてである．12\n3mm × 4mm のチップ上に 2300 の MOSFET を備え，大きな机ほどの CPU を備えた IBM コンピュータに匹敵する処理能力を持っていた．13\n\n\n3.4.2 半導体メモリ\n現代でメモリといえば RAM (Random Access Memory) を指す．本来はアクセスする順番に制約があった SAM (Sequential Access Memory) に対して作られた言葉であったが，現代では ROM (Read Only Memory) との対義語として理解されることが多いようである．\nSRAM (Static RAM) は半導体メモリの一種であり，DRAM (Dynamic RAM) と比べて高速である．１ビットあたり６から８のトランジスタを使用したフリップフロップ回路により情報を記憶するため，定期的なリフレッシュが不要で高速な読み書きが可能であるが，集積率を上げることが出来ず，大容量メモリには向かない．14\nDRAM (Dynamic RAM) (Dennard, 1967) はチップ内にコンデンサを備えており，１つのコンデンサで１ビットを表現する．これを読み出すのに１つのトランジスタ MOSFET を使うのみであるから，SRAM に比べて安価であるが，電荷は時間と共に散逸するため，定期的にリフレッシュする必要があり，消費電力は大きい．15\n\n\n\nFrom (Patterson and Hennessy, 2014, p. 380)\n\n\nDRAM と SRAM はいずれも揮発性である．不揮発性の半導体メモリには フィラッシュメモリ がある．これには 蜉蝣ゲートMOSFET という素子で捉えた電子により情報を記憶することで不揮発性を実現している．\nフラッシュメモリには NAND 型と NOR 型があり，前者が主流である．\n\n\n\nMemory Revenue May, 2022. Source: Omedia\n\n\n\n\n3.4.3 Graphics Processing Unit\n描画を扱うチップは従来 VGA コントローラーと呼ばれていたが，1999 年には１つのチップで描画タスクの殆どをこなせるようになり，特に NVIDIA GeForce 256 は GPU という名称で売り出された．\nこうして GPU は元来の 3D グラフィクスに特化した存在から，徐々に CPU を補完する多様なタスクに柔軟に対応できるように，プログラム可能で，大量のコアを持って並列計算可能なものに進化していった．近年の CPU はマルチコアのものが多いが，現在の GPU は 1000 コアを超えるものも多い．\n\n\n3.4.4 Language Processing Unit\nLPU は，Google で TSU (Tensor Processing Unit) のプロジェクトに初期から従事していたエンジニア Jonathan Ross が 2016 年に創業したスタートアップ Groq の 登録商標 である．\nGroq が Samsung と協力して 実現した LPU (Abts et al., 2022) は eDRAM を持つ ASIC (Application Specific Integrated Circuit) であり，メモリのバンド幅と計算密度を増やし，逐次処理に特化することで特に言語処理に特化している．\n2/20/2024 に デモ を公開した．\nLPU は推論に，GPU は学習に特化しており，相補的な役割を演じながら AI の進化を支えていく可能性がある．"
+    "section": "1.4 半導体の物理",
+    "text": "1.4 半導体の物理\nこのような半導体では，熱や光，また外部電磁場などにより価電子が励起され，伝導帯に移る．この電子に加えて，価電子帯に生じた正孔も導電性に寄与する．1 この 正孔 (hole) を擬似的に粒子と扱い，正孔の波動方程式を議論したのが (Heisenberg, 1931) である．\n(Huebener, 2019, p. 75)．"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor.html#物理",
-    "href": "posts/2024/半導体/Semiconductor.html#物理",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#半導体発見の歴史",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#半導体発見の歴史",
     "title": "半導体入門",
-    "section": "4 物理",
-    "text": "4 物理\n\n4.1 単体の半導体"
+    "section": "1.5 半導体発見の歴史",
+    "text": "1.5 半導体発見の歴史\n(Faraday, 1833) は，通常金属では温度の上昇と共に電気抵抗が増すが，硫化銀 Ag2S を初めとしたいくつかの物質では逆に電気抵抗が減少することを報告している．\n(Braun, 1874) は 方鉛鉱 PbS に電流を流そうとしても，単一方向にしか電流が流れない整流作用を示すことを発見し，1 その後20世紀に入るとラジオに応用された．これが人類が初めて出会った半導体デバイスだったと言える (Sze and Lee, 2012, p. 1)．2\nBraun はその後ブラウン管を発明し，こちらの業績により 1909 年にノーベル物理学賞を受賞する．\n(Huebener, 2019, p. 73) 特に伝導体と半導体の境界部分で強く見られた．現代では，このような接合を金属-半導体接合 (metal-semiconductor contact) または Schottky 接合 といい，Ohmic 接合と対比する．"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor.html#文献レビュー",
-    "href": "posts/2024/半導体/Semiconductor.html#文献レビュー",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#基本用語のまとめ",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#基本用語のまとめ",
     "title": "半導体入門",
-    "section": "5 文献レビュー",
-    "text": "5 文献レビュー\n(Rudan et al., 2023) は辞典として使える．(Van Rossum, 2005) は凝縮系物理学のハンドブック内でのエントリ．\n\n5.1 産業\n(Miller, 2022) は Tufts 大学の Chris Miller による書籍．\n和書としては，(菊池正典, 2023) は NEC 社員による半導体業界の解説書．\n\n\n5.2 教科書\n(Sze and Lee, 2012) は浮遊ゲート MOSFET の発明者でもある Simon Min Sze（施敏）の著作で，半導体分野で最も多く引用される教科書とされている．第２版なら 和訳 もある．\n(May and Spanos, 2006) は California 大学 Davis 校の現学長 Gary May と California 大学 Berkeley 校の Costas Spanos による書籍．\n(May and Sze, 2003) もある．さらに発展的なものは (Pierret, 2003)．\n\n\n5.3 理論\n(Kittel, 2018) が固体物理学の標準的な入門書とされている．(Böer and Pohl, 2018) が特に半導体物理学の専門書になる．(Huebener, 2019) は前２つの橋渡しの役割をするが，重点は超伝導にある．\n\n\n5.4 その他\n(Richard, 2023) は SignalFire という VC に所属する著者による書．\n(Lau, 2021) は AMS Pacific Technology の 技術アドバイザー による書籍．\n(Evstigneev, 2022) はカナダ Memorial 大学 の 凝縮系物理学者 が書いた．"
+    "section": "1.6 基本用語のまとめ",
+    "text": "1.6 基本用語のまとめ\n半導体素子には，トランジスタやダイオードなどがある．これらを配線によって相互接続したものが IC チップである．IC チップはシリコンのインゴットを円板状に切り出した ウエハ (wafer) 上に構築する．IC チップは平面的な印象を受けるが，実際は層に分けて構成されている，高度に立体的な構造物である．\n\n\n\nチップの断面構造\n\n\n一つのウエハから多数のチップが作成され，その各単位を ダイ (die) ともいう．\nしかし，普段我々が目にする IC チップ は パッケージ されたもの，で．IC チップそのもの（ダイそのもの）を目にすることはない．\n32nm などというときは，ダイの大きさではなく，ダイ上の最小のトランジスタのサイズをいう．1\n(Patterson and Hennessy, 2014, p. 27) も参照．"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor.html#footnotes",
-    "href": "posts/2024/半導体/Semiconductor.html#footnotes",
-    "title": "半導体入門",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\n(Böer and Pohl, 2018, p. 4), (Huebener, 2019, p. 73) Chapter 6．金属が電気を通すのは，伝導帯が部分的に電子によって占められているためである．半導体は，（例えば温度を上げることなどにより）価電子帯の電子を簡単に伝導帯に移すことができるため，思い通りに金属のような振る舞いも，絶縁体のような振る舞いも引き出すことができる．しかし，半導体の自由電子は，金属に比べて極めて少なく．Boltzmann 統計に従い，金属の自由電子は Fermi 統計に従う (Madelung, 1978, p. 17)．一方で，金属の導電性は電子の密度とは関係がなく，金属内の電子密度は温度により一定である (Madelung, 1978, p. 211)．↩︎\n(Huebener, 2019, p. 75)．↩︎\n(Huebener, 2019, p. 73) 特に伝導体と半導体の境界部分で強く見られた．↩︎\n現代では，このような接合を金属-半導体接合 (metal-semiconductor contact) または Schottky 接合 といい，Ohmic 接合と対比する．↩︎\n(Patterson and Hennessy, 2014, p. 27) も参照．↩︎\n一方で GaAs の形成は Bridgman 法 (Bridgman, 1925) による．最も，この化合物が半導体であると発見されたのは (Welker, 1952) になってようやくのことである．(Sze and Lee, 2012, p. 6) も参照．↩︎\n(Sze and Lee, 2012, p. 6) など．↩︎\n今日の IC ではトランジスタ層は１層のみで，絶縁層で仕切ることで２〜８層の金属導体の配線層をその上に設ける． (Patterson and Hennessy, 2014, p. 26)．↩︎\n(Sze and Lee, 2012, p. 4) など．↩︎\n(Patterson and Hennessy, 2014, p. 41)．↩︎\n(Patterson and Hennessy, 2014, p. 379)．↩︎\n(Hoff et al., 1996) が開発者自ら歴史を振り返っている．当時は Intel も出来て３年しか経っていない新興企業であった．↩︎\n(Sze and Lee, 2012, p. 8) など．↩︎\n(Patterson and Hennessy, 2014, p. 379)．↩︎\n(Sze and Lee, 2012, p. 8)，(Patterson and Hennessy, 2014, p. 379) 参照．↩︎"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html",
-    "href": "posts/2024/半導体/Semiconductor_slides.html",
-    "title": "半導体入門",
-    "section": "",
-    "text": "半導体とは？なぜ重要なのか？\n\nA Blog Entry on Bayesian Computation by an Applied Mathematician\n$$\n$$\n\n\n\n\n\n21世紀に入った時点で，大きく分けて 18 の半導体デバイスが存在する (Ng, 2002)．\n細かいものを含めると 140．\n全てトランジスタの組み合わせからなる．\n\n\n\n\n\n世界の半導体出荷額は直近 10 年で２倍になっている\n\n\n\n\n\n\n\n\n\n物質としての半導体\n\n\n\n価電子帯と伝導帯の間の 禁制帯 (band gap) が十分に小さくて遷移を制御することが可能で，基底状態では価電子帯は完全に埋まっているものの伝導帯は空いているような物質を 半導体 という．1\n\n\n\n\n\nこのような半導体では，熱や光，また外部電磁場などにより価電子が励起され，伝導帯に移る．この電子に加えて，価電子帯に生じた正孔も導電性に寄与する．2 この 正孔 (hole) を擬似的に粒子と扱い，正孔の波動方程式を議論したのが (Heisenberg, 1931) である．\n\n\n\n(Faraday, 1833) は，通常金属では温度の上昇と共に電気抵抗が増すが，硫化銀 Ag2S を初めとしたいくつかの物質では逆に電気抵抗が減少することを報告している．\n(Braun, 1874) は 方鉛鉱 PbS に電流を流そうとしても，単一方向にしか電流が流れない整流作用を示すことを発見し，3 その後20世紀に入るとラジオに応用された．これが人類が初めて出会った半導体デバイスだったと言える (Sze and Lee, 2012, p. 1)．4\nBraun はその後ブラウン管を発明し，こちらの業績により 1909 年にノーベル物理学賞を受賞する．\n\n\n\n半導体素子には，トランジスタやダイオードなどがある．これらを配線によって相互接続したものが IC チップである．IC チップはシリコンのインゴットを円板状に切り出した ウエハ (wafer) 上に構築する．IC チップは平面的な印象を受けるが，実際は層に分けて構成されている，高度に立体的な構造物である．\n\n\n\nチップの断面構造\n\n\n一つのウエハから多数のチップが作成され，その各単位を ダイ (die) ともいう．\nしかし，普段我々が目にする IC チップ は パッケージ されたもの，で．IC チップそのもの（ダイそのもの）を目にすることはない．\n32nm などというときは，ダイの大きさではなく，ダイ上の最小のトランジスタのサイズをいう．5"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#半導体",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#半導体",
-    "title": "半導体入門",
-    "section": "",
-    "text": "21世紀に入った時点で，大きく分けて 18 の半導体デバイスが存在する (Ng, 2002)．\n細かいものを含めると 140．\n全てトランジスタの組み合わせからなる．"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#半導体産業",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#半導体産業",
-    "title": "半導体入門",
-    "section": "",
-    "text": "世界の半導体出荷額は直近 10 年で２倍になっている"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#半導体とは",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#半導体とは",
-    "title": "半導体入門",
-    "section": "",
-    "text": "物質としての半導体\n\n\n\n価電子帯と伝導帯の間の 禁制帯 (band gap) が十分に小さくて遷移を制御することが可能で，基底状態では価電子帯は完全に埋まっているものの伝導帯は空いているような物質を 半導体 という．1"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#半導体の物理",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#半導体の物理",
-    "title": "半導体入門",
-    "section": "",
-    "text": "このような半導体では，熱や光，また外部電磁場などにより価電子が励起され，伝導帯に移る．この電子に加えて，価電子帯に生じた正孔も導電性に寄与する．2 この 正孔 (hole) を擬似的に粒子と扱い，正孔の波動方程式を議論したのが (Heisenberg, 1931) である．"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#半導体発見の歴史",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#半導体発見の歴史",
-    "title": "半導体入門",
-    "section": "",
-    "text": "(Faraday, 1833) は，通常金属では温度の上昇と共に電気抵抗が増すが，硫化銀 Ag2S を初めとしたいくつかの物質では逆に電気抵抗が減少することを報告している．\n(Braun, 1874) は 方鉛鉱 PbS に電流を流そうとしても，単一方向にしか電流が流れない整流作用を示すことを発見し，3 その後20世紀に入るとラジオに応用された．これが人類が初めて出会った半導体デバイスだったと言える (Sze and Lee, 2012, p. 1)．4\nBraun はその後ブラウン管を発明し，こちらの業績により 1909 年にノーベル物理学賞を受賞する．"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#基本用語のまとめ",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#基本用語のまとめ",
-    "title": "半導体入門",
-    "section": "",
-    "text": "半導体素子には，トランジスタやダイオードなどがある．これらを配線によって相互接続したものが IC チップである．IC チップはシリコンのインゴットを円板状に切り出した ウエハ (wafer) 上に構築する．IC チップは平面的な印象を受けるが，実際は層に分けて構成されている，高度に立体的な構造物である．\n\n\n\nチップの断面構造\n\n\n一つのウエハから多数のチップが作成され，その各単位を ダイ (die) ともいう．\nしかし，普段我々が目にする IC チップ は パッケージ されたもの，で．IC チップそのもの（ダイそのもの）を目にすることはない．\n32nm などというときは，ダイの大きさではなく，ダイ上の最小のトランジスタのサイズをいう．5"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#設計",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#設計",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#設計",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#設計",
     "title": "半導体入門",
     "section": "2.1 設計",
     "text": "2.1 設計\nまず回路を設計し，原版（マスター）を作る．これを フォトマスク (photomask) または レティクル (reticle) という．"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#フォトリソグラフィ",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#フォトリソグラフィ",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#フォトリソグラフィ",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#フォトリソグラフィ",
     "title": "半導体入門",
     "section": "2.2 フォトリソグラフィ",
-    "text": "2.2 フォトリソグラフィ\nこれをウエハに転写するには，フォトリソグラフィ (Photolithography) を用いる．シリコンウエハの形成は，Czochralski 法 (Czochralski, 1918) による．6"
+    "text": "2.2 フォトリソグラフィ\nこれをウエハに転写するには，フォトリソグラフィ (Photolithography) を用いる．シリコンウエハの形成は，Czochralski 法 (Czochralski, 1918) による．1\n一方で GaAs の形成は Bridgman 法 (Bridgman, 1925) による．最も，この化合物が半導体であると発見されたのは (Welker, 1952) になってようやくのことである．(Sze and Lee, 2012, p. 6) も参照．"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#フォトリソグラフィの歴史",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#フォトリソグラフィの歴史",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#フォトリソグラフィの歴史",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#フォトリソグラフィの歴史",
     "title": "半導体入門",
     "section": "2.3 フォトリソグラフィの歴史",
     "text": "2.3 フォトリソグラフィの歴史\nリソグラフィ自体は 1798 年からあり，Niépce が 歴青 が感光剤の役割を果たすことを発見し，カメラの発明と同時に発見された．\n\n\n\ncamera obscura"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#フォトリトグラフィの産業応用",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#フォトリトグラフィの産業応用",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#フォトリトグラフィの産業応用",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#フォトリトグラフィの産業応用",
     "title": "半導体入門",
     "section": "2.4 フォトリトグラフィの産業応用",
-    "text": "2.4 フォトリトグラフィの産業応用\nエッチングに耐性のある感光剤を使えば，半導体デバイスの製造に応用できると気づいたのは (Andrus, 1957) である．この技術は半導体製造コストの 35 %を占めており，半導体市場の急成長はほとんどこの技術の進歩と両輪であると言う者も多い．7\nシリコン表面に酸化被膜を形成することで不純物原子の移動を阻止できることは (Frosch and Derick, 1957) が発見した．"
+    "text": "2.4 フォトリトグラフィの産業応用\nエッチングに耐性のある感光剤を使えば，半導体デバイスの製造に応用できると気づいたのは (Andrus, 1957) である．この技術は半導体製造コストの 35 %を占めており，半導体市場の急成長はほとんどこの技術の進歩と両輪であると言う者も多い．1\nシリコン表面に酸化被膜を形成することで不純物原子の移動を阻止できることは (Frosch and Derick, 1957) が発見した．\n(Sze and Lee, 2012, p. 6) など．"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#最初の-ic",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#最初の-ic",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#最初の-ic",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#最初の-ic",
     "title": "半導体入門",
     "section": "2.5 最初の IC",
     "text": "2.5 最初の IC\n以上の技術を用いて，最初の IC は Texas Instruments の Jack Kilby によって作られた．\n\n\n\nMiniaturized electronic circuits. U.S. Patent 3,138,743A (Kilby, 1959)\n\n\nJack Kilby はその後 2000 年にノーベル物理学賞を受賞する．"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#最初の-ic-1",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#最初の-ic-1",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#最初の-ic-1",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#最初の-ic-1",
     "title": "半導体入門",
     "section": "2.6 最初の IC",
     "text": "2.6 最初の IC\n\n\n\n設計図\n\n\n\n双極トランジスタ が１つ\n抵抗器３つ\nコンデンサ１つ\n全てゲルマニウムからなる．\n回路は導線"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#次の-ic",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#次の-ic",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#次の-ic",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#次の-ic",
     "title": "半導体入門",
     "section": "2.7 次の IC",
     "text": "2.7 次の IC\nFairchild Semiconductor の Robert Noyce によって作られた．\n\n\n\nSemiconductor Device-and-Lead Structure. U.S. Patent 2,981,877A (Noyce, 1959)\n\n\nRobert Noyce はその後 Gordon Moore と Intel も創業し，the Mayor of Silicon Valley と呼ばれる．"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#次の-ic-1",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#次の-ic-1",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#次の-ic-1",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#次の-ic-1",
     "title": "半導体入門",
     "section": "2.8 次の IC",
     "text": "2.8 次の IC\n\n\n\n設計図\n\n\n\nリトグラフによりアルミニウムの配線を形成\nPlanar Process (Hoerni, 1960) （現在主流の製法）で製造\n１つのシリコン基盤上に作った\n→ monolithic で大量生産が可能\n\n1961 年から 1965 年は，NASA の Appolo 計画からの特需もあり，半導体産業は大きく成長した．"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#設計-design",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#設計-design",
+    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#設計-design",
+    "href": "posts/2024/半導体/Semiconductor1_Slides.html#設計-design",
     "title": "半導体入門",
     "section": "3.1 設計 (design)",
-    "text": "3.1 設計 (design)\n\n\n\n世界初の１チップ CPU の設計図 from (Hoff et al., 1996, p. 11)"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor_slides.html#footnotes",
-    "href": "posts/2024/半導体/Semiconductor_slides.html#footnotes",
-    "title": "半導体入門",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\n(Böer and Pohl, 2018, p. 4), (Huebener, 2019, p. 73) Chapter 6．金属が電気を通すのは，伝導帯が部分的に電子によって占められているためである．半導体は，（例えば温度を上げることなどにより）価電子帯の電子を簡単に伝導帯に移すことができるため，思い通りに金属のような振る舞いも，絶縁体のような振る舞いも引き出すことができる．しかし，半導体の自由電子は，金属に比べて極めて少なく．Boltzmann 統計に従い，金属の自由電子は Fermi 統計に従う (Madelung, 1978, p. 17)．一方で，金属の導電性は電子の密度とは関係がなく，金属内の電子密度は温度により一定である (Madelung, 1978, p. 211)．↩︎\n(Huebener, 2019, p. 75)．↩︎\n(Huebener, 2019, p. 73) 特に伝導体と半導体の境界部分で強く見られた．↩︎\n現代では，このような接合を金属-半導体接合 (metal-semiconductor contact) または Schottky 接合 といい，Ohmic 接合と対比する．↩︎\n(Patterson and Hennessy, 2014, p. 27) も参照．↩︎\n一方で GaAs の形成は Bridgman 法 (Bridgman, 1925) による．最も，この化合物が半導体であると発見されたのは (Welker, 1952) になってようやくのことである．(Sze and Lee, 2012, p. 6) も参照．↩︎\n(Sze and Lee, 2012, p. 6) など．↩︎"
-  },
-  {
-    "objectID": "static/AllCategories.html",
-    "href": "static/AllCategories.html",
-    "title": "Categories",
-    "section": "",
-    "text": "公法\n\n憲法\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items\n\n\n\n\n行政法\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n民事\n\n民法\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items\n\n\n\n\n商法\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items\n\n\n\n\n民事訴訟法\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n刑事\n\n刑法\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items\n\n\n\n\n刑事訴訟法\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items\n\n\n\n\n\n\n知的財産\n\n知的財産法\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\nNo matching items"
+    "text": "3.1 設計 (design)\n\n世界初の１チップ CPU の設計図 from (Hoff et al., 1996, p. 11)"
   },
   {
     "objectID": "posts/2024/半導体/Semiconductor1.html",
@@ -392,157 +350,52 @@
     "text": "Footnotes\n\n\n(Böer and Pohl, 2018, p. 4), (Huebener, 2019, p. 73) Chapter 6．金属が電気を通すのは，伝導帯が部分的に電子によって占められているためである．半導体は，（例えば温度を上げることなどにより）価電子帯の電子を簡単に伝導帯に移すことができるため，思い通りに金属のような振る舞いも，絶縁体のような振る舞いも引き出すことができる．しかし，半導体の自由電子は，金属に比べて極めて少なく．Boltzmann 統計に従い，金属の自由電子は Fermi 統計に従う (Madelung, 1978, p. 17)．一方で，金属の導電性は電子の密度とは関係がなく，金属内の電子密度は温度により一定である (Madelung, 1978, p. 211)．↩︎\n(Huebener, 2019, p. 75)．↩︎\n(Huebener, 2019, p. 73) 特に伝導体と半導体の境界部分で強く見られた．↩︎\n現代では，このような接合を金属-半導体接合 (metal-semiconductor contact) または Schottky 接合 といい，Ohmic 接合と対比する．↩︎\n(Patterson and Hennessy, 2014, p. 27) も参照．↩︎\n一方で GaAs の形成は Bridgman 法 (Bridgman, 1925) による．最も，この化合物が半導体であると発見されたのは (Welker, 1952) になってようやくのことである．(Sze and Lee, 2012, p. 6) も参照．↩︎\n(Sze and Lee, 2012, p. 6) など．↩︎"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor0.html",
-    "href": "posts/2024/半導体/Semiconductor0.html",
-    "title": "半導体入門",
-    "section": "",
-    "text": "価電子帯と伝導帯の間の 禁制帯 (band gap) が十分に小さくて遷移を制御することが可能で，基底状態では価電子帯は完全に埋まっているものの伝導帯は空いているような物質を 半導体 という．1\nこのような半導体では，熱や光，また外部電磁場などにより価電子が励起され，伝導帯に移る．この電子に加えて，価電子帯に生じた正孔も導電性に寄与する．2 この 正孔 (hole) を擬似的に粒子と扱い，正孔の波動方程式を議論したのが (Heisenberg, 1931) である．\n\n\n\n(Faraday, 1833) は，通常金属では温度の上昇と共に電気抵抗が増すが，硫化銀 Ag2S を初めとしたいくつかの物質では逆に電気抵抗が減少することを報告している．\n(Braun, 1874) は 方鉛鉱 PbS に電流を流そうとしても，単一方向にしか電流が流れない整流作用を示すことを発見し，3 その後20世紀に入るとラジオに応用された．これが人類が初めて出会った半導体デバイスだったと言える (Sze and Lee, 2012, p. 1)．4\nBraun はその後ブラウン管を発明し，こちらの業績により 1909 年にノーベル物理学賞を受賞する．\n(Round, 1907) はダイオードが電界を印加することで発行することがある (electroluminescence) ことを発見した．\n\n\n\n半導体素子には，トランジスタやダイオードなどがある．これらを配線によって相互接続したものが IC チップである．IC チップはシリコンのインゴットを円板状に切り出した ウエハ (wafer) 上に構築する．IC チップは平面的な印象を受けるが，実際は層に分けて構成されている，高度に立体的な構造物である．\n\n\n\nチップの断面構造\n\n\n一つのウエハから多数のチップが作成され，その各単位を ダイ (die) ともいう．\nしかし，普段我々が目にする IC チップ は パッケージ されたもの，で．IC チップそのもの（ダイそのもの）を目にすることはない．\n32nm などというときは，ダイの大きさではなく，ダイ上の最小のトランジスタのサイズをいう．5\n\n\n\nまず回路を設計し，原版（マスター）を作る．これを フォトマスク (photomask) または レティクル (reticle) という．\nこれをウエハに転写するには，フォトリソグラフィ (Photolithography) を用いる．シリコンウエハの形成は，Czochralski 法 (Czochralski, 1918) による．6\nリソグラフィ自体は 1798 年からあり，Niépce が 歴青 が感光剤の役割を果たすことを発見し，カメラの発明と同時に発見された．\nエッチングに耐性のある感光剤を使えば，半導体デバイスの製造に応用できると気づいたのは (Andrus, 1957) である．この技術は半導体製造コストの 35 %を占めており，半導体市場の急成長はほとんどこの技術の進歩と両輪であると言う者も多い．7\nシリコン表面に酸化被膜を形成することで不純物原子の移動を阻止できることは (Frosch and Derick, 1957) が発見した．\n以上の技術を用いて，最初の IC は (Kilby, 1959) が作った．Jack Kilby はその後 2000 年にノーベル物理学賞を受賞する．\nしかし真に大量生産可能にし，半導体産業を大きくしたのは (Noyce, 1959) の発明であった．これは，現在主流の製法の基である Planar Process (Hoerni, 1960) で作られた．\n実際に，どのように半導体チップを製造するかについては次節 2 で詳しく解説する．"
+    "objectID": "static/AboutUs.html#学歴",
+    "href": "static/AboutUs.html#学歴",
+    "title": "ぷにうぱ",
+    "section": "学歴",
+    "text": "学歴\n\n 博士（統計科学） 2028（見込み）\n総合研究大学院大学（統計科学コース）\n\n\n 学士（理学） 2023\n東京大学理学部数学科"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor0.html#半導体入門",
-    "href": "posts/2024/半導体/Semiconductor0.html#半導体入門",
-    "title": "半導体入門",
-    "section": "",
-    "text": "価電子帯と伝導帯の間の 禁制帯 (band gap) が十分に小さくて遷移を制御することが可能で，基底状態では価電子帯は完全に埋まっているものの伝導帯は空いているような物質を 半導体 という．1\nこのような半導体では，熱や光，また外部電磁場などにより価電子が励起され，伝導帯に移る．この電子に加えて，価電子帯に生じた正孔も導電性に寄与する．2 この 正孔 (hole) を擬似的に粒子と扱い，正孔の波動方程式を議論したのが (Heisenberg, 1931) である．\n\n\n\n(Faraday, 1833) は，通常金属では温度の上昇と共に電気抵抗が増すが，硫化銀 Ag2S を初めとしたいくつかの物質では逆に電気抵抗が減少することを報告している．\n(Braun, 1874) は 方鉛鉱 PbS に電流を流そうとしても，単一方向にしか電流が流れない整流作用を示すことを発見し，3 その後20世紀に入るとラジオに応用された．これが人類が初めて出会った半導体デバイスだったと言える (Sze and Lee, 2012, p. 1)．4\nBraun はその後ブラウン管を発明し，こちらの業績により 1909 年にノーベル物理学賞を受賞する．\n(Round, 1907) はダイオードが電界を印加することで発行することがある (electroluminescence) ことを発見した．\n\n\n\n半導体素子には，トランジスタやダイオードなどがある．これらを配線によって相互接続したものが IC チップである．IC チップはシリコンのインゴットを円板状に切り出した ウエハ (wafer) 上に構築する．IC チップは平面的な印象を受けるが，実際は層に分けて構成されている，高度に立体的な構造物である．\n\n\n\nチップの断面構造\n\n\n一つのウエハから多数のチップが作成され，その各単位を ダイ (die) ともいう．\nしかし，普段我々が目にする IC チップ は パッケージ されたもの，で．IC チップそのもの（ダイそのもの）を目にすることはない．\n32nm などというときは，ダイの大きさではなく，ダイ上の最小のトランジスタのサイズをいう．5\n\n\n\nまず回路を設計し，原版（マスター）を作る．これを フォトマスク (photomask) または レティクル (reticle) という．\nこれをウエハに転写するには，フォトリソグラフィ (Photolithography) を用いる．シリコンウエハの形成は，Czochralski 法 (Czochralski, 1918) による．6\nリソグラフィ自体は 1798 年からあり，Niépce が 歴青 が感光剤の役割を果たすことを発見し，カメラの発明と同時に発見された．\nエッチングに耐性のある感光剤を使えば，半導体デバイスの製造に応用できると気づいたのは (Andrus, 1957) である．この技術は半導体製造コストの 35 %を占めており，半導体市場の急成長はほとんどこの技術の進歩と両輪であると言う者も多い．7\nシリコン表面に酸化被膜を形成することで不純物原子の移動を阻止できることは (Frosch and Derick, 1957) が発見した．\n以上の技術を用いて，最初の IC は (Kilby, 1959) が作った．Jack Kilby はその後 2000 年にノーベル物理学賞を受賞する．\nしかし真に大量生産可能にし，半導体産業を大きくしたのは (Noyce, 1959) の発明であった．これは，現在主流の製法の基である Planar Process (Hoerni, 1960) で作られた．\n実際に，どのように半導体チップを製造するかについては次節 2 で詳しく解説する．"
+    "objectID": "static/AboutUs.html#学歴-1",
+    "href": "static/AboutUs.html#学歴-1",
+    "title": "ぷにうぱ",
+    "section": "学歴",
+    "text": "学歴\n\n 法務博士（専門職） 2025（見込み）\n東京大学大学院法学政治学研究科\n\n\n 学士（法学） 2023\n東京大学法学部第１類"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor0.html#sec-manufacturing",
-    "href": "posts/2024/半導体/Semiconductor0.html#sec-manufacturing",
-    "title": "半導体入門",
-    "section": "2 半導体の製造",
-    "text": "2 半導体の製造\n半導体の製造段階は，典型的には次の３つに大別される．\n\n設計\n\n回路・レイアウト作成 (design)\nフォトマスク (photomask) 作成\n\n前工程：次の３工程を繰り返ことで何層もの膜を積層する\n\n成膜 (deposition)\nパターン転写 (exposure)\n食刻 (etching)\n\n後工程\n\n角切り (dicing)\n封入 (packaging)\n品質検査 (inspection)\n\n\n日立の解説 も参照．\n\n2.1 設計工程\n18に分類されることもある．\n\n2.1.1 回路・レイアウト作成\nEDA (Eleotron Design Automation) を用いて設計を行う．\n\n\n\n2.2 前工程\n\n2.2.1 基本３工程\n成膜，パターン転写，食刻の３工程を繰り返すことでウエハ上に構造を作っていくのであるが，その目的は大きく５つに分類出来る．\n\n素子分離領域形成\n酸化被膜により，素子間の絶縁を形成する．\nwell 形成\nトランジスタの基盤となる領域に，食刻の代わりにイオンの添加する．\nトランジスタ形成\nウエハ基盤上にトランジスタ素子を形成する．\n電極形成\nシリコン基盤上のトランジスタに届くように，すでに形成された層に穴 (contact hole) をあけ，導体を埋め込む．\n配線層形成\n基本３工程を繰り返すことで，トランジスタ層上を分厚い配線層で覆う．8\n\n\n\n2.2.2 異物検査と洗浄\nほとんどの工程間に，異物検査と洗浄の工程が必要になる．\n日立の製品例，ウェーハ欠陥検査\n\n\n2.2.3 表面酸化\n熱酸化法では，酸素や高温のスチームを当てることで，表面に SiO2 の酸化被膜を形成し，絶縁体として用いる．\n\n\n2.2.4 成膜\n\n\n2.2.5 パターン転写\nフォトマスク上から紫外線を当てることで，フォトレジストを感光させる．次の工程で感光部分のみを食刻することで，パターン該当部分のみに酸化被膜を残すことが出来る．\n\n\n2.2.6 食刻\n現像後は，寸法計測を行う (ADI: After Development Inspection)．これは走査性電子顕微鏡 (SEM: Scanning Electron Microscope) である CD-SEM などを用いて行う（日立の製品例）\nこれにより，正しくパターンが転写されていることが確認されたのち，食刻を行い，再び寸法計測を行う（AEI: After Etch Inspection などと呼び分ける）．\n最後に，残ったフォトレジストはオゾンやプラズマにより灰化 (ashing) により除去する．\nコンダクターエンチング（日立の例）\n\n\n2.2.7 イオン添加\nイオンを注入するとアモルファスとなるため，一度再加熱をして (annealing) 再結晶化する．\n\n\n\n2.3 後工程"
+    "objectID": "static/AboutUs.html#キーワード",
+    "href": "static/AboutUs.html#キーワード",
+    "title": "ぷにうぱ",
+    "section": "キーワード",
+    "text": "キーワード\n\n科学技術政策\n知的財産\nAI と法\n信頼のおける AI"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor0.html#半導体デバイス",
-    "href": "posts/2024/半導体/Semiconductor0.html#半導体デバイス",
-    "title": "半導体入門",
-    "section": "3 半導体デバイス",
-    "text": "3 半導体デバイス\n\n3.1 構成要素\n整流作用を示す接合には，ショットキー接合と pn 接合がある．\n\n\n3.2 双極から MOS へ\nMOS (Metal-Oxide-Semiconductor) の３層構造を用いたトランジスタが採用される前は，双極トランジスタ (bipolar transistor) (Shockley, 1949) を用いた TTL (Transistor-Transistor Logic) 回路が主流であった．\nしかしこれは，トランジスタの間の絶縁が難しく，密度を上げることが難しかった．そのような中で MOSFET (Metal-Oxide-Silicon Field-Effect Transistor) が開発された (Kahng and Atalla, 1960)．MOSFET 技術は現代の半導体市場の 95% に関連する．9\nMOSFET は自己絶縁構造を持つため，これ以上の絶縁処理を必要とせず，双極トランジスタの 10 %の面積で済んだ．\n\n\n3.3 CMOS (Complementary Metal-Oxide-Semiconductor)\nMOS が初め採用した設計論理のは NMOS や PMOS であったが，常に直流電流を消費する必要があった．\nしかし現代では，P 型と N 型の MOSFET を相補的に用いる CMOS が集積回路における支配的な技術である．\nその秘訣は消費電力の少なさにあり，トランジスタの \\(0,1\\) の切り替えの際に生じる電力（動的エネルギー）のみが消費される．10\n\nCMOS技術は、当初アメリカの半導体業界では、当時より高性能だったNMOSを優先して見過ごされていた。しかし、CMOSは低消費電力であることから日本の半導体メーカーにいち早く採用され、さらに進化し、日本の半導体産業の隆盛につながった。CMOS\n\n\n\n3.4 現代に汎在する半導体\n計算機を構成する要素は多いが，Moore の法則により，多くが同一のチップの上に載ってしまい，不可視化が進んでいる．11\n\n3.4.1 プロセッサ\nコンピュータの CPU と言ったときに，１枚のチップを意味するようになったのは 1971 年の Intel 4004 が初めてである．12\n3mm × 4mm のチップ上に 2300 の MOSFET を備え，大きな机ほどの CPU を備えた IBM コンピュータに匹敵する処理能力を持っていた．13\n\n\n3.4.2 半導体メモリ\n現代でメモリといえば RAM (Random Access Memory) を指す．本来はアクセスする順番に制約があった SAM (Sequential Access Memory) に対して作られた言葉であったが，現代では ROM (Read Only Memory) との対義語として理解されることが多いようである．\nSRAM (Static RAM) は半導体メモリの一種であり，DRAM (Dynamic RAM) と比べて高速である．１ビットあたり６から８のトランジスタを使用したフリップフロップ回路により情報を記憶するため，定期的なリフレッシュが不要で高速な読み書きが可能であるが，集積率を上げることが出来ず，大容量メモリには向かない．14\nDRAM (Dynamic RAM) (Dennard, 1967) はチップ内にコンデンサを備えており，１つのコンデンサで１ビットを表現する．これを読み出すのに１つのトランジスタ MOSFET を使うのみであるから，SRAM に比べて安価であるが，電荷は時間と共に散逸するため，定期的にリフレッシュする必要があり，消費電力は大きい．15\n\n\n\nFrom (Patterson and Hennessy, 2014, p. 380)\n\n\nDRAM と SRAM はいずれも揮発性である．不揮発性の半導体メモリには フィラッシュメモリ がある．これには 蜉蝣ゲートMOSFET という素子で捉えた電子により情報を記憶することで不揮発性を実現している．\nフラッシュメモリには NAND 型と NOR 型があり，前者が主流である．\n\n\n\nMemory Revenue May, 2022. Source: Omedia\n\n\n\n\n3.4.3 Graphics Processing Unit\n描画を扱うチップは従来 VGA コントローラーと呼ばれていたが，1999 年には１つのチップで描画タスクの殆どをこなせるようになり，特に NVIDIA GeForce 256 は GPU という名称で売り出された．\nこうして GPU は元来の 3D グラフィクスに特化した存在から，徐々に CPU を補完する多様なタスクに柔軟に対応できるように，プログラム可能で，大量のコアを持って並列計算可能なものに進化していった．近年の CPU はマルチコアのものが多いが，現在の GPU は 1000 コアを超えるものも多い．\n\n\n3.4.4 Language Processing Unit\nLPU は，Google で TSU (Tensor Processing Unit) のプロジェクトに初期から従事していたエンジニア Jonathan Ross が 2016 年に創業したスタートアップ Groq の 登録商標 である．\nGroq が Samsung と協力して 実現した LPU (Abts et al., 2022) は eDRAM を持つ ASIC (Application Specific Integrated Circuit) であり，メモリのバンド幅と計算密度を増やし，逐次処理に特化することで特に言語処理に特化している．\n2/20/2024 に デモ を公開した．\nLPU は推論に，GPU は学習に特化しており，相補的な役割を演じながら AI の進化を支えていく可能性がある．"
+    "objectID": "static/AboutUs.html#興味関心",
+    "href": "static/AboutUs.html#興味関心",
+    "title": "ぷにうぱ",
+    "section": "興味・関心",
+    "text": "興味・関心\n生成 AI，半導体をはじめとした世界を変える科学技術を，最もよく伸ばす環境を日本に作りたい，という思いで活動しています．先端技術には技術的側面と社会的側面の２つの側面があり，技術とコミュニティの双方の発展には知見の交流が何より重要です．そのきっかけとして，このブログでは日々の活動と学びを発信していきたいと考えています．"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor0.html#物理",
-    "href": "posts/2024/半導体/Semiconductor0.html#物理",
-    "title": "半導体入門",
-    "section": "4 物理",
-    "text": "4 物理\n\n4.1 単体の半導体"
+    "objectID": "static/AboutUs.html#司馬博文ぷに",
+    "href": "static/AboutUs.html#司馬博文ぷに",
+    "title": "ぷにうぱ",
+    "section": "司馬博文（ぷに）",
+    "text": "司馬博文（ぷに）\n HP\n\n 博士（統計科学） 2028（見込み）\n総合研究大学院大学（統計科学コース）\n\n\n 学士（理学） 2023\n東京大学理学部数学科"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor0.html#文献レビュー",
-    "href": "posts/2024/半導体/Semiconductor0.html#文献レビュー",
-    "title": "半導体入門",
-    "section": "5 文献レビュー",
-    "text": "5 文献レビュー\n(Rudan et al., 2023) は辞典として使える．(Van Rossum, 2005) は凝縮系物理学のハンドブック内でのエントリ．\n\n5.1 産業\n(Miller, 2022) は Tufts 大学の Chris Miller による書籍．\n和書としては，(菊池正典, 2023) は NEC 社員による半導体業界の解説書．\n\n\n5.2 教科書\n(Sze and Lee, 2012) は浮遊ゲート MOSFET の発明者でもある Simon Min Sze（施敏）の著作で，半導体分野で最も多く引用される教科書とされている．第２版なら 和訳 もある．\n(May and Spanos, 2006) は California 大学 Davis 校の現学長 Gary May と California 大学 Berkeley 校の Costas Spanos による書籍．\n(May and Sze, 2003) もある．さらに発展的なものは (Pierret, 2003)．\n\n\n5.3 理論\n(Kittel, 2018) が固体物理学の標準的な入門書とされている．(Böer and Pohl, 2018) が特に半導体物理学の専門書になる．(Huebener, 2019) は前２つの橋渡しの役割をするが，重点は超伝導にある．\n\n\n5.4 その他\n(Richard, 2023) は SignalFire という VC に所属する著者による書．\n(Lau, 2021) は AMS Pacific Technology の 技術アドバイザー による書籍．\n(Evstigneev, 2022) はカナダ Memorial 大学 の 凝縮系物理学者 が書いた．"
+    "objectID": "static/AboutUs.html#寒河江志織うぱ",
+    "href": "static/AboutUs.html#寒河江志織うぱ",
+    "title": "ぷにうぱ",
+    "section": "寒河江志織（うぱ）",
+    "text": "寒河江志織（うぱ）\n\n 法務博士（専門職） 2025（見込み）\n東京大学大学院法学政治学研究科\n\n\n 学士（法学） 2023\n東京大学法学部第１類"
   },
   {
-    "objectID": "posts/2024/半導体/Semiconductor0.html#footnotes",
-    "href": "posts/2024/半導体/Semiconductor0.html#footnotes",
-    "title": "半導体入門",
-    "section": "Footnotes",
-    "text": "Footnotes\n\n\n(Böer and Pohl, 2018, p. 4), (Huebener, 2019, p. 73) Chapter 6．金属が電気を通すのは，伝導帯が部分的に電子によって占められているためである．半導体は，（例えば温度を上げることなどにより）価電子帯の電子を簡単に伝導帯に移すことができるため，思い通りに金属のような振る舞いも，絶縁体のような振る舞いも引き出すことができる．しかし，半導体の自由電子は，金属に比べて極めて少なく．Boltzmann 統計に従い，金属の自由電子は Fermi 統計に従う (Madelung, 1978, p. 17)．一方で，金属の導電性は電子の密度とは関係がなく，金属内の電子密度は温度により一定である (Madelung, 1978, p. 211)．↩︎\n(Huebener, 2019, p. 75)．↩︎\n(Huebener, 2019, p. 73) 特に伝導体と半導体の境界部分で強く見られた．↩︎\n現代では，このような接合を金属-半導体接合 (metal-semiconductor contact) または Schottky 接合 といい，Ohmic 接合と対比する．↩︎\n(Patterson and Hennessy, 2014, p. 27) も参照．↩︎\n一方で GaAs の形成は Bridgman 法 (Bridgman, 1925) による．最も，この化合物が半導体であると発見されたのは (Welker, 1952) になってようやくのことである．(Sze and Lee, 2012, p. 6) も参照．↩︎\n(Sze and Lee, 2012, p. 6) など．↩︎\n今日の IC ではトランジスタ層は１層のみで，絶縁層で仕切ることで２〜８層の金属導体の配線層をその上に設ける． (Patterson and Hennessy, 2014, p. 26)．↩︎\n(Sze and Lee, 2012, p. 4) など．↩︎\n(Patterson and Hennessy, 2014, p. 41)．↩︎\n(Patterson and Hennessy, 2014, p. 379)．↩︎\n(Hoff et al., 1996) が開発者自ら歴史を振り返っている．当時は Intel も出来て３年しか経っていない新興企業であった．↩︎\n(Sze and Lee, 2012, p. 8) など．↩︎\n(Patterson and Hennessy, 2014, p. 379)．↩︎\n(Sze and Lee, 2012, p. 8)，(Patterson and Hennessy, 2014, p. 379) 参照．↩︎"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#半導体",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#半導体",
-    "title": "半導体入門",
-    "section": "1.1 半導体",
-    "text": "1.1 半導体\n\n\n21世紀に入った時点で，大きく分けて 18 の半導体デバイスが存在する (Ng, 2002)．\n細かいものを含めると 140．\n全てトランジスタの組み合わせからなる．"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#半導体産業",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#半導体産業",
-    "title": "半導体入門",
-    "section": "1.2 半導体産業",
-    "text": "1.2 半導体産業\n世界の半導体出荷額は直近 10 年で２倍になっている"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#半導体とは",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#半導体とは",
-    "title": "半導体入門",
-    "section": "1.3 半導体とは？",
-    "text": "1.3 半導体とは？\n\n\n\n\n\n\n\n物質としての半導体\n\n\n価電子帯と伝導帯の間の 禁制帯 (band gap) が十分に小さくて遷移を制御することが可能で，基底状態では価電子帯は完全に埋まっているものの伝導帯は空いているような物質を 半導体 という．1\n\n\n\n\n(Böer and Pohl, 2018, p. 4), (Huebener, 2019, p. 73) Chapter 6．金属が電気を通すのは，伝導帯が部分的に電子によって占められているためである．半導体は，（例えば温度を上げることなどにより）価電子帯の電子を簡単に伝導帯に移すことができるため，思い通りに金属のような振る舞いも，絶縁体のような振る舞いも引き出すことができる．しかし，半導体の自由電子は，金属に比べて極めて少なく．Boltzmann 統計に従い，金属の自由電子は Fermi 統計に従う (Madelung, 1978, p. 17)．一方で，金属の導電性は電子の密度とは関係がなく，金属内の電子密度は温度により一定である (Madelung, 1978, p. 211)．"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#半導体の物理",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#半導体の物理",
-    "title": "半導体入門",
-    "section": "1.4 半導体の物理",
-    "text": "1.4 半導体の物理\nこのような半導体では，熱や光，また外部電磁場などにより価電子が励起され，伝導帯に移る．この電子に加えて，価電子帯に生じた正孔も導電性に寄与する．1 この 正孔 (hole) を擬似的に粒子と扱い，正孔の波動方程式を議論したのが (Heisenberg, 1931) である．\n(Huebener, 2019, p. 75)．"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#半導体発見の歴史",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#半導体発見の歴史",
-    "title": "半導体入門",
-    "section": "1.5 半導体発見の歴史",
-    "text": "1.5 半導体発見の歴史\n(Faraday, 1833) は，通常金属では温度の上昇と共に電気抵抗が増すが，硫化銀 Ag2S を初めとしたいくつかの物質では逆に電気抵抗が減少することを報告している．\n(Braun, 1874) は 方鉛鉱 PbS に電流を流そうとしても，単一方向にしか電流が流れない整流作用を示すことを発見し，1 その後20世紀に入るとラジオに応用された．これが人類が初めて出会った半導体デバイスだったと言える (Sze and Lee, 2012, p. 1)．2\nBraun はその後ブラウン管を発明し，こちらの業績により 1909 年にノーベル物理学賞を受賞する．\n(Huebener, 2019, p. 73) 特に伝導体と半導体の境界部分で強く見られた．現代では，このような接合を金属-半導体接合 (metal-semiconductor contact) または Schottky 接合 といい，Ohmic 接合と対比する．"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#基本用語のまとめ",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#基本用語のまとめ",
-    "title": "半導体入門",
-    "section": "1.6 基本用語のまとめ",
-    "text": "1.6 基本用語のまとめ\n半導体素子には，トランジスタやダイオードなどがある．これらを配線によって相互接続したものが IC チップである．IC チップはシリコンのインゴットを円板状に切り出した ウエハ (wafer) 上に構築する．IC チップは平面的な印象を受けるが，実際は層に分けて構成されている，高度に立体的な構造物である．\n\n\n\nチップの断面構造\n\n\n一つのウエハから多数のチップが作成され，その各単位を ダイ (die) ともいう．\nしかし，普段我々が目にする IC チップ は パッケージ されたもの，で．IC チップそのもの（ダイそのもの）を目にすることはない．\n32nm などというときは，ダイの大きさではなく，ダイ上の最小のトランジスタのサイズをいう．1\n(Patterson and Hennessy, 2014, p. 27) も参照．"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#設計",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#設計",
-    "title": "半導体入門",
-    "section": "2.1 設計",
-    "text": "2.1 設計\nまず回路を設計し，原版（マスター）を作る．これを フォトマスク (photomask) または レティクル (reticle) という．"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#フォトリソグラフィ",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#フォトリソグラフィ",
-    "title": "半導体入門",
-    "section": "2.2 フォトリソグラフィ",
-    "text": "2.2 フォトリソグラフィ\nこれをウエハに転写するには，フォトリソグラフィ (Photolithography) を用いる．シリコンウエハの形成は，Czochralski 法 (Czochralski, 1918) による．1\n一方で GaAs の形成は Bridgman 法 (Bridgman, 1925) による．最も，この化合物が半導体であると発見されたのは (Welker, 1952) になってようやくのことである．(Sze and Lee, 2012, p. 6) も参照．"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#フォトリソグラフィの歴史",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#フォトリソグラフィの歴史",
-    "title": "半導体入門",
-    "section": "2.3 フォトリソグラフィの歴史",
-    "text": "2.3 フォトリソグラフィの歴史\nリソグラフィ自体は 1798 年からあり，Niépce が 歴青 が感光剤の役割を果たすことを発見し，カメラの発明と同時に発見された．\n\n\n\ncamera obscura"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#フォトリトグラフィの産業応用",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#フォトリトグラフィの産業応用",
-    "title": "半導体入門",
-    "section": "2.4 フォトリトグラフィの産業応用",
-    "text": "2.4 フォトリトグラフィの産業応用\nエッチングに耐性のある感光剤を使えば，半導体デバイスの製造に応用できると気づいたのは (Andrus, 1957) である．この技術は半導体製造コストの 35 %を占めており，半導体市場の急成長はほとんどこの技術の進歩と両輪であると言う者も多い．1\nシリコン表面に酸化被膜を形成することで不純物原子の移動を阻止できることは (Frosch and Derick, 1957) が発見した．\n(Sze and Lee, 2012, p. 6) など．"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#最初の-ic",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#最初の-ic",
-    "title": "半導体入門",
-    "section": "2.5 最初の IC",
-    "text": "2.5 最初の IC\n以上の技術を用いて，最初の IC は Texas Instruments の Jack Kilby によって作られた．\n\n\n\nMiniaturized electronic circuits. U.S. Patent 3,138,743A (Kilby, 1959)\n\n\nJack Kilby はその後 2000 年にノーベル物理学賞を受賞する．"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#最初の-ic-1",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#最初の-ic-1",
-    "title": "半導体入門",
-    "section": "2.6 最初の IC",
-    "text": "2.6 最初の IC\n\n\n\n設計図\n\n\n\n双極トランジスタ が１つ\n抵抗器３つ\nコンデンサ１つ\n全てゲルマニウムからなる．\n回路は導線"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#次の-ic",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#次の-ic",
-    "title": "半導体入門",
-    "section": "2.7 次の IC",
-    "text": "2.7 次の IC\nFairchild Semiconductor の Robert Noyce によって作られた．\n\n\n\nSemiconductor Device-and-Lead Structure. U.S. Patent 2,981,877A (Noyce, 1959)\n\n\nRobert Noyce はその後 Gordon Moore と Intel も創業し，the Mayor of Silicon Valley と呼ばれる．"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#次の-ic-1",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#次の-ic-1",
-    "title": "半導体入門",
-    "section": "2.8 次の IC",
-    "text": "2.8 次の IC\n\n\n\n設計図\n\n\n\nリトグラフによりアルミニウムの配線を形成\nPlanar Process (Hoerni, 1960) （現在主流の製法）で製造\n１つのシリコン基盤上に作った\n→ monolithic で大量生産が可能\n\n1961 年から 1965 年は，NASA の Appolo 計画からの特需もあり，半導体産業は大きく成長した．"
-  },
-  {
-    "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#設計-design",
-    "href": "posts/2024/半導体/Semiconductor1_Slides.html#設計-design",
-    "title": "半導体入門",
-    "section": "3.1 設計 (design)",
-    "text": "3.1 設計 (design)\n\n世界初の１チップ CPU の設計図 from (Hoff et al., 1996, p. 11)"
+    "objectID": "static/AboutUs.html#司馬博文ぷに-hp",
+    "href": "static/AboutUs.html#司馬博文ぷに-hp",
+    "title": "ぷにうぱ",
+    "section": "司馬博文（ぷに）  HP",
+    "text": "司馬博文（ぷに）  HP\n\n 博士（統計科学） 2028（見込み）\n総合研究大学院大学（統計科学コース）\n\n\n 学士（理学） 2023\n東京大学理学部数学科"
   }
 ]

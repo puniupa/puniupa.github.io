@@ -14,5 +14,3 @@ page-layout: full
 title-block-banner: true
 comments: false
 ---
-
-[カテゴリ一覧](/static/AllCategories.qmd)

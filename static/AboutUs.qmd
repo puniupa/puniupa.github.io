@@ -25,7 +25,7 @@ number-sections: false
 
 ::: {#first-column}
 
-## 学歴
+## 司馬博文（ぷに） [{{< fa earth-asia >}} HP](https://162348.github.io/){.script-size}
 
 ##### [{{< fa graduation-cap >}}]{.color-united} 博士（統計科学） 2028（見込み）
 
@@ -39,7 +39,7 @@ number-sections: false
 
 ::: {#second-column}
 
-## 学歴
+## 寒河江志織（うぱ）
 
 ##### [{{< fa graduation-cap >}}]{.color-united} 法務博士（専門職） 2025（見込み）
 
