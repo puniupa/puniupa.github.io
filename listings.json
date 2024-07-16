@@ -1,44 +1,15 @@
 [
   {
-    "listing": "/static/AllCategories.html",
+    "listing": "/index.html",
     "items": [
-      "/posts/憲法/憲法.html",
-      "/posts/行政法/行政法［司法試験］.html",
-      "/posts/商法/商法［司法試験］.html",
-      "/posts/民訴法/民事訴訟法［司法試験］.html",
-      "/posts/民訴法/民事訴訟法.html",
-      "/posts/刑法/刑法［司法試験］.html",
-      "/posts/刑法/刑法各論（期末試験対策）1.html",
-      "/posts/刑法/刑法各論（期末試験対策）2.html",
-      "/posts/刑法/刑法各論（期末試験対策）3.html",
-      "/posts/刑訴法/刑事訴訟法［司法試験］.html",
-      "/posts/刑訴法/捜査.html",
-      "/posts/刑訴法/訴訟.html",
-      "/posts/知的財産法/著作権法［司法試験］.html",
-      "/posts/知的財産法/特許法［司法試験］.html",
-      "/posts/知的財産法/知的財産法［司法試験］.html"
+      "/posts/2024/半導体/Semiconductor2.html",
+      "/posts/2024/半導体/Semiconductor1.html",
+      "/posts/2024/AI/BAI.html",
+      "/posts/2024/半導体/Semiconductor0.html"
     ]
   },
   {
-    "listing": "/index.html",
-    "items": [
-      "/posts/知的財産法/著作権法［司法試験］.html",
-      "/posts/知的財産法/特許法［司法試験］.html",
-      "/posts/憲法/憲法.html",
-      "/posts/民訴法/民事訴訟法［司法試験］.html",
-      "/posts/民訴法/民事訴訟法.html",
-      "/posts/刑訴法/刑事訴訟法［司法試験］.html",
-      "/posts/刑訴法/捜査.html",
-      "/posts/刑訴法/訴訟.html",
-      "/posts/知的財産法/知的財産法［司法試験］.html",
-      "/posts/行政法/行政法［司法試験］.html",
-      "/posts/会社法/会社法上の大きな問題.html",
-      "/posts/商法/商法［司法試験］.html",
-      "/posts/刑法/刑法［司法試験］.html",
-      "/posts/会社法/会社法（期末試験対策）.html",
-      "/posts/刑法/刑法各論（期末試験対策）2.html",
-      "/posts/刑法/刑法各論（期末試験対策）3.html",
-      "/posts/刑法/刑法各論（期末試験対策）1.html"
-    ]
+    "listing": "/static/AllCategories.html",
+    "items": []
   }
 ]

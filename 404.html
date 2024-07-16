@@ -2,12 +2,12 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.557">
+<meta name="generator" content="quarto-1.5.54">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Legal Dragoman - Page Not Found 404</title>
+<title>Page Not Found 404 – ぷにうぱ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,7 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="/site_libs/quarto-search/fuse.min.js"></script>
 <script src="/site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="/">
-<link href="/./サンショウウオ.jpg" rel="icon" type="image/jpeg">
+<link href="/./ぷにうぱ.png" rel="icon" type="image/png">
 <script src="/site_libs/quarto-html/quarto.js"></script>
 <script src="/site_libs/quarto-html/popper.min.js"></script>
 <script src="/site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -73,11 +73,15 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="/styles.css">
-<meta property="og:title" content="Legal Dragoman - Page Not Found 404">
-<meta property="og:image" content="https://Legal-Dragoman.github.io/サンショウウオ.jpg">
-<meta property="og:site_name" content="Legal Dragoman">
-<meta name="twitter:title" content="Legal Dragoman - Page Not Found 404">
-<meta name="twitter:image" content="https://Legal-Dragoman.github.io/サンショウウオ.jpg">
+<meta property="og:title" content="Page Not Found 404 – ぷにうぱ">
+<meta property="og:image" content="https://puniupa.github.io/ぷにうぱ.png">
+<meta property="og:site_name" content="ぷにうぱ">
+<meta property="og:image:height" content="1024">
+<meta property="og:image:width" content="1024">
+<meta name="twitter:title" content="Page Not Found 404 – ぷにうぱ">
+<meta name="twitter:image" content="https://puniupa.github.io/ぷにうぱ.png">
+<meta name="twitter:image-height" content="1024">
+<meta name="twitter:image-width" content="1024">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -89,23 +93,26 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="/index.html">
-    <span class="navbar-title">Legal Dragoman</span>
+    <span class="navbar-title">ぷにうぱ</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link" href="/static/AllCategories.html"> 
-<span class="menu-text">日々の勉強</span></a>
+<span class="menu-text">カテゴリ一覧</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="/static/AboutUs.html"> 
+<span class="menu-text">自己紹介</span></a>
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
-    <a href="https://github.com/Legal-Dragoman/Legal-Dragoman.github.io/" title="" class="quarto-navigation-tool px-1" aria-label=""><i class="bi bi-github"></i></a>
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -141,14 +148,14 @@ ul.task-list li input[type="checkbox"] {
 <figure class="figure">
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://162348.github.io/"><img src="/static/Files/秋田犬.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Keep yourself hydrated"></a></p>
+<p><a href="/./index.html"><img src="/static/Files/秋田犬.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Keep yourself hydrated"></a></p>
 </figure>
 </div>
 <figcaption>Keep yourself hydrated</figcaption>
 </figure>
 </div>
 <section id="back-to-the-top" class="level1">
-<h1><a href="https://Legal-Dragoman.github.io/">Back to the top</a></h1>
+<h1><a href="/./index.html">Back to the top</a></h1>
 
 
 </section>
@@ -189,18 +196,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -232,15 +228,37 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/Legal-Dragoman\.github\.io\/");
+      var filterRegex = new RegExp("https:\/\/puniupa\.github\.io\/");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
