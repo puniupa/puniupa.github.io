@@ -1,6 +1,6 @@
 ---
 title: "Recent Posts"
-description: "Notes by a Legal Dragoman"
+description: "法律家と数学者によるブログ"
 listing:
   contents: posts
   sort: "date desc"
@@ -15,4 +15,4 @@ title-block-banner: true
 comments: false
 ---
 
-[Categories](/static/AllCategories.qmd)
+[カテゴリ一覧](/static/AllCategories.qmd)

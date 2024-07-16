@@ -1,30 +1,32 @@
 project:
   type: website
   output-dir: docs
-  # render: # https://quarto.org/docs/projects/quarto-projects.html#render-targets
-  #   - "/posts/*"
-  #   - "/static/*"
-  #   - "*.qmd"
+  render: # https://quarto.org/docs/projects/quarto-projects.html#render-targets
+    - "/posts/*"
+    - "/static/*"
+    - "*.qmd"
+  preview: 
+    port: 1624
 
 website:
-  title: "Legal Dragoman"
-  image: サンショウウオ.jpg
-  favicon: サンショウウオ.jpg
-  site-url: https://Legal-Dragoman.github.io/
-  description: "法学で世界を渡り歩こう"
+  title: "ぷにうぱ"
+  image: ぷにうぱ.png
+  favicon: ぷにうぱ.png
+  site-url: https://puniupa.github.io/
+  description: "法学＋数学で世界を渡り歩こう"
   navbar:
     right:
-      - text: "日々の勉強"
+      - text: "カテゴリ一覧"
         file: ./static/AllCategories.qmd
     #   - text: "Sessions"
     #     file: ./static/Sessions.qmd
     #   - text: "Slides"
     #     file: ./static/Slides.qmd
-    #   - text: "自己紹介"
-    #     file: ./static/Japanese.qmd
-    tools:
-      - icon: github
-        href: https://github.com/Legal-Dragoman/Legal-Dragoman.github.io/
+      - text: "自己紹介"
+        file: ./static/AboutUs.qmd
+    # tools:
+    #   - icon: github
+    #     href: https://github.com/puniupa/puniupa.github.io/
       # - icon: envelope
       #   href: mailto:shiba.hirofumi@ism.ac.jp
       # - icon: twitter
@@ -55,7 +57,7 @@ website:
   # google-analytics: "G-36GX2G6GLL"
   comments:
     giscus:
-      repo: Legal-Dragoman/Legal-Dragoman.github.io
+      repo: puniupa/puniupa.github.io
       repo-id: R_kgDOMOsIVA
       category: Announcements
       category-id: DIC_kwDOMOsIVM4CgazP
@@ -66,7 +68,7 @@ website:
 
 format:
   html:
-    theme: united
+    theme: united  # #E95420
     # theme: 
     # light: minty
     # dark: cyborg
