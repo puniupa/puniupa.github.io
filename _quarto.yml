@@ -33,21 +33,19 @@ website:
       #   href: https://twitter.com/ano2math5
   # back-to-top-navigation: true
   page-navigation: true
-  # page-footer: 
-  #   # border: true
-  #   left: 
-  #     - text: "Hirofumi Shiba"
-  #       href: https://162348.github.io/
-  #   right:
-  #     - icon: github
-  #       href: https://github.com/162348/162348.github.io/
-  #     - icon: twitter
-  #       href: https://twitter.com/ano2math5
-  #     - icon: envelope
-  #       href: mailto:shiba.hirofumi@ism.ac.jp
-  #     - icon: rss
-  #       href: blog.xml
-  #   background: "#80c4ac"
+  page-footer: 
+    # border: true
+    left: 
+      - text: "Hirofumi Shiba, Shiori Sagae"
+        href: https://162348.github.io/
+    right:
+      - icon: github
+        href: https://github.com/162348/162348.github.io/
+      - icon: envelope
+        href: mailto:puniupa48@gmail.com
+      - icon: rss
+        href: blog.xml
+    background: "#E95420"
   # repo-url: https://github.com/162348/162348.github.io/
   # repo-actions: [edit, issue]
   search:
@@ -68,6 +66,7 @@ website:
 
 format:
   html:
+    mainfont: "BIZ UDPGothic"
     theme: united  # #E95420
     # theme: 
     # light: minty
@@ -86,6 +85,7 @@ format:
     fig-height: 4
     toc-title: "目次"
     abstract-title: "概要"
+    include-in-header: include-in-header.html
 
 crossref:
     eq-prefix: 式

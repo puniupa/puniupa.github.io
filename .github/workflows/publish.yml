@@ -16,6 +16,15 @@ jobs:
 
       - name: Set up Quarto
         uses: quarto-dev/quarto-actions/setup@v2
+      
+      - name: Install Japanese Fonts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Setting GH_TOKEN is recommended as installing TinyTeX will query the github API.
+        run: |
+          git clone https://github.com/yuru7/udev-gothic.git
+          cd udev-gothic
+          sudo cp -r ./source /usr/share/fonts/truetype/udev-gothic
+          sudo fc-cache -f -v
 
       - name: Render and Publish
         uses: quarto-dev/quarto-actions/publish@v2

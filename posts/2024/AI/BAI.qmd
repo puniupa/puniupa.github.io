@@ -4,12 +4,6 @@ subtitle: "所信表明を兼ねて"
 author: "司馬博文"
 date: 3/20/2024
 categories: [ベイズ統計, AI]
-toc: true
-number-sections: true
-code-block-bg: true
-code-block-border-left: "#5AB5BA"
-code-overflow: wrap
-code-fold: true
 bibliography: 
     - ../../../mathematics.bib
     - ../../../bib.bib
