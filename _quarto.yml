@@ -10,8 +10,8 @@ project:
 
 website:
   title: "ぷにうぱ"
-  image: ぷにうぱ.png
-  favicon: ぷにうぱ.png
+  image: ぷにうぱ.jpg
+  favicon: ぷにうぱ.jpg
   site-url: https://puniupa.github.io/
   description: "法学＋数学で世界を渡り歩こう"
   navbar:
