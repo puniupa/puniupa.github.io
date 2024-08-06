@@ -22,8 +22,8 @@ website:
     #     file: ./static/Sessions.qmd
     #   - text: "Slides"
     #     file: ./static/Slides.qmd
-      - text: "自己紹介"
-        file: ./static/AboutUs.qmd
+      # - text: "自己紹介"
+      #   file: ./static/AboutUs.qmd
     # tools:
     #   - icon: github
     #     href: https://github.com/puniupa/puniupa.github.io/
@@ -85,6 +85,8 @@ format:
     fig-height: 4
     toc-title: "目次"
     abstract-title: "概要"
+    author-title: 著者
+    published-title: 日付
     include-in-header: include-in-header.html
 
 crossref:

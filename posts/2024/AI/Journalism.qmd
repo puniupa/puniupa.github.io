@@ -6,6 +6,7 @@ categories: [AI, Disinformation]
 bibliography: 
     - ../../../mathematics.bib
     - ../../../bib.bib
+    - Journalism.bib
 csl: ../../../apalike.csl
 abstract: 去る４月，イタリアペルージアにて，国際ジャーナリズム・フェスティバルが開催され，AI とディスインフォメーションは中心的な議題の１つであった．そのプログラムと議論の内容をまとめることで，現在の生成 AI とディスインフォメーションにおける論点を洗い出す．
 ---

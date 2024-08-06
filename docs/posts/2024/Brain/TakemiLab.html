@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="司馬 博文">
+<meta name="author" content="ぷに">
 
-<title>ぷにうぱ - GitHub の使い方</title>
+<title>ぷにうぱ - 武見研究室訪問</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,7 +21,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -76,13 +95,13 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../../styles.css">
-<meta property="og:title" content="ぷにうぱ - GitHub の使い方">
-<meta property="og:description" content="今年の都知事選では，GitHub をうまく用いた選挙活動が盛り上がりました．本ブログのように，個々人が情報発信をするプラットフォームを自分で持つことの意義は，今後ますます増していくでしょう（Note や Qiita などの文章共有サービスはいつ終了するかわかりません）．その際，GitHub は極めて便利なツールになります．法律家の方など，GitHub をはじめとして技術に詳しくなかった方も，これを機に GitHub に入門するためのチュートリアルをここにまとめていきたいと思います．">
-<meta property="og:image" content="https://puniupa.github.io/posts/2024/Lifestyle/ぷにうぱ.jpg">
+<meta property="og:title" content="ぷにうぱ - 武見研究室訪問">
+<meta property="og:description" content="法学＋数学で世界を渡り歩こう">
+<meta property="og:image" content="https://puniupa.github.io/posts/2024/Brain/ぷにうぱ.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
-<meta name="twitter:title" content="ぷにうぱ - GitHub の使い方">
-<meta name="twitter:description" content="今年の都知事選では，GitHub をうまく用いた選挙活動が盛り上がりました．本ブログのように，個々人が情報発信をするプラットフォームを自分で持つことの意義は，今後ますます増していくでしょう（Note や Qiita などの文章共有サービスはいつ終了するかわかりません）．その際，GitHub は極めて便利なツールになります．法律家の方など，GitHub をはじめとして技術に詳しくなかった方も，これを機に GitHub に入門するためのチュートリアルをここにまとめていきたいと思います．">
-<meta name="twitter:image" content="https://puniupa.github.io/posts/2024/Lifestyle/ぷにうぱ.jpg">
+<meta name="twitter:title" content="ぷにうぱ - 武見研究室訪問">
+<meta name="twitter:description" content="法学＋数学で世界を渡り歩こう">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/2024/Brain/ぷにうぱ.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -123,10 +142,8 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#github-とは何か" id="toc-github-とは何か" class="nav-link active" data-scroll-target="#github-とは何か"><span class="header-section-number">1</span> GitHub とは何か</a>
-  <ul class="collapse">
-  <li><a href="#一言で言うと" id="toc-一言で言うと" class="nav-link" data-scroll-target="#一言で言うと"><span class="header-section-number">1.1</span> 一言で言うと……</a></li>
-  </ul></li>
+  <li><a href="#ムーンショット型研究開発事業-internet-of-brains" id="toc-ムーンショット型研究開発事業-internet-of-brains" class="nav-link active" data-scroll-target="#ムーンショット型研究開発事業-internet-of-brains"><span class="header-section-number">1</span> ムーンショット型研究開発事業 Internet of Brains</a></li>
+  <li><a href="#sato2024" id="toc-sato2024" class="nav-link" data-scroll-target="#sato2024"><span class="header-section-number">2</span> <span class="citation" data-cites="Sato+2024">(Sato et al., 2024)</span></a></li>
   </ul>
 </nav>
     </div>
@@ -135,9 +152,10 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">GitHub の使い方</h1>
+<h1 class="title">武見研究室訪問</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Lifestyle</div>
+    <div class="quarto-category">Brain Tech</div>
+    <div class="quarto-category">Blog</div>
   </div>
   </div>
 
@@ -146,63 +164,50 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">著者</div>
     <div class="quarto-title-meta-contents">
-             <p>司馬 博文 </p>
+             <p>ぷに </p>
           </div>
   </div>
     
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">日付</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">7/16/2024</p>
+      <p class="date">8/06/2024</p>
     </div>
   </div>
   
     
   </div>
   
-<div>
-  <div class="abstract">
-    <div class="block-title">概要</div>
-    今年の都知事選では，GitHub をうまく用いた選挙活動が盛り上がりました．本ブログのように，個々人が情報発信をするプラットフォームを自分で持つことの意義は，今後ますます増していくでしょう（Note や Qiita などの文章共有サービスはいつ終了するかわかりません）．その際，GitHub は極めて便利なツールになります．法律家の方など，GitHub をはじめとして技術に詳しくなかった方も，これを機に GitHub に入門するためのチュートリアルをここにまとめていきたいと思います．
-  </div>
-</div>
 
 
 </header>
 
 
-<section id="github-とは何か" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="github-とは何か"><span class="header-section-number">1</span> GitHub とは何か</h2>
-<section id="一言で言うと" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="一言で言うと"><span class="header-section-number">1.1</span> 一言で言うと……</h3>
-<p>まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．</p>
-<div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<ul>
-<li>GitHub = コードに特化した Google Drive</li>
-<li>Git = コードベースで動く，ローカル上の Google Drive</li>
-</ul>
+<section id="ムーンショット型研究開発事業-internet-of-brains" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="ムーンショット型研究開発事業-internet-of-brains"><span class="header-section-number">1</span> ムーンショット型研究開発事業 Internet of Brains</h2>
+<p>武見充晃先生は，内閣府の政策である <a href="https://www8.cao.go.jp/cstp/moonshot/index.html">ムーンショット型研究開発制度</a> に採択されているプロジェクト <a href="https://brains.link/">Internet of Brains</a> の課題推進者の一人である．</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="Images/DriveLocal.png" class="img-fluid figure-img"></p>
-<figcaption>ローカル上の Google Drive のスクリーンショット</figcaption>
+<p><img src="Files/IoB.png" class="img-fluid figure-img"></p>
+<figcaption>画像をクリックでリンクを開く</figcaption>
 </figure>
 </div>
-</div>
-</div>
-</div>
+<p>武見先生は中でも，<a href="https://www.jst.go.jp/moonshot/program/goal1/appeal/12_kanai_ap04.html">課題４「共通基盤技術」</a>として登録されている「身体的能力と知覚能力の拡張による身体の制約からの解放」をテーマに研究を遂行している．</p>
+</section>
+<section id="sato2024" class="level2" data-number="2">
+
+
 
 
 </section>
-</section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">2 (Sato et al., 2024)</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Sato+2024" class="csl-entry" role="listitem">
+Sato, M., Tomeoka, K., Horiguchi, I., Arulkumaran, K., Kanai, R., and Sasai, S. (2024). <a href="https://arxiv.org/abs/2407.07595">Scaling law in neural data: Non-invasive speech decoding with 175 hours of EEG data</a>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

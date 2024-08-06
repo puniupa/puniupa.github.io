@@ -1,0 +1,22 @@
+---
+title: "武見研究室訪問"
+author: "ぷに"
+date: 8/6/2024
+categories: [Brain Tech, Blog]
+bibliography: 
+    - ../../../mathematics.bib
+    - ../../../bib.bib
+csl: ../../../apalike.csl
+
+---
+
+## ムーンショット型研究開発事業 Internet of Brains
+
+武見充晃先生は，内閣府の政策である [ムーンショット型研究開発制度](https://www8.cao.go.jp/cstp/moonshot/index.html) に採択されているプロジェクト [Internet of Brains](https://brains.link/) の課題推進者の一人である．
+
+![画像をクリックでリンクを開く](Files/IoB.png)
+
+武見先生は中でも，[課題４「共通基盤技術」](https://www.jst.go.jp/moonshot/program/goal1/appeal/12_kanai_ap04.html)として登録されている「身体的能力と知覚能力の拡張による身体の制約からの解放」をテーマに研究を遂行している．
+
+## [@Sato+2024]
+
