@@ -1,7 +1,7 @@
 ---
 title: "半導体入門"
 subtitle: "現代社会の「魔素」が見えるように"
-author: "司馬博文"
+author: "ぷに"
 date: "3/20/2024"
 categories: [半導体, スライド]
 title-slide-attributes:
@@ -19,7 +19,7 @@ format:
     logo: ../../../profile.jpg
     css: ../../../slides.css
     footer: |
-      <a style="color: #E95420;" href="Semiconductor1.qmd">司馬博文</a>
+      <a style="color: #E95420;" href="Semiconductor1.qmd">ぷに</a>
     scrollable: true
     smaller: false
     controls: true

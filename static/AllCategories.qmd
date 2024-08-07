@@ -32,8 +32,17 @@ listing:
         sort-ui: true
 ---
 
+::: {layout-ncol=2 layout-valign="bottom"}
 
-### [半導体](https://162348.github.io/notes.html#category=半導体)
+[![半導体（画像をタップでジャンプ）](Files/Semi.png)](#semiconductor)
+
+[![AI（画像をタップでジャンプ）](../posts/2024/AI/Images/model_sizes.png)](#ai)
+
+:::
+
+---
+
+### [Semiconductor](https://162348.github.io/notes.html#category=半導体)
 
 ::: {#半導体-listing}
 :::
