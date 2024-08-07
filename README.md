@@ -9,8 +9,9 @@
 ## ブログの更新方法
 
 1. `/posts/20XX/Category` ディレクトリの中に新しいファイルを `blog.qmd` という形で作成し，記事を書き込む．
-2. `git add .` で変更を追加する．
-3. `git commit -m "added new posts"` で変更をコミットする．コメント "added new posts" は適宜変更．
-4. `git push` で変更をプッシュする．
+2. 記事をプレビューするには `Cmd + Shift + K`．
+3. `git add .` で変更を追加する．
+4. `git commit -m "added new posts"` で変更をコミットする．コメント "added new posts" は適宜変更．
+5. `git push` で変更をプッシュする．
 
 変更がプッシュされると，GitHub Actions により自動的にブログが更新され，公開されます．

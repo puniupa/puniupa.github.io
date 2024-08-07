@@ -1,0 +1,13 @@
+---
+title: "うぱGitHub挑戦"
+author: うぱ
+date: 8/7/2024
+categories: [Lifestyle]
+bibliography: 
+    - ../../../assets/mathematics.bib
+    - ../../../assets/bib.bib
+csl: ../../../assets/apalike.csl
+abstract: GitHubを初めて使う法学徒のメモ
+---
+
+## すごい！

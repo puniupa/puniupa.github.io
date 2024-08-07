@@ -1,6 +1,6 @@
 ---
 title: "GitHub の使い方"
-author: "司馬 博文"
+author: ぷに
 date: 7/16/2024
 categories: [Lifestyle]
 bibliography: 
