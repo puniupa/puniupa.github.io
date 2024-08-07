@@ -2,7 +2,7 @@
 title: "ぷにうぱ"
 description: "数学者と法律家が世界を渡り歩く"
 comments: false
-image: ../ぷにうぱ.jpg
+image: ../assets/ぷにうぱ.jpg
 about:
   template: marquee
   links:

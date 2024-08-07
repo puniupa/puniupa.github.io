@@ -14,6 +14,20 @@
     "text": "半導体\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n半導体の微細化技術\n\n\n\n半導体\n\n\n\n\n2024-03-23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\nスライド\n\n\n\n\n2024-03-20\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\n\n\n2024-02-26\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\nAI\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n生成 AI 開発企業の論点\n\n\n\nAI\n\n\nDisinformation\n\n\n\n\n2024-07-16\n\n\n\n\n\n\n\n\n\n\n\n\nこれからはじめるベイズ機械学習\n\n\n所信表明を兼ねて\n\n\n\nベイズ統計\n\n\nAI\n\n\n\n\n2024-03-20\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
+    "objectID": "posts/2024/Brain/TakemiLab.html",
+    "href": "posts/2024/Brain/TakemiLab.html",
+    "title": "武見研究室訪問",
+    "section": "",
+    "text": "武見充晃先生は，内閣府の政策である ムーンショット型研究開発制度 に採択されているプロジェクト Internet of Brains の課題推進者の一人である．\n\n\n\n画像をクリックでリンクを開く\n\n\n武見先生は中でも，課題４「共通基盤技術」として登録されている「身体的能力と知覚能力の拡張による身体の制約からの解放」をテーマに研究を遂行している．"
+  },
+  {
+    "objectID": "posts/2024/Brain/TakemiLab.html#ムーンショット型研究開発事業-internet-of-brains",
+    "href": "posts/2024/Brain/TakemiLab.html#ムーンショット型研究開発事業-internet-of-brains",
+    "title": "武見研究室訪問",
+    "section": "",
+    "text": "武見充晃先生は，内閣府の政策である ムーンショット型研究開発制度 に採択されているプロジェクト Internet of Brains の課題推進者の一人である．\n\n\n\n画像をクリックでリンクを開く\n\n\n武見先生は中でも，課題４「共通基盤技術」として登録されている「身体的能力と知覚能力の拡張による身体の制約からの解放」をテーマに研究を遂行している．"
+  },
+  {
     "objectID": "posts/2024/AI/BAI.html",
     "href": "posts/2024/AI/BAI.html",
     "title": "これからはじめるベイズ機械学習",
@@ -110,6 +124,20 @@
     "title": "半導体入門",
     "section": "Footnotes",
     "text": "Footnotes\n\n\n(Böer and Pohl, 2018, p. 4), (Huebener, 2019, p. 73) Chapter 6．金属が電気を通すのは，伝導帯が部分的に電子によって占められているためである．半導体は，（例えば温度を上げることなどにより）価電子帯の電子を簡単に伝導帯に移すことができるため，思い通りに金属のような振る舞いも，絶縁体のような振る舞いも引き出すことができる．しかし，半導体の自由電子は，金属に比べて極めて少なく．Boltzmann 統計に従い，金属の自由電子は Fermi 統計に従う (Madelung, 1978, p. 17)．一方で，金属の導電性は電子の密度とは関係がなく，金属内の電子密度は温度により一定である (Madelung, 1978, p. 211)．↩︎\n(Huebener, 2019, p. 75)．↩︎\n(Huebener, 2019, p. 73) 特に伝導体と半導体の境界部分で強く見られた．↩︎\n現代では，このような接合を金属-半導体接合 (metal-semiconductor contact) または Schottky 接合 といい，Ohmic 接合と対比する．↩︎\n(Patterson and Hennessy, 2014, p. 27) も参照．↩︎\n一方で GaAs の形成は Bridgman 法 (Bridgman, 1925) による．最も，この化合物が半導体であると発見されたのは (Welker, 1952) になってようやくのことである．(Sze and Lee, 2012, p. 6) も参照．↩︎\n(Sze and Lee, 2012, p. 6) など．↩︎\n今日の IC ではトランジスタ層は１層のみで，絶縁層で仕切ることで２〜８層の金属導体の配線層をその上に設ける． (Patterson and Hennessy, 2014, p. 26)．↩︎\n(Sze and Lee, 2012, p. 4) など．↩︎\n(Patterson and Hennessy, 2014, p. 41)．↩︎\n(Patterson and Hennessy, 2014, p. 379)．↩︎\n(Hoff et al., 1996) が開発者自ら歴史を振り返っている．当時は Intel も出来て３年しか経っていない新興企業であった．↩︎\n(Sze and Lee, 2012, p. 8) など．↩︎\n(Patterson and Hennessy, 2014, p. 379)．↩︎\n(Sze and Lee, 2012, p. 8)，(Patterson and Hennessy, 2014, p. 379) 参照．↩︎"
+  },
+  {
+    "objectID": "posts/2024/Lifestyle/Git.html",
+    "href": "posts/2024/Lifestyle/Git.html",
+    "title": "GitHub の使い方",
+    "section": "",
+    "text": "まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．\n\n\n\n\n\n\n\nGitHub = コードに特化した Google Drive\nGit = コードベースで動く，ローカル上の Google Drive\n\n\n\n\nローカル上の Google Drive のスクリーンショット"
+  },
+  {
+    "objectID": "posts/2024/Lifestyle/Git.html#github-とは何か",
+    "href": "posts/2024/Lifestyle/Git.html#github-とは何か",
+    "title": "GitHub の使い方",
+    "section": "",
+    "text": "まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．\n\n\n\n\n\n\n\nGitHub = コードに特化した Google Drive\nGit = コードベースで動く，ローカル上の Google Drive\n\n\n\n\nローカル上の Google Drive のスクリーンショット"
   },
   {
     "objectID": "posts/2024/半導体/Semiconductor2.html",
@@ -350,18 +378,39 @@
     "text": "Footnotes\n\n\n(Böer and Pohl, 2018, p. 4), (Huebener, 2019, p. 73) Chapter 6．金属が電気を通すのは，伝導帯が部分的に電子によって占められているためである．半導体は，（例えば温度を上げることなどにより）価電子帯の電子を簡単に伝導帯に移すことができるため，思い通りに金属のような振る舞いも，絶縁体のような振る舞いも引き出すことができる．しかし，半導体の自由電子は，金属に比べて極めて少なく．Boltzmann 統計に従い，金属の自由電子は Fermi 統計に従う (Madelung, 1978, p. 17)．一方で，金属の導電性は電子の密度とは関係がなく，金属内の電子密度は温度により一定である (Madelung, 1978, p. 211)．↩︎\n(Huebener, 2019, p. 75)．↩︎\n(Huebener, 2019, p. 73) 特に伝導体と半導体の境界部分で強く見られた．↩︎\n現代では，このような接合を金属-半導体接合 (metal-semiconductor contact) または Schottky 接合 といい，Ohmic 接合と対比する．↩︎\n(Patterson and Hennessy, 2014, p. 27) も参照．↩︎\n一方で GaAs の形成は Bridgman 法 (Bridgman, 1925) による．最も，この化合物が半導体であると発見されたのは (Welker, 1952) になってようやくのことである．(Sze and Lee, 2012, p. 6) も参照．↩︎\n(Sze and Lee, 2012, p. 6) など．↩︎"
   },
   {
-    "objectID": "static/AboutUs.html#学歴",
-    "href": "static/AboutUs.html#学歴",
-    "title": "ぷにうぱ",
-    "section": "学歴",
-    "text": "学歴\n\n 博士（統計科学） 2028（見込み）\n総合研究大学院大学（統計科学コース）\n\n\n 学士（理学） 2023\n東京大学理学部数学科"
+    "objectID": "posts/2024/AI/Journalism.html",
+    "href": "posts/2024/AI/Journalism.html",
+    "title": "生成 AI 開発企業の論点",
+    "section": "",
+    "text": "International Journalism Festival はイタリアのペルージアにて，2006 年から毎年開催されている．"
   },
   {
-    "objectID": "static/AboutUs.html#学歴-1",
-    "href": "static/AboutUs.html#学歴-1",
+    "objectID": "posts/2024/AI/Journalism.html#内部告発者の言うことを聞く準備はできているか-ijf2024",
+    "href": "posts/2024/AI/Journalism.html#内部告発者の言うことを聞く準備はできているか-ijf2024",
+    "title": "生成 AI 開発企業の論点",
+    "section": "1 内部告発者の言うことを聞く準備はできているか？ (Festival, 2024a)",
+    "text": "1 内部告発者の言うことを聞く準備はできているか？ (Festival, 2024a)\n\n1.1 導入\n生成 AI 開発には大規模な計算資源とデータセットが必要であり，これらを揃えられる企業は現状数えるほどしかない．\nそのため，必然的に大規模かつ組織的な企業に限られ，OpenAI をはじめとして情報統制が厳格であり，その内部状況は内部告発者 (whistleblower) や退職・転職者によるブログやソーシャルメディアに頼り切りになっているのが現状である．\n仮に，社会的問題の萌芽がどこかの企業で見られようと，我々がそれを知るには，内部告発者に頼るしかない．しかし，内部告発者とは開発者に他ならず，その内容は極めて専門的であるかもしれず，我々がその発信の内容を聞き入れて，適切な行動に繋げる準備ができているとは言い難い．\n生成 AI 開発を監視し，生じ得る問題に準備するためには，我々も出てくる情報に対して準備ができている状態でなければならない．"
+  },
+  {
+    "objectID": "posts/2024/AI/Journalism.html#生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo",
+    "href": "posts/2024/AI/Journalism.html#生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo",
+    "title": "生成 AI 開発企業の論点",
+    "section": "2 生成 AI を高度に活用した偽情報はどのように見抜けるか？ (Festival, 2024b)",
+    "text": "2 生成 AI を高度に活用した偽情報はどのように見抜けるか？ (Festival, 2024b)"
+  },
+  {
+    "objectID": "static/AboutUs.html#司馬博文ぷに-hp",
+    "href": "static/AboutUs.html#司馬博文ぷに-hp",
     "title": "ぷにうぱ",
-    "section": "学歴",
-    "text": "学歴\n\n 法務博士（専門職） 2025（見込み）\n東京大学大学院法学政治学研究科\n\n\n 学士（法学） 2023\n東京大学法学部第１類"
+    "section": "司馬博文（ぷに）  HP",
+    "text": "司馬博文（ぷに）  HP\n\n 博士（統計科学） 2028（見込み）\n総合研究大学院大学（統計科学コース）\n\n\n 学士（理学） 2023\n東京大学理学部数学科"
+  },
+  {
+    "objectID": "static/AboutUs.html#寒河江志織うぱ",
+    "href": "static/AboutUs.html#寒河江志織うぱ",
+    "title": "ぷにうぱ",
+    "section": "寒河江志織（うぱ）",
+    "text": "寒河江志織（うぱ）\n\n 法務博士（専門職） 2025（見込み）\n東京大学大学院法学政治学研究科\n\n\n 学士（法学） 2023\n東京大学法学部第１類"
   },
   {
     "objectID": "static/AboutUs.html#キーワード",
@@ -376,82 +425,5 @@
     "title": "ぷにうぱ",
     "section": "興味・関心",
     "text": "興味・関心\n生成 AI，半導体をはじめとした世界を変える科学技術を，最もよく伸ばす環境を日本に作りたい，という思いで活動しています．先端技術には技術的側面と社会的側面の２つの側面があり，技術とコミュニティの双方の発展には知見の交流が何より重要です．そのきっかけとして，このブログでは日々の活動と学びを発信していきたいと考えています．"
-  },
-  {
-    "objectID": "static/AboutUs.html#司馬博文ぷに",
-    "href": "static/AboutUs.html#司馬博文ぷに",
-    "title": "ぷにうぱ",
-    "section": "司馬博文（ぷに）",
-    "text": "司馬博文（ぷに）\n HP\n\n 博士（統計科学） 2028（見込み）\n総合研究大学院大学（統計科学コース）\n\n\n 学士（理学） 2023\n東京大学理学部数学科"
-  },
-  {
-    "objectID": "static/AboutUs.html#寒河江志織うぱ",
-    "href": "static/AboutUs.html#寒河江志織うぱ",
-    "title": "ぷにうぱ",
-    "section": "寒河江志織（うぱ）",
-    "text": "寒河江志織（うぱ）\n\n 法務博士（専門職） 2025（見込み）\n東京大学大学院法学政治学研究科\n\n\n 学士（法学） 2023\n東京大学法学部第１類"
-  },
-  {
-    "objectID": "static/AboutUs.html#司馬博文ぷに-hp",
-    "href": "static/AboutUs.html#司馬博文ぷに-hp",
-    "title": "ぷにうぱ",
-    "section": "司馬博文（ぷに）  HP",
-    "text": "司馬博文（ぷに）  HP\n\n 博士（統計科学） 2028（見込み）\n総合研究大学院大学（統計科学コース）\n\n\n 学士（理学） 2023\n東京大学理学部数学科"
-  },
-  {
-    "objectID": "posts/2024/Lifestyle/Git.html",
-    "href": "posts/2024/Lifestyle/Git.html",
-    "title": "GitHub の使い方",
-    "section": "",
-    "text": "まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．\n\n\n\n\n\n\n\nGitHub = コードに特化した Google Drive\nGit = コードベースで動く，ローカル上の Google Drive\n\n\n\n\nローカル上の Google Drive のスクリーンショット"
-  },
-  {
-    "objectID": "posts/2024/Lifestyle/Git.html#github-とは何か",
-    "href": "posts/2024/Lifestyle/Git.html#github-とは何か",
-    "title": "GitHub の使い方",
-    "section": "",
-    "text": "まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．\n\n\n\n\n\n\n\nGitHub = コードに特化した Google Drive\nGit = コードベースで動く，ローカル上の Google Drive\n\n\n\n\nローカル上の Google Drive のスクリーンショット"
-  },
-  {
-    "objectID": "posts/2024/Brain/TakemiLab.html",
-    "href": "posts/2024/Brain/TakemiLab.html",
-    "title": "武見研究室訪問",
-    "section": "",
-    "text": "武見充晃先生は，内閣府の政策である ムーンショット型研究開発制度 に採択されているプロジェクト Internet of Brains の課題推進者の一人である．\n\n\n\n画像をクリックでリンクを開く\n\n\n武見先生は中でも，課題４「共通基盤技術」として登録されている「身体的能力と知覚能力の拡張による身体の制約からの解放」をテーマに研究を遂行している．"
-  },
-  {
-    "objectID": "posts/2024/Brain/TakemiLab.html#ムーンショット型研究開発事業-internet-of-brains",
-    "href": "posts/2024/Brain/TakemiLab.html#ムーンショット型研究開発事業-internet-of-brains",
-    "title": "武見研究室訪問",
-    "section": "",
-    "text": "武見充晃先生は，内閣府の政策である ムーンショット型研究開発制度 に採択されているプロジェクト Internet of Brains の課題推進者の一人である．\n\n\n\n画像をクリックでリンクを開く\n\n\n武見先生は中でも，課題４「共通基盤技術」として登録されている「身体的能力と知覚能力の拡張による身体の制約からの解放」をテーマに研究を遂行している．"
-  },
-  {
-    "objectID": "posts/2024/AI/Journalism.html",
-    "href": "posts/2024/AI/Journalism.html",
-    "title": "生成 AI 開発企業の論点",
-    "section": "",
-    "text": "International Journalism Festival はイタリアのペルージアにて，2006 年から毎年開催されている．"
-  },
-  {
-    "objectID": "posts/2024/AI/Journalism.html#内部告発者の言うことを聞く準備はできているか-ijf2024",
-    "href": "posts/2024/AI/Journalism.html#内部告発者の言うことを聞く準備はできているか-ijf2024",
-    "title": "生成 AI 開発企業の論点",
-    "section": "1 内部告発者の言うことを聞く準備はできているか？ (IJF2024?)",
-    "text": "1 内部告発者の言うことを聞く準備はできているか？ (IJF2024?)\n\n1.1 導入\n生成 AI 開発には大規模な計算資源とデータセットが必要であり，これらを揃えられる企業は現状数えるほどしかない．\nそのため，必然的に大規模かつ組織的な企業に限られ，OpenAI をはじめとして情報統制が厳格であり，その内部状況は内部告発者 (whistleblower) や退職・転職者によるブログやソーシャルメディアに頼り切りになっているのが現状である．\n仮に，社会的問題の萌芽がどこかの企業で見られようと，我々がそれを知るには，内部告発者に頼るしかない．しかし，内部告発者とは開発者に他ならず，その内容は極めて専門的であるかもしれず，我々がその発信の内容を聞き入れて，適切な行動に繋げる準備ができているとは言い難い．\n生成 AI 開発を監視し，生じ得る問題に準備するためには，我々も出てくる情報に対して準備ができている状態でなければならない．"
-  },
-  {
-    "objectID": "posts/2024/AI/Journalism.html#生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo",
-    "href": "posts/2024/AI/Journalism.html#生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo",
-    "title": "生成 AI 開発企業の論点",
-    "section": "2 生成 AI を高度に活用した偽情報はどのように見抜けるか？ (IJF2024-Disinfo?)",
-    "text": "2 生成 AI を高度に活用した偽情報はどのように見抜けるか？ (IJF2024-Disinfo?)"
-  },
-  {
-    "objectID": "posts/2024/AI/Journalism.html#参考リンク",
-    "href": "posts/2024/AI/Journalism.html#参考リンク",
-    "title": "生成 AI 開発企業の論点",
-    "section": "3 参考リンク",
-    "text": "3 参考リンク"
   }
 ]

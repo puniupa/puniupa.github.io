@@ -10,8 +10,8 @@ project:
 
 website:
   title: "ぷにうぱ"
-  image: ぷにうぱ.jpg
-  favicon: ぷにうぱ.jpg
+  image: assets/ぷにうぱ.jpg
+  favicon: assets/ぷにうぱ.jpg
   site-url: https://puniupa.github.io/
   description: "法学＋数学で世界を渡り歩こう"
   navbar:
@@ -71,7 +71,7 @@ format:
     # theme: 
     # light: minty
     # dark: cyborg
-    css: styles.css
+    css: assets/styles.css
     toc: true
     number-sections: true
     highlight-style: ayu
@@ -87,7 +87,7 @@ format:
     abstract-title: "概要"
     author-title: 著者
     published-title: 日付
-    include-in-header: include-in-header.html
+    include-in-header: assets/include-in-header.html
 
 crossref:
     eq-prefix: 式

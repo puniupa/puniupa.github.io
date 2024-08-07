@@ -4,9 +4,9 @@ author: "司馬 博文"
 date: 7/16/2024
 categories: [Lifestyle]
 bibliography: 
-    - ../../../mathematics.bib
-    - ../../../bib.bib
-csl: ../../../apalike.csl
+    - ../../../assets/mathematics.bib
+    - ../../../assets/bib.bib
+csl: ../../../assets/apalike.csl
 abstract: 今年の都知事選では，GitHub をうまく用いた選挙活動が盛り上がりました．本ブログのように，個々人が情報発信をするプラットフォームを自分で持つことの意義は，今後ますます増していくでしょう（Note や Qiita などの文章共有サービスはいつ終了するかわかりません）．その際，GitHub は極めて便利なツールになります．法律家の方など，GitHub をはじめとして技術に詳しくなかった方も，これを機に GitHub に入門するためのチュートリアルをここにまとめていきたいと思います．
 ---
 

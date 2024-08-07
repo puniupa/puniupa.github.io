@@ -4,9 +4,9 @@ author: "ぷに"
 date: 8/6/2024
 categories: [Brain Tech, Blog]
 bibliography: 
-    - ../../../mathematics.bib
-    - ../../../bib.bib
-csl: ../../../apalike.csl
+    - ../../../assets/mathematics.bib
+    - ../../../assets/bib.bib
+csl: ../../../assets/apalike.csl
 
 ---
 

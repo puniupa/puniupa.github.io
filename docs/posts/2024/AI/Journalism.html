@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -21,7 +21,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -31,7 +50,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../../">
-<link href="../../../ぷにうぱ.jpg" rel="icon" type="image/jpeg">
+<link href="../../../assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
 <script src="../../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -75,14 +94,14 @@ ul.task-list li input[type="checkbox"] {
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&amp;display=swap" rel="stylesheet">
 
 
-<link rel="stylesheet" href="../../../styles.css">
+<link rel="stylesheet" href="../../../assets/styles.css">
 <meta property="og:title" content="ぷにうぱ - 生成 AI 開発企業の論点">
 <meta property="og:description" content="去る４月，イタリアペルージアにて，国際ジャーナリズム・フェスティバルが開催され，AI とディスインフォメーションは中心的な議題の１つであった．そのプログラムと議論の内容をまとめることで，現在の生成 AI とディスインフォメーションにおける論点を洗い出す．">
-<meta property="og:image" content="https://puniupa.github.io/posts/2024/AI/ぷにうぱ.jpg">
+<meta property="og:image" content="https://puniupa.github.io/posts/2024/AI/assets/ぷにうぱ.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
 <meta name="twitter:title" content="ぷにうぱ - 生成 AI 開発企業の論点">
 <meta name="twitter:description" content="去る４月，イタリアペルージアにて，国際ジャーナリズム・フェスティバルが開催され，AI とディスインフォメーションは中心的な議題の１つであった．そのプログラムと議論の内容をまとめることで，現在の生成 AI とディスインフォメーションにおける論点を洗い出す．">
-<meta name="twitter:image" content="https://puniupa.github.io/posts/2024/AI/ぷにうぱ.jpg">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/2024/AI/assets/ぷにうぱ.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -123,11 +142,11 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#内部告発者の言うことを聞く準備はできているか-ijf2024" id="toc-内部告発者の言うことを聞く準備はできているか-ijf2024" class="nav-link active" data-scroll-target="#内部告発者の言うことを聞く準備はできているか-ijf2024"><span class="header-section-number">1</span> 内部告発者の言うことを聞く準備はできているか？ <span class="citation" data-cites="IJF2024">(<strong>IJF2024?</strong>)</span></a>
+  <li><a href="#内部告発者の言うことを聞く準備はできているか-ijf2024" id="toc-内部告発者の言うことを聞く準備はできているか-ijf2024" class="nav-link active" data-scroll-target="#内部告発者の言うことを聞く準備はできているか-ijf2024"><span class="header-section-number">1</span> 内部告発者の言うことを聞く準備はできているか？ <span class="citation" data-cites="IJF2024">(Festival, 2024a)</span></a>
   <ul class="collapse">
   <li><a href="#導入" id="toc-導入" class="nav-link" data-scroll-target="#導入"><span class="header-section-number">1.1</span> 導入</a></li>
   </ul></li>
-  <li><a href="#生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo" id="toc-生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo" class="nav-link" data-scroll-target="#生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo"><span class="header-section-number">2</span> 生成 AI を高度に活用した偽情報はどのように見抜けるか？ <span class="citation" data-cites="IJF2024-Disinfo">(<strong>IJF2024-Disinfo?</strong>)</span></a></li>
+  <li><a href="#生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo" id="toc-生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo" class="nav-link" data-scroll-target="#生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo"><span class="header-section-number">2</span> 生成 AI を高度に活用した偽情報はどのように見抜けるか？ <span class="citation" data-cites="IJF2024-Disinfo">(Festival, 2024b)</span></a></li>
   <li><a href="#参考リンク" id="toc-参考リンク" class="nav-link" data-scroll-target="#参考リンク"><span class="header-section-number">3</span> 参考リンク</a></li>
   </ul>
 </nav>
@@ -149,14 +168,14 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-title-meta">
 
     <div>
-    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-heading">著者</div>
     <div class="quarto-title-meta-contents">
              <p>司馬 博文, 寒河江 志織 </p>
           </div>
   </div>
     
     <div>
-    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-heading">日付</div>
     <div class="quarto-title-meta-contents">
       <p class="date">7/16/2024</p>
     </div>
@@ -178,7 +197,7 @@ ul.task-list li input[type="checkbox"] {
 
 <p><a href="https://en.wikipedia.org/wiki/International_Journalism_Festival">International Journalism Festival</a> はイタリアのペルージアにて，2006 年から毎年開催されている．</p>
 <section id="内部告発者の言うことを聞く準備はできているか-ijf2024" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="内部告発者の言うことを聞く準備はできているか-ijf2024"><span class="header-section-number">1</span> 内部告発者の言うことを聞く準備はできているか？ <span class="citation" data-cites="IJF2024">(<a href="#ref-IJF2024" role="doc-biblioref"><strong>IJF2024?</strong></a>)</span></h2>
+<h2 data-number="1" class="anchored" data-anchor-id="内部告発者の言うことを聞く準備はできているか-ijf2024"><span class="header-section-number">1</span> 内部告発者の言うことを聞く準備はできているか？ <span class="citation" data-cites="IJF2024">(<a href="#ref-IJF2024" role="doc-biblioref">Festival, 2024a</a>)</span></h2>
 <section id="導入" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="導入"><span class="header-section-number">1.1</span> 導入</h3>
 <p>生成 AI 開発には大規模な計算資源とデータセットが必要であり，これらを揃えられる企業は現状数えるほどしかない．</p>
@@ -188,15 +207,23 @@ ul.task-list li input[type="checkbox"] {
 </section>
 </section>
 <section id="生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo"><span class="header-section-number">2</span> 生成 AI を高度に活用した偽情報はどのように見抜けるか？ <span class="citation" data-cites="IJF2024-Disinfo">(<a href="#ref-IJF2024-Disinfo" role="doc-biblioref"><strong>IJF2024-Disinfo?</strong></a>)</span></h2>
+<h2 data-number="2" class="anchored" data-anchor-id="生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo"><span class="header-section-number">2</span> 生成 AI を高度に活用した偽情報はどのように見抜けるか？ <span class="citation" data-cites="IJF2024-Disinfo">(<a href="#ref-IJF2024-Disinfo" role="doc-biblioref">Festival, 2024b</a>)</span></h2>
 </section>
 <section id="参考リンク" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="参考リンク"><span class="header-section-number">3</span> 参考リンク</h2>
+
+
 
 
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">3 参考リンク</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-IJF2024" class="csl-entry" role="listitem">
+Festival, I. J. (2024a). <em><a href="https://www.journalismfestival.com/programme/2024/how-to-prepare-for-the-ai-whistleblowers">How to prepare for the AI whistleblowers?</a></em>
+</div>
+<div id="ref-IJF2024-Disinfo" class="csl-entry" role="listitem">
+Festival, I. J. (2024b). <em><a href="https://www.journalismfestival.com/programme/2024/how-to-spot-ai-disinformation">How to spot AI disinformation?</a></em>
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -276,6 +303,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/puniupa\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -310,7 +355,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');

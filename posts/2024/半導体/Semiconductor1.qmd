@@ -46,9 +46,9 @@ format:
         }
         </style>
 bibliography: 
-    - ../../../mathematics.bib
-    - ../../../bib.bib
-csl: ../../../apalike.csl
+    - ../../../assets/mathematics.bib
+    - ../../../assets/bib.bib
+csl: ../../../assets/apalike.csl
 description: |
   井形研 RA 半導体読書会<br>
   駒場IIキャンパス４号館
@@ -60,7 +60,7 @@ image: Images/Niepce.jpeg
 
 半導体とは？なぜ重要なのか？
 
-{{< include ../../../_preamble.qmd >}}
+{{< include ../../../assets/_preamble.qmd >}}
 
 ## 半導体
 

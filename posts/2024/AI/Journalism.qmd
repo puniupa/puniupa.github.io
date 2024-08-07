@@ -4,10 +4,10 @@ author: "司馬 博文, 寒河江 志織"
 date: 7/16/2024
 categories: [AI, Disinformation]
 bibliography: 
-    - ../../../mathematics.bib
-    - ../../../bib.bib
+    - ../../../assets/mathematics.bib
+    - ../../../assets/bib.bib
     - Journalism.bib
-csl: ../../../apalike.csl
+csl: ../../../assets/apalike.csl
 abstract: 去る４月，イタリアペルージアにて，国際ジャーナリズム・フェスティバルが開催され，AI とディスインフォメーションは中心的な議題の１つであった．そのプログラムと議論の内容をまとめることで，現在の生成 AI とディスインフォメーションにおける論点を洗い出す．
 ---
 
