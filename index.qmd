@@ -1,6 +1,6 @@
 ---
 title: "Recent Posts"
-description: "法律家と数学者によるブログ"
+description: "法律家と研究者によるブログ"
 listing:
   contents: posts
   sort: "date desc"
