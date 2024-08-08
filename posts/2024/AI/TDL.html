@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="ぷに">
+
+<title>位相的機械学習 ――データはもはや「ただの数字」ではない―― – ぷにうぱ</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "?",
+    "H"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&amp;display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&amp;display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../../assets/styles.css">
+<meta property="og:title" content="位相的機械学習――データはもはや「ただの数字」ではない―― – ぷにうぱ">
+<meta property="og:description" content="TDL (Topological Deep Learning) とは，幾何学的な概念によって深層学習を（再）解釈しようとする立場であり，近年急速な盛り上がりを見せている．こういうと理論的な話に聞こえるかも知れないが，幾何学の概念を AI 利用に取り入れることは，半導体，ニューロサイエンスなど，幅広い科学分野において重要なステップである．従って，位相的機械学習は今後とも，理論だけでなく応用と実践が交差するキーワードとなっていくと期待されている．">
+<meta property="og:image" content="https://puniupa.github.io/posts/2024/AI/assets/ぷにうぱ.jpg">
+<meta property="og:site_name" content="ぷにうぱ">
+<meta name="twitter:title" content="位相的機械学習――データはもはや「ただの数字」ではない―― – ぷにうぱ">
+<meta name="twitter:description" content="TDL (Topological Deep Learning) とは，幾何学的な概念によって深層学習を（再）解釈しようとする立場であり，近年急速な盛り上がりを見せている．こういうと理論的な話に聞こえるかも知れないが，幾何学の概念を AI 利用に取り入れることは，半導体，ニューロサイエンスなど，幅広い科学分野において重要なステップである．従って，位相的機械学習は今後とも，理論だけでなく応用と実践が交差するキーワードとなっていくと期待されている．">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/2024/AI/assets/ぷにうぱ.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">ぷにうぱ</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../static/AllCategories.html"> 
+<span class="menu-text">カテゴリ一覧</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../static/AboutUs.html"> 
+<span class="menu-text">自己紹介</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#なぜ位相的機械学習が必要とされたか" id="toc-なぜ位相的機械学習が必要とされたか" class="nav-link active" data-scroll-target="#なぜ位相的機械学習が必要とされたか"><span class="header-section-number">1</span> なぜ位相的機械学習が必要とされたか？</a>
+  <ul class="collapse">
+  <li><a href="#従来手法の反省点" id="toc-従来手法の反省点" class="nav-link" data-scroll-target="#従来手法の反省点"><span class="header-section-number">1.1</span> 従来手法の反省点</a></li>
+  <li><a href="#ベクトルを超えていく" id="toc-ベクトルを超えていく" class="nav-link" data-scroll-target="#ベクトルを超えていく"><span class="header-section-number">1.2</span> ベクトルを超えていく</a></li>
+  <li><a href="#位相的機械学習が目指すもの" id="toc-位相的機械学習が目指すもの" class="nav-link" data-scroll-target="#位相的機械学習が目指すもの"><span class="header-section-number">1.3</span> 位相的機械学習が目指すもの</a></li>
+  </ul></li>
+  <li><a href="#位相的機械学習のいま" id="toc-位相的機械学習のいま" class="nav-link" data-scroll-target="#位相的機械学習のいま"><span class="header-section-number">2</span> 位相的機械学習の「いま」</a>
+  <ul class="collapse">
+  <li><a href="#sars-cov-2" id="toc-sars-cov-2" class="nav-link" data-scroll-target="#sars-cov-2"><span class="header-section-number">2.1</span> SARS-CoV-2</a></li>
+  </ul></li>
+  
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">位相的機械学習<br>――データはもはや「ただの数字」ではない――</h1>
+<p class="subtitle lead">これから AI で加速する産業分野はどこか？</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">AI</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">著者</div>
+    <div class="quarto-title-meta-contents">
+             <p>ぷに </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">日付</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">8/07/2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">はじめに</div>
+    TDL (Topological Deep Learning) とは，幾何学的な概念によって深層学習を（再）解釈しようとする立場であり，近年急速な盛り上がりを見せている．こういうと理論的な話に聞こえるかも知れないが，幾何学の概念を AI 利用に取り入れることは，半導体，ニューロサイエンスなど，幅広い科学分野において重要なステップである．従って，位相的機械学習は今後とも，理論だけでなく応用と実践が交差するキーワードとなっていくと期待されている．
+  </div>
+</div>
+
+
+</header>
+
+
+<div class="hidden">
+<p>A Blog Entry on Bayesian Computation by an Applied Mathematician</p>
+<p>$$</p>
+<p>$$</p>
+</div>
+<section id="なぜ位相的機械学習が必要とされたか" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="なぜ位相的機械学習が必要とされたか"><span class="header-section-number">1</span> なぜ位相的機械学習が必要とされたか？</h2>
+<section id="従来手法の反省点" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="従来手法の反省点"><span class="header-section-number">1.1</span> 従来手法の反省点</h3>
+<p>どうして「位相」が機械学習におけるキーワードとして再注目されているかというと，「以前の我々は，座標の取り方に関して無関心だったから」だと言える．</p>
+<p>これまでの深層学習のアーキテクチャは，モデリングの対象が言語・音声・動画のどれであるかに依らず，</p>
+<p><img src="Images/legacy.svg" class="img-fluid"></p>
+<p>という同一のステップを辿っていた．</p>
+<p>しかし，深層学習の応用先が広がっていくごとに，次のような例が見つかってきた：</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li>分子は従来のように３次元座標ベクトルでモデリングするより，グラフとしてモデリングした方が良い <span class="citation" data-cites="Velickovic2023">(<a href="#ref-Velickovic2023" role="doc-biblioref">Veličković, 2023</a>)</span>．<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
+<li>画像は（従来のようなテンソルだと思うより）実はグラフだと思った方が，幾何学的な情報を取り入れたモデリングができる <span class="citation" data-cites="Han+2022">(<a href="#ref-Han+2022" role="doc-biblioref">Han et al., 2022</a>)</span>．<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
+<li>電子カルテ (EHR) は数値・文章・画像の複数のメディアを含むため，従来の機械学習の適用が困難であったが，その情報をグラフの形でまとめることで，患者の発作リスクや必要な投薬などを予想する精度が向上してきている <span class="citation" data-cites="Choi+2020">(<a href="#ref-Choi+2020" role="doc-biblioref">Choi et al., 2020</a>)</span>．</li>
+<li>fMRI から取得される脳の画像データは，脳の部位の機能的な結合を意味するグラフの形でモデリングすることで，より多くの情報抽出と科学的発見の促進が可能になっている <span class="citation" data-cites="Ktena+2018">(<a href="#ref-Ktena+2018" role="doc-biblioref">Ktena et al., 2018</a>)</span>．</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="ベクトルを超えていく" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="ベクトルを超えていく"><span class="header-section-number">1.2</span> ベクトルを超えていく</h3>
+<p><strong>根本的な問題は，従来のデータ解析では Euclid 空間 <span class="math inline">\(\mathbb{R}^d\)</span> 以外の空間を考えてこなかったことにある</strong>．</p>
+<p>それゆえ，どんなデータもまずは <span class="math inline">\(\mathbb{R}^d\)</span> 内に埋め込むことが考えられ，モデリング法の多様性が失われていたのだと言える．</p>
+<p>画像を文字列のような系列だと捉えたり，分子を文字列としてモデリングしたりする様子は，大変に奇怪である．</p>
+<section id="幾何学的深層学習" class="level4" data-number="1.2.1">
+<h4 data-number="1.2.1" class="anchored" data-anchor-id="幾何学的深層学習"><span class="header-section-number">1.2.1</span> 幾何学的深層学習</h4>
+<p>そこで <strong>幾何学的深層学習</strong> (GDL: Geometric Deep Learning) の標語の下で，従来の Euclid 空間 <span class="math inline">\(\mathbb{R}^d\)</span> 以外にも，多様な空間上のデータをモデリングをする方法論が研究された．</p>
+<p>これにより，「ベクトル」以外の言葉でデータを見ることが可能になったのである．</p>
+<p>「ベクトル」以外の言葉として最初に探索されたものが「グラフ」であり，グラフニューラルネットワーク (GNN) が幾何学的深層学習の中心的な柱となっている．</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="よりみち（幾何学的深層学習の成果）">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+よりみち（幾何学的深層学習の成果）
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>幾何学的な語彙でデータの構造を捉える <strong>パーシステント・ホモロジー</strong> (persistent homology) という手法 <span class="citation" data-cites="Edelsbrunner+2002">(<a href="#ref-Edelsbrunner+2002" role="doc-biblioref">Edelsbrunner et al., 2002</a>)</span>, <span class="citation" data-cites="Zomorodian-Carlsson2005">(<a href="#ref-Zomorodian-Carlsson2005" role="doc-biblioref">Zomorodian and Carlsson, 2005</a>)</span> を取り入れた手法が，<a href="https://drugdesigndata.org/about/grand-challenge">D3R</a> (Drug Design Data Resorce) Grand Challenge という世界規模の新薬創出コンテストにおいて，リガンドのポーズ予測や親和度推定など多くのタスクで１位を獲得した <span class="citation" data-cites="Nguyen+2019">(<a href="#ref-Nguyen+2019" role="doc-biblioref">Nguyen et al., 2019</a>)</span>, <span class="citation" data-cites="Nguyen+2020">(<a href="#ref-Nguyen+2020" role="doc-biblioref">Nguyen et al., 2020</a>)</span>．</li>
+<li>光学顕微鏡による全能画像データをニューロン区画の階層に分割するタスクは従来は経験豊富な神経科学者のみの職人技であった．大量の教師ありデータを取得できるはずもないので，深層学習の応用は困難であったが，<strong>離散モース理論</strong> によりデータの構造を捉えることで，人間の 90% の正解率に迫っている <span class="citation" data-cites="Banerjee+2020">(<a href="#ref-Banerjee+2020" role="doc-biblioref">Banerjee et al., 2020</a>)</span>, <span class="citation" data-cites="Hu+2021">(<a href="#ref-Hu+2021" role="doc-biblioref">Hu et al., 2021</a>)</span>．</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="グラフを超えていく" class="level4" data-number="1.2.2">
+<h4 data-number="1.2.2" class="anchored" data-anchor-id="グラフを超えていく"><span class="header-section-number">1.2.2</span> グラフを超えていく</h4>
+<p>しかしすでに，グラフを超えていく動きの萌芽も見られる <span class="citation" data-cites="Hajij+2023">(<a href="#ref-Hajij+2023" role="doc-biblioref">Hajij et al., 2023</a>)</span>．</p>
+<p>そのためには，数学の言葉に注目することが肝要である．幾何学には，十数世紀以上の抽象化の蓄積があり，<a href="https://ja.wikipedia.org/wiki/複体">単体複体</a> <span class="citation" data-cites="Schaub+2022">(<a href="#ref-Schaub+2022" role="doc-biblioref">Schaub et al., 2022</a>)</span> や<a href="https://ja.wikipedia.org/wiki/CW複体">胞体複体</a> <span class="citation" data-cites="Hajij+2020">(<a href="#ref-Hajij+2020" role="doc-biblioref">Hajij et al., 2020</a>)</span> などの概念が，最初のとっかかりとなっている．</p>
+<p><span class="citation" data-cites="Hansen-Ghrist2019">(<a href="#ref-Hansen-Ghrist2019" role="doc-biblioref">Hansen and Ghrist, 2019</a>)</span> では，スペクトル層理論というスペクトルグラフ理論の拡張が展開されている．</p>
+</section>
+</section>
+<section id="位相的機械学習が目指すもの" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="位相的機械学習が目指すもの"><span class="header-section-number">1.3</span> 位相的機械学習が目指すもの</h3>
+<p>以上，<strong>それぞれのデータに自然な表現を選ぶ</strong> ことが大事であることはわかっていただけただろう．</p>
+<ul>
+<li>創薬において，有機分子が目標のタンパク質に結合するかの判定のために，有機分子を文字列で表してトランスフォーマーに学習させる．</li>
+<li>画像において，ニューロンの区画をモデリングするために，画像をグラフで表してトランスフォーマーに学習させる．</li>
+</ul>
+<p>という営みは，トランスフォーマーというアーキテクチャが言語（だけ）のために制作された当初の意図からすると，大変不本意である．（機械学習の黎明期において，必要な試行錯誤であることは間違いないが，）</p>
+<p>深層学習が，化学，薬学，神経科学，社会学などの各分野で真にイノベーションを産むためには，その分野にあったアーキテクチャの特定が必要である．</p>
+<p>「各分野の各データに最もあったアーキテクチャは何か？」という指標を，<strong>幾何学を共通言語として行おう</strong> というのが位相的機械学習である．</p>
+<p>これにより，次の２点を達成することが目標である：</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ol type="1">
+<li><strong>幾何学的なことばで</strong> データを理解する．（グラフか？）</li>
+<li>データの位相的性質にあった機械学習アーキテクチャを選べる．</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="位相的機械学習のいま" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="位相的機械学習のいま"><span class="header-section-number">2</span> 位相的機械学習の「いま」</h2>
+<p>位相的機械学習 (TDL) の目指すところを，各分野での成功事例で見ていこう．</p>
+<section id="sars-cov-2" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="sars-cov-2"><span class="header-section-number">2.1</span> SARS-CoV-2</h3>
+<p>コロナウィルスの変異株にはオミクロン株という名前がついている．</p>
+<p>実はオミクロン株にもさらに分類があり，当初の系統は BA.1 である．</p>
+<p>BA.2 系統 <span class="citation" data-cites="Chen-Wei2022">(<a href="#ref-Chen-Wei2022" role="doc-biblioref">Chen and Wei, 2022</a>)</span> と BA.4, BA.5 系統 <span class="citation" data-cites="Chen+2022">(<a href="#ref-Chen+2022" role="doc-biblioref">Chen et al., 2022</a>)</span> との登場可能性とその性質を，２ヶ月以上前に「変異懸念株」として予測することに成功したのは，代数トポロジーの知見を取り入れた TDL 手法であった．</p>
+</section>
+</section>
+
+
+
+<div id="quarto-appendix" class="default"><section id="文献紹介" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 文献紹介</h2><div class="quarto-appendix-contents">
+
+<p>サーベイかつポジションペーパー <span class="citation" data-cites="Papamarkou+2024TDL">(<a href="#ref-Papamarkou+2024TDL" role="doc-biblioref">Papamarkou et al., 2024</a>)</span> を大いに参考にした．</p>
+<p><span class="citation" data-cites="Nguyen+2019">(<a href="#ref-Nguyen+2019" role="doc-biblioref">Nguyen et al., 2019</a>)</span> は，マルチスケール重みつき色つき部分グラフとパーシステント・ホモロジーを取り入れた深層学習手法により，D3R Grand Challenge 2 の stage 2 での<a href="https://drugdesigndata.org/php/d3r/gc2/combined/free-energy/index.php?component=443&amp;q=rmsd&amp;set=1&amp;partial=0">絶対自由エネルギー予測 set 1</a> において１位を獲得し，続いて Challenge 3 では 26 のタスクのうち 10 タスクで１位を獲得したことを報告している．</p>
+<p><span class="citation" data-cites="Hansen-Ghrist2019">(<a href="#ref-Hansen-Ghrist2019" role="doc-biblioref">Hansen and Ghrist, 2019</a>)</span> では，スペクトル層理論という理論を展開している．これは，スペクトルグラフ理論を，一般の胞体層 (cellular sheaf) に拡張したものであるという．組み合わせ論的なグラフラプラシアンを，正則な胞体複体上の線型空間の胞体層上の Hodge ラプラシアンの特別な場合と見ることで，スペクトルデータを層のコホモロジーや胞体構造と関連づけることが出来るという．</p>
+<p>グラフカーネルに関する良い日本語文献に <span class="citation" data-cites="ガラムカリ和2021">(<a href="#ref-ガラムカリ和2021" role="doc-biblioref">ガラムカリ和 et al., 2021</a>)</span> がある．</p>
+
+
+
+</div></section><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Banerjee+2020" class="csl-entry" role="listitem">
+Banerjee, S., Magee, L., Wang, D., Li, X., Huo, B.-X., Jayakumar, J., … Mitra, P. P. (2020). <a href="https://doi.org/10.1038/s42256-020-0227-9">Semantic segmentation of microscopic neuroanatomical data by combining topological priors with encoder–decoder deep networks</a>. <em>Nature Machine Intelligence</em>, <em>2</em>(10), 585–594.
+</div>
+<div id="ref-Chen+2022" class="csl-entry" role="listitem">
+Chen, J., Qiu, Y., Wang, R., and Wei, G.-W. (2022). <a href="https://doi.org/10.1016/j.compbiomed.2022.106262">Persistent laplacian projected omicron BA.4 and BA.5 to become new dominating variants</a>. <em>Computers in Biology and Medicine</em>, <em>151</em>, 106262.
+</div>
+<div id="ref-Chen-Wei2022" class="csl-entry" role="listitem">
+Chen, J., and Wei, G.-W. (2022). <a href="https://doi.org/10.1021/acs.jpclett.2c00469">Omicron BA.2 (b.1.1.529.2): High potential for becoming the next dominant variant</a>. <em>The Journal of Physical Chemistry Letters</em>, <em>13</em>(17), 3840–3849. doi: 10.1021/acs.jpclett.2c00469.
+</div>
+<div id="ref-Choi+2020" class="csl-entry" role="listitem">
+Choi, E., Xu, Z., Li, Y., Dusenberry, M., Flores, G., Xue, E., and Dai, A. (2020). <a href="https://doi.org/10.1609/aaai.v34i01.5400">Learning the graphical structure of electronic health records with graph convolutional transformer</a>. <em>Proceedings of the AAAI Conference on Artificial Intelligence</em>, <em>34</em>(01), 606–613.
+</div>
+<div id="ref-Edelsbrunner+2002" class="csl-entry" role="listitem">
+Edelsbrunner, H., Letscher, D., and Zomorodian, A. (2002). <a href="https://doi.org/10.1007/s00454-002-2885-2">Topological persistence and simplification</a>. <em>Discrete &amp; Computational Geometry</em>, <em>28</em>(4), 511–533.
+</div>
+<div id="ref-Hajij+2020" class="csl-entry" role="listitem">
+Hajij, M., Istvan, K., and Zamzmi, G. (2020). <a href="https://openreview.net/forum?id=6Tq18ySFpGU">Cell complex neural networks</a>. In <em>TDA <span>&amp;</span> beyond</em>.
+</div>
+<div id="ref-Hajij+2023" class="csl-entry" role="listitem">
+Hajij, M., Zamzmi, G., Papamarkou, T., Miolane, N., Guzmán-Sáenz, A., Ramamurthy, K. N., … Schaub, M. T. (2023). <a href="https://arxiv.org/abs/2206.00606">Topological deep learning: Going beyond graph data</a>.
+</div>
+<div id="ref-Han+2022" class="csl-entry" role="listitem">
+Han, K., Wang, Y., Guo, J., Tang, Y., and Wu, E. (2022). <a href="https://openreview.net/forum?id=htM1WJZVB2I">Vision <span>GNN</span>: An image is worth graph of nodes</a>. In A. H. Oh, A. Agarwal, D. Belgrave, and K. Cho, editors, <em>Advances in neural information processing systems</em>.
+</div>
+<div id="ref-Hansen-Ghrist2019" class="csl-entry" role="listitem">
+Hansen, J., and Ghrist, R. (2019). <a href="https://doi.org/10.1007/s41468-019-00038-7">Toward a spectral theory of cellular sheaves</a>. <em>Journal of Applied and Computational Topology</em>, <em>3</em>(4), 315–358.
+</div>
+<div id="ref-Hu+2021" class="csl-entry" role="listitem">
+Hu, X., Wang, Y., Fuxin, L., Samaras, D., and Chen, C. (2021). <a href="https://openreview.net/forum?id=LGgdb4TS4Z">Topology-aware segmentation using discrete morse theory</a>. In <em>International conference on learning representations</em>.
+</div>
+<div id="ref-Ktena+2018" class="csl-entry" role="listitem">
+Ktena, S. I., Parisot, S., Ferrante, E., Rajchl, M., Lee, M., Glocker, B., and Rueckert, D. (2018). <a href="https://doi.org/10.1016/j.neuroimage.2017.12.052">Metric learning with spectral graph convolutions on brain connectivity networks</a>. <em>NeuroImage</em>, <em>169</em>, 431–442.
+</div>
+<div id="ref-Nguyen+2019" class="csl-entry" role="listitem">
+Nguyen, D. D., Cang, Z., Wu, K., Wang, M., Cao, Y., and Wei, G.-W. (2019). <a href="https://doi.org/10.1007/s10822-018-0146-6">Mathematical deep learning for pose and binding affinity prediction and ranking in D3R grand challenges</a>. <em>Journal of Computer-Aided Molecular Design</em>, <em>33</em>(1), 71–82.
+</div>
+<div id="ref-Nguyen+2020" class="csl-entry" role="listitem">
+Nguyen, D. D., Gao, K., Wang, M., and Wei, G.-W. (2020). <a href="https://doi.org/10.1007/s10822-019-00237-5">MathDL: Mathematical deep learning for D3R grand challenge 4</a>. <em>Journal of Computer-Aided Molecular Design</em>, <em>34</em>(2), 131–147.
+</div>
+<div id="ref-Papamarkou+2024TDL" class="csl-entry" role="listitem">
+Papamarkou, T., Birdal, T., Bronstein, M., Carlsson, G., Curry, J., Gao, Y., … Zamzmi, G. (2024). <a href="https://arxiv.org/abs/2402.08871">Position: Topological deep learning is the new frontier for relational learning</a>.
+</div>
+<div id="ref-Schaub+2022" class="csl-entry" role="listitem">
+Schaub, M. T., Seby, J.-B., Frantzen, F., Roddenberry, T. M., Zhu, Y., and Segarra, S. (2022). <a href="https://doi.org/10.1007/978-3-030-91374-8_12">Signal processing on simplicial complexes</a>. In F. Battiston and G. Petri, editors, <em>Higher-order systems</em>, pages 301–328. Cham: Springer International Publishing.
+</div>
+<div id="ref-Velickovic2023" class="csl-entry" role="listitem">
+Veličković, P. (2023). <a href="https://doi.org/10.1016/j.sbi.2023.102538">Everything is connected: Graph neural networks</a>. <em>Current Opinion in Structural Biology</em>, <em>79</em>, 102538.
+</div>
+<div id="ref-Zomorodian-Carlsson2005" class="csl-entry" role="listitem">
+Zomorodian, A., and Carlsson, G. (2005). <a href="https://doi.org/10.1007/s00454-004-1146-y">Computing persistent homology</a>. <em>Discrete &amp; Computational Geometry</em>, <em>33</em>(2), 249–274.
+</div>
+<div id="ref-ガラムカリ和2021" class="csl-entry" role="listitem">
+ガラムカリ和, 杉山麿人, OʼBray, L., Rieck, B., and Borgwardt, K. (2021). <a href="https://doi.org/10.11517/jjsai.36.4_421">グラフカーネルの進展</a>. <em>人工知能</em>, <em>36</em>(4), 421–429.
+</div>
+<div id="ref-船津公人+2024" class="csl-entry" role="listitem">
+船津公人, 井上貴央, and 西川大貴. (2024). <em><a href="https://www.kindaikagaku.co.jp/book_list/detail/9784764960237/">詳解 マテリアルズインフォマティクス 有機・無機化学のための深層学習</a></em>. 近代科学社.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>有機化合物は，分枝の構造を文字列で表した SMILES 文字列や，３次元座標で原子の位置を表した MOL ファイルなどで表される <span class="citation" data-cites="船津公人+2024">(<a href="#ref-船津公人+2024" role="doc-biblioref">船津公人 et al., 2024</a>)</span>．<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><span class="citation" data-cites="Han+2022">(<a href="#ref-Han+2022" role="doc-biblioref">Han et al., 2022</a>)</span> はグラフニューラルネットワークが，Vision Transformer に画像分類や物体認識など多くのタスクで優ったことを報告している．<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/puniupa\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          trigger: 'click',
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          positionFixed: true,
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="puniupa/puniupa.github.io" data-repo-id="R_kgDOMOsIVA" data-category="Announcements" data-category-id="DIC_kwDOMOsIVM4CgazP" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://puniupa.github.io/">
+<p>ぷにうぱ</p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/puniupa/puniupa.github.io/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:puniupa48@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../../blog.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>
