@@ -11,7 +11,7 @@ listing:
   feed: true
   max-description-length: 100
   exclude: 
-    author: "{Draft Draft}"
+    author: "{Draft Draft,ぷ に}"
 page-layout: full
 title-block-banner: true
 comments: false

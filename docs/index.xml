@@ -38,6 +38,186 @@
   <media:content url="https://puniupa.github.io/posts/2024/Blog/Images/GitHub.jpg" medium="image" type="image/jpeg"/>
 </item>
 <item>
+  <title>位相的機械学習――データはもはや「ただの数字」ではない――</title>
+  <dc:creator>ぷに </dc:creator>
+  <link>https://puniupa.github.io/posts/2024/AI/TDL.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="hidden">
+<p>A Blog Entry on Bayesian Computation by an Applied Mathematician</p>
+<p>$$</p>
+<p>$$</p>
+</div>
+<section id="なぜ位相的機械学習が必要とされたか" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="なぜ位相的機械学習が必要とされたか"><span class="header-section-number">1</span> なぜ位相的機械学習が必要とされたか？</h2>
+<section id="従来手法の反省点" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="従来手法の反省点"><span class="header-section-number">1.1</span> 従来手法の反省点</h3>
+<p>どうして「位相」が機械学習におけるキーワードとして再注目されているかというと，「以前の我々は，座標の取り方に関して無関心だったから」だと言える．</p>
+<p>これまでの深層学習のアーキテクチャは，モデリングの対象が言語・音声・動画のどれであるかに依らず，</p>
+<p><img src="https://puniupa.github.io/posts/2024/AI/Images/legacy.svg" class="img-fluid"></p>
+<p>という同一のステップを辿っていた．</p>
+<p>しかし，深層学習の応用先が広がっていくごとに，次のような例が見つかってきた：</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li>分子は従来のように３次元座標ベクトルでモデリングするより，グラフとしてモデリングした方が良い <span class="citation" data-cites="Velickovic2023">(Veličković, 2023)</span>．<sup>1</sup></li>
+<li>画像は（従来のようなテンソルだと思うより）実はグラフだと思った方が，幾何学的な情報を取り入れたモデリングができる <span class="citation" data-cites="Han+2022">(Han et al., 2022)</span>．<sup>2</sup></li>
+<li>電子カルテ (EHR) は数値・文章・画像の複数のメディアを含むため，従来の機械学習の適用が困難であったが，その情報をグラフの形でまとめることで，患者の発作リスクや必要な投薬などを予想する精度が向上してきている <span class="citation" data-cites="Choi+2020">(Choi et al., 2020)</span>．</li>
+<li>fMRI から取得される脳の画像データは，脳の部位の機能的な結合を意味するグラフの形でモデリングすることで，より多くの情報抽出と科学的発見の促進が可能になっている <span class="citation" data-cites="Ktena+2018">(Ktena et al., 2018)</span>．</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="ベクトルを超えていく" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="ベクトルを超えていく"><span class="header-section-number">1.2</span> ベクトルを超えていく</h3>
+<p><strong>根本的な問題は，従来のデータ解析では Euclid 空間 <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BR%7D%5Ed"> 以外の空間を考えてこなかったことにある</strong>．</p>
+<p>それゆえ，どんなデータもまずは <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BR%7D%5Ed"> 内に埋め込むことが考えられ，モデリング法の多様性が失われていたのだと言える．</p>
+<p>画像を文字列のような系列だと捉えたり，分子を文字列としてモデリングしたりする様子は，大変に奇怪である．</p>
+<section id="幾何学的深層学習" class="level4" data-number="1.2.1">
+<h4 data-number="1.2.1" class="anchored" data-anchor-id="幾何学的深層学習"><span class="header-section-number">1.2.1</span> 幾何学的深層学習</h4>
+<p>そこで <strong>幾何学的深層学習</strong> (GDL: Geometric Deep Learning) の標語の下で，従来の Euclid 空間 <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BR%7D%5Ed"> 以外にも，多様な空間上のデータをモデリングをする方法論が研究された．</p>
+<p>これにより，「ベクトル」以外の言葉でデータを見ることが可能になったのである．</p>
+<p>「ベクトル」以外の言葉として最初に探索されたものが「グラフ」であり，グラフニューラルネットワーク (GNN) が幾何学的深層学習の中心的な柱となっている．</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="よりみち（幾何学的深層学習の成果）">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+よりみち（幾何学的深層学習の成果）
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>幾何学的な語彙でデータの構造を捉える <strong>パーシステント・ホモロジー</strong> (persistent homology) という手法 <span class="citation" data-cites="Edelsbrunner+2002">(Edelsbrunner et al., 2002)</span>, <span class="citation" data-cites="Zomorodian-Carlsson2005">(Zomorodian and Carlsson, 2005)</span> を取り入れた手法が，<a href="https://drugdesigndata.org/about/grand-challenge">D3R</a> (Drug Design Data Resorce) Grand Challenge という世界規模の新薬創出コンテストにおいて，リガンドのポーズ予測や親和度推定など多くのタスクで１位を獲得した <span class="citation" data-cites="Nguyen+2019">(Nguyen et al., 2019)</span>, <span class="citation" data-cites="Nguyen+2020">(Nguyen et al., 2020)</span>．</li>
+<li>光学顕微鏡による全能画像データをニューロン区画の階層に分割するタスクは従来は経験豊富な神経科学者のみの職人技であった．大量の教師ありデータを取得できるはずもないので，深層学習の応用は困難であったが，<strong>離散モース理論</strong> によりデータの構造を捉えることで，人間の 90% の正解率に迫っている <span class="citation" data-cites="Banerjee+2020">(Banerjee et al., 2020)</span>, <span class="citation" data-cites="Hu+2021">(Hu et al., 2021)</span>．</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<section id="グラフを超えていく" class="level4" data-number="1.2.2">
+<h4 data-number="1.2.2" class="anchored" data-anchor-id="グラフを超えていく"><span class="header-section-number">1.2.2</span> グラフを超えていく</h4>
+<p>しかしすでに，グラフを超えていく動きの萌芽も見られる <span class="citation" data-cites="Hajij+2023">(Hajij et al., 2023)</span>．</p>
+<p>そのためには，数学の言葉に注目することが肝要である．幾何学には，十数世紀以上の抽象化の蓄積があり，<a href="https://ja.wikipedia.org/wiki/複体">単体複体</a> <span class="citation" data-cites="Schaub+2022">(Schaub et al., 2022)</span> や<a href="https://ja.wikipedia.org/wiki/CW複体">胞体複体</a> <span class="citation" data-cites="Hajij+2020">(Hajij et al., 2020)</span> などの概念が，最初のとっかかりとなっている．</p>
+<p><span class="citation" data-cites="Hansen-Ghrist2019">(Hansen and Ghrist, 2019)</span> では，スペクトル層理論というスペクトルグラフ理論の拡張が展開されている．</p>
+</section>
+</section>
+<section id="位相的機械学習が目指すもの" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="位相的機械学習が目指すもの"><span class="header-section-number">1.3</span> 位相的機械学習が目指すもの</h3>
+<p>以上，<strong>それぞれのデータに自然な表現を選ぶ</strong> ことが大事であることはわかっていただけただろう．</p>
+<ul>
+<li>創薬において，有機分子が目標のタンパク質に結合するかの判定のために，有機分子を文字列で表してトランスフォーマーに学習させる．</li>
+<li>画像において，ニューロンの区画をモデリングするために，画像をグラフで表してトランスフォーマーに学習させる．</li>
+</ul>
+<p>という営みは，トランスフォーマーというアーキテクチャが言語（だけ）のために制作された当初の意図からすると，大変不本意である．（機械学習の黎明期において，必要な試行錯誤であることは間違いないが，）</p>
+<p>深層学習が，化学，薬学，神経科学，社会学などの各分野で真にイノベーションを産むためには，その分野にあったアーキテクチャの特定が必要である．</p>
+<p>「各分野の各データに最もあったアーキテクチャは何か？」という指標を，<strong>幾何学を共通言語として行おう</strong> というのが位相的機械学習である．</p>
+<p>これにより，次の２点を達成することが目標である：</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ol type="1">
+<li><strong>幾何学的なことばで</strong> データを理解する．（グラフか？）</li>
+<li>データの位相的性質にあった機械学習アーキテクチャを選べる．</li>
+</ol>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="位相的機械学習のいま" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="位相的機械学習のいま"><span class="header-section-number">2</span> 位相的機械学習の「いま」</h2>
+</section>
+
+
+
+<div id="quarto-appendix" class="default"><section id="文献紹介" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 文献紹介</h2><div class="quarto-appendix-contents">
+
+<p>サーベイかつポジションペーパー <span class="citation" data-cites="Papamarkou+2024TDL">(Papamarkou et al., 2024)</span> を大いに参考にした．</p>
+<p><span class="citation" data-cites="Nguyen+2019">(Nguyen et al., 2019)</span> は，マルチスケール重みつき色つき部分グラフとパーシステント・ホモロジーを取り入れた深層学習手法により，D3R Grand Challenge 2 の stage 2 での<a href="https://drugdesigndata.org/php/d3r/gc2/combined/free-energy/index.php?component=443&amp;q=rmsd&amp;set=1&amp;partial=0">絶対自由エネルギー予測 set 1</a> において１位を獲得し，続いて Challenge 3 では 26 のタスクのうち 10 タスクで１位を獲得したことを報告している．</p>
+<p><span class="citation" data-cites="Hansen-Ghrist2019">(Hansen and Ghrist, 2019)</span> では，スペクトル層理論という理論を展開している．これは，スペクトルグラフ理論を，一般の胞体層 (cellular sheaf) に拡張したものであるという．組み合わせ論的なグラフラプラシアンを，正則な胞体複体上の線型空間の胞体層上の Hodge ラプラシアンの特別な場合と見ることで，スペクトルデータを層のコホモロジーや胞体構造と関連づけることが出来るという．</p>
+<p>グラフカーネルに関する良い日本語文献に <span class="citation" data-cites="ガラムカリ和2021">(ガラムカリ和 et al., 2021)</span> がある．</p>
+
+
+
+</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Banerjee+2020" class="csl-entry">
+Banerjee, S., Magee, L., Wang, D., Li, X., Huo, B.-X., Jayakumar, J., … Mitra, P. P. (2020). <a href="https://doi.org/10.1038/s42256-020-0227-9">Semantic segmentation of microscopic neuroanatomical data by combining topological priors with encoder–decoder deep networks</a>. <em>Nature Machine Intelligence</em>, <em>2</em>(10), 585–594.
+</div>
+<div id="ref-Choi+2020" class="csl-entry">
+Choi, E., Xu, Z., Li, Y., Dusenberry, M., Flores, G., Xue, E., and Dai, A. (2020). <a href="https://doi.org/10.1609/aaai.v34i01.5400">Learning the graphical structure of electronic health records with graph convolutional transformer</a>. <em>Proceedings of the AAAI Conference on Artificial Intelligence</em>, <em>34</em>(01), 606–613.
+</div>
+<div id="ref-Edelsbrunner+2002" class="csl-entry">
+Edelsbrunner, H., Letscher, D., and Zomorodian, A. (2002). <a href="https://doi.org/10.1007/s00454-002-2885-2">Topological persistence and simplification</a>. <em>Discrete &amp; Computational Geometry</em>, <em>28</em>(4), 511–533.
+</div>
+<div id="ref-Hajij+2020" class="csl-entry">
+Hajij, M., Istvan, K., and Zamzmi, G. (2020). <a href="https://openreview.net/forum?id=6Tq18ySFpGU">Cell complex neural networks</a>. In <em>TDA <span>&amp;</span> beyond</em>.
+</div>
+<div id="ref-Hajij+2023" class="csl-entry">
+Hajij, M., Zamzmi, G., Papamarkou, T., Miolane, N., Guzmán-Sáenz, A., Ramamurthy, K. N., … Schaub, M. T. (2023). <a href="https://arxiv.org/abs/2206.00606">Topological deep learning: Going beyond graph data</a>.
+</div>
+<div id="ref-Han+2022" class="csl-entry">
+Han, K., Wang, Y., Guo, J., Tang, Y., and Wu, E. (2022). <a href="https://openreview.net/forum?id=htM1WJZVB2I">Vision <span>GNN</span>: An image is worth graph of nodes</a>. In A. H. Oh, A. Agarwal, D. Belgrave, and K. Cho, editors, <em>Advances in neural information processing systems</em>.
+</div>
+<div id="ref-Hansen-Ghrist2019" class="csl-entry">
+Hansen, J., and Ghrist, R. (2019). <a href="https://doi.org/10.1007/s41468-019-00038-7">Toward a spectral theory of cellular sheaves</a>. <em>Journal of Applied and Computational Topology</em>, <em>3</em>(4), 315–358.
+</div>
+<div id="ref-Hu+2021" class="csl-entry">
+Hu, X., Wang, Y., Fuxin, L., Samaras, D., and Chen, C. (2021). <a href="https://openreview.net/forum?id=LGgdb4TS4Z">Topology-aware segmentation using discrete morse theory</a>. In <em>International conference on learning representations</em>.
+</div>
+<div id="ref-Ktena+2018" class="csl-entry">
+Ktena, S. I., Parisot, S., Ferrante, E., Rajchl, M., Lee, M., Glocker, B., and Rueckert, D. (2018). <a href="https://doi.org/10.1016/j.neuroimage.2017.12.052">Metric learning with spectral graph convolutions on brain connectivity networks</a>. <em>NeuroImage</em>, <em>169</em>, 431–442.
+</div>
+<div id="ref-Nguyen+2019" class="csl-entry">
+Nguyen, D. D., Cang, Z., Wu, K., Wang, M., Cao, Y., and Wei, G.-W. (2019). <a href="https://doi.org/10.1007/s10822-018-0146-6">Mathematical deep learning for pose and binding affinity prediction and ranking in D3R grand challenges</a>. <em>Journal of Computer-Aided Molecular Design</em>, <em>33</em>(1), 71–82.
+</div>
+<div id="ref-Nguyen+2020" class="csl-entry">
+Nguyen, D. D., Gao, K., Wang, M., and Wei, G.-W. (2020). <a href="https://doi.org/10.1007/s10822-019-00237-5">MathDL: Mathematical deep learning for D3R grand challenge 4</a>. <em>Journal of Computer-Aided Molecular Design</em>, <em>34</em>(2), 131–147.
+</div>
+<div id="ref-Papamarkou+2024TDL" class="csl-entry">
+Papamarkou, T., Birdal, T., Bronstein, M., Carlsson, G., Curry, J., Gao, Y., … Zamzmi, G. (2024). <a href="https://arxiv.org/abs/2402.08871">Position: Topological deep learning is the new frontier for relational learning</a>.
+</div>
+<div id="ref-Schaub+2022" class="csl-entry">
+Schaub, M. T., Seby, J.-B., Frantzen, F., Roddenberry, T. M., Zhu, Y., and Segarra, S. (2022). <a href="https://doi.org/10.1007/978-3-030-91374-8_12">Signal processing on simplicial complexes</a>. In F. Battiston and G. Petri, editors, <em>Higher-order systems</em>, pages 301–328. Cham: Springer International Publishing.
+</div>
+<div id="ref-Velickovic2023" class="csl-entry">
+Veličković, P. (2023). <a href="https://doi.org/10.1016/j.sbi.2023.102538">Everything is connected: Graph neural networks</a>. <em>Current Opinion in Structural Biology</em>, <em>79</em>, 102538.
+</div>
+<div id="ref-Zomorodian-Carlsson2005" class="csl-entry">
+Zomorodian, A., and Carlsson, G. (2005). <a href="https://doi.org/10.1007/s00454-004-1146-y">Computing persistent homology</a>. <em>Discrete &amp; Computational Geometry</em>, <em>33</em>(2), 249–274.
+</div>
+<div id="ref-ガラムカリ和2021" class="csl-entry">
+ガラムカリ和, 杉山麿人, OʼBray, L., Rieck, B., and Borgwardt, K. (2021). <a href="https://doi.org/10.11517/jjsai.36.4_421">グラフカーネルの進展</a>. <em>人工知能</em>, <em>36</em>(4), 421–429.
+</div>
+<div id="ref-船津公人+2024" class="csl-entry">
+船津公人, 井上貴央, and 西川大貴. (2024). <em><a href="https://www.kindaikagaku.co.jp/book_list/detail/9784764960237/">詳解 マテリアルズインフォマティクス 有機・無機化学のための深層学習</a></em>. 近代科学社.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>有機化合物は，分枝の構造を文字列で表した SMILES 文字列や，３次元座標で原子の位置を表した MOL ファイルなどで表される <span class="citation" data-cites="船津公人+2024">(船津公人 et al., 2024)</span>．↩︎</p></li>
+<li id="fn2"><p><span class="citation" data-cites="Han+2022">(Han et al., 2022)</span> はグラフニューラルネットワークが，Vision Transformer に画像分類や物体認識など多くのタスクで優ったことを報告している．↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>AI</category>
+  <guid>https://puniupa.github.io/posts/2024/AI/TDL.html</guid>
+  <pubDate>Tue, 06 Aug 2024 15:00:00 GMT</pubDate>
+</item>
+<item>
   <title>武見研究室訪問</title>
   <dc:creator>ぷに </dc:creator>
   <link>https://puniupa.github.io/posts/2024/Brain/TakemiLab.html</link>
@@ -85,11 +265,17 @@
 <p>人間が手足や表情筋を動かすための最後の指令を脊髄に出すにあたって，脳内でまとめ役の役割を果たす部位である <strong>一次運動野</strong> はちょうどヘッドセットが当たる部分に位置する．</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://bsd.neuroinf.jp/wiki/一次運動野"><img src="https://puniupa.github.io/posts/2024/Brain/Files/一次運動野.png" class="img-fluid figure-img" alt="一次運動野の位置（脳科学時点，画像クリックでリンクを開く）"></a></p>
-<figcaption>一次運動野の位置（脳科学時点，画像クリックでリンクを開く）</figcaption>
+<p><a href="https://bsd.neuroinf.jp/wiki/一次運動野"><img src="https://puniupa.github.io/posts/2024/Brain/Files/一次運動野.png" class="img-fluid figure-img" alt="一次運動野の位置（脳科学辞典，画像クリックでリンクを開く）"></a></p>
+<figcaption>一次運動野の位置（脳科学辞典，画像クリックでリンクを開く）</figcaption>
 </figure>
 </div>
-<p>「走ろう」「足を動かそう」と思うと，一次運動野において特定の周波数の脳波が抑制されるという <strong>事象関連脱同期</strong> (ERD) という現象が起こる．</p>
+<p>「走ろう」「足を動かそう」と思うと，一次運動野において特定の周波数帯の脳波が抑制されるという <strong>事象関連脱同期</strong> (ERD) という現象が起こる．</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://doi.org/10.5687/iscie.22.199"><img src="https://puniupa.github.io/posts/2024/Brain/Files/ERD.png" class="img-fluid figure-img" alt="ERD の模式図（(高橋光 et al., 2009)，画像クリックでリンクを開く）"></a></p>
+<figcaption>ERD の模式図（<span class="citation" data-cites="高橋光+2009">(高橋光 et al., 2009)</span>，画像クリックでリンクを開く）</figcaption>
+</figure>
+</div>
 <p>事象関連脱同期は，本当に足を動かす際には必ず起こるものだが，必ずしも足を動かさずに，この脳波変調だけを起こせるかは別問題である．</p>
 <p>この能力は訓練で向上する <span class="citation" data-cites="高橋光+2009">(高橋光 et al., 2009)</span> が，必ずしも健常者だから得意／苦手という訳でもなく，非常に面白い e-sports 的な競技性を加えていると言えるだろう．</p>
 </section>
@@ -157,7 +343,7 @@
 <p>武見先生とその研究グループによる最新の研究を２つ紹介する．</p>
 <section id="選択的な抑制解除" class="level3" data-number="4.1">
 <h3 data-number="4.1" class="anchored" data-anchor-id="選択的な抑制解除"><span class="header-section-number">4.1</span> 選択的な抑制解除</h3>
-<p>前述の研究 <span class="citation" data-cites="Takemi+2013">(Takemi et al., 2013)</span> と <span class="citation" data-cites="Takemi+2018">(Takemi et al., 2018)</span> が合わさることで，</p>
+<p>前述の研究 <span class="citation" data-cites="Takemi+2013">(Takemi et al., 2013)</span> と近年の研究 <span class="citation" data-cites="Takemi+2018">(Takemi et al., 2018)</span> が合わさることで，</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -184,7 +370,7 @@
 <p>この動画で描かれているように，言葉を介さずともタイピングと同じ速度で言語情報をやり取りすることを目指すプロジェクトである．</p>
 <section id="アラヤの研究の概要" class="level4" data-number="4.2.1">
 <h4 data-number="4.2.1" class="anchored" data-anchor-id="アラヤの研究の概要"><span class="header-section-number">4.2.1</span> アラヤの研究の概要</h4>
-<p>動画に登場する笹井俊太郎氏に文章を読んでもらい，その間の脳波データを集める作業を数ヶ月も続け，累計で 175 時間ものデータを収集した．</p>
+<p>動画のサムネイルにもなっている笹井俊太郎氏（アラヤ取締役）に文章を読んでもらい，その間の脳波データを集める作業を数ヶ月も続け，累計で 175 時間ものデータを収集した．</p>
 <p>この脳波データと音声データとを <a href="https://openai.com/research/clip">CLIP</a> <span class="citation" data-cites="Radford+2021">(Radford et al., 2021)</span> というアーキテクチャのニューラルネットワークで学習させた．</p>
 <p>その結果，175 時間ものデータがあると，脳波だけからどの単語を話そうとしているかは極めて高い精度で予測できることがわかった（全 512 単語の中のどれかを５割の確率で当てられる）．</p>
 </section>
@@ -205,7 +391,7 @@
 <figcaption>P300 speller のアニメーション（大西章也氏のブログより，画像をタップでリンクを開く）</figcaption>
 </figure>
 </div>
-<p>このスペラーの方法で自動で照明を点灯させる <span class="citation" data-cites="神作憲司2009">(神作憲司, 2009)</span> などの応用も考えられていたが，やはり必ずモニターを用意してその点滅を注視しなければいけないことは，広い応用を阻むだろう．</p>
+<p>このスペラーの方法で自動で照明を点灯させる <span class="citation" data-cites="神作憲司2009">(神作憲司, 2009)</span> などの応用も考えられていたが，やはり必ずモニターを用意してその点滅を注視しなければいけないことは使用者の大きなストレスになるため，広い応用は難しかっただろう．</p>
 <p>脳波データのノイズ低減法が進歩したり，深層学習手法が進歩することで，175 時間もデータを集めずに済むようになったら，アラヤの研究を通じて，障害を持った人もそうでない人も隔たりなく，リアルタイムで会話ができるようになる日も近いかもしれない．</p>
 </section>
 </section>
@@ -377,7 +563,7 @@ Xu, S., Chen, G., Guo, Y.-X., Yang, J., Li, C., Zang, Z., … Guo, B. (2024). <a
 <h2 data-number="1" class="anchored" data-anchor-id="euv-リトグラフィ"><span class="header-section-number">1</span> EUV リトグラフィ</h2>
 <p><a href="https://ja.wikipedia.org/wiki/%E6%A5%B5%E7%AB%AF%E7%B4%AB%E5%A4%96%E7%B7%9A%E3%83%AA%E3%82%BD%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3">極端紫外線リソグラフィ</a> (Extreme Ultraviolet Lithography) は波長 13.5 nm で露光する技術である．</p>
 <p>オランダの <a href="https://ja.wikipedia.org/wiki/ASML">ASML</a> 社が唯一 EUV 露光装置を製造している．</p>
-<p></p><div id="tweet-95933"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-95933").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-89057"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-89057").innerHTML = tweet["html"];</script><p></p>
 <a class="embedly-card" href="https://www.scmp.com/economy/global-economy/article/3257118/china-asks-netherlands-exporter-worlds-top-chipmaking-equipment-avoid-decoupling?utm_source=twitter&amp;utm_campaign=3257118&amp;utm_medium=share_widget">China asks Netherlands, with world-leading chipmaking equipment, to not decouple</a><script async="" src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 <p>ここまで短い波長では光を透過するレンズはなく，反射鏡で光学系を構成する必要がある．13.5 nm という波長はミラーの反射率の極大点の１つをとって決定された． <img src="https://latex.codecogs.com/png.latex?0.68%5E%7B12%7D=0.98"> というように重ねて用いる．</p>
 <div class="quarto-figure quarto-figure-center">
