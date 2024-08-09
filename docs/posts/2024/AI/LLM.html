@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.549">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="ぷに">
+
+<title>ぷにうぱ - LLM が真に社会に受け入れられるまで</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "?",
+    "H"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&amp;display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&amp;display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="../../../assets/styles.css">
+<meta property="og:title" content="ぷにうぱ - LLM が真に社会に受け入れられるまで">
+<meta property="og:description" content="LLM が社会に大きな影響を与えたことは間違いないが，真に社会に溶け込み，社会の役に立ったり，既存の意思決定システムの一環を担えるようになるためには解決しなければいけない問題が多すぎる．本稿はそのうちいくつかをまとめる試みである．">
+<meta property="og:image" content="https://puniupa.github.io/posts/2024/AI/assets/ぷにうぱ.jpg">
+<meta property="og:site_name" content="ぷにうぱ">
+<meta name="twitter:title" content="ぷにうぱ - LLM が真に社会に受け入れられるまで">
+<meta name="twitter:description" content="LLM が社会に大きな影響を与えたことは間違いないが，真に社会に溶け込み，社会の役に立ったり，既存の意思決定システムの一環を担えるようになるためには解決しなければいけない問題が多すぎる．本稿はそのうちいくつかをまとめる試みである．">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/2024/AI/assets/ぷにうぱ.jpg">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../../index.html">
+    <span class="navbar-title">ぷにうぱ</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../../static/AllCategories.html"> 
+<span class="menu-text">カテゴリ一覧</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../static/AboutUs.html"> 
+<span class="menu-text">自己紹介</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#sec-LLaMA" id="toc-sec-LLaMA" class="nav-link active" data-scroll-target="#sec-LLaMA"><span class="header-section-number">1</span> LLaMA の一般公開とその影響</a></li>
+  <li><a href="#llm-の経済的影響" id="toc-llm-の経済的影響" class="nav-link" data-scroll-target="#llm-の経済的影響"><span class="header-section-number">2</span> LLM の経済的影響</a></li>
+  <li><a href="#世界モデルとしての基盤モデル" id="toc-世界モデルとしての基盤モデル" class="nav-link" data-scroll-target="#世界モデルとしての基盤モデル"><span class="header-section-number">3</span> 世界モデルとしての基盤モデル</a>
+  <ul class="collapse">
+  <li><a href="#社会行動シミュレーターとしての-llm" id="toc-社会行動シミュレーターとしての-llm" class="nav-link" data-scroll-target="#社会行動シミュレーターとしての-llm"><span class="header-section-number">3.1</span> 社会行動シミュレーターとしての LLM</a></li>
+  </ul></li>
+  <li><a href="#llm-と経済安全保障" id="toc-llm-と経済安全保障" class="nav-link" data-scroll-target="#llm-と経済安全保障"><span class="header-section-number">4</span> LLM と経済安全保障</a>
+  <ul class="collapse">
+  <li><a href="#幻覚の防止" id="toc-幻覚の防止" class="nav-link" data-scroll-target="#幻覚の防止"><span class="header-section-number">4.1</span> 幻覚の防止</a></li>
+  <li><a href="#ウォーターマーク" id="toc-ウォーターマーク" class="nav-link" data-scroll-target="#ウォーターマーク"><span class="header-section-number">4.2</span> ウォーターマーク</a></li>
+  <li><a href="#偽情報対策" id="toc-偽情報対策" class="nav-link" data-scroll-target="#偽情報対策"><span class="header-section-number">4.3</span> 偽情報対策</a></li>
+  <li><a href="#開発規制" id="toc-開発規制" class="nav-link" data-scroll-target="#開発規制"><span class="header-section-number">4.4</span> 開発規制</a></li>
+  <li><a href="#生物学的脅威" id="toc-生物学的脅威" class="nav-link" data-scroll-target="#生物学的脅威"><span class="header-section-number">4.5</span> 生物学的脅威</a></li>
+  </ul></li>
+  <li><a href="#アラインメント問題" id="toc-アラインメント問題" class="nav-link" data-scroll-target="#アラインメント問題"><span class="header-section-number">5</span> アラインメント問題</a></li>
+  
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">LLM が真に社会に受け入れられるまで</h1>
+<p class="subtitle lead">近年の発展のまとめ</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">AI</div>
+    <div class="quarto-category">Economic Security</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">著者</div>
+    <div class="quarto-title-meta-contents">
+             <p>ぷに </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">日付</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2/20/2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">はじめに</div>
+    LLM が社会に大きな影響を与えたことは間違いないが，真に社会に溶け込み，社会の役に立ったり，既存の意思決定システムの一環を担えるようになるためには解決しなければいけない問題が多すぎる．本稿はそのうちいくつかをまとめる試みである．
+  </div>
+</div>
+
+
+</header>
+
+
+<section id="sec-LLaMA" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> LLaMA の一般公開とその影響</h1>
+<p>Meta AI が <a href="https://about.fb.com/ja/news/2023/07/meta-and-microsoft-introduce-the-next-generation-of-llama/">7/18/2023</a> に LLM <a href="https://llama.meta.com/">LLaMA</a> <span class="citation" data-cites="Touvron+2023">(<a href="#ref-Touvron+2023" role="doc-biblioref">Touvron et al., 2023</a>)</span> を公開した．そして API を通じて利用する形ではなく，そのモデルのウェイトが公開されたため，Stanford 大学の <a href="https://github.com/tatsu-lab/stanford_alpaca">Alpaca</a> など，モデルの改良と研究が促進されている．</p>
+<p>特に事後調整のための公開データセットの整備が進んでおり，<a href="https://github.com/tatsu-lab/stanford_alpaca">Alpaca</a> では Self-Instruct <span class="citation" data-cites="Wang+2023-Self-Instruct">(<a href="#ref-Wang+2023-Self-Instruct" role="doc-biblioref">Wang et al., 2023</a>)</span> による効率的な alignment 技術が採用されている．</p>
+<p>産業界でも影響は大きい．<a href="https://elyza.ai/">ELYZA</a> は <a href="https://elyza.ai/news/2023/12/27/130%E5%84%84%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%81%AE%E5%95%86%E7%94%A8%E5%88%A9%E7%94%A8%E5%8F%AF%E8%83%BD%E3%81%AA%E6%97%A5%E6%9C%AC%E8%AA%9Ellmelyza-j">12/27/2023</a> に日本語に特化した LLM である ELYZA-japanese-Llama-2-13b を公開している．<a href="https://stockmark.co.jp/">Stockmark</a> も <a href="https://stockmark.co.jp/news/20231027">10/27/2023</a> に Stockmark-13b を公開している．</p>
+<p>いずれも，開発費と開発時間が大幅に圧縮されたという．<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></p>
+<p>IBM は <a href="https://jp.newsroom.ibm.com/2023-09-12-Blog-Building-AI-for-business-IBM-Granite-foundation-models">9/12/2023</a> に LLM Granite を発表している．加えて，プラットフォーム <code>watsonx</code> も提供しており，その上で RAG など独自の事後調整を可能にしている．</p>
+<p>IBM と Meta の２社が発起人となり，<a href="https://www.ibm.com/blogs/solutions/jp-ja/the-ai-alliance/">12/5/2023</a> に AI Alliance が発足し，オープンイノベーションを推進している．</p>
+<p><a href="https://ja.stability.ai/stable-diffusion">Stable Diffusion</a> <span class="citation" data-cites="Rombach+2022">(<a href="#ref-Rombach+2022" role="doc-biblioref">Rombach et al., 2022</a>)</span> もソースコードとウェイトが <a href="https://github.com/Stability-AI/stablediffusion">一般公開</a> されている．</p>
+</section>
+<section id="llm-の経済的影響" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> LLM の経済的影響</h1>
+<p><span class="citation" data-cites="Tamkin+2021">(<a href="#ref-Tamkin+2021" role="doc-biblioref">Tamkin et al., 2021</a>)</span> は早い段階での OpenAI と Stanford 大学 <a href="https://hai.stanford.edu/">HAI</a> (Human-centered AI) との対談録である．</p>
+<p>OpenAI はコード生成能力の経済的な影響を重要なアジェンダとしている <span class="citation" data-cites="Manning+2022">(<a href="#ref-Manning+2022" role="doc-biblioref">Manning et al., 2022</a>)</span>．</p>
+<p>Open AI の <a href="https://openai.com/blog/openai-codex">Codex</a> <span class="citation" data-cites="Chen+2021">(<a href="#ref-Chen+2021" role="doc-biblioref">Chen et al., 2021</a>)</span> はプログラム言語を扱うトランスフォーマーであり，<a href="https://github.com/features/copilot">GitHub Copilot</a> の元となっている．これが社会に与える影響も，新たな評価フレームワークと共に提案されている <span class="citation" data-cites="Khlaaf+2022">(<a href="#ref-Khlaaf+2022" role="doc-biblioref">Khlaaf et al., 2022</a>)</span>．</p>
+<p>LLM の労働市場へのインパクトも推定している <span class="citation" data-cites="Eloundou+2023">(<a href="#ref-Eloundou+2023" role="doc-biblioref">Eloundou et al., 2023</a>)</span>．これによると，アメリカの労働者の 80% が，LLM の導入により少なくとも仕事の 10% に影響が生じるとしている．さらに全体の 20% は仕事の半分以上が影響を受けるとしている．</p>
+</section>
+<section id="世界モデルとしての基盤モデル" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> 世界モデルとしての基盤モデル</h1>
+<section id="社会行動シミュレーターとしての-llm" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="社会行動シミュレーターとしての-llm"><span class="header-section-number">3.1</span> 社会行動シミュレーターとしての LLM</h2>
+<p>社会的なシミュレーションを LLM 内で行うことで，社会科学やビジネスの場面での意思決定を支援することが期待されている．</p>
+<p>LLM は人間の心の理論を理解し，その心情・意図を（ある程度）シミュレートすることが出来るようである <span class="citation" data-cites="Andreas2022">(<a href="#ref-Andreas2022" role="doc-biblioref">Andreas, 2022</a>)</span>．</p>
+<p>LLM でのシミュレーションを通じて，社会科学的な知識を引き出そうとする試みもある <span class="citation" data-cites="Leng-Yuan2023">(<a href="#ref-Leng-Yuan2023" role="doc-biblioref">Leng and Yuan, 2023</a>)</span>．</p>
+</section>
+</section>
+<section id="llm-と経済安全保障" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> LLM と経済安全保障</h1>
+<section id="幻覚の防止" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="幻覚の防止"><span class="header-section-number">4.1</span> 幻覚の防止</h2>
+<p>LLM が事実と異なる物語を生成することを <strong>幻覚</strong> (hallucination) と呼び，一部の応用では問題になることがある．</p>
+<p>これを解決するにあたって，<strong>等角推測</strong> (conformal prediction) と組み合わせ，出力の不確実性を評価することで幻覚を防止する手法が提案されている <span class="citation" data-cites="Mohri-Hashimoto2024">(<a href="#ref-Mohri-Hashimoto2024" role="doc-biblioref">Mohri and Hashimoto, 2024</a>)</span>．</p>
+<p>一般に意思決定の場面において AI を活用するには，不確実性の定量化が必要不可欠である．</p>
+<p>GPT-3 を Bayesian にし，自身の確証度合いを言表するように事後調整する研究が OpenAI で行われている <span class="citation" data-cites="Lin+2022">(<a href="#ref-Lin+2022" role="doc-biblioref">Lin et al., 2022</a>)</span>．</p>
+</section>
+<section id="ウォーターマーク" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="ウォーターマーク"><span class="header-section-number">4.2</span> ウォーターマーク</h2>
+<p>ウォーターマークを開発することで，LLM から出力された文章であることを高確率で検出できるようにする方法が，統計的仮説検定の技術を応用して提案されている <span class="citation" data-cites="Kuditipudi+2023">(<a href="#ref-Kuditipudi+2023" role="doc-biblioref">Kuditipudi et al., 2023</a>)</span>．</p>
+</section>
+<section id="偽情報対策" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="偽情報対策"><span class="header-section-number">4.3</span> 偽情報対策</h2>
+<p>生成 AI は，一国の政府が特定のプロパガンダを流布するための効果的な手段として選ばれることになる．その際の考え得る使用例と，それに対する対策が考えられてる <span class="citation" data-cites="Goldstein+2023">(<a href="#ref-Goldstein+2023" role="doc-biblioref">Goldstein et al., 2023</a>)</span>．</p>
+</section>
+<section id="開発規制" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="開発規制"><span class="header-section-number">4.4</span> 開発規制</h2>
+<p><span class="citation" data-cites="Anderljung+2023">(<a href="#ref-Anderljung+2023" role="doc-biblioref">Anderljung et al., 2023</a>)</span> は先端的な AI を <a href="https://www.cnas.org/publications/commentary/frontier-ai-regulation-managing-emerging-risks-to-public-safety">Frontier AI</a> と呼び，これの開発過程におけるあるべき規制を模索している．監督当局に執行権を付与することやフロンティアAIモデルのライセンス制度などが議論されている．</p>
+<p><span class="citation" data-cites="Shoker+2023">(<a href="#ref-Shoker+2023" role="doc-biblioref">Shoker et al., 2023</a>)</span> は LLM と国家安全保障との関係を議論している．信頼構築措置 (CBMs: Confidence-Building Measures) とは，国家間の敵意を減少させることで，衝突のリスクを減らす措置の全般をいう．元々は冷戦時代に提案された概念であるが，これを LLM 開発に適用することが具体的に提案されている．</p>
+</section>
+<section id="生物学的脅威" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="生物学的脅威"><span class="header-section-number">4.5</span> 生物学的脅威</h2>
+<p>LLM の登場により個人がエンパワーメントを受けており，生物学的脅威を作る障壁が低下していることは間違いない．</p>
+<p><span class="citation" data-cites="Patwardhan+2024">(<a href="#ref-Patwardhan+2024" role="doc-biblioref">Patwardhan et al., 2024</a>)</span> では，生物学的リスクに焦点を当てて，AI による安全リスク評価の手法と事前警鐘システムを模索している．この研究では，LLM によりリスクが増加するという統計的に有意義な証拠は得られていないが，この方面の研究の草分けとなっている．</p>
+</section>
+</section>
+<section id="アラインメント問題" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> アラインメント問題</h1>
+</section>
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="文献紹介" class="level1 appendix" data-number="6"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">6</span> 文献紹介</h2><div class="quarto-appendix-contents">
+
+<p>大規模言語モデルとトランスフォーマーに関するより詳しい内容は，次の記事も参照：</p>
+<div class="article-card-container">
+    <div class="article-card">
+        <a href="https://162348.github.io/posts/2024/Kernels/Deep2.html" target="_blank">
+            <img src="https://162348.github.io/posts/2024/Kernels/Transformer_cut.png" alt="Article Image" class="article-image">
+            <div class="article-content">
+                <h3 class="article-title anchored" data-anchor-id="文献紹介">トランスフォーマー（深層生成モデル１）</h3>
+                <p class="article-description">2023 年までの「基盤モデル」と呼ばれるような大規模な深層学習モデルは，ほとんど全て同一のアーキテクチャを持つ．これがトランスフォーマーである．その構造を，主に言語の分野に注目して概説する．最後に画像と動画の分野にも触れる．</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+</div></section><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Anderljung+2023" class="csl-entry" role="listitem">
+Anderljung, M., Barnhart, J., Korinek, A., Leung, J., O’Keefe, C., Whittlestone, J., … Wolf, K. (2023). <a href="https://openai.com/research/frontier-ai-regulation">Frontier AI regulation: Managing emerging risks to public safety</a>. OpenAI.
+</div>
+<div id="ref-Andreas2022" class="csl-entry" role="listitem">
+Andreas, J. (2022). <a href="https://arxiv.org/abs/2212.01681">Language models as agent models</a>.
+</div>
+<div id="ref-Chen+2021" class="csl-entry" role="listitem">
+Chen, M., Tworek, J., Jun, H., Yuan, Q., Oliveira Pinto, H. P. de, Kaplan, J., … Zaremba, W. (2021). <a href="https://arxiv.org/abs/2107.03374">Evaluating large language models trained on code</a>.
+</div>
+<div id="ref-Eloundou+2023" class="csl-entry" role="listitem">
+Eloundou, T., Manning, S., Mishkin, P., and Rock, D. (2023). <a href="https://openai.com/research/gpts-are-gpts">GPTs are GPTs: An early look at the labor market impact potential of large language models</a>.
+</div>
+<div id="ref-Goldstein+2023" class="csl-entry" role="listitem">
+Goldstein, J. A., Sastry, G., Musser, M., DiResta, R., Gentzel, M., and Sedova, K. (2023). <a href="https://openai.com/research/forecasting-misuse">Generative language models and automated influence operations: Emerging threats and potential mitigations</a>.
+</div>
+<div id="ref-Khlaaf+2022" class="csl-entry" role="listitem">
+Khlaaf, H., Mishkin, P., Achiam, J., Krueger, G., and Brundage, M. (2022). <a href="https://openai.com/research/a-hazard-analysis-framework-for-code-synthesis-large-language-models">A hazard analysis framework for code synthesis large language models</a>.
+</div>
+<div id="ref-Kuditipudi+2023" class="csl-entry" role="listitem">
+Kuditipudi, R., Thickstun, J., Hashimoto, T., and Liang, P. (2023). <a href="https://arxiv.org/abs/2402.10978">Robust distortion-free watermarks for language models</a>.
+</div>
+<div id="ref-Leng-Yuan2023" class="csl-entry" role="listitem">
+Leng, Y., and Yuan, Y. (2023). <a href="https://arxiv.org/abs/2312.15198">Do LLM agents exhibit social behavior?</a>
+</div>
+<div id="ref-Lin+2022" class="csl-entry" role="listitem">
+Lin, S., Hilton, J., and Evans, O. (2022). <a href="https://openai.com/research/teaching-models-to-express-their-uncertainty-in-words">Teaching models to express their uncertainty in words</a>. In <em>Transactions on machine learning research</em>.
+</div>
+<div id="ref-Manning+2022" class="csl-entry" role="listitem">
+Manning, S., Mishkin, P., Hadfield, G., Eloundou, T., and Eisne, E. (2022). <em>A research agenda for assessing the economic impacts of code generation models</em>. OpenAI. Retrieved from <a href="https://openai.com/research/economic-impacts">https://openai.com/research/economic-impacts</a>
+</div>
+<div id="ref-Mohri-Hashimoto2024" class="csl-entry" role="listitem">
+Mohri, C., and Hashimoto, T. (2024). <a href="https://arxiv.org/abs/2402.10978">Language models with conformal factuality guarantees</a>.
+</div>
+<div id="ref-Patwardhan+2024" class="csl-entry" role="listitem">
+Patwardhan, T., Liu, K., Markov, T., Chowdhury, N., Leet, D., Cone, N., … Mandry, A. (2024). <em>Building an early warning system for LLM-aided biological threat creation</em>. OpenAI. Retrieved from <a href="https://openai.com/research/building-an-early-warning-system-for-llm-aided-biological-threat-creation">https://openai.com/research/building-an-early-warning-system-for-llm-aided-biological-threat-creation</a>
+</div>
+<div id="ref-Rombach+2022" class="csl-entry" role="listitem">
+Rombach, R., Blattmann, A., Lorenz, D., Esser, P., and Ommer, B. (2022). <a href="https://openaccess.thecvf.com/content/CVPR2022/html/Rombach_High-Resolution_Image_Synthesis_With_Latent_Diffusion_Models_CVPR_2022_paper.html">High-resolution image systhesis with latent diffusion models</a>. In <em>Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (CVPR)</em>, pages 10684–10695.
+</div>
+<div id="ref-Shoker+2023" class="csl-entry" role="listitem">
+Shoker, S., Reddie, A., Barrington, S., Booth, R., Brundage, M., Chahal, H., … Young, J. (2023). <a href="https://openai.com/research/confidence-building-measures-for-artificial-intelligence">Confidence-building measures for artificial intelligence: Workshop proceedings</a>.
+</div>
+<div id="ref-Tamkin+2021" class="csl-entry" role="listitem">
+Tamkin, A., Brundage, M., Clark, J., and Ganguli, D. (2021). <a href="https://arxiv.org/abs/2102.02503">Understanding the capabilities, limitations, and societal impact of large language models</a>.
+</div>
+<div id="ref-Touvron+2023" class="csl-entry" role="listitem">
+Touvron, H., Lavril, T., Izacard, G., Martinet, X., Lachaux, M.-A., Lacroix, T., … Lample, G. (2023). <a href="https://arxiv.org/abs/2302.13971">LLaMA: Open and efficient foundation language models</a>.
+</div>
+<div id="ref-Wang+2023-Self-Instruct" class="csl-entry" role="listitem">
+Wang, Y., Kordi, Y., Mishra, S., Liu, A., Smith, N. A., Khashabi, D., and Hajishirzi, H. (2023). <a href="https://doi.org/10.18653/v1/2023.acl-long.754">Self-instruct: Aligning language models with self-generated instructions</a>. In A. Rogers, J. Boyd-Graber, and N. Okazaki, editors, <em>Proceedings of the 61st annual meeting of the association for computational linguistics (volume 1: Long papers)</em>, pages 13484–13508. Toronto, Canada: Association for Computational Linguistics.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://www.nikkei.com/article/DGXZQOUC268J80W3A221C2000000/">日経新聞 (2/19/2024)</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          trigger: 'click',
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          positionFixed: true,
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="puniupa/puniupa.github.io" data-repo-id="R_kgDOMOsIVA" data-category="Announcements" data-category-id="DIC_kwDOMOsIVM4CgazP" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="top" data-theme="light" data-lang="en" crossorigin="anonymous" data-loading="lazy" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="light">
+<input type="hidden" id="giscus-alt-theme" value="dark">
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://puniupa.github.io/">
+<p>ぷにうぱ</p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/puniupa/puniupa.github.io/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:puniupa48@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../../blog.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

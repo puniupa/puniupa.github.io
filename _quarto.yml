@@ -14,6 +14,7 @@ website:
   favicon: assets/ぷにうぱ.jpg
   site-url: https://puniupa.github.io/
   description: "法学＋数学で世界を渡り歩こう"
+  back-to-top-navigation: true
   navbar:
     right:
       - text: "カテゴリ一覧"
