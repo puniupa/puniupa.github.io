@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Recent Posts",
     "section": "",
-    "text": "位相的機械学習――データはもはや「ただの数字」ではない――\n\n\nこれから AI で加速する産業分野はどこか？\n\n\n\nAI\n\n\n\nTDL (Topological Deep Learning) とは，幾何学的な概念によって深層学習を（再）解釈しようとする立場であり，近年急速な盛り上がりを見せている．こういうと理論的な話に聞こえるかも知れないが，幾何学の概念を AI 利用に取り入れることは，半導体，ニューロサイエンスなど，幅広い科学分野において重要なステップである．従って，位相的機械学習は今後とも，理論だけでなく応用と実践が交差するキーワードとなっていくと期待されている．\n\n\n\n\n\n8/07/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n武見研究室訪問\n\n\n「障碍」を「障碍」ではなくす社会へ\n\n\n\nNeuroscience\n\n\nAI\n\n\nBlog\n\n\n\n武見先生にお時間をいただき，中目黒にある研究室を訪問し，実験設備を見せて，体験もさせていただきました．２時間弱の訪問でしたが，大変多くのことを学んだので，その一端を書き残しておきたいと思います．\n\n\n\n\n\n8/06/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\nffmpeg による音声・動画の変換\n\n\n\n\n\n\nTech\n\n\n\n\n\n\n\n\n\n7/18/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n生成 AI 開発企業の論点\n\n\n\n\n\n\nAI\n\n\nDisinformation\n\n\n\n去る４月，イタリアペルージアにて，国際ジャーナリズム・フェスティバルが開催され，AI とディスインフォメーションは中心的な議題の１つであった．そのプログラムと議論の内容をまとめることで，現在の生成 AI とディスインフォメーションにおける論点を洗い出す．\n\n\n\n\n\n7/16/2024\n\n\nうぱ, ぷに\n\n\n\n\n\n\n\n\n\n\n\n\nこれからはじめるベイズ機械学習\n\n\n所信表明を兼ねて\n\n\n\nAI\n\n\n\n\n\n\n\n\n\n3/20/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\n\n半導体デバイスの基本原理と製造方法を物理から理解することを目指す．\n\n\n\n\n\n2/26/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\nLLM が真に社会に受け入れられるまで\n\n\n近年の発展のまとめ\n\n\n\nAI\n\n\nDisinformation\n\n\n\nLLM が社会に大きな影響を与えたことは間違いないが，真に社会に溶け込み，社会の役に立ったり，既存の意思決定システムの一環を担えるようになるためには解決しなければいけない問題が多すぎる．本稿はそのうちいくつかをまとめる試みである．\n\n\n\n\n\n2/20/2024\n\n\nぷに\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+    "text": "うぱ GitHub 挑戦\n\n\n\n\n\n\nBlog\n\n\nTech\n\n\n\nGitHub を初めて使う法学徒のメモ\n\n\n\n\n\n8/07/2024\n\n\nうぱ, ぷに\n\n\n\n\n\n\n\n\n\n\n\n\n位相的機械学習――データはもはや「ただの数字」ではない――\n\n\nこれから AI で加速する産業分野はどこか？\n\n\n\nAI\n\n\n\nTDL (Topological Deep Learning) とは，幾何学的な概念によって深層学習を（再）解釈しようとする立場であり，近年急速な盛り上がりを見せている．こういうと理論的な話に聞こえるかも知れないが，幾何学の概念を AI 利用に取り入れることは，半導体，ニューロサイエンスなど，幅広い科学分野において重要なステップである．従って，位相的機械学習は今後とも，理論だけでなく応用と実践が交差するキーワードとなっていくと期待されている．\n\n\n\n\n\n8/07/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n武見研究室訪問\n\n\n「障碍」を「障碍」ではなくす社会へ\n\n\n\nNeuroscience\n\n\nAI\n\n\nBlog\n\n\n\n武見先生にお時間をいただき，中目黒にある研究室を訪問し，実験設備を見せて，体験もさせていただきました．２時間弱の訪問でしたが，大変多くのことを学んだので，その一端を書き残しておきたいと思います．\n\n\n\n\n\n8/06/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\nffmpeg による音声・動画の変換\n\n\n\n\n\n\nTech\n\n\n\nffmpeg は Unix 系 OS 上で動く，動画と音声の変換をしてくれる万能ツールである．MacOS の多くのアプリは裏で ffmpeg を使っている．この記事にあるコードをコピー＆ペーストすれば，ブラウザ上の「動画変換サービス」にアップロードせずに済む！（それに，コンピュータへの理解も深まる．） \n\n\n\n\n\n7/18/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n生成 AI 開発企業の論点\n\n\n\n\n\n\nAI\n\n\nDisinformation\n\n\n\n去る４月，イタリアペルージアにて，国際ジャーナリズム・フェスティバルが開催され，AI とディスインフォメーションは中心的な議題の１つであった．そのプログラムと議論の内容をまとめることで，現在の生成 AI とディスインフォメーションにおける論点を洗い出す．\n\n\n\n\n\n7/16/2024\n\n\nうぱ, ぷに\n\n\n\n\n\n\n\n\n\n\n\n\nこれからはじめるベイズ機械学習\n\n\n所信表明を兼ねて\n\n\n\nAI\n\n\n\n\n\n\n\n\n\n3/20/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\n\n半導体デバイスの基本原理と製造方法を物理から理解することを目指す．\n\n\n\n\n\n2/26/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\nLLM が真に社会に受け入れられるまで\n\n\n近年の発展のまとめ\n\n\n\nAI\n\n\nDisinformation\n\n\n\nLLM が社会に大きな影響を与えたことは間違いないが，真に社会に溶け込み，社会の役に立ったり，既存の意思決定システムの一環を担えるようになるためには解決しなければいけない問題が多すぎる．本稿はそのうちいくつかをまとめる試みである．\n\n\n\n\n\n2/20/2024\n\n\nぷに\n\n\n\n\n\n\nNo matching items\n\n Back to top"
   },
   {
     "objectID": "static/AllCategories.html",
@@ -676,14 +676,14 @@
     "href": "posts/2024/Tech/Git.html",
     "title": "GitHub の使い方",
     "section": "",
-    "text": "まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．\n\n\n\n\n\n\n\nGitHub = コードに特化した Google Drive\nGit = コードベースで動く，ローカル上の Google Drive\n\n\n\n\nローカル上の Google Drive のスクリーンショット"
+    "text": "まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．\n\n\n\n\n\n\n\nGitHub = コードに特化した Google Drive\nGit = コードベースで動く，ローカル上の Google Drive\n\n\n\n\nローカル上の Google Drive のスクリーンショット\n\n\n\n\n\n\n\n\nGitとは，.gitに「スナップショットのストリーム」を保存する形で動く分散型（全てのユーザーがデータベース＝リポジトリのミラーリングを持つ形）のバージョン管理システムである．ここに独自の形式でsnapshotが保存される．\n\n\n\nWorkflow\n\n\n\n\n\nGitで2つのブランチを統合する方法は3つある．なお，git pullはgit fetchとgit merge（またはgit rebase）の合成である．\n\n\n2つのブランチに違いがあると言っても，「リモートのmainブランチがローカルのmainブランチよりも進んでいる」などの単純な状況である場合は，ただブランチのポインターを「前に進める」だけで良い．\n基本，一人で開発しており，別の環境から作業を再開したい場合や，レポジトリが単一のブランチのみで開発が進んでいる場合などはこれで十分．\ngit fast-forwardというコマンドがある訳ではなく，ブランチに分岐がない場合にgit mergeを実行した際に自動的に起こる．\n\n\n\nコミットを「基底状態(base)からの差分」だとすれば，このコミットを，別のブランチに取り込んで足並みを揃える際にはrebaseが行われる．\n他のブランチに適用したいところのコミットが存在するブランチに移動し，適用したいブランチ（例えばtargetブランチ）に対して，\ngit rebase target\nと実行する．ローカルでrebaseの引数を省略した場合はrefs/heads/mainに適用される．\n\n\n\n2つのブランチの変更を組み合わせて，1つの新しいブランチにまとめる．\ngit merge\nにより自動で統合を試みるが，失敗した場合は手動で解決する必要あり．\n\n\n\n\n\nサル先生のGit入門"
   },
   {
     "objectID": "posts/2024/Tech/Git.html#github-とは何か",
     "href": "posts/2024/Tech/Git.html#github-とは何か",
     "title": "GitHub の使い方",
     "section": "",
-    "text": "まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．\n\n\n\n\n\n\n\nGitHub = コードに特化した Google Drive\nGit = コードベースで動く，ローカル上の Google Drive\n\n\n\n\nローカル上の Google Drive のスクリーンショット"
+    "text": "まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．\n\n\n\n\n\n\n\nGitHub = コードに特化した Google Drive\nGit = コードベースで動く，ローカル上の Google Drive\n\n\n\n\nローカル上の Google Drive のスクリーンショット\n\n\n\n\n\n\n\n\nGitとは，.gitに「スナップショットのストリーム」を保存する形で動く分散型（全てのユーザーがデータベース＝リポジトリのミラーリングを持つ形）のバージョン管理システムである．ここに独自の形式でsnapshotが保存される．\n\n\n\nWorkflow\n\n\n\n\n\nGitで2つのブランチを統合する方法は3つある．なお，git pullはgit fetchとgit merge（またはgit rebase）の合成である．\n\n\n2つのブランチに違いがあると言っても，「リモートのmainブランチがローカルのmainブランチよりも進んでいる」などの単純な状況である場合は，ただブランチのポインターを「前に進める」だけで良い．\n基本，一人で開発しており，別の環境から作業を再開したい場合や，レポジトリが単一のブランチのみで開発が進んでいる場合などはこれで十分．\ngit fast-forwardというコマンドがある訳ではなく，ブランチに分岐がない場合にgit mergeを実行した際に自動的に起こる．\n\n\n\nコミットを「基底状態(base)からの差分」だとすれば，このコミットを，別のブランチに取り込んで足並みを揃える際にはrebaseが行われる．\n他のブランチに適用したいところのコミットが存在するブランチに移動し，適用したいブランチ（例えばtargetブランチ）に対して，\ngit rebase target\nと実行する．ローカルでrebaseの引数を省略した場合はrefs/heads/mainに適用される．\n\n\n\n2つのブランチの変更を組み合わせて，1つの新しいブランチにまとめる．\ngit merge\nにより自動で統合を試みるが，失敗した場合は手動で解決する必要あり．\n\n\n\n\n\nサル先生のGit入門"
   },
   {
     "objectID": "posts/2024/Tech/Git.html#導入",
@@ -696,15 +696,15 @@
     "objectID": "posts/2024/Tech/Git.html#仕組み",
     "href": "posts/2024/Tech/Git.html#仕組み",
     "title": "GitHub の使い方",
-    "section": "3 仕組み",
-    "text": "3 仕組み\n\n3.1 .gitディレクトリの中身\n\nHEAD： 現在チェックアウトしているブランチを指します。これは通常、最新のコミットを指すリファレンスです。\nconfig： プロジェクト固有のGit設定を含みます。これには、リモートリポジトリのURL、ブランチの設定などが含まれます。\ndescription： GitWebプログラムで使用される説明ファイルですが、一般的なGit操作では使用されません。\nhooks/： クライアント側またはサーバー側のフックスクリプトを格納するディレクトリです。これらのスクリプトは、特定のイベント（例えばコミットやプッシュ）が発生した際に自動的に実行されます。\ninfo/： .gitignoreファイルに追跡しないパターンをグローバルに除外するためのファイルを含みます。\nobjects/： すべてのコンテンツ（コミット、ツリー、ブロブなど）が格納されるディレクトリです。これらはGitによって一意のハッシュ値で識別されます。\nrefs/： コミットオブジェクトを指し示すポインター（ブランチ、タグ、リモートなど）を含むディレクトリです。\nindex： ステージングエリアの情報を格納するファイルです。これは、git add などのコマンドでステージングされた変更を追跡します。"
+    "section": "2 仕組み",
+    "text": "2 仕組み\n\n2.1 .gitディレクトリの中身\n\nHEAD： 現在チェックアウトしているブランチを指します。これは通常、最新のコミットを指すリファレンスです。\nconfig： プロジェクト固有のGit設定を含みます。これには、リモートリポジトリのURL、ブランチの設定などが含まれます。\ndescription： GitWebプログラムで使用される説明ファイルですが、一般的なGit操作では使用されません。\nhooks/： クライアント側またはサーバー側のフックスクリプトを格納するディレクトリです。これらのスクリプトは、特定のイベント（例えばコミットやプッシュ）が発生した際に自動的に実行されます。\ninfo/： .gitignoreファイルに追跡しないパターンをグローバルに除外するためのファイルを含みます。\nobjects/： すべてのコンテンツ（コミット、ツリー、ブロブなど）が格納されるディレクトリです。これらはGitによって一意のハッシュ値で識別されます。\nrefs/： コミットオブジェクトを指し示すポインター（ブランチ、タグ、リモートなど）を含むディレクトリです。\nindex： ステージングエリアの情報を格納するファイルです。これは、git add などのコマンドでステージングされた変更を追跡します。"
   },
   {
     "objectID": "posts/2024/Tech/ffmpeg.html",
     "href": "posts/2024/Tech/ffmpeg.html",
     "title": "ffmpeg による音声・動画の変換",
     "section": "",
-    "text": "ffmpeg -i &lt;filename&gt;\nで情報を表示する．\n\n\nffmpeg -i &lt;filename&gt; -r 10 -f gif &lt;name&gt;.gif\n\n-r はフレームレートを指定する．\n-f はフォーマットを指定する．\n\n\n\n\n\n\n\n注\n\n\n\n\n\nffmpeg -i input.mkv -vf \"fps=10,scale=320:-1:flags=lanczos\" -c:v gif -f gif output.gif\n\n-vf はビジュアルフィルタを指定する．\n\nfps=10 はフレームレートを指定する．\nscale=320:-1:flags=lanczos はサイズを指定する．幅を 320 ピクセルとし，高さは自動調節する．\nflags=lanczos は Lanczos アルゴリズム を用いて，アンチエイリアスを指定する．\n\n-c:v はビデオコードを指定する．\n\n-c:v gif は出力のビデオコーデックを GIF にする．\n\n-f はフォーマットを指定する．\n\ncodec とは encoder と decoder のかばん語であり，圧縮と復号を司る．\n\n\n\n\n\n\nffmpeg -i &lt;filename&gt; -vn -acodec copy &lt;output filename&gt;\n\n-vn は動画でないことを指定 (video not)\n-acodec copy は同じストリームを使うことを表す\n\n\n\n\nffmpeg -i &lt;filename&gt; -acodec libmp3lame &lt;name&gt;.mp3\n\n-acodec libmp3lame は音声コードの指定をしている（省略可能）．\n\n\n\n\nffmpeg -i &lt;input&gt; -filter_complex \"showspectrum\" &lt;output&gt;.mp4\n\n-filter_complex はフィルタを指定する．\nshowspectrum は音声の波形を表示する．\n\n\n\n\n\n\n\n種々の設定\n\n\n\n\n\nffmpeg -i multi.wav -filter_complex \"showwaves=split_channels=1:mode=line\" multi_waves.gif\n\nshowwaves は音声の波形を表示する．\nsplit_channels=1 はチャンネルを 1 つにする．\nmode=line は波形の表示方法を直結びにする．"
+    "text": "ffmpeg -i &lt;filename&gt;\nで情報を表示する．\n\n\nffmpeg -i &lt;filename&gt; -r 10 -f gif &lt;name&gt;.gif\n\n-r はフレームレートを指定する．\n-f はフォーマットを指定する．\n\n\n\n\n\n\n\n注\n\n\n\n\n\nffmpeg -i input.mkv -vf \"fps=10,scale=320:-1:flags=lanczos\" -c:v gif -f gif output.gif\n\n-vf はビジュアルフィルタを指定する．\n\nfps=10 はフレームレートを指定する．\nscale=320:-1:flags=lanczos はサイズを指定する．幅を 320 ピクセルとし，高さは自動調節する．\nflags=lanczos は Lanczos アルゴリズム を用いて，アンチエイリアスを指定する．\n\n-c:v はビデオコードを指定する．\n\n-c:v gif は出力のビデオコーデックを GIF にする．\n\n-f はフォーマットを指定する．\n\ncodec とは encoder と decoder のかばん語であり，圧縮と復号を司る．\n\n\n\n\n\n\nffmpeg -i &lt;filename&gt; -vn -acodec copy &lt;output filename&gt;\n\n-vn は動画でないことを指定 (video not)\n-acodec copy は同じストリームを使うことを表す\n\n\n\n\nffmpeg -i &lt;filename&gt; -acodec libmp3lame &lt;name&gt;.mp3\n\n-acodec libmp3lame は音声コードの指定をしている（省略可能）．"
   },
   {
     "objectID": "posts/2024/Tech/ffmpeg.html#ffmpeg-の使い方",
@@ -712,5 +712,47 @@
     "title": "ffmpeg による音声・動画の変換",
     "section": "",
     "text": "ffmpeg -i &lt;filename&gt;\nで情報を表示する．\n\n\nffmpeg -i &lt;filename&gt; -r 10 -f gif &lt;name&gt;.gif\n\n-r はフレームレートを指定する．\n-f はフォーマットを指定する．\n\n\n\n\n\n\n\n注\n\n\n\n\n\nffmpeg -i input.mkv -vf \"fps=10,scale=320:-1:flags=lanczos\" -c:v gif -f gif output.gif\n\n-vf はビジュアルフィルタを指定する．\n\nfps=10 はフレームレートを指定する．\nscale=320:-1:flags=lanczos はサイズを指定する．幅を 320 ピクセルとし，高さは自動調節する．\nflags=lanczos は Lanczos アルゴリズム を用いて，アンチエイリアスを指定する．\n\n-c:v はビデオコードを指定する．\n\n-c:v gif は出力のビデオコーデックを GIF にする．\n\n-f はフォーマットを指定する．\n\ncodec とは encoder と decoder のかばん語であり，圧縮と復号を司る．\n\n\n\n\n\n\nffmpeg -i &lt;filename&gt; -vn -acodec copy &lt;output filename&gt;\n\n-vn は動画でないことを指定 (video not)\n-acodec copy は同じストリームを使うことを表す\n\n\n\n\nffmpeg -i &lt;filename&gt; -acodec libmp3lame &lt;name&gt;.mp3\n\n-acodec libmp3lame は音声コードの指定をしている（省略可能）．\n\n\n\n\nffmpeg -i &lt;input&gt; -filter_complex \"showspectrum\" &lt;output&gt;.mp4\n\n-filter_complex はフィルタを指定する．\nshowspectrum は音声の波形を表示する．\n\n\n\n\n\n\n\n種々の設定\n\n\n\n\n\nffmpeg -i multi.wav -filter_complex \"showwaves=split_channels=1:mode=line\" multi_waves.gif\n\nshowwaves は音声の波形を表示する．\nsplit_channels=1 はチャンネルを 1 つにする．\nmode=line は波形の表示方法を直結びにする．"
+  },
+  {
+    "objectID": "posts/2024/Blog/うぱgithub挑戦.html",
+    "href": "posts/2024/Blog/うぱgithub挑戦.html",
+    "title": "うぱ GitHub 挑戦",
+    "section": "",
+    "text": "git reflog\n# Git でやったことがすべてのブランチに渡って全部見える！\n# どのブランチにも HEAD@{index} ってインデックスがあるはずだから\n# やらかす前のやつを見つけて\ngit reset HEAD@{index}\n# ほら、まるで魔法のタイムマシン\n\n\n\ngit commit --amend\n# 指示に沿ってコミットメッセージを変更しよう"
+  },
+  {
+    "objectID": "posts/2024/Blog/うぱgithub挑戦.html#すごい",
+    "href": "posts/2024/Blog/うぱgithub挑戦.html#すごい",
+    "title": "うぱ GitHub 挑戦",
+    "section": "",
+    "text": "git reflog\n# Git でやったことがすべてのブランチに渡って全部見える！\n# どのブランチにも HEAD@{index} ってインデックスがあるはずだから\n# やらかす前のやつを見つけて\ngit reset HEAD@{index}\n# ほら、まるで魔法のタイムマシン\n\n\n\ngit commit --amend\n# 指示に沿ってコミットメッセージを変更しよう"
+  },
+  {
+    "objectID": "posts/2024/Blog/うぱgithub挑戦.html#参考になるリンク",
+    "href": "posts/2024/Blog/うぱgithub挑戦.html#参考になるリンク",
+    "title": "うぱ GitHub 挑戦",
+    "section": "2 参考になるリンク",
+    "text": "2 参考になるリンク\n\n\nDangit, Git!?!：「ミスった！」「どうすれば良いの！？」というときに，痒いところに手が届く情報がまとまっているサイト\nぷにの記事：原理に迫ろうとしている．"
+  },
+  {
+    "objectID": "posts/2024/Tech/ffmpeg.html#早見表",
+    "href": "posts/2024/Tech/ffmpeg.html#早見表",
+    "title": "ffmpeg による音声・動画の変換",
+    "section": "",
+    "text": "ffmpeg -i &lt;filename&gt;\nで情報を表示する．\n\n\nffmpeg -i &lt;filename&gt; -r 10 -f gif &lt;name&gt;.gif\n\n-r はフレームレートを指定する．\n-f はフォーマットを指定する．\n\n\n\n\n\n\n\n注\n\n\n\n\n\nffmpeg -i input.mkv -vf \"fps=10,scale=320:-1:flags=lanczos\" -c:v gif -f gif output.gif\n\n-vf はビジュアルフィルタを指定する．\n\nfps=10 はフレームレートを指定する．\nscale=320:-1:flags=lanczos はサイズを指定する．幅を 320 ピクセルとし，高さは自動調節する．\nflags=lanczos は Lanczos アルゴリズム を用いて，アンチエイリアスを指定する．\n\n-c:v はビデオコードを指定する．\n\n-c:v gif は出力のビデオコーデックを GIF にする．\n\n-f はフォーマットを指定する．\n\ncodec とは encoder と decoder のかばん語であり，圧縮と復号を司る．\n\n\n\n\n\n\nffmpeg -i &lt;filename&gt; -vn -acodec copy &lt;output filename&gt;\n\n-vn は動画でないことを指定 (video not)\n-acodec copy は同じストリームを使うことを表す\n\n\n\n\nffmpeg -i &lt;filename&gt; -acodec libmp3lame &lt;name&gt;.mp3\n\n-acodec libmp3lame は音声コードの指定をしている（省略可能）．"
+  },
+  {
+    "objectID": "posts/2024/Tech/ffmpeg.html#波形表示",
+    "href": "posts/2024/Tech/ffmpeg.html#波形表示",
+    "title": "ffmpeg による音声・動画の変換",
+    "section": "2 波形表示",
+    "text": "2 波形表示\n音声から動画にする際に，小粋なアニメーションをつけることもできる．\n\n2.1 スペクトルを表示する\nffmpeg -i &lt;input&gt; -filter_complex \"showspectrum\" &lt;output&gt;\n\n\n\n\n\n\n例\n\n\n\n次の音声を変換してみると\n\n  \n    \n  \n\nffmpeg -i example.aac -filter_complex \"showspectrum=slide=1:mode=separate:color=plasma:scale=log:saturation=1:legend=0\" -r 60 output1.gif\n\n\n\n\n\n\n\n\n\n種々の設定\n\n\n\n\n\nffmpeg -i example.wav -filter_complex \"showwaves=split_channels=1:mode=line\" example_waves.gif\n\nshowwaves は音声の波形を表示する．\nsplit_channels=1 はチャンネルを 1 つにする．\nmode=line は波形の表示方法を直結びにする．\n\n\n\n\n\n\n2.2 波形を表示する\nffmpeg -i example.aac -filter_complex \"showwaves=split_channels=1:mode=line\" output2.gif\n\n\n\n2.3 音量を表示する\nffmpeg -i example.aac -filter_complex \"showvolume\" output3.gif\n\n\n\n2.4 周波数を表示する\nffmpeg -i example.aac -filter_complex \"showfreqs=mode=bar\" output4.gif\n\n\n\n2.5 定 Q-変換 を表示する\nffmpeg -i example.aac -filter_complex \"showcqt\" output5.gif\n\nこれは複素 Morlet ウェーブレット変換とも呼ばれる変換であり，ピアノのような見た目から，音源などでよく用いられる．\n\n\n2.6 scalogram を表示する\nffmpeg -i example.aac -filter_complex \"showcwt=mode=channel\" output6.gif\n\nこれは連続ウェーブレット変換を適用した結果を表示している．"
+  },
+  {
+    "objectID": "posts/2024/Tech/ffmpeg.html#参考になるリンク",
+    "href": "posts/2024/Tech/ffmpeg.html#参考になるリンク",
+    "title": "ffmpeg による音声・動画の変換",
+    "section": "3 参考になるリンク",
+    "text": "3 参考になるリンク\n\n\nFFmpeg 基本：いろんなオプションがまとまっている．\nffmpegで音声ファイルを動画に変換する：多くのコードを参考にしました．\n吉井和佳，井上昂治 (2020) 『計算機科学実験及演習 4「音響信号処理」』"
   }
 ]

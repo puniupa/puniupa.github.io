@@ -17,6 +17,67 @@
 <generator>quarto-1.4.549</generator>
 <lastBuildDate>Tue, 06 Aug 2024 15:00:00 GMT</lastBuildDate>
 <item>
+  <title>うぱ GitHub 挑戦</title>
+  <dc:creator>うぱ, ぷに</dc:creator>
+  <link>https://puniupa.github.io/posts/2024/Blog/うぱgithub挑戦.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="すごい" class="level2" data-number="1">
+
+<section id="元に戻したいとき" class="level3" data-number="1.1">
+
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> reflog</span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Git でやったことがすべてのブランチに渡って全部見える！</span></span>
+<span id="cb1-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># どのブランチにも HEAD@{index} ってインデックスがあるはずだから</span></span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># やらかす前のやつを見つけて</span></span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> reset HEAD@{index}</span>
+<span id="cb1-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ほら、まるで魔法のタイムマシン</span></span></code></pre></div>
+</section>
+<section id="コミットメッセージ間違えた" class="level3" data-number="1.2">
+
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> commit <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--amend</span></span>
+<span id="cb2-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 指示に沿ってコミットメッセージを変更しよう</span></span></code></pre></div>
+</section>
+</section>
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="2"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">2</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
+
+<ul>
+<li><a href="https://dangitgit.com/ja">Dangit, Git!?!</a>：「ミスった！」「どうすれば良いの！？」というときに，痒いところに手が届く情報がまとまっているサイト</li>
+<li><a href="../../../posts/2024/Tech/Git.html">ぷにの記事</a>：原理に迫ろうとしている．</li>
+</ul>
+
+
+</div></section></div> ]]></description>
+  <category>Blog</category>
+  <category>Tech</category>
+  <guid>https://puniupa.github.io/posts/2024/Blog/うぱgithub挑戦.html</guid>
+  <pubDate>Tue, 06 Aug 2024 15:00:00 GMT</pubDate>
+  <media:content url="https://puniupa.github.io/posts/2024/Blog/Images/GitHub.jpg" medium="image" type="image/jpeg"/>
+</item>
+<item>
   <title>位相的機械学習――データはもはや「ただの数字」ではない――</title>
   <dc:creator>ぷに </dc:creator>
   <link>https://puniupa.github.io/posts/2024/AI/TDL.html</link>
@@ -454,8 +515,8 @@ Takemi, M., Tia, B., Kosugi, A., Castagnola, E., Ansaldo, A., Ricci, D., … Iri
 
 
 
-<section id="ffmpeg-の使い方" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="ffmpeg-の使い方"><span class="header-section-number">1</span> <code>ffmpeg</code> の使い方</h2>
+<section id="早見表" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="早見表"><span class="header-section-number">1</span> 早見表</h2>
 <div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
@@ -571,8 +632,12 @@ font-style: inherit;">&gt;</span>.mp3</span></code></pre></div>
 <li><code>-acodec libmp3lame</code> は音声コードの指定をしている（省略可能）．</li>
 </ul>
 </section>
-<section id="音声を動画に" class="level3" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="音声を動画に"><span class="header-section-number">1.4</span> <a href="https://qiita.com/n-taishi/items/9659dc12c1300c2f00eb">音声を動画に</a></h3>
+</section>
+<section id="波形表示" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="波形表示"><span class="header-section-number">2</span> 波形表示</h2>
+<p>音声から動画にする際に，<a href="https://qiita.com/n-taishi/items/9659dc12c1300c2f00eb">小粋なアニメーションをつけることもできる</a>．</p>
+<section id="スペクトルを表示する" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="スペクトルを表示する"><span class="header-section-number">2.1</span> スペクトルを表示する</h3>
 <div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb6-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
@@ -587,13 +652,39 @@ font-style: inherit;">"showspectrum"</span> <span class="op" style="color: #5E5E
 background-color: null;
 font-style: inherit;">&lt;</span>output<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">&gt;</span>.mp4</span></code></pre></div>
-<ul>
-<li><code>-filter_complex</code> はフィルタを指定する．</li>
-<li><code>showspectrum</code> は音声の波形を表示する．</li>
-</ul>
+font-style: inherit;">&gt;</span></span></code></pre></div>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="例">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>次の音声を変換してみると</p>
+<div class="article-card-container">
+  <audio controls="" style="float: center;">
+    <source src="Images/example.aac" type="audio/aac">
+  </audio>
+</div>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb7-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> example.aac <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"showspectrum=slide=1:mode=separate:color=plasma:scale=log:saturation=1:legend=0"</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-r</span> 60 output1.gif</span></code></pre></div>
+<p><img src="https://puniupa.github.io/posts/2024/Tech/Images/output1.gif" class="img-fluid"></p>
+</div>
+</div>
 <div class="callout callout-style-default callout-important no-icon callout-titled" title="種々の設定">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -602,17 +693,17 @@ font-style: inherit;">&gt;</span>.mp4</span></code></pre></div>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb7-1"><span class="ex" style="color: null;
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb8-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">-i</span> multi.wav <span class="at" style="color: #657422;
+font-style: inherit;">-i</span> example.wav <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"showwaves=split_channels=1:mode=line"</span> multi_waves.gif</span></code></pre></div>
+font-style: inherit;">"showwaves=split_channels=1:mode=line"</span> example_waves.gif</span></code></pre></div>
 <ul>
 <li><code>showwaves</code> は音声の波形を表示する．</li>
 <li><code>split_channels=1</code> はチャンネルを 1 つにする．</li>
@@ -621,12 +712,87 @@ font-style: inherit;">"showwaves=split_channels=1:mode=line"</span> multi_waves.
 </div>
 </div>
 </div>
-
-
+</section>
+<section id="波形を表示する" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="波形を表示する"><span class="header-section-number">2.2</span> 波形を表示する</h3>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb9-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> example.aac <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"showwaves=split_channels=1:mode=line"</span> output2.gif</span></code></pre></div>
+<p><img src="https://puniupa.github.io/posts/2024/Tech/Images/output2.gif" class="img-fluid"></p>
+</section>
+<section id="音量を表示する" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="音量を表示する"><span class="header-section-number">2.3</span> 音量を表示する</h3>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb10-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> example.aac <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"showvolume"</span> output3.gif</span></code></pre></div>
+<p><img src="https://puniupa.github.io/posts/2024/Tech/Images/output3.gif" class="img-fluid"></p>
+</section>
+<section id="周波数を表示する" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="周波数を表示する"><span class="header-section-number">2.4</span> 周波数を表示する</h3>
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb11-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> example.aac <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"showfreqs=mode=bar"</span> output4.gif</span></code></pre></div>
+<p><img src="https://puniupa.github.io/posts/2024/Tech/Images/output4.gif" class="img-fluid"></p>
+</section>
+<section id="定-q-変換-を表示する" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="定-q-変換-を表示する"><span class="header-section-number">2.5</span> <a href="https://en.wikipedia.org/wiki/Constant-Q_transform">定 Q-変換</a> を表示する</h3>
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb12-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> example.aac <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"showcqt"</span> output5.gif</span></code></pre></div>
+<p><img src="https://puniupa.github.io/posts/2024/Tech/Images/output5.gif" class="img-fluid"></p>
+<p>これは複素 <a href="https://en.wikipedia.org/wiki/Morlet_wavelet">Morlet ウェーブレット変換</a>とも呼ばれる変換であり，ピアノのような見た目から，音源などでよく用いられる．</p>
+</section>
+<section id="scalogram-を表示する" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="scalogram-を表示する"><span class="header-section-number">2.6</span> scalogram を表示する</h3>
+<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb13-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> example.aac <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"showcwt=mode=channel"</span> output6.gif</span></code></pre></div>
+<p><img src="https://puniupa.github.io/posts/2024/Tech/Images/output6.gif" class="img-fluid"></p>
+<p>これは<a href="https://en.wikipedia.org/wiki/Continuous_wavelet_transform">連続ウェーブレット変換</a>を適用した結果を表示している．</p>
 </section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
+
+<ul>
+<li><a href="https://hackmd.io/@GKcnNngaSBe9qCYV54wL8g/Hk3kWiNqM">FFmpeg 基本</a>：いろんなオプションがまとまっている．</li>
+<li><a href="https://qiita.com/n-taishi/items/9659dc12c1300c2f00eb">ffmpegで音声ファイルを動画に変換する</a>：多くのコードを参考にしました．</li>
+<li>吉井和佳，井上昂治 (2020) 『計算機科学実験及演習 4「音響信号処理」』</li>
+</ul>
+
+
+</div></section></div> ]]></description>
   <category>Tech</category>
   <guid>https://puniupa.github.io/posts/2024/Tech/ffmpeg.html</guid>
   <pubDate>Wed, 17 Jul 2024 15:00:00 GMT</pubDate>

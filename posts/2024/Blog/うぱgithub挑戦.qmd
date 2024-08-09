@@ -1,9 +1,9 @@
 ---
 title: "うぱ GitHub 挑戦"
-author: "うぱ Draft"
+author: "うぱ, ぷに"
 date: 8/7/2024
 image: Images/GitHub.jpg
-categories: [Blog]
+categories: [Blog, Tech]
 bibliography: 
     - ../../../assets/mathematics.bib
     - ../../../assets/bib.bib
@@ -12,3 +12,26 @@ abstract: GitHub を初めて使う法学徒のメモ
 ---
 
 ## すごい！
+
+### 元に戻したいとき
+
+```zsh
+git reflog
+# Git でやったことがすべてのブランチに渡って全部見える！
+# どのブランチにも HEAD@{index} ってインデックスがあるはずだから
+# やらかす前のやつを見つけて
+git reset HEAD@{index}
+# ほら、まるで魔法のタイムマシン
+```
+
+### コミットメッセージ間違えた！
+
+```zsh
+git commit --amend
+# 指示に沿ってコミットメッセージを変更しよう
+```
+
+## 参考になるリンク {.appendix}
+
+* [Dangit, Git!?!](https://dangitgit.com/ja)：「ミスった！」「どうすれば良いの！？」というときに，痒いところに手が届く情報がまとまっているサイト
+* [ぷにの記事](../Tech/Git.qmd)：原理に迫ろうとしている．

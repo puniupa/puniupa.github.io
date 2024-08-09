@@ -164,16 +164,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#github-とは何か" id="toc-github-とは何か" class="nav-link active" data-scroll-target="#github-とは何か"><span class="header-section-number">1</span> GitHub とは何か</a>
   <ul class="collapse">
   <li><a href="#一言で言うと" id="toc-一言で言うと" class="nav-link" data-scroll-target="#一言で言うと"><span class="header-section-number">1.1</span> 一言で言うと……</a></li>
+  <li><a href="#バージョン管理システム" id="toc-バージョン管理システム" class="nav-link" data-scroll-target="#バージョン管理システム"><span class="header-section-number">1.2</span> バージョン管理システム</a></li>
+  <li><a href="#変更の統合機構" id="toc-変更の統合機構" class="nav-link" data-scroll-target="#変更の統合機構"><span class="header-section-number">1.3</span> 変更の統合機構</a></li>
+  <li><a href="#参考" id="toc-参考" class="nav-link" data-scroll-target="#参考"><span class="header-section-number">1.4</span> 参考</a></li>
   </ul></li>
-  <li><a href="#導入" id="toc-導入" class="nav-link" data-scroll-target="#導入"><span class="header-section-number">2</span> 導入</a>
+  <li><a href="#仕組み" id="toc-仕組み" class="nav-link" data-scroll-target="#仕組み"><span class="header-section-number">2</span> 仕組み</a>
   <ul class="collapse">
-  <li><a href="#バージョン管理システム" id="toc-バージョン管理システム" class="nav-link" data-scroll-target="#バージョン管理システム"><span class="header-section-number">2.1</span> バージョン管理システム</a></li>
-  <li><a href="#変更の統合機構" id="toc-変更の統合機構" class="nav-link" data-scroll-target="#変更の統合機構"><span class="header-section-number">2.2</span> 変更の統合機構</a></li>
-  <li><a href="#参考" id="toc-参考" class="nav-link" data-scroll-target="#参考"><span class="header-section-number">2.3</span> 参考</a></li>
-  </ul></li>
-  <li><a href="#仕組み" id="toc-仕組み" class="nav-link" data-scroll-target="#仕組み"><span class="header-section-number">3</span> 仕組み</a>
-  <ul class="collapse">
-  <li><a href="#gitディレクトリの中身" id="toc-gitディレクトリの中身" class="nav-link" data-scroll-target="#gitディレクトリの中身"><span class="header-section-number">3.1</span> <code>.git</code>ディレクトリの中身</a></li>
+  <li><a href="#gitディレクトリの中身" id="toc-gitディレクトリの中身" class="nav-link" data-scroll-target="#gitディレクトリの中身"><span class="header-section-number">2.1</span> <code>.git</code>ディレクトリの中身</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -246,11 +243,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-</section>
-<section id="導入" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="導入"><span class="header-section-number">2</span> 導入</h2>
-<section id="バージョン管理システム" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="バージョン管理システム"><span class="header-section-number">2.1</span> バージョン管理システム</h3>
+<section id="バージョン管理システム" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="バージョン管理システム"><span class="header-section-number">1.2</span> バージョン管理システム</h3>
 <p>Gitとは，<code>.git</code>に「スナップショットのストリーム」を保存する形で動く分散型（全てのユーザーがデータベース＝リポジトリのミラーリングを持つ形）のバージョン管理システムである．ここに独自の形式でsnapshotが保存される．</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -259,40 +253,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </figure>
 </div>
 </section>
-<section id="変更の統合機構" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="変更の統合機構"><span class="header-section-number">2.2</span> 変更の統合機構</h3>
+<section id="変更の統合機構" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="変更の統合機構"><span class="header-section-number">1.3</span> 変更の統合機構</h3>
 <p>Gitで2つのブランチを統合する方法は3つある．なお，<code>git pull</code>は<code>git fetch</code>と<code>git merge</code>（または<code>git rebase</code>）の合成である．</p>
-<section id="fast-forward" class="level4" data-number="2.2.1">
-<h4 data-number="2.2.1" class="anchored" data-anchor-id="fast-forward"><span class="header-section-number">2.2.1</span> <code>fast-forward</code></h4>
+<section id="fast-forward" class="level4" data-number="1.3.1">
+<h4 data-number="1.3.1" class="anchored" data-anchor-id="fast-forward"><span class="header-section-number">1.3.1</span> <code>fast-forward</code></h4>
 <p>2つのブランチに違いがあると言っても，「リモートの<code>main</code>ブランチがローカルの<code>main</code>ブランチよりも進んでいる」などの単純な状況である場合は，ただブランチのポインターを「前に進める」だけで良い．</p>
 <p>基本，一人で開発しており，別の環境から作業を再開したい場合や，レポジトリが単一のブランチのみで開発が進んでいる場合などはこれで十分．</p>
 <p><code>git fast-forward</code>というコマンドがある訳ではなく，ブランチに分岐がない場合に<code>git merge</code>を実行した際に自動的に起こる．</p>
 </section>
-<section id="rebase" class="level4" data-number="2.2.2">
-<h4 data-number="2.2.2" class="anchored" data-anchor-id="rebase"><span class="header-section-number">2.2.2</span> <code>rebase</code></h4>
+<section id="rebase" class="level4" data-number="1.3.2">
+<h4 data-number="1.3.2" class="anchored" data-anchor-id="rebase"><span class="header-section-number">1.3.2</span> <code>rebase</code></h4>
 <p>コミットを「基底状態(base)からの差分」だとすれば，このコミットを，別のブランチに取り込んで足並みを揃える際には<code>rebase</code>が行われる．</p>
 <p>他のブランチに適用したいところのコミットが存在するブランチに移動し，適用したいブランチ（例えば<code>target</code>ブランチ）に対して，</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rebase target</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>と実行する．ローカルで<code>rebase</code>の引数を省略した場合は<code>refs/heads/main</code>に適用される．</p>
 </section>
-<section id="merge" class="level4" data-number="2.2.3">
-<h4 data-number="2.2.3" class="anchored" data-anchor-id="merge"><span class="header-section-number">2.2.3</span> <code>merge</code></h4>
+<section id="merge" class="level4" data-number="1.3.3">
+<h4 data-number="1.3.3" class="anchored" data-anchor-id="merge"><span class="header-section-number">1.3.3</span> <code>merge</code></h4>
 <p>2つのブランチの変更を組み合わせて，1つの新しいブランチにまとめる．</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>により自動で統合を試みるが，失敗した場合は手動で解決する必要あり．</p>
 </section>
 </section>
-<section id="参考" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="参考"><span class="header-section-number">2.3</span> 参考</h3>
+<section id="参考" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="参考"><span class="header-section-number">1.4</span> 参考</h3>
 <ul>
 <li><a href="https://backlog.com/ja/git-tutorial/intro/intro1_1.html">サル先生のGit入門</a></li>
 </ul>
 </section>
 </section>
-<section id="仕組み" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="仕組み"><span class="header-section-number">3</span> 仕組み</h2>
-<section id="gitディレクトリの中身" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="gitディレクトリの中身"><span class="header-section-number">3.1</span> <code>.git</code>ディレクトリの中身</h3>
+<section id="仕組み" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="仕組み"><span class="header-section-number">2</span> 仕組み</h2>
+<section id="gitディレクトリの中身" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="gitディレクトリの中身"><span class="header-section-number">2.1</span> <code>.git</code>ディレクトリの中身</h3>
 <ul>
 <li><code>HEAD</code>： 現在チェックアウトしているブランチを指します。これは通常、最新のコミットを指すリファレンスです。</li>
 <li><code>config</code>： プロジェクト固有のGit設定を含みます。これには、リモートリポジトリのURL、ブランチの設定などが含まれます。</li>

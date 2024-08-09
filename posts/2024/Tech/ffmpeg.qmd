@@ -1,5 +1,5 @@
 ---
-title: "ffmpeg による音声・動画の変換"
+title: "`ffmpeg` による音声・動画の変換"
 author: "ぷに"
 date: 7/18/2024
 categories: [Tech]
@@ -8,9 +8,11 @@ bibliography:
     - ../../../assets/bib.bib
 csl: ../../../assets/apalike.csl
 code-fold: false
+abstract: |
+  [`ffmpeg`](https://ja.wikipedia.org/wiki/FFmpeg) は Unix 系 OS 上で動く，動画と音声の変換をしてくれる万能ツールである．MacOS の多くのアプリは裏で `ffmpeg` を使っている．この記事にあるコードをコピー＆ペーストすれば，ブラウザ上の「動画変換サービス」にアップロードせずに済む！（それに，コンピュータへの理解も深まる．）
 ---
 
-## `ffmpeg` の使い方
+## 早見表
 
 ```zsh
 ffmpeg -i <filename>
@@ -62,19 +64,40 @@ ffmpeg -i <filename> -acodec libmp3lame <name>.mp3
 
 * `-acodec libmp3lame` は音声コードの指定をしている（省略可能）．
 
-### [音声を動画に](https://qiita.com/n-taishi/items/9659dc12c1300c2f00eb)
+## 波形表示
+
+音声から動画にする際に，[小粋なアニメーションをつけることもできる](https://qiita.com/n-taishi/items/9659dc12c1300c2f00eb)．
+
+### スペクトルを表示する
 
 ```zsh
-ffmpeg -i <input> -filter_complex "showspectrum" <output>.mp4
+ffmpeg -i <input> -filter_complex "showspectrum" <output>
 ```
 
-* `-filter_complex` はフィルタを指定する．
-* `showspectrum` は音声の波形を表示する．
+::: {.callout-caution title="例" icon="false" appearance="simple"}
+
+次の音声を変換してみると
+
+```{=html}
+<div class="article-card-container">
+  <audio controls="" style="float: center;">
+    <source src="Images/example.aac" type="audio/aac"/>
+  </audio>
+</div>
+```
+
+```zsh
+ffmpeg -i example.aac -filter_complex "showspectrum=slide=1:mode=separate:color=plasma:scale=log:saturation=1:legend=0" -r 60 output1.gif
+```
+
+![](Images/output1.gif)
+
+:::
 
 ::: {.callout-important title="種々の設定" collapse="true" icon="false"}
 
 ```zsh
-ffmpeg -i multi.wav -filter_complex "showwaves=split_channels=1:mode=line" multi_waves.gif
+ffmpeg -i example.wav -filter_complex "showwaves=split_channels=1:mode=line" example_waves.gif
 ```
 
 * `showwaves` は音声の波形を表示する．
@@ -82,3 +105,55 @@ ffmpeg -i multi.wav -filter_complex "showwaves=split_channels=1:mode=line" multi
 * `mode=line` は波形の表示方法を直結びにする．
 
 :::
+
+### 波形を表示する
+
+```zsh
+ffmpeg -i example.aac -filter_complex "showwaves=split_channels=1:mode=line" output2.gif
+```
+
+![](Images/output2.gif)
+
+
+
+### 音量を表示する
+
+```zsh
+ffmpeg -i example.aac -filter_complex "showvolume" output3.gif
+```
+
+![](Images/output3.gif)
+
+### 周波数を表示する
+
+```zsh
+ffmpeg -i example.aac -filter_complex "showfreqs=mode=bar" output4.gif
+```
+
+![](Images/output4.gif)
+
+### [定 Q-変換](https://en.wikipedia.org/wiki/Constant-Q_transform) を表示する
+
+```zsh
+ffmpeg -i example.aac -filter_complex "showcqt" output5.gif
+```
+
+![](Images/output5.gif)
+
+これは複素 [Morlet ウェーブレット変換](https://en.wikipedia.org/wiki/Morlet_wavelet)とも呼ばれる変換であり，ピアノのような見た目から，音源などでよく用いられる．
+
+### scalogram を表示する
+
+```zsh
+ffmpeg -i example.aac -filter_complex "showcwt=mode=channel" output6.gif
+```
+
+![](Images/output6.gif)
+
+これは[連続ウェーブレット変換](https://en.wikipedia.org/wiki/Continuous_wavelet_transform)を適用した結果を表示している．
+
+## 参考になるリンク {.appendix}
+
+* [FFmpeg 基本](https://hackmd.io/@GKcnNngaSBe9qCYV54wL8g/Hk3kWiNqM)：いろんなオプションがまとまっている．
+* [ffmpegで音声ファイルを動画に変換する](https://qiita.com/n-taishi/items/9659dc12c1300c2f00eb)：多くのコードを参考にしました．
+* 吉井和佳，井上昂治 (2020) 『計算機科学実験及演習 4「音響信号処理」』
