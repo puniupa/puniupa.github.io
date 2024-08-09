@@ -1,6 +1,6 @@
 ---
 title: "半導体の微細化技術"
-author: "ぷに"
+author: "ぷに Draft"
 date: 3/23/2024
 categories: [半導体]
 image: Images/反射率.png
