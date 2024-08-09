@@ -6,7 +6,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="うぱ Draft">
+<meta name="author" content="うぱ, ぷに">
 
 <title>うぱ GitHub 挑戦 – ぷにうぱ</title>
 <style>
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -127,7 +161,12 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#すごい" id="toc-すごい" class="nav-link active" data-scroll-target="#すごい"><span class="header-section-number">1</span> すごい！</a></li>
+  <li><a href="#すごい" id="toc-すごい" class="nav-link active" data-scroll-target="#すごい"><span class="header-section-number">1</span> すごい！</a>
+  <ul class="collapse">
+  <li><a href="#元に戻したいとき" id="toc-元に戻したいとき" class="nav-link" data-scroll-target="#元に戻したいとき"><span class="header-section-number">1.1</span> 元に戻したいとき</a></li>
+  <li><a href="#コミットメッセージ間違えた" id="toc-コミットメッセージ間違えた" class="nav-link" data-scroll-target="#コミットメッセージ間違えた"><span class="header-section-number">1.2</span> コミットメッセージ間違えた！</a></li>
+  </ul></li>
+  
   </ul>
 </nav>
     </div>
@@ -139,6 +178,7 @@ ul.task-list li input[type="checkbox"] {
 <h1 class="title">うぱ GitHub 挑戦</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Blog</div>
+    <div class="quarto-category">Tech</div>
   </div>
   </div>
 
@@ -149,7 +189,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">著者</div>
     <div class="quarto-title-meta-contents">
-             <p>うぱ Draft </p>
+             <p>うぱ, ぷに </p>
           </div>
   </div>
     
@@ -176,11 +216,32 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="すごい" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="すごい"><span class="header-section-number">1</span> すごい！</h2>
-
-
+<section id="元に戻したいとき" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="元に戻したいとき"><span class="header-section-number">1.1</span> 元に戻したいとき</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reflog</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Git でやったことがすべてのブランチに渡って全部見える！</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># どのブランチにも HEAD@{index} ってインデックスがあるはずだから</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># やらかす前のやつを見つけて</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> reset HEAD@{index}</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># ほら、まるで魔法のタイムマシン</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="コミットメッセージ間違えた" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="コミットメッセージ間違えた"><span class="header-section-number">1.2</span> コミットメッセージ間違えた！</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">--amend</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 指示に沿ってコミットメッセージを変更しよう</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="2"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">2</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
+
+<ul>
+<li><a href="https://dangitgit.com/ja">Dangit, Git!?!</a>：「ミスった！」「どうすれば良いの！？」というときに，痒いところに手が届く情報がまとまっているサイト</li>
+<li><a href="../../../posts/2024/Tech/Git.html">ぷにの記事</a>：原理に迫ろうとしている．</li>
+</ul>
+
+
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

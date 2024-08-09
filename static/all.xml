@@ -256,7 +256,7 @@ Zomorodian, A., and Carlsson, G. (2005). <a href="https://doi.org/10.1007/s00454
 </item>
 <item>
   <title>うぱ GitHub 挑戦</title>
-  <dc:creator>うぱ Draft</dc:creator>
+  <dc:creator>うぱ, ぷに</dc:creator>
   <link>https://puniupa.github.io/posts/2024/Blog/うぱgithub挑戦.html</link>
   <description><![CDATA[ 
 
@@ -265,12 +265,52 @@ Zomorodian, A., and Carlsson, G. (2005). <a href="https://doi.org/10.1007/s00454
 
 <section id="すごい" class="level2" data-number="1">
 
+<section id="元に戻したいとき" class="level3" data-number="1.1">
 
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> reflog</span>
+<span id="cb1-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># Git でやったことがすべてのブランチに渡って全部見える！</span></span>
+<span id="cb1-3"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># どのブランチにも HEAD@{index} ってインデックスがあるはずだから</span></span>
+<span id="cb1-4"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># やらかす前のやつを見つけて</span></span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> reset HEAD@{index}</span>
+<span id="cb1-6"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># ほら、まるで魔法のタイムマシン</span></span></code></pre></div>
+</section>
+<section id="コミットメッセージ間違えた" class="level3" data-number="1.2">
 
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> commit <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">--amend</span></span>
+<span id="cb2-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 指示に沿ってコミットメッセージを変更しよう</span></span></code></pre></div>
+</section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="2"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">2</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
+
+<ul>
+<li><a href="https://dangitgit.com/ja">Dangit, Git!?!</a>：「ミスった！」「どうすれば良いの！？」というときに，痒いところに手が届く情報がまとまっているサイト</li>
+<li><a href="../../../posts/2024/Tech/Git.html">ぷにの記事</a>：原理に迫ろうとしている．</li>
+</ul>
+
+
+</div></section></div> ]]></description>
   <category>Blog</category>
+  <category>Tech</category>
   <guid>https://puniupa.github.io/posts/2024/Blog/うぱgithub挑戦.html</guid>
   <pubDate>Wed, 07 Aug 2024 00:00:00 GMT</pubDate>
   <media:content url="https://puniupa.github.io/posts/2024/Blog/Images/GitHub.jpg" medium="image" type="image/jpeg"/>
@@ -520,8 +560,8 @@ Takemi, M., Tia, B., Kosugi, A., Castagnola, E., Ansaldo, A., Ricci, D., … Iri
 
 
 
-<section id="ffmpeg-の使い方" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="ffmpeg-の使い方"><span class="header-section-number">1</span> <code>ffmpeg</code> の使い方</h2>
+<section id="早見表" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="早見表"><span class="header-section-number">1</span> 早見表</h2>
 <div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
@@ -637,8 +677,12 @@ font-style: inherit;">&gt;</span>.mp3</span></code></pre></div>
 <li><code>-acodec libmp3lame</code> は音声コードの指定をしている（省略可能）．</li>
 </ul>
 </section>
-<section id="音声を動画に" class="level3" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="音声を動画に"><span class="header-section-number">1.4</span> <a href="https://qiita.com/n-taishi/items/9659dc12c1300c2f00eb">音声を動画に</a></h3>
+</section>
+<section id="波形表示" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="波形表示"><span class="header-section-number">2</span> 波形表示</h2>
+<p>音声から動画にする際に，<a href="https://qiita.com/n-taishi/items/9659dc12c1300c2f00eb">小粋なアニメーションをつけることもできる</a>．</p>
+<section id="スペクトルを表示する" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="スペクトルを表示する"><span class="header-section-number">2.1</span> スペクトルを表示する</h3>
 <div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb6-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
@@ -653,13 +697,39 @@ font-style: inherit;">"showspectrum"</span> <span class="op" style="color: #5E5E
 background-color: null;
 font-style: inherit;">&lt;</span>output<span class="op" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">&gt;</span>.mp4</span></code></pre></div>
-<ul>
-<li><code>-filter_complex</code> はフィルタを指定する．</li>
-<li><code>showspectrum</code> は音声の波形を表示する．</li>
-</ul>
+font-style: inherit;">&gt;</span></span></code></pre></div>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="例">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>次の音声を変換してみると</p>
+<div class="article-card-container">
+  <audio controls="" style="float: center;">
+    <source src="Images/example.aac" type="audio/aac">
+  </audio>
+</div>
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb7-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> example.aac <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"showspectrum=slide=1:mode=separate:color=plasma:scale=log:saturation=1:legend=0"</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-r</span> 60 output1.gif</span></code></pre></div>
+<p><img src="https://puniupa.github.io/posts/2024/Tech/Images/output1.gif" class="img-fluid"></p>
+</div>
+</div>
 <div class="callout callout-style-default callout-important no-icon callout-titled" title="種々の設定">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -668,17 +738,17 @@ font-style: inherit;">&gt;</span>.mp4</span></code></pre></div>
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb7-1"><span class="ex" style="color: null;
+<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb8-1"><span class="ex" style="color: null;
 background-color: null;
 font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">-i</span> multi.wav <span class="at" style="color: #657422;
+font-style: inherit;">-i</span> example.wav <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"showwaves=split_channels=1:mode=line"</span> multi_waves.gif</span></code></pre></div>
+font-style: inherit;">"showwaves=split_channels=1:mode=line"</span> example_waves.gif</span></code></pre></div>
 <ul>
 <li><code>showwaves</code> は音声の波形を表示する．</li>
 <li><code>split_channels=1</code> はチャンネルを 1 つにする．</li>
@@ -687,12 +757,87 @@ font-style: inherit;">"showwaves=split_channels=1:mode=line"</span> multi_waves.
 </div>
 </div>
 </div>
-
-
+</section>
+<section id="波形を表示する" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="波形を表示する"><span class="header-section-number">2.2</span> 波形を表示する</h3>
+<div class="sourceCode" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb9-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> example.aac <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"showwaves=split_channels=1:mode=line"</span> output2.gif</span></code></pre></div>
+<p><img src="https://puniupa.github.io/posts/2024/Tech/Images/output2.gif" class="img-fluid"></p>
+</section>
+<section id="音量を表示する" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="音量を表示する"><span class="header-section-number">2.3</span> 音量を表示する</h3>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb10-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> example.aac <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"showvolume"</span> output3.gif</span></code></pre></div>
+<p><img src="https://puniupa.github.io/posts/2024/Tech/Images/output3.gif" class="img-fluid"></p>
+</section>
+<section id="周波数を表示する" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="周波数を表示する"><span class="header-section-number">2.4</span> 周波数を表示する</h3>
+<div class="sourceCode" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb11-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> example.aac <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"showfreqs=mode=bar"</span> output4.gif</span></code></pre></div>
+<p><img src="https://puniupa.github.io/posts/2024/Tech/Images/output4.gif" class="img-fluid"></p>
+</section>
+<section id="定-q-変換-を表示する" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="定-q-変換-を表示する"><span class="header-section-number">2.5</span> <a href="https://en.wikipedia.org/wiki/Constant-Q_transform">定 Q-変換</a> を表示する</h3>
+<div class="sourceCode" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb12-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> example.aac <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"showcqt"</span> output5.gif</span></code></pre></div>
+<p><img src="https://puniupa.github.io/posts/2024/Tech/Images/output5.gif" class="img-fluid"></p>
+<p>これは複素 <a href="https://en.wikipedia.org/wiki/Morlet_wavelet">Morlet ウェーブレット変換</a>とも呼ばれる変換であり，ピアノのような見た目から，音源などでよく用いられる．</p>
+</section>
+<section id="scalogram-を表示する" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="scalogram-を表示する"><span class="header-section-number">2.6</span> scalogram を表示する</h3>
+<div class="sourceCode" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb13-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> example.aac <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"showcwt=mode=channel"</span> output6.gif</span></code></pre></div>
+<p><img src="https://puniupa.github.io/posts/2024/Tech/Images/output6.gif" class="img-fluid"></p>
+<p>これは<a href="https://en.wikipedia.org/wiki/Continuous_wavelet_transform">連続ウェーブレット変換</a>を適用した結果を表示している．</p>
 </section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
+
+<ul>
+<li><a href="https://hackmd.io/@GKcnNngaSBe9qCYV54wL8g/Hk3kWiNqM">FFmpeg 基本</a>：いろんなオプションがまとまっている．</li>
+<li><a href="https://qiita.com/n-taishi/items/9659dc12c1300c2f00eb">ffmpegで音声ファイルを動画に変換する</a>：多くのコードを参考にしました．</li>
+<li>吉井和佳，井上昂治 (2020) 『計算機科学実験及演習 4「音響信号処理」』</li>
+</ul>
+
+
+</div></section></div> ]]></description>
   <category>Tech</category>
   <guid>https://puniupa.github.io/posts/2024/Tech/ffmpeg.html</guid>
   <pubDate>Thu, 18 Jul 2024 00:00:00 GMT</pubDate>
@@ -779,11 +924,8 @@ Xu, S., Chen, G., Guo, Y.-X., Yang, J., Li, C., Zang, Z., … Guo, B. (2024). <a
 </div>
 </div>
 </section>
-</section>
-<section id="導入" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="導入"><span class="header-section-number">2</span> 導入</h2>
-<section id="バージョン管理システム" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="バージョン管理システム"><span class="header-section-number">2.1</span> バージョン管理システム</h3>
+<section id="バージョン管理システム" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="バージョン管理システム"><span class="header-section-number">1.2</span> バージョン管理システム</h3>
 <p>Gitとは，<code>.git</code>に「スナップショットのストリーム」を保存する形で動く分散型（全てのユーザーがデータベース＝リポジトリのミラーリングを持つ形）のバージョン管理システムである．ここに独自の形式でsnapshotが保存される．</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
@@ -792,17 +934,17 @@ Xu, S., Chen, G., Guo, Y.-X., Yang, J., Li, C., Zang, Z., … Guo, B. (2024). <a
 </figure>
 </div>
 </section>
-<section id="変更の統合機構" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="変更の統合機構"><span class="header-section-number">2.2</span> 変更の統合機構</h3>
+<section id="変更の統合機構" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="変更の統合機構"><span class="header-section-number">1.3</span> 変更の統合機構</h3>
 <p>Gitで2つのブランチを統合する方法は3つある．なお，<code>git pull</code>は<code>git fetch</code>と<code>git merge</code>（または<code>git rebase</code>）の合成である．</p>
-<section id="fast-forward" class="level4" data-number="2.2.1">
-<h4 data-number="2.2.1" class="anchored" data-anchor-id="fast-forward"><span class="header-section-number">2.2.1</span> <code>fast-forward</code></h4>
+<section id="fast-forward" class="level4" data-number="1.3.1">
+<h4 data-number="1.3.1" class="anchored" data-anchor-id="fast-forward"><span class="header-section-number">1.3.1</span> <code>fast-forward</code></h4>
 <p>2つのブランチに違いがあると言っても，「リモートの<code>main</code>ブランチがローカルの<code>main</code>ブランチよりも進んでいる」などの単純な状況である場合は，ただブランチのポインターを「前に進める」だけで良い．</p>
 <p>基本，一人で開発しており，別の環境から作業を再開したい場合や，レポジトリが単一のブランチのみで開発が進んでいる場合などはこれで十分．</p>
 <p><code>git fast-forward</code>というコマンドがある訳ではなく，ブランチに分岐がない場合に<code>git merge</code>を実行した際に自動的に起こる．</p>
 </section>
-<section id="rebase" class="level4" data-number="2.2.2">
-<h4 data-number="2.2.2" class="anchored" data-anchor-id="rebase"><span class="header-section-number">2.2.2</span> <code>rebase</code></h4>
+<section id="rebase" class="level4" data-number="1.3.2">
+<h4 data-number="1.3.2" class="anchored" data-anchor-id="rebase"><span class="header-section-number">1.3.2</span> <code>rebase</code></h4>
 <p>コミットを「基底状態(base)からの差分」だとすれば，このコミットを，別のブランチに取り込んで足並みを揃える際には<code>rebase</code>が行われる．</p>
 <p>他のブランチに適用したいところのコミットが存在するブランチに移動し，適用したいブランチ（例えば<code>target</code>ブランチ）に対して，</p>
 <div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
@@ -810,8 +952,8 @@ background-color: null;
 font-style: inherit;">git</span> rebase target</span></code></pre></div>
 <p>と実行する．ローカルで<code>rebase</code>の引数を省略した場合は<code>refs/heads/main</code>に適用される．</p>
 </section>
-<section id="merge" class="level4" data-number="2.2.3">
-<h4 data-number="2.2.3" class="anchored" data-anchor-id="merge"><span class="header-section-number">2.2.3</span> <code>merge</code></h4>
+<section id="merge" class="level4" data-number="1.3.3">
+<h4 data-number="1.3.3" class="anchored" data-anchor-id="merge"><span class="header-section-number">1.3.3</span> <code>merge</code></h4>
 <p>2つのブランチの変更を組み合わせて，1つの新しいブランチにまとめる．</p>
 <div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -819,17 +961,17 @@ font-style: inherit;">git</span> merge</span></code></pre></div>
 <p>により自動で統合を試みるが，失敗した場合は手動で解決する必要あり．</p>
 </section>
 </section>
-<section id="参考" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="参考"><span class="header-section-number">2.3</span> 参考</h3>
+<section id="参考" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="参考"><span class="header-section-number">1.4</span> 参考</h3>
 <ul>
 <li><a href="https://backlog.com/ja/git-tutorial/intro/intro1_1.html">サル先生のGit入門</a></li>
 </ul>
 </section>
 </section>
-<section id="仕組み" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="仕組み"><span class="header-section-number">3</span> 仕組み</h2>
-<section id="gitディレクトリの中身" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="gitディレクトリの中身"><span class="header-section-number">3.1</span> <code>.git</code>ディレクトリの中身</h3>
+<section id="仕組み" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="仕組み"><span class="header-section-number">2</span> 仕組み</h2>
+<section id="gitディレクトリの中身" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="gitディレクトリの中身"><span class="header-section-number">2.1</span> <code>.git</code>ディレクトリの中身</h3>
 <ul>
 <li><code>HEAD</code>： 現在チェックアウトしているブランチを指します。これは通常、最新のコミットを指すリファレンスです。</li>
 <li><code>config</code>： プロジェクト固有のGit設定を含みます。これには、リモートリポジトリのURL、ブランチの設定などが含まれます。</li>
@@ -869,7 +1011,7 @@ font-style: inherit;">git</span> merge</span></code></pre></div>
 <h2 data-number="1" class="anchored" data-anchor-id="euv-リトグラフィ"><span class="header-section-number">1</span> EUV リトグラフィ</h2>
 <p><a href="https://ja.wikipedia.org/wiki/%E6%A5%B5%E7%AB%AF%E7%B4%AB%E5%A4%96%E7%B7%9A%E3%83%AA%E3%82%BD%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3">極端紫外線リソグラフィ</a> (Extreme Ultraviolet Lithography) は波長 13.5 nm で露光する技術である．</p>
 <p>オランダの <a href="https://ja.wikipedia.org/wiki/ASML">ASML</a> 社が唯一 EUV 露光装置を製造している．</p>
-<p></p><div id="tweet-79535"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-79535").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-73096"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-73096").innerHTML = tweet["html"];</script><p></p>
 <a class="embedly-card" href="https://www.scmp.com/economy/global-economy/article/3257118/china-asks-netherlands-exporter-worlds-top-chipmaking-equipment-avoid-decoupling?utm_source=twitter&amp;utm_campaign=3257118&amp;utm_medium=share_widget">China asks Netherlands, with world-leading chipmaking equipment, to not decouple</a><script async="" src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 <p>ここまで短い波長では光を透過するレンズはなく，反射鏡で光学系を構成する必要がある．13.5 nm という波長はミラーの反射率の極大点の１つをとって決定された． <img src="https://latex.codecogs.com/png.latex?0.68%5E%7B12%7D=0.98"> というように重ねて用いる．</p>
 <div class="quarto-figure quarto-figure-center">

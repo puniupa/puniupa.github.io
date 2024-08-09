@@ -111,11 +111,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="../../../assets/styles.css">
 <meta property="og:title" content="ffmpeg による音声・動画の変換 – ぷにうぱ">
-<meta property="og:description" content="法学＋数学で世界を渡り歩こう">
+<meta property="og:description" content="ffmpeg は Unix 系 OS 上で動く，動画と音声の変換をしてくれる万能ツールである．MacOS の多くのアプリは裏で ffmpeg を使っている．この記事にあるコードをコピー＆ペーストすれば，ブラウザ上の「動画変換サービス」にアップロードせずに済む！（それに，コンピュータへの理解も深まる．）">
 <meta property="og:image" content="https://puniupa.github.io/posts/2024/Tech/assets/ぷにうぱ.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
 <meta name="twitter:title" content="ffmpeg による音声・動画の変換 – ぷにうぱ">
-<meta name="twitter:description" content="法学＋数学で世界を渡り歩こう">
+<meta name="twitter:description" content="ffmpeg は Unix 系 OS 上で動く，動画と音声の変換をしてくれる万能ツールである．MacOS の多くのアプリは裏で ffmpeg を使っている．この記事にあるコードをコピー＆ペーストすれば，ブラウザ上の「動画変換サービス」にアップロードせずに済む！（それに，コンピュータへの理解も深まる．）">
 <meta name="twitter:image" content="https://puniupa.github.io/posts/2024/Tech/assets/ぷにうぱ.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -161,13 +161,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#ffmpeg-の使い方" id="toc-ffmpeg-の使い方" class="nav-link active" data-scroll-target="#ffmpeg-の使い方"><span class="header-section-number">1</span> <code>ffmpeg</code> の使い方</a>
+  <li><a href="#早見表" id="toc-早見表" class="nav-link active" data-scroll-target="#早見表"><span class="header-section-number">1</span> 早見表</a>
   <ul class="collapse">
   <li><a href="#動画を-.gif-に" id="toc-動画を-.gif-に" class="nav-link" data-scroll-target="#動画を-.gif-に"><span class="header-section-number">1.1</span> 動画を <code>.gif</code> に</a></li>
   <li><a href="#動画から音声へ" id="toc-動画から音声へ" class="nav-link" data-scroll-target="#動画から音声へ"><span class="header-section-number">1.2</span> 動画から音声へ</a></li>
   <li><a href="#音声を-.mp3-に" id="toc-音声を-.mp3-に" class="nav-link" data-scroll-target="#音声を-.mp3-に"><span class="header-section-number">1.3</span> 音声を <code>.mp3</code> に</a></li>
-  <li><a href="#音声を動画に" id="toc-音声を動画に" class="nav-link" data-scroll-target="#音声を動画に"><span class="header-section-number">1.4</span> 音声を動画に</a></li>
   </ul></li>
+  <li><a href="#波形表示" id="toc-波形表示" class="nav-link" data-scroll-target="#波形表示"><span class="header-section-number">2</span> 波形表示</a>
+  <ul class="collapse">
+  <li><a href="#スペクトルを表示する" id="toc-スペクトルを表示する" class="nav-link" data-scroll-target="#スペクトルを表示する"><span class="header-section-number">2.1</span> スペクトルを表示する</a></li>
+  <li><a href="#波形を表示する" id="toc-波形を表示する" class="nav-link" data-scroll-target="#波形を表示する"><span class="header-section-number">2.2</span> 波形を表示する</a></li>
+  <li><a href="#音量を表示する" id="toc-音量を表示する" class="nav-link" data-scroll-target="#音量を表示する"><span class="header-section-number">2.3</span> 音量を表示する</a></li>
+  <li><a href="#周波数を表示する" id="toc-周波数を表示する" class="nav-link" data-scroll-target="#周波数を表示する"><span class="header-section-number">2.4</span> 周波数を表示する</a></li>
+  <li><a href="#定-q-変換-を表示する" id="toc-定-q-変換-を表示する" class="nav-link" data-scroll-target="#定-q-変換-を表示する"><span class="header-section-number">2.5</span> 定 Q-変換 を表示する</a></li>
+  <li><a href="#scalogram-を表示する" id="toc-scalogram-を表示する" class="nav-link" data-scroll-target="#scalogram-を表示する"><span class="header-section-number">2.6</span> scalogram を表示する</a></li>
+  </ul></li>
+  
   </ul>
 </nav>
     </div>
@@ -176,7 +185,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">ffmpeg による音声・動画の変換</h1>
+<h1 class="title"><code>ffmpeg</code> による音声・動画の変換</h1>
   <div class="quarto-categories">
     <div class="quarto-category">Tech</div>
   </div>
@@ -203,13 +212,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     
   </div>
   
+<div>
+  <div class="abstract">
+    <div class="block-title">はじめに</div>
+    <p><a href="https://ja.wikipedia.org/wiki/FFmpeg"><code>ffmpeg</code></a> は Unix 系 OS 上で動く，動画と音声の変換をしてくれる万能ツールである．MacOS の多くのアプリは裏で <code>ffmpeg</code> を使っている．この記事にあるコードをコピー＆ペーストすれば，ブラウザ上の「動画変換サービス」にアップロードせずに済む！（それに，コンピュータへの理解も深まる．）</p>
+  </div>
+</div>
 
 
 </header>
 
 
-<section id="ffmpeg-の使い方" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="ffmpeg-の使い方"><span class="header-section-number">1</span> <code>ffmpeg</code> の使い方</h2>
+<section id="早見表" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="早見表"><span class="header-section-number">1</span> 早見表</h2>
 <div class="sourceCode" id="cb1"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-i</span> <span class="op">&lt;</span>filename<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>で情報を表示する．</p>
 <section id="動画を-.gif-に" class="level3" data-number="1.1">
@@ -265,15 +280,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <li><code>-acodec libmp3lame</code> は音声コードの指定をしている（省略可能）．</li>
 </ul>
 </section>
-<section id="音声を動画に" class="level3" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="音声を動画に"><span class="header-section-number">1.4</span> <a href="https://qiita.com/n-taishi/items/9659dc12c1300c2f00eb">音声を動画に</a></h3>
-<div class="sourceCode" id="cb6"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-i</span> <span class="op">&lt;</span>input<span class="op">&gt;</span> -filter_complex <span class="st">"showspectrum"</span> <span class="op">&lt;</span>output<span class="op">&gt;</span>.mp4</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<ul>
-<li><code>-filter_complex</code> はフィルタを指定する．</li>
-<li><code>showspectrum</code> は音声の波形を表示する．</li>
-</ul>
+</section>
+<section id="波形表示" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="波形表示"><span class="header-section-number">2</span> 波形表示</h2>
+<p>音声から動画にする際に，<a href="https://qiita.com/n-taishi/items/9659dc12c1300c2f00eb">小粋なアニメーションをつけることもできる</a>．</p>
+<section id="スペクトルを表示する" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="スペクトルを表示する"><span class="header-section-number">2.1</span> スペクトルを表示する</h3>
+<div class="sourceCode" id="cb6"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-i</span> <span class="op">&lt;</span>input<span class="op">&gt;</span> -filter_complex <span class="st">"showspectrum"</span> <span class="op">&lt;</span>output<span class="op">&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-simple callout-caution no-icon callout-titled" title="例">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>次の音声を変換してみると</p>
+<div class="article-card-container">
+  <audio controls="" style="float: center;">
+    <source src="Images/example.aac" type="audio/aac">
+  </audio>
+</div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-i</span> example.aac <span class="at">-filter_complex</span> <span class="st">"showspectrum=slide=1:mode=separate:color=plasma:scale=log:saturation=1:legend=0"</span> <span class="at">-r</span> 60 output1.gif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Images/output1.gif" class="img-fluid"></p>
+</div>
+</div>
 <div class="callout callout-style-default callout-important no-icon callout-titled" title="種々の設定">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -282,9 +317,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<div class="sourceCode" id="cb7"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-i</span> multi.wav <span class="at">-filter_complex</span> <span class="st">"showwaves=split_channels=1:mode=line"</span> multi_waves.gif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-i</span> example.wav <span class="at">-filter_complex</span> <span class="st">"showwaves=split_channels=1:mode=line"</span> example_waves.gif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <ul>
 <li><code>showwaves</code> は音声の波形を表示する．</li>
 <li><code>split_channels=1</code> はチャンネルを 1 つにする．</li>
@@ -293,12 +328,47 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </div>
-
-
+</section>
+<section id="波形を表示する" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="波形を表示する"><span class="header-section-number">2.2</span> 波形を表示する</h3>
+<div class="sourceCode" id="cb9"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-i</span> example.aac <span class="at">-filter_complex</span> <span class="st">"showwaves=split_channels=1:mode=line"</span> output2.gif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Images/output2.gif" class="img-fluid"></p>
+</section>
+<section id="音量を表示する" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="音量を表示する"><span class="header-section-number">2.3</span> 音量を表示する</h3>
+<div class="sourceCode" id="cb10"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-i</span> example.aac <span class="at">-filter_complex</span> <span class="st">"showvolume"</span> output3.gif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Images/output3.gif" class="img-fluid"></p>
+</section>
+<section id="周波数を表示する" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="周波数を表示する"><span class="header-section-number">2.4</span> 周波数を表示する</h3>
+<div class="sourceCode" id="cb11"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-i</span> example.aac <span class="at">-filter_complex</span> <span class="st">"showfreqs=mode=bar"</span> output4.gif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Images/output4.gif" class="img-fluid"></p>
+</section>
+<section id="定-q-変換-を表示する" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="定-q-変換-を表示する"><span class="header-section-number">2.5</span> <a href="https://en.wikipedia.org/wiki/Constant-Q_transform">定 Q-変換</a> を表示する</h3>
+<div class="sourceCode" id="cb12"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-i</span> example.aac <span class="at">-filter_complex</span> <span class="st">"showcqt"</span> output5.gif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Images/output5.gif" class="img-fluid"></p>
+<p>これは複素 <a href="https://en.wikipedia.org/wiki/Morlet_wavelet">Morlet ウェーブレット変換</a>とも呼ばれる変換であり，ピアノのような見た目から，音源などでよく用いられる．</p>
+</section>
+<section id="scalogram-を表示する" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="scalogram-を表示する"><span class="header-section-number">2.6</span> scalogram を表示する</h3>
+<div class="sourceCode" id="cb13"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="ex">ffmpeg</span> <span class="at">-i</span> example.aac <span class="at">-filter_complex</span> <span class="st">"showcwt=mode=channel"</span> output6.gif</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="Images/output6.gif" class="img-fluid"></p>
+<p>これは<a href="https://en.wikipedia.org/wiki/Continuous_wavelet_transform">連続ウェーブレット変換</a>を適用した結果を表示している．</p>
 </section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
+
+<ul>
+<li><a href="https://hackmd.io/@GKcnNngaSBe9qCYV54wL8g/Hk3kWiNqM">FFmpeg 基本</a>：いろんなオプションがまとまっている．</li>
+<li><a href="https://qiita.com/n-taishi/items/9659dc12c1300c2f00eb">ffmpegで音声ファイルを動画に変換する</a>：多くのコードを参考にしました．</li>
+<li>吉井和佳，井上昂治 (2020) 『計算機科学実験及演習 4「音響信号処理」』</li>
+</ul>
+
+
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
