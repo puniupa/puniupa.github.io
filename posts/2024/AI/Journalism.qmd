@@ -1,6 +1,6 @@
 ---
 title: "生成 AI 開発企業の論点"
-author: "ぷに, うぱ"
+author: "うぱ, ぷに"
 date: 7/16/2024
 image: Images/IJF.jpg
 categories: [AI, Disinformation]

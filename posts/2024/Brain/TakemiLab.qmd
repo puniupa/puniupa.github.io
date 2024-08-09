@@ -3,7 +3,7 @@ title: "武見研究室訪問"
 subtitle: "「障碍」を「障碍」ではなくす社会へ"
 author: "ぷに"
 date: 8/6/2024
-categories: [Brain Tech, AI, Blog]
+categories: [Neuroscience, AI, Blog]
 bibliography: 
     - ../../../assets/mathematics.bib
     - ../../../assets/bib.bib

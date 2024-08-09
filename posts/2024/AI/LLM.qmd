@@ -3,7 +3,7 @@ title: "LLM が真に社会に受け入れられるまで"
 subtitle: "近年の発展のまとめ"
 author: "ぷに"
 date: 2/20/2024
-categories: [AI, Economic Security]
+categories: [AI, Disinformation]
 bibliography: 
     - ../../../assets/mathematics.bib
     - ../../../assets/bib.bib
@@ -67,6 +67,12 @@ GPT-3 を Bayesian にし，自身の確証度合いを言表するように事�
 ### 偽情報対策
 
 生成 AI は，一国の政府が特定のプロパガンダを流布するための効果的な手段として選ばれることになる．その際の考え得る使用例と，それに対する対策が考えられてる [@Goldstein+2023]．
+
+特に，2022 年に始まったロシアによるウクライナ侵攻は，最初の本格的な AI による情報戦と認識されつつある [@Sobchuk2024]．
+
+これに対する対抗手段として，ウクライナのスタートアップ [Osavul](https://www.osavul.cloud/) や [Mantis Analytics](https://mantisanalytics.com/) によって使われているのもやはり LLM である．
+
+[![Mantis Analytics の製品のデモ（クリックで URL を開く）](../../../static/Files/MantisAnalytics.png)](https://mantisanalytics.com/)
 
 ### 開発規制
 

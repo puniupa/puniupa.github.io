@@ -14,7 +14,7 @@
 <title>ぷにうぱ</title>
 <link>https://puniupa.github.io/static/all.html</link>
 </image>
-<generator>quarto-1.4.552</generator>
+<generator>quarto-1.4.549</generator>
 <lastBuildDate>Tue, 06 Aug 2024 15:00:00 GMT</lastBuildDate>
 <item>
   <title>位相的機械学習――データはもはや「ただの数字」ではない――</title>
@@ -224,8 +224,8 @@ Zomorodian, A., and Carlsson, G. (2005). <a href="https://doi.org/10.1007/s00454
 
 </section>
 
- ]]></description>
-  <category>Lifestyle</category>
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Blog</category>
   <guid>https://puniupa.github.io/posts/2024/Blog/うぱgithub挑戦.html</guid>
   <pubDate>Tue, 06 Aug 2024 15:00:00 GMT</pubDate>
   <media:content url="https://puniupa.github.io/posts/2024/Blog/Images/GitHub.jpg" medium="image" type="image/jpeg"/>
@@ -460,15 +460,201 @@ Takemi, M., Tia, B., Kosugi, A., Castagnola, E., Ansaldo, A., Ricci, D., … Iri
 <li id="fn3"><p>実はこの効果は拮抗筋では見られないという <span class="citation" data-cites="Takemi+2018">(Takemi et al., 2018)</span>．↩︎</p></li>
 </ol>
 </section></div> ]]></description>
-  <category>Brain Tech</category>
+  <category>Neuroscience</category>
   <category>AI</category>
   <category>Blog</category>
   <guid>https://puniupa.github.io/posts/2024/Brain/TakemiLab.html</guid>
   <pubDate>Mon, 05 Aug 2024 15:00:00 GMT</pubDate>
 </item>
 <item>
+  <title>ffmpeg による音声・動画の変換</title>
+  <dc:creator>ぷに </dc:creator>
+  <link>https://puniupa.github.io/posts/2024/Blog/ffmpeg.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="ffmpeg-の使い方" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="ffmpeg-の使い方"><span class="header-section-number">1</span> <code>ffmpeg</code> の使い方</h2>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>filename<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span></span></code></pre></div>
+<p>で情報を表示する．</p>
+<section id="動画を-.gif-に" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="動画を-.gif-に"><span class="header-section-number">1.1</span> 動画を <code>.gif</code> に</h3>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>filename<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> -r 10 <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-f</span> gif <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span>.gif</span></code></pre></div>
+<ul>
+<li><code>-r</code> はフレームレートを指定する．</li>
+<li><code>-f</code> はフォーマットを指定する．</li>
+</ul>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="注">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+注
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb3-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> input.mkv <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-vf</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"fps=10,scale=320:-1:flags=lanczos"</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-c:v</span> gif <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-f</span> gif output.gif</span></code></pre></div>
+<ul>
+<li><code>-vf</code> はビジュアルフィルタを指定する．
+<ul>
+<li><code>fps=10</code> はフレームレートを指定する．</li>
+<li><code>scale=320:-1:flags=lanczos</code> はサイズを指定する．幅を 320 ピクセルとし，高さは自動調節する．</li>
+<li><code>flags=lanczos</code> は <a href="https://ja.wikipedia.org/wiki/ランチョス法">Lanczos アルゴリズム</a> を用いて，アンチエイリアスを指定する．</li>
+</ul></li>
+<li><code>-c:v</code> はビデオコードを指定する．
+<ul>
+<li><code>-c:v gif</code> は出力のビデオコーデックを GIF にする．</li>
+</ul></li>
+<li><code>-f</code> はフォーマットを指定する．</li>
+</ul>
+<p>codec とは encoder と decoder のかばん語であり，圧縮と復号を司る．</p>
+</div>
+</div>
+</div>
+</section>
+<section id="動画から音声へ" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="動画から音声へ"><span class="header-section-number">1.2</span> 動画から音声へ</h3>
+<div class="sourceCode" id="cb4" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb4-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>filename<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> -vn <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-acodec</span> copy <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>output filename<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span></span></code></pre></div>
+<ul>
+<li><code>-vn</code> は動画でないことを指定 (video not)</li>
+<li><code>-acodec copy</code> は同じストリームを使うことを表す</li>
+</ul>
+</section>
+<section id="音声を-.mp3-に" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="音声を-.mp3-に"><span class="header-section-number">1.3</span> 音声を <code>.mp3</code> に</h3>
+<div class="sourceCode" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb5-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>filename<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> -acodec libmp3lame <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>name<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span>.mp3</span></code></pre></div>
+<ul>
+<li><code>-acodec libmp3lame</code> は音声コードの指定をしている（省略可能）．</li>
+</ul>
+</section>
+<section id="音声を動画に" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="音声を動画に"><span class="header-section-number">1.4</span> <a href="https://qiita.com/n-taishi/items/9659dc12c1300c2f00eb">音声を動画に</a></h3>
+<div class="sourceCode" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb6-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>input<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> -filter_complex <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"showspectrum"</span> <span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;</span>output<span class="op" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span>.mp4</span></code></pre></div>
+<ul>
+<li><code>-filter_complex</code> はフィルタを指定する．</li>
+<li><code>showspectrum</code> は音声の波形を表示する．</li>
+</ul>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="種々の設定">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+種々の設定
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb7-1"><span class="ex" style="color: null;
+background-color: null;
+font-style: inherit;">ffmpeg</span> <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-i</span> multi.wav <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">-filter_complex</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"showwaves=split_channels=1:mode=line"</span> multi_waves.gif</span></code></pre></div>
+<ul>
+<li><code>showwaves</code> は音声の波形を表示する．</li>
+<li><code>split_channels=1</code> はチャンネルを 1 つにする．</li>
+<li><code>mode=line</code> は波形の表示方法を直結びにする．</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+</section>
+</section>
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Tech</category>
+  <guid>https://puniupa.github.io/posts/2024/Blog/ffmpeg.html</guid>
+  <pubDate>Wed, 17 Jul 2024 15:00:00 GMT</pubDate>
+</item>
+<item>
   <title>生成 AI 開発企業の論点</title>
-  <dc:creator>ぷに, うぱ</dc:creator>
+  <dc:creator>うぱ, ぷに</dc:creator>
   <link>https://puniupa.github.io/posts/2024/AI/Journalism.html</link>
   <description><![CDATA[ 
 
@@ -547,13 +733,75 @@ Xu, S., Chen, G., Guo, Y.-X., Yang, J., Li, C., Zang, Z., … Guo, B. (2024). <a
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="導入" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="導入"><span class="header-section-number">2</span> 導入</h2>
+<section id="バージョン管理システム" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="バージョン管理システム"><span class="header-section-number">2.1</span> バージョン管理システム</h3>
+<p>Gitとは，<code>.git</code>に「スナップショットのストリーム」を保存する形で動く分散型（全てのユーザーがデータベース＝リポジトリのミラーリングを持つ形）のバージョン管理システムである．ここに独自の形式でsnapshotが保存される．</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/2024/Blog/Images/Working.png" class="img-fluid figure-img"></p>
+<figcaption>Workflow</figcaption>
+</figure>
+</div>
+</section>
+<section id="変更の統合機構" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="変更の統合機構"><span class="header-section-number">2.2</span> 変更の統合機構</h3>
+<p>Gitで2つのブランチを統合する方法は3つある．なお，<code>git pull</code>は<code>git fetch</code>と<code>git merge</code>（または<code>git rebase</code>）の合成である．</p>
+<section id="fast-forward" class="level4" data-number="2.2.1">
+<h4 data-number="2.2.1" class="anchored" data-anchor-id="fast-forward"><span class="header-section-number">2.2.1</span> <code>fast-forward</code></h4>
+<p>2つのブランチに違いがあると言っても，「リモートの<code>main</code>ブランチがローカルの<code>main</code>ブランチよりも進んでいる」などの単純な状況である場合は，ただブランチのポインターを「前に進める」だけで良い．</p>
+<p>基本，一人で開発しており，別の環境から作業を再開したい場合や，レポジトリが単一のブランチのみで開発が進んでいる場合などはこれで十分．</p>
+<p><code>git fast-forward</code>というコマンドがある訳ではなく，ブランチに分岐がない場合に<code>git merge</code>を実行した際に自動的に起こる．</p>
+</section>
+<section id="rebase" class="level4" data-number="2.2.2">
+<h4 data-number="2.2.2" class="anchored" data-anchor-id="rebase"><span class="header-section-number">2.2.2</span> <code>rebase</code></h4>
+<p>コミットを「基底状態(base)からの差分」だとすれば，このコミットを，別のブランチに取り込んで足並みを揃える際には<code>rebase</code>が行われる．</p>
+<p>他のブランチに適用したいところのコミットが存在するブランチに移動し，適用したいブランチ（例えば<code>target</code>ブランチ）に対して，</p>
+<div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> rebase target</span></code></pre></div>
+<p>と実行する．ローカルで<code>rebase</code>の引数を省略した場合は<code>refs/heads/main</code>に適用される．</p>
+</section>
+<section id="merge" class="level4" data-number="2.2.3">
+<h4 data-number="2.2.3" class="anchored" data-anchor-id="merge"><span class="header-section-number">2.2.3</span> <code>merge</code></h4>
+<p>2つのブランチの変更を組み合わせて，1つの新しいブランチにまとめる．</p>
+<div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">git</span> merge</span></code></pre></div>
+<p>により自動で統合を試みるが，失敗した場合は手動で解決する必要あり．</p>
+</section>
+</section>
+<section id="参考" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="参考"><span class="header-section-number">2.3</span> 参考</h3>
+<ul>
+<li><a href="https://backlog.com/ja/git-tutorial/intro/intro1_1.html">サル先生のGit入門</a></li>
+</ul>
+</section>
+</section>
+<section id="仕組み" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="仕組み"><span class="header-section-number">3</span> 仕組み</h2>
+<section id="gitディレクトリの中身" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="gitディレクトリの中身"><span class="header-section-number">3.1</span> <code>.git</code>ディレクトリの中身</h3>
+<ul>
+<li><code>HEAD</code>： 現在チェックアウトしているブランチを指します。これは通常、最新のコミットを指すリファレンスです。</li>
+<li><code>config</code>： プロジェクト固有のGit設定を含みます。これには、リモートリポジトリのURL、ブランチの設定などが含まれます。</li>
+<li><code>description</code>： GitWebプログラムで使用される説明ファイルですが、一般的なGit操作では使用されません。</li>
+<li><code>hooks/</code>： クライアント側またはサーバー側のフックスクリプトを格納するディレクトリです。これらのスクリプトは、特定のイベント（例えばコミットやプッシュ）が発生した際に自動的に実行されます。</li>
+<li><code>info/</code>： <code>.gitignore</code>ファイルに追跡しないパターンをグローバルに除外するためのファイルを含みます。</li>
+<li><code>objects/</code>： すべてのコンテンツ（コミット、ツリー、ブロブなど）が格納されるディレクトリです。これらはGitによって一意のハッシュ値で識別されます。</li>
+<li><code>refs/</code>： コミットオブジェクトを指し示すポインター（ブランチ、タグ、リモートなど）を含むディレクトリです。</li>
+<li><code>index</code>： ステージングエリアの情報を格納するファイルです。これは、<code>git add</code> などのコマンドでステージングされた変更を追跡します。</li>
+</ul>
 
 
 </section>
 </section>
 
- ]]></description>
-  <category>Lifestyle</category>
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+  <category>Tech</category>
   <guid>https://puniupa.github.io/posts/2024/Blog/Git.html</guid>
   <pubDate>Mon, 15 Jul 2024 15:00:00 GMT</pubDate>
 </item>
@@ -576,7 +824,7 @@ Xu, S., Chen, G., Guo, Y.-X., Yang, J., Li, C., Zang, Z., … Guo, B. (2024). <a
 <h2 data-number="1" class="anchored" data-anchor-id="euv-リトグラフィ"><span class="header-section-number">1</span> EUV リトグラフィ</h2>
 <p><a href="https://ja.wikipedia.org/wiki/%E6%A5%B5%E7%AB%AF%E7%B4%AB%E5%A4%96%E7%B7%9A%E3%83%AA%E3%82%BD%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3">極端紫外線リソグラフィ</a> (Extreme Ultraviolet Lithography) は波長 13.5 nm で露光する技術である．</p>
 <p>オランダの <a href="https://ja.wikipedia.org/wiki/ASML">ASML</a> 社が唯一 EUV 露光装置を製造している．</p>
-<p></p><div id="tweet-10835"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-10835").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-85210"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-85210").innerHTML = tweet["html"];</script><p></p>
 <a class="embedly-card" href="https://www.scmp.com/economy/global-economy/article/3257118/china-asks-netherlands-exporter-worlds-top-chipmaking-equipment-avoid-decoupling?utm_source=twitter&amp;utm_campaign=3257118&amp;utm_medium=share_widget">China asks Netherlands, with world-leading chipmaking equipment, to not decouple</a><script async="" src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 <p>ここまで短い波長では光を透過するレンズはなく，反射鏡で光学系を構成する必要がある．13.5 nm という波長はミラーの反射率の極大点の１つをとって決定された． <img src="https://latex.codecogs.com/png.latex?0.68%5E%7B12%7D=0.98"> というように重ねて用いる．</p>
 <div class="quarto-figure quarto-figure-center">
@@ -590,7 +838,7 @@ Xu, S., Chen, G., Guo, Y.-X., Yang, J., Li, C., Zang, Z., … Guo, B. (2024). <a
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-内山貴之2015" class="csl-entry">
 内山貴之. (2015). <em>半導体向けEUVリソグラフィの現状と展望</em>. 東芝. Retrieved from <a href="https://www.heas.jp/lecture/files/uchiyama.pdf">https://www.heas.jp/lecture/files/uchiyama.pdf</a>
 </div>
@@ -1042,7 +1290,7 @@ Xu, S., Chen, G., Guo, Y.-X., Yang, J., Li, C., Zang, Z., … Guo, B. (2024). <a
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Amershi+2019" class="csl-entry">
 Amershi, S., Weld, D., Vorvoreanu, M., Fourney, A., Nushi, B., Collisson, P., … Horvitz, E. (2019). <a href="https://doi.org/10.1145/3290605.3300233">Guidelines for human-AI interaction</a>. In <em>Proceedings of the 2019 CHI conference on human factors in computing systems</em>, pages 1–13. New York, NY, USA: Association for Computing Machinery.
 </div>
@@ -1182,7 +1430,6 @@ Zhou, C., Liu, P., Xu, P., Iyer, S., Sun, J., Mao, Y., … Levy, O. (2023). <a h
 <li id="fn32"><p><span class="citation" data-cites="Steinruecken+2015">(Steinruecken et al., 2015)</span> は記号列に対するノンパラメトリックモデルを改良することで，データ圧縮アルゴリズム <code>PPM</code> を改良した良い例である．↩︎</p></li>
 </ol>
 </section></div> ]]></description>
-  <category>ベイズ統計</category>
   <category>AI</category>
   <guid>https://puniupa.github.io/posts/2024/AI/BAI.html</guid>
   <pubDate>Tue, 19 Mar 2024 15:00:00 GMT</pubDate>
@@ -1793,6 +2040,166 @@ Welker, H. (1952). <a href="https://doi.org/10.1515/zna-1952-1110">Über neue ha
   <guid>https://puniupa.github.io/posts/2024/半導体/Semiconductor0.html</guid>
   <pubDate>Sun, 25 Feb 2024 15:00:00 GMT</pubDate>
   <media:content url="https://puniupa.github.io/posts/2024/半導体/Images/chip.png" medium="image" type="image/png" height="120" width="144"/>
+</item>
+<item>
+  <title>LLM が真に社会に受け入れられるまで</title>
+  <dc:creator>ぷに </dc:creator>
+  <link>https://puniupa.github.io/posts/2024/AI/LLM.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="sec-LLaMA" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> LLaMA の一般公開とその影響</h1>
+<p>Meta AI が <a href="https://about.fb.com/ja/news/2023/07/meta-and-microsoft-introduce-the-next-generation-of-llama/">7/18/2023</a> に LLM <a href="https://llama.meta.com/">LLaMA</a> <span class="citation" data-cites="Touvron+2023">(Touvron et al., 2023)</span> を公開した．そして API を通じて利用する形ではなく，そのモデルのウェイトが公開されたため，Stanford 大学の <a href="https://github.com/tatsu-lab/stanford_alpaca">Alpaca</a> など，モデルの改良と研究が促進されている．</p>
+<p>特に事後調整のための公開データセットの整備が進んでおり，<a href="https://github.com/tatsu-lab/stanford_alpaca">Alpaca</a> では Self-Instruct <span class="citation" data-cites="Wang+2023-Self-Instruct">(Wang et al., 2023)</span> による効率的な alignment 技術が採用されている．</p>
+<p>産業界でも影響は大きい．<a href="https://elyza.ai/">ELYZA</a> は <a href="https://elyza.ai/news/2023/12/27/130%E5%84%84%E3%83%91%E3%83%A9%E3%83%A1%E3%83%BC%E3%82%BF%E3%81%AE%E5%95%86%E7%94%A8%E5%88%A9%E7%94%A8%E5%8F%AF%E8%83%BD%E3%81%AA%E6%97%A5%E6%9C%AC%E8%AA%9Ellmelyza-j">12/27/2023</a> に日本語に特化した LLM である ELYZA-japanese-Llama-2-13b を公開している．<a href="https://stockmark.co.jp/">Stockmark</a> も <a href="https://stockmark.co.jp/news/20231027">10/27/2023</a> に Stockmark-13b を公開している．</p>
+<p>いずれも，開発費と開発時間が大幅に圧縮されたという．<sup>1</sup></p>
+<p>IBM は <a href="https://jp.newsroom.ibm.com/2023-09-12-Blog-Building-AI-for-business-IBM-Granite-foundation-models">9/12/2023</a> に LLM Granite を発表している．加えて，プラットフォーム <code>watsonx</code> も提供しており，その上で RAG など独自の事後調整を可能にしている．</p>
+<p>IBM と Meta の２社が発起人となり，<a href="https://www.ibm.com/blogs/solutions/jp-ja/the-ai-alliance/">12/5/2023</a> に AI Alliance が発足し，オープンイノベーションを推進している．</p>
+<p><a href="https://ja.stability.ai/stable-diffusion">Stable Diffusion</a> <span class="citation" data-cites="Rombach+2022">(Rombach et al., 2022)</span> もソースコードとウェイトが <a href="https://github.com/Stability-AI/stablediffusion">一般公開</a> されている．</p>
+</section>
+<section id="llm-の経済的影響" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> LLM の経済的影響</h1>
+<p><span class="citation" data-cites="Tamkin+2021">(Tamkin et al., 2021)</span> は早い段階での OpenAI と Stanford 大学 <a href="https://hai.stanford.edu/">HAI</a> (Human-centered AI) との対談録である．</p>
+<p>OpenAI はコード生成能力の経済的な影響を重要なアジェンダとしている <span class="citation" data-cites="Manning+2022">(Manning et al., 2022)</span>．</p>
+<p>Open AI の <a href="https://openai.com/blog/openai-codex">Codex</a> <span class="citation" data-cites="Chen+2021">(Chen et al., 2021)</span> はプログラム言語を扱うトランスフォーマーであり，<a href="https://github.com/features/copilot">GitHub Copilot</a> の元となっている．これが社会に与える影響も，新たな評価フレームワークと共に提案されている <span class="citation" data-cites="Khlaaf+2022">(Khlaaf et al., 2022)</span>．</p>
+<p>LLM の労働市場へのインパクトも推定している <span class="citation" data-cites="Eloundou+2023">(Eloundou et al., 2023)</span>．これによると，アメリカの労働者の 80% が，LLM の導入により少なくとも仕事の 10% に影響が生じるとしている．さらに全体の 20% は仕事の半分以上が影響を受けるとしている．</p>
+</section>
+<section id="世界モデルとしての基盤モデル" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> 世界モデルとしての基盤モデル</h1>
+<section id="社会行動シミュレーターとしての-llm" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="社会行動シミュレーターとしての-llm"><span class="header-section-number">3.1</span> 社会行動シミュレーターとしての LLM</h2>
+<p>社会的なシミュレーションを LLM 内で行うことで，社会科学やビジネスの場面での意思決定を支援することが期待されている．</p>
+<p>LLM は人間の心の理論を理解し，その心情・意図を（ある程度）シミュレートすることが出来るようである <span class="citation" data-cites="Andreas2022">(Andreas, 2022)</span>．</p>
+<p>LLM でのシミュレーションを通じて，社会科学的な知識を引き出そうとする試みもある <span class="citation" data-cites="Leng-Yuan2023">(Leng and Yuan, 2023)</span>．</p>
+</section>
+</section>
+<section id="llm-と経済安全保障" class="level1" data-number="4">
+<h1 data-number="4"><span class="header-section-number">4</span> LLM と経済安全保障</h1>
+<section id="幻覚の防止" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="幻覚の防止"><span class="header-section-number">4.1</span> 幻覚の防止</h2>
+<p>LLM が事実と異なる物語を生成することを <strong>幻覚</strong> (hallucination) と呼び，一部の応用では問題になることがある．</p>
+<p>これを解決するにあたって，<strong>等角推測</strong> (conformal prediction) と組み合わせ，出力の不確実性を評価することで幻覚を防止する手法が提案されている <span class="citation" data-cites="Mohri-Hashimoto2024">(Mohri and Hashimoto, 2024)</span>．</p>
+<p>一般に意思決定の場面において AI を活用するには，不確実性の定量化が必要不可欠である．</p>
+<p>GPT-3 を Bayesian にし，自身の確証度合いを言表するように事後調整する研究が OpenAI で行われている <span class="citation" data-cites="Lin+2022">(Lin et al., 2022)</span>．</p>
+</section>
+<section id="ウォーターマーク" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="ウォーターマーク"><span class="header-section-number">4.2</span> ウォーターマーク</h2>
+<p>ウォーターマークを開発することで，LLM から出力された文章であることを高確率で検出できるようにする方法が，統計的仮説検定の技術を応用して提案されている <span class="citation" data-cites="Kuditipudi+2023">(Kuditipudi et al., 2023)</span>．</p>
+</section>
+<section id="偽情報対策" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="偽情報対策"><span class="header-section-number">4.3</span> 偽情報対策</h2>
+<p>生成 AI は，一国の政府が特定のプロパガンダを流布するための効果的な手段として選ばれることになる．その際の考え得る使用例と，それに対する対策が考えられてる <span class="citation" data-cites="Goldstein+2023">(Goldstein et al., 2023)</span>．</p>
+<p>特に，2022 年に始まったロシアによるウクライナ侵攻は，最初の本格的な AI による情報戦と認識されつつある <span class="citation" data-cites="Sobchuk2024">(Sobchuk, 2024)</span>．</p>
+<p>これに対する対抗手段として，ウクライナのスタートアップ <a href="https://www.osavul.cloud/">Osavul</a> や <a href="https://mantisanalytics.com/">Mantis Analytics</a> によって使われているのもやはり LLM である．</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://mantisanalytics.com/"><img src="https://puniupa.github.io/static/Files/MantisAnalytics.png" class="img-fluid figure-img" alt="Mantis Analytics の製品のデモ（クリックで URL を開く）"></a></p>
+<figcaption>Mantis Analytics の製品のデモ（クリックで URL を開く）</figcaption>
+</figure>
+</div>
+</section>
+<section id="開発規制" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="開発規制"><span class="header-section-number">4.4</span> 開発規制</h2>
+<p><span class="citation" data-cites="Anderljung+2023">(Anderljung et al., 2023)</span> は先端的な AI を <a href="https://www.cnas.org/publications/commentary/frontier-ai-regulation-managing-emerging-risks-to-public-safety">Frontier AI</a> と呼び，これの開発過程におけるあるべき規制を模索している．監督当局に執行権を付与することやフロンティアAIモデルのライセンス制度などが議論されている．</p>
+<p><span class="citation" data-cites="Shoker+2023">(Shoker et al., 2023)</span> は LLM と国家安全保障との関係を議論している．信頼構築措置 (CBMs: Confidence-Building Measures) とは，国家間の敵意を減少させることで，衝突のリスクを減らす措置の全般をいう．元々は冷戦時代に提案された概念であるが，これを LLM 開発に適用することが具体的に提案されている．</p>
+</section>
+<section id="生物学的脅威" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="生物学的脅威"><span class="header-section-number">4.5</span> 生物学的脅威</h2>
+<p>LLM の登場により個人がエンパワーメントを受けており，生物学的脅威を作る障壁が低下していることは間違いない．</p>
+<p><span class="citation" data-cites="Patwardhan+2024">(Patwardhan et al., 2024)</span> では，生物学的リスクに焦点を当てて，AI による安全リスク評価の手法と事前警鐘システムを模索している．この研究では，LLM によりリスクが増加するという統計的に有意義な証拠は得られていないが，この方面の研究の草分けとなっている．</p>
+</section>
+</section>
+<section id="アラインメント問題" class="level1" data-number="5">
+<h1 data-number="5"><span class="header-section-number">5</span> アラインメント問題</h1>
+</section>
+
+
+
+<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="文献紹介" class="level1 appendix" data-number="6"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">6</span> 文献紹介</h2><div class="quarto-appendix-contents">
+
+<p>大規模言語モデルとトランスフォーマーに関するより詳しい内容は，次の記事も参照：</p>
+<div class="article-card-container">
+    <div class="article-card">
+        <a href="https://162348.github.io/posts/2024/Kernels/Deep2.html" target="_blank">
+            <img src="https://162348.github.io/posts/2024/Kernels/Transformer_cut.png" alt="Article Image" class="article-image">
+            <div class="article-content">
+                <h3 class="article-title anchored" data-anchor-id="文献紹介">トランスフォーマー（深層生成モデル１）</h3>
+                <p class="article-description">2023 年までの「基盤モデル」と呼ばれるような大規模な深層学習モデルは，ほとんど全て同一のアーキテクチャを持つ．これがトランスフォーマーである．その構造を，主に言語の分野に注目して概説する．最後に画像と動画の分野にも触れる．</p>
+            </div>
+        </a>
+    </div>
+</div>
+
+
+
+</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Anderljung+2023" class="csl-entry">
+Anderljung, M., Barnhart, J., Korinek, A., Leung, J., O’Keefe, C., Whittlestone, J., … Wolf, K. (2023). <a href="https://openai.com/research/frontier-ai-regulation">Frontier AI regulation: Managing emerging risks to public safety</a>. OpenAI.
+</div>
+<div id="ref-Andreas2022" class="csl-entry">
+Andreas, J. (2022). <a href="https://arxiv.org/abs/2212.01681">Language models as agent models</a>.
+</div>
+<div id="ref-Chen+2021" class="csl-entry">
+Chen, M., Tworek, J., Jun, H., Yuan, Q., Oliveira Pinto, H. P. de, Kaplan, J., … Zaremba, W. (2021). <a href="https://arxiv.org/abs/2107.03374">Evaluating large language models trained on code</a>.
+</div>
+<div id="ref-Eloundou+2023" class="csl-entry">
+Eloundou, T., Manning, S., Mishkin, P., and Rock, D. (2023). <a href="https://openai.com/research/gpts-are-gpts">GPTs are GPTs: An early look at the labor market impact potential of large language models</a>.
+</div>
+<div id="ref-Goldstein+2023" class="csl-entry">
+Goldstein, J. A., Sastry, G., Musser, M., DiResta, R., Gentzel, M., and Sedova, K. (2023). <a href="https://openai.com/research/forecasting-misuse">Generative language models and automated influence operations: Emerging threats and potential mitigations</a>.
+</div>
+<div id="ref-Khlaaf+2022" class="csl-entry">
+Khlaaf, H., Mishkin, P., Achiam, J., Krueger, G., and Brundage, M. (2022). <a href="https://openai.com/research/a-hazard-analysis-framework-for-code-synthesis-large-language-models">A hazard analysis framework for code synthesis large language models</a>.
+</div>
+<div id="ref-Kuditipudi+2023" class="csl-entry">
+Kuditipudi, R., Thickstun, J., Hashimoto, T., and Liang, P. (2023). <a href="https://arxiv.org/abs/2402.10978">Robust distortion-free watermarks for language models</a>.
+</div>
+<div id="ref-Leng-Yuan2023" class="csl-entry">
+Leng, Y., and Yuan, Y. (2023). <a href="https://arxiv.org/abs/2312.15198">Do LLM agents exhibit social behavior?</a>
+</div>
+<div id="ref-Lin+2022" class="csl-entry">
+Lin, S., Hilton, J., and Evans, O. (2022). <a href="https://openai.com/research/teaching-models-to-express-their-uncertainty-in-words">Teaching models to express their uncertainty in words</a>. In <em>Transactions on machine learning research</em>.
+</div>
+<div id="ref-Manning+2022" class="csl-entry">
+Manning, S., Mishkin, P., Hadfield, G., Eloundou, T., and Eisne, E. (2022). <em>A research agenda for assessing the economic impacts of code generation models</em>. OpenAI. Retrieved from <a href="https://openai.com/research/economic-impacts">https://openai.com/research/economic-impacts</a>
+</div>
+<div id="ref-Mohri-Hashimoto2024" class="csl-entry">
+Mohri, C., and Hashimoto, T. (2024). <a href="https://arxiv.org/abs/2402.10978">Language models with conformal factuality guarantees</a>.
+</div>
+<div id="ref-Patwardhan+2024" class="csl-entry">
+Patwardhan, T., Liu, K., Markov, T., Chowdhury, N., Leet, D., Cone, N., … Mandry, A. (2024). <em>Building an early warning system for LLM-aided biological threat creation</em>. OpenAI. Retrieved from <a href="https://openai.com/research/building-an-early-warning-system-for-llm-aided-biological-threat-creation">https://openai.com/research/building-an-early-warning-system-for-llm-aided-biological-threat-creation</a>
+</div>
+<div id="ref-Rombach+2022" class="csl-entry">
+Rombach, R., Blattmann, A., Lorenz, D., Esser, P., and Ommer, B. (2022). <a href="https://openaccess.thecvf.com/content/CVPR2022/html/Rombach_High-Resolution_Image_Synthesis_With_Latent_Diffusion_Models_CVPR_2022_paper.html">High-resolution image systhesis with latent diffusion models</a>. In <em>Proceedings of the IEEE/CVF conference on computer vision and pattern recognition (CVPR)</em>, pages 10684–10695.
+</div>
+<div id="ref-Shoker+2023" class="csl-entry">
+Shoker, S., Reddie, A., Barrington, S., Booth, R., Brundage, M., Chahal, H., … Young, J. (2023). <a href="https://openai.com/research/confidence-building-measures-for-artificial-intelligence">Confidence-building measures for artificial intelligence: Workshop proceedings</a>.
+</div>
+<div id="ref-Sobchuk2024" class="csl-entry">
+Sobchuk, M. (2024). <em><a href="https://www.globalgovernance.eu/publications/how-ukraine-uses-ai-to-fight-russian-information-operations">How ukraine uses AI to fight russian information operations</a></em>.
+</div>
+<div id="ref-Tamkin+2021" class="csl-entry">
+Tamkin, A., Brundage, M., Clark, J., and Ganguli, D. (2021). <a href="https://arxiv.org/abs/2102.02503">Understanding the capabilities, limitations, and societal impact of large language models</a>.
+</div>
+<div id="ref-Touvron+2023" class="csl-entry">
+Touvron, H., Lavril, T., Izacard, G., Martinet, X., Lachaux, M.-A., Lacroix, T., … Lample, G. (2023). <a href="https://arxiv.org/abs/2302.13971">LLaMA: Open and efficient foundation language models</a>.
+</div>
+<div id="ref-Wang+2023-Self-Instruct" class="csl-entry">
+Wang, Y., Kordi, Y., Mishra, S., Liu, A., Smith, N. A., Khashabi, D., and Hajishirzi, H. (2023). <a href="https://doi.org/10.18653/v1/2023.acl-long.754">Self-instruct: Aligning language models with self-generated instructions</a>. In A. Rogers, J. Boyd-Graber, and N. Okazaki, editors, <em>Proceedings of the 61st annual meeting of the association for computational linguistics (volume 1: Long papers)</em>, pages 13484–13508. Toronto, Canada: Association for Computational Linguistics.
+</div>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p><a href="https://www.nikkei.com/article/DGXZQOUC268J80W3A221C2000000/">日経新聞 (2/19/2024)</a>↩︎</p></li>
+</ol>
+</section></div> ]]></description>
+  <category>AI</category>
+  <category>Disinformation</category>
+  <guid>https://puniupa.github.io/posts/2024/AI/LLM.html</guid>
+  <pubDate>Mon, 19 Feb 2024 15:00:00 GMT</pubDate>
 </item>
 </channel>
 </rss>

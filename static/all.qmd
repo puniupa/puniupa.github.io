@@ -9,7 +9,6 @@ listing:
   sort-ui: false
   filter-ui: false
   feed: true
-  max-description-length: 100
 page-layout: full
 title-block-banner: true
 comments: false

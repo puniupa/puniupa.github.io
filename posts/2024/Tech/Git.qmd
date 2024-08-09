@@ -2,7 +2,7 @@
 title: "GitHub の使い方"
 author: "ぷに Draft"
 date: 7/16/2024
-categories: [Lifestyle]
+categories: [Tech]
 bibliography: 
     - ../../../assets/mathematics.bib
     - ../../../assets/bib.bib

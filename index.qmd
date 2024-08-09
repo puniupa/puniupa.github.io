@@ -9,7 +9,6 @@ listing:
   sort-ui: false
   filter-ui: false
   feed: true
-  max-description-length: 100
   exclude: 
     author: "{Draft Draft,ぷに Draft,うぱ Draft}"
 page-layout: full

@@ -3,7 +3,7 @@ title: "うぱ GitHub 挑戦"
 author: "うぱ Draft"
 date: 8/7/2024
 image: Images/GitHub.jpg
-categories: [Lifestyle]
+categories: [Blog]
 bibliography: 
     - ../../../assets/mathematics.bib
     - ../../../assets/bib.bib
