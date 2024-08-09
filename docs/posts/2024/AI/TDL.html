@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.549">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -181,7 +181,10 @@ window.Quarto = {
   <li><a href="#ベクトルを超えていく" id="toc-ベクトルを超えていく" class="nav-link" data-scroll-target="#ベクトルを超えていく"><span class="header-section-number">1.2</span> ベクトルを超えていく</a></li>
   <li><a href="#位相的機械学習が目指すもの" id="toc-位相的機械学習が目指すもの" class="nav-link" data-scroll-target="#位相的機械学習が目指すもの"><span class="header-section-number">1.3</span> 位相的機械学習が目指すもの</a></li>
   </ul></li>
-  <li><a href="#位相的機械学習のいま" id="toc-位相的機械学習のいま" class="nav-link" data-scroll-target="#位相的機械学習のいま"><span class="header-section-number">2</span> 位相的機械学習の「いま」</a></li>
+  <li><a href="#位相的機械学習のいま" id="toc-位相的機械学習のいま" class="nav-link" data-scroll-target="#位相的機械学習のいま"><span class="header-section-number">2</span> 位相的機械学習の「いま」</a>
+  <ul class="collapse">
+  <li><a href="#sars-cov-2" id="toc-sars-cov-2" class="nav-link" data-scroll-target="#sars-cov-2"><span class="header-section-number">2.1</span> SARS-CoV-2</a></li>
+  </ul></li>
   
   </ul>
 </nav>
@@ -325,6 +328,13 @@ window.Quarto = {
 </section>
 <section id="位相的機械学習のいま" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="位相的機械学習のいま"><span class="header-section-number">2</span> 位相的機械学習の「いま」</h2>
+<p>位相的機械学習 (TDL) の目指すところを，各分野での成功事例で見ていこう．</p>
+<section id="sars-cov-2" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="sars-cov-2"><span class="header-section-number">2.1</span> SARS-CoV-2</h3>
+<p>コロナウィルスの変異株にはオミクロン株という名前がついている．</p>
+<p>実はオミクロン株にもさらに分類があり，当初の系統は BA.1 である．</p>
+<p>BA.2 系統 <span class="citation" data-cites="Chen-Wei2022">(<a href="#ref-Chen-Wei2022" role="doc-biblioref">Chen and Wei, 2022</a>)</span> と BA.4, BA.5 系統 <span class="citation" data-cites="Chen+2022">(<a href="#ref-Chen+2022" role="doc-biblioref">Chen et al., 2022</a>)</span> との登場可能性とその性質を，２ヶ月以上前に「変異懸念株」として予測することに成功したのは，代数トポロジーの知見を取り入れた TDL 手法であった．</p>
+</section>
 </section>
 
 
@@ -341,6 +351,12 @@ window.Quarto = {
 </div></section><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Banerjee+2020" class="csl-entry" role="listitem">
 Banerjee, S., Magee, L., Wang, D., Li, X., Huo, B.-X., Jayakumar, J., … Mitra, P. P. (2020). <a href="https://doi.org/10.1038/s42256-020-0227-9">Semantic segmentation of microscopic neuroanatomical data by combining topological priors with encoder–decoder deep networks</a>. <em>Nature Machine Intelligence</em>, <em>2</em>(10), 585–594.
+</div>
+<div id="ref-Chen+2022" class="csl-entry" role="listitem">
+Chen, J., Qiu, Y., Wang, R., and Wei, G.-W. (2022). <a href="https://doi.org/10.1016/j.compbiomed.2022.106262">Persistent laplacian projected omicron BA.4 and BA.5 to become new dominating variants</a>. <em>Computers in Biology and Medicine</em>, <em>151</em>, 106262.
+</div>
+<div id="ref-Chen-Wei2022" class="csl-entry" role="listitem">
+Chen, J., and Wei, G.-W. (2022). <a href="https://doi.org/10.1021/acs.jpclett.2c00469">Omicron BA.2 (b.1.1.529.2): High potential for becoming the next dominant variant</a>. <em>The Journal of Physical Chemistry Letters</em>, <em>13</em>(17), 3840–3849. doi: 10.1021/acs.jpclett.2c00469.
 </div>
 <div id="ref-Choi+2020" class="csl-entry" role="listitem">
 Choi, E., Xu, Z., Li, Y., Dusenberry, M., Flores, G., Xue, E., and Dai, A. (2020). <a href="https://doi.org/10.1609/aaai.v34i01.5400">Learning the graphical structure of electronic health records with graph convolutional transformer</a>. <em>Proceedings of the AAAI Conference on Artificial Intelligence</em>, <em>34</em>(01), 606–613.
@@ -476,6 +492,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/puniupa\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -510,7 +544,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
