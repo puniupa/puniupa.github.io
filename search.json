@@ -74,14 +74,14 @@
     "href": "posts/2024/AI/TDL.html#なぜ位相的機械学習が必要とされたか",
     "title": "位相的機械学習――データはもはや「ただの数字」ではない――",
     "section": "1 なぜ位相的機械学習が必要とされたか？",
-    "text": "1 なぜ位相的機械学習が必要とされたか？\n\n1.1 従来手法の反省点\nどうして「位相」が機械学習におけるキーワードとして再注目されているかというと，「以前の我々は，座標の取り方に関して無関心だったから」だと言える．\nこれまでの深層学習のアーキテクチャは，モデリングの対象が言語・音声・動画のどれであるかに依らず，\n\nという同一のステップを辿っていた．\nしかし，深層学習の応用先が広がっていくごとに，次のような例が見つかってきた：\n\n\n\n\n\n\n\n分子は従来のように３次元座標ベクトルでモデリングするより，グラフとしてモデリングした方が良い (Veličković, 2023)．1\n画像は（従来のようなテンソルだと思うより）実はグラフだと思った方が，幾何学的な情報を取り入れたモデリングができる (Han et al., 2022)．2\n電子カルテ (EHR) は数値・文章・画像の複数のメディアを含むため，従来の機械学習の適用が困難であったが，その情報をグラフの形でまとめることで，患者の発作リスクや必要な投薬などを予想する精度が向上してきている (Choi et al., 2020)．\nfMRI から取得される脳の画像データは，脳の部位の機能的な結合を意味するグラフの形でモデリングすることで，より多くの情報抽出と科学的発見の促進が可能になっている (Ktena et al., 2018)．\n\n\n\n\n\n\n1.2 ベクトルを超えていく\n根本的な問題は，従来のデータ解析では Euclid 空間 \\(\\mathbb{R}^d\\) 以外の空間を考えてこなかったことにある．\nそれゆえ，どんなデータもまずは \\(\\mathbb{R}^d\\) 内に埋め込むことが考えられ，モデリング法の多様性が失われていたのだと言える．\n画像を文字列のような系列だと捉えたり，分子を文字列としてモデリングしたりする様子は，大変に奇怪である．\n\n1.2.1 幾何学的深層学習\nそこで 幾何学的深層学習 (GDL: Geometric Deep Learning) の標語の下で，従来の Euclid 空間 \\(\\mathbb{R}^d\\) 以外にも，多様な空間上のデータをモデリングをする方法論が研究された．\nこれにより，「ベクトル」以外の言葉でデータを見ることが可能になったのである．\n「ベクトル」以外の言葉として最初に探索されたものが「グラフ」であり，グラフニューラルネットワーク (GNN) が幾何学的深層学習の中心的な柱となっている．\n\n\n\n\n\n\nよりみち（幾何学的深層学習の成果）\n\n\n\n\n\n\n幾何学的な語彙でデータの構造を捉える パーシステント・ホモロジー (persistent homology) という手法 (Edelsbrunner et al., 2002), (Zomorodian and Carlsson, 2005) を取り入れた手法が，D3R (Drug Design Data Resorce) Grand Challenge という世界規模の新薬創出コンテストにおいて，リガンドのポーズ予測や親和度推定など多くのタスクで１位を獲得した (Nguyen et al., 2019), (Nguyen et al., 2020)．\n光学顕微鏡による全能画像データをニューロン区画の階層に分割するタスクは従来は経験豊富な神経科学者のみの職人技であった．大量の教師ありデータを取得できるはずもないので，深層学習の応用は困難であったが，離散モース理論 によりデータの構造を捉えることで，人間の 90% の正解率に迫っている (Banerjee et al., 2020), (Hu et al., 2021)．\n\n\n\n\n\n\n1.2.2 グラフを超えていく\nしかしすでに，グラフを超えていく動きの萌芽も見られる (Hajij et al., 2023)．\nそのためには，数学の言葉に注目することが肝要である．幾何学には，十数世紀以上の抽象化の蓄積があり，単体複体 (Schaub et al., 2022) や胞体複体 (Hajij et al., 2020) などの概念が，最初のとっかかりとなっている．\n(Hansen and Ghrist, 2019) では，スペクトル層理論というスペクトルグラフ理論の拡張が展開されている．\n\n\n\n1.3 位相的機械学習が目指すもの\n以上，それぞれのデータに自然な表現を選ぶ ことが大事であることはわかっていただけただろう．\n\n創薬において，有機分子が目標のタンパク質に結合するかの判定のために，有機分子を文字列で表してトランスフォーマーに学習させる．\n画像において，ニューロンの区画をモデリングするために，画像をグラフで表してトランスフォーマーに学習させる．\n\nという営みは，トランスフォーマーというアーキテクチャが言語（だけ）のために制作された当初の意図からすると，大変不本意である．（機械学習の黎明期において，必要な試行錯誤であることは間違いないが，）\n深層学習が，化学，薬学，神経科学，社会学などの各分野で真にイノベーションを産むためには，その分野にあったアーキテクチャの特定が必要である．\n「各分野の各データに最もあったアーキテクチャは何か？」という指標を，幾何学を共通言語として行おう というのが位相的機械学習である．\nこれにより，次の２点を達成することが目標である：\n\n\n\n\n\n\n\n幾何学的なことばで データを理解する．（グラフか？）\nデータの位相的性質にあった機械学習アーキテクチャを選べる．"
+    "text": "1 なぜ位相的機械学習が必要とされたか？\n\n1.1 従来手法の反省点\nどうして「位相」が機械学習におけるキーワードとして再注目されているかというと，「以前の我々は，座標の取り方に関して無関心だったから」だと言える．\nこれまでの深層学習のアーキテクチャは，モデリングの対象が言語・音声・動画のどれであるかに依らず，\n\nという同一のステップを辿っていた．\nしかし，深層学習の応用先が広がっていくごとに，次のような例が見つかってきた：\n\n\n\n\n\n\n\n分子は従来のように３次元座標ベクトルでモデリングするより，グラフとしてモデリングした方が良い (Veličković, 2023)．1\n画像は（従来のようなテンソルだと思うより）実はグラフだと思った方が，幾何学的な情報を取り入れたモデリングができる (Han et al., 2022)．2\n電子カルテ (EHR) は数値・文章・画像の複数のメディアを含むため，従来の機械学習の適用が困難であったが，その情報をグラフの形でまとめることで，患者の発作リスクや必要な投薬などを予想する精度が向上してきている (Choi et al., 2020)．\nfMRI から取得される脳の画像データは，脳の部位の機能的な結合を意味するグラフの形でモデリングすることで，より多くの情報抽出と科学的発見の促進が可能になっている (Ktena et al., 2018)．\n\n\n\n\n\n\n1.2 ベクトルを超えていく\n根本的な問題は，従来のデータ解析では Euclid 空間 \\(\\mathbb{R}^d\\) 以外の空間を考えてこなかったことにある．\nそれゆえ，どんなデータもまずは \\(\\mathbb{R}^d\\) 内に埋め込むことが考えられ，モデリング法の多様性が失われていたのだと言える．\n画像を文字列のような系列だと捉えたり，分子を文字列としてモデリングしたりする様子は，大変に奇怪である．\n\n1.2.1 幾何学的深層学習\nそこで 幾何学的深層学習 (GDL: Geometric Deep Learning) の標語の下で，従来の Euclid 空間 \\(\\mathbb{R}^d\\) 以外にも，多様な空間上のデータをモデリングをする方法論が研究された．\nこれにより，「ベクトル」以外の言葉でデータを見ることが可能になったのである．\n「ベクトル」以外の言葉として最初に探索されたものが「グラフ」であり，グラフニューラルネットワーク (GNN) が幾何学的深層学習の中心的な柱となっている．\n\n\n\n\n\n\nよりみち（幾何学的深層学習の成果）\n\n\n\n\n\n\n幾何学的な語彙でデータの構造を捉える パーシステント・ホモロジー (persistent homology) という手法 (Edelsbrunner et al., 2002), (Zomorodian and Carlsson, 2005) を取り入れた手法が，D3R (Drug Design Data Resorce) Grand Challenge という世界規模の新薬創出コンテストにおいて，リガンドのポーズ予測や親和度推定など多くのタスクで１位を獲得した (Nguyen et al., 2019), (Nguyen et al., 2020)．\n光学顕微鏡による全能画像データをニューロン区画の階層に分割するタスクは従来は経験豊富な神経科学者のみの職人技であった．大量の教師ありデータを取得できるはずもないので，深層学習の応用は困難であったが，離散モース理論 によりデータの構造を捉えることで，人間の 90% の正解率に迫っている (Banerjee et al., 2020), (Hu et al., 2021)．\n\n\n\n\n\n\n1.2.2 グラフを超えていく\nしかしすでに，グラフを超えていく動きの萌芽も見られる (Hajij et al., 2023)．\nそのためには，数学の言葉に注目することが肝要である．幾何学には，十数世紀以上の抽象化の蓄積があり，単体複体 (Schaub et al., 2022) や胞体複体 (Hajij et al., 2020) などの概念が，最初のとっかかりとなっている．\n(Hansen and Ghrist, 2019) では，スペクトル層理論というスペクトルグラフ理論の拡張が展開されている．\n\n\n\n1.3 位相的機械学習が目指すもの\n以上，それぞれのデータに自然な表現を選ぶ ことが大事であることはわかっていただけただろう．\n\n創薬において，有機分子が目標のタンパク質に結合するかの判定のために，有機分子を文字列で表してトランスフォーマーに学習させる．\n画像において，ニューロンの区画をモデリングするために，画像をグラフで表してトランスフォーマーに学習させる．\n\nという営みは，トランスフォーマーというアーキテクチャが言語（だけ）のために制作された当初の意図からすると，大変不本意である．3 （機械学習の黎明期において，必要な試行錯誤であることは間違いないが，）\n深層学習が，化学，薬学，神経科学，社会学などの各分野で真にイノベーションを産むためには，その分野にあったアーキテクチャの特定が必要である．\n「各分野の各データに最もあったアーキテクチャは何か？」という指標を，幾何学を指導原理として与えよう というのが位相的機械学習である．\nこれにより，次の２点を達成することが目標である：\n\n\n\n\n\n\n\n幾何学的なことばで データを理解する．（グラフか？）\nデータの位相的性質にあった機械学習アーキテクチャを選べる．"
   },
   {
     "objectID": "posts/2024/AI/TDL.html#位相的機械学習のいま",
     "href": "posts/2024/AI/TDL.html#位相的機械学習のいま",
     "title": "位相的機械学習――データはもはや「ただの数字」ではない――",
     "section": "2 位相的機械学習の「いま」",
-    "text": "2 位相的機械学習の「いま」\n位相的機械学習 (TDL) の目指すところを，各分野での成功事例で見ていこう．\n\n2.1 SARS-CoV-2\nコロナウィルスの変異株にはオミクロン株という名前がついている．\n実はオミクロン株にもさらに分類があり，当初の系統は BA.1 である．\nBA.2 系統 (Chen and Wei, 2022) と BA.4, BA.5 系統 (Chen et al., 2022) との登場可能性とその性質を，２ヶ月以上前に「変異懸念株」として予測することに成功したのは，代数トポロジーの知見を取り入れた TDL 手法であった．"
+    "text": "2 位相的機械学習の「いま」\n位相的機械学習 (TDL) の目指すところを，各分野での成功事例で見ていこう．\n\n2.1 分子モデリング\n\n\n2.2 SARS-CoV-2 変異株予測\nコロナウィルスの変異株にはオミクロン株という名前がついている．\n実はオミクロン株にもさらに分類があり，当初の系統は BA.1 である．\nBA.2 系統 (Chen and Wei, 2022) と BA.4, BA.5 系統 (Chen et al., 2022) との登場可能性とその性質（感染力は？既存のワクチンが効くか？）を，２ヶ月以上前に「変異懸念株」として予測することに成功したのは，代数トポロジーの知見を取り入れた TDL 手法であった．\nパーシステントホモロジーなどの代数トポロジーの手法は，分子間／分子内相互作用を記述するのに優れており，特に SARS-CoV-2 変異株の新たなスパイクタンパク質がどのようなリガンドに結合し得るかの予測に優れていた (Cang, 2018)．\nSARS-CoV-2 やその変異株の迅速なワクチン開発の背後で暗躍していたのは，TDL だったのである．\n\n\n2.3 電子顕微鏡"
   },
   {
     "objectID": "posts/2024/AI/TDL.html#文献紹介",
@@ -91,11 +91,123 @@
     "text": "3 文献紹介\n\nサーベイかつポジションペーパー (Papamarkou et al., 2024) を大いに参考にした．\n(Nguyen et al., 2019) は，マルチスケール重みつき色つき部分グラフとパーシステント・ホモロジーを取り入れた深層学習手法により，D3R Grand Challenge 2 の stage 2 での絶対自由エネルギー予測 set 1 において１位を獲得し，続いて Challenge 3 では 26 のタスクのうち 10 タスクで１位を獲得したことを報告している．\n(Hansen and Ghrist, 2019) では，スペクトル層理論という理論を展開している．これは，スペクトルグラフ理論を，一般の胞体層 (cellular sheaf) に拡張したものであるという．組み合わせ論的なグラフラプラシアンを，正則な胞体複体上の線型空間の胞体層上の Hodge ラプラシアンの特別な場合と見ることで，スペクトルデータを層のコホモロジーや胞体構造と関連づけることが出来るという．\nグラフカーネルに関する良い日本語文献に (ガラムカリ和 et al., 2021) がある．"
   },
   {
+    "objectID": "posts/2024/AI/TDL.html#個人的な-papamarkou2024tdl-の見どころ",
+    "href": "posts/2024/AI/TDL.html#個人的な-papamarkou2024tdl-の見どころ",
+    "title": "位相的機械学習――データはもはや「ただの数字」ではない――",
+    "section": "4 個人的な (Papamarkou et al., 2024) の見どころ",
+    "text": "4 個人的な (Papamarkou et al., 2024) の見どころ\n\nComputer Vision の分野に続いて，構造生成の分野でも Diffusion model が state of the art となったことが触れられている（(Mengchun Zhang et al., 2023) も参照）：\n\nIn addition to 2D and 3D computer vision, diffusion models have become the state-of-the-art in graphbased molecular generation. (Papamarkou et al., 2024)\n\nこれが (Bodnar et al., 2022) で Neural Sheaf Diffusion に発展しようとしている．これはグラフ上の層を考えることで，グラフ上に更なる幾何的構造を作り込み，データのより高次の構造を捉えることができるようにしようというものである（この枠組みでは，Graph Neural Network は自明な層を扱った場合，と相対化される）．\n個人的には，Gauss 過程が Banach 空間の研究に応用できたこと，拡散過程が多様体やグラフの局所構造を捉えることが，単に数学的な特徴付けであることを超えて，効率的な計算手法として，計算機科学として，計算数学として発展する具体的な試みが，TDL の名前の下に総覧できる点が大変に興味深い．\n\nFor example, a combination of applied category theory and TDA may lead to algorithms that automatically summarize how neural networks produce their output, making deep learning more understandable to humans. (Papamarkou et al., 2024)\n\nランダムウォークを用いて，単体複体の表現学習を行うという展開もある Simplex2Vec (Billings et al., 2019), (Schaub et al., 2020)\nTDL / GDL は初めての幾何学を指導原理としたエンジニアリングになるかもしれない．多様体を超えた一般的な幾何学的な枠組みが，層の言葉で作られるかもしれない．\n(Bronstein et al., 2021) も良い本である．"
+  },
+  {
     "objectID": "posts/2024/AI/TDL.html#footnotes",
     "href": "posts/2024/AI/TDL.html#footnotes",
     "title": "位相的機械学習――データはもはや「ただの数字」ではない――",
     "section": "Footnotes",
-    "text": "Footnotes\n\n\n有機化合物は，分枝の構造を文字列で表した SMILES 文字列や，３次元座標で原子の位置を表した MOL ファイルなどで表される (船津公人 et al., 2024)．↩︎\n(Han et al., 2022) はグラフニューラルネットワークが，Vision Transformer に画像分類や物体認識など多くのタスクで優ったことを報告している．↩︎"
+    "text": "Footnotes\n\n\n有機化合物は，分枝の構造を文字列で表した SMILES 文字列や，３次元座標で原子の位置を表した MOL ファイルなどで表される (船津公人 et al., 2024)．↩︎\n(Han et al., 2022) はグラフニューラルネットワークが，Vision Transformer に画像分類や物体認識など多くのタスクで優ったことを報告している．↩︎\n例えば，トランスフォーマーは２体間相互作用のモデリングには優れているが，３体間相互作用のモデリングは大変不得意である (Sanford et al., 2023)．↩︎"
+  },
+  {
+    "objectID": "static/AllCategories.html",
+    "href": "static/AllCategories.html",
+    "title": "Categories",
+    "section": "",
+    "text": "半導体（画像をタップでジャンプ）\n\n\n\n\n\n\n\nAI（画像をタップでジャンプ）\n\n\n\n\n\n\n\nSemiconductor\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n半導体の微細化技術\n\n\n\n半導体\n\n\n\n\n2024-03-23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\nスライド\n\n\n\n\n2024-03-20\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\n\n\n2024-02-26\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\nAI\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n位相的機械学習――データはもはや「ただの数字」ではない――\n\n\nこれから AI で加速する産業分野はどこか？\n\n\n\nAI\n\n\n\n\n2024-08-07\n\n\n\n\n\n\n\n\n\n\n\n\n武見研究室訪問\n\n\n「障碍」を「障碍」ではなくす社会へ\n\n\n\nBrain Tech\n\n\nAI\n\n\nBlog\n\n\n\n\n2024-08-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n生成 AI 開発企業の論点\n\n\n\nAI\n\n\nDisinformation\n\n\n\n\n2024-07-16\n\n\n\n\n\n\n\n\n\n\n\n\nこれからはじめるベイズ機械学習\n\n\n所信表明を兼ねて\n\n\n\nベイズ統計\n\n\nAI\n\n\n\n\n2024-03-20\n\n\n\n\n\n\n\n\n\n\n\n\nLLM が真に社会に受け入れられるまで\n\n\n近年の発展のまとめ\n\n\n\nAI\n\n\nEconomic Security\n\n\n\n\n2024-02-20\n\n\n\n\n\n\n\n\nNo matching items\n\n\n  \n\n\n\n\n\n\n\n\n Back to top"
+  },
+  {
+    "objectID": "posts/2024/AI/Journalism.html",
+    "href": "posts/2024/AI/Journalism.html",
+    "title": "生成 AI 開発企業の論点",
+    "section": "",
+    "text": "International Journalism Festival はイタリアのペルージアにて，2006 年から毎年開催されている．"
+  },
+  {
+    "objectID": "posts/2024/AI/Journalism.html#内部告発者の言うことを聞く準備はできているか-ijf2024",
+    "href": "posts/2024/AI/Journalism.html#内部告発者の言うことを聞く準備はできているか-ijf2024",
+    "title": "生成 AI 開発企業の論点",
+    "section": "1 内部告発者の言うことを聞く準備はできているか？ (Festival, 2024a)",
+    "text": "1 内部告発者の言うことを聞く準備はできているか？ (Festival, 2024a)\n生成 AI 開発には大規模な計算資源とデータセットが必要であり，これらを揃えられる企業は現状数えるほどしかない．\nそのため，必然的に大規模かつ組織的な企業に限られ，OpenAI をはじめとして情報統制が厳格であり，その内部状況は内部告発者 (whistleblower) や退職・転職者によるブログやソーシャルメディアに頼り切りになっているのが現状である．\n仮に，社会的問題の萌芽がどこかの企業で見られようと，我々がそれを知るには，内部告発者に頼るしかない．しかし，内部告発者とは開発者に他ならず，その内容は極めて専門的であるかもしれず，我々がその発信の内容を聞き入れて，適切な行動に繋げる準備ができているとは言い難い．\n生成 AI 開発を監視し，生じ得る問題に準備するためには，我々も出てくる情報に対して準備ができている状態でなければならない．"
+  },
+  {
+    "objectID": "posts/2024/AI/Journalism.html#生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo",
+    "href": "posts/2024/AI/Journalism.html#生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo",
+    "title": "生成 AI 開発企業の論点",
+    "section": "2 生成 AI を高度に活用した偽情報はどのように見抜けるか？ (Festival, 2024b)",
+    "text": "2 生成 AI を高度に活用した偽情報はどのように見抜けるか？ (Festival, 2024b)\nMicrosoft Research が４月16日に発表したモデル VASA-1 (Xu et al., 2024) は，１枚の写真と音声ファイルから，あたかもその人が音声ファイルの内容を喋っているかのような動画を生成することが可能である．\nこのような，AI が生成した画像・動画等がシェアされることによって，それを見た市民の感情を引き起こすことができ，多くの場合この変化は可逆でない．\nテクノロジー的な解決については，かなり悲観的になるべきである．完璧な AI detectors はまだできておらず，精度の低い人の目にも AI 生成であることがわかるようなものは検出できても，精度が高いものだと「AI 生成である確率は 1% である」などと出力してしまうという．\nこのような逆境の中でも TrueMedia.org など，AI 生成かどうかを判定するイニシアティブが存在する．"
+  },
+  {
+    "objectID": "static/AboutUs.html",
+    "href": "static/AboutUs.html",
+    "title": "ぷにうぱ",
+    "section": "",
+    "text": "ぷにうぱのロゴ"
+  },
+  {
+    "objectID": "static/AboutUs.html#ぷに-hp",
+    "href": "static/AboutUs.html#ぷに-hp",
+    "title": "ぷにうぱ",
+    "section": "ぷに  HP",
+    "text": "ぷに  HP\n研究者"
+  },
+  {
+    "objectID": "static/AboutUs.html#うぱ",
+    "href": "static/AboutUs.html#うぱ",
+    "title": "ぷにうぱ",
+    "section": "うぱ",
+    "text": "うぱ\n法律家"
+  },
+  {
+    "objectID": "static/AboutUs.html#キーワード",
+    "href": "static/AboutUs.html#キーワード",
+    "title": "ぷにうぱ",
+    "section": "キーワード",
+    "text": "キーワード\n\n科学技術政策\n知的財産\nAI とサイバーセキュリティ\n半導体\nニューロサイエンス"
+  },
+  {
+    "objectID": "static/AboutUs.html#興味関心",
+    "href": "static/AboutUs.html#興味関心",
+    "title": "ぷにうぱ",
+    "section": "興味・関心",
+    "text": "興味・関心\n生成 AI，半導体，ブレインテック……などなど，世界を変える科学技術が大好きです．\n科学技術がのびのび発展する環境を日本に作りたい，という思いで活動しています．\n技術・社会の両面から科学技術を理解することが，このブログの目標です．"
+  },
+  {
+    "objectID": "static/all.html",
+    "href": "static/all.html",
+    "title": "All Posts",
+    "section": "",
+    "text": "位相的機械学習――データはもはや「ただの数字」ではない――\n\n\nこれから AI で加速する産業分野はどこか？\n\n\n\nAI\n\n\n\nTDL (Topological Deep Learning)…\n\n\n\n\n\n8/07/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\nうぱ GitHub 挑戦\n\n\n\n\n\n\nLifestyle\n\n\n\nGitHub を初めて使う法学徒のメモ\n\n\n\n\n\n8/07/2024\n\n\nうぱ Draft\n\n\n\n\n\n\n\n\n\n\n\n\n武見研究室訪問\n\n\n「障碍」を「障碍」ではなくす社会へ\n\n\n\nBrain Tech\n\n\nAI\n\n\nBlog\n\n\n\n武見先生にお時間をいただき，中目黒にある研究室を訪問し，実験設備を見せて，体験もさせていただきました．２時間弱の訪問でしたが，大変多くのことを学んだので，その一端を書き残しておきたいと思います．\n\n\n\n\n\n8/06/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n生成 AI 開発企業の論点\n\n\n\n\n\n\nAI\n\n\nDisinformation\n\n\n\n去る４月，イタリアペルージアにて，国際ジャーナリズム・フェスティバルが開催され，AI とディスインフォメーションは中心的な議題の１つであった．そのプログラムと議論の内容をまとめることで，現在の生成…\n\n\n\n\n\n7/16/2024\n\n\nぷに, うぱ\n\n\n\n\n\n\n\n\n\n\n\n\nGitHub の使い方\n\n\n\n\n\n\nLifestyle\n\n\n\n今年の都知事選では，GitHub…\n\n\n\n\n\n7/16/2024\n\n\nぷに Draft\n\n\n\n\n\n\n\n\n\n\n\n\n半導体の微細化技術\n\n\n\n\n\n\n半導体\n\n\n\n半導体デバイスの微細化技術をレビューする．\n\n\n\n\n\n3/23/2024\n\n\nぷに Draft\n\n\n\n\n\n\n\n\n\n\n\n\nこれからはじめるベイズ機械学習\n\n\n所信表明を兼ねて\n\n\n\nベイズ統計\n\n\nAI\n\n\n\n\n\n\n\n\n\n3/20/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\nスライド\n\n\n\n井形研 RA 半導体読書会 駒場IIキャンパス４号館 \n\n\n\n\n\n3/20/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\n\n半導体デバイスの基本原理と製造方法を物理から理解することを目指す．\n\n\n\n\n\n2/26/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\nLLM が真に社会に受け入れられるまで\n\n\n近年の発展のまとめ\n\n\n\nAI\n\n\nEconomic Security\n\n\n\nLLM…\n\n\n\n\n\n2/20/2024\n\n\nぷに\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Recent Posts",
+    "section": "",
+    "text": "位相的機械学習――データはもはや「ただの数字」ではない――\n\n\nこれから AI で加速する産業分野はどこか？\n\n\n\nAI\n\n\n\nTDL (Topological Deep Learning)…\n\n\n\n\n\n8/07/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n武見研究室訪問\n\n\n「障碍」を「障碍」ではなくす社会へ\n\n\n\nBrain Tech\n\n\nAI\n\n\nBlog\n\n\n\n武見先生にお時間をいただき，中目黒にある研究室を訪問し，実験設備を見せて，体験もさせていただきました．２時間弱の訪問でしたが，大変多くのことを学んだので，その一端を書き残しておきたいと思います．\n\n\n\n\n\n8/06/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n生成 AI 開発企業の論点\n\n\n\n\n\n\nAI\n\n\nDisinformation\n\n\n\n去る４月，イタリアペルージアにて，国際ジャーナリズム・フェスティバルが開催され，AI とディスインフォメーションは中心的な議題の１つであった．そのプログラムと議論の内容をまとめることで，現在の生成…\n\n\n\n\n\n7/16/2024\n\n\nぷに, うぱ\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\nスライド\n\n\n\n井形研 RA 半導体読書会 駒場IIキャンパス４号館 \n\n\n\n\n\n3/20/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\nこれからはじめるベイズ機械学習\n\n\n所信表明を兼ねて\n\n\n\nベイズ統計\n\n\nAI\n\n\n\n\n\n\n\n\n\n3/20/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\n\n半導体デバイスの基本原理と製造方法を物理から理解することを目指す．\n\n\n\n\n\n2/26/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\nLLM が真に社会に受け入れられるまで\n\n\n近年の発展のまとめ\n\n\n\nAI\n\n\nEconomic Security\n\n\n\nLLM…\n\n\n\n\n\n2/20/2024\n\n\nぷに\n\n\n\n\n\n\nNo matching items\n\n Back to top"
+  },
+  {
+    "objectID": "posts/2024/Blog/Git.html",
+    "href": "posts/2024/Blog/Git.html",
+    "title": "GitHub の使い方",
+    "section": "",
+    "text": "まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．\n\n\n\n\n\n\n\nGitHub = コードに特化した Google Drive\nGit = コードベースで動く，ローカル上の Google Drive\n\n\n\n\nローカル上の Google Drive のスクリーンショット"
+  },
+  {
+    "objectID": "posts/2024/Blog/Git.html#github-とは何か",
+    "href": "posts/2024/Blog/Git.html#github-とは何か",
+    "title": "GitHub の使い方",
+    "section": "",
+    "text": "まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．\n\n\n\n\n\n\n\nGitHub = コードに特化した Google Drive\nGit = コードベースで動く，ローカル上の Google Drive\n\n\n\n\nローカル上の Google Drive のスクリーンショット"
+  },
+  {
+    "objectID": "posts/2024/Blog/Git.html#導入",
+    "href": "posts/2024/Blog/Git.html#導入",
+    "title": "GitHub の使い方",
+    "section": "2 導入",
+    "text": "2 導入\n\n2.1 バージョン管理システム\nGitとは，.gitに「スナップショットのストリーム」を保存する形で動く分散型（全てのユーザーがデータベース＝リポジトリのミラーリングを持つ形）のバージョン管理システムである．ここに独自の形式でsnapshotが保存される．\n\n\n\nWorkflow\n\n\n\n\n2.2 変更の統合機構\nGitで2つのブランチを統合する方法は3つある．なお，git pullはgit fetchとgit merge（またはgit rebase）の合成である．\n\n2.2.1 fast-forward\n2つのブランチに違いがあると言っても，「リモートのmainブランチがローカルのmainブランチよりも進んでいる」などの単純な状況である場合は，ただブランチのポインターを「前に進める」だけで良い．\n基本，一人で開発しており，別の環境から作業を再開したい場合や，レポジトリが単一のブランチのみで開発が進んでいる場合などはこれで十分．\ngit fast-forwardというコマンドがある訳ではなく，ブランチに分岐がない場合にgit mergeを実行した際に自動的に起こる．\n\n\n2.2.2 rebase\nコミットを「基底状態(base)からの差分」だとすれば，このコミットを，別のブランチに取り込んで足並みを揃える際にはrebaseが行われる．\n他のブランチに適用したいところのコミットが存在するブランチに移動し，適用したいブランチ（例えばtargetブランチ）に対して，\ngit rebase target\nと実行する．ローカルでrebaseの引数を省略した場合はrefs/heads/mainに適用される．\n\n\n2.2.3 merge\n2つのブランチの変更を組み合わせて，1つの新しいブランチにまとめる．\ngit merge\nにより自動で統合を試みるが，失敗した場合は手動で解決する必要あり．\n\n\n\n2.3 参考\n\nサル先生のGit入門"
+  },
+  {
+    "objectID": "posts/2024/Blog/Git.html#仕組み",
+    "href": "posts/2024/Blog/Git.html#仕組み",
+    "title": "GitHub の使い方",
+    "section": "3 仕組み",
+    "text": "3 仕組み\n\n3.1 .gitディレクトリの中身\n\nHEAD： 現在チェックアウトしているブランチを指します。これは通常、最新のコミットを指すリファレンスです。\nconfig： プロジェクト固有のGit設定を含みます。これには、リモートリポジトリのURL、ブランチの設定などが含まれます。\ndescription： GitWebプログラムで使用される説明ファイルですが、一般的なGit操作では使用されません。\nhooks/： クライアント側またはサーバー側のフックスクリプトを格納するディレクトリです。これらのスクリプトは、特定のイベント（例えばコミットやプッシュ）が発生した際に自動的に実行されます。\ninfo/： .gitignoreファイルに追跡しないパターンをグローバルに除外するためのファイルを含みます。\nobjects/： すべてのコンテンツ（コミット、ツリー、ブロブなど）が格納されるディレクトリです。これらはGitによって一意のハッシュ値で識別されます。\nrefs/： コミットオブジェクトを指し示すポインター（ブランチ、タグ、リモートなど）を含むディレクトリです。\nindex： ステージングエリアの情報を格納するファイルです。これは、git add などのコマンドでステージングされた変更を追跡します。"
   },
   {
     "objectID": "posts/2024/半導体/Semiconductor0.html",
@@ -147,95 +259,60 @@
     "text": "Footnotes\n\n\n(Böer and Pohl, 2018, p. 4), (Huebener, 2019, p. 73) Chapter 6．金属が電気を通すのは，伝導帯が部分的に電子によって占められているためである．半導体は，（例えば温度を上げることなどにより）価電子帯の電子を簡単に伝導帯に移すことができるため，思い通りに金属のような振る舞いも，絶縁体のような振る舞いも引き出すことができる．しかし，半導体の自由電子は，金属に比べて極めて少なく．Boltzmann 統計に従い，金属の自由電子は Fermi 統計に従う (Madelung, 1978, p. 17)．一方で，金属の導電性は電子の密度とは関係がなく，金属内の電子密度は温度により一定である (Madelung, 1978, p. 211)．↩︎\n(Huebener, 2019, p. 75)．↩︎\n(Huebener, 2019, p. 73) 特に伝導体と半導体の境界部分で強く見られた．↩︎\n現代では，このような接合を金属-半導体接合 (metal-semiconductor contact) または Schottky 接合 といい，Ohmic 接合と対比する．↩︎\n(Patterson and Hennessy, 2014, p. 27) も参照．↩︎\n一方で GaAs の形成は Bridgman 法 (Bridgman, 1925) による．最も，この化合物が半導体であると発見されたのは (Welker, 1952) になってようやくのことである．(Sze and Lee, 2012, p. 6) も参照．↩︎\n(Sze and Lee, 2012, p. 6) など．↩︎\n今日の IC ではトランジスタ層は１層のみで，絶縁層で仕切ることで２〜８層の金属導体の配線層をその上に設ける． (Patterson and Hennessy, 2014, p. 26)．↩︎\n(Sze and Lee, 2012, p. 4) など．↩︎\n(Patterson and Hennessy, 2014, p. 41)．↩︎\n(Patterson and Hennessy, 2014, p. 379)．↩︎\n(Hoff et al., 1996) が開発者自ら歴史を振り返っている．当時は Intel も出来て３年しか経っていない新興企業であった．↩︎\n(Sze and Lee, 2012, p. 8) など．↩︎\n(Patterson and Hennessy, 2014, p. 379)．↩︎\n(Sze and Lee, 2012, p. 8)，(Patterson and Hennessy, 2014, p. 379) 参照．↩︎"
   },
   {
-    "objectID": "posts/2024/Blog/Git.html",
-    "href": "posts/2024/Blog/Git.html",
-    "title": "GitHub の使い方",
+    "objectID": "posts/2024/AI/LLM.html",
+    "href": "posts/2024/AI/LLM.html",
+    "title": "LLM が真に社会に受け入れられるまで",
     "section": "",
-    "text": "まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．\n\n\n\n\n\n\n\nGitHub = コードに特化した Google Drive\nGit = コードベースで動く，ローカル上の Google Drive\n\n\n\n\nローカル上の Google Drive のスクリーンショット"
+    "text": "Meta AI が 7/18/2023 に LLM LLaMA (Touvron et al., 2023) を公開した．そして API を通じて利用する形ではなく，そのモデルのウェイトが公開されたため，Stanford 大学の Alpaca など，モデルの改良と研究が促進されている．\n特に事後調整のための公開データセットの整備が進んでおり，Alpaca では Self-Instruct (Wang et al., 2023) による効率的な alignment 技術が採用されている．\n産業界でも影響は大きい．ELYZA は 12/27/2023 に日本語に特化した LLM である ELYZA-japanese-Llama-2-13b を公開している．Stockmark も 10/27/2023 に Stockmark-13b を公開している．\nいずれも，開発費と開発時間が大幅に圧縮されたという．1\nIBM は 9/12/2023 に LLM Granite を発表している．加えて，プラットフォーム watsonx も提供しており，その上で RAG など独自の事後調整を可能にしている．\nIBM と Meta の２社が発起人となり，12/5/2023 に AI Alliance が発足し，オープンイノベーションを推進している．\nStable Diffusion (Rombach et al., 2022) もソースコードとウェイトが 一般公開 されている．"
   },
   {
-    "objectID": "posts/2024/Blog/Git.html#github-とは何か",
-    "href": "posts/2024/Blog/Git.html#github-とは何か",
-    "title": "GitHub の使い方",
-    "section": "",
-    "text": "まず，GitHub と Git は別物です．一言で言えば，GitHub がコードに特化した Google Drive，Git が Google Document にあたります．\n\n\n\n\n\n\n\nGitHub = コードに特化した Google Drive\nGit = コードベースで動く，ローカル上の Google Drive\n\n\n\n\nローカル上の Google Drive のスクリーンショット"
+    "objectID": "posts/2024/AI/LLM.html#社会行動シミュレーターとしての-llm",
+    "href": "posts/2024/AI/LLM.html#社会行動シミュレーターとしての-llm",
+    "title": "LLM が真に社会に受け入れられるまで",
+    "section": "3.1 社会行動シミュレーターとしての LLM",
+    "text": "3.1 社会行動シミュレーターとしての LLM\n社会的なシミュレーションを LLM 内で行うことで，社会科学やビジネスの場面での意思決定を支援することが期待されている．\nLLM は人間の心の理論を理解し，その心情・意図を（ある程度）シミュレートすることが出来るようである (Andreas, 2022)．\nLLM でのシミュレーションを通じて，社会科学的な知識を引き出そうとする試みもある (Leng and Yuan, 2023)．"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Recent Posts",
-    "section": "",
-    "text": "位相的機械学習――データはもはや「ただの数字」ではない――\n\n\nこれから AI で加速する産業分野はどこか？\n\n\n\nAI\n\n\n\nTDL (Topological Deep Learning)…\n\n\n\n\n\n8/07/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n武見研究室訪問\n\n\n「障碍」を「障碍」ではなくす社会へ\n\n\n\nBrain Tech\n\n\nAI\n\n\nBlog\n\n\n\n武見先生にお時間をいただき，中目黒にある研究室を訪問し，実験設備を見せて，体験もさせていただきました．２時間弱の訪問でしたが，大変多くのことを学んだので，その一端を書き残しておきたいと思います．\n\n\n\n\n\n8/06/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n生成 AI 開発企業の論点\n\n\n\n\n\n\nAI\n\n\nDisinformation\n\n\n\n去る４月，イタリアペルージアにて，国際ジャーナリズム・フェスティバルが開催され，AI とディスインフォメーションは中心的な議題の１つであった．そのプログラムと議論の内容をまとめることで，現在の生成…\n\n\n\n\n\n7/16/2024\n\n\nぷに, うぱ\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\nスライド\n\n\n\n井形研 RA 半導体読書会 駒場IIキャンパス４号館 \n\n\n\n\n\n3/20/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\nこれからはじめるベイズ機械学習\n\n\n所信表明を兼ねて\n\n\n\nベイズ統計\n\n\nAI\n\n\n\n\n\n\n\n\n\n3/20/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\n\n半導体デバイスの基本原理と製造方法を物理から理解することを目指す．\n\n\n\n\n\n2/26/2024\n\n\nぷに\n\n\n\n\n\n\nNo matching items"
+    "objectID": "posts/2024/AI/LLM.html#幻覚の防止",
+    "href": "posts/2024/AI/LLM.html#幻覚の防止",
+    "title": "LLM が真に社会に受け入れられるまで",
+    "section": "4.1 幻覚の防止",
+    "text": "4.1 幻覚の防止\nLLM が事実と異なる物語を生成することを 幻覚 (hallucination) と呼び，一部の応用では問題になることがある．\nこれを解決するにあたって，等角推測 (conformal prediction) と組み合わせ，出力の不確実性を評価することで幻覚を防止する手法が提案されている (Mohri and Hashimoto, 2024)．\n一般に意思決定の場面において AI を活用するには，不確実性の定量化が必要不可欠である．\nGPT-3 を Bayesian にし，自身の確証度合いを言表するように事後調整する研究が OpenAI で行われている (Lin et al., 2022)．"
   },
   {
-    "objectID": "static/all.html",
-    "href": "static/all.html",
-    "title": "All Posts",
-    "section": "",
-    "text": "位相的機械学習――データはもはや「ただの数字」ではない――\n\n\nこれから AI で加速する産業分野はどこか？\n\n\n\nAI\n\n\n\nTDL (Topological Deep Learning)…\n\n\n\n\n\n8/07/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\nうぱ GitHub 挑戦\n\n\n\n\n\n\nLifestyle\n\n\n\nGitHub を初めて使う法学徒のメモ\n\n\n\n\n\n8/07/2024\n\n\nうぱ Draft\n\n\n\n\n\n\n\n\n\n\n\n\n武見研究室訪問\n\n\n「障碍」を「障碍」ではなくす社会へ\n\n\n\nBrain Tech\n\n\nAI\n\n\nBlog\n\n\n\n武見先生にお時間をいただき，中目黒にある研究室を訪問し，実験設備を見せて，体験もさせていただきました．２時間弱の訪問でしたが，大変多くのことを学んだので，その一端を書き残しておきたいと思います．\n\n\n\n\n\n8/06/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n生成 AI 開発企業の論点\n\n\n\n\n\n\nAI\n\n\nDisinformation\n\n\n\n去る４月，イタリアペルージアにて，国際ジャーナリズム・フェスティバルが開催され，AI とディスインフォメーションは中心的な議題の１つであった．そのプログラムと議論の内容をまとめることで，現在の生成…\n\n\n\n\n\n7/16/2024\n\n\nぷに, うぱ\n\n\n\n\n\n\n\n\n\n\n\n\nGitHub の使い方\n\n\n\n\n\n\nLifestyle\n\n\n\n今年の都知事選では，GitHub…\n\n\n\n\n\n7/16/2024\n\n\nぷに Draft\n\n\n\n\n\n\n\n\n\n\n\n\n半導体の微細化技術\n\n\n\n\n\n\n半導体\n\n\n\n半導体デバイスの微細化技術をレビューする．\n\n\n\n\n\n3/23/2024\n\n\nぷに Draft\n\n\n\n\n\n\n\n\n\n\n\n\nこれからはじめるベイズ機械学習\n\n\n所信表明を兼ねて\n\n\n\nベイズ統計\n\n\nAI\n\n\n\n\n\n\n\n\n\n3/20/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\nスライド\n\n\n\n井形研 RA 半導体読書会 駒場IIキャンパス４号館 \n\n\n\n\n\n3/20/2024\n\n\nぷに\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\n\n半導体デバイスの基本原理と製造方法を物理から理解することを目指す．\n\n\n\n\n\n2/26/2024\n\n\nぷに\n\n\n\n\n\n\nNo matching items"
+    "objectID": "posts/2024/AI/LLM.html#ウォーターマーク",
+    "href": "posts/2024/AI/LLM.html#ウォーターマーク",
+    "title": "LLM が真に社会に受け入れられるまで",
+    "section": "4.2 ウォーターマーク",
+    "text": "4.2 ウォーターマーク\nウォーターマークを開発することで，LLM から出力された文章であることを高確率で検出できるようにする方法が，統計的仮説検定の技術を応用して提案されている (Kuditipudi et al., 2023)．"
   },
   {
-    "objectID": "static/AboutUs.html",
-    "href": "static/AboutUs.html",
-    "title": "ぷにうぱ",
-    "section": "",
-    "text": "ぷにうぱのロゴ"
+    "objectID": "posts/2024/AI/LLM.html#偽情報対策",
+    "href": "posts/2024/AI/LLM.html#偽情報対策",
+    "title": "LLM が真に社会に受け入れられるまで",
+    "section": "4.3 偽情報対策",
+    "text": "4.3 偽情報対策\n生成 AI は，一国の政府が特定のプロパガンダを流布するための効果的な手段として選ばれることになる．その際の考え得る使用例と，それに対する対策が考えられてる (Goldstein et al., 2023)．"
   },
   {
-    "objectID": "static/AboutUs.html#ぷに-hp",
-    "href": "static/AboutUs.html#ぷに-hp",
-    "title": "ぷにうぱ",
-    "section": "ぷに  HP",
-    "text": "ぷに  HP\n研究者"
+    "objectID": "posts/2024/AI/LLM.html#開発規制",
+    "href": "posts/2024/AI/LLM.html#開発規制",
+    "title": "LLM が真に社会に受け入れられるまで",
+    "section": "4.4 開発規制",
+    "text": "4.4 開発規制\n(Anderljung et al., 2023) は先端的な AI を Frontier AI と呼び，これの開発過程におけるあるべき規制を模索している．監督当局に執行権を付与することやフロンティアAIモデルのライセンス制度などが議論されている．\n(Shoker et al., 2023) は LLM と国家安全保障との関係を議論している．信頼構築措置 (CBMs: Confidence-Building Measures) とは，国家間の敵意を減少させることで，衝突のリスクを減らす措置の全般をいう．元々は冷戦時代に提案された概念であるが，これを LLM 開発に適用することが具体的に提案されている．"
   },
   {
-    "objectID": "static/AboutUs.html#うぱ",
-    "href": "static/AboutUs.html#うぱ",
-    "title": "ぷにうぱ",
-    "section": "うぱ",
-    "text": "うぱ\n法律家"
+    "objectID": "posts/2024/AI/LLM.html#生物学的脅威",
+    "href": "posts/2024/AI/LLM.html#生物学的脅威",
+    "title": "LLM が真に社会に受け入れられるまで",
+    "section": "4.5 生物学的脅威",
+    "text": "4.5 生物学的脅威\nLLM の登場により個人がエンパワーメントを受けており，生物学的脅威を作る障壁が低下していることは間違いない．\n(Patwardhan et al., 2024) では，生物学的リスクに焦点を当てて，AI による安全リスク評価の手法と事前警鐘システムを模索している．この研究では，LLM によりリスクが増加するという統計的に有意義な証拠は得られていないが，この方面の研究の草分けとなっている．"
   },
   {
-    "objectID": "static/AboutUs.html#キーワード",
-    "href": "static/AboutUs.html#キーワード",
-    "title": "ぷにうぱ",
-    "section": "キーワード",
-    "text": "キーワード\n\n科学技術政策\n知的財産\nAI とサイバーセキュリティ\n半導体\nニューロサイエンス"
-  },
-  {
-    "objectID": "static/AboutUs.html#興味関心",
-    "href": "static/AboutUs.html#興味関心",
-    "title": "ぷにうぱ",
-    "section": "興味・関心",
-    "text": "興味・関心\n生成 AI，半導体，ブレインテック……などなど，世界を変える科学技術が大好きです．\n科学技術がのびのび発展する環境を日本に作りたい，という思いで活動しています．\n技術・社会の両面から科学技術を理解することが，このブログの目標です．"
-  },
-  {
-    "objectID": "posts/2024/AI/Journalism.html",
-    "href": "posts/2024/AI/Journalism.html",
-    "title": "生成 AI 開発企業の論点",
-    "section": "",
-    "text": "International Journalism Festival はイタリアのペルージアにて，2006 年から毎年開催されている．"
-  },
-  {
-    "objectID": "posts/2024/AI/Journalism.html#内部告発者の言うことを聞く準備はできているか-ijf2024",
-    "href": "posts/2024/AI/Journalism.html#内部告発者の言うことを聞く準備はできているか-ijf2024",
-    "title": "生成 AI 開発企業の論点",
-    "section": "1 内部告発者の言うことを聞く準備はできているか？ (Festival, 2024a)",
-    "text": "1 内部告発者の言うことを聞く準備はできているか？ (Festival, 2024a)\n生成 AI 開発には大規模な計算資源とデータセットが必要であり，これらを揃えられる企業は現状数えるほどしかない．\nそのため，必然的に大規模かつ組織的な企業に限られ，OpenAI をはじめとして情報統制が厳格であり，その内部状況は内部告発者 (whistleblower) や退職・転職者によるブログやソーシャルメディアに頼り切りになっているのが現状である．\n仮に，社会的問題の萌芽がどこかの企業で見られようと，我々がそれを知るには，内部告発者に頼るしかない．しかし，内部告発者とは開発者に他ならず，その内容は極めて専門的であるかもしれず，我々がその発信の内容を聞き入れて，適切な行動に繋げる準備ができているとは言い難い．\n生成 AI 開発を監視し，生じ得る問題に準備するためには，我々も出てくる情報に対して準備ができている状態でなければならない．"
-  },
-  {
-    "objectID": "posts/2024/AI/Journalism.html#生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo",
-    "href": "posts/2024/AI/Journalism.html#生成-ai-を高度に活用した偽情報はどのように見抜けるか-ijf2024-disinfo",
-    "title": "生成 AI 開発企業の論点",
-    "section": "2 生成 AI を高度に活用した偽情報はどのように見抜けるか？ (Festival, 2024b)",
-    "text": "2 生成 AI を高度に活用した偽情報はどのように見抜けるか？ (Festival, 2024b)\nMicrosoft Research が４月16日に発表したモデル VASA-1 (Xu et al., 2024) は，１枚の写真と音声ファイルから，あたかもその人が音声ファイルの内容を喋っているかのような動画を生成することが可能である．\nこのような，AI が生成した画像・動画等がシェアされることによって，それを見た市民の感情を引き起こすことができ，多くの場合この変化は可逆でない．\nテクノロジー的な解決については，かなり悲観的になるべきである．完璧な AI detectors はまだできておらず，精度の低い人の目にも AI 生成であることがわかるようなものは検出できても，精度が高いものだと「AI 生成である確率は 1% である」などと出力してしまうという．\nこのような逆境の中でも TrueMedia.org など，AI 生成かどうかを判定するイニシアティブが存在する．"
-  },
-  {
-    "objectID": "static/AllCategories.html",
-    "href": "static/AllCategories.html",
-    "title": "Categories",
-    "section": "",
-    "text": "半導体（画像をタップでジャンプ）\n\n\n\n\n\n\n\nAI（画像をタップでジャンプ）\n\n\n\n\n\n\n\nSemiconductor\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n\n\n半導体の微細化技術\n\n\n\n半導体\n\n\n\n\n2024-03-23\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\nスライド\n\n\n\n\n2024-03-20\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n半導体入門\n\n\n現代社会の「魔素」が見えるように\n\n\n\n半導体\n\n\n\n\n2024-02-26\n\n\n\n\n\n\n\n\nNo matching items\n\n\n\n\nAI\n\n\n   \n     \n     \n       Order By\n       Default\n         \n          Title\n        \n         \n          Date - Oldest\n        \n         \n          Date - Newest\n        \n     \n  \n    \n      \n      \n    \n\n\n\n\n\n\n\n\n位相的機械学習――データはもはや「ただの数字」ではない――\n\n\nこれから AI で加速する産業分野はどこか？\n\n\n\nAI\n\n\n\n\n2024-08-07\n\n\n\n\n\n\n\n\n\n\n\n\n武見研究室訪問\n\n\n「障碍」を「障碍」ではなくす社会へ\n\n\n\nBrain Tech\n\n\nAI\n\n\nBlog\n\n\n\n\n2024-08-06\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n生成 AI 開発企業の論点\n\n\n\nAI\n\n\nDisinformation\n\n\n\n\n2024-07-16\n\n\n\n\n\n\n\n\n\n\n\n\nこれからはじめるベイズ機械学習\n\n\n所信表明を兼ねて\n\n\n\nベイズ統計\n\n\nAI\n\n\n\n\n2024-03-20\n\n\n\n\n\n\n\n\nNo matching items"
+    "objectID": "posts/2024/AI/LLM.html#footnotes",
+    "href": "posts/2024/AI/LLM.html#footnotes",
+    "title": "LLM が真に社会に受け入れられるまで",
+    "section": "Footnotes",
+    "text": "Footnotes\n\n\n日経新聞 (2/19/2024)↩︎"
   },
   {
     "objectID": "posts/2024/半導体/Semiconductor1_Slides.html#半導体",

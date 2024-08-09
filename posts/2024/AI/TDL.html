@@ -183,8 +183,11 @@ window.Quarto = {
   </ul></li>
   <li><a href="#位相的機械学習のいま" id="toc-位相的機械学習のいま" class="nav-link" data-scroll-target="#位相的機械学習のいま"><span class="header-section-number">2</span> 位相的機械学習の「いま」</a>
   <ul class="collapse">
-  <li><a href="#sars-cov-2" id="toc-sars-cov-2" class="nav-link" data-scroll-target="#sars-cov-2"><span class="header-section-number">2.1</span> SARS-CoV-2</a></li>
+  <li><a href="#分子モデリング" id="toc-分子モデリング" class="nav-link" data-scroll-target="#分子モデリング"><span class="header-section-number">2.1</span> 分子モデリング</a></li>
+  <li><a href="#sars-cov-2-変異株予測" id="toc-sars-cov-2-変異株予測" class="nav-link" data-scroll-target="#sars-cov-2-変異株予測"><span class="header-section-number">2.2</span> SARS-CoV-2 変異株予測</a></li>
+  <li><a href="#電子顕微鏡" id="toc-電子顕微鏡" class="nav-link" data-scroll-target="#電子顕微鏡"><span class="header-section-number">2.3</span> 電子顕微鏡</a></li>
   </ul></li>
+  
   
   </ul>
 </nav>
@@ -307,9 +310,9 @@ window.Quarto = {
 <li>創薬において，有機分子が目標のタンパク質に結合するかの判定のために，有機分子を文字列で表してトランスフォーマーに学習させる．</li>
 <li>画像において，ニューロンの区画をモデリングするために，画像をグラフで表してトランスフォーマーに学習させる．</li>
 </ul>
-<p>という営みは，トランスフォーマーというアーキテクチャが言語（だけ）のために制作された当初の意図からすると，大変不本意である．（機械学習の黎明期において，必要な試行錯誤であることは間違いないが，）</p>
+<p>という営みは，トランスフォーマーというアーキテクチャが言語（だけ）のために制作された当初の意図からすると，大変不本意である．<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> （機械学習の黎明期において，必要な試行錯誤であることは間違いないが，）</p>
 <p>深層学習が，化学，薬学，神経科学，社会学などの各分野で真にイノベーションを産むためには，その分野にあったアーキテクチャの特定が必要である．</p>
-<p>「各分野の各データに最もあったアーキテクチャは何か？」という指標を，<strong>幾何学を共通言語として行おう</strong> というのが位相的機械学習である．</p>
+<p>「各分野の各データに最もあったアーキテクチャは何か？」という指標を，<strong>幾何学を指導原理として与えよう</strong> というのが位相的機械学習である．</p>
 <p>これにより，次の２点を達成することが目標である：</p>
 <div class="callout callout-style-simple callout-tip no-icon">
 <div class="callout-body d-flex">
@@ -329,28 +332,63 @@ window.Quarto = {
 <section id="位相的機械学習のいま" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="位相的機械学習のいま"><span class="header-section-number">2</span> 位相的機械学習の「いま」</h2>
 <p>位相的機械学習 (TDL) の目指すところを，各分野での成功事例で見ていこう．</p>
-<section id="sars-cov-2" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="sars-cov-2"><span class="header-section-number">2.1</span> SARS-CoV-2</h3>
+<section id="分子モデリング" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="分子モデリング"><span class="header-section-number">2.1</span> 分子モデリング</h3>
+</section>
+<section id="sars-cov-2-変異株予測" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="sars-cov-2-変異株予測"><span class="header-section-number">2.2</span> SARS-CoV-2 変異株予測</h3>
 <p>コロナウィルスの変異株にはオミクロン株という名前がついている．</p>
 <p>実はオミクロン株にもさらに分類があり，当初の系統は BA.1 である．</p>
-<p>BA.2 系統 <span class="citation" data-cites="Chen-Wei2022">(<a href="#ref-Chen-Wei2022" role="doc-biblioref">Chen and Wei, 2022</a>)</span> と BA.4, BA.5 系統 <span class="citation" data-cites="Chen+2022">(<a href="#ref-Chen+2022" role="doc-biblioref">Chen et al., 2022</a>)</span> との登場可能性とその性質を，２ヶ月以上前に「変異懸念株」として予測することに成功したのは，代数トポロジーの知見を取り入れた TDL 手法であった．</p>
+<p>BA.2 系統 <span class="citation" data-cites="Chen-Wei2022">(<a href="#ref-Chen-Wei2022" role="doc-biblioref">Chen and Wei, 2022</a>)</span> と BA.4, BA.5 系統 <span class="citation" data-cites="Chen+2022">(<a href="#ref-Chen+2022" role="doc-biblioref">Chen et al., 2022</a>)</span> との登場可能性とその性質（感染力は？既存のワクチンが効くか？）を，２ヶ月以上前に「変異懸念株」として予測することに成功したのは，代数トポロジーの知見を取り入れた TDL 手法であった．</p>
+<p>パーシステントホモロジーなどの代数トポロジーの手法は，分子間／分子内相互作用を記述するのに優れており，特に SARS-CoV-2 変異株の新たなスパイクタンパク質がどのような<a href="https://ja.wikipedia.org/wiki/リガンド">リガンド</a>に結合し得るかの予測に優れていた <span class="citation" data-cites="Chan+2018">(<a href="#ref-Chan+2018" role="doc-biblioref">Cang, 2018</a>)</span>．</p>
+<p>SARS-CoV-2 やその変異株の迅速なワクチン開発の背後で暗躍していたのは，TDL だったのである．</p>
+</section>
+<section id="電子顕微鏡" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="電子顕微鏡"><span class="header-section-number">2.3</span> 電子顕微鏡</h3>
 </section>
 </section>
 
 
 
-<div id="quarto-appendix" class="default"><section id="文献紹介" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 文献紹介</h2><div class="quarto-appendix-contents">
+
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="文献紹介" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 文献紹介</h2><div class="quarto-appendix-contents">
 
 <p>サーベイかつポジションペーパー <span class="citation" data-cites="Papamarkou+2024TDL">(<a href="#ref-Papamarkou+2024TDL" role="doc-biblioref">Papamarkou et al., 2024</a>)</span> を大いに参考にした．</p>
 <p><span class="citation" data-cites="Nguyen+2019">(<a href="#ref-Nguyen+2019" role="doc-biblioref">Nguyen et al., 2019</a>)</span> は，マルチスケール重みつき色つき部分グラフとパーシステント・ホモロジーを取り入れた深層学習手法により，D3R Grand Challenge 2 の stage 2 での<a href="https://drugdesigndata.org/php/d3r/gc2/combined/free-energy/index.php?component=443&amp;q=rmsd&amp;set=1&amp;partial=0">絶対自由エネルギー予測 set 1</a> において１位を獲得し，続いて Challenge 3 では 26 のタスクのうち 10 タスクで１位を獲得したことを報告している．</p>
 <p><span class="citation" data-cites="Hansen-Ghrist2019">(<a href="#ref-Hansen-Ghrist2019" role="doc-biblioref">Hansen and Ghrist, 2019</a>)</span> では，スペクトル層理論という理論を展開している．これは，スペクトルグラフ理論を，一般の胞体層 (cellular sheaf) に拡張したものであるという．組み合わせ論的なグラフラプラシアンを，正則な胞体複体上の線型空間の胞体層上の Hodge ラプラシアンの特別な場合と見ることで，スペクトルデータを層のコホモロジーや胞体構造と関連づけることが出来るという．</p>
 <p>グラフカーネルに関する良い日本語文献に <span class="citation" data-cites="ガラムカリ和2021">(<a href="#ref-ガラムカリ和2021" role="doc-biblioref">ガラムカリ和 et al., 2021</a>)</span> がある．</p>
+</div></section><section id="個人的な-papamarkou2024tdl-の見どころ" class="level2 appendix" data-number="4"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">4</span> 個人的な <span class="citation" data-cites="Papamarkou+2024TDL">(<a href="#ref-Papamarkou+2024TDL" role="doc-biblioref">Papamarkou et al., 2024</a>)</span> の見どころ</h2><div class="quarto-appendix-contents">
+
+<p>Computer Vision の分野に続いて，構造生成の分野でも Diffusion model が state of the art となったことが触れられている（<span class="citation" data-cites="Zhang+2023">(<a href="#ref-Zhang+2023" role="doc-biblioref">Mengchun Zhang et al., 2023</a>)</span> も参照）：</p>
+<blockquote class="blockquote">
+<p>In addition to 2D and 3D computer vision, diffusion models have become the state-of-the-art in graphbased molecular generation. <span class="citation" data-cites="Papamarkou+2024TDL">(<a href="#ref-Papamarkou+2024TDL" role="doc-biblioref">Papamarkou et al., 2024</a>)</span></p>
+</blockquote>
+<p>これが <span class="citation" data-cites="Bodnar+2022">(<a href="#ref-Bodnar+2022" role="doc-biblioref">Bodnar et al., 2022</a>)</span> で Neural Sheaf Diffusion に発展しようとしている．これはグラフ上の層を考えることで，グラフ上に更なる幾何的構造を作り込み，データのより高次の構造を捉えることができるようにしようというものである（この枠組みでは，Graph Neural Network は自明な層を扱った場合，と相対化される）．</p>
+<p>個人的には，Gauss 過程が Banach 空間の研究に応用できたこと，拡散過程が多様体やグラフの局所構造を捉えることが，単に数学的な特徴付けであることを超えて，効率的な計算手法として，計算機科学として，計算数学として発展する具体的な試みが，TDL の名前の下に総覧できる点が大変に興味深い．</p>
+<blockquote class="blockquote">
+<p>For example, a combination of applied category theory and TDA may lead to algorithms that automatically summarize how neural networks produce their output, making deep learning more understandable to humans. <span class="citation" data-cites="Papamarkou+2024TDL">(<a href="#ref-Papamarkou+2024TDL" role="doc-biblioref">Papamarkou et al., 2024</a>)</span></p>
+</blockquote>
+<p>ランダムウォークを用いて，単体複体の表現学習を行うという展開もある Simplex2Vec <span class="citation" data-cites="Billings+2019">(<a href="#ref-Billings+2019" role="doc-biblioref">Billings et al., 2019</a>)</span>, <span class="citation" data-cites="Schaub+2020">(<a href="#ref-Schaub+2020" role="doc-biblioref">Schaub et al., 2020</a>)</span></p>
+<p>TDL / GDL は初めての幾何学を指導原理としたエンジニアリングになるかもしれない．多様体を超えた一般的な幾何学的な枠組みが，層の言葉で作られるかもしれない．</p>
+<p><span class="citation" data-cites="Bronstein+2021">(<a href="#ref-Bronstein+2021" role="doc-biblioref">Bronstein et al., 2021</a>)</span> も良い本である．</p>
 
 
 
 </div></section><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
 <div id="ref-Banerjee+2020" class="csl-entry" role="listitem">
 Banerjee, S., Magee, L., Wang, D., Li, X., Huo, B.-X., Jayakumar, J., … Mitra, P. P. (2020). <a href="https://doi.org/10.1038/s42256-020-0227-9">Semantic segmentation of microscopic neuroanatomical data by combining topological priors with encoder–decoder deep networks</a>. <em>Nature Machine Intelligence</em>, <em>2</em>(10), 585–594.
+</div>
+<div id="ref-Billings+2019" class="csl-entry" role="listitem">
+Billings, J. C. W., Hu, M., Lerda, G., Medvedev, A. N., Mottes, F., Onicas, A., … Petri, G. (2019). <a href="https://arxiv.org/abs/1906.09068">Simplex2Vec embeddings for community detection in simplicial complexes</a>.
+</div>
+<div id="ref-Bodnar+2022" class="csl-entry" role="listitem">
+Bodnar, C., Di Giovanni, F., Chamberlain, B., Lió, P., and Bronstein, M. (2022). <a href="https://proceedings.neurips.cc/paper_files/paper/2022/file/75c45fca2aa416ada062b26cc4fb7641-Paper-Conference.pdf">Neural sheaf diffusion: A topological perspective on heterophily and oversmoothing in GNNs</a>. In S. Koyejo, S. Mohamed, A. Agarwal, D. Belgrave, K. Cho, and A. Oh, editors, <em>Advances in neural information processing systems</em>,Vol. 35, pages 18527–18541. Curran Associates, Inc.
+</div>
+<div id="ref-Bronstein+2021" class="csl-entry" role="listitem">
+Bronstein, M. M., Bruna, J., Cohen, T., and Veličković, P. (2021). <a href="https://geometricdeeplearning.com/">Geometric deep learning: Grids, groups, graphs, geodesics, and gauges</a>.
+</div>
+<div id="ref-Chan+2018" class="csl-entry" role="listitem">
+Cang, L. A. W., Zixuan AND Mu. (2018). <a href="https://doi.org/10.1371/journal.pcbi.1005929">Representability of algebraic topology for biomolecules in machine learning based scoring and virtual screening</a>. <em>PLOS Computational Biology</em>, <em>14</em>(1), 1–44.
 </div>
 <div id="ref-Chen+2022" class="csl-entry" role="listitem">
 Chen, J., Qiu, Y., Wang, R., and Wei, G.-W. (2022). <a href="https://doi.org/10.1016/j.compbiomed.2022.106262">Persistent laplacian projected omicron BA.4 and BA.5 to become new dominating variants</a>. <em>Computers in Biology and Medicine</em>, <em>151</em>, 106262.
@@ -382,6 +420,9 @@ Hu, X., Wang, Y., Fuxin, L., Samaras, D., and Chen, C. (2021). <a href="https://
 <div id="ref-Ktena+2018" class="csl-entry" role="listitem">
 Ktena, S. I., Parisot, S., Ferrante, E., Rajchl, M., Lee, M., Glocker, B., and Rueckert, D. (2018). <a href="https://doi.org/10.1016/j.neuroimage.2017.12.052">Metric learning with spectral graph convolutions on brain connectivity networks</a>. <em>NeuroImage</em>, <em>169</em>, 431–442.
 </div>
+<div id="ref-Zhang+2023" class="csl-entry" role="listitem">
+Mengchun Zhang, Qamar, M., Taegoo Kang, Jung, Y., Chenshuang Zhang, Bae, S.-H., and Chaoning Zhang. (2023). <a href="https://doi.org/10.13140/RG.2.2.26493.64480">A survey on graph diffusion models: Generative AI in science for molecule, protein and material</a>.
+</div>
 <div id="ref-Nguyen+2019" class="csl-entry" role="listitem">
 Nguyen, D. D., Cang, Z., Wu, K., Wang, M., Cao, Y., and Wei, G.-W. (2019). <a href="https://doi.org/10.1007/s10822-018-0146-6">Mathematical deep learning for pose and binding affinity prediction and ranking in D3R grand challenges</a>. <em>Journal of Computer-Aided Molecular Design</em>, <em>33</em>(1), 71–82.
 </div>
@@ -390,6 +431,12 @@ Nguyen, D. D., Gao, K., Wang, M., and Wei, G.-W. (2020). <a href="https://doi.or
 </div>
 <div id="ref-Papamarkou+2024TDL" class="csl-entry" role="listitem">
 Papamarkou, T., Birdal, T., Bronstein, M., Carlsson, G., Curry, J., Gao, Y., … Zamzmi, G. (2024). <a href="https://arxiv.org/abs/2402.08871">Position: Topological deep learning is the new frontier for relational learning</a>.
+</div>
+<div id="ref-Stanford+2023" class="csl-entry" role="listitem">
+Sanford, C., Hsu, D., and Telgarsky, M. (2023). <a href="https://openreview.net/forum?id=36DxONZ9bA">Representational strengths and limitations of transformers</a>. In <em>Thirty-seventh conference on neural information processing systems</em>.
+</div>
+<div id="ref-Schaub+2020" class="csl-entry" role="listitem">
+Schaub, M. T., Benson, A. R., Horn, P., Lippner, G., and Jadbabaie, A. (2020). <a href="https://doi.org/10.1137/18M1201019">Random walks on simplicial complexes and the normalized hodge 1-laplacian</a>. <em>SIAM Review</em>, <em>62</em>(2), 353–391.
 </div>
 <div id="ref-Schaub+2022" class="csl-entry" role="listitem">
 Schaub, M. T., Seby, J.-B., Frantzen, F., Roddenberry, T. M., Zhu, Y., and Segarra, S. (2022). <a href="https://doi.org/10.1007/978-3-030-91374-8_12">Signal processing on simplicial complexes</a>. In F. Battiston and G. Petri, editors, <em>Higher-order systems</em>, pages 301–328. Cham: Springer International Publishing.
@@ -411,6 +458,7 @@ Zomorodian, A., and Carlsson, G. (2005). <a href="https://doi.org/10.1007/s00454
 <ol>
 <li id="fn1"><p>有機化合物は，分枝の構造を文字列で表した SMILES 文字列や，３次元座標で原子の位置を表した MOL ファイルなどで表される <span class="citation" data-cites="船津公人+2024">(<a href="#ref-船津公人+2024" role="doc-biblioref">船津公人 et al., 2024</a>)</span>．<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 <li id="fn2"><p><span class="citation" data-cites="Han+2022">(<a href="#ref-Han+2022" role="doc-biblioref">Han et al., 2022</a>)</span> はグラフニューラルネットワークが，Vision Transformer に画像分類や物体認識など多くのタスクで優ったことを報告している．<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>例えば，トランスフォーマーは２体間相互作用のモデリングには優れているが，３体間相互作用のモデリングは大変不得意である <span class="citation" data-cites="Stanford+2023">(<a href="#ref-Stanford+2023" role="doc-biblioref">Sanford et al., 2023</a>)</span>．<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
