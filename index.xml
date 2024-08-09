@@ -62,7 +62,7 @@ font-style: inherit;"># 指示に沿ってコミットメッセージを変更�
 </section>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="2"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">2</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="2"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">2</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
 
 <ul>
 <li><a href="https://dangitgit.com/ja">Dangit, Git!?!</a>：「ミスった！」「どうすれば良いの！？」というときに，痒いところに手が届く情報がまとまっているサイト</li>
@@ -201,7 +201,7 @@ font-style: inherit;"># 指示に沿ってコミットメッセージを変更�
 
 
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="文献紹介" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 文献紹介</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="文献紹介" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 文献紹介</h2><div class="quarto-appendix-contents">
 
 <p>サーベイかつポジションペーパー <span class="citation" data-cites="Papamarkou+2024TDL">(Papamarkou et al., 2024)</span> を大いに参考にした．</p>
 <p><span class="citation" data-cites="Nguyen+2019">(Nguyen et al., 2019)</span> は，マルチスケール重みつき色つき部分グラフとパーシステント・ホモロジーを取り入れた深層学習手法により，D3R Grand Challenge 2 の stage 2 での<a href="https://drugdesigndata.org/php/d3r/gc2/combined/free-energy/index.php?component=443&amp;q=rmsd&amp;set=1&amp;partial=0">絶対自由エネルギー予測 set 1</a> において１位を獲得し，続いて Challenge 3 では 26 のタスクのうち 10 タスクで１位を獲得したことを報告している．</p>
@@ -497,7 +497,7 @@ Zomorodian, A., and Carlsson, G. (2005). <a href="https://doi.org/10.1007/s00454
 
 
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="終わりに" class="level2 appendix" data-number="5"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">5</span> 終わりに</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="終わりに" class="level2 appendix" data-number="5"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">5</span> 終わりに</h2><div class="quarto-appendix-contents">
 
 <p>犬やイルカと会話ができるようになる日も遠くないかもしれない．</p>
 
@@ -828,7 +828,7 @@ font-style: inherit;">"showcwt=mode=channel"</span> output6.gif</span></code></p
 </section>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
 
 <ul>
 <li><a href="https://hackmd.io/@GKcnNngaSBe9qCYV54wL8g/Hk3kWiNqM">FFmpeg 基本</a>：いろんなオプションがまとまっている．</li>
@@ -841,6 +841,7 @@ font-style: inherit;">"showcwt=mode=channel"</span> output6.gif</span></code></p
   <category>Tech</category>
   <guid>https://puniupa.github.io/posts/2024/Tech/ffmpeg.html</guid>
   <pubDate>Thu, 18 Jul 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://puniupa.github.io/posts/2024/Tech/Images/output4.gif" medium="image" type="image/gif"/>
 </item>
 <item>
   <title>生成 AI 開発企業の論点</title>
@@ -873,7 +874,7 @@ font-style: inherit;">"showcwt=mode=channel"</span> output6.gif</span></code></p
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">3 参考リンク</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">3 参考リンク</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-IJF2024" class="csl-entry">
 Festival, I. J. (2024a). <em><a href="https://www.journalismfestival.com/programme/2024/how-to-prepare-for-the-ai-whistleblowers">How to prepare for the AI whistleblowers?</a></em>
 </div>
@@ -1332,7 +1333,7 @@ Xu, S., Chen, G., Guo, Y.-X., Yang, J., Li, C., Zang, Z., … Guo, B. (2024). <a
 </section>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Amershi+2019" class="csl-entry">
 Amershi, S., Weld, D., Vorvoreanu, M., Fourney, A., Nushi, B., Collisson, P., … Horvitz, E. (2019). <a href="https://doi.org/10.1145/3290605.3300233">Guidelines for human-AI interaction</a>. In <em>Proceedings of the 2019 CHI conference on human factors in computing systems</em>, pages 1–13. New York, NY, USA: Association for Computing Machinery.
 </div>
@@ -1704,7 +1705,7 @@ Zhou, C., Liu, P., Xu, P., Iyer, S., Sun, J., Mao, Y., … Levy, O. (2023). <a h
 </section>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Abts+2022" class="csl-entry">
 Abts, D., Kimmell, G., Ling, A., Kim, J., Boyd, M., Bitar, A., … Ross, J. (2022). <a href="https://doi.org/10.1145/3470496.3527405">A software-defined tensor streaming multiprocessor for large-scale machine learning</a>. In <em>Proceedings of the 49th annual international symposium on computer architecture</em>, pages 567–580. New York, NY, USA: Association for Computing Machinery.
 </div>
@@ -1906,7 +1907,7 @@ Welker, H. (1952). <a href="https://doi.org/10.1515/zna-1952-1110">Über neue ha
 
 
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="文献紹介" class="level1 appendix" data-number="6"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">6</span> 文献紹介</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="文献紹介" class="level1 appendix" data-number="6"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">6</span> 文献紹介</h2><div class="quarto-appendix-contents">
 
 <p>大規模言語モデルとトランスフォーマーに関するより詳しい内容は，次の記事も参照：</p>
 <div class="article-card-container">

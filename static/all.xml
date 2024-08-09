@@ -140,7 +140,7 @@
 
 
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="文献紹介" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 文献紹介</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="文献紹介" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 文献紹介</h2><div class="quarto-appendix-contents">
 
 <p>サーベイかつポジションペーパー <span class="citation" data-cites="Papamarkou+2024TDL">(Papamarkou et al., 2024)</span> を大いに参考にした．</p>
 <p><span class="citation" data-cites="Nguyen+2019">(Nguyen et al., 2019)</span> は，マルチスケール重みつき色つき部分グラフとパーシステント・ホモロジーを取り入れた深層学習手法により，D3R Grand Challenge 2 の stage 2 での<a href="https://drugdesigndata.org/php/d3r/gc2/combined/free-energy/index.php?component=443&amp;q=rmsd&amp;set=1&amp;partial=0">絶対自由エネルギー予測 set 1</a> において１位を獲得し，続いて Challenge 3 では 26 のタスクのうち 10 タスクで１位を獲得したことを報告している．</p>
@@ -300,7 +300,7 @@ font-style: inherit;"># 指示に沿ってコミットメッセージを変更�
 </section>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="2"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">2</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="2"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">2</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
 
 <ul>
 <li><a href="https://dangitgit.com/ja">Dangit, Git!?!</a>：「ミスった！」「どうすれば良いの！？」というときに，痒いところに手が届く情報がまとまっているサイト</li>
@@ -497,7 +497,7 @@ font-style: inherit;"># 指示に沿ってコミットメッセージを変更�
 
 
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="終わりに" class="level2 appendix" data-number="5"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">5</span> 終わりに</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="終わりに" class="level2 appendix" data-number="5"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">5</span> 終わりに</h2><div class="quarto-appendix-contents">
 
 <p>犬やイルカと会話ができるようになる日も遠くないかもしれない．</p>
 
@@ -828,7 +828,7 @@ font-style: inherit;">"showcwt=mode=channel"</span> output6.gif</span></code></p
 </section>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
 
 <ul>
 <li><a href="https://hackmd.io/@GKcnNngaSBe9qCYV54wL8g/Hk3kWiNqM">FFmpeg 基本</a>：いろんなオプションがまとまっている．</li>
@@ -841,6 +841,7 @@ font-style: inherit;">"showcwt=mode=channel"</span> output6.gif</span></code></p
   <category>Tech</category>
   <guid>https://puniupa.github.io/posts/2024/Tech/ffmpeg.html</guid>
   <pubDate>Thu, 18 Jul 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://puniupa.github.io/posts/2024/Tech/Images/output4.gif" medium="image" type="image/gif"/>
 </item>
 <item>
   <title>生成 AI 開発企業の論点</title>
@@ -873,7 +874,7 @@ font-style: inherit;">"showcwt=mode=channel"</span> output6.gif</span></code></p
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">3 参考リンク</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">3 参考リンク</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-IJF2024" class="csl-entry">
 Festival, I. J. (2024a). <em><a href="https://www.journalismfestival.com/programme/2024/how-to-prepare-for-the-ai-whistleblowers">How to prepare for the AI whistleblowers?</a></em>
 </div>
@@ -987,7 +988,7 @@ font-style: inherit;">git</span> merge</span></code></pre></div>
 </section>
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a> ]]></description>
+ ]]></description>
   <category>Tech</category>
   <guid>https://puniupa.github.io/posts/2024/Tech/Git.html</guid>
   <pubDate>Tue, 16 Jul 2024 00:00:00 GMT</pubDate>
@@ -1011,7 +1012,7 @@ font-style: inherit;">git</span> merge</span></code></pre></div>
 <h2 data-number="1" class="anchored" data-anchor-id="euv-リトグラフィ"><span class="header-section-number">1</span> EUV リトグラフィ</h2>
 <p><a href="https://ja.wikipedia.org/wiki/%E6%A5%B5%E7%AB%AF%E7%B4%AB%E5%A4%96%E7%B7%9A%E3%83%AA%E3%82%BD%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3">極端紫外線リソグラフィ</a> (Extreme Ultraviolet Lithography) は波長 13.5 nm で露光する技術である．</p>
 <p>オランダの <a href="https://ja.wikipedia.org/wiki/ASML">ASML</a> 社が唯一 EUV 露光装置を製造している．</p>
-<p></p><div id="tweet-73096"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-73096").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-35742"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-35742").innerHTML = tweet["html"];</script><p></p>
 <a class="embedly-card" href="https://www.scmp.com/economy/global-economy/article/3257118/china-asks-netherlands-exporter-worlds-top-chipmaking-equipment-avoid-decoupling?utm_source=twitter&amp;utm_campaign=3257118&amp;utm_medium=share_widget">China asks Netherlands, with world-leading chipmaking equipment, to not decouple</a><script async="" src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 <p>ここまで短い波長では光を透過するレンズはなく，反射鏡で光学系を構成する必要がある．13.5 nm という波長はミラーの反射率の極大点の１つをとって決定された． <img src="https://latex.codecogs.com/png.latex?0.68%5E%7B12%7D=0.98"> というように重ねて用いる．</p>
 <div class="quarto-figure quarto-figure-center">
@@ -1025,7 +1026,7 @@ font-style: inherit;">git</span> merge</span></code></pre></div>
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-内山貴之2015" class="csl-entry">
 内山貴之. (2015). <em>半導体向けEUVリソグラフィの現状と展望</em>. 東芝. Retrieved from <a href="https://www.heas.jp/lecture/files/uchiyama.pdf">https://www.heas.jp/lecture/files/uchiyama.pdf</a>
 </div>
@@ -1477,7 +1478,7 @@ font-style: inherit;">git</span> merge</span></code></pre></div>
 </section>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Amershi+2019" class="csl-entry">
 Amershi, S., Weld, D., Vorvoreanu, M., Fourney, A., Nushi, B., Collisson, P., … Horvitz, E. (2019). <a href="https://doi.org/10.1145/3290605.3300233">Guidelines for human-AI interaction</a>. In <em>Proceedings of the 2019 CHI conference on human factors in computing systems</em>, pages 1–13. New York, NY, USA: Association for Computing Machinery.
 </div>
@@ -1849,7 +1850,7 @@ Zhou, C., Liu, P., Xu, P., Iyer, S., Sun, J., Mao, Y., … Levy, O. (2023). <a h
 </section>
 
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Abts+2022" class="csl-entry">
 Abts, D., Kimmell, G., Ling, A., Kim, J., Boyd, M., Bitar, A., … Ross, J. (2022). <a href="https://doi.org/10.1145/3470496.3527405">A software-defined tensor streaming multiprocessor for large-scale machine learning</a>. In <em>Proceedings of the 49th annual international symposium on computer architecture</em>, pages 567–580. New York, NY, USA: Association for Computing Machinery.
 </div>
@@ -2051,7 +2052,7 @@ Welker, H. (1952). <a href="https://doi.org/10.1515/zna-1952-1110">Über neue ha
 
 
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section id="文献紹介" class="level1 appendix" data-number="6"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">6</span> 文献紹介</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="文献紹介" class="level1 appendix" data-number="6"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">6</span> 文献紹介</h2><div class="quarto-appendix-contents">
 
 <p>大規模言語モデルとトランスフォーマーに関するより詳しい内容は，次の記事も参照：</p>
 <div class="article-card-container">
@@ -2167,7 +2168,7 @@ Wang, Y., Kordi, Y., Mishra, S., Liu, A., Smith, N. A., Khashabi, D., and Hajish
 
 </section>
 
-<a onclick="window.scrollTo(0, 0); return false;" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a><div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-登大遊2023" class="csl-entry">
 登大遊. (2023). <em><a href="https://dnobori.cyber.ipa.go.jp/ppt/download/20230610_soumu/230610%20講演%20第1部%20(登)%20-%20配布資料その1%20-%20秘密の%20NTT%20電話局、フレッツ光、インターネット入門.pdf">秘密のNTT電話局，フレッツ光，およびインターネット入門(1)</a></em>.
 </div>
