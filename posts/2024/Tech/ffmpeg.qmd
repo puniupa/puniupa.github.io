@@ -3,6 +3,7 @@ title: "`ffmpeg` による音声・動画の変換"
 author: "ぷに"
 date: 7/18/2024
 categories: [Tech]
+image: Images/output4.gif
 bibliography: 
     - ../../../assets/mathematics.bib
     - ../../../assets/bib.bib

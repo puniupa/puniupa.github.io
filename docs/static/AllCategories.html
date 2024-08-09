@@ -164,7 +164,8 @@ ul.task-list li input[type="checkbox"] {
 
     const options = {
       valueNames: ['listing-title','listing-image','listing-date','listing-subtitle','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
+      page: 3,
+    pagination: { item: "<li class='page-item'><a class='page page-link' href='#'></a></li>" },
       searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
@@ -707,13 +708,40 @@ No matching items
     </div>
 </div>
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="Tech" data-listing-date-sort="1721228400000" data-listing-file-modified-sort="1723194686931" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="118">
-<a href="../posts/2024/Blog/ffmpeg.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="0" data-categories="Blog,Tech" data-listing-date-sort="1722956400000" data-listing-file-modified-sort="1723196429621" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="21">
+<a href="../posts/2024/Blog/うぱgithub挑戦.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<p class="card-img-top">
+<img src="../posts/2024/Blog/Images/GitHub.jpg" class="thumbnail-image card-img" style="height: 150px;">
+</p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-ffmpeg による音声・動画の変換
+うぱ GitHub 挑戦
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Blog'); return false;">
+Blog
+</div>
+<div class="listing-category" onclick="window.quartoListingCategory('Tech'); return false;">
+Tech
+</div>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+2024-08-07
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="Tech" data-listing-date-sort="1721228400000" data-listing-file-modified-sort="1723202067558" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="184">
+<a href="../posts/2024/Tech/ffmpeg.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="../posts/2024/Tech/Images/output1.gif" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+<code>ffmpeg</code> による音声・動画の変換
 </h5>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('Tech'); return false;">
@@ -729,10 +757,10 @@ Tech
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="Tech" data-listing-date-sort="1721055600000" data-listing-file-modified-sort="1723194642042" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="65">
-<a href="../posts/2024/Blog/Git.html" class="quarto-grid-link">
+<div class="g-col-1" data-index="2" data-categories="Tech" data-listing-date-sort="1721055600000" data-listing-file-modified-sort="1723196220783" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="64">
+<a href="../posts/2024/Tech/Git.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="../posts/2024/Blog/Images/DriveLocal.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<p class="card-img-top"><img src="../posts/2024/Tech/Images/DriveLocal.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 GitHub の使い方
@@ -751,10 +779,37 @@ Tech
 </div>
 </a>
 </div>
+<div class="g-col-1" data-index="3" data-categories="Tech" data-listing-date-sort="1701961200000" data-listing-file-modified-sort="1723195811789" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="119">
+<a href="../posts/2024/Tech/Internet.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img data-src="../posts/2024/Tech/Internet_cover.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+インターネットとは AS 間が BGP で相互接続された裏路地である
+</h5>
+<div class="listing-categories">
+<div class="listing-category" onclick="window.quartoListingCategory('Tech'); return false;">
+Tech
+</div>
+</div>
+<div class="card-attribution card-text-small end">
+<div class="listing-date">
+2023-12-08
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
+<nav id="Tech-listing-pagination" class="listing-pagination" aria-label="Page Navigation">
+  <ul class="pagination"></ul>
+</nav>
 </div>
 <hr>
 
