@@ -2,7 +2,7 @@
 title: "All Posts"
 description: "法律家と研究者によるブログ"
 listing:
-  contents: posts
+  contents: "../posts/*/*/*.qmd"
   sort: "date desc"
   type: default
   categories: numbered
