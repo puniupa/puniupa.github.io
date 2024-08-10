@@ -144,6 +144,7 @@
 
 <p>サーベイかつポジションペーパー <span class="citation" data-cites="Papamarkou+2024TDL">(Papamarkou et al., 2024)</span> を大いに参考にした．</p>
 <p><span class="citation" data-cites="Nguyen+2019">(Nguyen et al., 2019)</span> は，マルチスケール重みつき色つき部分グラフとパーシステント・ホモロジーを取り入れた深層学習手法により，D3R Grand Challenge 2 の stage 2 での<a href="https://drugdesigndata.org/php/d3r/gc2/combined/free-energy/index.php?component=443&amp;q=rmsd&amp;set=1&amp;partial=0">絶対自由エネルギー予測 set 1</a> において１位を獲得し，続いて Challenge 3 では 26 のタスクのうち 10 タスクで１位を獲得したことを報告している．</p>
+<p>パーシステントホモロジーについて，液体シリカとアモルファスシリカの分子動力学シミュレーション結果を例に取り，パーシステント図式などの方法でデータの位相的構造を取り出している様子が <span class="citation" data-cites="大林一平2018">(大林一平, 2018)</span> で詳細に解説されている．論文としては <span class="citation" data-cites="Hiraoka+2016">(Hiraoka et al., 2016)</span>, <span class="citation" data-cites="Ichinomiya+2017">(Ichinomiya et al., 2017)</span> に対応する．同著者によるより数学的なものは <span class="citation" data-cites="大林一平2017">(大林一平, 2017)</span>．<a href="https://sites.google.com/view/hiraoka-lab/">平岡裕章研究室</a>の<a href="https://www.wpi-aimr.tohoku.ac.jp/hiraoka_labo/introduction_j.pdf">研究紹介スライド</a>も参照．</p>
 <p><span class="citation" data-cites="Hansen-Ghrist2019">(Hansen and Ghrist, 2019)</span> では，スペクトル層理論という理論を展開している．これは，スペクトルグラフ理論を，一般の胞体層 (cellular sheaf) に拡張したものであるという．組み合わせ論的なグラフラプラシアンを，正則な胞体複体上の線型空間の胞体層上の Hodge ラプラシアンの特別な場合と見ることで，スペクトルデータを層のコホモロジーや胞体構造と関連づけることが出来るという．</p>
 <p>グラフカーネルに関する良い日本語文献に <span class="citation" data-cites="ガラムカリ和2021">(ガラムカリ和 et al., 2021)</span> がある．</p>
 </div></section><section id="個人的な-papamarkou2024tdl-の見どころ" class="level2 appendix" data-number="4"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">4</span> 個人的な <span class="citation" data-cites="Papamarkou+2024TDL">(Papamarkou et al., 2024)</span> の見どころ</h2><div class="quarto-appendix-contents">
@@ -203,8 +204,14 @@ Han, K., Wang, Y., Guo, J., Tang, Y., and Wu, E. (2022). <a href="https://openre
 <div id="ref-Hansen-Ghrist2019" class="csl-entry">
 Hansen, J., and Ghrist, R. (2019). <a href="https://doi.org/10.1007/s41468-019-00038-7">Toward a spectral theory of cellular sheaves</a>. <em>Journal of Applied and Computational Topology</em>, <em>3</em>(4), 315–358.
 </div>
+<div id="ref-Hiraoka+2016" class="csl-entry">
+Hiraoka, Y., Nakamura, T., Hirata, A., Escolar, E. G., Matsue, K., and Nishiura, Y. (2016). <a href="https://doi.org/10.1073/pnas.1520877113">Hierarchical structures of amorphous solids characterized by persistent homology</a>. <em>Proceedings of the National Academy of Sciences</em>, <em>113</em>(26), 7035–7040.
+</div>
 <div id="ref-Hu+2021" class="csl-entry">
 Hu, X., Wang, Y., Fuxin, L., Samaras, D., and Chen, C. (2021). <a href="https://openreview.net/forum?id=LGgdb4TS4Z">Topology-aware segmentation using discrete morse theory</a>. In <em>International conference on learning representations</em>.
+</div>
+<div id="ref-Ichinomiya+2017" class="csl-entry">
+Ichinomiya, T., Obayashi, I., and Hiraoka, Y. (2017). <a href="https://doi.org/10.1103/PhysRevE.95.012504">Persistent homology analysis of craze formation</a>. <em>Phys. Rev. E</em>, <em>95</em>, 012504.
 </div>
 <div id="ref-Ktena+2018" class="csl-entry">
 Ktena, S. I., Parisot, S., Ferrante, E., Rajchl, M., Lee, M., Glocker, B., and Rueckert, D. (2018). <a href="https://doi.org/10.1016/j.neuroimage.2017.12.052">Metric learning with spectral graph convolutions on brain connectivity networks</a>. <em>NeuroImage</em>, <em>169</em>, 431–442.
@@ -238,6 +245,12 @@ Zomorodian, A., and Carlsson, G. (2005). <a href="https://doi.org/10.1007/s00454
 </div>
 <div id="ref-ガラムカリ和2021" class="csl-entry">
 ガラムカリ和, 杉山麿人, OʼBray, L., Rieck, B., and Borgwardt, K. (2021). <a href="https://doi.org/10.11517/jjsai.36.4_421">グラフカーネルの進展</a>. <em>人工知能</em>, <em>36</em>(4), 421–429.
+</div>
+<div id="ref-大林一平2017" class="csl-entry">
+大林一平. (2017). <a href="http://hdl.handle.net/2433/237190">位相的データ解析の現在（統計的モデリングと予測理論のための統合的数理研究）</a>. <em>数理解析研究所講究録</em>, <em>2057</em>, 34–50.
+</div>
+<div id="ref-大林一平2018" class="csl-entry">
+大林一平. (2018). <a href="http://traffic.phys.cs.is.nagoya-u.ac.jp/~mstf/articles/mstf2018-01/">パーシステントホモロジーの理論と応用</a>. <em>交通流と自己駆動粒子系シンポジウム論文集</em>, <em>24</em>.
 </div>
 <div id="ref-船津公人+2024" class="csl-entry">
 船津公人, 井上貴央, and 西川大貴. (2024). <em><a href="https://www.kindaikagaku.co.jp/book_list/detail/9784764960237/">詳解 マテリアルズインフォマティクス 有機・無機化学のための深層学習</a></em>. 近代科学社.
@@ -1012,7 +1025,7 @@ font-style: inherit;">git</span> merge</span></code></pre></div>
 <h2 data-number="1" class="anchored" data-anchor-id="euv-リトグラフィ"><span class="header-section-number">1</span> EUV リトグラフィ</h2>
 <p><a href="https://ja.wikipedia.org/wiki/%E6%A5%B5%E7%AB%AF%E7%B4%AB%E5%A4%96%E7%B7%9A%E3%83%AA%E3%82%BD%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3">極端紫外線リソグラフィ</a> (Extreme Ultraviolet Lithography) は波長 13.5 nm で露光する技術である．</p>
 <p>オランダの <a href="https://ja.wikipedia.org/wiki/ASML">ASML</a> 社が唯一 EUV 露光装置を製造している．</p>
-<p></p><div id="tweet-35742"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-35742").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-31165"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-31165").innerHTML = tweet["html"];</script><p></p>
 <a class="embedly-card" href="https://www.scmp.com/economy/global-economy/article/3257118/china-asks-netherlands-exporter-worlds-top-chipmaking-equipment-avoid-decoupling?utm_source=twitter&amp;utm_campaign=3257118&amp;utm_medium=share_widget">China asks Netherlands, with world-leading chipmaking equipment, to not decouple</a><script async="" src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 <p>ここまで短い波長では光を透過するレンズはなく，反射鏡で光学系を構成する必要がある．13.5 nm という波長はミラーの反射率の極大点の１つをとって決定された． <img src="https://latex.codecogs.com/png.latex?0.68%5E%7B12%7D=0.98"> というように重ねて用いる．</p>
 <div class="quarto-figure quarto-figure-center">

@@ -205,6 +205,7 @@ font-style: inherit;"># 指示に沿ってコミットメッセージを変更�
 
 <p>サーベイかつポジションペーパー <span class="citation" data-cites="Papamarkou+2024TDL">(Papamarkou et al., 2024)</span> を大いに参考にした．</p>
 <p><span class="citation" data-cites="Nguyen+2019">(Nguyen et al., 2019)</span> は，マルチスケール重みつき色つき部分グラフとパーシステント・ホモロジーを取り入れた深層学習手法により，D3R Grand Challenge 2 の stage 2 での<a href="https://drugdesigndata.org/php/d3r/gc2/combined/free-energy/index.php?component=443&amp;q=rmsd&amp;set=1&amp;partial=0">絶対自由エネルギー予測 set 1</a> において１位を獲得し，続いて Challenge 3 では 26 のタスクのうち 10 タスクで１位を獲得したことを報告している．</p>
+<p>パーシステントホモロジーについて，液体シリカとアモルファスシリカの分子動力学シミュレーション結果を例に取り，パーシステント図式などの方法でデータの位相的構造を取り出している様子が <span class="citation" data-cites="大林一平2018">(大林一平, 2018)</span> で詳細に解説されている．論文としては <span class="citation" data-cites="Hiraoka+2016">(Hiraoka et al., 2016)</span>, <span class="citation" data-cites="Ichinomiya+2017">(Ichinomiya et al., 2017)</span> に対応する．同著者によるより数学的なものは <span class="citation" data-cites="大林一平2017">(大林一平, 2017)</span>．<a href="https://sites.google.com/view/hiraoka-lab/">平岡裕章研究室</a>の<a href="https://www.wpi-aimr.tohoku.ac.jp/hiraoka_labo/introduction_j.pdf">研究紹介スライド</a>も参照．</p>
 <p><span class="citation" data-cites="Hansen-Ghrist2019">(Hansen and Ghrist, 2019)</span> では，スペクトル層理論という理論を展開している．これは，スペクトルグラフ理論を，一般の胞体層 (cellular sheaf) に拡張したものであるという．組み合わせ論的なグラフラプラシアンを，正則な胞体複体上の線型空間の胞体層上の Hodge ラプラシアンの特別な場合と見ることで，スペクトルデータを層のコホモロジーや胞体構造と関連づけることが出来るという．</p>
 <p>グラフカーネルに関する良い日本語文献に <span class="citation" data-cites="ガラムカリ和2021">(ガラムカリ和 et al., 2021)</span> がある．</p>
 </div></section><section id="個人的な-papamarkou2024tdl-の見どころ" class="level2 appendix" data-number="4"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">4</span> 個人的な <span class="citation" data-cites="Papamarkou+2024TDL">(Papamarkou et al., 2024)</span> の見どころ</h2><div class="quarto-appendix-contents">
@@ -264,8 +265,14 @@ Han, K., Wang, Y., Guo, J., Tang, Y., and Wu, E. (2022). <a href="https://openre
 <div id="ref-Hansen-Ghrist2019" class="csl-entry">
 Hansen, J., and Ghrist, R. (2019). <a href="https://doi.org/10.1007/s41468-019-00038-7">Toward a spectral theory of cellular sheaves</a>. <em>Journal of Applied and Computational Topology</em>, <em>3</em>(4), 315–358.
 </div>
+<div id="ref-Hiraoka+2016" class="csl-entry">
+Hiraoka, Y., Nakamura, T., Hirata, A., Escolar, E. G., Matsue, K., and Nishiura, Y. (2016). <a href="https://doi.org/10.1073/pnas.1520877113">Hierarchical structures of amorphous solids characterized by persistent homology</a>. <em>Proceedings of the National Academy of Sciences</em>, <em>113</em>(26), 7035–7040.
+</div>
 <div id="ref-Hu+2021" class="csl-entry">
 Hu, X., Wang, Y., Fuxin, L., Samaras, D., and Chen, C. (2021). <a href="https://openreview.net/forum?id=LGgdb4TS4Z">Topology-aware segmentation using discrete morse theory</a>. In <em>International conference on learning representations</em>.
+</div>
+<div id="ref-Ichinomiya+2017" class="csl-entry">
+Ichinomiya, T., Obayashi, I., and Hiraoka, Y. (2017). <a href="https://doi.org/10.1103/PhysRevE.95.012504">Persistent homology analysis of craze formation</a>. <em>Phys. Rev. E</em>, <em>95</em>, 012504.
 </div>
 <div id="ref-Ktena+2018" class="csl-entry">
 Ktena, S. I., Parisot, S., Ferrante, E., Rajchl, M., Lee, M., Glocker, B., and Rueckert, D. (2018). <a href="https://doi.org/10.1016/j.neuroimage.2017.12.052">Metric learning with spectral graph convolutions on brain connectivity networks</a>. <em>NeuroImage</em>, <em>169</em>, 431–442.
@@ -299,6 +306,12 @@ Zomorodian, A., and Carlsson, G. (2005). <a href="https://doi.org/10.1007/s00454
 </div>
 <div id="ref-ガラムカリ和2021" class="csl-entry">
 ガラムカリ和, 杉山麿人, OʼBray, L., Rieck, B., and Borgwardt, K. (2021). <a href="https://doi.org/10.11517/jjsai.36.4_421">グラフカーネルの進展</a>. <em>人工知能</em>, <em>36</em>(4), 421–429.
+</div>
+<div id="ref-大林一平2017" class="csl-entry">
+大林一平. (2017). <a href="http://hdl.handle.net/2433/237190">位相的データ解析の現在（統計的モデリングと予測理論のための統合的数理研究）</a>. <em>数理解析研究所講究録</em>, <em>2057</em>, 34–50.
+</div>
+<div id="ref-大林一平2018" class="csl-entry">
+大林一平. (2018). <a href="http://traffic.phys.cs.is.nagoya-u.ac.jp/~mstf/articles/mstf2018-01/">パーシステントホモロジーの理論と応用</a>. <em>交通流と自己駆動粒子系シンポジウム論文集</em>, <em>24</em>.
 </div>
 <div id="ref-船津公人+2024" class="csl-entry">
 船津公人, 井上貴央, and 西川大貴. (2024). <em><a href="https://www.kindaikagaku.co.jp/book_list/detail/9784764960237/">詳解 マテリアルズインフォマティクス 有機・無機化学のための深層学習</a></em>. 近代科学社.
