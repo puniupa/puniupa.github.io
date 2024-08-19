@@ -1,0 +1,34 @@
+---
+title: "うぱ・夏の韓国インターン１日目〜３日目"
+subtitle: "食で見る初の韓国"
+author: "ぷに Draft"
+date: 8/17/2024
+date-modified: 8/19/2024
+categories: [Blog]
+bibliography: 
+    - ../../../assets/mathematics.bib
+    - ../../../assets/bib.bib
+csl: ../../../assets/apalike.csl
+# abstract: 
+---
+
+![１日目の晩御飯：三枚肉（삼겹살）](Images/Day1Dinner.jpg)
+
+> 正義を取り扱うことのできる人間の能力が民主主義を可能にする。しかし、不正義に陥りがちな人間の傾向が民主主義を必要とする。<br>
+> [ラインホルド・ニーバー『光の子と闇の子』](https://ja.wikipedia.org/wiki/ラインホルド・ニーバー)
+
+![２日目の朝食：](Images/Day2Breakfast.jpg)
+
+![２日目の昼食：](Images/Day2Lunch.jpg)
+
+![２日目の晩御飯：](Images/Day2Dinner.jpg)
+
+３日目，うぱは餃子をレンジで温めて食べてコーヒーを飲み，８時 45 分すぎに出勤していった．暑いからバスに乗ったという．
+
+僕はあまりにお腹を空いていたから 10 時にそばを茹でて，12 時には勇気を出してお店で食べてみることにした．
+
+結局メニュー名と渾身の感謝を伝えるだけで済んだ．
+
+![３日目の昼食：キムチ炒飯（김지볶음밥）](Images/Day3Lunch.jpg)
+
+韓国の食の満足度は期待を遥かに超えるものだった．何より，[飯饌](https://ja.wikipedia.org/wiki/パンチャン)（반찬）はどれも美味しい．
