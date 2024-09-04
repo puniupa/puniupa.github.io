@@ -1,0 +1,34 @@
+---
+title: "うぱ・夏の韓国インターン１週間目"
+subtitle: "食で見る初の韓国"
+author: "ぷに Draft"
+date: 9/2/2024
+date-modified: 9/2/2024
+categories: [Blog]
+bibliography: 
+    - ../../../assets/mathematics.bib
+    - ../../../assets/bib.bib
+csl: ../../../assets/apalike.csl
+# abstract: 
+---
+
+
+## 15日目（土曜日）
+
+## 16日目（日曜日）
+
+夜は Catch me if you can を見た．やはり２人で見ると大変楽しい．
+
+## 17日目（月曜日）
+
+この日は朝から，統計関連学会連合大会での Arnaud Doucet による赤池レクチャーを聞いた．
+
+Christophe Andrieu と Sumeetpal S. Singh によるコメント付きという大変稀有な講演であった．
+
+朝から비빔면を作って食べた．お腹の調子はまだまだ回復しない．
+
+お昼は昨日うぱさんが買ってきた食パンを食べた．
+
+
+## 18日目（火曜日）
+
