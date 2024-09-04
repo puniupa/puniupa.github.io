@@ -18,7 +18,9 @@
   {
     "listing": "/static/all.html",
     "items": [
+      "/posts/2024/Blog/Seoul3.html",
       "/posts/2024/Blog/Seoul1.html",
+      "/posts/2024/Blog/Seoul2.html",
       "/posts/2024/AI/TDL.html",
       "/posts/2024/Blog/うぱgithub挑戦.html",
       "/posts/2024/Brain/TakemiLab.html",
@@ -35,6 +37,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/2024/Blog/Seoul1.html",
       "/posts/2024/Blog/うぱgithub挑戦.html",
       "/posts/2024/AI/TDL.html",
       "/posts/2024/Brain/TakemiLab.html",
