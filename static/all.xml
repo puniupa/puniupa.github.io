@@ -510,17 +510,29 @@ Zomorodian, A., and Carlsson, G. (2005). <a href="https://doi.org/10.1007/s00454
 </item>
 <item>
   <title>うぱ GitHub 挑戦</title>
-  <dc:creator>うぱ, ぷに</dc:creator>
+  <dc:creator>うぱ </dc:creator>
   <link>https://puniupa.github.io/posts/2024/Blog/うぱgithub挑戦.html</link>
   <description><![CDATA[ 
 
 
 
 
-<section id="すごい" class="level2" data-number="1">
-
-<section id="元に戻したいとき" class="level3" data-number="1.1">
-
+<section id="githubとの出会い" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="githubとの出会い"><span class="header-section-number">1</span> GitHubとの出会い</h2>
+<p>　そもそも、法律を専攻とする学生は、よほどの向学心がない限り、コードを書くことはまずないでしょう。私もその1人です。教養科目の中に「情報」という授業があり、プログラミングの基礎を学ぶという名目のもと、フローチャートをつなげるようなゲームをさせられた覚えがありますが、それはあくまでプログラミングがしたいことをなんとなく掴むためのもの。結局sum何ちゃらとかそんなコードすら書くことはなく、法学部へ進学することとなりました。 　そのため、当然GitHubを知ることになったのも、理系の学生と知り合ってからでした。最初は、じっとはぶと読むのか、ぎっとはぶと読むのかすらよく分かっていませんでしたが、巡り巡ってめぐり巡って始めてみることにしました。</p>
+</section>
+<section id="使い始めての感想感動" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="使い始めての感想感動"><span class="header-section-number">2</span> 使い始めての感想・感動</h2>
+<p>　正直、初期コストはある程度高いと感じました。GitHubにリポジトリを作って、それぞれのファイルを作ってという過程は、このサイトを運営している人に作ってもらったので、私は門外漢にとっては最も面倒臭い部分は経験することなく使い始めることになりました。 　とはいえ、実際に使い始めてみると、他のWebサイトを作れるサービス（過去にNote+やWordPressを使ったことはありました）と比べても格段にサクサク書けて、それほど違和感を覚えることはありませんでした。書式や色、太さや線などをリアルタイムで確認できないので、出来上がりが想像できないという感じはありますが、それは今後徐々に覚えていこうと思います笑</p>
+</section>
+<section id="ブログのモチベ" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="ブログのモチベ"><span class="header-section-number">3</span> ブログのモチベ</h2>
+<p>　クオリティが高いページが作れると物書きのモチベーションは高まりますね。これからちまちまと書いていく原稿がいつか自分を支えるリサーチ記録になるよう、このブログを更新し続けていければと思います。</p>
+</section>
+<section id="メモ" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="メモ"><span class="header-section-number">4</span> メモ</h2>
+<section id="元に戻したいとき" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="元に戻したいとき"><span class="header-section-number">4.1</span> 元に戻したいとき</h3>
 <div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">git</span> reflog</span>
@@ -540,8 +552,8 @@ font-style: inherit;">git</span> reset HEAD@{index}</span>
 background-color: null;
 font-style: inherit;"># ほら、まるで魔法のタイムマシン</span></span></code></pre></div>
 </section>
-<section id="コミットメッセージ間違えた" class="level3" data-number="1.2">
-
+<section id="コミットメッセージ間違えた" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="コミットメッセージ間違えた"><span class="header-section-number">4.2</span> コミットメッセージ間違えた！</h3>
 <div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">git</span> commit <span class="at" style="color: #657422;
@@ -554,7 +566,7 @@ font-style: inherit;"># 指示に沿ってコミットメッセージを変更�
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="2"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">2</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="5"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">5</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
 
 <ul>
 <li><a href="https://dangitgit.com/ja">Dangit, Git!?!</a>：「ミスった！」「どうすれば良いの！？」というときに，痒いところに手が届く情報がまとまっているサイト</li>
@@ -1266,7 +1278,7 @@ font-style: inherit;">git</span> merge</span></code></pre></div>
 <h2 data-number="1" class="anchored" data-anchor-id="euv-リトグラフィ"><span class="header-section-number">1</span> EUV リトグラフィ</h2>
 <p><a href="https://ja.wikipedia.org/wiki/%E6%A5%B5%E7%AB%AF%E7%B4%AB%E5%A4%96%E7%B7%9A%E3%83%AA%E3%82%BD%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3">極端紫外線リソグラフィ</a> (Extreme Ultraviolet Lithography) は波長 13.5 nm で露光する技術である．</p>
 <p>オランダの <a href="https://ja.wikipedia.org/wiki/ASML">ASML</a> 社が唯一 EUV 露光装置を製造している．</p>
-<p></p><div id="tweet-58467"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-58467").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-36330"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-36330").innerHTML = tweet["html"];</script><p></p>
 <a class="embedly-card" href="https://www.scmp.com/economy/global-economy/article/3257118/china-asks-netherlands-exporter-worlds-top-chipmaking-equipment-avoid-decoupling?utm_source=twitter&amp;utm_campaign=3257118&amp;utm_medium=share_widget">China asks Netherlands, with world-leading chipmaking equipment, to not decouple</a><script async="" src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 <p>ここまで短い波長では光を透過するレンズはなく，反射鏡で光学系を構成する必要がある．13.5 nm という波長はミラーの反射率の極大点の１つをとって決定された． <img src="https://latex.codecogs.com/png.latex?0.68%5E%7B12%7D=0.98"> というように重ねて用いる．</p>
 <div class="quarto-figure quarto-figure-center">
