@@ -187,7 +187,7 @@ Song, Y., Durkan, C., Murray, I., and Ermon, S. (2021). <a href="https://2021">M
 </item>
 <item>
   <title>うぱ GitHub 挑戦</title>
-  <dc:creator>うぱ, ぷに</dc:creator>
+  <dc:creator>うぱ </dc:creator>
   <link>https://puniupa.github.io/posts/2024/Blog/うぱgithub挑戦.html</link>
   <description><![CDATA[ 
 
@@ -196,17 +196,21 @@ Song, Y., Durkan, C., Murray, I., and Ermon, S. (2021). <a href="https://2021">M
 
 <section id="githubとの出会い" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="githubとの出会い"><span class="header-section-number">1</span> GitHubとの出会い</h2>
-<p>　そもそも、法律を専攻とする学生は、よほどの向学心がない限り、コードを書くことはまずないでしょう。私もその1人です。教養科目の中に「情報」という授業があり、プログラミングの基礎を学ぶという名目のもと、フローチャートをつなげるようなゲームをさせられた覚えがありますが、それはあくまでプログラミングがしたいことをなんとなく掴むためのもの。結局sum何ちゃらとかそんなコードすら書くことはなく、法学部へ進学することとなりました。 　そのため、当然GitHubを知ることになったのも、理系の学生と知り合ってからでした。最初は、じっとはぶと読むのか、ぎっとはぶと読むのかすらよく分かっていませんでしたが、巡り巡ってめぐり巡って始めてみることにしました。</p>
+<p>　そもそも、法律を専攻とする学生は、よほどの向学心がない限り、コードを書くことはまずないでしょう。ええ、私もその1人です。もともと、学部１年の時に教養科目の中に「情報」という授業があり、プログラミングの基礎を学ぶという名目のもと、フローチャートをつなげるようなゲームをさせられた覚えがあります。とはいえ、それはあくまでプログラミングがしたいことをなんとなく掴むためのもの。結局sum何ちゃらとかそんなコードすら書くことはなく、法学部へ進学することとなりました。法学部に進学してからは、授業のファイルはWordかPDFで送られてくるので、その内容をコピペしてGoogle Docsに貼り付けた後、メモを加筆する、というような方法で受講していたものですから、GitHubの必要性はまず感じなかったわけです。 　そのため、当然GitHubを知ることになったのも、理系の学生と知り合ってからでした。最初は、「じっとはぶ」と読むのか、「ぎっとはぶ」と読むのかすらよく分かっていませんでした。存在を知ってからも、「ほ〜ん、まあ、コードを書く人間が使えばよかろう。我々は下流のサービスをうまく使えば生きていけるわ」と思って放置していたわけです。 　LSに入ってからは、自分が学んだことを体系的にまとめておき、スマホからでも確認できるページを作りたくなり、WordPressでサイトを開設することになりました。人に見せるために作ったものではなかったため、見栄えを良くするのに限界があったり、ブラウザ上で作業するために重くなったりと、多少の不都合はあったとはいえ、まあ満足していたといえます。ところが、数ヶ月前、司法試験を受ける直前に、WordPressのアカウントが一時凍結されるという事件が起こりました。過去問のテーマをまとめたページなどを作っていた私は、「これまでの積み重ねが水の泡になりかねない…」と焦りまくったわけです（後日、アカウントの凍結は解除されたのですが）。そこで紹介されたのが、ローカルにも情報を置きながら、レポジトリにアップロードできるGitHubでした。 こうして、巡り巡ってめぐり巡って始めてみることになったわけです。</p>
 </section>
 <section id="使い始めての感想感動" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="使い始めての感想感動"><span class="header-section-number">2</span> 使い始めての感想・感動</h2>
-<p>　正直、初期コストはある程度高いと感じました。GitHubにリポジトリを作って、それぞれのファイルを作ってという過程は、このサイトを運営している人に作ってもらったので、私は門外漢にとっては最も面倒臭い部分は経験することなく使い始めることになりました。 　とはいえ、実際に使い始めてみると、他のWebサイトを作れるサービス（過去にNote+やWordPressを使ったことはありました）と比べても格段にサクサク書けて、それほど違和感を覚えることはありませんでした。書式や色、太さや線などをリアルタイムで確認できないので、出来上がりが想像できないという感じはありますが、それは今後徐々に覚えていこうと思います笑</p>
+<p>　正直、初期コストはある程度高いと感じました。GitHubにアカウントを作って、リポジトリを作って、ターミナルに基礎的なコードを書いてという過程は、このサイトを運営している人に作ってもらったので、門外漢にとっては最も面倒臭い部分は経験することなく使い始めることになりました。また、この記事を書く過程においても、README.mdに書いてある指示があったのでそれを参照さえすればよく、比較的楽にスタートできたという点も大きかったと思います。</p>
+<p>　とはいえ、実際に使い始めてみると、他のWebサイトを作れるサービス（過去にNote+やWordPressを使ったことはありました）と比べても格段にサクサク書けて、それほど違和感を覚えることはありませんでした。書式や色、太さや線などをリアルタイムで確認できないので、出来上がりが想像できないという感じはありますが、プレビューも確認できるのでそれほど負担ではないようです。zshの使い方や機能拡大は今後徐々に覚えていこうと思います笑</p>
 </section>
 <section id="ブログのモチベ" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="ブログのモチベ"><span class="header-section-number">3</span> ブログのモチベ</h2>
 <p>　クオリティが高いページが作れると物書きのモチベーションは高まりますね。これからちまちまと書いていく原稿がいつか自分を支えるリサーチ記録になるよう、このブログを更新し続けていければと思います。</p>
-<section id="元に戻したいとき" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="元に戻したいとき"><span class="header-section-number">3.1</span> 元に戻したいとき</h3>
+</section>
+<section id="メモ" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="メモ"><span class="header-section-number">4</span> メモ</h2>
+<section id="元に戻したいとき" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="元に戻したいとき"><span class="header-section-number">4.1</span> 元に戻したいとき</h3>
 <div class="sourceCode" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb1-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">git</span> reflog</span>
@@ -226,8 +230,8 @@ font-style: inherit;">git</span> reset HEAD@{index}</span>
 background-color: null;
 font-style: inherit;"># ほら、まるで魔法のタイムマシン</span></span></code></pre></div>
 </section>
-<section id="コミットメッセージ間違えた" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="コミットメッセージ間違えた"><span class="header-section-number">3.2</span> コミットメッセージ間違えた！</h3>
+<section id="コミットメッセージ間違えた" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="コミットメッセージ間違えた"><span class="header-section-number">4.2</span> コミットメッセージ間違えた！</h3>
 <div class="sourceCode" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">git</span> commit <span class="at" style="color: #657422;
@@ -240,7 +244,7 @@ font-style: inherit;"># 指示に沿ってコミットメッセージを変更�
 </section>
 
 
-<div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="4"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">4</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
+<div id="quarto-appendix" class="default"><section id="参考になるリンク" class="level2 appendix" data-number="5"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">5</span> 参考になるリンク</h2><div class="quarto-appendix-contents">
 
 <ul>
 <li><a href="https://dangitgit.com/ja">Dangit, Git!?!</a>：「ミスった！」「どうすれば良いの！？」というときに，痒いところに手が届く情報がまとまっているサイト</li>
