@@ -8,8 +8,8 @@
 
 ## ブログの更新方法
 
-1. `/posts/20XX/Category` ディレクトリの中に新しいファイルを `blog.qmd` という形で作成し，記事を書き込む．
-2. 記事をプレビューするには `Cmd + Shift + K`．
+1. 書き始める前に `git pull` でリポジトリを更新する．
+2. `/posts/20XX/Category` ディレクトリの中に新しいファイルを `blog.qmd` という形で作成し，記事を書き込む．記事をプレビューするには `Cmd + Shift + K`．
 3. `git add .` で変更を追加する．
 4. `git commit -m "added new posts"` で変更をコミットする．コメント "added new posts" は適宜変更．
 5. `git push` で変更をプッシュする．
