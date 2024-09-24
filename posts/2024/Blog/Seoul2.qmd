@@ -1,0 +1,16 @@
+---
+title: "うぱ・夏の韓国インターン１週間目"
+subtitle: "食で見る初の韓国"
+author: "ぷに Draft"
+date: 8/17/2024
+date-modified: 9/1/2024
+categories: [Blog]
+bibliography: 
+    - ../../../assets/mathematics.bib
+    - ../../../assets/bib.bib
+csl: ../../../assets/apalike.csl
+# abstract: 
+---
+
+
+## ８日目（土曜日）

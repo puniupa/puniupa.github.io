@@ -1,7 +1,7 @@
 ---
 title: "半導体入門"
 subtitle: "現代社会の「魔素」が見えるように"
-author: "司馬博文"
+author: "ぷに"
 date: 2/26/2024
 categories: [半導体]
 toc: true

@@ -14,6 +14,7 @@ website:
   favicon: assets/ぷにうぱ.jpg
   site-url: https://puniupa.github.io/
   description: "法学＋数学で世界を渡り歩こう"
+  back-to-top-navigation: false
   navbar:
     right:
       - text: "カテゴリ一覧"
@@ -22,8 +23,8 @@ website:
     #     file: ./static/Sessions.qmd
     #   - text: "Slides"
     #     file: ./static/Slides.qmd
-      # - text: "自己紹介"
-      #   file: ./static/AboutUs.qmd
+      - text: "自己紹介"
+        file: ./static/AboutUs.qmd
     # tools:
     #   - icon: github
     #     href: https://github.com/puniupa/puniupa.github.io/
@@ -36,23 +37,20 @@ website:
   page-footer: 
     # border: true
     left: 
-      - text: "Hirofumi Shiba, Shiori Sagae"
-        href: https://162348.github.io/
+      - text: "ぷにうぱ"
+        href: https://puniupa.github.io/
     right:
       - icon: github
-        href: https://github.com/162348/162348.github.io/
+        href: https://github.com/puniupa/puniupa.github.io/
       - icon: envelope
         href: mailto:puniupa48@gmail.com
       - icon: rss
         href: blog.xml
     background: "#E95420"
-  # repo-url: https://github.com/162348/162348.github.io/
-  # repo-actions: [edit, issue]
   search:
     keyboard-shortcut: ["?", "H"]
   open-graph: true
   twitter-card: true
-  # google-analytics: "G-36GX2G6GLL"
   comments:
     giscus:
       repo: puniupa/puniupa.github.io
@@ -84,7 +82,7 @@ format:
     fig-width: 6
     fig-height: 4
     toc-title: "目次"
-    abstract-title: "概要"
+    abstract-title: "はじめに"
     author-title: 著者
     published-title: 日付
     include-in-header: assets/include-in-header.html

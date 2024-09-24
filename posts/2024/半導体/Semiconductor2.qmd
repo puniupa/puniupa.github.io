@@ -1,20 +1,13 @@
 ---
 title: "半導体の微細化技術"
-author: "司馬 博文"
+author: "ぷに Draft"
 date: 3/23/2024
 categories: [半導体]
-toc: true
-number-sections: true
-code-block-bg: true
-code-block-border-left: "#5AB5BA"
-code-overflow: wrap
-code-fold: true
 image: Images/反射率.png
 bibliography: 
     - ../../../assets/mathematics.bib
     - ../../../assets/bib.bib
 csl: ../../../assets/apalike.csl
-abstract-title: 概要
 abstract: 半導体デバイスの微細化技術をレビューする．
 ---
 

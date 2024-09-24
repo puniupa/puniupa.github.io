@@ -1,0 +1,111 @@
+---
+title: "うぱ・夏の韓国インターン１週間目"
+subtitle: "食で見る初の韓国"
+author: "ぷに"
+date: 8/17/2024
+date-modified: 9/2/2024
+categories: [Blog]
+bibliography: 
+    - ../../../assets/mathematics.bib
+    - ../../../assets/bib.bib
+csl: ../../../assets/apalike.csl
+# abstract: 
+---
+
+## １日目（土曜日）
+
+![１日目の晩御飯：三枚肉（삼겹살）](Images/Day1Dinner.jpg)
+
+> 正義を取り扱うことのできる人間の能力が民主主義を可能にする。しかし、不正義に陥りがちな人間の傾向が民主主義を必要とする。<br>
+> [ラインホルド・ニーバー『光の子と闇の子』](https://ja.wikipedia.org/wiki/ラインホルド・ニーバー)
+
+[１日目のふりかえり Podcast](https://spotifyanchor-web.app.link/e/KlHO3OZlxMb) では上述の言葉も取り上げている．
+
+## ２日目（日曜日）
+
+![２日目の朝食：[아브와 à boire](https://www.instagram.com/a_boire_/) にて](Images/Day2Breakfast.jpg)
+
+![２日目の昼食：[봉피양（鳳飛揚）](https://www.bjgalbi.com/brand/brand2?mt=02)](Images/Day2Lunch.jpg)
+
+この日はその後，경복궁（景福宮）から명동（明洞）に歩いて行った
+
+명동は渋谷以上の混み具合だった．２周してもめぼしいものは見つけなかったが，最後に見つけたお店ではメガネを買った．
+
+![２日目の晩御飯：[육대장](https://maps.app.goo.gl/j55NGfpnZ4jaecyT7)](Images/Day2Dinner.jpg)
+
+## ３日目（月曜日）
+
+３日目，うぱは餃子をレンジで温めて食べてコーヒーを飲み，８時45分すぎに出勤していった．暑いからバスに乗ったという．
+
+僕はあまりにお腹を空いていたから 10 時にそばを茹でて，12 時には勇気を出してお店で食べてみることにした．
+
+結局メニュー名と渾身の感謝を伝えるだけで済んだ．
+
+![３日目の昼食：キムチ炒飯（김지볶음밥）나무（김밥누들전문점）にて](Images/Day3Lunch.jpg)
+
+韓国の食の満足度は期待を遥かに超えるものだった．何より，[飯饌](https://ja.wikipedia.org/wiki/パンチャン)（반찬）はどれも美味しい．
+
+退勤後のうぱさんはしょぼんとしていた．
+
+![３日目の晩御飯：나주곰탕にて](Images/Day3Dinner.jpeg)
+
+ご飯を食べて動画を見て，少し前に進めたようだった．
+
+[コムタン](https://ja.wikipedia.org/wiki/%E3%82%B3%E3%83%A0%E3%82%BF%E3%83%B3)（곰탕）は大変美味しい肉スープである．
+
+## ４日目（火曜日）
+
+月曜日は [離散時間の正規化流](https://162348.github.io/posts/2024/Samplers/NF.html) をリハビリ代わりに復習したが，この日は [連続時間の正規化流と Neural ODE](https://162348.github.io/posts/2024/Samplers/NF4.html) を学び，自分でコードも扱ってみた．
+
+![線型ダイナミクスを学習するニューラル常微分方程式](Images/Day4output.gif)
+
+![４日目の昼食：[キンパプ（김밥）](https://ja.wikipedia.org/wiki/%E3%82%AD%E3%83%A0%E3%83%91%E3%83%97)](Images/Day4Lunch.jpeg)
+
+退勤後のうぱさんは「今日も仕事はなかった」と言っていたが，少しは元気だった．
+
+夜は自分の新しいメガネを取りに行き，そこで餃子と [カルグクス（칼굳수）](https://ja.wikipedia.org/wiki/カルグクス)を食べた．
+
+![[명동교자](https://maps.app.goo.gl/Y3N7VE2qxWacTv669)（明洞餃子）にて](Images/Day4Dinner.jpg)
+
+## ５日目（水曜日）
+
+昼食は，月曜日と火曜日は休みだったフランス風のカフェ à boire で食べた．
+
+![５日目の昼食](Images/Day5Lunch.jpeg)
+
+![ノイズ対照学習中のエネルギーベースモデル](Images/Day5output_2spirals.gif)
+
+夜はチーズタッカルビを食べに行った．
+
+![５日目の晩御飯：チーズタッカルビ（치즈닭칼비）](Images/Day5Dinner.jpeg)
+
+## ６日目（木曜日）
+
+この日は朝から [Skilling-Hutchinson 推定量](https://162348.github.io/posts/2024/Probability/Trace.html) の証明に取り組んだ．
+
+昼は再び à boire でワインを嗜んだ．
+
+![６日目の昼食](Images/Day6Lunch.jpeg)
+
+午後は [@Lipman+2023], [@Song+2021NeurIPS] を読んだ．
+
+![[광화문국밥（光化門國飯）](https://maps.app.goo.gl/Po5Ba3tBXt7ofaxx7)にて](Images/Day6Dinner.jpg)
+
+夜は[국밥（クッパ）](https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%83%E3%83%91_(%E6%96%99%E7%90%86))を食べた．
+
+## ７日目（金曜日）
+
+この日は Zoom ミーティングがあったが，無事うまくいった．
+
+志織は無事インターン最初の一週間を終えた．
+
+![Crescendo (크레센도) building にて](Images/Day7Flower.jpg)
+
+![[북촌김치재](https://maps.app.goo.gl/tyr5xooyHX2zKaSY6)にて](Images/Day7Dinner.jpg)
+
+その後は夜の街を散歩して，アイスやお茶を楽しんだ．
+
+![](Images/Day7Ice.jpg)
+
+![](Images/Day7Tea.jpg)
+

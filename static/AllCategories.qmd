@@ -30,17 +30,64 @@ listing:
         page-size: 3
         filter-ui: true
         sort-ui: true
+    -   id: Disinformation-listing
+        type: grid
+        sort: "date desc"
+        contents:
+            - "../posts/**"
+        include:
+            categories: [Disinformation]
+        date-format: iso
+        fields: [title,image,date,subtitle,categories]
+        page-size: 3
+        filter-ui: true
+        sort-ui: true
+    -   id: Tech-listing
+        type: grid
+        sort: "date desc"
+        contents:
+            - "../posts/**"
+        include:
+            categories: [Tech]
+        date-format: iso
+        fields: [title,image,date,subtitle,categories]
+        page-size: 3
+        filter-ui: true
+        sort-ui: true
 ---
 
+::: {layout-ncol=3 layout-valign="bottom"}
 
-### [半導体](https://162348.github.io/notes.html#category=半導体)
+[![AI（画像をタップでジャンプ）](Files/MatryoshikaDiffusion.png)](#ai)
 
-::: {#半導体-listing}
+[![半導体（画像をタップでジャンプ）](Files/Semi.png)](#semiconductor)
+
+[![偽情報対策（画像をタップでジャンプ）](Files/MantisAnalytics.png)](#disinformation)
+
 :::
+
+---
 
 ### [AI](https://162348.github.io/notes.html#category=AI)
 
 ::: {#AI-listing}
+:::
+
+### [Semiconductor](https://162348.github.io/notes.html#category=半導体)
+
+::: {#半導体-listing}
+:::
+
+### [Disinformation](https://162348.github.io/notes.html#category=Disinformation)
+
+::: {#Disinformation-listing}
+:::
+
+---
+
+### [テクノロジー関連](https://162348.github.io/notes.html#category=Tech)
+
+::: {#Tech-listing}
 :::
 
 ---

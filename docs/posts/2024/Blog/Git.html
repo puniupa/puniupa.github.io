@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.4.549">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="ぷに">
+<meta name="author" content="ぷに Draft">
 
-<title>GitHub の使い方 – ぷにうぱ</title>
+<title>ぷにうぱ - GitHub の使い方</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -76,11 +110,11 @@ ul.task-list li input[type="checkbox"] {
 
 
 <link rel="stylesheet" href="../../../assets/styles.css">
-<meta property="og:title" content="GitHub の使い方 – ぷにうぱ">
+<meta property="og:title" content="ぷにうぱ - GitHub の使い方">
 <meta property="og:description" content="今年の都知事選では，GitHub をうまく用いた選挙活動が盛り上がりました．本ブログのように，個々人が情報発信をするプラットフォームを自分で持つことの意義は，今後ますます増していくでしょう（Note や Qiita などの文章共有サービスはいつ終了するかわかりません）．その際，GitHub は極めて便利なツールになります．法律家の方など，GitHub をはじめとして技術に詳しくなかった方も，これを機に GitHub に入門するためのチュートリアルをここにまとめていきたいと思います．">
 <meta property="og:image" content="https://puniupa.github.io/posts/2024/Blog/assets/ぷにうぱ.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
-<meta name="twitter:title" content="GitHub の使い方 – ぷにうぱ">
+<meta name="twitter:title" content="ぷにうぱ - GitHub の使い方">
 <meta name="twitter:description" content="今年の都知事選では，GitHub をうまく用いた選挙活動が盛り上がりました．本ブログのように，個々人が情報発信をするプラットフォームを自分で持つことの意義は，今後ますます増していくでしょう（Note や Qiita などの文章共有サービスはいつ終了するかわかりません）．その際，GitHub は極めて便利なツールになります．法律家の方など，GitHub をはじめとして技術に詳しくなかった方も，これを機に GitHub に入門するためのチュートリアルをここにまとめていきたいと思います．">
 <meta name="twitter:image" content="https://puniupa.github.io/posts/2024/Blog/assets/ぷにうぱ.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -98,7 +132,7 @@ ul.task-list li input[type="checkbox"] {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -107,9 +141,13 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="../../../static/AllCategories.html"> 
 <span class="menu-text">カテゴリ一覧</span></a>
   </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../../static/AboutUs.html"> 
+<span class="menu-text">自己紹介</span></a>
+  </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -126,6 +164,16 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#github-とは何か" id="toc-github-とは何か" class="nav-link active" data-scroll-target="#github-とは何か"><span class="header-section-number">1</span> GitHub とは何か</a>
   <ul class="collapse">
   <li><a href="#一言で言うと" id="toc-一言で言うと" class="nav-link" data-scroll-target="#一言で言うと"><span class="header-section-number">1.1</span> 一言で言うと……</a></li>
+  </ul></li>
+  <li><a href="#導入" id="toc-導入" class="nav-link" data-scroll-target="#導入"><span class="header-section-number">2</span> 導入</a>
+  <ul class="collapse">
+  <li><a href="#バージョン管理システム" id="toc-バージョン管理システム" class="nav-link" data-scroll-target="#バージョン管理システム"><span class="header-section-number">2.1</span> バージョン管理システム</a></li>
+  <li><a href="#変更の統合機構" id="toc-変更の統合機構" class="nav-link" data-scroll-target="#変更の統合機構"><span class="header-section-number">2.2</span> 変更の統合機構</a></li>
+  <li><a href="#参考" id="toc-参考" class="nav-link" data-scroll-target="#参考"><span class="header-section-number">2.3</span> 参考</a></li>
+  </ul></li>
+  <li><a href="#仕組み" id="toc-仕組み" class="nav-link" data-scroll-target="#仕組み"><span class="header-section-number">3</span> 仕組み</a>
+  <ul class="collapse">
+  <li><a href="#gitディレクトリの中身" id="toc-gitディレクトリの中身" class="nav-link" data-scroll-target="#gitディレクトリの中身"><span class="header-section-number">3.1</span> <code>.git</code>ディレクトリの中身</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -148,7 +196,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">著者</div>
     <div class="quarto-title-meta-contents">
-             <p>ぷに </p>
+             <p>ぷに Draft </p>
           </div>
   </div>
     
@@ -164,8 +212,8 @@ ul.task-list li input[type="checkbox"] {
   
 <div>
   <div class="abstract">
-    <div class="block-title">概要</div>
-    今年の都知事選では，GitHub をうまく用いた選挙活動が盛り上がりました．本ブログのように，個々人が情報発信をするプラットフォームを自分で持つことの意義は，今後ますます増していくでしょう（Note や Qiita などの文章共有サービスはいつ終了するかわかりません）．その際，GitHub は極めて便利なツールになります．法律家の方など，GitHub をはじめとして技術に詳しくなかった方も，これを機に GitHub に入門するためのチュートリアルをここにまとめていきたいと思います．
+    <div class="block-title">はじめに</div>
+    <p>今年の都知事選では，GitHub をうまく用いた選挙活動が盛り上がりました．本ブログのように，個々人が情報発信をするプラットフォームを自分で持つことの意義は，今後ますます増していくでしょう（Note や Qiita などの文章共有サービスはいつ終了するかわかりません）．その際，GitHub は極めて便利なツールになります．法律家の方など，GitHub をはじめとして技術に詳しくなかった方も，これを機に GitHub に入門するためのチュートリアルをここにまとめていきたいと思います．</p>
   </div>
 </div>
 
@@ -197,12 +245,70 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="導入" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="導入"><span class="header-section-number">2</span> 導入</h2>
+<section id="バージョン管理システム" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="バージョン管理システム"><span class="header-section-number">2.1</span> バージョン管理システム</h3>
+<p>Gitとは，<code>.git</code>に「スナップショットのストリーム」を保存する形で動く分散型（全てのユーザーがデータベース＝リポジトリのミラーリングを持つ形）のバージョン管理システムである．ここに独自の形式でsnapshotが保存される．</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Images/Working.png" class="img-fluid figure-img"></p>
+<figcaption>Workflow</figcaption>
+</figure>
+</div>
+</section>
+<section id="変更の統合機構" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="変更の統合機構"><span class="header-section-number">2.2</span> 変更の統合機構</h3>
+<p>Gitで2つのブランチを統合する方法は3つある．なお，<code>git pull</code>は<code>git fetch</code>と<code>git merge</code>（または<code>git rebase</code>）の合成である．</p>
+<section id="fast-forward" class="level4" data-number="2.2.1">
+<h4 data-number="2.2.1" class="anchored" data-anchor-id="fast-forward"><span class="header-section-number">2.2.1</span> <code>fast-forward</code></h4>
+<p>2つのブランチに違いがあると言っても，「リモートの<code>main</code>ブランチがローカルの<code>main</code>ブランチよりも進んでいる」などの単純な状況である場合は，ただブランチのポインターを「前に進める」だけで良い．</p>
+<p>基本，一人で開発しており，別の環境から作業を再開したい場合や，レポジトリが単一のブランチのみで開発が進んでいる場合などはこれで十分．</p>
+<p><code>git fast-forward</code>というコマンドがある訳ではなく，ブランチに分岐がない場合に<code>git merge</code>を実行した際に自動的に起こる．</p>
+</section>
+<section id="rebase" class="level4" data-number="2.2.2">
+<h4 data-number="2.2.2" class="anchored" data-anchor-id="rebase"><span class="header-section-number">2.2.2</span> <code>rebase</code></h4>
+<p>コミットを「基底状態(base)からの差分」だとすれば，このコミットを，別のブランチに取り込んで足並みを揃える際には<code>rebase</code>が行われる．</p>
+<p>他のブランチに適用したいところのコミットが存在するブランチに移動し，適用したいブランチ（例えば<code>target</code>ブランチ）に対して，</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> rebase target</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>と実行する．ローカルで<code>rebase</code>の引数を省略した場合は<code>refs/heads/main</code>に適用される．</p>
+</section>
+<section id="merge" class="level4" data-number="2.2.3">
+<h4 data-number="2.2.3" class="anchored" data-anchor-id="merge"><span class="header-section-number">2.2.3</span> <code>merge</code></h4>
+<p>2つのブランチの変更を組み合わせて，1つの新しいブランチにまとめる．</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> merge</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>により自動で統合を試みるが，失敗した場合は手動で解決する必要あり．</p>
+</section>
+</section>
+<section id="参考" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="参考"><span class="header-section-number">2.3</span> 参考</h3>
+<ul>
+<li><a href="https://backlog.com/ja/git-tutorial/intro/intro1_1.html">サル先生のGit入門</a></li>
+</ul>
+</section>
+</section>
+<section id="仕組み" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="仕組み"><span class="header-section-number">3</span> 仕組み</h2>
+<section id="gitディレクトリの中身" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="gitディレクトリの中身"><span class="header-section-number">3.1</span> <code>.git</code>ディレクトリの中身</h3>
+<ul>
+<li><code>HEAD</code>： 現在チェックアウトしているブランチを指します。これは通常、最新のコミットを指すリファレンスです。</li>
+<li><code>config</code>： プロジェクト固有のGit設定を含みます。これには、リモートリポジトリのURL、ブランチの設定などが含まれます。</li>
+<li><code>description</code>： GitWebプログラムで使用される説明ファイルですが、一般的なGit操作では使用されません。</li>
+<li><code>hooks/</code>： クライアント側またはサーバー側のフックスクリプトを格納するディレクトリです。これらのスクリプトは、特定のイベント（例えばコミットやプッシュ）が発生した際に自動的に実行されます。</li>
+<li><code>info/</code>： <code>.gitignore</code>ファイルに追跡しないパターンをグローバルに除外するためのファイルを含みます。</li>
+<li><code>objects/</code>： すべてのコンテンツ（コミット、ツリー、ブロブなど）が格納されるディレクトリです。これらはGitによって一意のハッシュ値で識別されます。</li>
+<li><code>refs/</code>： コミットオブジェクトを指し示すポインター（ブランチ、タグ、リモートなど）を含むディレクトリです。</li>
+<li><code>index</code>： ステージングエリアの情報を格納するファイルです。これは、<code>git add</code> などのコマンドでステージングされた変更を追跡します。</li>
+</ul>
 
 
 </section>
 </section>
 
-</main> <!-- /main -->
+<a onclick="window.scrollTo(0, 0); return false;" role="button" id="quarto-back-to-top"><i class="bi bi-arrow-up"></i> Back to top</a></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -238,7 +344,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -270,47 +387,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
-    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
-    var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/puniupa\.github\.io\/");
-    var isInternal = (href) => {
-        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
-    }
-    // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
-    for (var i=0; i<links.length; i++) {
-      const link = links[i];
-      if (!isInternal(link.href)) {
-        // undo the damage that might have been done by quarto-nav.js in the case of
-        // links that we want to consider external
-        if (link.dataset.originalHref !== undefined) {
-          link.href = link.dataset.originalHref;
-        }
-      }
-    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -345,11 +422,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      if (note) {
-        return note.innerHTML;
-      } else {
-        return "";
-      }
+      return note.innerHTML;
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
@@ -674,8 +747,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-left">
       <ul class="footer-items list-unstyled">
     <li class="nav-item">
-    <a class="nav-link" href="https://162348.github.io/">
-<p>Hirofumi Shiba, Shiori Sagae</p>
+    <a class="nav-link" href="https://puniupa.github.io/">
+<p>ぷにうぱ</p>
 </a>
   </li>  
 </ul>
@@ -686,7 +759,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     <div class="nav-footer-right">
       <ul class="footer-items list-unstyled">
     <li class="nav-item compact">
-    <a class="nav-link" href="https://github.com/162348/162348.github.io/">
+    <a class="nav-link" href="https://github.com/puniupa/puniupa.github.io/">
       <i class="bi bi-github" role="img">
 </i> 
     </a>

@@ -1,6 +1,6 @@
 ---
 title: "Recent Posts"
-description: "法律家と数学者によるブログ"
+description: "法律家と研究者によるブログ"
 listing:
   contents: posts
   sort: "date desc"
@@ -9,7 +9,8 @@ listing:
   sort-ui: false
   filter-ui: false
   feed: true
-  max-description-length: 100
+  exclude: 
+    author: "{Draft Draft,ぷに Draft,うぱ Draft}"
 page-layout: full
 title-block-banner: true
 comments: false

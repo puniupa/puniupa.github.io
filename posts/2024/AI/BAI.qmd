@@ -1,9 +1,9 @@
 ---
 title: "これからはじめるベイズ機械学習"
 subtitle: "所信表明を兼ねて"
-author: "司馬博文"
+author: "ぷに"
 date: 3/20/2024
-categories: [ベイズ統計, AI]
+categories: [AI]
 bibliography: 
     - ../../../assets/mathematics.bib
     - ../../../assets/bib.bib
