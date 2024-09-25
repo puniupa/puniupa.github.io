@@ -16,48 +16,81 @@ abstract: 各国の生成AI関連政策動向をまとめたメモ
 
 ## 日本
 ### 「AI事業者ガイドライン」の公表
-　日本で議論の中心になっているのは経済産業省と総務省。松尾豊教授などを検討会議に呼んで、官民学連携の議論を行おうとしている。2024年4月には、「AI事業者ガイドライン（1.0版）」を公表している。なお、知的財産関連の議論は、別途内閣府知的財産戦略推進事務局や文化庁文化審議会著作権分科会法制度小委員会が行なっている。
+　日本で議論の中心になっているのは経済産業省と総務省。松尾豊教授を座長としたAI戦略会議に呼んで、官民学連携の議論を行おうとしている。2024年4月19日には、「AI事業者ガイドライン（1.0版）」を公表した。なお、知的財産関連の議論は、別途内閣府知的財産戦略推進事務局や文化庁文化審議会著作権分科会法制度小委員会が行なっている。
 
-　生成AI関連の議論が公的に、かつ、大々的になされたのは、2023年5月、G７広島サミットにおいて、生成AIに関する国際的なルール検討「広島AIプロセス」の立ち上げからではないか。その後、総務省が主導して作成した「AI開発ガイドライン案」、経産省が主導して作成した「AI原則実践のためのガバナンスガイドライン」が公表されている。それらを他の指針を含めた形でまとめたものが上のガイドライン。ざっとこのような位置付けになっているらしい。
+　生成AI関連の議論が公的に、かつ、大々的になされ始めたのは、2023年5月、G７広島サミットにおいて、生成AIに関する国際的なルール検討「広島AIプロセス」の立ち上げからと見られる。その後、総務省が主導して作成した「AI開発ガイドライン案」、経産省が主導して作成した「AI原則実践のためのガバナンスガイドライン」が公表されている。これらの既存のガイドラインと他の指針を含めた形で統合・アップデートしたものが上のガイドライン。ざっとこのような位置付けになっているらしい。
+https://www.meti.go.jp/press/2024/04/20240419004/20240419004.html
 
-　同ガイドラインの基本的な方針としては、関係者による自主的な取り組みと非拘束的なソフトロールによって規律することを中心にすえる。関係者をAI開発事業者、サービス提供者、ユーザーそれぞれの立場に分類し、企業における対策の方向性を示すというのが目的。
+　同ガイドラインの基本的な方針は、関係者による自主的な取り組みと非拘束的なソフトロールによって規律することにある。生成AIサービスの利害関係者をAI開発者、AI提供者、AI利用者のそれぞれの立場に分類し、企業等における対策の方向性を示すというのが目的。
 
-　主要な価値としては、人間中心・安全性（信頼性・堅牢性）、公平性、透明性、アカウンタビリティ、トレーサビリティなどが挙げられている。
+　主要な価値としては、人間中心、安全性（信頼性・堅牢性）、公平性、プライバシー保護、セキュリティ確保、透明性、アカウンタビリティ、教育・リテラシー、公正競争確保、イノベーションが挙げられるなどを確認した。共通指針を示した上で、それぞれの立場における対策の方向性を示すことが目的。
+それぞれの立場における重要事項について主要だと思われるところをとめると以下のようになる。問題をなるべく網羅的に捉えて、時系列・立場別にまとめたという点では重要なのかもしれないが、このガイドラインのみをみて、新たに企業側が「じゃあこれをすれば良いのか」という具体的なステップを示すものではないという感じを受けた。
+
+　　AI開発者
+　　・プライバシーや知財に留意したデータの取り扱い
+　　・潜在的バイアスの防止（学習時や出力後の確認）
+　　・予期しない環境での利用に耐える性能や方針
+　　・不適切な出力の防止
+　　・セキュリティ対策
+　　・検証可能性（作業記録）
+　　・関連ステークホルダーへの情報提供
+
+　　AI提供者　　
+　　・システム実装時におけるガードレール技術等の検討
+　　・AI開発者の設定範囲内の利用
+　　・バイアス発生のモニタリング
+　　・個人情報アクセスの管理、制限
+　　・セキュリティ対策
+
+　AI利用者
+　　・規約遵守
+　　・バイアスへの配慮
+　　・個人情報の取り扱い
+　　・セキュリティ対策
 
 ### 「AI開発ガイドライン案」の公表
-　2024年2月には、IPA（情報処理推進機構）が「AI Safety Institute」を設立している。これは下記にも紹介する他国でのAIシステム評価機関の設立の動きに対応したものだと考えられる。まだリリースがなされただけで、具体的な活動が公表されているわけではないようだが、注目していきたいグループ。
+　2024年2月には、IPA（情報処理推進機構）の下に「AI Safety Institute」が設立された。所長は、IBAのWatson開発者である村上明子氏。これは下記にも紹介する他国でのAIシステム評価機関の設立の動きに対応したものだと考えられる。まだリリースがなされただけで、具体的な活動が公表されているわけではないようだが、注目していきたいグループ。
 
 ## アメリカ
 ### USAISIの設置
-　米国は、AIシステム評価機関として、NIST（ National Institute of Standards and Technology ）にUS AI Safety Institute（USAISI）を設置。
+　米国は、2024年2月8日、AIシステム評価機関としてNIST（ National Institute of Standards and Technology ）の下にUS AI Safety Institute（USAISI）を設置。
 
-"One of the key challenges in achieving and sustaining safe AI innovation is a lack of scientific study of AI safety. A reliable, reproducible science of AI safety is urgently needed to accurately evaluate the capabilities and risks of models and systems and assess the effectiveness of mitigations and safeguards."
+バイデン政権下で"safe, secure, trustworthy"なAIの開発を目指して始動し、モデルやシステムの安全性評価機関として機能することを目標としている。ちなみに、トップは Elizabeth Kelly（ J.D. from Yale Law School, an MSc in Comparative Social Policy from the University of Oxford, and a B.A. from Duke University ）とElham Tabassi（機械学習とComputer Visionの研究者であり、OECDのAIガバナンスに関するワーキンググループの副議長だった）。
 
-とのこと。バイデン政権下で"safe, secure, trustworthy"なAIの開発を目指して始動し、モデルやシステムの安全性評価機関として機能することを目標としている。ちなみに、トップは Elizabeth Kelly（ J.D. from Yale Law School, an MSc in Comparative Social Policy from the University of Oxford, and a B.A. from Duke University ）とElham Tabassi（機械学習とComputer Visionの研究者であり、OECDのAIガバナンスに関するワーキンググループの副議長だった）。
-
-　なお、2024年2月には、バイデン大統領令"Executive Order on the Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence"の下、初のコンソーシアム「AISIC」が開催された。2024年4月時点のリリースでは、NISTは人間が作成したコンテンツとAIが作成したコンテンツの区別がつけられるような手法の開発をしていることが紹介されている。
+　なお、2024年2月には、バイデン大統領令"Executive Order on the Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence"（2023年10月30日）の下、初のコンソーシアム「AISIC」が開催された（参加者は200名以上）。2024年4月時点のリリースでは、NISTは人間が作成したコンテンツとAIが作成したコンテンツの区別がつけられるような手法の開発をしていることが紹介されている。
 
 　公表された書面のうち、重要なものとしては以下のものがある。これらの内容については後日まとめ直したい。
 
-  Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile
+  ＊Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile
 
-  Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile
+  ＊Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile
 
-  A Plan for Global Engagement on AI Standards
+  ＊A Plan for Global Engagement on AI Standards
 
-  Managing Misuse Risk for Dual-Use Foundation Models
+  ＊Managing Misuse Risk for Dual-Use Foundation Models
 
 ### USPTOにおける議論
-　USPTO（U.S. Patent and Trademark Office）は、米国特許法上の特許要件を充足するために必要な発明の属する技術分野の通常の知識（ordinary skills in the arts）にAIがどのような影響を与えるかについて検討を進め、パブリックコメントを要求している。2024年の早い段階でAI-assisted inventionについてのガイドラインを公表する予定らしい（とはいえ、リリースが2024年4月29日の段階で、まだ公表されていないようである）。
+　USPTO（U.S. Patent and Trademark Office）は、米国特許法上の特許要件を充足するために必要な発明の属する技術分野の通常の知識（ordinary skills in the arts）にAIがどのような影響を与えるかについて検討を進め、パブリックコメントを要求した。2024年2月13日には、ガイドライン"Inventorship Guidance for AI-assisted Inventions"を公表した。
+https://www.uspto.gov/subscription-center/2024/uspto-issues-inventorship-guidance-and-examples-ai-assisted-inventions
+https://www.uspto.gov/subscription-center/2024/uspto-issues-inventorship-guidance-and-examples-ai-assisted-inventions
+https://www.federalregister.gov/documents/2024/02/13/2024-02623/inventorship-guidance-for-ai-assisted-inventions
+
 
 ## イギリス
 ### AI Safety Instituteの設置
-　イギリスにおいても、AIシステムの安全性評価機関としてAI Safety Instituteを設置している。英国政府のDepartment for Science, Innovation and Technologyの下に設置されている政府内スタートアップという位置付けである。
+　イギリスにおいても、2023年11月、AIシステムの安全性評価機関としてAI Safety Instituteが設置されている。英国政府のDepartment for Science, Innovation and Technologyの下に設置されている政府内スタートアップという位置付けである。
+https://www.gov.uk/government/publications/ai-safety-institute-overview/introducing-the-ai-safety-institute
 
-　所属しているメンバーを見てみるとYoshua Bengio（NNの研究者）、国家安全保障の専門家、Jade Leng（Open AIのガバナンスチームに所属）などがいる。
+　所属しているメンバーを見てみるとYoshua Bengio（NNの研究者）、国家安全保障の専門家、Jade Leng（Open AIのガバナンスチームに所属）などがいる堂々たる顔ぶれ。
 
 　評価対象には、Misuse（モデルがサイバー上、科学的、生物学的な攻撃に使われる可能性）、Societal Impacts（民主主義、個人の幸福への影響や不平等な結果をもたらす可能性）、Autonomy（モデルが人間とどのように相互作用し、あるいは操作し、人間の介入を排除するか）が挙げられている。
 
-これまで行なってきたこととしては、AI Safety Summitの実施、USAISIとの連携、国際的なサイエンスレポート（Yoshua Bengioが率いる）の作成がある。International AI Safety ReportやProgress Preport（第1版から第4版まで公表されている）など公開文書については、後日まとめ直したい。
+　これまで行なってきたこととしては、AI Safety Summitの実施、USAISIとの連携、国際的なサイエンスレポート（Yoshua Bengioが率いる）の作成がある。International AI Safety ReportやProgress Preport（第1版から第4版まで公表されている）など公開文書については、後日まとめ直したい。
 
 ## EU
+### AI Actの策定
+　EUでは、European AI Office (EUAIO)が中心になっている模様。EUAIOは、European Commissionの下に設置されている機関で、2024年に制定されたAI Actの策定主体でもある。2024年1月にはAI Innovation Packageを開始。GenAI4EU initiativesは、その構成要素になっている。
+ちなみに、AI Actの特設サイトがある。
+https://artificialintelligenceact.eu/
+
+　なお、EUAIOと連携して活動している主体として、European Artificial Intelligence BoardやEuropean Center for Algorithmic Transparency(ECAT)がある。ECATは、AIだけではなく、Digital Service Actのパッケージを策定したりしている機関。EUAIOやAI Actのサイトのアップデートを追っていくだけでも十分意味がありそう。
