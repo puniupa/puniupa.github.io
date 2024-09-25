@@ -15,7 +15,76 @@
 <link>https://puniupa.github.io/static/all.html</link>
 </image>
 <generator>quarto-1.5.57</generator>
-<lastBuildDate>Mon, 02 Sep 2024 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Tue, 24 Sep 2024 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>各国の生成AI関連政策動向 [第1弾]</title>
+  <dc:creator>うぱ </dc:creator>
+  <link>https://puniupa.github.io/posts/2024/AI/各国の生成AI関連政策.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<section id="はじめに" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="はじめに"><span class="header-section-number">1</span> はじめに</h2>
+<p>　各国で進む生成AI関連の議論は、知的財産の問題から、プライバシー、サイバーセキュリティ、制度の信頼性・正確性確保など、多様な観点から行われており、五月雨式に流れてくる感が否めない。その中で純粋にIPマターなものを除く形で、生成AI関連企業を各国がどのように規制しようとしているのかをリサーチし、情報をアップデートしていこうと思う。</p>
+</section>
+<section id="日本" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="日本"><span class="header-section-number">2</span> 日本</h2>
+<section id="ai事業者ガイドラインの公表" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="ai事業者ガイドラインの公表"><span class="header-section-number">2.1</span> 「AI事業者ガイドライン」の公表</h3>
+<p>　日本で議論の中心になっているのは経済産業省と総務省。松尾豊教授などを検討会議に呼んで、官民学連携の議論を行おうとしている。2024年4月には、「AI事業者ガイドライン（1.0版）」を公表している。なお、知的財産関連の議論は、別途内閣府知的財産戦略推進事務局や文化庁文化審議会著作権分科会法制度小委員会が行なっている。</p>
+<p>　生成AI関連の議論が公的に、かつ、大々的になされたのは、2023年5月、G７広島サミットにおいて、生成AIに関する国際的なルール検討「広島AIプロセス」の立ち上げからではないか。その後、総務省が主導して作成した「AI開発ガイドライン案」、経産省が主導して作成した「AI原則実践のためのガバナンスガイドライン」が公表されている。それらを他の指針を含めた形でまとめたものが上のガイドライン。ざっとこのような位置付けになっているらしい。</p>
+<p>　同ガイドラインの基本的な方針としては、関係者による自主的な取り組みと非拘束的なソフトロールによって規律することを中心にすえる。関係者をAI開発事業者、サービス提供者、ユーザーそれぞれの立場に分類し、企業における対策の方向性を示すというのが目的。</p>
+<p>　主要な価値としては、人間中心・安全性（信頼性・堅牢性）、公平性、透明性、アカウンタビリティ、トレーサビリティなどが挙げられている。</p>
+</section>
+<section id="ai開発ガイドライン案の公表" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="ai開発ガイドライン案の公表"><span class="header-section-number">2.2</span> 「AI開発ガイドライン案」の公表</h3>
+<p>　2024年2月には、IPA（情報処理推進機構）が「AI Safety Institute」を設立している。これは下記にも紹介する他国でのAIシステム評価機関の設立の動きに対応したものだと考えられる。まだリリースがなされただけで、具体的な活動が公表されているわけではないようだが、注目していきたいグループ。</p>
+</section>
+</section>
+<section id="アメリカ" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="アメリカ"><span class="header-section-number">3</span> アメリカ</h2>
+<section id="usaisiの設置" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="usaisiの設置"><span class="header-section-number">3.1</span> USAISIの設置</h3>
+<p>　米国は、AIシステム評価機関として、NIST（ National Institute of Standards and Technology ）にUS AI Safety Institute（USAISI）を設置。</p>
+<p>“One of the key challenges in achieving and sustaining safe AI innovation is a lack of scientific study of AI safety. A reliable, reproducible science of AI safety is urgently needed to accurately evaluate the capabilities and risks of models and systems and assess the effectiveness of mitigations and safeguards.”</p>
+<p>とのこと。バイデン政権下で”safe, secure, trustworthy”なAIの開発を目指して始動し、モデルやシステムの安全性評価機関として機能することを目標としている。ちなみに、トップは Elizabeth Kelly（ J.D. from Yale Law School, an MSc in Comparative Social Policy from the University of Oxford, and a B.A. from Duke University ）とElham Tabassi（機械学習とComputer Visionの研究者であり、OECDのAIガバナンスに関するワーキンググループの副議長だった）。</p>
+<p>　なお、2024年2月には、バイデン大統領令”Executive Order on the Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence”の下、初のコンソーシアム「AISIC」が開催された。2024年4月時点のリリースでは、NISTは人間が作成したコンテンツとAIが作成したコンテンツの区別がつけられるような手法の開発をしていることが紹介されている。</p>
+<p>　公表された書面のうち、重要なものとしては以下のものがある。これらの内容については後日まとめ直したい。</p>
+<p>Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile</p>
+<p>Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile</p>
+<p>A Plan for Global Engagement on AI Standards</p>
+<p>Managing Misuse Risk for Dual-Use Foundation Models</p>
+</section>
+<section id="usptoにおける議論" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="usptoにおける議論"><span class="header-section-number">3.2</span> USPTOにおける議論</h3>
+<p>　USPTO（U.S. Patent and Trademark Office）は、米国特許法上の特許要件を充足するために必要な発明の属する技術分野の通常の知識（ordinary skills in the arts）にAIがどのような影響を与えるかについて検討を進め、パブリックコメントを要求している。2024年の早い段階でAI-assisted inventionについてのガイドラインを公表する予定らしい（とはいえ、リリースが2024年4月29日の段階で、まだ公表されていないようである）。</p>
+</section>
+</section>
+<section id="イギリス" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="イギリス"><span class="header-section-number">4</span> イギリス</h2>
+<section id="ai-safety-instituteの設置" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="ai-safety-instituteの設置"><span class="header-section-number">4.1</span> AI Safety Instituteの設置</h3>
+<p>　イギリスにおいても、AIシステムの安全性評価機関としてAI Safety Instituteを設置している。英国政府のDepartment for Science, Innovation and Technologyの下に設置されている政府内スタートアップという位置付けである。</p>
+<p>　所属しているメンバーを見てみるとYoshua Bengio（NNの研究者）、国家安全保障の専門家、Jade Leng（Open AIのガバナンスチームに所属）などがいる。</p>
+<p>　評価対象には、Misuse（モデルがサイバー上、科学的、生物学的な攻撃に使われる可能性）、Societal Impacts（民主主義、個人の幸福への影響や不平等な結果をもたらす可能性）、Autonomy（モデルが人間とどのように相互作用し、あるいは操作し、人間の介入を排除するか）が挙げられている。</p>
+<p>これまで行なってきたこととしては、AI Safety Summitの実施、USAISIとの連携、国際的なサイエンスレポート（Yoshua Bengioが率いる）の作成がある。International AI Safety ReportやProgress Preport（第1版から第4版まで公表されている）など公開文書については、後日まとめ直したい。</p>
+</section>
+</section>
+<section id="eu" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="eu"><span class="header-section-number">5</span> EU</h2>
+
+
+</section>
+
+ ]]></description>
+  <category>Blog</category>
+  <category>AI</category>
+  <guid>https://puniupa.github.io/posts/2024/AI/各国の生成AI関連政策.html</guid>
+  <pubDate>Tue, 24 Sep 2024 00:00:00 GMT</pubDate>
+  <media:content url="https://puniupa.github.io/posts/2024/AI/Images/GitHub.jpg" medium="image" type="image/jpeg"/>
+</item>
 <item>
   <title>うぱ・夏の韓国インターン１週間目</title>
   <dc:creator>ぷに Draft</dc:creator>
@@ -1282,7 +1351,7 @@ font-style: inherit;">git</span> merge</span></code></pre></div>
 <h2 data-number="1" class="anchored" data-anchor-id="euv-リトグラフィ"><span class="header-section-number">1</span> EUV リトグラフィ</h2>
 <p><a href="https://ja.wikipedia.org/wiki/%E6%A5%B5%E7%AB%AF%E7%B4%AB%E5%A4%96%E7%B7%9A%E3%83%AA%E3%82%BD%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3">極端紫外線リソグラフィ</a> (Extreme Ultraviolet Lithography) は波長 13.5 nm で露光する技術である．</p>
 <p>オランダの <a href="https://ja.wikipedia.org/wiki/ASML">ASML</a> 社が唯一 EUV 露光装置を製造している．</p>
-<p></p><div id="tweet-81042"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-81042").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-61892"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-61892").innerHTML = tweet["html"];</script><p></p>
 <a class="embedly-card" href="https://www.scmp.com/economy/global-economy/article/3257118/china-asks-netherlands-exporter-worlds-top-chipmaking-equipment-avoid-decoupling?utm_source=twitter&amp;utm_campaign=3257118&amp;utm_medium=share_widget">China asks Netherlands, with world-leading chipmaking equipment, to not decouple</a><script async="" src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 <p>ここまで短い波長では光を透過するレンズはなく，反射鏡で光学系を構成する必要がある．13.5 nm という波長はミラーの反射率の極大点の１つをとって決定された． <img src="https://latex.codecogs.com/png.latex?0.68%5E%7B12%7D=0.98"> というように重ねて用いる．</p>
 <div class="quarto-figure quarto-figure-center">

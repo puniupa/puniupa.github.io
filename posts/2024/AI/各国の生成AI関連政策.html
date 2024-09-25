@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="ぷに Draft">
+<meta name="author" content="うぱ">
 
-<title>半導体の微細化技術 – ぷにうぱ</title>
+<title>各国の生成AI関連政策動向 [第1弾] – ぷにうぱ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,26 +21,7 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for citations */
-div.csl-bib-body { }
-div.csl-entry {
-  clear: both;
-}
-.hanging-indent div.csl-entry {
-  margin-left:2em;
-  text-indent:-2em;
-}
-div.csl-left-margin {
-  min-width:2em;
-  float:left;
-}
-div.csl-right-inline {
-  margin-left:2em;
-  padding-left:1em;
-}
-div.csl-indent {
-  margin-left: 2em;
-}</style>
+</style>
 
 
 <script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -93,48 +74,15 @@ div.csl-indent {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../../../assets/styles.css">
-<meta property="og:title" content="半導体の微細化技術 – ぷにうぱ">
-<meta property="og:description" content="半導体デバイスの微細化技術をレビューする．">
-<meta property="og:image" content="https://puniupa.github.io/posts/2024/半導体/Images/反射率.png">
+<meta property="og:title" content="各国の生成AI関連政策動向 [第1弾] – ぷにうぱ">
+<meta property="og:description" content="各国の生成AI関連政策動向をまとめたメモ">
+<meta property="og:image" content="https://puniupa.github.io/posts/2024/AI/Images/GitHub.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
-<meta property="og:image:height" content="894">
-<meta property="og:image:width" content="1200">
-<meta name="twitter:title" content="半導体の微細化技術 – ぷにうぱ">
-<meta name="twitter:description" content="半導体デバイスの微細化技術をレビューする．">
-<meta name="twitter:image" content="https://puniupa.github.io/posts/2024/半導体/Images/反射率.png">
-<meta name="twitter:image-height" content="894">
-<meta name="twitter:image-width" content="1200">
+<meta name="twitter:title" content="各国の生成AI関連政策動向 [第1弾] – ぷにうぱ">
+<meta name="twitter:description" content="各国の生成AI関連政策動向をまとめたメモ">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/2024/AI/Images/GitHub.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -179,7 +127,22 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#euv-リトグラフィ" id="toc-euv-リトグラフィ" class="nav-link active" data-scroll-target="#euv-リトグラフィ"><span class="header-section-number">1</span> EUV リトグラフィ</a></li>
+  <li><a href="#はじめに" id="toc-はじめに" class="nav-link active" data-scroll-target="#はじめに"><span class="header-section-number">1</span> はじめに</a></li>
+  <li><a href="#日本" id="toc-日本" class="nav-link" data-scroll-target="#日本"><span class="header-section-number">2</span> 日本</a>
+  <ul class="collapse">
+  <li><a href="#ai事業者ガイドラインの公表" id="toc-ai事業者ガイドラインの公表" class="nav-link" data-scroll-target="#ai事業者ガイドラインの公表"><span class="header-section-number">2.1</span> 「AI事業者ガイドライン」の公表</a></li>
+  <li><a href="#ai開発ガイドライン案の公表" id="toc-ai開発ガイドライン案の公表" class="nav-link" data-scroll-target="#ai開発ガイドライン案の公表"><span class="header-section-number">2.2</span> 「AI開発ガイドライン案」の公表</a></li>
+  </ul></li>
+  <li><a href="#アメリカ" id="toc-アメリカ" class="nav-link" data-scroll-target="#アメリカ"><span class="header-section-number">3</span> アメリカ</a>
+  <ul class="collapse">
+  <li><a href="#usaisiの設置" id="toc-usaisiの設置" class="nav-link" data-scroll-target="#usaisiの設置"><span class="header-section-number">3.1</span> USAISIの設置</a></li>
+  <li><a href="#usptoにおける議論" id="toc-usptoにおける議論" class="nav-link" data-scroll-target="#usptoにおける議論"><span class="header-section-number">3.2</span> USPTOにおける議論</a></li>
+  </ul></li>
+  <li><a href="#イギリス" id="toc-イギリス" class="nav-link" data-scroll-target="#イギリス"><span class="header-section-number">4</span> イギリス</a>
+  <ul class="collapse">
+  <li><a href="#ai-safety-instituteの設置" id="toc-ai-safety-instituteの設置" class="nav-link" data-scroll-target="#ai-safety-instituteの設置"><span class="header-section-number">4.1</span> AI Safety Instituteの設置</a></li>
+  </ul></li>
+  <li><a href="#eu" id="toc-eu" class="nav-link" data-scroll-target="#eu"><span class="header-section-number">5</span> EU</a></li>
   </ul>
 </nav>
     </div>
@@ -188,9 +151,10 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">半導体の微細化技術</h1>
+<h1 class="title">各国の生成AI関連政策動向 [第1弾]</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">半導体</div>
+    <div class="quarto-category">Blog</div>
+    <div class="quarto-category">AI</div>
   </div>
   </div>
 
@@ -201,24 +165,30 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">著者</div>
     <div class="quarto-title-meta-contents">
-             <p>ぷに Draft </p>
+             <p>うぱ </p>
           </div>
   </div>
     
     <div>
     <div class="quarto-title-meta-heading">日付</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">3/23/2024</p>
+      <p class="date">9/24/2024</p>
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">9/24/2024</p>
+    </div>
+  </div>
     
   </div>
   
 <div>
   <div class="abstract">
     <div class="block-title">はじめに</div>
-    半導体デバイスの微細化技術をレビューする．
+    各国の生成AI関連政策動向をまとめたメモ
   </div>
 </div>
 
@@ -226,35 +196,60 @@ window.Quarto = {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="https://www.heas.jp/lecture/files/uchiyama.pdf"><img src="Images/次世代技術.png" class="img-fluid figure-img" alt="(内山貴之, 2015) より．"></a></p>
-<figcaption><span class="citation" data-cites="内山貴之2015">(<a href="#ref-内山貴之2015" role="doc-biblioref">内山貴之, 2015</a>)</span> より．</figcaption>
-</figure>
-</div>
-<section id="euv-リトグラフィ" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="euv-リトグラフィ"><span class="header-section-number">1</span> EUV リトグラフィ</h2>
-<p><a href="https://ja.wikipedia.org/wiki/%E6%A5%B5%E7%AB%AF%E7%B4%AB%E5%A4%96%E7%B7%9A%E3%83%AA%E3%82%BD%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3">極端紫外線リソグラフィ</a> (Extreme Ultraviolet Lithography) は波長 13.5 nm で露光する技術である．</p>
-<p>オランダの <a href="https://ja.wikipedia.org/wiki/ASML">ASML</a> 社が唯一 EUV 露光装置を製造している．</p>
-<p></p><div id="tweet-61892"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-61892").innerHTML = tweet["html"];</script><p></p>
-<a class="embedly-card" href="https://www.scmp.com/economy/global-economy/article/3257118/china-asks-netherlands-exporter-worlds-top-chipmaking-equipment-avoid-decoupling?utm_source=twitter&amp;utm_campaign=3257118&amp;utm_medium=share_widget">China asks Netherlands, with world-leading chipmaking equipment, to not decouple</a><script async="" src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
-<p>ここまで短い波長では光を透過するレンズはなく，反射鏡で光学系を構成する必要がある．13.5 nm という波長はミラーの反射率の極大点の１つをとって決定された． <span class="math inline">\(0.68^{12}=0.98\)</span> というように重ねて用いる．</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="Images/反射率.png" class="img-fluid figure-img"></p>
-<figcaption><span class="citation" data-cites="内山貴之2015">(<a href="#ref-内山貴之2015" role="doc-biblioref">内山貴之, 2015</a>)</span>　より．</figcaption>
-</figure>
-</div>
-
+<section id="はじめに" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="はじめに"><span class="header-section-number">1</span> はじめに</h2>
+<p>　各国で進む生成AI関連の議論は、知的財産の問題から、プライバシー、サイバーセキュリティ、制度の信頼性・正確性確保など、多様な観点から行われており、五月雨式に流れてくる感が否めない。その中で純粋にIPマターなものを除く形で、生成AI関連企業を各国がどのように規制しようとしているのかをリサーチし、情報をアップデートしていこうと思う。</p>
+</section>
+<section id="日本" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="日本"><span class="header-section-number">2</span> 日本</h2>
+<section id="ai事業者ガイドラインの公表" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="ai事業者ガイドラインの公表"><span class="header-section-number">2.1</span> 「AI事業者ガイドライン」の公表</h3>
+<p>　日本で議論の中心になっているのは経済産業省と総務省。松尾豊教授などを検討会議に呼んで、官民学連携の議論を行おうとしている。2024年4月には、「AI事業者ガイドライン（1.0版）」を公表している。なお、知的財産関連の議論は、別途内閣府知的財産戦略推進事務局や文化庁文化審議会著作権分科会法制度小委員会が行なっている。</p>
+<p>　生成AI関連の議論が公的に、かつ、大々的になされたのは、2023年5月、G７広島サミットにおいて、生成AIに関する国際的なルール検討「広島AIプロセス」の立ち上げからではないか。その後、総務省が主導して作成した「AI開発ガイドライン案」、経産省が主導して作成した「AI原則実践のためのガバナンスガイドライン」が公表されている。それらを他の指針を含めた形でまとめたものが上のガイドライン。ざっとこのような位置付けになっているらしい。</p>
+<p>　同ガイドラインの基本的な方針としては、関係者による自主的な取り組みと非拘束的なソフトロールによって規律することを中心にすえる。関係者をAI開発事業者、サービス提供者、ユーザーそれぞれの立場に分類し、企業における対策の方向性を示すというのが目的。</p>
+<p>　主要な価値としては、人間中心・安全性（信頼性・堅牢性）、公平性、透明性、アカウンタビリティ、トレーサビリティなどが挙げられている。</p>
+</section>
+<section id="ai開発ガイドライン案の公表" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="ai開発ガイドライン案の公表"><span class="header-section-number">2.2</span> 「AI開発ガイドライン案」の公表</h3>
+<p>　2024年2月には、IPA（情報処理推進機構）が「AI Safety Institute」を設立している。これは下記にも紹介する他国でのAIシステム評価機関の設立の動きに対応したものだと考えられる。まだリリースがなされただけで、具体的な活動が公表されているわけではないようだが、注目していきたいグループ。</p>
+</section>
+</section>
+<section id="アメリカ" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="アメリカ"><span class="header-section-number">3</span> アメリカ</h2>
+<section id="usaisiの設置" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="usaisiの設置"><span class="header-section-number">3.1</span> USAISIの設置</h3>
+<p>　米国は、AIシステム評価機関として、NIST（ National Institute of Standards and Technology ）にUS AI Safety Institute（USAISI）を設置。</p>
+<p>“One of the key challenges in achieving and sustaining safe AI innovation is a lack of scientific study of AI safety. A reliable, reproducible science of AI safety is urgently needed to accurately evaluate the capabilities and risks of models and systems and assess the effectiveness of mitigations and safeguards.”</p>
+<p>とのこと。バイデン政権下で”safe, secure, trustworthy”なAIの開発を目指して始動し、モデルやシステムの安全性評価機関として機能することを目標としている。ちなみに、トップは Elizabeth Kelly（ J.D. from Yale Law School, an MSc in Comparative Social Policy from the University of Oxford, and a B.A. from Duke University ）とElham Tabassi（機械学習とComputer Visionの研究者であり、OECDのAIガバナンスに関するワーキンググループの副議長だった）。</p>
+<p>　なお、2024年2月には、バイデン大統領令”Executive Order on the Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence”の下、初のコンソーシアム「AISIC」が開催された。2024年4月時点のリリースでは、NISTは人間が作成したコンテンツとAIが作成したコンテンツの区別がつけられるような手法の開発をしていることが紹介されている。</p>
+<p>　公表された書面のうち、重要なものとしては以下のものがある。これらの内容については後日まとめ直したい。</p>
+<p>Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile</p>
+<p>Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile</p>
+<p>A Plan for Global Engagement on AI Standards</p>
+<p>Managing Misuse Risk for Dual-Use Foundation Models</p>
+</section>
+<section id="usptoにおける議論" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="usptoにおける議論"><span class="header-section-number">3.2</span> USPTOにおける議論</h3>
+<p>　USPTO（U.S. Patent and Trademark Office）は、米国特許法上の特許要件を充足するために必要な発明の属する技術分野の通常の知識（ordinary skills in the arts）にAIがどのような影響を与えるかについて検討を進め、パブリックコメントを要求している。2024年の早い段階でAI-assisted inventionについてのガイドラインを公表する予定らしい（とはいえ、リリースが2024年4月29日の段階で、まだ公表されていないようである）。</p>
+</section>
+</section>
+<section id="イギリス" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="イギリス"><span class="header-section-number">4</span> イギリス</h2>
+<section id="ai-safety-instituteの設置" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="ai-safety-instituteの設置"><span class="header-section-number">4.1</span> AI Safety Instituteの設置</h3>
+<p>　イギリスにおいても、AIシステムの安全性評価機関としてAI Safety Instituteを設置している。英国政府のDepartment for Science, Innovation and Technologyの下に設置されている政府内スタートアップという位置付けである。</p>
+<p>　所属しているメンバーを見てみるとYoshua Bengio（NNの研究者）、国家安全保障の専門家、Jade Leng（Open AIのガバナンスチームに所属）などがいる。</p>
+<p>　評価対象には、Misuse（モデルがサイバー上、科学的、生物学的な攻撃に使われる可能性）、Societal Impacts（民主主義、個人の幸福への影響や不平等な結果をもたらす可能性）、Autonomy（モデルが人間とどのように相互作用し、あるいは操作し、人間の介入を排除するか）が挙げられている。</p>
+<p>これまで行なってきたこととしては、AI Safety Summitの実施、USAISIとの連携、国際的なサイエンスレポート（Yoshua Bengioが率いる）の作成がある。International AI Safety ReportやProgress Preport（第1版から第4版まで公表されている）など公開文書については、後日まとめ直したい。</p>
+</section>
+</section>
+<section id="eu" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="eu"><span class="header-section-number">5</span> EU</h2>
 
 
 </section>
 
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
-<div id="ref-内山貴之2015" class="csl-entry" role="listitem">
-内山貴之. (2015). <em>半導体向けEUVリソグラフィの現状と展望</em>. 東芝. Retrieved from <a href="https://www.heas.jp/lecture/files/uchiyama.pdf">https://www.heas.jp/lecture/files/uchiyama.pdf</a>
-</div>
-</div></section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -763,5 +758,4 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 
 
 
-<script src="https://platform.twitter.com/widgets.js"></script>
 </body></html>
