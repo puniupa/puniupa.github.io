@@ -1,12 +1,11 @@
 ---
-title: "各国の生成AI関連政策動向"
+title: "各国の生成AI関連政策動向 [第1弾]"
 author: "うぱ"
 date: 9/24/2024
 date-modified: 9/24/2024
 image: Images/GitHub.jpg
 categories: [Blog, AI]
 bibliography: 
-    - ../../../assets/AI.bib
     - ../../../assets/bib.bib
 csl: ../../../assets/apalike.csl
 abstract: 各国の生成AI関連政策動向をまとめたメモ
@@ -29,8 +28,8 @@ abstract: 各国の生成AI関連政策動向をまとめたメモ
 　2024年2月には、IPA（情報処理推進機構）が「AI Safety Institute」を設立している。これは下記にも紹介する他国でのAIシステム評価機関の設立の動きに対応したものだと考えられる。まだリリースがなされただけで、具体的な活動が公表されているわけではないようだが、注目していきたいグループ。
 
 ## アメリカ
-### U.S. Artificial Intelligence Sagety Instituteの設置
-　米国は、AIシステム評価機関として、NIST（ National Institute of Standards and Technology ）にUS AI Safety Instituteを設置。
+### USAISIの設置
+　米国は、AIシステム評価機関として、NIST（ National Institute of Standards and Technology ）にUS AI Safety Institute（USAISI）を設置。
 
 "One of the key challenges in achieving and sustaining safe AI innovation is a lack of scientific study of AI safety. A reliable, reproducible science of AI safety is urgently needed to accurately evaluate the capabilities and risks of models and systems and assess the effectiveness of mitigations and safeguards."
 
@@ -40,24 +39,25 @@ abstract: 各国の生成AI関連政策動向をまとめたメモ
 
 　公表された書面のうち、重要なものとしては以下のものがある。これらの内容については後日まとめ直したい。
 
-  Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile (nist.gov)
+  Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile
 
-  Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile (nist.gov)
+  Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile
 
-  A Plan for Global Engagement on AI Standards (nist.gov)
+  A Plan for Global Engagement on AI Standards
 
-  Managing Misuse Risk for Dual-Use Foundation Models (nist.gov)
+  Managing Misuse Risk for Dual-Use Foundation Models
 
 ### USPTOにおける議論
 　USPTO（U.S. Patent and Trademark Office）は、米国特許法上の特許要件を充足するために必要な発明の属する技術分野の通常の知識（ordinary skills in the arts）にAIがどのような影響を与えるかについて検討を進め、パブリックコメントを要求している。2024年の早い段階でAI-assisted inventionについてのガイドラインを公表する予定らしい（とはいえ、リリースが2024年4月29日の段階で、まだ公表されていないようである）。
 
 ## イギリス
 ### AI Safety Instituteの設置
-　イギリスにおいても、AIシステムの安全性評価機関としてAI
+　イギリスにおいても、AIシステムの安全性評価機関としてAI Safety Instituteを設置している。英国政府のDepartment for Science, Innovation and Technologyの下に設置されている政府内スタートアップという位置付けである。
 
-## ヨーロッパ：
+　所属しているメンバーを見てみるとYoshua Bengio（NNの研究者）、国家安全保障の専門家、Jade Leng（Open AIのガバナンスチームに所属）などがいる。
 
-## 中国：
+　評価対象には、Misuse（モデルがサイバー上、科学的、生物学的な攻撃に使われる可能性）、Societal Impacts（民主主義、個人の幸福への影響や不平等な結果をもたらす可能性）、Autonomy（モデルが人間とどのように相互作用し、あるいは操作し、人間の介入を排除するか）が挙げられている。
 
-## 韓国：
+これまで行なってきたこととしては、AI Safety Summitの実施、USAISIとの連携、国際的なサイエンスレポート（Yoshua Bengioが率いる）の作成がある。International AI Safety ReportやProgress Preport（第1版から第4版まで公表されている）など公開文書については、後日まとめ直したい。
 
+## EU
