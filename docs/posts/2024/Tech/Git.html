@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-cf7929f4d66a2bdccc4ecf0c4d40c672.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-0befb5b659eb9dd841119881c521518a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -112,11 +112,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="stylesheet" href="../../../assets/styles.css">
 <meta property="og:title" content="GitHub の使い方 – ぷにうぱ">
 <meta property="og:description" content="今年の都知事選では，GitHub をうまく用いた選挙活動が盛り上がりました．本ブログのように，個々人が情報発信をするプラットフォームを自分で持つことの意義は，今後ますます増していくでしょう（Note や Qiita などの文章共有サービスはいつ終了するかわかりません）．その際，GitHub は極めて便利なツールになります．法律家の方など，GitHub をはじめとして技術に詳しくなかった方も，これを機に GitHub に入門するためのチュートリアルをここにまとめていきたいと思います．">
-<meta property="og:image" content="https://puniupa.github.io/posts/2024/Tech/assets/ぷにうぱ.jpg">
+<meta property="og:image" content="https://puniupa.github.io/posts/2024/Tech/Images/DriveLocal.png">
 <meta property="og:site_name" content="ぷにうぱ">
+<meta property="og:image:height" content="462">
+<meta property="og:image:width" content="396">
 <meta name="twitter:title" content="GitHub の使い方 – ぷにうぱ">
 <meta name="twitter:description" content="今年の都知事選では，GitHub をうまく用いた選挙活動が盛り上がりました．本ブログのように，個々人が情報発信をするプラットフォームを自分で持つことの意義は，今後ますます増していくでしょう（Note や Qiita などの文章共有サービスはいつ終了するかわかりません）．その際，GitHub は極めて便利なツールになります．法律家の方など，GitHub をはじめとして技術に詳しくなかった方も，これを機に GitHub に入門するためのチュートリアルをここにまとめていきたいと思います．">
-<meta name="twitter:image" content="https://puniupa.github.io/posts/2024/Tech/assets/ぷにうぱ.jpg">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/2024/Tech/Images/DriveLocal.png">
+<meta name="twitter:image-height" content="462">
+<meta name="twitter:image-width" content="396">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -385,8 +389,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -497,7 +499,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

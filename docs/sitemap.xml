@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://puniupa.github.io/index.html</loc>
-    <lastmod>2024-09-24T05:18:53.230Z</lastmod>
+    <lastmod>2024-08-09T09:13:39.372Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/static/AllCategories.html</loc>
@@ -50,7 +50,7 @@
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/2024/Blog/うぱgithub挑戦.html</loc>
-    <lastmod>2024-09-24T05:42:48.868Z</lastmod>
+    <lastmod>2024-09-25T02:26:19.945Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/2024/AI/TDL.html</loc>
@@ -62,11 +62,11 @@
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/2024/Tech/Git.html</loc>
-    <lastmod>2024-09-24T05:18:53.600Z</lastmod>
+    <lastmod>2025-01-15T06:32:54.417Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/2024/Blog/Seoul2.html</loc>
-    <lastmod>2024-09-24T05:18:53.505Z</lastmod>
+    <lastmod>2024-09-25T02:26:19.945Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/static/all.html</loc>
@@ -74,11 +74,11 @@
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/2024/Blog/Seoul1.html</loc>
-    <lastmod>2024-09-24T05:18:53.502Z</lastmod>
+    <lastmod>2024-09-25T02:26:19.945Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/2024/Blog/Seoul3.html</loc>
-    <lastmod>2024-09-24T05:18:53.507Z</lastmod>
+    <lastmod>2024-09-25T02:26:19.945Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/2024/Tech/Internet.html</loc>
@@ -87,5 +87,9 @@
   <url>
     <loc>https://puniupa.github.io/posts/2024/Tech/ffmpeg.html</loc>
     <lastmod>2024-09-24T05:18:53.651Z</lastmod>
+  </url>
+  <url>
+    <loc>https://puniupa.github.io/posts/2024/AI/各国の生成AI関連政策.html</loc>
+    <lastmod>2025-01-15T06:32:23.038Z</lastmod>
   </url>
 </urlset>
