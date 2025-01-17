@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.40">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -56,10 +56,10 @@ div.csl-indent {
 <script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting-23b8e6f3f748bc5bdbba311d511a5b21.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../../site_libs/bootstrap/bootstrap-c2097b1a8a1897a74d2d1cf14068a81a.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script src="../../../site_libs/quarto-contrib/videojs/video.min.js"></script>
 <link href="../../../site_libs/quarto-contrib/videojs/video-js.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -128,11 +128,15 @@ window.Quarto = {
 <link rel="stylesheet" href="../../../assets/styles.css">
 <meta property="og:title" content="これからはじめるベイズ機械学習 – ぷにうぱ">
 <meta property="og:description" content="所信表明を兼ねて">
-<meta property="og:image" content="https://puniupa.github.io/posts/2024/AI/assets/ぷにうぱ.jpg">
+<meta property="og:image" content="https://puniupa.github.io/posts/2024/AI/Images/model_sizes.png">
 <meta property="og:site_name" content="ぷにうぱ">
+<meta property="og:image:height" content="806">
+<meta property="og:image:width" content="2098">
 <meta name="twitter:title" content="これからはじめるベイズ機械学習 – ぷにうぱ">
 <meta name="twitter:description" content="所信表明を兼ねて">
-<meta name="twitter:image" content="https://puniupa.github.io/posts/2024/AI/assets/ぷにうぱ.jpg">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/2024/AI/Images/model_sizes.png">
+<meta name="twitter:image-height" content="806">
+<meta name="twitter:image-width" content="2098">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -908,8 +912,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1020,7 +1022,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
