@@ -543,7 +543,7 @@
     "href": "posts/2024/Tech/Git.html#プルリクエストの作り方",
     "title": "GitHub の使い方",
     "section": "3 プルリクエストの作り方",
-    "text": "3 プルリクエストの作り方"
+    "text": "3 プルリクエストの作り方\n\n3.1 ブランチの作成\ngit branch  # 現在のブランチ一覧\ngit branch [branch name]  # ブランチの作成\ngit checkout [branch name]  # ブランチのチェックアウト\ngit checkout -b [branch name]  # ブランチの作成とチェックアウト\nこの新たなブランチにコミットを行うことで，master ブランチへの Pull Request が送れるようになる．\n\n\n3.2 Fork してプルリクエストを作成する方法\n自分が push する権限を持っていないリポジトリに貢献したい場合は，一度自分のアカウントに Fork をし，そこにコミットをしてから，Pull Request を作成することとなる．\n\n\n3.3 Issue との関連付け\nPull Request を作成する際に，Description 欄に fixed #1 などと記述することで，自動的に既存の Issue との関連付けが行われる．"
   },
   {
     "objectID": "posts/2024/Blog/Seoul3.html#日目日曜日",

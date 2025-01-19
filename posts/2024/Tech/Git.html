@@ -176,7 +176,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul class="collapse">
   <li><a href="#gitディレクトリの中身" id="toc-gitディレクトリの中身" class="nav-link" data-scroll-target="#gitディレクトリの中身"><span class="header-section-number">2.1</span> <code>.git</code>ディレクトリの中身</a></li>
   </ul></li>
-  <li><a href="#プルリクエストの作り方" id="toc-プルリクエストの作り方" class="nav-link" data-scroll-target="#プルリクエストの作り方"><span class="header-section-number">3</span> プルリクエストの作り方</a></li>
+  <li><a href="#プルリクエストの作り方" id="toc-プルリクエストの作り方" class="nav-link" data-scroll-target="#プルリクエストの作り方"><span class="header-section-number">3</span> プルリクエストの作り方</a>
+  <ul class="collapse">
+  <li><a href="#ブランチの作成" id="toc-ブランチの作成" class="nav-link" data-scroll-target="#ブランチの作成"><span class="header-section-number">3.1</span> ブランチの作成</a></li>
+  <li><a href="#fork-してプルリクエストを作成する方法" id="toc-fork-してプルリクエストを作成する方法" class="nav-link" data-scroll-target="#fork-してプルリクエストを作成する方法"><span class="header-section-number">3.2</span> Fork してプルリクエストを作成する方法</a></li>
+  <li><a href="#issue-との関連付け" id="toc-issue-との関連付け" class="nav-link" data-scroll-target="#issue-との関連付け"><span class="header-section-number">3.3</span> Issue との関連付け</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -306,8 +311,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="プルリクエストの作り方" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="プルリクエストの作り方"><span class="header-section-number">3</span> プルリクエストの作り方</h2>
+<section id="ブランチの作成" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="ブランチの作成"><span class="header-section-number">3.1</span> ブランチの作成</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode zsh code-with-copy"><code class="sourceCode zsh"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch  <span class="co"># 現在のブランチ一覧</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> branch <span class="pp">[</span><span class="st">branch name</span><span class="pp">]</span>  <span class="co"># ブランチの作成</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="pp">[</span><span class="st">branch name</span><span class="pp">]</span>  <span class="co"># ブランチのチェックアウト</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">git</span> checkout <span class="at">-b</span> <span class="pp">[</span><span class="st">branch name</span><span class="pp">]</span>  <span class="co"># ブランチの作成とチェックアウト</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>この新たなブランチにコミットを行うことで，<code>master</code> ブランチへの Pull Request が送れるようになる．</p>
+</section>
+<section id="fork-してプルリクエストを作成する方法" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="fork-してプルリクエストを作成する方法"><span class="header-section-number">3.2</span> Fork してプルリクエストを作成する方法</h3>
+<p>自分が push する権限を持っていないリポジトリに貢献したい場合は，一度自分のアカウントに Fork をし，そこにコミットをしてから，Pull Request を作成することとなる．</p>
+</section>
+<section id="issue-との関連付け" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="issue-との関連付け"><span class="header-section-number">3.3</span> <a href="https://docs.github.com/ja/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue">Issue との関連付け</a></h3>
+<p>Pull Request を作成する際に，Description 欄に <code>fixed #1</code> などと記述することで，自動的に既存の Issue との関連付けが行われる．</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
