@@ -85,3 +85,21 @@ git merge
 
 ## プルリクエストの作り方
 
+### ブランチの作成
+
+```zsh
+git branch  # 現在のブランチ一覧
+git branch [branch name]  # ブランチの作成
+git checkout [branch name]  # ブランチのチェックアウト
+git checkout -b [branch name]  # ブランチの作成とチェックアウト
+```
+
+この新たなブランチにコミットを行うことで，`master` ブランチへの Pull Request が送れるようになる．
+
+### Fork してプルリクエストを作成する方法
+
+自分が push する権限を持っていないリポジトリに貢献したい場合は，一度自分のアカウントに Fork をし，そこにコミットをしてから，Pull Request を作成することとなる．
+
+### [Issue との関連付け](https://docs.github.com/ja/issues/tracking-your-work-with-issues/using-issues/linking-a-pull-request-to-an-issue)
+
+Pull Request を作成する際に，Description 欄に `fixed #1` などと記述することで，自動的に既存の Issue との関連付けが行われる．
