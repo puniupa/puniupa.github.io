@@ -2,12 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.42">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="司馬博文">
 
-<title>Page Not Found 404 – ぷにうぱ</title>
+<title>一般の密度に対する１次元 Zig-Zag 過程 – ぷにうぱ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="/site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="/site_libs/quarto-nav/headroom.min.js"></script>
-<script src="/site_libs/clipboard/clipboard.min.js"></script>
-<script src="/site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="/site_libs/quarto-search/fuse.min.js"></script>
-<script src="/site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="/">
-<link href="/./assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
-<script src="/site_libs/quarto-html/quarto.js"></script>
-<script src="/site_libs/quarto-html/popper.min.js"></script>
-<script src="/site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="/site_libs/quarto-html/anchor.min.js"></script>
-<link href="/site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="/site_libs/quarto-html/quarto-syntax-highlighting-65186549de95cd2ff331b98fa30c8ceb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="/site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="/site_libs/bootstrap/bootstrap-5ebec06137205d8a3f6fd6de4548cd81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-cf7929f4d66a2bdccc4ecf0c4d40c672.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-4fad84e8e0fe087195d5fc131974df6c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,21 +73,45 @@ ul.task-list li input[type="checkbox"] {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&amp;display=swap" rel="stylesheet">
-<style>
-    h1 {
-        font-size: 40px; /* 見出し1のフォントサイズを40pxに設定 */
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
     }
-</style>
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
-
-<link rel="stylesheet" href="/assets/styles.css">
-<meta property="og:title" content="Page Not Found 404 – ぷにうぱ">
-<meta property="og:image" content="https://puniupa.github.io//static/Files/秋田犬.jpg">
+<link rel="stylesheet" href="../../assets/styles.css">
+<meta property="og:title" content="一般の密度に対する１次元 Zig-Zag 過程 – ぷにうぱ">
+<meta property="og:description" content="法学＋数学で世界を渡り歩こう">
+<meta property="og:image" content="https://puniupa.github.io/posts/Spike-and-slab/assets/ぷにうぱ.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
-<meta property="og:image:alt" content="Keep yourself hydrated">
-<meta name="twitter:title" content="Page Not Found 404 – ぷにうぱ">
-<meta name="twitter:image" content="https://puniupa.github.io//static/Files/秋田犬.jpg">
-<meta name="twitter:image:alt" content="Keep yourself hydrated">
+<meta name="twitter:title" content="一般の密度に対する１次元 Zig-Zag 過程 – ぷにうぱ">
+<meta name="twitter:description" content="法学＋数学で世界を渡り歩こう">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/Spike-and-slab/assets/ぷにうぱ.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -97,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="/index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">ぷにうぱ</span>
     </a>
   </div>
@@ -108,11 +133,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="/static/AllCategories.html"> 
+    <a class="nav-link" href="../../static/AllCategories.html"> 
 <span class="menu-text">カテゴリ一覧</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="/static/AboutUs.html"> 
+    <a class="nav-link" href="../../static/AboutUs.html"> 
 <span class="menu-text">自己紹介</span></a>
   </li>  
 </ul>
@@ -123,22 +148,39 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#一般的な設定での脱出時刻" id="toc-一般的な設定での脱出時刻" class="nav-link active" data-scroll-target="#一般的な設定での脱出時刻"><span class="header-section-number">1</span> 一般的な設定での脱出時刻</a>
+  <ul class="collapse">
+  <li><a href="#イベント時刻-t_epsilon-の生存関数" id="toc-イベント時刻-t_epsilon-の生存関数" class="nav-link" data-scroll-target="#イベント時刻-t_epsilon-の生存関数"><span class="header-section-number">1.1</span> イベント時刻 <span class="math inline">\(T_\epsilon\)</span> の生存関数</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Page Not Found 404</h1>
+<h1 class="title">一般の密度に対する１次元 Zig-Zag 過程</h1>
 </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">著者</div>
+    <div class="quarto-title-meta-contents">
+             <p>司馬博文 </p>
+          </div>
+  </div>
     
   
     
@@ -149,20 +191,31 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="/./index.html"><img src="/static/Files/秋田犬.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Keep yourself hydrated"></a></p>
-</figure>
+<div class="hidden">
+<p>A Blog Entry on Bayesian Computation by an Applied Mathematician</p>
+<p>$$</p>
+<p>$$</p>
 </div>
-<figcaption>Keep yourself hydrated</figcaption>
-</figure>
-</div>
-<section id="back-to-the-top" class="level1">
-<h1><a href="/./index.html">Back to the top</a></h1>
+<section id="一般的な設定での脱出時刻" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="一般的な設定での脱出時刻"><span class="header-section-number">1</span> 一般的な設定での脱出時刻</h2>
+<p>以上の計算は <span class="math inline">\(S_\epsilon(t)\)</span> の対称性を何回か用いている．このような仮定がなくとも，<span class="math inline">\(\epsilon\to0,a\to0\)</span> の極限での分布は変わらないはずである．</p>
+<p>以降，密度は <span class="math display">\[
+p_\epsilon(t)=(1-\gamma)p^{\Lambda}(t)+\gamma p^{\perp}_\epsilon(t)
+\]</span> <span class="math display">\[
+p^{\perp}_\epsilon(t):=\frac{1}{\epsilon}p^\perp\left(\frac{t}{\epsilon}\right)
+\]</span> という <span class="math inline">\(\epsilon\to0\)</span> に関する総和核の構造を持つとするが，<span class="math inline">\(p^\Lambda,p^\perp\)</span> は一般の密度とする．</p>
+<section id="イベント時刻-t_epsilon-の生存関数" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="イベント時刻-t_epsilon-の生存関数"><span class="header-section-number">1.1</span> イベント時刻 <span class="math inline">\(T_\epsilon\)</span> の生存関数</h3>
+<p><span class="math inline">\((0,+1)\)</span> から開始する場合を考える．</p>
+<p><span class="math display">\[\begin{align*}
+  S_\epsilon(t)&amp;=\operatorname{P}[T_\epsilon&gt;t]=\exp\left(-\int^t_0(U_\epsilon'(s))_+\,ds\right)\\
+  &amp;=\exp\left(-U_\epsilon(t)+U_\epsilon(0)+\int^t_0U_\epsilon'(s)1_{\left\{U_\epsilon'&lt;0\right\}}(s)\,ds\right)\\
+  &amp;=\frac{p_\epsilon(t)}{p_\epsilon(0)}\exp\left(\int^t_0U_\epsilon'(s)1_{\left\{U_\epsilon'&lt;0\right\}}(s)\,ds\right)
+\end{align*}\]</span></p>
+<p>これは <span class="math inline">\(U_\epsilon\)</span> の増加部分だけをつなげて出来る曲線になる．</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -654,7 +707,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="/blog.xml">
+    <a class="nav-link" href="../../blog.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>

@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="司馬博文">
 
-<title>Page Not Found 404 – ぷにうぱ</title>
+<title>Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities – ぷにうぱ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,23 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="/site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="/site_libs/quarto-nav/headroom.min.js"></script>
-<script src="/site_libs/clipboard/clipboard.min.js"></script>
-<script src="/site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="/site_libs/quarto-search/fuse.min.js"></script>
-<script src="/site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="/">
-<link href="/./assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
-<script src="/site_libs/quarto-html/quarto.js"></script>
-<script src="/site_libs/quarto-html/popper.min.js"></script>
-<script src="/site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="/site_libs/quarto-html/anchor.min.js"></script>
-<link href="/site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="/site_libs/quarto-html/quarto-syntax-highlighting-65186549de95cd2ff331b98fa30c8ceb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="/site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="/site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="/site_libs/bootstrap/bootstrap-5ebec06137205d8a3f6fd6de4548cd81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-65186549de95cd2ff331b98fa30c8ceb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5ebec06137205d8a3f6fd6de4548cd81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -72,21 +73,45 @@ ul.task-list li input[type="checkbox"] {
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&amp;display=swap" rel="stylesheet">
-<style>
-    h1 {
-        font-size: 40px; /* 見出し1のフォントサイズを40pxに設定 */
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
     }
-</style>
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
-
-<link rel="stylesheet" href="/assets/styles.css">
-<meta property="og:title" content="Page Not Found 404 – ぷにうぱ">
-<meta property="og:image" content="https://puniupa.github.io//static/Files/秋田犬.jpg">
+<link rel="stylesheet" href="../../assets/styles.css">
+<meta property="og:title" content="Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities – ぷにうぱ">
+<meta property="og:description" content="法学＋数学で世界を渡り歩こう">
+<meta property="og:image" content="https://puniupa.github.io/posts/Spike-and-slab/assets/ぷにうぱ.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
-<meta property="og:image:alt" content="Keep yourself hydrated">
-<meta name="twitter:title" content="Page Not Found 404 – ぷにうぱ">
-<meta name="twitter:image" content="https://puniupa.github.io//static/Files/秋田犬.jpg">
-<meta name="twitter:image:alt" content="Keep yourself hydrated">
+<meta name="twitter:title" content="Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities – ぷにうぱ">
+<meta name="twitter:description" content="法学＋数学で世界を渡り歩こう">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/Spike-and-slab/assets/ぷにうぱ.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -97,7 +122,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="/index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">ぷにうぱ</span>
     </a>
   </div>
@@ -108,11 +133,11 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="/static/AllCategories.html"> 
+    <a class="nav-link" href="../../static/AllCategories.html"> 
 <span class="menu-text">カテゴリ一覧</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="/static/AboutUs.html"> 
+    <a class="nav-link" href="../../static/AboutUs.html"> 
 <span class="menu-text">自己紹介</span></a>
   </li>  
 </ul>
@@ -123,22 +148,43 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#導入" id="toc-導入" class="nav-link active" data-scroll-target="#導入"><span class="header-section-number">1</span> 導入</a>
+  <ul class="collapse">
+  <li><a href="#例" id="toc-例" class="nav-link" data-scroll-target="#例"><span class="header-section-number">1.1</span> 例</a></li>
+  <li><a href="#設定" id="toc-設定" class="nav-link" data-scroll-target="#設定"><span class="header-section-number">1.2</span> 設定</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
-<main class="content column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Page Not Found 404</h1>
-</div>
+<h1 class="title">Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">ドラフト</div>
+  </div>
+  </div>
 
 
 
-<div class="quarto-title-meta column-page">
+<div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">著者</div>
+    <div class="quarto-title-meta-contents">
+             <p>司馬博文 </p>
+          </div>
+  </div>
     
   
     
@@ -149,20 +195,31 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><a href="/./index.html"><img src="/static/Files/秋田犬.jpg" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:70.0%" alt="Keep yourself hydrated"></a></p>
-</figure>
+<div class="hidden">
+<p>A Blog Entry on Bayesian Computation by an Applied Mathematician</p>
+<p>$$</p>
+<p>$$</p>
 </div>
-<figcaption>Keep yourself hydrated</figcaption>
-</figure>
-</div>
-<section id="back-to-the-top" class="level1">
-<h1><a href="/./index.html">Back to the top</a></h1>
+<section id="導入" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="導入"><span class="header-section-number">1</span> 導入</h2>
+<p>どんどん事後分布が singular （特に一点に mass が集中）していく場合を考える．</p>
+<p>MH 法では mass を取り逃がしてしまうために，提案分布のスケールも同様に小さくしていく必要があるが，すると大域的なスケールに対してはとんでもなく遅くなってしまい，大変非効率的（メタ安定）．</p>
+<p>しかし PDMP では mass が集中する領域をうまく見つけられさえすれば，性能は悪化しない．</p>
+<section id="例" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="例"><span class="header-section-number">1.1</span> 例</h3>
+<ul>
+<li>ベイズの事前分布で spike-and-slab を用いた場合．</li>
+<li>クラスタリングで１つのラベルが狭まっていった場合．</li>
+</ul>
+</section>
+<section id="設定" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="設定"><span class="header-section-number">1.2</span> 設定</h3>
+<p><span class="math inline">\(\mathbb{R}^d\)</span> 上で <span class="math display">\[
+(1-\gamma)\mathrm{N}(\mu,\Sigma) + \gamma\mathrm{N}(0,\Sigma'(\epsilon))
+\]</span> を考える．</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -654,7 +711,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="/blog.xml">
+    <a class="nav-link" href="../../blog.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>
