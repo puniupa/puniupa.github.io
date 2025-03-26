@@ -1,0 +1,41 @@
+---
+title: "Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities"
+author: 司馬博文
+categories: [ドラフト]
+format:
+  # pdf:
+  #   pdf-engine: pdflatex
+  #   template-partials: 
+  #     - ../../assets/before-title.tex
+  #   keep-tex: true
+  html: default
+bibliography:
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+---
+
+{{< include ../../assets/_preamble.qmd >}}
+
+
+
+## 導入
+
+どんどん事後分布が singular （特に一点に mass が集中）していく場合を考える．
+
+MH 法では mass を取り逃がしてしまうために，提案分布のスケールも同様に小さくしていく必要があるが，すると大域的なスケールに対してはとんでもなく遅くなってしまい，大変非効率的（メタ安定）．
+
+しかし PDMP では mass が集中する領域をうまく見つけられさえすれば，性能は悪化しない．
+
+### 例
+
+* ベイズの事前分布で spike-and-slab を用いた場合．
+* クラスタリングで１つのラベルが狭まっていった場合．
+
+### 設定
+
+$\R^d$ 上で
+$$
+(1-\gamma)\rN(\mu,\Sigma) + \gamma\rN(0,\Sigma'(\ep))
+$$
+を考える．

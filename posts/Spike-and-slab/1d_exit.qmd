@@ -1,0 +1,535 @@
+---
+title: "脱出時刻の分析"
+subtitle: "Spike-and-Slab prior からの効率的なサンプリング"
+categories: [ノート]
+author: 司馬博文
+format:
+  html: default
+bibliography:
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+---
+
+{{< include ../../assets/_preamble.qmd >}}
+
+## 設定
+
+continuous spike-and-slab prior は，Gauss 密度を用いて
+$$
+\displaystyle p_\ep(x)=\frac{1-\gamma}{\sqrt{2\pi\sigma^2}}e^{-\frac{x^2}{2\sigma^2}}+\frac{\gamma}{\sqrt{2\pi\sigma^2\ep^2}}e^{-\frac{x^2}{2\sigma^2\ep^2}}
+$$
+と表せるが，一般的な議論をするために
+$$
+p_\ep(x)=(1-\gamma)p^1(x)+\gamma p^2_\ep(x),\qquad p^2_\ep(x):=\frac{1}{\ep}p^1\paren{\frac{x}{\ep}}
+$$
+と表そう．
+
+$\ep\to0$ の極限を考える．そもそもベイズの文脈でこの解析がなされたことはないようである．
+
+我々はこの極限の下でのサンプラーの挙動を解析したい．
+
+## イベント到着時刻 $T_\ep$
+
+### 生存関数 $S_\ep$
+
+$(x,v)=(0,\pm1)$ から開始したサンプラーのイベント時刻 $T_\ep$ の生存関数は
+$$
+S_\ep(t)=\frac{p_\ep(t)}{p_\ep(0)}=\frac{(1-\gamma)e^{-\frac{t^2}{2\sigma^2}}+(\gamma/\ep)e^{-\frac{t^2}{2\sigma^2\ep^2}}}{1-\gamma+(\gamma/\ep)}
+$$
+で与えられる．
+
+このことは $p_\ep$ が $(0,\infty)$ 上単調減少ならば（すなわち $p_\ep$ が単峰性分布ならば），
+$$
+S_\ep(t)=\frac{p_\ep(t)}{p_\ep(0)}=\frac{1}{p^1(0)}\frac{(1-\gamma)p^1(t)+\frac{\gamma}{\ep}p^1(t/\ep)}{1-\gamma+(\gamma/\ep)}
+$$
+とまで一般化でき，サンプラーの生存率は $p_\ep$ に比例する値になる．
+
+::: {.callout-note title="一般の多峰性分布の場合" icon="false" collapse="true"}
+
+\begin{align*}
+  S_\ep(t)&=\P[T_\ep>t]=\exp\paren{-\int^t_0(U_\ep'(s))_+\,ds}\\
+  &=\exp\paren{-U_\ep(t)+U_\ep(0)+\int^t_0U_\ep'(s)1_{\Brace{U_\ep'<0}}(s)\,ds}\\
+  &=\frac{p_\ep(t)}{p_\ep(0)}\exp\paren{\int^t_0U_\ep'(s)1_{\Brace{U_\ep'<0}}(s)\,ds}
+\end{align*}
+
+これは $U_\ep$ の増加部分だけをつなげて出来る曲線になる．
+
+
+:::
+
+### 極限
+
+$$
+\frac{\gamma}{\ep}p^1\paren{\frac{t}{\ep}}\xrightarrow{\ep\to0}0,\qquad t\ne0,
+$$
+が成り立つために，
+$$
+S_\ep(t)=\frac{p_\ep(t)}{p_\ep(0)}\xrightarrow{\ep\to0}1_{\{0\}}(t)\quad t\in\R_+,
+$$
+という関数になってしまう．つまり $0$ から出ることはなく，$T_\ep=0\;\as$ となる．
+
+これは実際のサンプラーの挙動とは違う．この矛盾は収束極限がそのままでは Markov 過程ではないことに関係するのかもしれない．
+
+### 平均 $\E[T_\ep]$
+
+このとき，$(x,v)=(0,1)$ から開始する場合，サンプラーの最初のイベント時刻の平均は
+$$
+\E[T_\ep]=\frac{1}{2p_\ep(0)}=\frac{1}{2}\frac{\sqrt{2\pi\sigma^2}}{1-\gamma+\gamma/\ep}
+$$
+である．$\ep\to0$ で $0$ に収束する．（密度が各点収束するため全変動収束する）．
+
+一般の場合は
+$$
+p_\ep(x)=(1-\gamma)p^1(x)+\frac{\gamma}{\ep}p^1\paren{\frac{x}{\ep}}
+$$
+$$
+\therefore\quad p_\ep(0)=\paren{1-\gamma+\frac{\gamma}{\ep}}p^1(0)
+$$
+であることに注意．
+
+## 脱出時刻 $\tau_\ep^a$
+
+### 脱出時刻の表示
+
+$[-a,a]$ からの脱出時刻 $\tau^a_\ep$ を考えたい．これは $T_\ep^{(1)},T_\ep^{(2)},\cdots$ を $S_\ep$ からの i.i.d. とすると，最初に $a$ を超える到着時刻 $T_\ep^{(n)}$ の番号
+$$
+N_\ep:=\inf\Brace{n\ge 1\,\middle|\,T_\ep^{(n)}>a}
+$$
+を用いて，
+$$
+\tau_\ep^a:=2\sum_{n=1}^{N_\ep-1}T_\ep^{(n)}+a
+$$
+と表せる．
+
+### 平均
+
+最終的には $\tau_\ep^a$ の分布も特定できるが，まずは期待値を計算してみる．
+
+::: {.callout-tip title="命題" icon="false"}
+
+$$
+\E[\tau_\ep^a]=\frac{\int^a_{-a}S_\ep(t)\,dt}{S_\ep(a)}-a=\frac{1}{p_\ep(a)}\int^a_{-a}p_\ep(t)\,dt-a.
+$$
+
+:::
+
+#### 証明１：$\tau_\ep^a$ の表示
+
+$N_\ep$ の値で条件付けて考えよう．
+
+$$
+\Brace{N_\ep=N}=\Brace{T_\ep^{(1)}\le a}\cap\Brace{T_\ep^{(2)}\le a}\cap\cdots\cap\Brace{T_\ep^{(N-1)}\le a}\cap\Brace{T_\ep^{(N)}>a}
+$$
+に注意すると，
+
+\begin{align*}
+  \tau_\ep^a&=2\sum_{n=1}^{N_\ep-1}T_\ep^{(n)}+a\\
+  &=\sum_{N=1}^\infty1_{\Brace{N_\ep=N}}\paren{2\sum_{n=1}^{N-1}T_\ep^{(n)}+a}\\
+  &=\sum_{N=1}^\infty\paren{2\sum_{n=1}^{N-1}1_{\Brace{N_\ep=N}}T_\ep^{(n)}+a1_{\Brace{N_\ep=N}}}
+\end{align*}
+
+よって，$T_\ep^{(1)},T_\ep^{(2)},\cdots$ が i.i.d. であることから，期待値は次のように計算できる：
+
+\begin{align*}
+  \E[\tau_\ep^a]&=\sum_{N=1}^\infty\paren{2\sum_{n=1}^{N-1}\E\Square{1_{\Brace{T_\ep^{(n)}\le a}}T_\ep^{(n)}}F_\ep(a)^{N-2}S_\ep(a)+aF_\ep(a)^{N-1}S_\ep(a)}
+\end{align*}
+
+#### 証明２：条件付き期待値 $\E\Square{1_{\Brace{T_\ep^{(n)}\le a}}T_\ep^{(n)}}$ の計算
+
+\begin{align*}
+  \E\Square{1_{\Brace{T_\ep^{(n)}\le a}}T_\ep^{(n)}}&=-\int^a_0tS_\ep'(t)\,dt\\
+  &=\SQuare{-tS_\ep(t)}^a_0+\int^a_0S_\ep(t)\,dt\\
+  &=\int^a_0S_\ep(t)\,dt-aS_\ep(a).
+\end{align*}
+
+この計算により，期待値は
+
+\begin{align*}
+  \E[\tau_\ep^a]&=\sum_{N=1}^\infty\paren{2\sum_{n=1}^{N-1}\E\Square{1_{\Brace{T_\ep^{(n)}\le a}}T_\ep^{(n)}}F_\ep(a)^{N-2}S_\ep(a)+aF_\ep(a)^{N-1}S_\ep(a)}\\
+  &=\sum_{N=1}^\infty\paren{2(N-1)\paren{\int^a_0S_\ep(t)\,dt-aS_\ep(a)}F_\ep(a)^{N-2}S_\ep(a)+aF_\ep(a)^{N-1}S_\ep(a)}\\
+  &=2\paren{\int^a_0S_\ep(t)\,dt-aS_\ep(a)}S_\ep(a)\sum_{N=1}^\infty(N-1)F_\ep(a)^{N-2}+aS_\ep(a)\sum_{N=1}^\infty F_\ep(a)^{N-1}\\
+  &=2\frac{1}{S_\ep(a)}\int^a_0S_\ep(t)\,dt-2a+a\\
+  &=\frac{\int^a_{-a}S_\ep(t)\,dt}{S_\ep(a)}-a.
+\end{align*}
+
+最後の等式は $S_\ep(t)=\frac{p_\ep(t)}{p_\ep(0)}$ が対称であることによる．
+
+#### 極限の観察：$\ep\to0$ を取ってから $a\to0$ を取る {#sec-limit-of-E}
+
+$$
+\E[\tau^a_\ep]=\frac{1}{p_\ep(a)}\int^a_{-a}p_\ep(t)\,dt-a
+$$
+
+は，まず $a\to0$ で $0$ に収束することがわかる．これは良いだろう．しかし，$\ep\to0$ の極限では奇妙な挙動を見せる．
+
+まず，$a>0$ である限り，
+$$
+p_\ep(a)=\frac{1-\gamma}{\sqrt{2\pi\sigma^2}}e^{-\frac{a^2}{2\sigma^2}}+\frac{\gamma}{\sqrt{2\pi\sigma^2\ep^2}}e^{-\frac{a^2}{2\sigma^2\ep^2}}
+\xrightarrow{\ep\to0}\frac{1-\gamma}{\sqrt{2\pi\sigma^2}}e^{-\frac{a^2}{2\sigma^2}}.
+$$
+そして
+\begin{align*}
+  \int^a_{-a}\frac{\gamma}{\sqrt{2\pi\sigma^2\ep^2}}e^{-\frac{t^2}{2\sigma^2\ep^2}}\,dt=\frac{\gamma}{\sqrt{2\pi\sigma^2}}\int^{a/\ep}_{-a/\ep}e^{-\frac{s^2}{2\sigma^2}}\,ds\xrightarrow{\ep\to0}\gamma.
+\end{align*}
+であるから，
+
+\begin{align*}
+  \lim_{\ep\to0}\E[\tau_\ep^a]&=\frac{\sqrt{2\pi\sigma^2}}{1-\gamma}e^{\frac{a^2}{2\sigma^2}}\lim_{\ep\to0}\int^a_{-a}p_\ep(t)\,dt-a\\
+  &=\frac{\sqrt{2\pi\sigma^2}}{1-\gamma}e^{\frac{a^2}{2\sigma^2}}\paren{\frac{1-\gamma}{\sqrt{2\pi\sigma^2}}\int^a_{-a}e^{-\frac{t^2}{2\sigma^2}}\,dt+\gamma}-a\\
+  &=e^{\frac{a^2}{2\sigma^2}}\int^a_{-a}e^{-\frac{t^2}{2\sigma^2}}\,dt+\frac{\gamma}{1-\gamma}\sqrt{2\pi\sigma^2}e^{\frac{a^2}{2\sigma^2}}-a\\
+  &\xrightarrow{a\to0}\frac{\gamma}{1-\gamma}\sqrt{2\pi\sigma^2}
+\end{align*}
+
+この最後の値は [@Bierkens+2023] にある $\kappa^{-1}$ に他ならない！
+
+#### 条件付けによる議論
+
+以上の議論は，条件付けを考えると見通しが良い．
+
+＊この節はまだ厳密に議論できていない．指標関数のみを使っていれば見通しが良いが，条件付けによっても議論できるはず．
+
+::: {.callout-note title="証明" icon="false" collapse="true"}
+
+以前ここには
+$$
+T_\ep^{(1)}\indep T_\ep^{(2)}\mid N_\ep^a
+$$
+という条件を与えていたが，これは必ずしも正しくない．
+
+以下は示そうとした試み：
+
+$\Brace{T_\ep^{(2)}<t}$ という事象に関して，
+$$
+\P[T_\ep^{(2)}<t|T_\ep^{(1)},N_\ep^a]=\P[T_\ep^{(2)}<t|N_\ep^a]\;\as\qquad t>0,
+$$
+が成り立てば良い [定理8.9 @Kallenberg2021 p.170]．これは右辺が $\sigma[N_\ep^a,T_\ep^{(1)}]$ に関する条件付き期待値の性質
+$$
+\E\SQuare{\P[T_\ep^{(2)}<t|N_\ep^a]1_{\Brace{N_\ep^a=N,T_\ep^{(1)}< a}}}=\E\SQuare{\P[T_\ep^{(2)}<t]1_{\Brace{N_\ep^a=N,T_\ep^{(1)}< a}}}
+$$
+を満たすことを示せば良い．
+
+:::
+
+\begin{align*}
+  \E[\tau_\ep^a]&=\E\SQuare{\E[\tau_\ep^a|N_\ep^a]}\\
+  &=\E\Square{\E\Square{2\sum_{n=1}^{N-1}T_\ep^{(n)}+a\,\middle|\,N_\ep^a=N}}\\
+  &=\E\Square{2\E\Square{\sum_{n=1}^{N-1}T_\ep^{(n)}\,\middle|\,N_\ep^a=N}+a}\\
+  &=2\E\Square{(N_\ep^a-1)\E\Square{T_\ep^{(1)}\,\middle|\,T_\ep^{(1)}\le a}}+a.
+\end{align*}
+
+途中で
+$$
+\E[T_\ep^{(1)}|N_\ep^a=N]=\E[T_\ep^{(1)}|T_\ep^{(1)}\le a]
+$$
+の変形を用いたが，これは $N_\ep^a\indep T_\ep^{(1)}\mid T_\ep^{(1)}$ による．
+
+ここで
+$$
+\E[T_\ep^{(1)}|T_\ep^{(1)}\le a]=\frac{\E\Square{T_\ep^{(1)}1_{\Brace{T_\ep^{(1)}\le a}}}}{F_\ep(a)}=\frac{1}{F_\ep(a)}\paren{\int^a_0S_\ep(t)\,dt-aS_\ep(a)}
+$$
+$$
+\E[N_\ep^a-1]=\frac{1}{S_\ep(a)}-1=\frac{F_\ep(a)}{S_\ep(a)}
+$$
+に注意すると，
+$$
+\E[\tau^a_\ep]=\frac{2}{S_\ep(a)}\paren{\int^a_0S_\ep(t)\,dt-aS_\ep(a)}+a=\frac{\int^a_{-a}S_\ep(t)\,dt}{S_\ep(a)}-a.
+$$
+
+以上の式変形は $N_\ep^a$ の下で $T_\ep^{(i)}\;(i<N)$ が同分布であることしか用いていないが，独立であることも用いると特性関数が導ける．
+
+### 特性関数
+
+::: {.callout-tip title="命題" icon="false"}
+
+$$
+\varphi^a_0(u)=e^{iua}\frac{1}{e^{2iua}-2iue^{\frac{a^2}{2\sigma^2}}\paren{\int^a_{-a}e^{2iut}e^{-\frac{t^2}{2\sigma^2}}\,dt+\frac{\kappa^{-1}}{2}}}
+$$
+$$
+\xrightarrow{a\to0}\frac{1}{1-iu\kappa^{-1}}
+$$
+
+:::
+
+#### 条件付き独立性に基づいた計算
+
+\begin{align*}
+  \varphi_\ep^a(u)&=\E\Square{e^{iu\tau_\ep^a}}=\E\Square{\sum_{N=1}^\infty\E\Square{e^{iu\paren{\sum_{n=1}^{N-1}2T_\ep^{(n)}+a}}\,\middle|\,N_\ep^a=N}}\\
+  &=\sum_{N=1}^\infty\E\Square{e^{iua}\E\Square{\prod_{n=1}^{N-1}\E[e^{iu2T_\ep^{(n)}}|T_\ep^{(n)}\le a]\,\middle|\,N_\ep^a=N}}\\
+  &=e^{iua}\sum_{N=1}^\infty\P[N_\ep^a=N]\prod_{n=1}^{N-1}\E\Square{e^{iu2T_\ep^{(n)}}|T_\ep^{(n)}\le a}\\
+  &=e^{iua}\sum_{N=1}^\infty\P[N_\ep^a=N]\paren{\frac{\Phi_\ep^a(u)}{F_\ep(a)}}^{N-1}\\
+  &=e^{iua}\frac{S_\ep(a)}{1-\Phi^a_\ep(u)}.
+\end{align*}
+
+最後の等号の成立は $\abs{\Phi^a_\ep(u)}<1$ であることによる．
+
+ここで $N_\ep^a$ は幾何分布 $\rG(S_\ep(a))$ に従い，$\P[N_\ep^a=N]=S_\ep(a)F_\ep(a)^{N-1}$ で，
+$$
+\E\Square{e^{iu2T_\ep^{(n)}}|T_\ep^{(n)}\le a}=\frac{\Square{e^{2iuT_\ep^{(n)}}1_{\Brace{T_\ep^{(n)}\le a}}}}{F_\ep(a)}=:\frac{\Phi_\ep^a(u)}{F_\ep(a)}
+$$
+と定義した．
+
+#### $\Phi^a_\ep(u)$ という量 {#sec-Phi-a-ep-u}
+
+\begin{align*}
+  \Phi^a_\ep(u)&=\E\Square{e^{iu2T_\ep^{(n)}}|T_\ep^{(n)}\le a}\\
+  &=-\int^a_0e^{2iut}S'_\ep(t)\,dt\\
+  &=-\SQuare{e^{2iut}S_\ep(t)}^a_0+\int^a_0(2iu)e^{2iut}S_\ep(t)\,dt\\
+  &=1-e^{2iua}S_\ep(a)+2iu\int^a_{0}e^{2iut}S_\ep(t)\,dt\\
+  &=:1-e^{2iua}S_\ep(a)+2iu\Psi^a_\ep(u).
+\end{align*}
+$$
+\therefore\quad\varphi^a_\ep(u)=e^{iua}\frac{1}{e^{2iua}-2iu\frac{\Psi^a_\ep(u)}{S_\ep(a)}},\qquad\Psi^a_\ep(u):=\int^a_{0}e^{2iut}S_\ep(t)\,dt,
+$$
+
+となるが，この $\frac{\Psi^a_\ep}{S_\ep(a)}$ という量が面白い．
+
+$\E[\tau_\ep^a]$ の計算 ([-@sec-limit-of-E]) でも出てきた形だが，非積分関数に $e^{2iut}$ が登場している点だけが違う．しかし $S_\ep(a)$ と $S_\ep(t)$ で特異性 $p_\ep(0)$ を打ち消しあうので，非自明な極限が出てくる．
+
+\begin{align*}
+  \frac{\Psi^a_\ep(u)}{S_\ep(a)}&=\frac{1}{S_\ep(a)}\int^a_{0}e^{2iut}S_\ep(t)\,dt\\
+  &=\frac{1}{p_\ep(a)}\int^a_0e^{2iut}p_\ep(t)\,dt\\
+  &=\frac{1}{p_\ep(a)}\paren{(1-\gamma)\int^a_0e^{2iut}p^1(t)\,dt+\frac{\gamma}{\ep}\int^a_0e^{2iut}p^1\paren{\frac{t}{\ep}}\,dt}\\
+  &=\frac{1}{p_\ep(a)}\paren{(1-\gamma)\int^a_0e^{2iut}p^1(t)\,dt+\gamma\int^{a/\ep}_0e^{2iu\ep s}p^1(s)\,ds}\\
+  &\xrightarrow{\ep\to0}\frac{1}{(1-\gamma)p^1(a)}\paren{(1-\gamma)\int^a_0e^{2iut}p^1(t)\,dt+\gamma\int^{\infty}_0p^1(s)\,ds}\\
+  &=\frac{1}{p^1(a)}\int^a_0e^{2iut}p^1(t)\,dt+\underbrace{\frac{\gamma}{1-\gamma}\frac{1}{p^1(a)}}_{=\kappa^{-1}}\int^\infty_0p^1(s)\,ds\\
+  &=\frac{1}{p^1(a)}\int^a_0e^{2iut}p^1(t)\,dt+\frac{1}{2\kappa}.
+\end{align*}
+
+さらに最初の積分は部分積分より
+\begin{align*}
+  2iu \frac{\Psi^a_\ep(u)}{S_\ep(a)}&=\frac{2iu}{p^1(a)}\int^a_0e^{2iut}p^1(t)\,dt+\frac{iu}{\kappa}\\
+  &=\frac{1}{p^1(a)}\SQuare{e^{2iut}p^1(t)}^a_0-\frac{1}{p^1(a)}\int^a_0e^{2iut}(p^1)'(t)\,dt+\frac{iu}{\kappa}\\
+  &=e^{2iua}-\frac{p^1(0)}{p^1(a)}-\frac{1}{p^1(a)}\int^a_0e^{2iut}(p^1)'(t)\,dt+\frac{iu}{\kappa}
+\end{align*}
+$$
+\therefore\quad\varphi^a_0(u)=\frac{e^{iua}}{\frac{p^1(0)}{p^1(a)}+\frac{1}{p^1(a)}\int^a_0e^{2iut}(p^1)'(t)\,dt-\frac{iu}{\kappa}}
+$$
+
+さらに $a\to0$ の極限を取ると
+$$
+\lim_{a\to0}\lim_{\ep\to0}\varphi_\ep^a(u)=\frac{1}{1-iu/\kappa}
+$$
+は指数分布 $\Exp(\kappa)$ の特性関数に他ならない．
+
+
+
+::: {.callout-note title="Gauss 密度の場合" icon="false" collapse="true"}
+\begin{align*}
+  \frac{\Psi^a_\ep(u)}{S_\ep(a)}&=\frac{1}{S_\ep(a)}\int^a_{0}e^{2iut}S_\ep(t)\,dt\\
+  &=\frac{1}{p_\ep(a)}\paren{\frac{1-\gamma}{\sqrt{2\pi\sigma^2}}\int^a_{0}e^{2iut}e^{-\frac{t^2}{2\sigma^2}}\,dt+\frac{\gamma}{\sqrt{2\pi\sigma^2}}\frac{1}{\ep}\int^a_{0}e^{2iut}e^{-\frac{t^2}{2\sigma^2\ep^2}}\,dt}\\
+  &=\frac{1}{p_\ep(a)}\paren{\frac{1-\gamma}{\sqrt{2\pi\sigma^2}}\int^a_{0}e^{2iut}e^{-\frac{t^2}{2\sigma^2}}\,dt+\frac{\gamma}{\sqrt{2\pi\sigma^2}}\int^{a/\ep}_{0}e^{2iu\ep s}e^{-\frac{s^2}{2\sigma^2}}\,ds}\\
+  &\xrightarrow{\ep\to0}\frac{1}{e^{-\frac{a^2}{2\sigma^2}}}\int^a_{-a}e^{2iut}e^{-\frac{t^2}{2\sigma^2}}\,dt+\frac{\gamma}{1-\gamma}\sqrt{2\pi\sigma^2}e^{\frac{a^2}{2\sigma^2}}
+  \frac{1}{\sqrt{2\pi\sigma^2}}\int^{\infty}_{0}e^{-\frac{s^2}{2\sigma^2}}\,ds\\
+  &=\frac{1}{e^{-\frac{a^2}{2\sigma^2}}}\int^a_{-a}e^{2iut}e^{-\frac{t^2}{2\sigma^2}}\,dt+\frac{\gamma}{1-\gamma}\sqrt{2\pi\sigma^2}e^{\frac{a^2}{2\sigma^2}}\frac{1}{2}\\
+  &\xrightarrow{a\to0}\frac{\gamma}{1-\gamma}\sqrt{2\pi\sigma^2}\frac{1}{2}=:\frac{\kappa^{-1}}{2}.
+\end{align*}
+
+:::
+
+### 密度
+
+::: {.callout-tip title="命題" icon="false"}
+
+$$
+\pi^a_\ep(t)=\frac{1}{2\pi}\int_\R e^{-iut}\varphi_\ep^a(u)\,du
+$$
+$$
+\pi^a_0(t)=\frac{1}{2\pi}\int_\R e^{-iut}\frac{e^{iua}}{\frac{p^1(0)}{p^1(a)}+\frac{1}{p^1(a)}\int^a_0e^{2iut}(p^1)'(t)\,dt-\frac{iu}{\kappa}}\,du
+$$
+$$
+\xrightarrow{a\to0}
+\frac{1}{2\pi}\int_\R e^{-iut}\frac{1}{1-\frac{iu}{\kappa}}=\kappa e^{-\kappa t}1_{(0,\infty)}(t).
+$$
+:::
+
+最後は留数計算により従う．「有理式の Fourier 変換の留数計算」という類型に属する．
+
+あとは $\varphi_0^a\to\varphi_0^0$ の $L^1$-収束が言えれば，密度 $\pi^a_\ep(t)$ の $a\to0$ における概収束が従う（実は一様収束する）．$\ep\to0$ も同様だと思われる．
+
+#### 指数密度の留数計算
+
+::: {.callout-tip title="命題 [定理V.2.2 @Lang1999 p.194]" icon="false"}
+
+$f$ を $\bC$ 上の有理型関数で，有限個の極を $\bC\setminus\R$ 上に持つとする．加えて，$0$ から十分離れた領域で
+$$
+\abs{f(z)}\le\frac{K}{\abs{z}},\qquad\abs{z}>R,
+$$
+を満たすとする．このとき，任意の $t>0$ について
+$$
+\int^\infty_{-\infty}f(x)e^{itx}\,dx=2\pi i\sum(\text{上半平面上の}\,e^{itx}f(x)\,\text{の留数}).
+$$
+
+:::
+
+十分大きい $\abs{u}$ について
+$$
+\Abs{1-\frac{iu}{\kappa}}\ge\abs{u}/\kappa-1>\frac{\abs{u}}{2\kappa},
+$$
+が成り立つために，上述の命題を適用することができる．$\frac{1}{1-iu/\kappa}$ の留数は $u=-i\kappa$ における $-i\kappa$ であるから，
+$$
+\frac{1}{2\pi}\int^\infty_{-\infty}e^{-itu}\frac{1}{1-iu/\kappa}\,du=2\pi i(-i\kappa)=\kappa e^{-\kappa t}1_{(0,\infty)}(t).
+$$
+
+$t<0$ の場合は上半平面に極が存在しないため，積分が $0$ になる点に注意．
+
+#### 特性関数の可積分性
+
+しかし
+$$
+\varphi^0_0(u)=\frac{\kappa}{\kappa-iu}
+$$
+という複素関数は $L^1(\R;\bC)$ に入っていない．
+
+Fourier 変換が存在するだけである．
+
+したがって特性関数が $L^1$-収束するために，Fourier 変換の連続性から密度の一様収束が従う，という議論はできない．
+
+#### 密度の各点収束
+
+$$
+\varphi^a_0(u)=e^{iua}\underbrace{\Paren{\frac{p^1(0)}{p^1(a)}+\frac{1}{p^1(a)}\int^a_0e^{2iut}(p^1)'(t)\,dt-\frac{iu}{\kappa}}^{-1}}_{=:g(u)^{-1}}
+$$
+という特性関数の分母に注目する．
+
+すると Rouché の定理より，$f(u)=\frac{p^1(0)}{p^1(a)}-\frac{iu}{\kappa}$ と $g(u)$ の，十分大きい円 $U(0,R)$ 内での零点の個数は，重複度も含めて等しい．すなわち１位の零点しか持たない．
+
+よって
+$$
+\int^\infty_{-\infty}\varphi^a_0(u)e^{itu}\,du\xrightarrow{a\to0}\int^\infty_{-\infty}\varphi^0_0(u)e^{itu}\,du.
+$$
+
+## 上下の脱出時刻
+
+### はじめに
+
+$\ep\to0$ の極限において，原点付近での振る舞いを見るために脱出時刻が使える．
+
+その際は「上から出るか」「下から出るか」が問題になる．
+
+$\tau_\ep^{a+},\tau_\ep^{a-}$ はそれぞれ $\Exp(\kappa/2)$ に従い，
+$$
+\tau_\ep^a=\tau_\ep^{a+}\land\tau_\ep^{a-}\sim\Exp(\kappa)
+$$
+となると思うかもしれないが，そうはならない．
+
+$\tau_\ep^{a+}$ は最初に下から出た場合は，原点まで戻って来るまでの時間が加算されるために，$\tau_\ep^{a-}$ と相関を持つ確率変数になる．
+
+### 上側脱出時刻の特性関数
+
+$$
+\tau_\ep^{a+}=2\sum_{n=1}^{N_\ep^+-1}T_\ep^{(n)}+a
+$$
+$$
+N_\ep^+:=\min\Brace{n\ge 1\mid T_\ep^{(n)}>a,\;n\;\text{は奇数}}
+$$
+と考えると，$\tau_\ep^a$ の場合と全く同様に，次のように計算できる：
+
+\begin{align*}
+  \varphi_\ep^{a+}(u)&=\E\Square{e^{iu\tau_\ep^{a+}}}\\
+  &=\E\Square{\sum_{N=1}^\infty\E\Square{e^{iu\paren{2\sum_{n=1}^{2N-2}T_\ep^{(n)}+a}}1_{\Brace{N_\ep^+=2N-1}}}}\\
+  &=\sum_{N=1}^\infty e^{iua}\E\Square{1_{\Brace{T_\ep^{(2N-1)}>a}}}\prod_{n=1}^{N-1}\E\Square{e^{2iuT_\ep^{(2n-1)}}1_{\Brace{T_\ep^{(2n-1)}\le a}}}\E\Square{e^{2iuT_\ep^{(2n)}}}\\
+  &=e^{iua}S_\ep(a)\sum_{N=1}^\infty\Phi^a_\ep(u)^{N-1}\Phi^\infty_\ep(u)^{N-1}\\
+  &=e^{iua}\frac{S_\ep(a)}{1-\Phi^a_\ep(u)\Phi^\infty_\ep(u)}.
+\end{align*}
+
+ただし，
+\begin{align*}
+  \Phi^{\infty}_\ep(u)&:=\E\Square{e^{2iuT_\ep^{(1)}}}=\lim_{a\to\infty}\Phi^a_\ep(u)=\lim_{a\to\infty}\Square{e^{2iuT_\ep^{(1)}}1_{\Brace{T_\ep^{(1)}\le a}}}\\
+  &=-\int^\infty_0e^{2iut}S_\ep'(t)\,dt\\
+  &=-\SQuare{e^{2iut}S_\ep(t)}^\infty_0+2iu\int^\infty_0e^{2iut}S_\ep(t)\,dt\\
+  &=1+2iu\int^\infty_0e^{2iut}S_\ep(t)\,dt=:1+2iu\Psi^\infty_\ep(u).
+\end{align*}
+とした．
+
+### $\Psi^\infty_\ep(u)$ の極限
+$$
+\Phi^a_\ep(u)=1-e^{2iua}S_\ep(a)+2iu\int^a_{0}e^{2iut}S_\ep(t)\,dt
+$$
+の最後の積分を
+$$
+\Psi^a_\ep(u):=\int^a_{0}e^{2iut}S_\ep(t)\,dt
+$$
+とおくと，
+$$
+\Phi^a_\ep(u)=1-e^{2iua}S_\ep(a)+2iu\Psi^a_\ep(u),
+$$
+$$
+\Phi^\infty_\ep(u)=1+2iu\Psi^\infty_\ep(u).
+$$
+$$
+\therefore\quad\frac{1-\Phi^a_\ep(u)\Phi^\infty_\ep(u)}{S_\ep(a)}=e^{iua}-2iu\frac{\Psi^a_\ep(u)}{S_\ep(a)}-2iu\frac{\Psi^\infty_\ep(u)}{S_\ep(a)}+O(\ep).
+$$
+
+ここで， @sec-Phi-a-ep-u より
+$$
+\lim_{a\to0}\lim_{\ep\to0}\frac{\Psi^a_\ep(u)}{S_\ep(a)}=\kappa^{-1}
+$$
+であることに加えて，
+\begin{align*}
+  \frac{\Psi^\infty_\ep(u)}{S_\ep(a)}&=\frac{1}{S_\ep(a)}\int^\infty_{0}e^{2iut}S_\ep(t)\,dt\\
+  &=\frac{1}{p_\ep(a)}\int^\infty_{0}e^{2iut}p_\ep(t)\,dt\\
+  &=\frac{1}{p_\ep(a)}\paren{\frac{1-\gamma}{\sqrt{2\pi\sigma^2}}\int^\infty_0e^{2iut}e^{-\frac{t^2}{\sigma^2}}\,dt+\frac{\gamma}{\sqrt{2\pi\sigma^2}}\frac{1}{\ep}\int^\infty_0e^{2iut}e^{-\frac{t^2}{\sigma^2\ep^2}}\,dt}\\
+  &\xrightarrow{\ep\to0}\paren{\frac{1-\gamma}{\sqrt{2\pi\sigma^2}}e^{-\frac{a^2}{2\sigma^2}}}^{-1}\paren{\frac{1-\gamma}{\sqrt{2\pi\sigma^2}}\int^\infty_0e^{2iut}e^{-\frac{t^2}{\sigma^2}}\,dt+\frac{\gamma}{2}}\\
+  &\xrightarrow{a\to0}\int^\infty_0e^{2iut}e^{-\frac{t^2}{\sigma^2}}\,dt+\frac{\kappa^{-1}}{2}.
+\end{align*}
+
+よって，
+$$
+\lim_{a\to0}\lim_{\ep\to0}\frac{1-\Phi^a_\ep(u)\Phi^\infty_\ep(u)}{S_\ep(a)}=1-iu\kappa^{-1}-iu\paren{\kappa^{-1}+2\int^\infty_0e^{2iut}e^{-\frac{t^2}{\sigma^2}}\,dt}.
+$$
+$$
+\therefore\qquad\lim_{a\to0}\lim_{\ep\to0}\varphi_\ep^{a+}(u)=\frac{1}{1-\frac{iu}{\kappa/2}-2iu\int^\infty_0e^{2iut}e^{-\frac{t^2}{2\sigma^2}}\,dt}.
+$$
+
+$\Exp(\kappa/2)$ から微妙にズレている！
+
+### 下側脱出時刻の特性関数
+
+下側脱出時刻の特性関数は，$\ep\to0$ の極限で上側と同じものに収束することはわかるが，有限の $\ep>0$ においては上下で非対称である．
+
+$$
+\tau_\ep^{a-}=2\sum_{n=1}^{N_\ep^--1}T_\ep^{(n)}-a
+$$
+$$
+N_\ep^-:=\min\Brace{n\ge 1\mid T_\ep^{(n)}>a,\;n\;\text{は偶数}}
+$$
+と考えると，
+
+\begin{align*}
+  \varphi_\ep^{a-}(u)&=\E\Square{e^{iu\tau_\ep^{a-}}}=\E\Square{e^{iu\paren{2\sum_{n=1}^{2N-1}T_\ep^{(n)}+a}}1_{\Brace{N_\ep^-=2N}}}\\
+  &=\sum_{N=1}^\infty\E\Square{e^{2iuT_\ep^{(2)}}1_{\Brace{T_\ep^{(2)}\le a}}}\cdots\E\Square{e^{2iuT_\ep^{(2n-2)}}1_{\Brace{T_\ep^{(2n-2)}\le a}}}\E\Square{e^{iua}1_{\Brace{T_\ep^{(2N)}> a}}}\E[e^{2iuT_\ep^{(1)}}]^N\\
+  &=\sum_{N=1}^\infty e^{iua}S_\ep(a)\Phi^a_\ep(u)^{N-1}\Phi^\infty_\ep(u)^N\\
+  &=e^{iua}S_\ep(a)\frac{\Phi^\infty_\ep(u)}{1-\Phi^a_\ep(u)\Phi^\infty_\ep(u)}.
+\end{align*}
+
+ここで，
+$$
+\Phi^\infty_\ep(u)=1+iu\Psi^\infty_\ep(u)\xrightarrow{\ep\to0}1
+$$
+であるから，
+$$
+\lim_{\ep\to0}\varphi_\ep^{a-}(u)=\lim_{\ep\to0}\varphi_\ep^{a+}(u)=e^{iua}\paren{\lim_{\ep\to0}\frac{1-\Phi^a_\ep(u)\Phi^\infty_\ep(u)}{S_\ep(a)}}^{-1}.
+$$
+
+### 上下のどちらに出るか？
+
+上側に先に出る事象は
+$$
+\Brace{\tau_\ep^{a+}>\tau_\ep^{a-}}=\Brace{N_\ep^a=1}\sqcup\Brace{N_\ep^a=3}\sqcup\cdots
+$$
+と表せる．
+
+この確率は，
+\begin{align*}
+  \P[\tau_\ep^{a+}>\tau_\ep^{a-}]&=\sum_{N=1}^\infty\P[N_\ep^a=2N-1]\\
+  &=\sum_{N=1}^\infty S_\ep(a)F_\ep(a)^{2N-2}\\
+  &=\frac{S_\ep}{1-F_\ep(a)^2}=\frac{1}{1+F_\ep(a)}.
+\end{align*}
+
+よって有限の $\ep>0$ においては上側の方が出やすい．しかし $\ep\to0$ の極限で
+$$
+F_\ep(a)\xrightarrow{\ep\to0}1\quad(a>0)
+$$
+であるから，上下から等しい確率で出る．

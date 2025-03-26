@@ -1,0 +1,547 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss  xmlns:atom="http://www.w3.org/2005/Atom" 
+      xmlns:media="http://search.yahoo.com/mrss/" 
+      xmlns:content="http://purl.org/rss/1.0/modules/content/" 
+      xmlns:dc="http://purl.org/dc/elements/1.1/" 
+      version="2.0">
+<channel>
+<title>ぷにうぱ</title>
+<link>https://puniupa.github.io/notes.html</link>
+<atom:link href="https://puniupa.github.io/notes.xml" rel="self" type="application/rss+xml"/>
+<description>法学＋数学で世界を渡り歩こう</description>
+<image>
+<url>https://puniupa.github.io/assets/ぷにうぱ.jpg</url>
+<title>ぷにうぱ</title>
+<link>https://puniupa.github.io/notes.html</link>
+</image>
+<generator>quarto-1.6.39</generator>
+<lastBuildDate>Wed, 26 Mar 2025 03:21:55 GMT</lastBuildDate>
+<item>
+  <title>１次元での収束の証明</title>
+  <dc:creator>司馬博文 </dc:creator>
+  <link>https://puniupa.github.io/posts/Spike-and-slab/1d_convergence.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="hidden">
+<p>A Blog Entry on Bayesian Computation by an Applied Mathematician</p>
+<p>$$</p>
+<p>$$</p>
+</div>
+<section id="設定" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="設定"><span class="header-section-number">1</span> 設定</h2>
+<p><img src="https://latex.codecogs.com/png.latex?%0Ap_%5Cepsilon(x)=%5Cfrac%7B1-%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7De%5E%7B-%5Cfrac%7Bx%5E2%7D%7B2%5Csigma%5E2%7D%7D+%5Cfrac%7B%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%5Cepsilon%5E2%7D%7De%5E%7B-%5Cfrac%7Bx%5E2%7D%7B2%5Csigma%5E2%5Cepsilon%5E2%7D%7D%0A"> を continuous spike-and-slab prior とする．</p>
+<p><img src="https://latex.codecogs.com/png.latex?(x,v)=(0,%5Cpm1)"> から開始したサンプラーのイベント時刻 <img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon"> の生存関数は <img src="https://latex.codecogs.com/png.latex?%0AS_%5Cepsilon(t)=%5Cfrac%7Bp_%5Cepsilon(t)%7D%7Bp_%5Cepsilon(0)%7D=%5Cfrac%7B(1-%5Cgamma)e%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%7D%7D+(%5Cgamma/%5Cepsilon)e%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%5Cepsilon%5E2%7D%7D%7D%7B1-%5Cgamma+(%5Cgamma/%5Cepsilon)%7D%0A"> で与えられる．</p>
+<p><img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon"> の密度 <img src="https://latex.codecogs.com/png.latex?f_%5Cepsilon"> は <img src="https://latex.codecogs.com/png.latex?%0Af_%5Cepsilon(t)=-S_%5Cepsilon'(t)=%5Cfrac%7B%5Cfrac%7B(1-%5Cgamma)%5Cepsilon%5E3t%7D%7B%5Csigma%5E2%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%7D%7D+%5Cfrac%7B%5Cgamma%20t%7D%7B%5Csigma%5E2%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%5Cepsilon%5E2%7D%7D%7D%7B(1-%5Cgamma)%5Cepsilon%5E3+%5Cgamma%5Cepsilon%5E2%7D%0A"></p>
+</section>
+<section id="遷移核" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="遷移核"><span class="header-section-number">2</span> 遷移核</h2>
+<section id="初等的観察" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="初等的観察"><span class="header-section-number">2.1</span> 初等的観察</h3>
+<p><img src="https://latex.codecogs.com/png.latex?P%5Et_%5Cepsilon(0,-)"> は <img src="https://latex.codecogs.com/png.latex?S_%5Cepsilon(t)%5Cdelta_t"> という非絶対連続部分と，<img src="https://latex.codecogs.com/png.latex?(-t,t)"> 上に重み <img src="https://latex.codecogs.com/png.latex?F_%5Cepsilon(t)"> の絶対連続部分とを持つ．</p>
+<p>総じてコンパクト台を持つ： <img src="https://latex.codecogs.com/png.latex?%0A%5Cmathrm%7Bsupp%7D%5C;P%5Et_%5Cepsilon(0,-)%5Csubset%5B-t,t%5D.%0A"></p>
+</section>
+<section id="定性的議論" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="定性的議論"><span class="header-section-number">2.2</span> 定性的議論</h3>
+<p><img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon%5E%7B(i)%7D"> を <img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20S_%5Cepsilon(t)=%5Cfrac%7Bp_%5Cepsilon(t)%7D%7Bp_%5Cepsilon(0)%7D"> からの i.i.d. 確率変数列とする．</p>
+<p><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)"> を <img src="https://latex.codecogs.com/png.latex?0"> からスタートした場合の時刻 <img src="https://latex.codecogs.com/png.latex?t"> でのイベント発生回数とする： <img src="https://latex.codecogs.com/png.latex?%0AN_%5Cepsilon(t):=%5Cmax%5Cleft%5C%7Bn%5Cge%201%5C,%5Cmiddle%7C%5C,%5Csum_%7Bi=1%7D%5E%7Bn-1%7D2T_%5Cepsilon%5E%7B(i)%7D+T_%5Cepsilon%5E%7B(n)%7D%5Cle%20t%5Cright%5C%7D.%0A"></p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="$t$ 時間後に $x\in(-t,t)$ に居る場合">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<img src="https://latex.codecogs.com/png.latex?t"> 時間後に <img src="https://latex.codecogs.com/png.latex?x%5Cin(-t,t)"> に居る場合
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=0"> の事象では <img src="https://latex.codecogs.com/png.latex?x%5Cne%20t"> には到達できないことに注意．</p>
+<ol type="1">
+<li><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=1"> で，<img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20T_%5Cepsilon%5E%7B(1)%7D=%5Cfrac%7Bt+x%7D%7B2%7D"> にて折り返した場合．</li>
+<li><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=2"> で，次を満たす時刻 <img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon%5E%7B(1)%7D,2T_%5Cepsilon%5E%7B(1)%7D+T_%5Cepsilon%5E%7B(2)%7D"> で折り返した場合： <img src="https://latex.codecogs.com/png.latex?%0A%20%20T_%5Cepsilon%5E%7B(1)%7D+T_%5Cepsilon%5E%7B(2)%7D=%5Cfrac%7Bt-x%7D%7B2%7D.%0A%20%20"></li>
+<li><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=3"> で，次を満たす時刻 <img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon%5E%7B(1)%7D,2T_%5Cepsilon%5E%7B(1)%7D+T_%5Cepsilon%5E%7B(2)%7D,2T_%5Cepsilon%5E%7B(1)%7D+2T_%5Cepsilon%5E%7B(2)%7D+T_%5Cepsilon%5E%7B(3)%7D"> で折り返した場合： <img src="https://latex.codecogs.com/png.latex?%0A%20%20T_%5Cepsilon%5E%7B(1)%7D+T_%5Cepsilon%5E%7B(2)%7D+T_%5Cepsilon%5E%7B(3)%7D=%5Cfrac%7Bt+x%7D%7B2%7D.%0A%20%20"></li>
+</ol>
+<p>これらの事象は互いに排反である．</p>
+</div>
+</div>
+<p>以上を式にすると，<img src="https://latex.codecogs.com/png.latex?P%5Et_%5Cepsilon"> の <img src="https://latex.codecogs.com/png.latex?(-t,t)"> 上の密度 <img src="https://latex.codecogs.com/png.latex?p_%5Cepsilon%5Et"> は， <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20p%5Et_%5Cepsilon(x)&amp;%5C,%5Cpropto%5C,%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=1%5Df_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=2%5Df%5E%7B*2%7D_%5Cepsilon%5Cleft(%5Cfrac%7Bt-x%7D%7B2%7D%5Cright)%5C%5C%0A%20%20&amp;%5Cqquad%20+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=3%5Df%5E%7B*3%7D_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)+%5Ccdots,%5Cqquad%20x%5Cin(-t,t),%0A%5Cend%7Balign*%7D"> と表せる．あとは規格化条件 <img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%5Cint%5Et_%7B-t%7Dp%5Et_%5Cepsilon(x)%5C,dx=F_%5Cepsilon(t)"> を満たせば良い．</p>
+</section>
+<section id="定量的議論" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="定量的議論"><span class="header-section-number">2.3</span> 定量的議論</h3>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20P%5Et_%5Cepsilon(0,dx)&amp;=S_%5Cepsilon(t)%5Cdelta_t(dx)+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=1%5D%5Cfrac%7B1%7D%7B2%7Df_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)%5C,dx%5C%5C%0A%20%20&amp;%5Cqquad+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=2%5D%5Cfrac%7B1%7D%7B2%7Df%5E%7B*2%7D_%5Cepsilon%5Cleft(%5Cfrac%7Bt-x%7D%7B2%7D%5Cright)%5C,dx%5C%5C%0A%20%20&amp;%5Cqquad+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=3%5D%5Cfrac%7B1%7D%7B2%7Df%5E%7B*3%7D_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)%5C,dx%5C%5C%0A%20%20&amp;%5Cqquad+%5Cqquad%5Ccdots%5Cqquad%5Cqquad%20x%5Cin%5B-t,t%5D.%0A%5Cend%7Balign*%7D"></p>
+<p>ということがわかる．</p>
+<p><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=n%5Cge1"> のときのサンプラーの位置 <img src="https://latex.codecogs.com/png.latex?X_%5Cepsilon(t)"> の分布は <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B1%7D%7B2%7Df_%5Cepsilon%5E%7B*n%7D%5Cleft(%5Cfrac%7Bt-(-1)%5Enx%7D%7B2%7D%5Cright)%5C,dx"> になるのである．</p>
+<p><img src="https://latex.codecogs.com/png.latex?f_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)/2"> は <img src="https://latex.codecogs.com/png.latex?2T_%5Cepsilon%5E%7B(1)%7D-t"> の密度，<img src="https://latex.codecogs.com/png.latex?f_%5Cepsilon%5E%7B*2%7D%5Cleft(%5Cfrac%7Bt-x%7D%7B2%7D%5Cright)/2"> は <img src="https://latex.codecogs.com/png.latex?t-2T_%5Cepsilon%5E%7B(1)%7D-2T_%5Cepsilon%5E%7B(2)%7D"> の密度の反転であることに注意．</p>
+</section>
+<section id="作用" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="作用"><span class="header-section-number">2.4</span> 作用</h3>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20P%5Et_%5Cepsilon%5Cvarphi(0)&amp;=%5Cint%5Et_%7B-t%7DP%5Et_%5Cepsilon(0,dx)%5Cvarphi(x)%5C%5C%0A%20%20&amp;=S_%5Cepsilon(t)%5Cint%5Et_%7B-t%7D%5Cvarphi(x)%5Cdelta_t(dx)+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=1%5D%5Cint%5Et_%7B-t%7D%5Cvarphi(x)%5Cfrac%7B1%7D%7B2%7Df_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)%5C,dx%5C%5C%0A%20%20&amp;%5Cqquad+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=2%5D%5Cint%5Et_%7B-t%7D%5Cvarphi(x)%5Cfrac%7B1%7D%7B2%7Df%5E%7B*2%7D_%5Cepsilon%5Cleft(%5Cfrac%7Bt-x%7D%7B2%7D%5Cright)%5C,dx%5C%5C%0A%20%20&amp;%5Cqquad+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=3%5D%5Cint%5Et_%7B-t%7D%5Cvarphi(x)%5Cfrac%7B1%7D%7B2%7Df%5E%7B*3%7D_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)%5C,dx%5C%5C%0A%20%20&amp;%5Cqquad+%5Cqquad%5Ccdots%5C%5C%0A%20%20&amp;=S_%5Cepsilon(t)%5Cvarphi(t)+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=1%5D%5Coperatorname%7BE%7D%5B%5Cvarphi(2T_%5Cepsilon%5E%7B(1)%7D-t)%5D%5C%5C%0A%20%20&amp;%5Cqquad-%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=2%5D%5Coperatorname%7BE%7D%5B%5Cvarphi(t-2T_%5Cepsilon%5E%7B(1)%7D-2T_%5Cepsilon%5E%7B(2)%7D)%5D%5C%5C%0A%20%20&amp;%5Cqquad+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=3%5D%5Coperatorname%7BE%7D%5B%5Cvarphi(2T_%5Cepsilon%5E%7B(1)%7D+2T_%5Cepsilon%5E%7B(2)%7D+2T_%5Cepsilon%5E%7B(3)%7D-t)%5D%5C%5C%0A%20%20&amp;%5Cqquad-%5Cqquad%5Ccdots%0A%5Cend%7Balign*%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cvarphi%5Cin%20C%5E1_0(%5Cmathbb%7BR%7D)"> の場合のみを考えれば良い <span class="citation" data-cites="Durmus+2021">(Prop. 23 Durmus et al., 2021, p. 1469)</span>．</p>
+<p><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)"> が奇数のときは <img src="https://latex.codecogs.com/png.latex?V_%5Cepsilon(t)=-1">，<img src="https://latex.codecogs.com/png.latex?0"> や偶数のときは <img src="https://latex.codecogs.com/png.latex?V_%5Cepsilon(t)=1"> であることに注意．</p>
+<p><img src="https://latex.codecogs.com/png.latex?S_%5Cepsilon(%5Cepsilon)%5Cxrightarrow%7B%5Cepsilon%5Cto0%7De%5E%7B-%5Cfrac%7B1%7D%7B2%5Csigma%5E2%7D%7D"> に注意．一方で <img src="https://latex.codecogs.com/png.latex?S_%5Cepsilon(%5Csqrt%7B%5Cepsilon%7D)%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D0">．</p>
+<p>今後の展望としては， <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Cfrac%7BP%5Et_%5Cepsilon%5Cvarphi(0)-%5Cvarphi(0)%7D%7Bt%7D&amp;=S_%5Cepsilon(t)%5Cfrac%7B%5Cvarphi(t)-%5Cvarphi(0)%7D%7Bt%7D%5C%5C%0A%20%20&amp;%5Cqquad+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=1%5D%5Cfrac%7B%5Coperatorname%7BE%7D%5B%5Cvarphi(2T_%5Cepsilon%5E%7B(1)%7D-t)%5D-%5Cvarphi(0)%7D%7Bt%7D%5C%5C%0A%20%20&amp;%5Cqquad-%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=2%5D%5Cfrac%7B%5Coperatorname%7BE%7D%5B%5Cvarphi(t-2T_%5Cepsilon%5E%7B(1)%7D-2T_%5Cepsilon%5E%7B(2)%7D)%5D-%5Cvarphi(0)%7D%7Bt%7D%5C%5C%0A%20%20&amp;%5Cqquad+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=3%5D%5Cfrac%7B%5Coperatorname%7BE%7D%5B%5Cvarphi(2T_%5Cepsilon%5E%7B(1)%7D+2T_%5Cepsilon%5E%7B(2)%7D+2T_%5Cepsilon%5E%7B(3)%7D-t)%5D-%5Cvarphi(0)%7D%7Bt%7D%5C%5C%0A%20%20&amp;%5Cqquad-%5Cqquad%5Ccdots%0A%5Cend%7Balign*%7D"> という量の，<img src="https://latex.codecogs.com/png.latex?t%5Cto0,%5Cepsilon%5Cto0"> の極限を考えることになる．</p>
+</section>
+<section id="生成作用素の初等的考察" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="生成作用素の初等的考察"><span class="header-section-number">2.5</span> 生成作用素の初等的考察</h3>
+<p><img src="https://latex.codecogs.com/png.latex?%0AL_%5Cepsilon%5Cvarphi(0)=%5Clim_%7Bt%5Cto0%7D%5Cfrac%7BP%5Et_%5Cepsilon%5Cvarphi(0)-%5Cvarphi(0)%7D%7Bt%7D%0A"> という極限を考えると，<img src="https://latex.codecogs.com/png.latex?p_%5Cepsilon(t)"> をターゲットとした１次元の Zig-Zag 過程の生成作用素： <img src="https://latex.codecogs.com/png.latex?%0AL_%5Cepsilon%5Cvarphi(0,1)=%5Cvarphi'(x)+0%5Ccdot%5Cbiggr(%5Cvarphi(0,-1)-%5Cvarphi(0,1)%5Cbiggl)%0A"> を得るはずである．これは <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)%5Cge1%5D%5Cxrightarrow%7Bt%5Cto0%7D0"> かつ <img src="https://latex.codecogs.com/png.latex?S_%5Cepsilon(t)%5Cxrightarrow%7Bt%5Cto0%7D1"> であるから確かに確認できる．</p>
+<p>問題は <img src="https://latex.codecogs.com/png.latex?%5Cepsilon%5Cto0"> にもっていった場合である．この場合は極限過程の遷移作用素 <img src="https://latex.codecogs.com/png.latex?P_0%5Et"> の形が見えるはずであるが，上の表示はこの極限の分析には向かないことがわかる．</p>
+<p>まず，任意の <img src="https://latex.codecogs.com/png.latex?t%3E0"> に対して <img src="https://latex.codecogs.com/png.latex?S_%5Cepsilon(t)%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D0"> になる．ドリフト項は消えてなくなる．これは良いだろうが，続いて <img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)%5Cge1%5D=F_%5Cepsilon(t)%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D1,%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)%5Cge2%5D=%5Cint%5Et_0F_%5Cepsilon%5Cleft(%5Cfrac%7Bt-t_1%7D%7B2%7D%5Cright)f_%5Cepsilon(t_1)%5C,dt_1%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D1%0A"> となる．２式目は正当化が難しい．すなわち <img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)"> の mass は無限遠に向かって逃げていく．実際，分数の項もドリフト項が出てくるが，これが消えてなくなることになる： <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Coperatorname%7BE%7D%5B%5Cvarphi(2T_%5Cepsilon%5E%7B(1)%7D-t)%5D-%5Cvarphi(0)%7D%7Bt%7D%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D%5Cfrac%7B%5Cvarphi(-t)-%5Cvarphi(0)%7D%7Bt%7D%5Cxrightarrow%7Bt%5Cto0%7D-%5Cvarphi'(0).%0A"> これは <img src="https://latex.codecogs.com/png.latex?%5Cvarphi%5Cin%20C_0%5E1(%5Cmathbb%7BR%7D)%5Csubset%20C_b(%5Cmathbb%7BR%7D)"> であることと <img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon%5E%7B(1)%7D%5CRightarrow0"> が分布収束することを用いた．</p>
+<p>したがって，<img src="https://latex.codecogs.com/png.latex?%5Cepsilon%5Cto0"> を取ってから <img src="https://latex.codecogs.com/png.latex?t%5Cto0"> を取るためには，<img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)%5Cge%20n%5D"> の係数を見る必要がある．</p>
+<p>（Zig-Zag 過程としての）遷移核 <img src="https://latex.codecogs.com/png.latex?P_%5Cepsilon%5Et"> の形さえよくわかっていない中で，<img src="https://latex.codecogs.com/png.latex?P_0%5Et"> の形を考えることは難しいと思われる．<img src="https://latex.codecogs.com/png.latex?%5Cdelta_0"> 成分を持ちながらも，Zig-Zag 過程としての遷移核の成分も持つはずであるためである．</p>
+<p>そこで，<img src="https://latex.codecogs.com/png.latex?t,%5Cepsilon"> を同時に <img src="https://latex.codecogs.com/png.latex?0"> に向かわせる極限を取り，<img src="https://latex.codecogs.com/png.latex?L_0%5Cvarphi(0)"> の形の特定を狙う．</p>
+</section>
+<section id="時間内に起こるイベント計数過程-n_epsilon" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="時間内に起こるイベント計数過程-n_epsilon"><span class="header-section-number">2.6</span> 時間内に起こるイベント計数過程 <img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon"></h3>
+<p>そこで <img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=n"> という事象の確率の評価が必要になるが，これが難しい．</p>
+<p><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=1"> という場合は次のように初等的に計算できる： <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=1%5D&amp;=%5Coperatorname%7BP%7D%5BT_%5Cepsilon%5E%7B(1)%7D%5Cle%20t/2,T_%5Cepsilon%5E%7B(2)%7D%3Et-2T_%5Cepsilon%5E%7B(1)%7D%5D+%5Coperatorname%7BP%7D%5Bt/2%3CT_%5Cepsilon%5E%7B(1)%7D%5Cle%20t%5D%5C%5C%0A%20%20&amp;=%5Cint%5E%7Bt/2%7D_0f_%5Cepsilon(t_1)%5Cbiggr(1-F_%5Cepsilon(t-2t_1)%5Cbiggl)%5C,dt_1+%5Cbiggr(F_%5Cepsilon(t)-F_%5Cepsilon(t/2)%5Cbiggl)%5C%5C%0A%20%20&amp;=F_%5Cepsilon(t)-%5Cint%5E%7Bt/2%7D_0f_%5Cepsilon(t_1)F_%5Cepsilon(t-2t_1)%5C,dt_1%0A%5Cend%7Balign*%7D"></p>
+<p>この結果は <img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)%5Cge1%5D=%5Coperatorname%7BP%7D%5BT_%5Cepsilon%5E%7B(1)%7D%5Cle%20t%5D=F_%5Cepsilon(t)%0A"> <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)%5Cge2%5D&amp;=%5Coperatorname%7BP%7D%5B2T_%5Cepsilon%5E%7B(1)%7D+T_%5Cepsilon%5E%7B(2)%7D%5Cle%20t%5D%5C%5C%0A%20%20&amp;=%5Cint%5Et_0%5Cleft(%5Cint%5Et_%7B-t%7Df_%5Cepsilon(x-y)%5Cfrac%7B1%7D%7B2%7Df_%5Cepsilon%5Cleft(%5Cfrac%7By%7D%7B2%7D%5Cright)%5C,dy%5Cright)dx%5C%5C%0A%20%20&amp;=%5Cint%5Et_%7B-t%7D%5Cleft(%5Cint%5Et_0f_%5Cepsilon(x-y)%5C,dx%5Cright)%5Cfrac%7B1%7D%7B2%7Df_%5Cepsilon%5Cleft(%5Cfrac%7By%7D%7B2%7D%5Cright)%5C,dy%5C%5C%0A%20%20&amp;=%5Cint%5Et_%7B-t%7D%5Cbiggr(F_%5Cepsilon(t-y)-F_%5Cepsilon(-y)%5Cbiggl)%5Cfrac%7B1%7D%7B2%7Df_%5Cepsilon%5Cleft(%5Cfrac%7By%7D%7B2%7D%5Cright)%5C,dy%5C%5C%0A%20%20&amp;=%5Cint%5E%7Bt/2%7D_%7B-t/2%7D%5Cbiggr(F_%5Cepsilon(t-2z)+F_%5Cepsilon(-2z)%5Cbiggl)f_%5Cepsilon(z)%5C,dz%5C%5C%0A%20%20&amp;=%5Cint%5E%7Bt/2%7D_0F_%5Cepsilon(t-2z)f_%5Cepsilon(z)%5C,dz+%5Cunderbrace%7B%5Cint%5E%7Bt/2%7D_%7B-t/2%7DF_%5Cepsilon(-2z)f_%5Cepsilon(z)%5C,dz%7D_%7B=0%7D%5C%5C%0A%20%20&amp;=%5Cint%5E%7Bt/2%7D_0f_%5Cepsilon(t_1)F_%5Cepsilon(t-2t_1)%5C,dt_1%0A%5Cend%7Balign*%7D"> という観点から <img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=1%5D=%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)%5Cge1%5D-%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)%5Cge2%5D%0A"> の式であると解釈でき，こちらの公式は一般の <img src="https://latex.codecogs.com/png.latex?n"> に簡単に拡張できる．ただし，こちらの計算では，<img src="https://latex.codecogs.com/png.latex?f_%5Cepsilon"> の台が <img src="https://latex.codecogs.com/png.latex?%5B0,%5Cinfty)"> にしかないことに注意する．</p>
+<p>また，部分積分により，次の表示も持つ： <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)%5Cge2%5D&amp;=%5Cint%5Et_0F_%5Cepsilon%5Cleft(%5Cfrac%7Bt-t_1%7D%7B2%7D%5Cright)f_%5Cepsilon(t_1)%5C,dt_1%5C%5C%0A%20%20&amp;=%5Cbiggl%5BF_%5Cepsilon%5Cleft(%5Cfrac%7Bt-t_1%7D%7B2%7D%5Cright)F_%5Cepsilon(t_1)%5Cbiggr%5D%5E%7Bt%7D_0+%5Cfrac%7B1%7D%7B2%7D%5Cint%5Et_0f_%5Cepsilon%5Cleft(%5Cfrac%7Bt-t_1%7D%7B2%7D%5Cright)F_%5Cepsilon(t_1)%5C,dt_1%5C%5C%0A%20%20&amp;=%5Cint%5E%7Bt/2%7D_0f_%5Cepsilon(t_1)F_%5Cepsilon(t-2t_1)%5C,dt_1.%0A%5Cend%7Balign*%7D"></p>
+<p><img src="https://latex.codecogs.com/png.latex?2%5Csum_%7Bi=1%7D%5E%7Bn-1%7DT_%5Cepsilon%5E%7B(i)%7D"> の密度は <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B1%7D%7B2%7Df_%5Cepsilon%5E%7B*(n-1)%7D%5Cleft(%5Cfrac%7B-%7D%7B2%7D%5Cright)"> と表せる．よって， <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)%5Cge%20n%5D&amp;=%5Cint%5Et_0%5Cint%5Et_0%5Cfrac%7B1%7D%7B2%7Df_%5Cepsilon%5E%7B*(n-1)%7D%5Cleft(%5Cfrac%7Bx-t_1%7D%7B2%7D%5Cright)f_%5Cepsilon(t_1)%5C,dt_1dx%5C%5C%0A%20%20&amp;=%5Cint%5Et_0%5Cleft(%5Cint%5Et_0%5Cfrac%7B1%7D%7B2%7Df_%5Cepsilon%5E%7B*(n-1)%7D%5Cleft(%5Cfrac%7Bx-t_1%7D%7B2%7D%5Cright)%5C,dx%5Cright)f_%5Cepsilon(t_1)%5C,dt_1%5C%5C%0A%20%20&amp;=%5Cint%5Et_0%5Cbiggr(F_%5Cepsilon%5E%7B*(n-1)%7D%5Cleft(%5Cfrac%7Bt-t_1%7D%7B2%7D%5Cright)-F_%5Cepsilon%5E%7B*(n-1)%7D%5Cbiggr(-%5Cfrac%7Bt_1%7D%7B2%7D%5Cbiggl)%5Cbiggl)f_%5Cepsilon(t_1)%5C,dt_1%5C%5C%0A%20%20&amp;=%5Cint%5Et_0F_%5Cepsilon%5E%7B*(n-1)%7D%5Cleft(%5Cfrac%7Bt-t_1%7D%7B2%7D%5Cright)f_%5Cepsilon(t_1)%5C,dt_1.%0A%5Cend%7Balign*%7D"> と表せる．</p>
+</section>
+<section id="どの収束レジーム" class="level3" data-number="2.7">
+<h3 data-number="2.7" class="anchored" data-anchor-id="どの収束レジーム"><span class="header-section-number">2.7</span> どの収束レジーム？</h3>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Cfrac%7BP%5Et_%5Cepsilon%5Cvarphi(0)-%5Cvarphi(0)%7D%7Bt%7D&amp;=S_%5Cepsilon(t)%5Cfrac%7B%5Cvarphi(t)-%5Cvarphi(0)%7D%7Bt%7D%5C%5C%0A%20%20&amp;%5Cqquad+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=1%5D%5Cfrac%7B%5Coperatorname%7BE%7D%5B%5Cvarphi(2T_%5Cepsilon%5E%7B(1)%7D-t)%5D-%5Cvarphi(0)%7D%7Bt%7D%5C%5C%0A%20%20&amp;%5Cqquad-%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=2%5D%5Cfrac%7B%5Coperatorname%7BE%7D%5B%5Cvarphi(t-2T_%5Cepsilon%5E%7B(1)%7D-2T_%5Cepsilon%5E%7B(2)%7D)%5D-%5Cvarphi(0)%7D%7Bt%7D%5C%5C%0A%20%20&amp;%5Cqquad+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=3%5D%5Cfrac%7B%5Coperatorname%7BE%7D%5B%5Cvarphi(2T_%5Cepsilon%5E%7B(1)%7D+2T_%5Cepsilon%5E%7B(2)%7D+2T_%5Cepsilon%5E%7B(3)%7D-t)%5D-%5Cvarphi(0)%7D%7Bt%7D%5C%5C%0A%20%20&amp;%5Cqquad-%5Cqquad%5Ccdots%0A%5Cend%7Balign*%7D"></p>
+<p>という式において， <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Coperatorname%7BP%7D%5BN_%5Cepsilon(%5Csqrt%7B%5Cepsilon%7D)%5Cge2%5D&amp;=%5Cint%5E%7B%5Csqrt%7B%5Cepsilon%7D%7D_0F_%5Cepsilon%5Cleft(%5Cfrac%7B%5Csqrt%7B%5Cepsilon%7D-t_1%7D%7B2%7D%5Cright)f_%5Cepsilon(t_1)%5C,dt_1%5C%5C%0A%20%20&amp;=F_%5Cepsilon(%5Csqrt%7B%5Cepsilon%7D)-F_%5Cepsilon(0)-%5Cint%5E1_0S_%5Cepsilon%5Cleft(%5Cfrac%7B%5Csqrt%7B%5Cepsilon%7D%7D%7B2%7D(1-s)%5Cright)f_%5Cepsilon(%5Csqrt%7B%5Cepsilon%7Ds)%5Csqrt%7B%5Cepsilon%7D%5C,ds%5C%5C%0A%20%20&amp;=F_%5Cepsilon(%5Csqrt%7B%5Cepsilon%7D)-%5Cint%5E1_0%5Cfrac%7B(1-%5Cgamma)%5Cepsilon%20e%5E%7B-%5Cfrac%7B(1-s)%5E2%7D%7B2%5Csigma%5E2%7D%5Cfrac%7B%5Cepsilon%7D%7B4%7D%7D+%5Cgamma%20e%5E%7B-%5Cfrac%7B(1-s)%5E2%7D%7B2%5Csigma%5E2%7D%5Cfrac%7B1%7D%7B4%5Cepsilon%7D%7D%7D%7B(1-%5Cgamma)%5Cepsilon+%5Cgamma%7D%5C%5C%0A%20%20&amp;%5Cqquad%5Cqquad%5Ctimes%5Cfrac%7B%5Cfrac%7B(1-%5Cgamma)%5Cepsilon%5E3s%7D%7B2%5Csigma%5E2%7De%5E%7B-%5Cfrac%7Bs%5E2%7D%7B2%5Csigma%5E2%7D%5Cepsilon%7D+%5Cfrac%7B%5Cgamma%20s%7D%7B%5Csigma%5E2%7De%5E%7B-%5Cfrac%7Bs%5E2%7D%7B2%5Csigma%5E2%7D%5Cfrac%7B1%7D%7B%5Cepsilon%7D%7D%7D%7B(1-%5Cgamma)%5Cepsilon%5E2+%5Cgamma%5Cepsilon%7D%5C,ds%5C%5C%0A%20%20&amp;%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D1.%0A%5Cend%7Balign*%7D"></p>
+<p>だと mass が逃げる．</p>
+<p>一方で，次の場合は有限値を持つ： <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Coperatorname%7BP%7D%5BN_%5Cepsilon(%5Cepsilon)%5Cge2%5D&amp;=%5Cint%5E%5Cepsilon_0F_%5Cepsilon%5Cleft(%5Cfrac%7B%5Cepsilon-t_1%7D%7B2%7D%5Cright)f_%5Cepsilon(t_1)%5C,dt_1%5C%5C%0A%20%20&amp;=F_%5Cepsilon(%5Cepsilon)-%5Cint%5E1_0S_%5Cepsilon%5Cleft(%5Cfrac%7B%5Cepsilon%7D%7B2%7D(1-s)%5Cright)f_%5Cepsilon(%5Cepsilon%20s)%5Cepsilon%5C,ds%5C%5C%0A%20%20&amp;=F_%5Cepsilon(%5Cepsilon)-%5Cint%5E1_0%5Cfrac%7B(1-%5Cgamma)%5Cepsilon%20e%5E%7B-%5Cfrac%7B(1-s)%5E2%7D%7B2%5Csigma%5E2%7D%5Cfrac%7B%5Cepsilon%7D%7B4%7D%7D+%5Cgamma%20e%5E%7B-%5Cfrac%7B(1-s)%5E2%7D%7B2%5Csigma%5E2%7D%5Cfrac%7B1%7D%7B4%7D%7D%7D%7B(1-%5Cgamma)%5Cepsilon+%5Cgamma%7D%5C%5C%0A%20%20&amp;%5Cqquad%5Cqquad%5Ctimes%5Cfrac%7B%5Cfrac%7B(1-%5Cgamma)%5Cepsilon%5E3s%7D%7B%5Csigma%5E2%7De%5E%7B-%5Cfrac%7Bs%5E2%7D%7B2%5Csigma%5E2%7D%5Cepsilon%5E2%7D+%5Cfrac%7B%5Cgamma%20s%7D%7B%5Csigma%5E2%7De%5E%7B-%5Cfrac%7Bs%5E2%7D%7B2%5Csigma%5E2%7D%7D%7D%7B(1-%5Cgamma)%5Cepsilon+%5Cgamma%7D%5C,ds%5C%5C%0A%20%20&amp;%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D1-e%5E%7B-%5Cfrac%7B1%7D%7B2%5Csigma%5E2%7D%7D-%5Cint%5E1_0e%5E%7B-%5Cfrac%7B(1-s)%5E2%7D%7B2%5Csigma%5E2%7D%5Cfrac%7B1%7D%7B4%7D%7D%5Cfrac%7Bs%7D%7B%5Csigma%5E2%7De%5E%7B-%5Cfrac%7Bs%5E2%7D%7B2%5Csigma%5E2%7D%7D%5C,ds%0A%5Cend%7Balign*%7D"></p>
+<p>最後の積分を計算すると <img src="https://latex.codecogs.com/png.latex?e%5E%7B-%5Cfrac%7B1%7D%7B10%5Csigma%5E2%7D%7D%5Cfrac%7B2%7D%7B5%5Csigma%7D%5Csqrt%7B%5Cfrac%7B2%5Cpi%7D%7B5%7D%7D"> となるはずである．</p>
+</section>
+<section id="分布収束先" class="level3" data-number="2.8">
+<h3 data-number="2.8" class="anchored" data-anchor-id="分布収束先"><span class="header-section-number">2.8</span> 分布収束先</h3>
+<p><img src="https://latex.codecogs.com/png.latex?P%5Et_%5Cepsilon%5Cvarphi(0)"> の <img src="https://latex.codecogs.com/png.latex?%5Cepsilon%5Cto0"> での極限を見たい場合，<img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon%5E%7B(1)%7D"> やその独立和の，<img src="https://latex.codecogs.com/png.latex?%5Cepsilon%5Cto0"> での分布収束極限を考える必要がある．</p>
+<p>まず <img src="https://latex.codecogs.com/png.latex?t=%5Cepsilon"> とした場合， <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Cfrac%7B%5Coperatorname%7BE%7D%5B%5Cvarphi(2T_%5Cepsilon%5E%7B(1)%7D-%5Cepsilon)%5D-%5Cvarphi(0)%7D%7B%5Cepsilon%7D&amp;=%5Cint_0%5E%5Cinfty%5Cfrac%7B%5Cvarphi(2s-%5Cepsilon)-%5Cvarphi(0)%7D%7B%5Cepsilon%7Df_%5Cepsilon(s)%5C,ds%5C%5C%0A%20%20&amp;=%0A%5Cend%7Balign*%7D"> は <img src="https://latex.codecogs.com/png.latex?0"> になるようである．</p>
+<p>サンプラーの最初のイベント時刻の平均は <img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BE%7D%5BT_%5Cepsilon%5D=%5Cfrac%7B1%7D%7B2p_%5Cepsilon(0)%7D=%5Cfrac%7B1%7D%7B2%7D%5Cfrac%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%7B1-%5Cgamma+%5Cgamma/%5Cepsilon%7D%0A"> である．</p>
+</section>
+</section>
+<section id="生成作用素" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="生成作用素"><span class="header-section-number">3</span> 生成作用素</h2>
+<section id="はじめに定義に戻る" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="はじめに定義に戻る"><span class="header-section-number">3.1</span> はじめに：定義に戻る</h3>
+<p>今回は生成作用素 <img src="https://latex.codecogs.com/png.latex?L_%5Cepsilon%5Cvarphi(0)"> を見ても <img src="https://latex.codecogs.com/png.latex?0"> しか出ない．どこかから新しい動きが創発される．これを見るには，時間と空間のスケールを同一にした極限 <img src="https://latex.codecogs.com/png.latex?%0AL_0%5Cvarphi(0,1)=%5Clim_%7Bt,%5Cepsilon%5Cto0%7D%5Cfrac%7BP_%5Cepsilon%5Et%20%5Cvarphi(0,1)-%5Cvarphi(0,1)%7D%7Bt%7D%0A"> を見る必要がある．これは，上式で登場した <img src="https://latex.codecogs.com/png.latex?0"> に新しい点 <img src="https://latex.codecogs.com/png.latex?0_+"> を加えて， <img src="https://latex.codecogs.com/png.latex?%0AL_0%5Cvarphi(0,1)=%5Ckappa%5Cleft(%5Cfrac%7B1%7D%7B2%7D%5Cvarphi(0_+,1)+%5Cfrac%7B1%7D%7B2%7D%5Cvarphi(0,-1)-%5Cvarphi(0,1)%5Cright)%0A"> となるはずである．</p>
+<div class="callout callout-style-simple callout-important no-icon callout-titled" title="原点の複製">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+原点の複製
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>すなわち，状態空間の原点を <img src="https://latex.codecogs.com/png.latex?0_-,0_+,0"> の３つの分ける必要がある．これは <img src="https://latex.codecogs.com/png.latex?%5Ctau_%5Cepsilon%5Ea"> などの量で，<img src="https://latex.codecogs.com/png.latex?a=0"> の状態で取った極限と <img src="https://latex.codecogs.com/png.latex?a%5Cne0"> で <img src="https://latex.codecogs.com/png.latex?%5Cepsilon%5Cto0"> の極限を取り，その後に <img src="https://latex.codecogs.com/png.latex?a%5Cto0"> と取った場合とで収束先が違うことに起因する．</p>
+<p>Sticky PDMP は <img src="https://latex.codecogs.com/png.latex?(0_-,1),(0_+,-1)"> での挙動を決定論的なジャンプに取ることで，追加の状態 <img src="https://latex.codecogs.com/png.latex?0"> を不必要にした場合に当たる．</p>
+</div>
+</div>
+</section>
+<section id="停止時による分解" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="停止時による分解"><span class="header-section-number">3.2</span> 停止時による分解</h3>
+<p><img src="https://latex.codecogs.com/png.latex?P%5Et_%5Cepsilon"> の表示はわからないと言って良いが，収束先は停止時による分解を通じて判明する．</p>
+<p>具体的には，<img src="https://latex.codecogs.com/png.latex?%5Ctau_%5Cepsilon%5E%7Ba+%7D,%5Ctau_%5Cepsilon%5E%7Ba-%7D"> をそれぞれ上側と下側の脱出時刻とすると，</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20P%5E%7B2t%7D_%5Cepsilon((0,1),dx)&amp;=%5Coperatorname%7BP%7D%5B%5Ctau_%5Cepsilon%5E%7Bt+%7D%5Cle%5Ctau_%5Cepsilon%5E%7Bt-%7D,%5Ctau_%5Cepsilon%5Et%5Cle%202t%5D%5Cmu_%7Bt+%7D(dx)%5C%5C%0A%20%20&amp;%5Cquad+%5Coperatorname%7BP%7D%5B%5Ctau_%5Cepsilon%5E%7Bt-%7D%5Cle%5Ctau_%5Cepsilon%5E%7Bt+%7D,%5Ctau_%5Cepsilon%5Et%5Cle%202t%5D%5Cmu_%7Bt-%7D(dx)+%5Coperatorname%7BP%7D%5B%5Ctau%5Et_%5Cepsilon%3E2t%5D%5Cmu_t(dx),%0A%5Cend%7Balign*%7D"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cmu_%7Bt%5Cpm%7D:=%5Cmathcal%7BL%7D%5BX_%5Cepsilon(2t)%5C,%7C%5C,%5Ctau%5E%7Bt%5Cpm%7D_%5Cepsilon%5Cle2t%5D,%5Cquad%5Cmu_t:=%5Cmathcal%7BL%7D%5BX_%5Cepsilon(2t)%5C,%7C%5C,%5Ctau%5Et_%5Cepsilon%3E2t%5D,%0A"></p>
+<p>と分解できる．これを用いると，</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20&amp;%5Cqquad%5Cfrac%7BP%5E%7B2t%7D_%5Cepsilon%5Cvarphi(0,1)-%5Cvarphi(0,1)%7D%7B2t%7D%5C%5C%0A%20%20&amp;=%5Cfrac%7B%5Coperatorname%7BE%7D_%7B(0,1)%7D%5B%5Cvarphi(X_%5Cepsilon(2t),V_%5Cepsilon(2t))%5D-%5Cvarphi(0,1)%7D%7B2t%7D%5C%5C%0A%20%20&amp;=%5Coperatorname%7BE%7D_%7B(0,1)%7D%5Cleft%5B%5Cvarphi(X_%5Cepsilon(2t),V_%5Cepsilon(2t))%5Cfrac%7B1_%7B%5Cleft%5C%7B%5Ctau_%5Cepsilon%5E%7Bt+%7D%5Cle%202t%5Cright%5C%7D%7D%7D%7B2t%7D%5Cright%5D+%5Coperatorname%7BE%7D_%7B(0,1)%7D%5Cleft%5B%5Cvarphi(X_%5Cepsilon(2t),V_%5Cepsilon(2t))%5Cfrac%7B1_%7B%5Cleft%5C%7B%5Ctau_%5Cepsilon%5E%7Bt-%7D%5Cle%202t%5Cright%5C%7D%7D%7D%7B2t%7D%5Cright%5D%5C%5C%0A%20%20&amp;%5Cqquad+%5Coperatorname%7BE%7D_%7B(0,1)%7D%5Cleft%5B%5Cfrac%7B%5Cvarphi(X_%5Cepsilon(2t),V_%5Cepsilon(2t))-%5Cvarphi(0,1)%7D%7B2t%7D1_%7B%5Cleft%5C%7B%5Ctau_%5Cepsilon%5Et%3E2t%5Cright%5C%7D%7D%5Cright%5D-%5Cvarphi(0,1)%5Coperatorname%7BE%7D_%7B(0,1)%7D%5Cleft%5B%5Cfrac%7B1_%7B%5Cleft%5C%7B%5Ctau_%5Cepsilon%5Et%5Cle%202t%5Cright%5C%7D%7D%7D%7B2t%7D%5Cright%5D%0A%5Cend%7Balign*%7D"></p>
+</section>
+<section id="第四項-operatornamee_01left1_lefttau_epsilontle-2trightright2t" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="第四項-operatornamee_01left1_lefttau_epsilontle-2trightright2t"><span class="header-section-number">3.3</span> 第四項 <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BE%7D_%7B(0,1)%7D%5Cleft%5B1_%7B%5Cleft%5C%7B%5Ctau_%5Cepsilon%5Et%5Cle%202t%5Cright%5C%7D%7D%5Cright%5D/2t"></h3>
+<p><img src="https://latex.codecogs.com/png.latex?%5Ctau%5Et_%5Cepsilon%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D%5Ctau_0%5Et%5Cxrightarrow%7Bt%5Cto0%7D%5Ctau_0%5E0"> は弱収束するから， <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Coperatorname%7BP%7D%5B%5Ctau_%5Cepsilon%5Et%5Cle%202t%5D%7D%7B2t%7D%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D%5Cfrac%7B%5Coperatorname%7BP%7D%5B%5Ctau_0%5Et%5Cle%202t%5D%7D%7B2t%7D%0A"> は分布関数の連続点における収束から従う．続いて， <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Cfrac%7B%5Coperatorname%7BP%7D%5B%5Ctau_0%5Et%5Cle%202t%5D%7D%7B2t%7D&amp;=%5Cfrac%7B%5Coperatorname%7BP%7D%5B%5Ctau_0%5Et%5Cle%202t%5D-%5Coperatorname%7BP%7D%5B%5Ctau%5E0_0%5Cle2t%5D%7D%7B2t%7D+%5Cfrac%7B%5Coperatorname%7BP%7D%5B%5Ctau%5E0_0%5Cle2t%5D-%5Coperatorname%7BP%7D%5B%5Ctau%5E0_0%5Cle0%5D%7D%7B2t%7D%0A%5Cend%7Balign*%7D"> という分解を考えると，<img src="https://latex.codecogs.com/png.latex?%5Ctau%5Et_0"> の密度を <img src="https://latex.codecogs.com/png.latex?f_t"> とすれば，<img src="https://latex.codecogs.com/png.latex?t%5Cto0"> の極限で第二項は <img src="https://latex.codecogs.com/png.latex?f_0(0)=%5Ckappa%5E%7B-1%7D"> に収束する．</p>
+<p>しかし第一項の <img src="https://latex.codecogs.com/png.latex?0"> への収束には問題がある．</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="第一項の収束には密度の概収束が必要">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+第一項の収束には密度の概収束が必要
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>第一項の収束は弱収束 <img src="https://latex.codecogs.com/png.latex?%5Ctau%5E%7B2t%7D_0%5CRightarrow%5Ctau%5E0_0"> のみからは従わない．密度が概収束することが示せたならば，</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B1%7D%7B2t%7D%5Cint%5E%7B2t%7D_0%5Cbiggr(f_t(s)-f_0(s)%5Cbiggl)%5C,ds%5Cxrightarrow%7Bt%5Cto0%7D0%0A"> が従う．</p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="例">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+例
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><img src="https://latex.codecogs.com/png.latex?%5B0,1%5D"> 上の密度関数 <img src="https://latex.codecogs.com/png.latex?%0Af_n(x):=1+%5Csin(2%5Cpi%20nx)%0A"> は <img src="https://latex.codecogs.com/png.latex?n%5Cto%5Cinfty"> の極限で，一様分布の密度 <img src="https://latex.codecogs.com/png.latex?f(x)=1"> に弱収束するが，密度関数自体は概収束どころか測度収束もしない．</p>
+<p>その結果， <img src="https://latex.codecogs.com/png.latex?%0AF_n(t)=%5Cint%5Et_0f_n(s)%5C,ds=t+%5Cfrac%7B1-%5Ccos(2%5Cpi%20nt)%7D%7B2%5Cpi%20n%7D%0A"> という分布関数に対して， <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7BF_n(t)-F(t)%7D%7Bt%7D=%5Cfrac%7B1-%5Ccos(2%5Cpi%20nt)%7D%7B2%5Cpi%20nt%7D%5Cxrightarrow%7Bn%5Cto%5Cinfty%7D%5Cinfty%0A"> となり収束しない．</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="証明">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+証明
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>任意の <img src="https://latex.codecogs.com/png.latex?%5Cepsilon%3E0"> について，Egorov の定理より， <img src="https://latex.codecogs.com/png.latex?%0A%5Cell(A)%3C%5Cfrac%7B%5Cepsilon%7D%7B2%7D%5Cfrac%7B1%7D%7B%5C%7Cf_t%5C%7C_%7B%5B0,2t%5D%7D+%5C%7Cf_0%5C%7C_%7B%5B0,2t%5D%7D%7D%0A"> を満たす可測集合 <img src="https://latex.codecogs.com/png.latex?A%5Csubset%5B0,2t%5D"> が存在して，<img src="https://latex.codecogs.com/png.latex?%5B0,2t%5D%5Csetminus%20A"> 上で <img src="https://latex.codecogs.com/png.latex?f_t%5Cto%20f"> が一様収束する．例えば， <img src="https://latex.codecogs.com/png.latex?%0A%5C%7Cf_t-f%5C%7C_%7B%5B0,2t%5D%5Csetminus%20A%7D%3C%5Cfrac%7B%5Cepsilon%7D%7B2%7D,%5Cqquad%20t%3Et_%5Cepsilon.%0A"></p>
+<p>以上の設定の下では， <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Cleft%7C%5Cfrac%7B1%7D%7B2t%7D%5Cint%5E%7B2t%7D_0%5Cbiggr(f_t(s)-f_0(s)%5Cbiggl)%5C,ds%5Cright%7C&amp;%5Cle%5Cfrac%7B1%7D%7B2t%7D%5Cint_%7B%5B0,2t%5D%5Csetminus%20A%7D%5Clvert%20f_t(s)-f_0(s)%5Crvert%5C,ds+%5Cell(A)%5Cbiggr(%5C%7Cf_t%5C%7C_%7B%5B0,2t%5D%7D+%5C%7Cf_0%5C%7C_%7B%5B0,2t%5D%7D%5Cbiggl)%5C%5C%0A%20%20&amp;%5Cle%5Cfrac%7B%5Cepsilon%7D%7B2%7D+%5Cfrac%7B%5Cepsilon%7D%7B2%7D=%5Cepsilon.%0A%5Cend%7Balign*%7D"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="上から脱出した場合第一項の解析" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="上から脱出した場合第一項の解析"><span class="header-section-number">3.4</span> 上から脱出した場合（第一項）の解析</h3>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cleft%5C%7B%5Ctau_%5Cepsilon%5Et%5Cle%202t%5Cright%5C%7D"> 上では，時刻 <img src="https://latex.codecogs.com/png.latex?2t"> までに再び原点を越すことはない．従って，イベントが起こる回数は高々１回である： <img src="https://latex.codecogs.com/png.latex?%0A%5Cbiggr(N_%5Cepsilon(2t)-N_%5Cepsilon(%5Ctau%5Et_%5Cepsilon)%5Cbiggl)1_%7B%5Cleft%5C%7B%5Ctau_%5Cepsilon%5Et%5Cle%202t%5Cright%5C%7D%7D%5Cle1.%0A"></p>
+<p>到着時刻 <img src="https://latex.codecogs.com/png.latex?%5Ctau_%5Cepsilon%5E%7Bt+%7D"> で条件づけた上では，イベントが１度も起こらない確率は <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7BS_%5Cepsilon(3t-%5Ctau_%5Cepsilon%5E%7Bt+%7D)%7D%7BS_%5Cepsilon(t)%7D%0A"> で表せる．この値の，事象 <img src="https://latex.codecogs.com/png.latex?%5Cleft%5C%7B%5Ctau_%5Cepsilon%5Et%5Cle%202t%5Cright%5C%7D"> 上での条件付き平均は <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Coperatorname%7BE%7D%5BN_%5Cepsilon(2t)-N_%5Cepsilon(%5Ctau_%5Cepsilon%5E%7Bt+%7D)%5C,%7C%5C,%5Ctau_%5Cepsilon%5E%7Bt+%7D%5Cle2t%5D&amp;=%5Cfrac%7B%5Coperatorname%7BE%7D%5Cbiggl%5B%5Cbiggr(N_%5Cepsilon(2t)-N_%5Cepsilon(%5Ctau_%5Cepsilon%5E%7Bt+%7D)%5Cbiggl)1_%7B%5Cleft%5C%7B%5Ctau_%5Cepsilon%5E%7Bt+%7D%5Cle%202t%5Cright%5C%7D%7D%5Cbiggr%5D%7D%7B%5Coperatorname%7BP%7D%5B%5Ctau_%5Cepsilon%5E%7Bt+%7D%5Cle2t%5D%7D=:%5CDelta%20N_%5Cepsilon%5E%7Bt+%7D%5C%5C%0A%20%20&amp;%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D%5Cfrac%7B%5Coperatorname%7BE%7D%5Cbiggl%5B%5Cbiggr(N_0(2t)-N_0(%5Ctau_0%5E%7Bt+%7D)%5Cbiggl)1_%7B%5Cleft%5C%7B%5Ctau_0%5E%7Bt+%7D%5Cle%202t%5Cright%5C%7D%7D%5Cbiggr%5D%7D%7B%5Coperatorname%7BP%7D%5B%5Ctau_0%5E%7Bt+%7D%5Cle2t%5D%7D%5C%5C%0A%20%20&amp;=%5Cfrac%7B%5Coperatorname%7BE%7D%5Cleft%5B%5Cfrac%7BS_0(3t-%5Ctau_0%5E%7Bt+%7D)%7D%7BS_0(t)%7D1_%7B%5Cleft%5C%7B%5Ctau_0%5E%7Bt+%7D%5Cle%202t%5Cright%5C%7D%7D%5Cright%5D%7D%7B%5Coperatorname%7BP%7D%5B%5Ctau_0%5E%7Bt+%7D%5Cle2t%5D%7D%5C%5C%0A%20%20&amp;=%5Cqquad%5Ccdots%0A%5Cend%7Balign*%7D"> となりうまく計算できない．</p>
+<p>過程 <img src="https://latex.codecogs.com/png.latex?X_%5Cepsilon,V_%5Cepsilon"> の <img src="https://latex.codecogs.com/png.latex?%5Cepsilon%5Cto0"> の極限を取る際は注意すべきである．過程 <img src="https://latex.codecogs.com/png.latex?%5C%7B(X_%5Cepsilon(t),V_%5Cepsilon(t))%5C%7D_%7Bt=0%7D%5E%5Cinfty"> が全体として収束先を持つかは現時点では不明であるが，<img src="https://latex.codecogs.com/png.latex?%5Ctau_%5Cepsilon%5E%7Bt+%7D"> は収束先を持ち，過程 <img src="https://latex.codecogs.com/png.latex?(N_%5Cepsilon(s))_%7Bs=%5Ctau_%5Cepsilon%5E%7Bt+%7D%7D%5E%7B2t%7D"> も原点を通過しないので収束先 <img src="https://latex.codecogs.com/png.latex?(N_0(s))_%7Bs=%5Ctau_0%5E%7Bt+%7D%7D%5E%7B2t%7D"> は存在するはずである．</p>
+<p>第１項は <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20&amp;%5Cqquad%5Coperatorname%7BE%7D_%7B(0,1)%7D%5Cleft%5B%5Cvarphi(X_%5Cepsilon(2t),V_%5Cepsilon(2t))%5Cfrac%7B1_%7B%5Cleft%5C%7B%5Ctau_%5Cepsilon%5E%7Bt+%7D%5Cle%202t%5Cright%5C%7D%7D%7D%7B2t%7D%5Cright%5D%5C%5C%0A%20%20&amp;=%5Coperatorname%7BE%7D_%7B(0,1)%7D%5Cleft%5B%5Cfrac%7B1_%7B%5Cleft%5C%7B%5Ctau_%5Cepsilon%5E%7Bt+%7D%5Cle%202t%5Cright%5C%7D%7D%7D%7B2t%7D%5Coperatorname%7BE%7D_%7B(0,1)%7D%5Cleft%5B%5Cvarphi(X_%5Cepsilon(2t),V_%5Cepsilon(2t))%5C,%7C%5C,%5Cmathcal%7BF%7D_%7B%5Ctau_%5Cepsilon%5E%7Bt+%7D%7D%5Cright%5D%5Cright%5D%5C%5C%0A%20%20&amp;=%5Coperatorname%7BE%7D_%7B(0,1)%7D%5Cleft%5B%5Cfrac%7B1_%7B%5Cleft%5C%7B%5Ctau_%5Cepsilon%5E%7Bt+%7D%5Cle%202t%5Cright%5C%7D%7D%7D%7B2t%7D%5Coperatorname%7BE%7D_%7B(t,1)%7D%5Cbiggl%5B%5Cvarphi%5Cbiggr(X_%5Cepsilon(2t-%5Ctau_%5Cepsilon%5E%7Bt+%7D),V_%5Cepsilon(2t-%5Ctau_%5Cepsilon%5E%7Bt+%7D)%5Cbiggl)%5Cbiggr%5D%5Cright%5D%0A%5Cend%7Balign*%7D"></p>
+<p>本当は <img src="https://latex.codecogs.com/png.latex?%5Cleft%5C%7B%5Ctau_%5Cepsilon%5E%7Bt+%7D%5Cle%202t%5Cright%5C%7D"> を <img src="https://latex.codecogs.com/png.latex?%5Cleft%5C%7B%5Ctau_%5Cepsilon%5E%7Bt+%7D%3C%5Ctau_%5Cepsilon%5E%7Bt-%7D,%5Ctau_%5Cepsilon%5Et%5Cle%202t%5Cright%5C%7D"> と分解したいところだが，直接留数計算により <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Coperatorname%7BP%7D%5B%5Ctau_%5Cepsilon%5E%7Bt+%7D%5Cle2t%5D%7D%7B2t%7D%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D(f%5E+_0)'(0)=%5Cfrac%7B2%7D%7B%5Ckappa%7D%0A"> を出すこともできるだろう．</p>
+</section>
+<section id="第１項の詳細な収束の議論" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="第１項の詳細な収束の議論"><span class="header-section-number">3.5</span> 第１項の詳細な収束の議論</h3>
+</section>
+<section id="第３項" class="level3" data-number="3.6">
+<h3 data-number="3.6" class="anchored" data-anchor-id="第３項"><span class="header-section-number">3.6</span> 第３項</h3>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BE%7D_%7B(0,1)%7D%5Cleft%5B%5Cfrac%7B%5Cvarphi(X_%5Cepsilon(2t),V_%5Cepsilon(2t))-%5Cvarphi(0,1)%7D%7B2t%7D1_%7B%5Cleft%5C%7B%5Ctau_%5Cepsilon%5Et%3E2t%5Cright%5C%7D%7D%5Cright%5D%0A"> は <img src="https://latex.codecogs.com/png.latex?0"> に収束するはずである．</p>
+
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Durmus+2021" class="csl-entry">
+Durmus, A., Guillin, A., and Monmarché, P. (2021). <a href="https://doi.org/10.1214/20-AIHP1125"><span class="nocase">Piecewise deterministic Markov processes and their invariant measures</span></a>. <em>Annales de l’Institut Henri Poincaré, Probabilités Et Statistiques</em>, <em>57</em>(3), 1442–1475.
+</div>
+</div></section></div> ]]></description>
+  <category>ノート</category>
+  <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_convergence.html</guid>
+  <pubDate>Wed, 26 Mar 2025 03:21:55 GMT</pubDate>
+</item>
+<item>
+  <title>脱出時刻の分析</title>
+  <dc:creator>司馬博文 </dc:creator>
+  <link>https://puniupa.github.io/posts/Spike-and-slab/1d_exit.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="hidden">
+<p>A Blog Entry on Bayesian Computation by an Applied Mathematician</p>
+<p>$$</p>
+<p>$$</p>
+</div>
+<section id="設定" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="設定"><span class="header-section-number">1</span> 設定</h2>
+<p>continuous spike-and-slab prior は，Gauss 密度を用いて <img src="https://latex.codecogs.com/png.latex?%0A%5Cdisplaystyle%20p_%5Cepsilon(x)=%5Cfrac%7B1-%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7De%5E%7B-%5Cfrac%7Bx%5E2%7D%7B2%5Csigma%5E2%7D%7D+%5Cfrac%7B%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%5Cepsilon%5E2%7D%7De%5E%7B-%5Cfrac%7Bx%5E2%7D%7B2%5Csigma%5E2%5Cepsilon%5E2%7D%7D%0A"> と表せるが，一般的な議論をするために <img src="https://latex.codecogs.com/png.latex?%0Ap_%5Cepsilon(x)=(1-%5Cgamma)p%5E1(x)+%5Cgamma%20p%5E2_%5Cepsilon(x),%5Cqquad%20p%5E2_%5Cepsilon(x):=%5Cfrac%7B1%7D%7B%5Cepsilon%7Dp%5E1%5Cleft(%5Cfrac%7Bx%7D%7B%5Cepsilon%7D%5Cright)%0A"> と表そう．</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cepsilon%5Cto0"> の極限を考える．そもそもベイズの文脈でこの解析がなされたことはないようである．</p>
+<p>我々はこの極限の下でのサンプラーの挙動を解析したい．</p>
+</section>
+<section id="イベント到着時刻-t_epsilon" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="イベント到着時刻-t_epsilon"><span class="header-section-number">2</span> イベント到着時刻 <img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon"></h2>
+<section id="生存関数-s_epsilon" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="生存関数-s_epsilon"><span class="header-section-number">2.1</span> 生存関数 <img src="https://latex.codecogs.com/png.latex?S_%5Cepsilon"></h3>
+<p><img src="https://latex.codecogs.com/png.latex?(x,v)=(0,%5Cpm1)"> から開始したサンプラーのイベント時刻 <img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon"> の生存関数は <img src="https://latex.codecogs.com/png.latex?%0AS_%5Cepsilon(t)=%5Cfrac%7Bp_%5Cepsilon(t)%7D%7Bp_%5Cepsilon(0)%7D=%5Cfrac%7B(1-%5Cgamma)e%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%7D%7D+(%5Cgamma/%5Cepsilon)e%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%5Cepsilon%5E2%7D%7D%7D%7B1-%5Cgamma+(%5Cgamma/%5Cepsilon)%7D%0A"> で与えられる．</p>
+<p>このことは <img src="https://latex.codecogs.com/png.latex?p_%5Cepsilon"> が <img src="https://latex.codecogs.com/png.latex?(0,%5Cinfty)"> 上単調減少ならば（すなわち <img src="https://latex.codecogs.com/png.latex?p_%5Cepsilon"> が単峰性分布ならば）， <img src="https://latex.codecogs.com/png.latex?%0AS_%5Cepsilon(t)=%5Cfrac%7Bp_%5Cepsilon(t)%7D%7Bp_%5Cepsilon(0)%7D=%5Cfrac%7B1%7D%7Bp%5E1(0)%7D%5Cfrac%7B(1-%5Cgamma)p%5E1(t)+%5Cfrac%7B%5Cgamma%7D%7B%5Cepsilon%7Dp%5E1(t/%5Cepsilon)%7D%7B1-%5Cgamma+(%5Cgamma/%5Cepsilon)%7D%0A"> とまで一般化でき，サンプラーの生存率は <img src="https://latex.codecogs.com/png.latex?p_%5Cepsilon"> に比例する値になる．</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="一般の多峰性分布の場合">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+一般の多峰性分布の場合
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20S_%5Cepsilon(t)&amp;=%5Coperatorname%7BP%7D%5BT_%5Cepsilon%3Et%5D=%5Cexp%5Cleft(-%5Cint%5Et_0(U_%5Cepsilon'(s))_+%5C,ds%5Cright)%5C%5C%0A%20%20&amp;=%5Cexp%5Cleft(-U_%5Cepsilon(t)+U_%5Cepsilon(0)+%5Cint%5Et_0U_%5Cepsilon'(s)1_%7B%5Cleft%5C%7BU_%5Cepsilon'%3C0%5Cright%5C%7D%7D(s)%5C,ds%5Cright)%5C%5C%0A%20%20&amp;=%5Cfrac%7Bp_%5Cepsilon(t)%7D%7Bp_%5Cepsilon(0)%7D%5Cexp%5Cleft(%5Cint%5Et_0U_%5Cepsilon'(s)1_%7B%5Cleft%5C%7BU_%5Cepsilon'%3C0%5Cright%5C%7D%7D(s)%5C,ds%5Cright)%0A%5Cend%7Balign*%7D"></p>
+<p>これは <img src="https://latex.codecogs.com/png.latex?U_%5Cepsilon"> の増加部分だけをつなげて出来る曲線になる．</p>
+</div>
+</div>
+</div>
+</section>
+<section id="極限" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="極限"><span class="header-section-number">2.2</span> 極限</h3>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B%5Cgamma%7D%7B%5Cepsilon%7Dp%5E1%5Cleft(%5Cfrac%7Bt%7D%7B%5Cepsilon%7D%5Cright)%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D0,%5Cqquad%20t%5Cne0,%0A"> が成り立つために， <img src="https://latex.codecogs.com/png.latex?%0AS_%5Cepsilon(t)=%5Cfrac%7Bp_%5Cepsilon(t)%7D%7Bp_%5Cepsilon(0)%7D%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D1_%7B%5C%7B0%5C%7D%7D(t)%5Cquad%20t%5Cin%5Cmathbb%7BR%7D_+,%0A"> という関数になってしまう．つまり <img src="https://latex.codecogs.com/png.latex?0"> から出ることはなく，<img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon=0%5C;%5C;%5Ctext%7Ba.s.%7D"> となる．</p>
+<p>これは実際のサンプラーの挙動とは違う．この矛盾は収束極限がそのままでは Markov 過程ではないことに関係するのかもしれない．</p>
+</section>
+<section id="平均-operatornameet_epsilon" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="平均-operatornameet_epsilon"><span class="header-section-number">2.3</span> 平均 <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BE%7D%5BT_%5Cepsilon%5D"></h3>
+<p>このとき，<img src="https://latex.codecogs.com/png.latex?(x,v)=(0,1)"> から開始する場合，サンプラーの最初のイベント時刻の平均は <img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BE%7D%5BT_%5Cepsilon%5D=%5Cfrac%7B1%7D%7B2p_%5Cepsilon(0)%7D=%5Cfrac%7B1%7D%7B2%7D%5Cfrac%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%7B1-%5Cgamma+%5Cgamma/%5Cepsilon%7D%0A"> である．<img src="https://latex.codecogs.com/png.latex?%5Cepsilon%5Cto0"> で <img src="https://latex.codecogs.com/png.latex?0"> に収束する．（密度が各点収束するため全変動収束する）．</p>
+<p>一般の場合は <img src="https://latex.codecogs.com/png.latex?%0Ap_%5Cepsilon(x)=(1-%5Cgamma)p%5E1(x)+%5Cfrac%7B%5Cgamma%7D%7B%5Cepsilon%7Dp%5E1%5Cleft(%5Cfrac%7Bx%7D%7B%5Cepsilon%7D%5Cright)%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Ctherefore%5Cquad%20p_%5Cepsilon(0)=%5Cleft(1-%5Cgamma+%5Cfrac%7B%5Cgamma%7D%7B%5Cepsilon%7D%5Cright)p%5E1(0)%0A"> であることに注意．</p>
+</section>
+</section>
+<section id="脱出時刻-tau_epsilona" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="脱出時刻-tau_epsilona"><span class="header-section-number">3</span> 脱出時刻 <img src="https://latex.codecogs.com/png.latex?%5Ctau_%5Cepsilon%5Ea"></h2>
+<section id="脱出時刻の表示" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="脱出時刻の表示"><span class="header-section-number">3.1</span> 脱出時刻の表示</h3>
+<p><img src="https://latex.codecogs.com/png.latex?%5B-a,a%5D"> からの脱出時刻 <img src="https://latex.codecogs.com/png.latex?%5Ctau%5Ea_%5Cepsilon"> を考えたい．これは <img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon%5E%7B(1)%7D,T_%5Cepsilon%5E%7B(2)%7D,%5Ccdots"> を <img src="https://latex.codecogs.com/png.latex?S_%5Cepsilon"> からの i.i.d. とすると，最初に <img src="https://latex.codecogs.com/png.latex?a"> を超える到着時刻 <img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon%5E%7B(n)%7D"> の番号 <img src="https://latex.codecogs.com/png.latex?%0AN_%5Cepsilon:=%5Cinf%5Cleft%5C%7Bn%5Cge%201%5C,%5Cmiddle%7C%5C,T_%5Cepsilon%5E%7B(n)%7D%3Ea%5Cright%5C%7D%0A"> を用いて， <img src="https://latex.codecogs.com/png.latex?%0A%5Ctau_%5Cepsilon%5Ea:=2%5Csum_%7Bn=1%7D%5E%7BN_%5Cepsilon-1%7DT_%5Cepsilon%5E%7B(n)%7D+a%0A"> と表せる．</p>
+</section>
+<section id="平均" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="平均"><span class="header-section-number">3.2</span> 平均</h3>
+<p>最終的には <img src="https://latex.codecogs.com/png.latex?%5Ctau_%5Cepsilon%5Ea"> の分布も特定できるが，まずは期待値を計算してみる．</p>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="命題">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+命題
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BE%7D%5B%5Ctau_%5Cepsilon%5Ea%5D=%5Cfrac%7B%5Cint%5Ea_%7B-a%7DS_%5Cepsilon(t)%5C,dt%7D%7BS_%5Cepsilon(a)%7D-a=%5Cfrac%7B1%7D%7Bp_%5Cepsilon(a)%7D%5Cint%5Ea_%7B-a%7Dp_%5Cepsilon(t)%5C,dt-a.%0A"></p>
+</div>
+</div>
+<section id="証明１tau_epsilona-の表示" class="level4" data-number="3.2.1">
+<h4 data-number="3.2.1" class="anchored" data-anchor-id="証明１tau_epsilona-の表示"><span class="header-section-number">3.2.1</span> 証明１：<img src="https://latex.codecogs.com/png.latex?%5Ctau_%5Cepsilon%5Ea"> の表示</h4>
+<p><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon"> の値で条件付けて考えよう．</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cleft%5C%7BN_%5Cepsilon=N%5Cright%5C%7D=%5Cleft%5C%7BT_%5Cepsilon%5E%7B(1)%7D%5Cle%20a%5Cright%5C%7D%5Ccap%5Cleft%5C%7BT_%5Cepsilon%5E%7B(2)%7D%5Cle%20a%5Cright%5C%7D%5Ccap%5Ccdots%5Ccap%5Cleft%5C%7BT_%5Cepsilon%5E%7B(N-1)%7D%5Cle%20a%5Cright%5C%7D%5Ccap%5Cleft%5C%7BT_%5Cepsilon%5E%7B(N)%7D%3Ea%5Cright%5C%7D%0A"> に注意すると，</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Ctau_%5Cepsilon%5Ea&amp;=2%5Csum_%7Bn=1%7D%5E%7BN_%5Cepsilon-1%7DT_%5Cepsilon%5E%7B(n)%7D+a%5C%5C%0A%20%20&amp;=%5Csum_%7BN=1%7D%5E%5Cinfty1_%7B%5Cleft%5C%7BN_%5Cepsilon=N%5Cright%5C%7D%7D%5Cleft(2%5Csum_%7Bn=1%7D%5E%7BN-1%7DT_%5Cepsilon%5E%7B(n)%7D+a%5Cright)%5C%5C%0A%20%20&amp;=%5Csum_%7BN=1%7D%5E%5Cinfty%5Cleft(2%5Csum_%7Bn=1%7D%5E%7BN-1%7D1_%7B%5Cleft%5C%7BN_%5Cepsilon=N%5Cright%5C%7D%7DT_%5Cepsilon%5E%7B(n)%7D+a1_%7B%5Cleft%5C%7BN_%5Cepsilon=N%5Cright%5C%7D%7D%5Cright)%0A%5Cend%7Balign*%7D"></p>
+<p>よって，<img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon%5E%7B(1)%7D,T_%5Cepsilon%5E%7B(2)%7D,%5Ccdots"> が i.i.d. であることから，期待値は次のように計算できる：</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Coperatorname%7BE%7D%5B%5Ctau_%5Cepsilon%5Ea%5D&amp;=%5Csum_%7BN=1%7D%5E%5Cinfty%5Cleft(2%5Csum_%7Bn=1%7D%5E%7BN-1%7D%5Coperatorname%7BE%7D%5Cleft%5B1_%7B%5Cleft%5C%7BT_%5Cepsilon%5E%7B(n)%7D%5Cle%20a%5Cright%5C%7D%7DT_%5Cepsilon%5E%7B(n)%7D%5Cright%5DF_%5Cepsilon(a)%5E%7BN-2%7DS_%5Cepsilon(a)+aF_%5Cepsilon(a)%5E%7BN-1%7DS_%5Cepsilon(a)%5Cright)%0A%5Cend%7Balign*%7D"></p>
+</section>
+<section id="証明２条件付き期待値-operatornameeleft1_leftt_epsilonnle-arightt_epsilonnright-の計算" class="level4" data-number="3.2.2">
+<h4 data-number="3.2.2" class="anchored" data-anchor-id="証明２条件付き期待値-operatornameeleft1_leftt_epsilonnle-arightt_epsilonnright-の計算"><span class="header-section-number">3.2.2</span> 証明２：条件付き期待値 <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BE%7D%5Cleft%5B1_%7B%5Cleft%5C%7BT_%5Cepsilon%5E%7B(n)%7D%5Cle%20a%5Cright%5C%7D%7DT_%5Cepsilon%5E%7B(n)%7D%5Cright%5D"> の計算</h4>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Coperatorname%7BE%7D%5Cleft%5B1_%7B%5Cleft%5C%7BT_%5Cepsilon%5E%7B(n)%7D%5Cle%20a%5Cright%5C%7D%7DT_%5Cepsilon%5E%7B(n)%7D%5Cright%5D&amp;=-%5Cint%5Ea_0tS_%5Cepsilon'(t)%5C,dt%5C%5C%0A%20%20&amp;=%5Cbiggl%5B-tS_%5Cepsilon(t)%5Cbiggr%5D%5Ea_0+%5Cint%5Ea_0S_%5Cepsilon(t)%5C,dt%5C%5C%0A%20%20&amp;=%5Cint%5Ea_0S_%5Cepsilon(t)%5C,dt-aS_%5Cepsilon(a).%0A%5Cend%7Balign*%7D"></p>
+<p>この計算により，期待値は</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Coperatorname%7BE%7D%5B%5Ctau_%5Cepsilon%5Ea%5D&amp;=%5Csum_%7BN=1%7D%5E%5Cinfty%5Cleft(2%5Csum_%7Bn=1%7D%5E%7BN-1%7D%5Coperatorname%7BE%7D%5Cleft%5B1_%7B%5Cleft%5C%7BT_%5Cepsilon%5E%7B(n)%7D%5Cle%20a%5Cright%5C%7D%7DT_%5Cepsilon%5E%7B(n)%7D%5Cright%5DF_%5Cepsilon(a)%5E%7BN-2%7DS_%5Cepsilon(a)+aF_%5Cepsilon(a)%5E%7BN-1%7DS_%5Cepsilon(a)%5Cright)%5C%5C%0A%20%20&amp;=%5Csum_%7BN=1%7D%5E%5Cinfty%5Cleft(2(N-1)%5Cleft(%5Cint%5Ea_0S_%5Cepsilon(t)%5C,dt-aS_%5Cepsilon(a)%5Cright)F_%5Cepsilon(a)%5E%7BN-2%7DS_%5Cepsilon(a)+aF_%5Cepsilon(a)%5E%7BN-1%7DS_%5Cepsilon(a)%5Cright)%5C%5C%0A%20%20&amp;=2%5Cleft(%5Cint%5Ea_0S_%5Cepsilon(t)%5C,dt-aS_%5Cepsilon(a)%5Cright)S_%5Cepsilon(a)%5Csum_%7BN=1%7D%5E%5Cinfty(N-1)F_%5Cepsilon(a)%5E%7BN-2%7D+aS_%5Cepsilon(a)%5Csum_%7BN=1%7D%5E%5Cinfty%20F_%5Cepsilon(a)%5E%7BN-1%7D%5C%5C%0A%20%20&amp;=2%5Cfrac%7B1%7D%7BS_%5Cepsilon(a)%7D%5Cint%5Ea_0S_%5Cepsilon(t)%5C,dt-2a+a%5C%5C%0A%20%20&amp;=%5Cfrac%7B%5Cint%5Ea_%7B-a%7DS_%5Cepsilon(t)%5C,dt%7D%7BS_%5Cepsilon(a)%7D-a.%0A%5Cend%7Balign*%7D"></p>
+<p>最後の等式は <img src="https://latex.codecogs.com/png.latex?S_%5Cepsilon(t)=%5Cfrac%7Bp_%5Cepsilon(t)%7D%7Bp_%5Cepsilon(0)%7D"> が対称であることによる．</p>
+</section>
+<section id="sec-limit-of-E" class="level4" data-number="3.2.3">
+<h4 data-number="3.2.3" class="anchored" data-anchor-id="sec-limit-of-E"><span class="header-section-number">3.2.3</span> 極限の観察：<img src="https://latex.codecogs.com/png.latex?%5Cepsilon%5Cto0"> を取ってから <img src="https://latex.codecogs.com/png.latex?a%5Cto0"> を取る</h4>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BE%7D%5B%5Ctau%5Ea_%5Cepsilon%5D=%5Cfrac%7B1%7D%7Bp_%5Cepsilon(a)%7D%5Cint%5Ea_%7B-a%7Dp_%5Cepsilon(t)%5C,dt-a%0A"></p>
+<p>は，まず <img src="https://latex.codecogs.com/png.latex?a%5Cto0"> で <img src="https://latex.codecogs.com/png.latex?0"> に収束することがわかる．これは良いだろう．しかし，<img src="https://latex.codecogs.com/png.latex?%5Cepsilon%5Cto0"> の極限では奇妙な挙動を見せる．</p>
+<p>まず，<img src="https://latex.codecogs.com/png.latex?a%3E0"> である限り， <img src="https://latex.codecogs.com/png.latex?%0Ap_%5Cepsilon(a)=%5Cfrac%7B1-%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7De%5E%7B-%5Cfrac%7Ba%5E2%7D%7B2%5Csigma%5E2%7D%7D+%5Cfrac%7B%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%5Cepsilon%5E2%7D%7De%5E%7B-%5Cfrac%7Ba%5E2%7D%7B2%5Csigma%5E2%5Cepsilon%5E2%7D%7D%0A%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D%5Cfrac%7B1-%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7De%5E%7B-%5Cfrac%7Ba%5E2%7D%7B2%5Csigma%5E2%7D%7D.%0A"> そして <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Cint%5Ea_%7B-a%7D%5Cfrac%7B%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%5Cepsilon%5E2%7D%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%5Cepsilon%5E2%7D%7D%5C,dt=%5Cfrac%7B%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%5Cint%5E%7Ba/%5Cepsilon%7D_%7B-a/%5Cepsilon%7De%5E%7B-%5Cfrac%7Bs%5E2%7D%7B2%5Csigma%5E2%7D%7D%5C,ds%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D%5Cgamma.%0A%5Cend%7Balign*%7D"> であるから，</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Clim_%7B%5Cepsilon%5Cto0%7D%5Coperatorname%7BE%7D%5B%5Ctau_%5Cepsilon%5Ea%5D&amp;=%5Cfrac%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%7B1-%5Cgamma%7De%5E%7B%5Cfrac%7Ba%5E2%7D%7B2%5Csigma%5E2%7D%7D%5Clim_%7B%5Cepsilon%5Cto0%7D%5Cint%5Ea_%7B-a%7Dp_%5Cepsilon(t)%5C,dt-a%5C%5C%0A%20%20&amp;=%5Cfrac%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%7B1-%5Cgamma%7De%5E%7B%5Cfrac%7Ba%5E2%7D%7B2%5Csigma%5E2%7D%7D%5Cleft(%5Cfrac%7B1-%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%5Cint%5Ea_%7B-a%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%7D%7D%5C,dt+%5Cgamma%5Cright)-a%5C%5C%0A%20%20&amp;=e%5E%7B%5Cfrac%7Ba%5E2%7D%7B2%5Csigma%5E2%7D%7D%5Cint%5Ea_%7B-a%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%7D%7D%5C,dt+%5Cfrac%7B%5Cgamma%7D%7B1-%5Cgamma%7D%5Csqrt%7B2%5Cpi%5Csigma%5E2%7De%5E%7B%5Cfrac%7Ba%5E2%7D%7B2%5Csigma%5E2%7D%7D-a%5C%5C%0A%20%20&amp;%5Cxrightarrow%7Ba%5Cto0%7D%5Cfrac%7B%5Cgamma%7D%7B1-%5Cgamma%7D%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%0A%5Cend%7Balign*%7D"></p>
+<p>この最後の値は <span class="citation" data-cites="Bierkens+2023">(Bierkens et al., 2023)</span> にある <img src="https://latex.codecogs.com/png.latex?%5Ckappa%5E%7B-1%7D"> に他ならない！</p>
+</section>
+<section id="条件付けによる議論" class="level4" data-number="3.2.4">
+<h4 data-number="3.2.4" class="anchored" data-anchor-id="条件付けによる議論"><span class="header-section-number">3.2.4</span> 条件付けによる議論</h4>
+<p>以上の議論は，条件付けを考えると見通しが良い．</p>
+<p>＊この節はまだ厳密に議論できていない．指標関数のみを使っていれば見通しが良いが，条件付けによっても議論できるはず．</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="証明">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+証明
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-3" class="callout-3-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>以前ここには <img src="https://latex.codecogs.com/png.latex?%0AT_%5Cepsilon%5E%7B(1)%7D%5Cperp%5C!%5C!%5C!%5Cperp%20T_%5Cepsilon%5E%7B(2)%7D%5Cmid%20N_%5Cepsilon%5Ea%0A"> という条件を与えていたが，これは必ずしも正しくない．</p>
+<p>以下は示そうとした試み：</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cleft%5C%7BT_%5Cepsilon%5E%7B(2)%7D%3Ct%5Cright%5C%7D"> という事象に関して， <img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BP%7D%5BT_%5Cepsilon%5E%7B(2)%7D%3Ct%7CT_%5Cepsilon%5E%7B(1)%7D,N_%5Cepsilon%5Ea%5D=%5Coperatorname%7BP%7D%5BT_%5Cepsilon%5E%7B(2)%7D%3Ct%7CN_%5Cepsilon%5Ea%5D%5C;%5C;%5Ctext%7Ba.s.%7D%5Cqquad%20t%3E0,%0A"> が成り立てば良い <span class="citation" data-cites="Kallenberg2021">(定理8.9 Kallenberg, 2021, p. 170)</span>．これは右辺が <img src="https://latex.codecogs.com/png.latex?%5Csigma%5BN_%5Cepsilon%5Ea,T_%5Cepsilon%5E%7B(1)%7D%5D"> に関する条件付き期待値の性質 <img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BE%7D%5Cbiggl%5B%5Coperatorname%7BP%7D%5BT_%5Cepsilon%5E%7B(2)%7D%3Ct%7CN_%5Cepsilon%5Ea%5D1_%7B%5Cleft%5C%7BN_%5Cepsilon%5Ea=N,T_%5Cepsilon%5E%7B(1)%7D%3C%20a%5Cright%5C%7D%7D%5Cbiggr%5D=%5Coperatorname%7BE%7D%5Cbiggl%5B%5Coperatorname%7BP%7D%5BT_%5Cepsilon%5E%7B(2)%7D%3Ct%5D1_%7B%5Cleft%5C%7BN_%5Cepsilon%5Ea=N,T_%5Cepsilon%5E%7B(1)%7D%3C%20a%5Cright%5C%7D%7D%5Cbiggr%5D%0A"> を満たすことを示せば良い．</p>
+</div>
+</div>
+</div>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Coperatorname%7BE%7D%5B%5Ctau_%5Cepsilon%5Ea%5D&amp;=%5Coperatorname%7BE%7D%5Cbiggl%5B%5Coperatorname%7BE%7D%5B%5Ctau_%5Cepsilon%5Ea%7CN_%5Cepsilon%5Ea%5D%5Cbiggr%5D%5C%5C%0A%20%20&amp;=%5Coperatorname%7BE%7D%5Cleft%5B%5Coperatorname%7BE%7D%5Cleft%5B2%5Csum_%7Bn=1%7D%5E%7BN-1%7DT_%5Cepsilon%5E%7B(n)%7D+a%5C,%5Cmiddle%7C%5C,N_%5Cepsilon%5Ea=N%5Cright%5D%5Cright%5D%5C%5C%0A%20%20&amp;=%5Coperatorname%7BE%7D%5Cleft%5B2%5Coperatorname%7BE%7D%5Cleft%5B%5Csum_%7Bn=1%7D%5E%7BN-1%7DT_%5Cepsilon%5E%7B(n)%7D%5C,%5Cmiddle%7C%5C,N_%5Cepsilon%5Ea=N%5Cright%5D+a%5Cright%5D%5C%5C%0A%20%20&amp;=2%5Coperatorname%7BE%7D%5Cleft%5B(N_%5Cepsilon%5Ea-1)%5Coperatorname%7BE%7D%5Cleft%5BT_%5Cepsilon%5E%7B(1)%7D%5C,%5Cmiddle%7C%5C,T_%5Cepsilon%5E%7B(1)%7D%5Cle%20a%5Cright%5D%5Cright%5D+a.%0A%5Cend%7Balign*%7D"></p>
+<p>途中で <img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BE%7D%5BT_%5Cepsilon%5E%7B(1)%7D%7CN_%5Cepsilon%5Ea=N%5D=%5Coperatorname%7BE%7D%5BT_%5Cepsilon%5E%7B(1)%7D%7CT_%5Cepsilon%5E%7B(1)%7D%5Cle%20a%5D%0A"> の変形を用いたが，これは <img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon%5Ea%5Cperp%5C!%5C!%5C!%5Cperp%20T_%5Cepsilon%5E%7B(1)%7D%5Cmid%20T_%5Cepsilon%5E%7B(1)%7D"> による．</p>
+<p>ここで <img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BE%7D%5BT_%5Cepsilon%5E%7B(1)%7D%7CT_%5Cepsilon%5E%7B(1)%7D%5Cle%20a%5D=%5Cfrac%7B%5Coperatorname%7BE%7D%5Cleft%5BT_%5Cepsilon%5E%7B(1)%7D1_%7B%5Cleft%5C%7BT_%5Cepsilon%5E%7B(1)%7D%5Cle%20a%5Cright%5C%7D%7D%5Cright%5D%7D%7BF_%5Cepsilon(a)%7D=%5Cfrac%7B1%7D%7BF_%5Cepsilon(a)%7D%5Cleft(%5Cint%5Ea_0S_%5Cepsilon(t)%5C,dt-aS_%5Cepsilon(a)%5Cright)%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BE%7D%5BN_%5Cepsilon%5Ea-1%5D=%5Cfrac%7B1%7D%7BS_%5Cepsilon(a)%7D-1=%5Cfrac%7BF_%5Cepsilon(a)%7D%7BS_%5Cepsilon(a)%7D%0A"> に注意すると， <img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BE%7D%5B%5Ctau%5Ea_%5Cepsilon%5D=%5Cfrac%7B2%7D%7BS_%5Cepsilon(a)%7D%5Cleft(%5Cint%5Ea_0S_%5Cepsilon(t)%5C,dt-aS_%5Cepsilon(a)%5Cright)+a=%5Cfrac%7B%5Cint%5Ea_%7B-a%7DS_%5Cepsilon(t)%5C,dt%7D%7BS_%5Cepsilon(a)%7D-a.%0A"></p>
+<p>以上の式変形は <img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon%5Ea"> の下で <img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon%5E%7B(i)%7D%5C;(i%3CN)"> が同分布であることしか用いていないが，独立であることも用いると特性関数が導ける．</p>
+</section>
+</section>
+<section id="特性関数" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="特性関数"><span class="header-section-number">3.3</span> 特性関数</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="命題">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+命題
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cvarphi%5Ea_0(u)=e%5E%7Biua%7D%5Cfrac%7B1%7D%7Be%5E%7B2iua%7D-2iue%5E%7B%5Cfrac%7Ba%5E2%7D%7B2%5Csigma%5E2%7D%7D%5Cleft(%5Cint%5Ea_%7B-a%7De%5E%7B2iut%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%7D%7D%5C,dt+%5Cfrac%7B%5Ckappa%5E%7B-1%7D%7D%7B2%7D%5Cright)%7D%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cxrightarrow%7Ba%5Cto0%7D%5Cfrac%7B1%7D%7B1-iu%5Ckappa%5E%7B-1%7D%7D%0A"></p>
+</div>
+</div>
+<section id="条件付き独立性に基づいた計算" class="level4" data-number="3.3.1">
+<h4 data-number="3.3.1" class="anchored" data-anchor-id="条件付き独立性に基づいた計算"><span class="header-section-number">3.3.1</span> 条件付き独立性に基づいた計算</h4>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Cvarphi_%5Cepsilon%5Ea(u)&amp;=%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7Biu%5Ctau_%5Cepsilon%5Ea%7D%5Cright%5D=%5Coperatorname%7BE%7D%5Cleft%5B%5Csum_%7BN=1%7D%5E%5Cinfty%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7Biu%5Cleft(%5Csum_%7Bn=1%7D%5E%7BN-1%7D2T_%5Cepsilon%5E%7B(n)%7D+a%5Cright)%7D%5C,%5Cmiddle%7C%5C,N_%5Cepsilon%5Ea=N%5Cright%5D%5Cright%5D%5C%5C%0A%20%20&amp;=%5Csum_%7BN=1%7D%5E%5Cinfty%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7Biua%7D%5Coperatorname%7BE%7D%5Cleft%5B%5Cprod_%7Bn=1%7D%5E%7BN-1%7D%5Coperatorname%7BE%7D%5Be%5E%7Biu2T_%5Cepsilon%5E%7B(n)%7D%7D%7CT_%5Cepsilon%5E%7B(n)%7D%5Cle%20a%5D%5C,%5Cmiddle%7C%5C,N_%5Cepsilon%5Ea=N%5Cright%5D%5Cright%5D%5C%5C%0A%20%20&amp;=e%5E%7Biua%7D%5Csum_%7BN=1%7D%5E%5Cinfty%5Coperatorname%7BP%7D%5BN_%5Cepsilon%5Ea=N%5D%5Cprod_%7Bn=1%7D%5E%7BN-1%7D%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7Biu2T_%5Cepsilon%5E%7B(n)%7D%7D%7CT_%5Cepsilon%5E%7B(n)%7D%5Cle%20a%5Cright%5D%5C%5C%0A%20%20&amp;=e%5E%7Biua%7D%5Csum_%7BN=1%7D%5E%5Cinfty%5Coperatorname%7BP%7D%5BN_%5Cepsilon%5Ea=N%5D%5Cleft(%5Cfrac%7B%5CPhi_%5Cepsilon%5Ea(u)%7D%7BF_%5Cepsilon(a)%7D%5Cright)%5E%7BN-1%7D%5C%5C%0A%20%20&amp;=e%5E%7Biua%7D%5Cfrac%7BS_%5Cepsilon(a)%7D%7B1-%5CPhi%5Ea_%5Cepsilon(u)%7D.%0A%5Cend%7Balign*%7D"></p>
+<p>最後の等号の成立は <img src="https://latex.codecogs.com/png.latex?%5Clvert%5CPhi%5Ea_%5Cepsilon(u)%5Crvert%3C1"> であることによる．</p>
+<p>ここで <img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon%5Ea"> は幾何分布 <img src="https://latex.codecogs.com/png.latex?%5Cmathrm%7BG%7D(S_%5Cepsilon(a))"> に従い，<img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BP%7D%5BN_%5Cepsilon%5Ea=N%5D=S_%5Cepsilon(a)F_%5Cepsilon(a)%5E%7BN-1%7D"> で， <img src="https://latex.codecogs.com/png.latex?%0A%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7Biu2T_%5Cepsilon%5E%7B(n)%7D%7D%7CT_%5Cepsilon%5E%7B(n)%7D%5Cle%20a%5Cright%5D=%5Cfrac%7B%5Cleft%5Be%5E%7B2iuT_%5Cepsilon%5E%7B(n)%7D%7D1_%7B%5Cleft%5C%7BT_%5Cepsilon%5E%7B(n)%7D%5Cle%20a%5Cright%5C%7D%7D%5Cright%5D%7D%7BF_%5Cepsilon(a)%7D=:%5Cfrac%7B%5CPhi_%5Cepsilon%5Ea(u)%7D%7BF_%5Cepsilon(a)%7D%0A"> と定義した．</p>
+</section>
+<section id="sec-Phi-a-ep-u" class="level4" data-number="3.3.2">
+<h4 data-number="3.3.2" class="anchored" data-anchor-id="sec-Phi-a-ep-u"><span class="header-section-number">3.3.2</span> <img src="https://latex.codecogs.com/png.latex?%5CPhi%5Ea_%5Cepsilon(u)"> という量</h4>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5CPhi%5Ea_%5Cepsilon(u)&amp;=%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7Biu2T_%5Cepsilon%5E%7B(n)%7D%7D%7CT_%5Cepsilon%5E%7B(n)%7D%5Cle%20a%5Cright%5D%5C%5C%0A%20%20&amp;=-%5Cint%5Ea_0e%5E%7B2iut%7DS'_%5Cepsilon(t)%5C,dt%5C%5C%0A%20%20&amp;=-%5Cbiggl%5Be%5E%7B2iut%7DS_%5Cepsilon(t)%5Cbiggr%5D%5Ea_0+%5Cint%5Ea_0(2iu)e%5E%7B2iut%7DS_%5Cepsilon(t)%5C,dt%5C%5C%0A%20%20&amp;=1-e%5E%7B2iua%7DS_%5Cepsilon(a)+2iu%5Cint%5Ea_%7B0%7De%5E%7B2iut%7DS_%5Cepsilon(t)%5C,dt%5C%5C%0A%20%20&amp;=:1-e%5E%7B2iua%7DS_%5Cepsilon(a)+2iu%5CPsi%5Ea_%5Cepsilon(u).%0A%5Cend%7Balign*%7D"> <img src="https://latex.codecogs.com/png.latex?%0A%5Ctherefore%5Cquad%5Cvarphi%5Ea_%5Cepsilon(u)=e%5E%7Biua%7D%5Cfrac%7B1%7D%7Be%5E%7B2iua%7D-2iu%5Cfrac%7B%5CPsi%5Ea_%5Cepsilon(u)%7D%7BS_%5Cepsilon(a)%7D%7D,%5Cqquad%5CPsi%5Ea_%5Cepsilon(u):=%5Cint%5Ea_%7B0%7De%5E%7B2iut%7DS_%5Cepsilon(t)%5C,dt,%0A"></p>
+<p>となるが，この <img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B%5CPsi%5Ea_%5Cepsilon%7D%7BS_%5Cepsilon(a)%7D"> という量が面白い．</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BE%7D%5B%5Ctau_%5Cepsilon%5Ea%5D"> の計算 (3.2.3) でも出てきた形だが，非積分関数に <img src="https://latex.codecogs.com/png.latex?e%5E%7B2iut%7D"> が登場している点だけが違う．しかし <img src="https://latex.codecogs.com/png.latex?S_%5Cepsilon(a)"> と <img src="https://latex.codecogs.com/png.latex?S_%5Cepsilon(t)"> で特異性 <img src="https://latex.codecogs.com/png.latex?p_%5Cepsilon(0)"> を打ち消しあうので，非自明な極限が出てくる．</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Cfrac%7B%5CPsi%5Ea_%5Cepsilon(u)%7D%7BS_%5Cepsilon(a)%7D&amp;=%5Cfrac%7B1%7D%7BS_%5Cepsilon(a)%7D%5Cint%5Ea_%7B0%7De%5E%7B2iut%7DS_%5Cepsilon(t)%5C,dt%5C%5C%0A%20%20&amp;=%5Cfrac%7B1%7D%7Bp_%5Cepsilon(a)%7D%5Cint%5Ea_0e%5E%7B2iut%7Dp_%5Cepsilon(t)%5C,dt%5C%5C%0A%20%20&amp;=%5Cfrac%7B1%7D%7Bp_%5Cepsilon(a)%7D%5Cleft((1-%5Cgamma)%5Cint%5Ea_0e%5E%7B2iut%7Dp%5E1(t)%5C,dt+%5Cfrac%7B%5Cgamma%7D%7B%5Cepsilon%7D%5Cint%5Ea_0e%5E%7B2iut%7Dp%5E1%5Cleft(%5Cfrac%7Bt%7D%7B%5Cepsilon%7D%5Cright)%5C,dt%5Cright)%5C%5C%0A%20%20&amp;=%5Cfrac%7B1%7D%7Bp_%5Cepsilon(a)%7D%5Cleft((1-%5Cgamma)%5Cint%5Ea_0e%5E%7B2iut%7Dp%5E1(t)%5C,dt+%5Cgamma%5Cint%5E%7Ba/%5Cepsilon%7D_0e%5E%7B2iu%5Cepsilon%20s%7Dp%5E1(s)%5C,ds%5Cright)%5C%5C%0A%20%20&amp;%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D%5Cfrac%7B1%7D%7B(1-%5Cgamma)p%5E1(a)%7D%5Cleft((1-%5Cgamma)%5Cint%5Ea_0e%5E%7B2iut%7Dp%5E1(t)%5C,dt+%5Cgamma%5Cint%5E%7B%5Cinfty%7D_0p%5E1(s)%5C,ds%5Cright)%5C%5C%0A%20%20&amp;=%5Cfrac%7B1%7D%7Bp%5E1(a)%7D%5Cint%5Ea_0e%5E%7B2iut%7Dp%5E1(t)%5C,dt+%5Cunderbrace%7B%5Cfrac%7B%5Cgamma%7D%7B1-%5Cgamma%7D%5Cfrac%7B1%7D%7Bp%5E1(a)%7D%7D_%7B=%5Ckappa%5E%7B-1%7D%7D%5Cint%5E%5Cinfty_0p%5E1(s)%5C,ds%5C%5C%0A%20%20&amp;=%5Cfrac%7B1%7D%7Bp%5E1(a)%7D%5Cint%5Ea_0e%5E%7B2iut%7Dp%5E1(t)%5C,dt+%5Cfrac%7B1%7D%7B2%5Ckappa%7D.%0A%5Cend%7Balign*%7D"></p>
+<p>さらに最初の積分は部分積分より <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%202iu%20%5Cfrac%7B%5CPsi%5Ea_%5Cepsilon(u)%7D%7BS_%5Cepsilon(a)%7D&amp;=%5Cfrac%7B2iu%7D%7Bp%5E1(a)%7D%5Cint%5Ea_0e%5E%7B2iut%7Dp%5E1(t)%5C,dt+%5Cfrac%7Biu%7D%7B%5Ckappa%7D%5C%5C%0A%20%20&amp;=%5Cfrac%7B1%7D%7Bp%5E1(a)%7D%5Cbiggl%5Be%5E%7B2iut%7Dp%5E1(t)%5Cbiggr%5D%5Ea_0-%5Cfrac%7B1%7D%7Bp%5E1(a)%7D%5Cint%5Ea_0e%5E%7B2iut%7D(p%5E1)'(t)%5C,dt+%5Cfrac%7Biu%7D%7B%5Ckappa%7D%5C%5C%0A%20%20&amp;=e%5E%7B2iua%7D-%5Cfrac%7Bp%5E1(0)%7D%7Bp%5E1(a)%7D-%5Cfrac%7B1%7D%7Bp%5E1(a)%7D%5Cint%5Ea_0e%5E%7B2iut%7D(p%5E1)'(t)%5C,dt+%5Cfrac%7Biu%7D%7B%5Ckappa%7D%0A%5Cend%7Balign*%7D"> <img src="https://latex.codecogs.com/png.latex?%0A%5Ctherefore%5Cquad%5Cvarphi%5Ea_0(u)=%5Cfrac%7Be%5E%7Biua%7D%7D%7B%5Cfrac%7Bp%5E1(0)%7D%7Bp%5E1(a)%7D+%5Cfrac%7B1%7D%7Bp%5E1(a)%7D%5Cint%5Ea_0e%5E%7B2iut%7D(p%5E1)'(t)%5C,dt-%5Cfrac%7Biu%7D%7B%5Ckappa%7D%7D%0A"></p>
+<p>さらに <img src="https://latex.codecogs.com/png.latex?a%5Cto0"> の極限を取ると <img src="https://latex.codecogs.com/png.latex?%0A%5Clim_%7Ba%5Cto0%7D%5Clim_%7B%5Cepsilon%5Cto0%7D%5Cvarphi_%5Cepsilon%5Ea(u)=%5Cfrac%7B1%7D%7B1-iu/%5Ckappa%7D%0A"> は指数分布 <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BExp%7D(%5Ckappa)"> の特性関数に他ならない．</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="Gauss 密度の場合">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Gauss 密度の場合
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Cfrac%7B%5CPsi%5Ea_%5Cepsilon(u)%7D%7BS_%5Cepsilon(a)%7D&amp;=%5Cfrac%7B1%7D%7BS_%5Cepsilon(a)%7D%5Cint%5Ea_%7B0%7De%5E%7B2iut%7DS_%5Cepsilon(t)%5C,dt%5C%5C%0A%20%20&amp;=%5Cfrac%7B1%7D%7Bp_%5Cepsilon(a)%7D%5Cleft(%5Cfrac%7B1-%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%5Cint%5Ea_%7B0%7De%5E%7B2iut%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%7D%7D%5C,dt+%5Cfrac%7B%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%5Cfrac%7B1%7D%7B%5Cepsilon%7D%5Cint%5Ea_%7B0%7De%5E%7B2iut%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%5Cepsilon%5E2%7D%7D%5C,dt%5Cright)%5C%5C%0A%20%20&amp;=%5Cfrac%7B1%7D%7Bp_%5Cepsilon(a)%7D%5Cleft(%5Cfrac%7B1-%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%5Cint%5Ea_%7B0%7De%5E%7B2iut%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%7D%7D%5C,dt+%5Cfrac%7B%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%5Cint%5E%7Ba/%5Cepsilon%7D_%7B0%7De%5E%7B2iu%5Cepsilon%20s%7De%5E%7B-%5Cfrac%7Bs%5E2%7D%7B2%5Csigma%5E2%7D%7D%5C,ds%5Cright)%5C%5C%0A%20%20&amp;%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D%5Cfrac%7B1%7D%7Be%5E%7B-%5Cfrac%7Ba%5E2%7D%7B2%5Csigma%5E2%7D%7D%7D%5Cint%5Ea_%7B-a%7De%5E%7B2iut%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%7D%7D%5C,dt+%5Cfrac%7B%5Cgamma%7D%7B1-%5Cgamma%7D%5Csqrt%7B2%5Cpi%5Csigma%5E2%7De%5E%7B%5Cfrac%7Ba%5E2%7D%7B2%5Csigma%5E2%7D%7D%0A%20%20%5Cfrac%7B1%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%5Cint%5E%7B%5Cinfty%7D_%7B0%7De%5E%7B-%5Cfrac%7Bs%5E2%7D%7B2%5Csigma%5E2%7D%7D%5C,ds%5C%5C%0A%20%20&amp;=%5Cfrac%7B1%7D%7Be%5E%7B-%5Cfrac%7Ba%5E2%7D%7B2%5Csigma%5E2%7D%7D%7D%5Cint%5Ea_%7B-a%7De%5E%7B2iut%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%7D%7D%5C,dt+%5Cfrac%7B%5Cgamma%7D%7B1-%5Cgamma%7D%5Csqrt%7B2%5Cpi%5Csigma%5E2%7De%5E%7B%5Cfrac%7Ba%5E2%7D%7B2%5Csigma%5E2%7D%7D%5Cfrac%7B1%7D%7B2%7D%5C%5C%0A%20%20&amp;%5Cxrightarrow%7Ba%5Cto0%7D%5Cfrac%7B%5Cgamma%7D%7B1-%5Cgamma%7D%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%5Cfrac%7B1%7D%7B2%7D=:%5Cfrac%7B%5Ckappa%5E%7B-1%7D%7D%7B2%7D.%0A%5Cend%7Balign*%7D"></p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="密度" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="密度"><span class="header-section-number">3.4</span> 密度</h3>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="命題">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+命題
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cpi%5Ea_%5Cepsilon(t)=%5Cfrac%7B1%7D%7B2%5Cpi%7D%5Cint_%5Cmathbb%7BR%7De%5E%7B-iut%7D%5Cvarphi_%5Cepsilon%5Ea(u)%5C,du%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cpi%5Ea_0(t)=%5Cfrac%7B1%7D%7B2%5Cpi%7D%5Cint_%5Cmathbb%7BR%7De%5E%7B-iut%7D%5Cfrac%7Be%5E%7Biua%7D%7D%7B%5Cfrac%7Bp%5E1(0)%7D%7Bp%5E1(a)%7D+%5Cfrac%7B1%7D%7Bp%5E1(a)%7D%5Cint%5Ea_0e%5E%7B2iut%7D(p%5E1)'(t)%5C,dt-%5Cfrac%7Biu%7D%7B%5Ckappa%7D%7D%5C,du%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Cxrightarrow%7Ba%5Cto0%7D%0A%5Cfrac%7B1%7D%7B2%5Cpi%7D%5Cint_%5Cmathbb%7BR%7De%5E%7B-iut%7D%5Cfrac%7B1%7D%7B1-%5Cfrac%7Biu%7D%7B%5Ckappa%7D%7D=%5Ckappa%20e%5E%7B-%5Ckappa%20t%7D1_%7B(0,%5Cinfty)%7D(t).%0A"></p>
+</div>
+</div>
+<p>最後は留数計算により従う．「有理式の Fourier 変換の留数計算」という類型に属する．</p>
+<p>あとは <img src="https://latex.codecogs.com/png.latex?%5Cvarphi_0%5Ea%5Cto%5Cvarphi_0%5E0"> の <img src="https://latex.codecogs.com/png.latex?L%5E1">-収束が言えれば，密度 <img src="https://latex.codecogs.com/png.latex?%5Cpi%5Ea_%5Cepsilon(t)"> の <img src="https://latex.codecogs.com/png.latex?a%5Cto0"> における概収束が従う（実は一様収束する）．<img src="https://latex.codecogs.com/png.latex?%5Cepsilon%5Cto0"> も同様だと思われる．</p>
+<section id="指数密度の留数計算" class="level4" data-number="3.4.1">
+<h4 data-number="3.4.1" class="anchored" data-anchor-id="指数密度の留数計算"><span class="header-section-number">3.4.1</span> 指数密度の留数計算</h4>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="命題 [定理V.2.2 @Lang1999 p.194]">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+命題 <span class="citation" data-cites="Lang1999">(定理V.2.2 Lang, 1999, p. 194)</span>
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="https://latex.codecogs.com/png.latex?f"> を <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BC%7D"> 上の有理型関数で，有限個の極を <img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BC%7D%5Csetminus%5Cmathbb%7BR%7D"> 上に持つとする．加えて，<img src="https://latex.codecogs.com/png.latex?0"> から十分離れた領域で <img src="https://latex.codecogs.com/png.latex?%0A%5Clvert%20f(z)%5Crvert%5Cle%5Cfrac%7BK%7D%7B%5Clvert%20z%5Crvert%7D,%5Cqquad%5Clvert%20z%5Crvert%3ER,%0A"> を満たすとする．このとき，任意の <img src="https://latex.codecogs.com/png.latex?t%3E0"> について <img src="https://latex.codecogs.com/png.latex?%0A%5Cint%5E%5Cinfty_%7B-%5Cinfty%7Df(x)e%5E%7Bitx%7D%5C,dx=2%5Cpi%20i%5Csum(%5Ctext%7B%E4%B8%8A%E5%8D%8A%E5%B9%B3%E9%9D%A2%E4%B8%8A%E3%81%AE%7D%5C,e%5E%7Bitx%7Df(x)%5C,%5Ctext%7B%E3%81%AE%E7%95%99%E6%95%B0%7D).%0A"></p>
+</div>
+</div>
+<p>十分大きい <img src="https://latex.codecogs.com/png.latex?%5Clvert%20u%5Crvert"> について <img src="https://latex.codecogs.com/png.latex?%0A%5Cleft%7C1-%5Cfrac%7Biu%7D%7B%5Ckappa%7D%5Cright%7C%5Cge%5Clvert%20u%5Crvert/%5Ckappa-1%3E%5Cfrac%7B%5Clvert%20u%5Crvert%7D%7B2%5Ckappa%7D,%0A"> が成り立つために，上述の命題を適用することができる．<img src="https://latex.codecogs.com/png.latex?%5Cfrac%7B1%7D%7B1-iu/%5Ckappa%7D"> の留数は <img src="https://latex.codecogs.com/png.latex?u=-i%5Ckappa"> における <img src="https://latex.codecogs.com/png.latex?-i%5Ckappa"> であるから， <img src="https://latex.codecogs.com/png.latex?%0A%5Cfrac%7B1%7D%7B2%5Cpi%7D%5Cint%5E%5Cinfty_%7B-%5Cinfty%7De%5E%7B-itu%7D%5Cfrac%7B1%7D%7B1-iu/%5Ckappa%7D%5C,du=2%5Cpi%20i(-i%5Ckappa)=%5Ckappa%20e%5E%7B-%5Ckappa%20t%7D1_%7B(0,%5Cinfty)%7D(t).%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?t%3C0"> の場合は上半平面に極が存在しないため，積分が <img src="https://latex.codecogs.com/png.latex?0"> になる点に注意．</p>
+</section>
+<section id="特性関数の可積分性" class="level4" data-number="3.4.2">
+<h4 data-number="3.4.2" class="anchored" data-anchor-id="特性関数の可積分性"><span class="header-section-number">3.4.2</span> 特性関数の可積分性</h4>
+<p>しかし <img src="https://latex.codecogs.com/png.latex?%0A%5Cvarphi%5E0_0(u)=%5Cfrac%7B%5Ckappa%7D%7B%5Ckappa-iu%7D%0A"> という複素関数は <img src="https://latex.codecogs.com/png.latex?L%5E1(%5Cmathbb%7BR%7D;%5Cmathbb%7BC%7D)"> に入っていない．</p>
+<p>Fourier 変換が存在するだけである．</p>
+<p>したがって特性関数が <img src="https://latex.codecogs.com/png.latex?L%5E1">-収束するために，Fourier 変換の連続性から密度の一様収束が従う，という議論はできない．</p>
+</section>
+<section id="密度の各点収束" class="level4" data-number="3.4.3">
+<h4 data-number="3.4.3" class="anchored" data-anchor-id="密度の各点収束"><span class="header-section-number">3.4.3</span> 密度の各点収束</h4>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Cvarphi%5Ea_0(u)=e%5E%7Biua%7D%5Cunderbrace%7B%5Cbiggr(%5Cfrac%7Bp%5E1(0)%7D%7Bp%5E1(a)%7D+%5Cfrac%7B1%7D%7Bp%5E1(a)%7D%5Cint%5Ea_0e%5E%7B2iut%7D(p%5E1)'(t)%5C,dt-%5Cfrac%7Biu%7D%7B%5Ckappa%7D%5Cbiggl)%5E%7B-1%7D%7D_%7B=:g(u)%5E%7B-1%7D%7D%0A"> という特性関数の分母に注目する．</p>
+<p>すると Rouché の定理より，<img src="https://latex.codecogs.com/png.latex?f(u)=%5Cfrac%7Bp%5E1(0)%7D%7Bp%5E1(a)%7D-%5Cfrac%7Biu%7D%7B%5Ckappa%7D"> と <img src="https://latex.codecogs.com/png.latex?g(u)"> の，十分大きい円 <img src="https://latex.codecogs.com/png.latex?U(0,R)"> 内での零点の個数は，重複度も含めて等しい．すなわち１位の零点しか持たない．</p>
+<p>よって <img src="https://latex.codecogs.com/png.latex?%0A%5Cint%5E%5Cinfty_%7B-%5Cinfty%7D%5Cvarphi%5Ea_0(u)e%5E%7Bitu%7D%5C,du%5Cxrightarrow%7Ba%5Cto0%7D%5Cint%5E%5Cinfty_%7B-%5Cinfty%7D%5Cvarphi%5E0_0(u)e%5E%7Bitu%7D%5C,du.%0A"></p>
+</section>
+</section>
+</section>
+<section id="上下の脱出時刻" class="level2" data-number="4">
+<h2 data-number="4" class="anchored" data-anchor-id="上下の脱出時刻"><span class="header-section-number">4</span> 上下の脱出時刻</h2>
+<section id="はじめに" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="はじめに"><span class="header-section-number">4.1</span> はじめに</h3>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cepsilon%5Cto0"> の極限において，原点付近での振る舞いを見るために脱出時刻が使える．</p>
+<p>その際は「上から出るか」「下から出るか」が問題になる．</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Ctau_%5Cepsilon%5E%7Ba+%7D,%5Ctau_%5Cepsilon%5E%7Ba-%7D"> はそれぞれ <img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BExp%7D(%5Ckappa/2)"> に従い， <img src="https://latex.codecogs.com/png.latex?%0A%5Ctau_%5Cepsilon%5Ea=%5Ctau_%5Cepsilon%5E%7Ba+%7D%5Cland%5Ctau_%5Cepsilon%5E%7Ba-%7D%5Csim%5Coperatorname%7BExp%7D(%5Ckappa)%0A"> となると思うかもしれないが，そうはならない．</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Ctau_%5Cepsilon%5E%7Ba+%7D"> は最初に下から出た場合は，原点まで戻って来るまでの時間が加算されるために，<img src="https://latex.codecogs.com/png.latex?%5Ctau_%5Cepsilon%5E%7Ba-%7D"> と相関を持つ確率変数になる．</p>
+</section>
+<section id="上側脱出時刻の特性関数" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="上側脱出時刻の特性関数"><span class="header-section-number">4.2</span> 上側脱出時刻の特性関数</h3>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctau_%5Cepsilon%5E%7Ba+%7D=2%5Csum_%7Bn=1%7D%5E%7BN_%5Cepsilon%5E+-1%7DT_%5Cepsilon%5E%7B(n)%7D+a%0A"> <img src="https://latex.codecogs.com/png.latex?%0AN_%5Cepsilon%5E+:=%5Cmin%5Cleft%5C%7Bn%5Cge%201%5Cmid%20T_%5Cepsilon%5E%7B(n)%7D%3Ea,%5C;n%5C;%5Ctext%7B%E3%81%AF%E5%A5%87%E6%95%B0%7D%5Cright%5C%7D%0A"> と考えると，<img src="https://latex.codecogs.com/png.latex?%5Ctau_%5Cepsilon%5Ea"> の場合と全く同様に，次のように計算できる：</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Cvarphi_%5Cepsilon%5E%7Ba+%7D(u)&amp;=%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7Biu%5Ctau_%5Cepsilon%5E%7Ba+%7D%7D%5Cright%5D%5C%5C%0A%20%20&amp;=%5Coperatorname%7BE%7D%5Cleft%5B%5Csum_%7BN=1%7D%5E%5Cinfty%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7Biu%5Cleft(2%5Csum_%7Bn=1%7D%5E%7B2N-2%7DT_%5Cepsilon%5E%7B(n)%7D+a%5Cright)%7D1_%7B%5Cleft%5C%7BN_%5Cepsilon%5E+=2N-1%5Cright%5C%7D%7D%5Cright%5D%5Cright%5D%5C%5C%0A%20%20&amp;=%5Csum_%7BN=1%7D%5E%5Cinfty%20e%5E%7Biua%7D%5Coperatorname%7BE%7D%5Cleft%5B1_%7B%5Cleft%5C%7BT_%5Cepsilon%5E%7B(2N-1)%7D%3Ea%5Cright%5C%7D%7D%5Cright%5D%5Cprod_%7Bn=1%7D%5E%7BN-1%7D%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7B2iuT_%5Cepsilon%5E%7B(2n-1)%7D%7D1_%7B%5Cleft%5C%7BT_%5Cepsilon%5E%7B(2n-1)%7D%5Cle%20a%5Cright%5C%7D%7D%5Cright%5D%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7B2iuT_%5Cepsilon%5E%7B(2n)%7D%7D%5Cright%5D%5C%5C%0A%20%20&amp;=e%5E%7Biua%7DS_%5Cepsilon(a)%5Csum_%7BN=1%7D%5E%5Cinfty%5CPhi%5Ea_%5Cepsilon(u)%5E%7BN-1%7D%5CPhi%5E%5Cinfty_%5Cepsilon(u)%5E%7BN-1%7D%5C%5C%0A%20%20&amp;=e%5E%7Biua%7D%5Cfrac%7BS_%5Cepsilon(a)%7D%7B1-%5CPhi%5Ea_%5Cepsilon(u)%5CPhi%5E%5Cinfty_%5Cepsilon(u)%7D.%0A%5Cend%7Balign*%7D"></p>
+<p>ただし， <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5CPhi%5E%7B%5Cinfty%7D_%5Cepsilon(u)&amp;:=%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7B2iuT_%5Cepsilon%5E%7B(1)%7D%7D%5Cright%5D=%5Clim_%7Ba%5Cto%5Cinfty%7D%5CPhi%5Ea_%5Cepsilon(u)=%5Clim_%7Ba%5Cto%5Cinfty%7D%5Cleft%5Be%5E%7B2iuT_%5Cepsilon%5E%7B(1)%7D%7D1_%7B%5Cleft%5C%7BT_%5Cepsilon%5E%7B(1)%7D%5Cle%20a%5Cright%5C%7D%7D%5Cright%5D%5C%5C%0A%20%20&amp;=-%5Cint%5E%5Cinfty_0e%5E%7B2iut%7DS_%5Cepsilon'(t)%5C,dt%5C%5C%0A%20%20&amp;=-%5Cbiggl%5Be%5E%7B2iut%7DS_%5Cepsilon(t)%5Cbiggr%5D%5E%5Cinfty_0+2iu%5Cint%5E%5Cinfty_0e%5E%7B2iut%7DS_%5Cepsilon(t)%5C,dt%5C%5C%0A%20%20&amp;=1+2iu%5Cint%5E%5Cinfty_0e%5E%7B2iut%7DS_%5Cepsilon(t)%5C,dt=:1+2iu%5CPsi%5E%5Cinfty_%5Cepsilon(u).%0A%5Cend%7Balign*%7D"> とした．</p>
+</section>
+<section id="psiinfty_epsilonu-の極限" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="psiinfty_epsilonu-の極限"><span class="header-section-number">4.3</span> <img src="https://latex.codecogs.com/png.latex?%5CPsi%5E%5Cinfty_%5Cepsilon(u)"> の極限</h3>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5CPhi%5Ea_%5Cepsilon(u)=1-e%5E%7B2iua%7DS_%5Cepsilon(a)+2iu%5Cint%5Ea_%7B0%7De%5E%7B2iut%7DS_%5Cepsilon(t)%5C,dt%0A"> の最後の積分を <img src="https://latex.codecogs.com/png.latex?%0A%5CPsi%5Ea_%5Cepsilon(u):=%5Cint%5Ea_%7B0%7De%5E%7B2iut%7DS_%5Cepsilon(t)%5C,dt%0A"> とおくと， <img src="https://latex.codecogs.com/png.latex?%0A%5CPhi%5Ea_%5Cepsilon(u)=1-e%5E%7B2iua%7DS_%5Cepsilon(a)+2iu%5CPsi%5Ea_%5Cepsilon(u),%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5CPhi%5E%5Cinfty_%5Cepsilon(u)=1+2iu%5CPsi%5E%5Cinfty_%5Cepsilon(u).%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Ctherefore%5Cquad%5Cfrac%7B1-%5CPhi%5Ea_%5Cepsilon(u)%5CPhi%5E%5Cinfty_%5Cepsilon(u)%7D%7BS_%5Cepsilon(a)%7D=e%5E%7Biua%7D-2iu%5Cfrac%7B%5CPsi%5Ea_%5Cepsilon(u)%7D%7BS_%5Cepsilon(a)%7D-2iu%5Cfrac%7B%5CPsi%5E%5Cinfty_%5Cepsilon(u)%7D%7BS_%5Cepsilon(a)%7D+O(%5Cepsilon).%0A"></p>
+<p>ここで， Section&nbsp;3.3.2 より <img src="https://latex.codecogs.com/png.latex?%0A%5Clim_%7Ba%5Cto0%7D%5Clim_%7B%5Cepsilon%5Cto0%7D%5Cfrac%7B%5CPsi%5Ea_%5Cepsilon(u)%7D%7BS_%5Cepsilon(a)%7D=%5Ckappa%5E%7B-1%7D%0A"> であることに加えて， <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Cfrac%7B%5CPsi%5E%5Cinfty_%5Cepsilon(u)%7D%7BS_%5Cepsilon(a)%7D&amp;=%5Cfrac%7B1%7D%7BS_%5Cepsilon(a)%7D%5Cint%5E%5Cinfty_%7B0%7De%5E%7B2iut%7DS_%5Cepsilon(t)%5C,dt%5C%5C%0A%20%20&amp;=%5Cfrac%7B1%7D%7Bp_%5Cepsilon(a)%7D%5Cint%5E%5Cinfty_%7B0%7De%5E%7B2iut%7Dp_%5Cepsilon(t)%5C,dt%5C%5C%0A%20%20&amp;=%5Cfrac%7B1%7D%7Bp_%5Cepsilon(a)%7D%5Cleft(%5Cfrac%7B1-%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%5Cint%5E%5Cinfty_0e%5E%7B2iut%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B%5Csigma%5E2%7D%7D%5C,dt+%5Cfrac%7B%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%5Cfrac%7B1%7D%7B%5Cepsilon%7D%5Cint%5E%5Cinfty_0e%5E%7B2iut%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B%5Csigma%5E2%5Cepsilon%5E2%7D%7D%5C,dt%5Cright)%5C%5C%0A%20%20&amp;%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D%5Cleft(%5Cfrac%7B1-%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7De%5E%7B-%5Cfrac%7Ba%5E2%7D%7B2%5Csigma%5E2%7D%7D%5Cright)%5E%7B-1%7D%5Cleft(%5Cfrac%7B1-%5Cgamma%7D%7B%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%7D%5Cint%5E%5Cinfty_0e%5E%7B2iut%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B%5Csigma%5E2%7D%7D%5C,dt+%5Cfrac%7B%5Cgamma%7D%7B2%7D%5Cright)%5C%5C%0A%20%20&amp;%5Cxrightarrow%7Ba%5Cto0%7D%5Cint%5E%5Cinfty_0e%5E%7B2iut%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B%5Csigma%5E2%7D%7D%5C,dt+%5Cfrac%7B%5Ckappa%5E%7B-1%7D%7D%7B2%7D.%0A%5Cend%7Balign*%7D"></p>
+<p>よって， <img src="https://latex.codecogs.com/png.latex?%0A%5Clim_%7Ba%5Cto0%7D%5Clim_%7B%5Cepsilon%5Cto0%7D%5Cfrac%7B1-%5CPhi%5Ea_%5Cepsilon(u)%5CPhi%5E%5Cinfty_%5Cepsilon(u)%7D%7BS_%5Cepsilon(a)%7D=1-iu%5Ckappa%5E%7B-1%7D-iu%5Cleft(%5Ckappa%5E%7B-1%7D+2%5Cint%5E%5Cinfty_0e%5E%7B2iut%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B%5Csigma%5E2%7D%7D%5C,dt%5Cright).%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Ctherefore%5Cqquad%5Clim_%7Ba%5Cto0%7D%5Clim_%7B%5Cepsilon%5Cto0%7D%5Cvarphi_%5Cepsilon%5E%7Ba+%7D(u)=%5Cfrac%7B1%7D%7B1-%5Cfrac%7Biu%7D%7B%5Ckappa/2%7D-2iu%5Cint%5E%5Cinfty_0e%5E%7B2iut%7De%5E%7B-%5Cfrac%7Bt%5E2%7D%7B2%5Csigma%5E2%7D%7D%5C,dt%7D.%0A"></p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Coperatorname%7BExp%7D(%5Ckappa/2)"> から微妙にズレている！</p>
+</section>
+<section id="下側脱出時刻の特性関数" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="下側脱出時刻の特性関数"><span class="header-section-number">4.4</span> 下側脱出時刻の特性関数</h3>
+<p>下側脱出時刻の特性関数は，<img src="https://latex.codecogs.com/png.latex?%5Cepsilon%5Cto0"> の極限で上側と同じものに収束することはわかるが，有限の <img src="https://latex.codecogs.com/png.latex?%5Cepsilon%3E0"> においては上下で非対称である．</p>
+<p><img src="https://latex.codecogs.com/png.latex?%0A%5Ctau_%5Cepsilon%5E%7Ba-%7D=2%5Csum_%7Bn=1%7D%5E%7BN_%5Cepsilon%5E--1%7DT_%5Cepsilon%5E%7B(n)%7D-a%0A"> <img src="https://latex.codecogs.com/png.latex?%0AN_%5Cepsilon%5E-:=%5Cmin%5Cleft%5C%7Bn%5Cge%201%5Cmid%20T_%5Cepsilon%5E%7B(n)%7D%3Ea,%5C;n%5C;%5Ctext%7B%E3%81%AF%E5%81%B6%E6%95%B0%7D%5Cright%5C%7D%0A"> と考えると，</p>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Cvarphi_%5Cepsilon%5E%7Ba-%7D(u)&amp;=%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7Biu%5Ctau_%5Cepsilon%5E%7Ba-%7D%7D%5Cright%5D=%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7Biu%5Cleft(2%5Csum_%7Bn=1%7D%5E%7B2N-1%7DT_%5Cepsilon%5E%7B(n)%7D+a%5Cright)%7D1_%7B%5Cleft%5C%7BN_%5Cepsilon%5E-=2N%5Cright%5C%7D%7D%5Cright%5D%5C%5C%0A%20%20&amp;=%5Csum_%7BN=1%7D%5E%5Cinfty%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7B2iuT_%5Cepsilon%5E%7B(2)%7D%7D1_%7B%5Cleft%5C%7BT_%5Cepsilon%5E%7B(2)%7D%5Cle%20a%5Cright%5C%7D%7D%5Cright%5D%5Ccdots%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7B2iuT_%5Cepsilon%5E%7B(2n-2)%7D%7D1_%7B%5Cleft%5C%7BT_%5Cepsilon%5E%7B(2n-2)%7D%5Cle%20a%5Cright%5C%7D%7D%5Cright%5D%5Coperatorname%7BE%7D%5Cleft%5Be%5E%7Biua%7D1_%7B%5Cleft%5C%7BT_%5Cepsilon%5E%7B(2N)%7D%3E%20a%5Cright%5C%7D%7D%5Cright%5D%5Coperatorname%7BE%7D%5Be%5E%7B2iuT_%5Cepsilon%5E%7B(1)%7D%7D%5D%5EN%5C%5C%0A%20%20&amp;=%5Csum_%7BN=1%7D%5E%5Cinfty%20e%5E%7Biua%7DS_%5Cepsilon(a)%5CPhi%5Ea_%5Cepsilon(u)%5E%7BN-1%7D%5CPhi%5E%5Cinfty_%5Cepsilon(u)%5EN%5C%5C%0A%20%20&amp;=e%5E%7Biua%7DS_%5Cepsilon(a)%5Cfrac%7B%5CPhi%5E%5Cinfty_%5Cepsilon(u)%7D%7B1-%5CPhi%5Ea_%5Cepsilon(u)%5CPhi%5E%5Cinfty_%5Cepsilon(u)%7D.%0A%5Cend%7Balign*%7D"></p>
+<p>ここで， <img src="https://latex.codecogs.com/png.latex?%0A%5CPhi%5E%5Cinfty_%5Cepsilon(u)=1+iu%5CPsi%5E%5Cinfty_%5Cepsilon(u)%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D1%0A"> であるから， <img src="https://latex.codecogs.com/png.latex?%0A%5Clim_%7B%5Cepsilon%5Cto0%7D%5Cvarphi_%5Cepsilon%5E%7Ba-%7D(u)=%5Clim_%7B%5Cepsilon%5Cto0%7D%5Cvarphi_%5Cepsilon%5E%7Ba+%7D(u)=e%5E%7Biua%7D%5Cleft(%5Clim_%7B%5Cepsilon%5Cto%200%7D%5Cfrac%7B1-%5CPhi%5Ea_%5Cepsilon(u)%5CPhi%5E%5Cinfty_%5Cepsilon(u)%7D%7BS_%5Cepsilon(a)%7D%5Cright)%5E%7B-1%7D.%0A"></p>
+</section>
+<section id="上下のどちらに出るか" class="level3" data-number="4.5">
+<h3 data-number="4.5" class="anchored" data-anchor-id="上下のどちらに出るか"><span class="header-section-number">4.5</span> 上下のどちらに出るか？</h3>
+<p>上側に先に出る事象は <img src="https://latex.codecogs.com/png.latex?%0A%5Cleft%5C%7B%5Ctau_%5Cepsilon%5E%7Ba+%7D%3E%5Ctau_%5Cepsilon%5E%7Ba-%7D%5Cright%5C%7D=%5Cleft%5C%7BN_%5Cepsilon%5Ea=1%5Cright%5C%7D%5Csqcup%5Cleft%5C%7BN_%5Cepsilon%5Ea=3%5Cright%5C%7D%5Csqcup%5Ccdots%0A"> と表せる．</p>
+<p>この確率は， <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20%5Coperatorname%7BP%7D%5B%5Ctau_%5Cepsilon%5E%7Ba+%7D%3E%5Ctau_%5Cepsilon%5E%7Ba-%7D%5D&amp;=%5Csum_%7BN=1%7D%5E%5Cinfty%5Coperatorname%7BP%7D%5BN_%5Cepsilon%5Ea=2N-1%5D%5C%5C%0A%20%20&amp;=%5Csum_%7BN=1%7D%5E%5Cinfty%20S_%5Cepsilon(a)F_%5Cepsilon(a)%5E%7B2N-2%7D%5C%5C%0A%20%20&amp;=%5Cfrac%7BS_%5Cepsilon%7D%7B1-F_%5Cepsilon(a)%5E2%7D=%5Cfrac%7B1%7D%7B1+F_%5Cepsilon(a)%7D.%0A%5Cend%7Balign*%7D"></p>
+<p>よって有限の <img src="https://latex.codecogs.com/png.latex?%5Cepsilon%3E0"> においては上側の方が出やすい．しかし <img src="https://latex.codecogs.com/png.latex?%5Cepsilon%5Cto0"> の極限で <img src="https://latex.codecogs.com/png.latex?%0AF_%5Cepsilon(a)%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D1%5Cquad(a%3E0)%0A"> であるから，上下から等しい確率で出る．</p>
+
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+<div id="ref-Bierkens+2023" class="csl-entry">
+Bierkens, J., Grazzi, S., Meulen, F. van der, and Schauer, M. (2023). <a href="https://doi.org/10.1007/s11222-022-10180-5"><span class="nocase">Sticky PDMP Samplers for Sparse and Local Inference Problems</span></a>. <em>Statistics and Computing</em>, <em>33</em>(1), 8.
+</div>
+<div id="ref-Kallenberg2021" class="csl-entry">
+Kallenberg, O. (2021). <em>Foundations of modern probability</em>,Vol. 99. Springer Cham.
+</div>
+<div id="ref-Lang1999" class="csl-entry">
+Lang, S. (1999). <em><a href="https://doi.org/10.1007/978-1-4757-3083-8">Complex analysis</a></em>. Springer New York.
+</div>
+</div></section></div> ]]></description>
+  <category>ノート</category>
+  <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_exit.html</guid>
+  <pubDate>Wed, 26 Mar 2025 03:21:55 GMT</pubDate>
+</item>
+<item>
+  <title>Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities</title>
+  <dc:creator>司馬博文 </dc:creator>
+  <link>https://puniupa.github.io/posts/Spike-and-slab/spiky-density.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="hidden">
+<p>A Blog Entry on Bayesian Computation by an Applied Mathematician</p>
+<p>$$</p>
+<p>$$</p>
+</div>
+<section id="導入" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="導入"><span class="header-section-number">1</span> 導入</h2>
+<p>どんどん事後分布が singular （特に一点に mass が集中）していく場合を考える．</p>
+<p>MH 法では mass を取り逃がしてしまうために，提案分布のスケールも同様に小さくしていく必要があるが，すると大域的なスケールに対してはとんでもなく遅くなってしまい，大変非効率的（メタ安定）．</p>
+<p>しかし PDMP では mass が集中する領域をうまく見つけられさえすれば，性能は悪化しない．</p>
+<section id="例" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="例"><span class="header-section-number">1.1</span> 例</h3>
+<ul>
+<li>ベイズの事前分布で spike-and-slab を用いた場合．</li>
+<li>クラスタリングで１つのラベルが狭まっていった場合．</li>
+</ul>
+</section>
+<section id="設定" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="設定"><span class="header-section-number">1.2</span> 設定</h3>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cmathbb%7BR%7D%5Ed"> 上で <img src="https://latex.codecogs.com/png.latex?%0A(1-%5Cgamma)%5Cmathrm%7BN%7D(%5Cmu,%5CSigma)%20+%20%5Cgamma%5Cmathrm%7BN%7D(0,%5CSigma'(%5Cepsilon))%0A"> を考える．</p>
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>ドラフト</category>
+  <guid>https://puniupa.github.io/posts/Spike-and-slab/spiky-density.html</guid>
+  <pubDate>Wed, 26 Mar 2025 03:21:55 GMT</pubDate>
+</item>
+</channel>
+</rss>

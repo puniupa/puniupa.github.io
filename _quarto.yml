@@ -46,26 +46,25 @@ website:
         href: mailto:puniupa48@gmail.com
       - icon: rss
         href: blog.xml
-    background: "#E95420"
   search:
     keyboard-shortcut: ["?", "H"]
   open-graph: true
   twitter-card: true
-  comments:
-    giscus:
-      repo: puniupa/puniupa.github.io
-      repo-id: R_kgDOMOsIVA
-      category: Announcements
-      category-id: DIC_kwDOMOsIVM4CgazP
-      mapping: pathname
-      reactions-enabled: true
-      loading: lazy
-      input-position: top
+  # comments:
+  #   giscus:
+  #     repo: puniupa/puniupa.github.io
+  #     repo-id: R_kgDOMOsIVA
+  #     category: Announcements
+  #     category-id: DIC_kwDOMOsIVM4CgazP
+  #     mapping: pathname
+  #     reactions-enabled: true
+  #     loading: lazy
+  #     input-position: top
 
 format:
   html:
     mainfont: "BIZ UDPGothic"
-    theme: united  # #E95420
+    theme: minty  # morph, sketchy, slate, solar, superhero も良い
     # theme: 
     # light: minty
     # dark: cyborg

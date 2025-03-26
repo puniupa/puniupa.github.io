@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -36,10 +36,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
 <link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-db4c4b48896e4c803b727a947ce76e30.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-01061e63b7757c0eaa6696afd67bd06d.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
 <link href="../site_libs/quarto-contrib/fontawesome6-0.1.0/latex-fontsize.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
@@ -79,11 +79,11 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="../assets/styles.css">
 <meta property="og:title" content="ぷにうぱ">
 <meta property="og:description" content="研究者と法律家が世界を渡り歩く">
-<meta property="og:image" content="https://puniupa.github.io/static/assets/ぷにうぱ.jpg">
+<meta property="og:image" content="https://puniupa.github.io/assets/ぷにうぱ.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
 <meta name="twitter:title" content="ぷにうぱ">
 <meta name="twitter:description" content="研究者と法律家が世界を渡り歩く">
-<meta name="twitter:image" content="https://puniupa.github.io/static/assets/ぷにうぱ.jpg">
+<meta name="twitter:image" content="https://puniupa.github.io/assets/ぷにうぱ.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -154,8 +154,9 @@ ul.task-list li input[type="checkbox"] {
 <div class="quarto-layout-panel" data-layout="[50,50]">
 <div class="quarto-layout-row">
 <div id="first-column" class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: flex-start;">
-<section id="ぷに-hp" class="level2">
-<h2 data-anchor-id="ぷに-hp">ぷに <a href="https://162348.github.io/" class="script-size"><i class="fa-solid fa-earth-asia" aria-label="earth-asia"></i> HP</a></h2>
+<section id="ぷに" class="level2">
+<h2 data-anchor-id="ぷに">ぷに</h2>
+<!-- [ HP](https://162348.github.io/){.script-size} -->
 <p>研究者</p>
 <!-- ##### []{.color-united} 博士（統計科学） 2028（見込み）
 総合研究大学院大学（統計科学コース）
@@ -293,8 +294,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -405,7 +404,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

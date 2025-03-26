@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://puniupa.github.io/index.html</loc>
-    <lastmod>2024-08-09T09:13:39.372Z</lastmod>
+    <lastmod>2025-03-26T03:10:20.918Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/static/AllCategories.html</loc>
@@ -42,7 +42,7 @@
   </url>
   <url>
     <loc>https://puniupa.github.io/static/AboutUs.html</loc>
-    <lastmod>2024-09-24T05:18:53.654Z</lastmod>
+    <lastmod>2025-03-26T03:11:32.061Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/2024/Blog/Git.html</loc>
@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/2024/Tech/Git.html</loc>
-    <lastmod>2025-01-15T06:32:54.417Z</lastmod>
+    <lastmod>2025-01-19T06:33:40.287Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/2024/Blog/Seoul2.html</loc>
@@ -86,10 +86,30 @@
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/2024/Tech/ffmpeg.html</loc>
-    <lastmod>2024-09-24T05:18:53.651Z</lastmod>
+    <lastmod>2024-08-09T11:15:47.102Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/2024/AI/各国の生成AI関連政策.html</loc>
-    <lastmod>2025-01-15T06:32:23.038Z</lastmod>
+    <lastmod>2025-01-15T06:32:50.582Z</lastmod>
+  </url>
+  <url>
+    <loc>https://puniupa.github.io/notes.html</loc>
+    <lastmod>2025-03-26T03:21:54.518Z</lastmod>
+  </url>
+  <url>
+    <loc>https://puniupa.github.io/posts/Spike-and-slab/spiky-density.html</loc>
+    <lastmod>2025-03-26T03:19:20.386Z</lastmod>
+  </url>
+  <url>
+    <loc>https://puniupa.github.io/posts/Spike-and-slab/1d_exit.html</loc>
+    <lastmod>2025-03-26T03:21:00.287Z</lastmod>
+  </url>
+  <url>
+    <loc>https://puniupa.github.io/posts/Spike-and-slab/1d_convergence.html</loc>
+    <lastmod>2025-03-26T03:20:06.951Z</lastmod>
+  </url>
+  <url>
+    <loc>https://puniupa.github.io/posts/Spike-and-slab/1d_generalized.html</loc>
+    <lastmod>2025-03-26T03:20:12.928Z</lastmod>
   </url>
 </urlset>

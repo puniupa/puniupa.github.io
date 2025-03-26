@@ -109,12 +109,21 @@ AI利用者
 <p>バイデン政権下で “safe, secure, trustworthy” な AI の開発を目指して始動し、モデルやシステムの安全性評価機関として機能することを目標としている。ちなみに、トップは Elizabeth Kelly（J.D. from Yale Law School, an MSc in Comparative Social Policy from the University of Oxford, and a B.A. from Duke University）と Elham Tabassi（機械学習と Computer Vision の研究者であり、OECD の AI ガバナンスに関するワーキンググループの副議長だった）。</p>
 <p>　なお、2024年２月には、バイデン大統領令 “Executive Order on the Safe, Secure, and Trustworthy Development and Use of Artificial Intelligence”（2023年10月30日）の下、初のコンソーシアム AISIC が開催された（参加者は 200 名以上）。2024年４月時点のリリースでは、NIST は人間が作成したコンテンツと AI が作成したコンテンツの区別がつけられるような手法の開発をしていることが紹介されている。</p>
 <p>　公表された書面のうち、重要なものとしては以下のものがある。これらの内容については後日まとめ直したい。</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
 <ul>
 <li>Artificial Intelligence Risk Management Framework: Generative Artificial Intelligence Profile</li>
 <li>Secure Software Development Practices for Generative AI and Dual-Use Foundation Models: An SSDF Community Profile</li>
 <li>A Plan for Global Engagement on AI Standards</li>
 <li>Managing Misuse Risk for Dual-Use Foundation Models</li>
 </ul>
+</div>
+</div>
+</div>
 </section>
 <section id="uspto-における議論" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="uspto-における議論"><span class="header-section-number">3.2</span> USPTO における議論</h3>

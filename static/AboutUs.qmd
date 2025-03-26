@@ -26,7 +26,9 @@ number-sections: false
 
 ::: {layout="[50,50]"}
 ::: {#first-column}
-## ぷに [{{< fa earth-asia >}} HP](https://162348.github.io/){.script-size}
+## ぷに
+
+<!-- [{{< fa earth-asia >}} HP](https://162348.github.io/){.script-size} -->
 
 研究者
 

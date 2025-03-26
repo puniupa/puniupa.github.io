@@ -2,7 +2,9 @@
 title: "Recent Posts"
 description: "法律家と研究者によるブログ"
 listing:
-  contents: posts
+  contents: 
+    - posts/2024/
+    - posts/2025
   sort: "date desc"
   type: default
   categories: numbered
