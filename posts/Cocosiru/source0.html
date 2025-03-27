@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="司馬博文">
 
-<title>Notes – ぷにうぱ</title>
+<title>ココシルデータ解析０ – ぷにうぱ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,28 +21,47 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-65186549de95cd2ff331b98fa30c8ceb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-5ebec06137205d8a3f6fd6de4548cd81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-65186549de95cd2ff331b98fa30c8ceb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5ebec06137205d8a3f6fd6de4548cd81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -70,20 +90,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-spike-and-slab .list');
+    const listingTargetEl = window.document.querySelector('#listing-cocosiru1-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-filename','listing-categories','listing-title','listing-subtitle','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-spike-and-slab'] = new List('listing-spike-and-slab', options);
+    window['quarto-listings']['listing-cocosiru1-listing'] = new List('listing-cocosiru1-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -98,20 +118,20 @@ ul.task-list li input[type="checkbox"] {
   
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-cocosiru .list');
+    const listingTargetEl = window.document.querySelector('#listing-cocosiru2-listing .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-filename','listing-categories','listing-title','listing-subtitle','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-cocosiru'] = new List('listing-cocosiru', options);
+    window['quarto-listings']['listing-cocosiru2-listing'] = new List('listing-cocosiru2-listing', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -162,23 +182,25 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="assets/styles.css">
-<link rel="alternate" type="application/rss+xml" title="ぷにうぱ" href="notes.xml" data-external="1"><meta property="og:title" content="Notes – ぷにうぱ">
-<meta property="og:image" content="https://puniupa.github.io/assets/ぷにうぱ.jpg">
+<link rel="stylesheet" href="../../assets/styles.css">
+<meta property="og:title" content="ココシルデータ解析０ – ぷにうぱ">
+<meta property="og:description" content="概観：背景情報とミーティングの記録">
+<meta property="og:image" content="https://puniupa.github.io/posts/Cocosiru/assets/ぷにうぱ.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
-<meta name="twitter:title" content="Notes – ぷにうぱ">
-<meta name="twitter:image" content="https://puniupa.github.io/assets/ぷにうぱ.jpg">
+<meta name="twitter:title" content="ココシルデータ解析０ – ぷにうぱ">
+<meta name="twitter:description" content="概観：背景情報とミーティングの記録">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/Cocosiru/assets/ぷにうぱ.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">ぷにうぱ</span>
     </a>
   </div>
@@ -189,11 +211,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./static/AllCategories.html"> 
+    <a class="nav-link" href="../../static/AllCategories.html"> 
 <span class="menu-text">カテゴリ一覧</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./static/AboutUs.html"> 
+    <a class="nav-link" href="../../static/AboutUs.html"> 
 <span class="menu-text">自己紹介</span></a>
   </li>  
 </ul>
@@ -204,187 +226,210 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Notes</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#はじめに1312025-ミーティング内容のまとめ" id="toc-はじめに1312025-ミーティング内容のまとめ" class="nav-link active" data-scroll-target="#はじめに1312025-ミーティング内容のまとめ"><span class="header-section-number">1</span> はじめに（1/31/2025 ミーティング内容のまとめ）</a>
+  <ul class="collapse">
+  <li><a href="#ココシルスコアと異動との関係-2272025" id="toc-ココシルスコアと異動との関係-2272025" class="nav-link" data-scroll-target="#ココシルスコアと異動との関係-2272025"><span class="header-section-number">1.1</span> ココシルスコアと異動との関係 (~2/27/2025)</a></li>
+  <li><a href="#sec-stress-check" id="toc-sec-stress-check" class="nav-link" data-scroll-target="#sec-stress-check"><span class="header-section-number">1.2</span> 職業性ストレスチェックとの関係</a></li>
+  <li><a href="#先行研究" id="toc-先行研究" class="nav-link" data-scroll-target="#先行研究"><span class="header-section-number">1.3</span> 先行研究</a></li>
+  <li><a href="#示唆" id="toc-示唆" class="nav-link" data-scroll-target="#示唆"><span class="header-section-number">1.4</span> 示唆</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
 
-
-
-
-
-
-
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-spike-and-slab">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1743045232557" data-listing-reading-time-sort="3" data-listing-word-count-sort="446">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Spike-and-slab/1d_convergence.html" class="no-external">１次元での収束の証明</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Spike-and-slab/1d_convergence.html" class="no-external">Spike-and-Slab prior からの効率的なサンプリング</a>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ココシルデータ解析０</h1>
+<p class="subtitle lead">概観：背景情報とミーティングの記録</p>
 </div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4'); return false;">
-ノート
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">著者</div>
+    <div class="quarto-title-meta-contents">
+             <p>司馬博文 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">日付</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2/26/2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="はじめに1312025-ミーティング内容のまとめ" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="はじめに1312025-ミーティング内容のまとめ"><span class="header-section-number">1</span> はじめに（1/31/2025 ミーティング内容のまとめ）</h2>
+<p>ビリルビンが活性酵素を除去しようとする中で，その残滓であるバイオピリンが活性酸素上昇／酸化ストレスのマーカーになることが知られている．</p>
+<p>特に重度の精神疾患患者の判別には AUC 0.779 の精度を持つ <span class="citation" data-cites="Wake+2022">(<a href="#ref-Wake+2022" role="doc-biblioref">Wake et al., 2022</a>)</span>．</p>
+<p>しかし，職業ストレス <span class="citation" data-cites="Mourad-Gaballah2023">(<a href="#ref-Mourad-Gaballah2023" role="doc-biblioref">Mourad and Gaballah, 2023</a>)</span> のほかに，心不全，肝硬変，妊娠，スポーツなど種々の理由でもバイオピリンの尿中排出濃度が変化する．BMI （特にトリグリセリド）との相関も疑われている．</p>
+<p>そこで本研究では，バイオピリンと他変数の依存構造を詳細に検討する．</p>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="リサーチクエスチョン">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+リサーチクエスチョン
 </div>
 </div>
-<div class="listing-description">
-<a href="./posts/Spike-and-slab/1d_convergence.html" class="no-external">A Blog Entry on Bayesian Computation by an Applied Mathematician</a>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li><span class="color-united">究極的には休職・離職を見たい</span>．昇進との関係などを項目反応理論で補足したい．</li>
+<li>バイピリンと職業性ストレスチェック（57項目）との相関．→ バイオピリンと法定検診との相関：補正や注意事項を構成したい．</li>
+<li>また一般に LOX・フローラなどの他サービスとの連関が得られれば，囲い込みが強くなる．「ココシルの人と LOX / フローラの人でどんな関係があるんだろう？」</li>
+</ol>
 </div>
 </div>
-<div class="metadata">
-<p><a href="./posts/Spike-and-slab/1d_convergence.html" class="no-external"></a></p><a href="./posts/Spike-and-slab/1d_convergence.html" class="no-external">
-<div class="metadata-value listing-filename">
-1d_convergence.qmd
+<section id="ココシルスコアと異動との関係-2272025" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="ココシルスコアと異動との関係-2272025"><span class="header-section-number">1.1</span> ココシルスコアと異動との関係 (~2/27/2025)</h3>
+<ul>
+<li>随時尿にしたからなのか，とんでもない変化率が３ヶ月で出た（７から１０）．
+<ul>
+<li>10月に組織変更があり，職位変更あり群となし群，顧客変更あり群で違いが結構見れる．</li>
+</ul></li>
+<li>ストレススコアの変化率を調べてもよく判らなかった．
+<ul>
+<li>これについては次節 <a href="#sec-stress-check" class="quarto-xref">Section&nbsp;1.2</a> で検討．</li>
+</ul></li>
+</ul>
+<div id="listing-cocosiru1-listing" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-1">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1743045232339" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1492">
+<a href="../../posts/Cocosiru/source1.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="source1_files/figure-html/unnamed-chunk-5-1.png" style="height: 100%;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+ココシルデータ解析１
+</h5>
+<div class="card-text listing-description">
+<p>ココシルを予測に使うことを考える． 昇格はココシルスコアに影響を与える可能性がある（さらに言えば３ヶ月前の残業時間も）． データ数の不足と，未知の説明変数が問題である． 既知の季節変動があったら，それも説明変数に入れたい．</p>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+司馬博文
+</div>
+<div class="listing-date">
+2/26/2025
+</div>
+</div>
+</div>
 </div>
 </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1743045232560" data-listing-reading-time-sort="3" data-listing-word-count-sort="420">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Spike-and-slab/1d_exit.html" class="no-external">脱出時刻の分析</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Spike-and-slab/1d_exit.html" class="no-external">Spike-and-Slab prior からの効率的なサンプリング</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4'); return false;">
-ノート
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Spike-and-slab/1d_exit.html" class="no-external">A Blog Entry on Bayesian Computation by an Applied Mathematician</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/Spike-and-slab/1d_exit.html" class="no-external"></a></p><a href="./posts/Spike-and-slab/1d_exit.html" class="no-external">
-<div class="metadata-value listing-filename">
-1d_exit.qmd
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="JUUzJTgzJTg5JUUzJTgzJUE5JUUzJTgzJTk1JUUzJTgzJTg4" data-listing-file-modified-sort="1743045232562" data-listing-reading-time-sort="1" data-listing-word-count-sort="24">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Spike-and-slab/spiky-density.html" class="no-external">Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Spike-and-slab/spiky-density.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('JUUzJTgzJTg5JUUzJTgzJUE5JUUzJTgzJTk1JUUzJTgzJTg4'); return false;">
-ドラフト
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Spike-and-slab/spiky-density.html" class="no-external">A Blog Entry on Bayesian Computation by an Applied Mathematician</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/Spike-and-slab/spiky-density.html" class="no-external"></a></p><a href="./posts/Spike-and-slab/spiky-density.html" class="no-external">
-<div class="metadata-value listing-filename">
-spiky-density.qmd
-</div>
-</a>
-</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div><div class="quarto-listing quarto-listing-container-default" id="listing-cocosiru">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1743045232429" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="447">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Cocosiru/source2.html" class="no-external">ココシルデータ解析２</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Cocosiru/source2.html" class="no-external">ココシルスコアと職業性ストレスチェックとの関係の特定</a>
 </div>
-<div class="listing-description">
-<a href="./posts/Cocosiru/source2.html" class="no-external">ココシルの位置付けをわかりやすく説明するために， バイオピリンと職業性ストレスチェックとの相関を詳細に検討し， <strong>ココシルスコアがどのような意味で職業性ストレスチェックの要約になっているかを解明する</strong>． これは結局変数選択をした後の，右辺の式の形を見る問題になる． </a>
+</section>
+<section id="sec-stress-check" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="sec-stress-check"><span class="header-section-number">1.2</span> 職業性ストレスチェックとの関係</h3>
+<p>第２回 (2/27/2025) ミーティング内容まとめ</p>
+<ul>
+<li>職業性ストレスチェックは産業界で一大サービスであり，それとの関連から説明したい．</li>
+<li>「職業性ストレスチェックのどのような意味での要約になっているか？」を知りたい．</li>
+<li><span class="color-united"><strong>弘前の大規模データで検証したい</strong></span>．</li>
+</ul>
+<div id="listing-cocosiru2-listing" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-1">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1743045232429" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="447">
+<a href="../../posts/Cocosiru/source2.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="source2_files/figure-html/unnamed-chunk-7-1.png" style="height: 100%;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+ココシルデータ解析２
+</h5>
+<div class="card-text listing-description">
+<p>ココシルの位置付けをわかりやすく説明するために， バイオピリンと職業性ストレスチェックとの相関を詳細に検討し， <strong>ココシルスコアがどのような意味で職業性ストレスチェックの要約になっているかを解明する</strong>． これは結局変数選択をした後の，右辺の式の形を見る問題になる．</p>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+司馬博文
+</div>
+<div class="listing-date">
+2/26/2025
 </div>
 </div>
-<div class="metadata">
-<p><a href="./posts/Cocosiru/source2.html" class="no-external"></a></p><a href="./posts/Cocosiru/source2.html" class="no-external">
-<div class="metadata-value listing-filename">
-source2.qmd
+</div>
 </div>
 </a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1743045232339" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1492">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Cocosiru/source1.html" class="no-external">ココシルデータ解析１</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Cocosiru/source1.html" class="no-external">昇格・降格との関連性と項目反応モデル</a>
-</div>
-<div class="listing-description">
-<a href="./posts/Cocosiru/source1.html" class="no-external">ココシルを予測に使うことを考える． 昇格はココシルスコアに影響を与える可能性がある（さらに言えば３ヶ月前の残業時間も）． データ数の不足と，未知の説明変数が問題である． 既知の季節変動があったら，それも説明変数に入れたい． </a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/Cocosiru/source1.html" class="no-external"></a></p><a href="./posts/Cocosiru/source1.html" class="no-external">
-<div class="metadata-value listing-filename">
-source1.qmd
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1743045232336" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="61">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Cocosiru/source0.html" class="no-external">ココシルデータ解析０</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Cocosiru/source0.html" class="no-external">概観：背景情報とミーティングの記録</a>
-</div>
-<div class="listing-description">
-<a href="./posts/Cocosiru/source0.html" class="no-external">ビリルビンが活性酵素を除去しようとする中で，その残滓であるバイオピリンが活性酸素上昇／酸化ストレスのマーカーになることが知られている．</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/Cocosiru/source0.html" class="no-external"></a></p><a href="./posts/Cocosiru/source0.html" class="no-external">
-<div class="metadata-value listing-filename">
-source0.qmd
-</div>
-</a>
-</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div></main> <!-- /main -->
+</div>
+</section>
+<section id="先行研究" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="先行研究"><span class="header-section-number">1.3</span> 先行研究</h3>
+<p>臨床実習のある３回生の方が，４回生よりもバイオピリンレベルが高かった <span class="citation" data-cites="Tada+2020">(<a href="#ref-Tada+2020" role="doc-biblioref">Tada et al., 2020</a>)</span>．</p>
+<p><span class="citation" data-cites="高知恵+2023">(<a href="#ref-高知恵+2023" role="doc-biblioref">高知恵 et al., 2023</a>)</span> でも質問票と尿中バイオピリンの双方を用いている．2022年の10月から12月末までのデータである．</p>
+<p>しかし「調査当日の受け持ち褥婦数」を調べており，これでは２群間で有意差を認めなかったという結果であった．これには，「翌日から上昇する」という報告を引用して，もう少し時間を空けるべきであった可能性が指摘されている．</p>
+</section>
+<section id="示唆" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="示唆"><span class="header-section-number">1.4</span> 示唆</h3>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li>人事に昇進の影響が違うと思われる．やはり <strong>項目反応モデル</strong> だろうか？</li>
+<li>そもそもココシルデータ解析は，「どのようなデータを取れば，有用な結論を導けるか？」というベイズ最適化的な側面があるかもしれない．
+<ul>
+<li>Big Five を取って，関連性が見れたらすごいことになる．</li>
+<li>NEC が出している視線解析のベンチャーがある．尿検査のデータ以外も取れるかもしれない．</li>
+</ul></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Mourad-Gaballah2023" class="csl-entry" role="listitem">
+Mourad, B. H., and Gaballah, I. F. (2023). <a href="https://journals.lww.com/joem/fulltext/2023/01000/studying_the_association_between_occupational.10.aspx">Studying the association between occupational stress and urinary levels of oxidative stress biomarkers (8-OHdG and biopyrrins) in brickfield workers</a>. <em>Journal of Occupational and Environmental Medicine</em>, <em>65</em>(1).
+</div>
+<div id="ref-Tada+2020" class="csl-entry" role="listitem">
+Tada, S., Shiota, A., Hayashi, H., and Nakamura, T. (2020). <a href="https://doi.org/10.1016/j.heliyon.2019.e03138">Reference urinary biopyrrin level and physiological variation in healthy young adults: Relation of stress by learning</a>. <em>Heliyon</em>, <em>6</em>(1). doi: 10.1016/j.heliyon.2019.e03138.
+</div>
+<div id="ref-Wake+2022" class="csl-entry" role="listitem">
+Wake, R., Araki, T., Fukushima, M., Matsuda, H., Inagaki, T., Hayashida, M., … Oh-Nishi, A. (2022). <a href="https://doi.org/10.1111/eip.13154">Urinary biopyrrins and free immunoglobin light chains are biomarker candidates for screening at-risk mental state in adolescents</a>. <em>Early Intervention in Psychiatry</em>, <em>16</em>(3), 272–280.
+</div>
+<div id="ref-高知恵+2023" class="csl-entry" role="listitem">
+高知恵, 千葉貴子, 中根祥子, 谷口朱子, 北條渉, 中嶋有加里, … 渡邊香織. (2023). <a href="https://mol.medicalonline.jp/archive/search?jo=fm0kokus&amp;ye=2023&amp;vo=7&amp;issue=1">在留外国人褥婦への保健指導を実践する助産師の思いと心理的ストレス - 尿中バイオピリンと心理尺度による横断的研究 -</a>. <em>国際臨床医学会雑誌</em>, <em>7</em>(1), 22–28.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -873,7 +918,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="./blog.xml">
+    <a class="nav-link" href="../../blog.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>

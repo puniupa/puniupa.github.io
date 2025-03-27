@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="司馬博文">
+
+<title>ココシルデータ解析１ – ぷにうぱ</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-65186549de95cd2ff331b98fa30c8ceb.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5ebec06137205d8a3f6fd6de4548cd81.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "?",
+    "H"
+  ],
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&amp;display=swap" rel="stylesheet">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&amp;display=swap" rel="stylesheet">
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="../../assets/styles.css">
+<meta property="og:title" content="ココシルデータ解析１ – ぷにうぱ">
+<meta property="og:description" content="ココシルを予測に使うことを考える． 昇格はココシルスコアに影響を与える可能性がある（さらに言えば３ヶ月前の残業時間も）． データ数の不足と，未知の説明変数が問題である． 既知の季節変動があったら，それも説明変数に入れたい．">
+<meta property="og:image" content="https://puniupa.github.io/posts/Cocosiru/source1_files/figure-html/unnamed-chunk-5-1.png">
+<meta property="og:site_name" content="ぷにうぱ">
+<meta property="og:image:height" content="768">
+<meta property="og:image:width" content="1152">
+<meta name="twitter:title" content="ココシルデータ解析１ – ぷにうぱ">
+<meta name="twitter:description" content="ココシルを予測に使うことを考える． 昇格はココシルスコアに影響を与える可能性がある（さらに言えば３ヶ月前の残業時間も）． データ数の不足と，未知の説明変数が問題である． 既知の季節変動があったら，それも説明変数に入れたい．">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/Cocosiru/source1_files/figure-html/unnamed-chunk-5-1.png">
+<meta name="twitter:image-height" content="768">
+<meta name="twitter:image-width" content="1152">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">ぷにうぱ</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../static/AllCategories.html"> 
+<span class="menu-text">カテゴリ一覧</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../static/AboutUs.html"> 
+<span class="menu-text">自己紹介</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#まとめ" id="toc-まとめ" class="nav-link active" data-scroll-target="#まとめ"><span class="header-section-number">1</span> まとめ</a></li>
+  <li><a href="#予備的解析2272025-終了" id="toc-予備的解析2272025-終了" class="nav-link" data-scroll-target="#予備的解析2272025-終了"><span class="header-section-number">2</span> 予備的解析（2/27/2025 終了）</a>
+  <ul class="collapse">
+  <li><a href="#事前処理" id="toc-事前処理" class="nav-link" data-scroll-target="#事前処理"><span class="header-section-number">2.1</span> 事前処理</a></li>
+  <li><a href="#残業時間は関係なさそうだがどれくらい遅れて出るかは見たい" id="toc-残業時間は関係なさそうだがどれくらい遅れて出るかは見たい" class="nav-link" data-scroll-target="#残業時間は関係なさそうだがどれくらい遅れて出るかは見たい"><span class="header-section-number">2.2</span> 残業時間は関係なさそうだが，「どれくらい遅れて出るか？」は見たい？</a></li>
+  <li><a href="#sec-昇降格" id="toc-sec-昇降格" class="nav-link" data-scroll-target="#sec-昇降格"><span class="header-section-number">2.3</span> 顧客変更の影響</a></li>
+  <li><a href="#sec-昇降格-IRT" id="toc-sec-昇降格-IRT" class="nav-link" data-scroll-target="#sec-昇降格-IRT"><span class="header-section-number">2.4</span> 属人的影響への考察</a></li>
+  <li><a href="#ストレスの季節間変動に関する関連文献" id="toc-ストレスの季節間変動に関する関連文献" class="nav-link" data-scroll-target="#ストレスの季節間変動に関する関連文献"><span class="header-section-number">2.5</span> ストレスの季節間変動に関する関連文献</a></li>
+  </ul></li>
+  <li><a href="#archived" id="toc-archived" class="nav-link" data-scroll-target="#archived"><span class="header-section-number">3</span> Archived</a>
+  <ul class="collapse">
+  <li><a href="#プリメディカのココシル測定" id="toc-プリメディカのココシル測定" class="nav-link" data-scroll-target="#プリメディカのココシル測定"><span class="header-section-number">3.1</span> プリメディカのココシル測定</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">ココシルデータ解析１</h1>
+<p class="subtitle lead">昇格・降格との関連性と項目反応モデル</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">著者</div>
+    <div class="quarto-title-meta-contents">
+             <p>司馬博文 </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">日付</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">2/26/2025</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+<div>
+  <div class="abstract">
+    <div class="block-title">はじめに</div>
+    <p>ココシルを予測に使うことを考える． 昇格・降格は</p>
+  </div>
+</div>
+
+
+</header>
+
+
+<section id="まとめ" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="まとめ"><span class="header-section-number">1</span> まとめ</h2>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="現状の仮説">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+現状の仮説
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>本当に時期によってストレス値の中央値が違う可能性がある．</li>
+<li>職位変更と顧客変更で，ココシルスコアの変化率に違いが見られる可能性がある．</li>
+<li>「職業性ストレスチェック」は（バイオマーカーなどが反映するような）現実を全く反映していないと思われる．</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="ToDo">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+ToDo
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>昇格・降格変数の本当の意味がわかったら，より正確に解析をし直す．
+<ul>
+<li>→ 多分ほとんど終わった 2/27/2025</li>
+</ul></li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important no-icon callout-titled" title="報告点">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+報告点
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>昇格・降格の有無を教えてくれたら，プールデータに入れて縮小推定することで，「ストレス変動のうち昇格によるものの割合は何 % と推定されます」と返せる． <a href="#sec-昇降格-IRT" class="quarto-xref">Section&nbsp;2.4</a></li>
+<li>顧客変更は詳細な情報をくれたら関係が見えてくるかもしれない． <a href="#sec-昇降格" class="quarto-xref">Section&nbsp;2.3</a>
+<ul>
+<li>→ 正しい昇格時期の下に再解析したら，やっぱりないかも．むしろ右肩下がりに出てきた．</li>
+<li>→ 顧客変更と部署異動は関係なさそう．IRT が見れない限り，平均的な寄与はなさそう．</li>
+</ul></li>
+</ul>
+<ol type="1">
+<li>1/31/2025 ミーティングでは，昇格・降格のタイミングは４月と仮定して解析したが，「４月に昇格・降格があったものはおらず，10月に昇格・降格したものはあった」という前提に修正して解析したところ，conditional effects の傾きはむしろ大きくなった．昇格・降格の有無がストレス変動に影響を与えているという証拠はむしろ上がった．</li>
+</ol>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" title="報告するまでは行かない発見">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+報告するまでは行かない発見
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>結構 <span class="math inline">\(0\)</span> から分離されるくらい，３ヶ月前の残業時間が負に働いているのはなんだ？残業をすると後々楽になってストレスが下がる？？ <a href="#sec-item-response-to-OT" class="quarto-xref">Section&nbsp;2.2.1</a></li>
+<li>これについては一人２回しか測定していないこともあり，不確実性が高すぎる．</li>
+<li>顧客変更の時期も入れたら結果が変わる可能性がある．</li>
+</ol>
+</div>
+</div>
+</section>
+<section id="予備的解析2272025-終了" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="予備的解析2272025-終了"><span class="header-section-number">2</span> 予備的解析（2/27/2025 終了）</h2>
+<section id="事前処理" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="事前処理"><span class="header-section-number">2.1</span> 事前処理</h3>
+<p>２回繰り返しココシル測定データを R に読み込んで整理する．</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df1[,<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">4</span>,<span class="dv">116</span>,<span class="dv">117</span>,<span class="dv">118</span>,<span class="dv">120</span>,<span class="dv">121</span>,<span class="dv">122</span>,<span class="dv">137</span>,<span class="dv">138</span>,<span class="dv">129</span>,<span class="dv">130</span>,<span class="dv">131</span>,<span class="dv">133</span>,<span class="dv">134</span>,<span class="dv">127</span>,<span class="dv">128</span>)]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df)[<span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">4</span>,<span class="dv">5</span>,<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>,<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">12</span>,<span class="dv">13</span>,<span class="dv">14</span>,<span class="dv">15</span>,<span class="dv">16</span>,<span class="dv">17</span>)] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"8月"</span>, <span class="st">"9月"</span>, <span class="st">"10月"</span>, <span class="st">"部署異動2"</span>, <span class="st">"昇降格"</span>, <span class="st">"顧客変更2"</span>, <span class="st">"BPCRE2"</span>, <span class="st">"4月"</span>, <span class="st">"5月"</span>, <span class="st">"6月"</span>, <span class="st">"部署異動1"</span>, <span class="st">"顧客変更1"</span>, <span class="st">"BPCRE1"</span>)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>cols_to_convert <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"部署異動1"</span>, <span class="st">"昇降格"</span>, <span class="st">"顧客変更1"</span>, <span class="st">"部署異動2"</span>, <span class="st">"顧客変更2"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df[cols_to_convert] <span class="ot">&lt;-</span> <span class="fu">lapply</span>(df[cols_to_convert], <span class="cf">function</span>(x) {</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># NAを0に、"〇"または"○"を1に変換</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ifelse</span>(<span class="fu">is.na</span>(x), <span class="dv">0</span>, <span class="fu">ifelse</span>(x <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"〇"</span>, <span class="st">"○"</span>), <span class="dv">1</span>, <span class="dv">0</span>))</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 5%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 3%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 5%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: left;">性別</th>
+<th style="text-align: right;">年齢</th>
+<th style="text-align: right;">8月</th>
+<th style="text-align: right;">9月</th>
+<th style="text-align: right;">10月</th>
+<th style="text-align: right;">部署異動2</th>
+<th style="text-align: right;">昇降格</th>
+<th style="text-align: right;">顧客変更2</th>
+<th style="text-align: right;">BPCRE2</th>
+<th style="text-align: right;">スコア</th>
+<th style="text-align: right;">4月</th>
+<th style="text-align: right;">5月</th>
+<th style="text-align: right;">6月</th>
+<th style="text-align: right;">部署異動1</th>
+<th style="text-align: right;">顧客変更1</th>
+<th style="text-align: right;">BPCRE1</th>
+<th style="text-align: right;">1回目スコア</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">300</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">21.1</td>
+<td style="text-align: right;">17.7</td>
+<td style="text-align: right;">31.7</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.61</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">20.8</td>
+<td style="text-align: right;">15.8</td>
+<td style="text-align: right;">10.9</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">44</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">321</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">1.4</td>
+<td style="text-align: right;">20.4</td>
+<td style="text-align: right;">19.4</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">15.7</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">323</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">0.4</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">0.1</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.71</td>
+<td style="text-align: right;">36</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">324</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">29</td>
+<td style="text-align: right;">9.5</td>
+<td style="text-align: right;">9.2</td>
+<td style="text-align: right;">9.6</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.99</td>
+<td style="text-align: right;">50</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">325</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">6.0</td>
+<td style="text-align: right;">14.6</td>
+<td style="text-align: right;">40.2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.03</td>
+<td style="text-align: right;">52</td>
+<td style="text-align: right;">5.4</td>
+<td style="text-align: right;">24.8</td>
+<td style="text-align: right;">32.5</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.24</td>
+<td style="text-align: right;">62</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">326</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">18.2</td>
+<td style="text-align: right;">17.0</td>
+<td style="text-align: right;">11.2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">18.7</td>
+<td style="text-align: right;">18.0</td>
+<td style="text-align: right;">18.8</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.06</td>
+<td style="text-align: right;">10</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="長形式化" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="長形式化"><span class="header-section-number">2.1.1</span> 長形式化</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  df,</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"スコア"</span>, <span class="st">"1回目スコア"</span>),</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">"測定時点"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">"スコア値"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>df_long<span class="sc">$</span>測定時点 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df_long<span class="sc">$</span>測定時点 <span class="sc">==</span> <span class="st">"スコア"</span>, <span class="dv">1</span>, <span class="dv">0</span>)  <span class="co"># 0: 1回目, 1: 2回目</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 部署異動1と部署異動2を統合した新しい列を作成</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>df_long<span class="sc">$</span>部署異動 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df_long<span class="sc">$</span>測定時点 <span class="sc">==</span> <span class="dv">1</span>, </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                        df_long<span class="sc">$</span>部署異動2,  <span class="co"># 測定時点が1（2回目）なら部署異動2の値</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>                        df_long<span class="sc">$</span>部署異動1)  <span class="co"># 測定時点が0（1回目）なら部署異動1の値</span></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>df_long<span class="sc">$</span>顧客変更 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df_long<span class="sc">$</span>測定時点 <span class="sc">==</span> <span class="dv">1</span>, </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                        df_long<span class="sc">$</span>顧客変更2, </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>                        df_long<span class="sc">$</span>顧客変更1)</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>df_long<span class="sc">$</span>BPCRE <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df_long<span class="sc">$</span>測定時点 <span class="sc">==</span> <span class="dv">1</span>, </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>                        df_long<span class="sc">$</span>BPCRE2, </span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>                        df_long<span class="sc">$</span>BPCRE1)</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>df_long<span class="sc">$</span>OT1 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df_long<span class="sc">$</span>測定時点 <span class="sc">==</span> <span class="dv">1</span>, <span class="co"># OT: Overtime. 検査当月の残業時間</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>                        df_long<span class="sc">$</span><span class="st">`</span><span class="at">10月</span><span class="st">`</span>, </span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>                        df_long<span class="sc">$</span><span class="st">`</span><span class="at">6月</span><span class="st">`</span>)</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>df_long<span class="sc">$</span>OT2 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df_long<span class="sc">$</span>測定時点 <span class="sc">==</span> <span class="dv">1</span>, <span class="co"># OT: Overtime. 検査前月の残業時間</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>                        df_long<span class="sc">$</span><span class="st">`</span><span class="at">9月</span><span class="st">`</span>, </span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>                        df_long<span class="sc">$</span><span class="st">`</span><span class="at">5月</span><span class="st">`</span>)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>df_long<span class="sc">$</span>OT3 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df_long<span class="sc">$</span>測定時点 <span class="sc">==</span> <span class="dv">1</span>, <span class="co"># OT: Overtime. 検査前々月の残業時間</span></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>                        df_long<span class="sc">$</span><span class="st">`</span><span class="at">8月</span><span class="st">`</span>, </span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>                        df_long<span class="sc">$</span><span class="st">`</span><span class="at">4月</span><span class="st">`</span>)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>df_long<span class="sc">$</span>昇降格 <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df_long<span class="sc">$</span>測定時点 <span class="sc">==</span> <span class="dv">1</span>,</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>                        df_long<span class="sc">$</span><span class="st">`</span><span class="at">昇降格</span><span class="st">`</span>, </span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">0</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> df_long[, <span class="sc">!</span><span class="fu">names</span>(df_long) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"部署異動1"</span>, <span class="st">"部署異動2"</span>, <span class="st">"顧客変更1"</span>, <span class="st">"顧客変更2"</span>, <span class="st">"BPCRE1"</span>, <span class="st">"BPCRE2"</span>, <span class="st">"10月"</span>, <span class="st">"9月"</span>, <span class="st">"8月"</span>, <span class="st">"6月"</span>, <span class="st">"5月"</span>, <span class="st">"4月"</span>)]</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(df_long))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 8%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 11%">
+<col style="width: 7%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: left;">性別</th>
+<th style="text-align: right;">年齢</th>
+<th style="text-align: right;">昇降格</th>
+<th style="text-align: right;">測定時点</th>
+<th style="text-align: right;">スコア値</th>
+<th style="text-align: right;">部署異動</th>
+<th style="text-align: right;">顧客変更</th>
+<th style="text-align: right;">BPCRE</th>
+<th style="text-align: right;">OT1</th>
+<th style="text-align: right;">OT2</th>
+<th style="text-align: right;">OT3</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">300</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">77</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1.61</td>
+<td style="text-align: right;">31.7</td>
+<td style="text-align: right;">17.7</td>
+<td style="text-align: right;">21.1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">300</td>
+<td style="text-align: left;">male</td>
+<td style="text-align: right;">42</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">44</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.88</td>
+<td style="text-align: right;">10.9</td>
+<td style="text-align: right;">15.8</td>
+<td style="text-align: right;">20.8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">321</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">19.4</td>
+<td style="text-align: right;">20.4</td>
+<td style="text-align: right;">1.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">321</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">2.6</td>
+<td style="text-align: right;">0.0</td>
+<td style="text-align: right;">15.7</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">323</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">27</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.53</td>
+<td style="text-align: right;">1.5</td>
+<td style="text-align: right;">0.2</td>
+<td style="text-align: right;">0.4</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">323</td>
+<td style="text-align: left;">female</td>
+<td style="text-align: right;">35</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">36</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">0.71</td>
+<td style="text-align: right;">1.2</td>
+<td style="text-align: right;">0.9</td>
+<td style="text-align: right;">0.1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="残業時間は関係なさそうだがどれくらい遅れて出るかは見たい" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="残業時間は関係なさそうだがどれくらい遅れて出るかは見たい"><span class="header-section-number">2.2</span> 残業時間は関係なさそうだが，「どれくらい遅れて出るか？」は見たい？</h3>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 月次データを長形式に変換</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>df_months <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  df,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">cols =</span> <span class="fu">c</span>(<span class="st">"4月"</span>, <span class="st">"5月"</span>, <span class="st">"6月"</span>, <span class="st">"8月"</span>, <span class="st">"9月"</span>, <span class="st">"10月"</span>),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">names_to =</span> <span class="st">"月"</span>,</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">values_to =</span> <span class="st">"値"</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 月を時系列順に並べるためのファクター化</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>df_months<span class="sc">$</span>月 <span class="ot">&lt;-</span> <span class="fu">factor</span>(df_months<span class="sc">$</span>月, </span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>                      <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"4月"</span>, <span class="st">"5月"</span>, <span class="st">"6月"</span>, <span class="st">"8月"</span>, <span class="st">"9月"</span>, <span class="st">"10月"</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                      <span class="at">ordered =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_months, <span class="fu">aes</span>(<span class="at">x =</span> 月, <span class="at">y =</span> 値, <span class="at">group =</span> id, <span class="at">color =</span> <span class="fu">factor</span>(id))) <span class="sc">+</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"detention hours"</span>,</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"month"</span>,</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"value"</span>,</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">color =</span> <span class="st">"ID"</span>) <span class="sc">+</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)  <span class="co"># IDが多い場合は凡例を非表示に</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="source1_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption>月次残業時間数の推移</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 各月の中央値を計算</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>monthly_medians <span class="ot">&lt;-</span> df_months <span class="sc">%&gt;%</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(月) <span class="sc">%&gt;%</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(中央値 <span class="ot">=</span> <span class="fu">median</span>(値, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 中央値のプロット</span></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(monthly_medians, <span class="fu">aes</span>(<span class="at">x =</span> 月, <span class="at">y =</span> 中央値, <span class="at">group =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="fl">1.5</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">color =</span> <span class="st">"red"</span>) <span class="sc">+</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"median trend"</span>,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"month"</span>,</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"median"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="source1_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption>月次残業時間数の中央値の推移</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<section id="sec-item-response-to-OT" class="level4" data-number="2.2.1">
+<h4 data-number="2.2.1" class="anchored" data-anchor-id="sec-item-response-to-OT"><span class="header-section-number">2.2.1</span> 「どれくらい遅れて出るか？」を見たが，ほとんど切片と測定時点で説明してしまい，３ヶ月前の残業時間に関しては負の影響を持っている．</h4>
+<p>結構高確率で３ヶ月前の残業時間が負に働いているのはなんだ？残業をすると後々楽になってストレスが下がる？？</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> <span class="dv">1</span><span class="sc">+</span>OT1<span class="sc">+</span>OT2<span class="sc">+</span>OT3<span class="sc">+</span>測定時点)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="source1_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="source1_files/figure-html/unnamed-chunk-8-2.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: スコア値 ~ 1 + OT1 + OT2 + OT3 + 測定時点 
+   Data: df_long (Number of observations: 54) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Regression Coefficients:
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept    33.73      4.71    24.60    43.04 1.00     4234     3347
+OT1           0.13      0.30    -0.45     0.71 1.00     2874     2276
+OT2           0.04      0.51    -0.98     1.02 1.00     2553     2618
+OT3          -0.38      0.24    -0.85     0.09 1.00     3333     3032
+測定時点     15.33      4.94     5.72    25.35 1.00     4112     2680
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma    17.94      1.88    14.74    22.26 1.00     3298     2775
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> (<span class="dv">1</span><span class="sc">+</span>OT1<span class="sc">+</span>OT2<span class="sc">+</span>OT3<span class="sc">+</span>測定時点<span class="sc">|</span>id))</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: No shared levels found between `names(values)` of the manual scale and the
+data's colour values.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="source1_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption>OT1の被験者毎の係数</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: No shared levels found between `names(values)` of the manual scale and the
+data's colour values.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="source1_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption>OT2の被験者毎の係数</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: No shared levels found between `names(values)` of the manual scale and the
+data's colour values.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="source1_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="576"></p>
+<figcaption>OT3の被験者毎の係数</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>人によっては強く，過去の残業時間がストレスに影響を及ぼしている可能性があるが，エラーバーが長すぎる．やっぱ一人２回しか測定してないからね．</p>
+</section>
+</section>
+<section id="sec-昇降格" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="sec-昇降格"><span class="header-section-number">2.3</span> 顧客変更の影響</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> (<span class="dv">1</span><span class="sc">|</span>id) <span class="sc">+</span> 測定時点 <span class="sc">+</span> 顧客変更 <span class="sc">+</span> 部署異動 <span class="sc">+</span> 昇降格)</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There were 1 divergent transitions after warmup. Increasing
+adapt_delta above 0.8 may help. See
+http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: スコア値 ~ (1 | id) + 測定時点 + 顧客変更 + 部署異動 + 昇降格 
+   Data: df_long (Number of observations: 54) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 28) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     9.19      3.86     1.01    16.40 1.01      697     1115
+
+Regression Coefficients:
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept    30.52      3.88    22.80    38.18 1.00     3165     2475
+測定時点     12.02      5.50     1.06    23.01 1.00     2962     2719
+顧客変更     -0.32      6.61   -13.43    12.89 1.00     3046     2738
+部署異動      0.29      6.89   -13.22    14.03 1.00     3384     2791
+昇降格       10.49      6.98    -3.23    24.21 1.00     3002     3161
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma    15.39      2.19    11.58    20.15 1.00      970     1989
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="source1_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="source1_files/figure-html/unnamed-chunk-14-2.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="source1_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="576"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="source1_files/figure-html/unnamed-chunk-15-2.png" class="img-fluid" width="576"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="source1_files/figure-html/unnamed-chunk-15-3.png" class="img-fluid" width="576"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="source1_files/figure-html/unnamed-chunk-15-4.png" class="img-fluid" width="576"></p>
+</div>
+</div>
+</div>
+</section>
+<section id="sec-昇降格-IRT" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="sec-昇降格-IRT"><span class="header-section-number">2.4</span> 属人的影響への考察</h3>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="昇進の影響について">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+昇進の影響について
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>実際の心理学的研究でも、中間管理職への昇進はストレス要因となることが示唆されています。吉原らによる企業管理職115名の調査では、「昇進直後は当人もストレス自覚はあるものの、エゴグラム（自我状態診断）上のFree Child（自由な子ども）の得点が昇進後に有意に上昇する」と報告されています。こ​れは、昇進によるプレッシャーを感じつつも、新たな役割の中で創意工夫や自己裁量が増しストレス対処スキルが向上したことを示唆する結果でした​。つまり、昇進は心理的緊張を高める反面、モチベーションの向上や成長によってストレスへの対処力が養われる側面もあると言えます。</p>
+</blockquote>
+<p>昇進の影響は遅れて出るのだろうか？昇進に適応できた群と出来ていない群に分離できるのだろうか？</p>
+<p>昇進がストレッサーになることを，いくらか定性的に論じた論文はある <span class="citation" data-cites="石川浩二+2002">(<a href="#ref-石川浩二+2002" role="doc-biblioref">浩二 et al., 2002</a>)</span>．</p>
+<blockquote class="blockquote">
+<p>昇進によって本人のモチベーションが上がり「良いストレス（eustress）」と感じている場合でも、身体的には交感神経亢進や活性酸素増加といった反応が起きるためUBPは増加すると考えられます。ポジティブな心理要因がある程度ストレスを相殺したとしても、生体指標としては昇進後しばらくは酸化ストレスが高まりやすい**と見るのが妥当です。</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> 測定時点 <span class="sc">+</span> 顧客変更 <span class="sc">+</span> 部署異動 <span class="sc">+</span> (<span class="dv">1</span><span class="sc">+</span>昇降格<span class="sc">|</span>id))</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="source1_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>人毎に係数が違う可能性は十分にある．どういう解析ができそうだろうか？</p>
+</section>
+<section id="ストレスの季節間変動に関する関連文献" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="ストレスの季節間変動に関する関連文献"><span class="header-section-number">2.5</span> ストレスの季節間変動に関する関連文献</h3>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<ul>
+<li>単純な季節間変動を見ていることになるだろうが，そのうちの半分以上は職場環境由来だろう．</li>
+<li>部署異動は完全に何も見られないが，顧客変更は若干の影響を認める．<strong>顧客変更の時期なども考慮に入れたら変わる可能性がある</strong>．</li>
+<li>５月初め時点でストレスチェックをすると，高い人とそうでない人で顕著に差が出る可能性がある．６月は大抵，収束した後の場合が多い．</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="季節の外的影響について">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+季節の外的影響について
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<blockquote class="blockquote">
+<p>ある研究では「冬と比較して、夏の方が唾液中のコルチゾール値が全体的に高く、日内リズムのピーク時刻も遅れる」ことが示されました​．実際、ポーランドで若年女性を対象に行われた研究では、<strong>夏季（6月）</strong>にコルチゾールが有意に上昇し、炎症マーカーIL-6には差がなかったと報告されています​。この研究は「寒い冬にストレスホルモンが増える」という従来のイメージに反し、「夏の方がコルチゾールレベルが高い」という興味深い結果となりました​。研究者らは、暑熱環境が肉体的ストレスとなりコルチゾール分泌を高めた可能性を指摘しています。</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>かし、バイオピリンなど酸化ストレス指標については季節変動に関するデータはまだ限られているのが現状です。例えば大阪公立大学の研究では、助産師を対象に尿中バイオピリンと心理ストレス尺度を用いた横断研究を行いましたが​、この中で著者らは「今後は測定時期や背景要因の影響も考慮する必要がある」と述べています​。これは、ストレス指標としてバイオピリンを用いる際に、季節や時期による基準値の揺らぎにも注意すべきことを示唆しています。実際、酸化ストレス指標である8-ヒドロキシデオキシグアノシン(8OHdG)については、学生を対象とした研究でストレスが高い年度に上昇し、翌年度に低下する（ストレス軽減で酸化ダメージが減る）傾向が報告されています​。季節変動そのものを直接検証した例ではありませんが、ストレス負荷が変われば酸化ストレスマーカーも変動することが示唆されており、季節要因による影響も十分考えられます。</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>また下期の開始や人事異動など職場の変化要因が多く、心理的ストレスが増えやすい。実際に炎症指標（CRP）が秋に高まったデータもある <span class="citation" data-cites="Itoh+2012">(<a href="#ref-Itoh+2012" role="doc-biblioref">Itoh et al., 2012</a>)</span>​。</p>
+</blockquote>
+</div>
+</div>
+</div>
+<p>研究 <span class="citation" data-cites="Itoh+2012">(<a href="#ref-Itoh+2012" role="doc-biblioref">Itoh et al., 2012</a>)</span> は３人しか見ていないが，同じく日本の企業労働者で高感度 CRP を測定した研究であり，2月よりも10月の方が CRP が高いという結果を示している．</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="資料/ref1.png" class="img-fluid figure-img"></p>
+<figcaption><span class="citation" data-cites="Itoh+2012">(Fig.1 from <a href="#ref-Itoh+2012" role="doc-biblioref">Itoh et al., 2012, p. 62</a>)</span></figcaption>
+</figure>
+</div>
+</section>
+</section>
+<section id="archived" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="archived"><span class="header-section-number">3</span> Archived</h2>
+<section id="プリメディカのココシル測定" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="プリメディカのココシル測定"><span class="header-section-number">3.1</span> プリメディカのココシル測定</h3>
+<p>被験者は 43 名で，測定下限未満だったものが 6 名．よってデータフレームは 37 行．</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>df2 <span class="ot">&lt;-</span> <span class="fu">read_excel</span>(<span class="st">"./資料/data_PMC.xlsx"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Itoh+2012" class="csl-entry" role="listitem">
+Itoh, H., Mori, I., Matsumoto, Y., Maki, S., and Ogawa, Y. (2012). <a href="https://doi.org/10.2486/indhealth.MS1288">Seasonal and inter-day variation in serum high-sensitivity c-reactive protein in japanese male workers: A longitudinal study</a>. <em>Industrial Health</em>, <em>50</em>(1), 60–63.
+</div>
+<div id="ref-石川浩二+2002" class="csl-entry" role="listitem">
+浩二, 睦, 真二, 一文, 由紀子, 彰見, … 恵美. (2002). <a href="https://doi.org/10.15064/jjpm.42.5_301">昇進後の中間管理職における心身医学的検討(パネルディスカッションIII/ライフサイクルと現代の諸問題)</a>. <em>心身医学</em>, <em>42</em>(5), 301–308.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/puniupa\.github\.io\/");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      const annoteTargets = window.document.querySelectorAll('.code-annotation-anchor');
+      for (let i=0; i<annoteTargets.length; i++) {
+        const annoteTarget = annoteTargets[i];
+        const targetCell = annoteTarget.getAttribute("data-target-cell");
+        const targetAnnotation = annoteTarget.getAttribute("data-target-annotation");
+        const contentFn = () => {
+          const content = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          if (content) {
+            const tipContent = content.cloneNode(true);
+            tipContent.classList.add("code-annotation-tip-content");
+            return tipContent.outerHTML;
+          }
+        }
+        const config = {
+          allowHTML: true,
+          content: contentFn,
+          onShow: (instance) => {
+            selectCodeLines(instance.reference);
+            instance.reference.classList.add('code-annotation-active');
+            window.tippy.hideAll();
+          },
+          onHide: (instance) => {
+            unselectCodeLines();
+            instance.reference.classList.remove('code-annotation-active');
+          },
+          maxWidth: 300,
+          delay: [50, 0],
+          duration: [200, 0],
+          offset: [5, 10],
+          arrow: true,
+          trigger: 'click',
+          appendTo: function(el) {
+            return el.parentElement.parentElement.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'quarto',
+          placement: 'right',
+          positionFixed: true,
+          popperOptions: {
+            modifiers: [
+            {
+              name: 'flip',
+              options: {
+                flipVariations: false, // true by default
+                allowedAutoPlacements: ['right'],
+                fallbackPlacements: ['right', 'top', 'top-start', 'top-end', 'bottom', 'bottom-start', 'bottom-end', 'left'],
+              },
+            },
+            {
+              name: 'preventOverflow',
+              options: {
+                mainAxis: false,
+                altAxis: false
+              }
+            }
+            ]        
+          }      
+        };
+        window.tippy(annoteTarget, config); 
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+    <a class="nav-link" href="https://puniupa.github.io/">
+<p>ぷにうぱ</p>
+</a>
+  </li>  
+</ul>
+    </div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/puniupa/puniupa.github.io/">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:puniupa48@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="../../blog.xml">
+      <i class="bi bi-rss" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+</body></html>

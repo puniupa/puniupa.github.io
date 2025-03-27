@@ -119,3 +119,40 @@ blockquote {
 .small-size {
   font-size: 70% !important;
 }
+
+
+.MathJax.CtxtMenu_Attached_0 {
+  overflow-x: auto;
+  overflow-y: hidden;  /* 縦方向のスクロールバーを非表示にし、不要な縦スクロールを防ぎます。 */
+  -webkit-overflow-scrolling: touch;  /* これは主にiOSデバイス向けの設定です。スクロール時のスムーズな慣性スクロールを有効にし、モバイルでのユーザー体験を向上させます。 */
+}
+
+.MathJax {
+  min-width: 0 ! important; /* https://github.com/mathjax/MathJax/issues/2562 */
+  max-width: 100%;
+}
+
+.math.display {
+  overflow-x: auto;
+  overflow-y: hidden;  /* 縦方向のスクロールバーを非表示にし、不要な縦スクロールを防ぎます。 */
+  max-width: 100%;
+}
+
+.blockquote {
+  border-left: .25rem solid #78C2AD;
+  color: #062e4b;
+}
+
+.callout-body {
+  font-size: 0.9em !important;
+  color: #062e4b;
+}
+
+.callout-body-container {
+  max-width: 100%;  /* これがないと callout section で overflow する． */
+  padding-top: 0.5em;
+}
+
+.callout-body ul li, .callout-body ol li {
+  margin-bottom: 0.5em;
+}

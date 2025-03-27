@@ -4,7 +4,10 @@
     "items": [
       "/posts/Spike-and-slab/1d_convergence.html",
       "/posts/Spike-and-slab/1d_exit.html",
-      "/posts/Spike-and-slab/spiky-density.html"
+      "/posts/Spike-and-slab/spiky-density.html",
+      "/posts/Cocosiru/source2.html",
+      "/posts/Cocosiru/source1.html",
+      "/posts/Cocosiru/source0.html"
     ]
   },
   {
@@ -22,6 +25,13 @@
       "/posts/2024/Tech/ffmpeg.html",
       "/posts/2024/Tech/Git.html",
       "/posts/2024/Tech/Internet.html"
+    ]
+  },
+  {
+    "listing": "/posts/Cocosiru/source0.html",
+    "items": [
+      "/posts/Cocosiru/source1.html",
+      "/posts/Cocosiru/source2.html"
     ]
   },
   {
