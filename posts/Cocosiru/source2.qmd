@@ -1,0 +1,284 @@
+---
+title: "ココシルデータ解析２"
+subtitle: "ココシルスコアと職業性ストレスチェックとの関係の特定"
+author: "司馬博文"
+date: 2/26/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+execute: 
+  cache: false
+fig-align: center
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: true
+  # pdf:
+  #   fig-format: svg
+  #   include-in-header:
+  #     - ../assets/before-body.tex
+  #   mainfont: "UDEV Gothic NF"
+  #   shift-heading-level-by: -1
+  #   fig-width: 6
+  #   fig-asp: 0.8
+  #   fig-env: figure
+  #   fig-align: center
+  #   fig-pos: H
+  #   code-overflow: wrap
+  #   colorlinks: true
+  #   linkcolor: Cyan3
+  #   pdf-engine: lualatex
+  #   documentclass: ltjsarticle
+  #   keep-tex: true
+abstract: |
+  ココシルの位置付けをわかりやすく説明するために，
+  バイオピリンと職業性ストレスチェックとの相関を詳細に検討し，
+  **ココシルスコアがどのような意味で職業性ストレスチェックの要約になっているかを解明する**．
+  これは結局変数選択をした後の，右辺の式の形を見る問題になる．
+---
+
+## まとめ
+
+::: {.callout-tip title="ToDo" icon="false"}
+
+* ココシルスコアは「どういう意味で職業ストレスチェック項目の要約になっているか？」のストーリーを特定する．
+
+:::
+
+::: {.callout-important appearance="simple" icon="false" title="報告点"}
+
+
+
+:::
+
+::: {.callout-note appearance="simple" icon="false" title="報告するまでは行かない発見"}
+
+
+
+:::
+
+## 解析（途中）
+
+### 事前処理
+
+２回繰り返しココシル測定データを R に読み込んで整理する．
+
+```{r}
+#| output: false
+#| echo: false
+library(readxl)
+df1_raw <- read_excel("./資料/data_Other.xlsx", sheet = "1回目結果")
+df2_raw <- read_excel("./資料/data_Other.xlsx", sheet = "2回目結果")
+df1 <- df1_raw[,c(1,125,
+  23,25,27,29,31,33,35,37,39,  # A の９項目
+  70, 72, 74, 76, 78, 80,  # B の６項目
+  93, 95, 97, 99  # Cの４項目
+  )]
+colnames(df1)[c(1,2)] <- c("id", "Score1")
+df2 <- df2_raw[,c(1,138,2,4,
+  23,25,27,29,31,33,35,37,39,  # A の９項目
+  70, 72, 74, 76, 78, 80,  # B の６項目
+  93, 95, 97, 99,  # Cの４項目
+  124)]
+colnames(df2)[c(1,2)] <- c("id", "Score2")
+
+# df2 から、df1 の「1回目キットNo」と一致する id を持つ行を選択して結合
+df <- merge(df2, df1, 
+                    by.x = "1回目キットNo", 
+                    by.y = "id", 
+                    all.x = TRUE)
+df <- df[1:26,2:44]
+```
+
+```{r}
+#| echo: false
+#| output: false
+library(tidyr)
+library(dplyr)
+library(knitr)
+
+# まず基本情報（id, 性別, 年齢）を抽出
+df_base <- df[, c("id", "性別", "年齢")]
+
+# Score1とScore2を長形式に変換
+df_scores <- df %>%
+  select(id, Score1, Score2) %>%
+  pivot_longer(
+    cols = c(Score1, Score2),
+    names_to = "測定時点",
+    values_to = "スコア"
+  ) %>%
+  mutate(測定時点 = ifelse(測定時点 == "Score1", 1, 2))
+
+# x列（測定時点2）とy列（測定時点1）を分離して整理
+# 測定時点2（x列）のデータ
+cols_x <- grep("\\.x$", colnames(df), value = TRUE)
+df_x <- df %>%
+  select(id, all_of(cols_x)) %>%
+  rename_with(~ gsub("\\.x$", "", .), all_of(cols_x))
+
+# 測定時点1（y列）のデータ
+cols_y <- grep("\\.y$", colnames(df), value = TRUE)
+df_y <- df %>%
+  select(id, all_of(cols_y)) %>%
+  rename_with(~ gsub("\\.y$", "", .), all_of(cols_y))
+
+# 各測定時点のデータに測定時点の情報を追加
+df_x$測定時点 <- 2
+df_y$測定時点 <- 1
+
+# 両方のデータを結合
+df_combined <- bind_rows(df_x, df_y)
+
+# スコアデータと結合
+df_long <- df_combined %>%
+  left_join(df_scores, by = c("id", "測定時点"))
+
+# 基本情報を結合
+df_long <- df_long %>%
+  left_join(df_base, by = "id")
+```
+```{r}
+#| echo: false
+kable(head(df_long))
+```
+
+### 一旦線型回帰をかけてみる（ベイズ）
+
+```{r}
+#| output: false
+library(brms)
+df_short <- df_long[,c(2:20,22)]
+colnames(df_short)[c(1,2,18)] <- c("心理的な仕事の負担_質", "心理的な仕事の負担_量", "家族と友人からのサポート")
+# 線型回帰モデルの定義
+fit <- brm(
+  formula = スコア ~ .,
+  data = df_short,
+  family = gaussian(),
+  chains = 4,
+  cores = 4
+)
+```
+
+```{r}
+summary(fit)
+```
+
+```{r}
+#| output: false
+plot(fit)
+```
+
+### これ LASSO で良いかもしれない
+
+::: {.callout-important appearance="simple" icon="false"}
+
+全ての変数を入れても３割しか説明できないが，２割（うち半分以上）はこれで説明できる：
+
+$$
+25+10\times\text{心理的な仕事の負担\_量}+7\times\text{抑うつ感}-5\times\text{職場環境によるストレス}
+$$
+$$
+-4\times\text{仕事のコントロール度}-4\times\text{同僚からのサポート}
+$$
+
+:::
+
+```{r}
+library(glmnet)
+y <- df_short$スコア
+x <- df_short[, !names(df_short) %in% "スコア"]
+fit <- glmnet(x, y)
+plot(fit)
+```
+::: {.callout-note title="$\lambda$ の値" icon="false" collapse="true"}
+```{r}
+print(fit)
+```
+:::
+
+1. 職場環境によるストレス（ー）
+2. 心理的な仕事の負担_量（＋）
+3. 抑うつ感（＋）
+4. 仕事のコントロール度（ー）
+5. 同僚からのサポート（ー）
+6. 働きがい（＋）
+7. 不安感（ー）
+
+ここまでで 25% 以上の説明率があるので，これで十分だと思う．
+
+::: {.panel-tabset}
+
+## １変数モデル
+```{r}
+coef(fit, s = 4.3)
+```
+## ２変数モデル
+```{r}
+coef(fit, s = 3.5)
+```
+## ３変数モデル
+```{r}
+coef(fit, s = 3.2)
+```
+## ４変数モデル
+```{r}
+coef(fit, s = 2.9)
+```
+## ５変数モデル
+```{r}
+coef(fit, s = 2.5)
+```
+## ６変数モデル
+```{r}
+coef(fit, s = 2.2)
+```
+## ７変数モデル
+```{r}
+coef(fit, s = 2.0)
+```
+## ８変数モデル
+```{r}
+coef(fit, s = 1.1)
+```
+## ９変数モデル
+```{r}
+coef(fit, s = 1.0)
+```
+## １０変数モデル
+```{r}
+coef(fit, s = 0.85)
+```
+
+:::
+
+
+#### ５つの変数だけを入れて回帰してみる
+
+```{r}
+#| output: false
+fit <- brm(
+  formula = スコア ~ 職場環境によるストレス + 心理的な仕事の負担_量 + 抑うつ感 + 仕事のコントロール度 + 同僚からのサポート,
+  data = df_short,
+  family = gaussian(),
+  chains = 4,
+  cores = 4
+)
+```
+
+```{r}
+library(showtext)
+# Googleフォントを使用する場合
+font_add_google("Noto Sans JP", "notosans")
+showtext_auto()  # 自動的にフォントを適用
+plot(fit)
+```
+
+```{r}
+summary(fit)
+```

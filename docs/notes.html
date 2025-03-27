@@ -70,7 +70,7 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-spike-and-slab .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
@@ -83,7 +83,35 @@ ul.task-list li input[type="checkbox"] {
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-spike-and-slab'] = new List('listing-spike-and-slab', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-cocosiru .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-filename','listing-categories','listing-title','listing-subtitle','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-cocosiru'] = new List('listing-cocosiru', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -209,7 +237,7 @@ window.Quarto = {
 
 
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
+<div class="quarto-listing quarto-listing-container-default" id="listing-spike-and-slab">
 <div class="list quarto-listing-default">
 <div class="quarto-post image-right" data-index="0" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1742959206951" data-listing-reading-time-sort="3" data-listing-word-count-sort="446">
 <div class="body">
@@ -236,7 +264,7 @@ window.Quarto = {
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1742959260287" data-listing-reading-time-sort="3" data-listing-word-count-sort="420">
+<div class="quarto-post image-right" data-index="1" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1742963756725" data-listing-reading-time-sort="3" data-listing-word-count-sort="420">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/Spike-and-slab/1d_exit.html" class="no-external">脱出時刻の分析</a>
@@ -282,6 +310,72 @@ window.Quarto = {
 <p><a href="./posts/Spike-and-slab/spiky-density.html" class="no-external"></a></p><a href="./posts/Spike-and-slab/spiky-density.html" class="no-external">
 <div class="metadata-value listing-filename">
 spiky-density.qmd
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div><div class="quarto-listing quarto-listing-container-default" id="listing-cocosiru">
+<div class="list quarto-listing-default">
+<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1740495600000" data-listing-file-modified-sort="1742972372939" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="447">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/Cocosiru/source2.html" class="no-external">ココシルデータ解析２</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/Cocosiru/source2.html" class="no-external">ココシルスコアと職業性ストレスチェックとの関係の特定</a>
+</div>
+<div class="listing-description">
+<a href="./posts/Cocosiru/source2.html" class="no-external">ココシルの位置付けをわかりやすく説明するために， バイオピリンと職業性ストレスチェックとの相関を詳細に検討し， <strong>ココシルスコアがどのような意味で職業性ストレスチェックの要約になっているかを解明する</strong>． これは結局変数選択をした後の，右辺の式の形を見る問題になる． </a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/Cocosiru/source2.html" class="no-external"></a></p><a href="./posts/Cocosiru/source2.html" class="no-external">
+<div class="metadata-value listing-filename">
+source2.qmd
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1740495600000" data-listing-file-modified-sort="1742968143136" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1492">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/Cocosiru/source1.html" class="no-external">ココシルデータ解析１</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/Cocosiru/source1.html" class="no-external">昇格・降格との関連性と項目反応モデル</a>
+</div>
+<div class="listing-description">
+<a href="./posts/Cocosiru/source1.html" class="no-external">ココシルを予測に使うことを考える． 昇格はココシルスコアに影響を与える可能性がある（さらに言えば３ヶ月前の残業時間も）． データ数の不足と，未知の説明変数が問題である． 既知の季節変動があったら，それも説明変数に入れたい． </a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/Cocosiru/source1.html" class="no-external"></a></p><a href="./posts/Cocosiru/source1.html" class="no-external">
+<div class="metadata-value listing-filename">
+source1.qmd
+</div>
+</a>
+</div>
+</div>
+<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1740495600000" data-listing-file-modified-sort="1742964976961" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="61">
+<div class="body">
+<h3 class="no-anchor listing-title">
+<a href="./posts/Cocosiru/source0.html" class="no-external">ココシルデータ解析０</a>
+</h3>
+<div class="listing-subtitle">
+<a href="./posts/Cocosiru/source0.html" class="no-external">概観：背景情報とミーティングの記録</a>
+</div>
+<div class="listing-description">
+<a href="./posts/Cocosiru/source0.html" class="no-external">ビリルビンが活性酵素を除去しようとする中で，その残滓であるバイオピリンが活性酸素上昇／酸化ストレスのマーカーになることが知られている．</a>
+</div>
+</div>
+<div class="metadata">
+<p><a href="./posts/Cocosiru/source0.html" class="no-external"></a></p><a href="./posts/Cocosiru/source0.html" class="no-external">
+<div class="metadata-value listing-filename">
+source0.qmd
 </div>
 </a>
 </div>
