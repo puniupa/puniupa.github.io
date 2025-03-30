@@ -191,10 +191,9 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#はじめに定義に戻る" id="toc-はじめに定義に戻る" class="nav-link" data-scroll-target="#はじめに定義に戻る"><span class="header-section-number">3.1</span> はじめに：定義に戻る</a></li>
   <li><a href="#停止時による分解" id="toc-停止時による分解" class="nav-link" data-scroll-target="#停止時による分解"><span class="header-section-number">3.2</span> 停止時による分解</a></li>
-  <li><a href="#第四項-operatornamee_01left1_lefttau_epsilontle-2trightright2t" id="toc-第四項-operatornamee_01left1_lefttau_epsilontle-2trightright2t" class="nav-link" data-scroll-target="#第四項-operatornamee_01left1_lefttau_epsilontle-2trightright2t"><span class="header-section-number">3.3</span> 第四項 <span class="math inline">\(\operatorname{E}_{(0,1)}\left[1_{\left\{\tau_\epsilon^t\le 2t\right\}}\right]/2t\)</span></a></li>
-  <li><a href="#上から脱出した場合第一項の解析" id="toc-上から脱出した場合第一項の解析" class="nav-link" data-scroll-target="#上から脱出した場合第一項の解析"><span class="header-section-number">3.4</span> 上から脱出した場合（第一項）の解析</a></li>
-  <li><a href="#第１項の詳細な収束の議論" id="toc-第１項の詳細な収束の議論" class="nav-link" data-scroll-target="#第１項の詳細な収束の議論"><span class="header-section-number">3.5</span> 第１項の詳細な収束の議論</a></li>
-  <li><a href="#第３項" id="toc-第３項" class="nav-link" data-scroll-target="#第３項"><span class="header-section-number">3.6</span> 第３項</a></li>
+  <li><a href="#sec-fourth-term" id="toc-sec-fourth-term" class="nav-link" data-scroll-target="#sec-fourth-term"><span class="header-section-number">3.3</span> 第四項 <span class="math inline">\(\operatorname{E}_{(0,1)}\left[1_{\left\{\tau_\epsilon^t\le 2t\right\}}\right]/2t\)</span></a></li>
+  <li><a href="#sec-first-term" id="toc-sec-first-term" class="nav-link" data-scroll-target="#sec-first-term"><span class="header-section-number">3.4</span> 第一項（上から脱出した場合）の解析</a></li>
+  <li><a href="#sec-third-term" id="toc-sec-third-term" class="nav-link" data-scroll-target="#sec-third-term"><span class="header-section-number">3.5</span> 第三項の解析</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -458,9 +457,13 @@ L_0\varphi(0,1)=\kappa\left(\frac{1}{2}\varphi(0_+,1)+\frac{1}{2}\varphi(0,-1)-\
   &amp;=\operatorname{E}_{(0,1)}\left[\varphi(X_\epsilon(2t),V_\epsilon(2t))\frac{1_{\left\{\tau_\epsilon^{t+}\le 2t\right\}}}{2t}\right]+\operatorname{E}_{(0,1)}\left[\varphi(X_\epsilon(2t),V_\epsilon(2t))\frac{1_{\left\{\tau_\epsilon^{t-}\le 2t\right\}}}{2t}\right]\\
   &amp;\qquad+\operatorname{E}_{(0,1)}\left[\frac{\varphi(X_\epsilon(2t),V_\epsilon(2t))-\varphi(0,1)}{2t}1_{\left\{\tau_\epsilon^t&gt;2t\right\}}\right]-\varphi(0,1)\operatorname{E}_{(0,1)}\left[\frac{1_{\left\{\tau_\epsilon^t\le 2t\right\}}}{2t}\right]
 \end{align*}\]</span></p>
+<p><span class="math inline">\([0,2t]\)</span> 以内に <span class="math inline">\(t\)</span> と <span class="math inline">\(-t\)</span> の両方に到達することはないため， <span class="math display">\[
+\left\{\tau_\epsilon^{t+}\le 2t\right\}=\left\{\tau_\epsilon^{t+}\le\tau_{\epsilon}^{t-}\right\}\cap\left\{\tau_\epsilon^t\le 2t\right\}
+\]</span> が成り立つことに注意．</p>
+<p>第四項 <a href="#sec-fourth-term" class="quarto-xref">Section&nbsp;3.3</a>，第一二項 <a href="#sec-first-term" class="quarto-xref">Section&nbsp;3.4</a>，第三項 <a href="#sec-third-term" class="quarto-xref">Section&nbsp;3.5</a> の順に考える．</p>
 </section>
-<section id="第四項-operatornamee_01left1_lefttau_epsilontle-2trightright2t" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="第四項-operatornamee_01left1_lefttau_epsilontle-2trightright2t"><span class="header-section-number">3.3</span> 第四項 <span class="math inline">\(\operatorname{E}_{(0,1)}\left[1_{\left\{\tau_\epsilon^t\le 2t\right\}}\right]/2t\)</span></h3>
+<section id="sec-fourth-term" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="sec-fourth-term"><span class="header-section-number">3.3</span> 第四項 <span class="math inline">\(\operatorname{E}_{(0,1)}\left[1_{\left\{\tau_\epsilon^t\le 2t\right\}}\right]/2t\)</span></h3>
 <p><span class="math inline">\(\tau^t_\epsilon\xrightarrow{\epsilon\to0}\tau_0^t\xrightarrow{t\to0}\tau_0^0\)</span> は弱収束するから， <span class="math display">\[
 \frac{\operatorname{P}[\tau_\epsilon^t\le 2t]}{2t}\xrightarrow{\epsilon\to0}\frac{\operatorname{P}[\tau_0^t\le 2t]}{2t}
 \]</span> は分布関数の連続点における収束から従う．続いて， <span class="math display">\[\begin{align*}
@@ -531,8 +534,30 @@ F_n(t)=\int^t_0f_n(s)\,ds=t+\frac{1-\cos(2\pi nt)}{2\pi n}
 </div>
 </div>
 </section>
-<section id="上から脱出した場合第一項の解析" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="上から脱出した場合第一項の解析"><span class="header-section-number">3.4</span> 上から脱出した場合（第一項）の解析</h3>
+<section id="sec-first-term" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="sec-first-term"><span class="header-section-number">3.4</span> 第一項（上から脱出した場合）の解析</h3>
+<p>この解析を上手く活かせる秘訣は， <span class="math display">\[
+\Delta X_\epsilon:=\biggr(X_\epsilon(2t)-X_\epsilon(\tau_\epsilon^t)\biggl)1_{\left\{\tau_\epsilon^t\le 2t\right\}},
+\]</span> <span class="math display">\[
+\Delta V_\epsilon:=\biggr(V_\epsilon(2t)-V_\epsilon(\tau_\epsilon^t)\biggl)1_{\left\{\tau_\epsilon^t\le 2t\right\}},
+\]</span> と定めた場合，<span class="math inline">\(\Delta X_\epsilon\)</span> は <span class="math inline">\(\epsilon\to0\)</span> の極限での収束先 <span class="math inline">\(\Delta X_0\)</span> を持つということである．</p>
+<p>特に証明では積率の収束 <span class="math display">\[
+\operatorname{E}_{(0,1)}[\lvert\Delta X_\epsilon\rvert]\xrightarrow{\epsilon\to0}\operatorname{E}_{(0,1)}[\lvert\Delta X_0\rvert]
+\]</span> <span class="math display">\[
+\operatorname{E}_{(0,1)}[\lvert\Delta X_\epsilon\rvert\lvert\Delta V_\epsilon\rvert]\xrightarrow{\epsilon\to0}\operatorname{E}_{(0,1)}[\lvert\Delta X_0\rvert\lvert\Delta V_0\rvert]
+\]</span> を用いる．</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="deprecated">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+deprecated
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
 <p><span class="math inline">\(\left\{\tau_\epsilon^t\le 2t\right\}\)</span> 上では，時刻 <span class="math inline">\(2t\)</span> までに再び原点を越すことはない．従って，イベントが起こる回数は高々１回である： <span class="math display">\[
 \biggr(N_\epsilon(2t)-N_\epsilon(\tau^t_\epsilon)\biggl)1_{\left\{\tau_\epsilon^t\le 2t\right\}}\le1.
 \]</span></p>
@@ -553,12 +578,54 @@ F_n(t)=\int^t_0f_n(s)\,ds=t+\frac{1-\cos(2\pi nt)}{2\pi n}
 <p>本当は <span class="math inline">\(\left\{\tau_\epsilon^{t+}\le 2t\right\}\)</span> を <span class="math inline">\(\left\{\tau_\epsilon^{t+}&lt;\tau_\epsilon^{t-},\tau_\epsilon^t\le 2t\right\}\)</span> と分解したいところだが，直接留数計算により <span class="math display">\[
 \frac{\operatorname{P}[\tau_\epsilon^{t+}\le2t]}{2t}\xrightarrow{\epsilon\to0}(f^+_0)'(0)=\frac{2}{\kappa}
 \]</span> を出すこともできるだろう．</p>
+</div>
+</div>
+</div>
+<p><span class="math inline">\(\varphi\in C^\infty_c(\mathbb{R})\)</span> であるから，Taylor 展開に基づいて，事象 <span class="math inline">\(\left\{\tau_\epsilon^{t+}\le 2t\right\}\)</span> 上では <span class="math display">\[
+\varphi(X_\epsilon(2t),V_\epsilon(2t))=\varphi(t,1)+\frac{\partial \varphi}{\partial x}(t,1)\Delta X_\epsilon+\frac{\partial \varphi}{\partial v}(t,1)\Delta V_\epsilon+\frac{1}{2}\frac{\partial ^2\varphi}{\partial x\partial v}(c_1(\omega),c_2(\omega))\Delta X_\epsilon\Delta V_\epsilon+\cdots
+\]</span> とできる．<span class="math inline">\(c_1,c_2:\Omega\to\mathbb{R}\)</span> の可測性が不明である点に注意．しかし，<span class="math inline">\(\varphi\)</span> は任意次の導関数まで有界であるために，任意の <span class="math inline">\(\epsilon,t&gt;0\)</span> について次の評価が成り立つ： <span class="math display">\[
+\left|\varphi(X_\epsilon(2t),V_\epsilon(2t))-\varphi(t,1)\right|\le\frac{\partial \varphi}{\partial x}(t,1)\Delta X_\epsilon+\frac{\partial \varphi}{\partial v}(t,1)\Delta V_\epsilon+\frac{1}{2}\|\partial_x\partial_v\varphi\|_\infty\Delta X_\epsilon\Delta V_\epsilon+\cdots
+\]</span> <span class="math display">\[\begin{align*}
+  &amp;\left|\operatorname{E}_{(0,1)}\left[\varphi(X_\epsilon(2t),V_\epsilon(2t))\frac{1_{\left\{\tau_\epsilon^{t+}\le 2t\right\}}}{2t}\right]-\operatorname{E}_{(0,1)}\left[\varphi(t,1)\frac{1_{\left\{\tau_\epsilon^{t+}\le 2t\right\}}}{2t}\right]\right|\\
+  &amp;\le\operatorname{E}_{(0,1)}\left[\biggl|\varphi(X_\epsilon(2t),V_\epsilon(2t))-\varphi(t,1)\biggr|\frac{1_{\left\{\tau_\epsilon^{t+}\le 2t\right\}}}{2t}\right]\\
+  &amp;\le\|\partial_x\varphi\|\operatorname{E}_{(0,1)}\left[\lvert\Delta X_\epsilon\rvert\frac{1_{\left\{\tau_\epsilon^{t+}\le 2t\right\}}}{2t}\right]+\|\partial_v\varphi\|\operatorname{E}_{(0,1)}\left[\lvert\Delta V_\epsilon\rvert\frac{1_{\left\{\tau_\epsilon^{t+}\le 2t\right\}}}{2t}\right]\\
+  &amp;\qquad+\frac{1}{2}\|\partial_x\partial_v\varphi\|\operatorname{E}_{(0,1)}\left[\lvert\Delta X_\epsilon\Delta V_\epsilon\rvert\frac{1_{\left\{\tau_\epsilon^{t+}\le 2t\right\}}}{2t}\right]+\cdots
+\end{align*}\]</span></p>
+<section id="方針" class="level4" data-number="3.4.1">
+<h4 data-number="3.4.1" class="anchored" data-anchor-id="方針"><span class="header-section-number">3.4.1</span> 方針</h4>
+<p>右辺が <span class="math inline">\(\epsilon\to0\)</span> かつ <span class="math inline">\(t\to0\)</span> の極限で <span class="math inline">\(0\)</span> に収束することを示す．</p>
+<p>このことと <span class="math display">\[
+\operatorname{E}_{(0,1)}\left[\varphi(t,1)\frac{1_{\left\{\tau_\epsilon^{t+}\le 2t\right\}}}{2t}\right]\xrightarrow{\epsilon\to0,t\to0}\varphi(0_+,1)\frac{\kappa^{-1}}{2}
+\]</span> が成り立つことを併せて，所望の第一項の収束を得る．</p>
+<p>その際に必要な次の収束： <span class="math display">\[
+\operatorname{E}_{(0,1)}\left[\frac{1_{\left\{\tau_0^{t+}\le 2t\right\}}}{2t}\right]\xrightarrow{t\to0}\frac{\kappa^{-1}}{2}
+\]</span> は，密度の概収束と，<span class="math inline">\(\tau_0^{0+}\)</span> の密度の <span class="math inline">\(0\)</span> における値が <span class="math inline">\(\kappa^{-1}/2\)</span> であることが特性関数の Fourier 変換を留数計算することにより得ることから従う．</p>
 </section>
-<section id="第１項の詳細な収束の議論" class="level3" data-number="3.5">
-<h3 data-number="3.5" class="anchored" data-anchor-id="第１項の詳細な収束の議論"><span class="header-section-number">3.5</span> 第１項の詳細な収束の議論</h3>
+<section id="lvertdelta-x_epsilonrvert-の収束" class="level4" data-number="3.4.2">
+<h4 data-number="3.4.2" class="anchored" data-anchor-id="lvertdelta-x_epsilonrvert-の収束"><span class="header-section-number">3.4.2</span> <span class="math inline">\(\lvert\Delta X_\epsilon\rvert\)</span> の収束</h4>
+<p>独立性に注意すれば <span class="math display">\[
+\operatorname{E}_{(0,1)}\left[\lvert\Delta X_0\rvert\frac{1_{\left\{\tau_0^{t+}\le 2t\right\}}}{2t}\right]=\operatorname{E}_{(0,1)}\biggl[\lvert\Delta X_0\rvert 1_{\left\{\tau_0^{t+}\le 2t\right\}}\biggr]\operatorname{E}_{(0,1)}\left[\frac{1_{\left\{\tau_0^{t+}\le 2t\right\}}}{2t}\right]
+\]</span> が成り立つ．右の因子が <span class="math inline">\(t\to0\)</span> の極限で有界であるから，あとは左の因子が <span class="math inline">\(t\to0\)</span> の極限で（スピードに依らず）<span class="math inline">\(0\)</span> に収束することを示せば良いが，これは極めて簡単な議論から判る．</p>
+<p>時区間 <span class="math inline">\([\tau_0^{t+},2t]\)</span> 間で一度もイベントが起こらない場合が，<span class="math inline">\(\lvert\Delta X_0\rvert\)</span> の値が最も大きい．さらに <span class="math inline">\(\tau_0^{t}\)</span> の値は <span class="math inline">\(t+\tau_0^0\)</span> の値で下から抑えることができる． <span class="math display">\[
+\lvert\Delta X_0\rvert 1_{\left\{\tau_0^{t+}\le 2t\right\}}\le (2t-\tau_0^t)1_{\left\{\tau_0^{t+}\le 2t\right\}}\le(t-\tau_0^0)1_{\left\{\tau_0^0\le 2t\right\}}
+\]</span> <span class="math inline">\(\tau_0^0\sim\operatorname{Exp}(\kappa^{-1})\)</span> に注意すれば， <span class="math display">\[
+\therefore\quad\operatorname{E}_{(0,1)}\left[\lvert\Delta X_0\rvert 1_{\left\{\tau_0^{t+}\le 2t\right\}}\right]\le t\operatorname{P}[\tau_0^0\le 2t]-\int^{2t}_0s\kappa e^{-\kappa s}\,ds\le t+\kappa^{-1}\left(e^{-2\kappa t}-1\right)\xrightarrow{t\to0}0
+\]</span></p>
 </section>
-<section id="第３項" class="level3" data-number="3.6">
-<h3 data-number="3.6" class="anchored" data-anchor-id="第３項"><span class="header-section-number">3.6</span> 第３項</h3>
+<section id="lvertdelta-v_epsilonrvert-の収束" class="level4" data-number="3.4.3">
+<h4 data-number="3.4.3" class="anchored" data-anchor-id="lvertdelta-v_epsilonrvert-の収束"><span class="header-section-number">3.4.3</span> <span class="math inline">\(\lvert\Delta V_\epsilon\rvert\)</span> の収束</h4>
+<p><span class="math inline">\((t,1)\)</span> から開始したサンプラー <span class="math inline">\((X_0,V_0)\)</span> が最初にイベントを経験する時刻を <span class="math inline">\(T^t\)</span> とすると， <span class="math display">\[
+\Delta V_0=-2\cdot1_{\left\{T^t\le 2t-\tau_0^{t+}\right\}}.
+\]</span> <span class="math inline">\(\lvert\Delta V_0\rvert\xrightarrow{t\to0}\)</span> は，そもそも時区間 <span class="math inline">\([\tau_0^{t+},2t]\)</span> 間でイベントが起こる確率が <span class="math inline">\(0\)</span> に収束するために従う．</p>
+<p>具体的には，生存関数 <span class="math display">\[
+S_0^t(s)=\frac{p^1(t+s)}{p^1(t)}
+\]</span> を持つ <span class="math inline">\(T^t\)</span> に関して，条件付き期待値の性質から <span class="math display">\[
+\operatorname{P}[T^t\le2t-\tau^t_0]=1-\operatorname{E}\left[\frac{p^1(3t-\tau^t_0)}{p^1(t)}\right]\le1-\operatorname{E}\left[\frac{p^1(0)}{p^1(t)}\right]\xrightarrow{t\to0}0.
+\]</span></p>
+</section>
+</section>
+<section id="sec-third-term" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="sec-third-term"><span class="header-section-number">3.5</span> 第三項の解析</h3>
 <p><span class="math display">\[
 \operatorname{E}_{(0,1)}\left[\frac{\varphi(X_\epsilon(2t),V_\epsilon(2t))-\varphi(0,1)}{2t}1_{\left\{\tau_\epsilon^t&gt;2t\right\}}\right]
 \]</span> は <span class="math inline">\(0\)</span> に収束するはずである．</p>
