@@ -298,7 +298,15 @@ $$
   &\qquad+\E_{(0,1)}\Square{\frac{\varphi(X_\ep(2t),V_\ep(2t))-\varphi(0,1)}{2t}1_{\Brace{\tau_\ep^t>2t}}}-\varphi(0,1)\E_{(0,1)}\Square{\frac{1_{\Brace{\tau_\ep^t\le2t}}}{2t}}
 \end{align*}
 
-### 第四項 $\E_{(0,1)}\Square{1_{\Brace{\tau_\ep^t\le2t}}}/2t$
+$[0,2t]$ 以内に $t$ と $-t$ の両方に到達することはないため，
+$$
+\Brace{\tau_\ep^{t+}\le2t}=\Brace{\tau_\ep^{t+}\le\tau_{\ep}^{t-}}\cap\Brace{\tau_\ep^t\le2t}
+$$
+が成り立つことに注意．
+
+第四項 [@sec-fourth-term]，第一二項 [@sec-first-term]，第三項 [@sec-third-term] の順に考える．
+
+### 第四項 $\E_{(0,1)}\Square{1_{\Brace{\tau_\ep^t\le2t}}}/2t$ {#sec-fourth-term}
 
 $\tau^t_\ep\xrightarrow{\ep\to0}\tau_0^t\xrightarrow{t\to0}\tau_0^0$ は弱収束するから，
 $$
@@ -362,7 +370,27 @@ $$
 
 :::
 
-### 上から脱出した場合（第一項）の解析
+### 第一項（上から脱出した場合）の解析 {#sec-first-term}
+
+この解析を上手く活かせる秘訣は，
+$$
+\Delta X_\ep:=\Paren{X_\ep(2t)-X_\ep(\tau_\ep^t)}1_{\Brace{\tau_\ep^t\le2t}},
+$$
+$$
+\Delta V_\ep:=\Paren{V_\ep(2t)-V_\ep(\tau_\ep^t)}1_{\Brace{\tau_\ep^t\le2t}},
+$$
+と定めた場合，$\Delta X_\ep$ は $\ep\to0$ の極限での収束先 $\Delta X_0$ を持つということである．
+
+特に証明では積率の収束
+$$
+\E_{(0,1)}[\abs{\Delta X_\ep}]\xrightarrow{\ep\to0}\E_{(0,1)}[\abs{\Delta X_0}]
+$$
+$$
+\E_{(0,1)}[\abs{\Delta X_\ep}\abs{\Delta V_\ep}]\xrightarrow{\ep\to0}\E_{(0,1)}[\abs{\Delta X_0}\abs{\Delta V_0}]
+$$
+を用いる．
+
+::: {.callout-note title="deprecated" icon="false" collapse="true"}
 
 $\Brace{\tau_\ep^t\le2t}$ 上では，時刻 $2t$ までに再び原点を越すことはない．従って，イベントが起こる回数は高々１回である：
 $$
@@ -397,11 +425,74 @@ $$
 $$
 を出すこともできるだろう．
 
-### 第１項の詳細な収束の議論
+:::
 
+$\varphi\in C^\infty_c(\R)$ であるから，Taylor 展開に基づいて，事象 $\Brace{\tau_\ep^{t+}\le2t}$ 上では
+$$
+\varphi(X_\ep(2t),V_\ep(2t))=\varphi(t,1)+\pp{\varphi}{x}(t,1)\Delta X_\ep+\pp{\varphi}{v}(t,1)\Delta V_\ep+\frac{1}{2}\pp{^2\varphi}{x\partial v}(c_1(\om),c_2(\om))\Delta X_\ep\Delta V_\ep+\cdots
+$$
+とできる．$c_1,c_2:\Om\to\R$ の可測性が不明である点に注意．しかし，$\varphi$ は任意次の導関数まで有界であるために，任意の $\ep,t>0$ について次の評価が成り立つ：
+$$
+\Abs{\varphi(X_\ep(2t),V_\ep(2t))-\varphi(t,1)}\le\pp{\varphi}{x}(t,1)\Delta X_\ep+\pp{\varphi}{v}(t,1)\Delta V_\ep+\frac{1}{2}\norm{\partial_x\partial_v\varphi}_\infty\Delta X_\ep\Delta V_\ep+\cdots
+$$
+\begin{align*}
+  &\Abs{\E_{(0,1)}\Square{\varphi(X_\ep(2t),V_\ep(2t))\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}-\E_{(0,1)}\Square{\varphi(t,1)\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}}\\
+  &\le\E_{(0,1)}\Square{\ABs{\varphi(X_\ep(2t),V_\ep(2t))-\varphi(t,1)}\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}\\
+  &\le\norm{\partial_x\varphi}\E_{(0,1)}\Square{\abs{\Delta X_\ep}\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}+\norm{\partial_v\varphi}\E_{(0,1)}\Square{\abs{\Delta V_\ep}\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}\\
+  &\qquad+\frac{1}{2}\norm{\partial_x\partial_v\varphi}\E_{(0,1)}\Square{\abs{\Delta X_\ep\Delta V_\ep}\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}+\cdots
+\end{align*}
 
+#### 方針
 
-### 第３項
+右辺が $\ep\to0$ かつ $t\to0$ の極限で $0$ に収束することを示す．
+
+このことと
+$$
+\E_{(0,1)}\Square{\varphi(t,1)\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}\xrightarrow{\ep\to0,t\to0}\varphi(0_+,1)\frac{\kappa^{-1}}{2}
+$$
+が成り立つことを併せて，所望の第一項の収束を得る．
+
+その際に必要な次の収束：
+$$
+\E_{(0,1)}\Square{\frac{1_{\Brace{\tau_0^{t+}\le2t}}}{2t}}\xrightarrow{t\to0}\frac{\kappa^{-1}}{2}
+$$
+は，密度の概収束と，$\tau_0^{0+}$ の密度の $0$ における値が $\kappa^{-1}/2$ であることが特性関数の Fourier 変換を留数計算することにより得ることから従う．
+
+#### $\abs{\Delta X_\ep}$ の収束
+
+独立性に注意すれば
+$$
+\E_{(0,1)}\Square{\abs{\Delta X_0}\frac{1_{\Brace{\tau_0^{t+}\le2t}}}{2t}}=\E_{(0,1)}\SQuare{\abs{\Delta X_0}1_{\Brace{\tau_0^{t+}\le2t}}}\E_{(0,1)}\Square{\frac{1_{\Brace{\tau_0^{t+}\le2t}}}{2t}}
+$$
+が成り立つ．右の因子が $t\to0$ の極限で有界であるから，あとは左の因子が $t\to0$ の極限で（スピードに依らず）$0$ に収束することを示せば良いが，これは極めて簡単な議論から判る．
+
+時区間 $[\tau_0^{t+},2t]$ 間で一度もイベントが起こらない場合が，$\abs{\Delta X_0}$ の値が最も大きい．さらに $\tau_0^{t}$ の値は $t+\tau_0^0$ の値で下から抑えることができる．
+$$
+\abs{\Delta X_0}1_{\Brace{\tau_0^{t+}\le2t}}\le (2t-\tau_0^t)1_{\Brace{\tau_0^{t+}\le2t}}\le(t-\tau_0^0)1_{\Brace{\tau_0^0\le2t}}
+$$
+$\tau_0^0\sim\Exp(\kappa^{-1})$ に注意すれば，
+$$
+\therefore\quad\E_{(0,1)}\Square{\abs{\Delta X_0}1_{\Brace{\tau_0^{t+}\le2t}}}\le t\P[\tau_0^0\le 2t]-\int^{2t}_0s\kappa e^{-\kappa s}\,ds\le t+\kappa^{-1}\paren{e^{-2\kappa t}-1}\xrightarrow{t\to0}0
+$$
+
+#### $\abs{\Delta V_\ep}$ の収束
+
+$(t,1)$ から開始したサンプラー $(X_0,V_0)$ が最初にイベントを経験する時刻を $T^t$ とすると，
+$$
+\Delta V_0=-2\cdot1_{\Brace{T^t\le2t-\tau_0^{t+}}}.
+$$
+$\abs{\Delta V_0}\xrightarrow{t\to0}$ は，そもそも時区間 $[\tau_0^{t+},2t]$ 間でイベントが起こる確率が $0$ に収束するために従う．
+
+具体的には，生存関数
+$$
+S_0^t(s)=\frac{p^1(t+s)}{p^1(t)}
+$$
+を持つ $T^t$ に関して，条件付き期待値の性質から
+$$
+\P[T^t\le2t-\tau^t_0]=1-\E\Square{\frac{p^1(3t-\tau^t_0)}{p^1(t)}}\le1-\E\Square{\frac{p^1(0)}{p^1(t)}}\xrightarrow{t\to0}0.
+$$
+
+### 第三項の解析 {#sec-third-term}
 
 $$
 \E_{(0,1)}\Square{\frac{\varphi(X_\ep(2t),V_\ep(2t))-\varphi(0,1)}{2t}1_{\Brace{\tau_\ep^t>2t}}}
