@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.6.39">
+<meta name="generator" content="quarto-1.4.552">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="司馬博文">
 
-<title>脱出時刻の分析 – ぷにうぱ</title>
+<title>ぷにうぱ - 脱出時刻の分析</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,10 +56,10 @@ div.csl-indent {
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-cf7929f4d66a2bdccc4ecf0c4d40c672.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-4fad84e8e0fe087195d5fc131974df6c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -93,7 +93,7 @@ div.csl-indent {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&amp;display=swap" rel="stylesheet">
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -124,11 +124,11 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../assets/styles.css">
-<meta property="og:title" content="脱出時刻の分析 – ぷにうぱ">
+<meta property="og:title" content="ぷにうぱ - 脱出時刻の分析">
 <meta property="og:description" content="Spike-and-Slab prior からの効率的なサンプリング">
 <meta property="og:image" content="https://puniupa.github.io/posts/Spike-and-slab/assets/ぷにうぱ.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
-<meta name="twitter:title" content="脱出時刻の分析 – ぷにうぱ">
+<meta name="twitter:title" content="ぷにうぱ - 脱出時刻の分析">
 <meta name="twitter:description" content="Spike-and-Slab prior からの効率的なサンプリング">
 <meta name="twitter:image" content="https://puniupa.github.io/posts/Spike-and-slab/assets/ぷにうぱ.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -146,7 +146,7 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -161,7 +161,7 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-            <div class="quarto-navbar-tools">
+          <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -576,6 +576,7 @@ Gauss 密度の場合
 \]</span> という複素関数は <span class="math inline">\(L^1(\mathbb{R};\mathbb{C})\)</span> に入っていない．</p>
 <p>Fourier 変換が存在するだけである．</p>
 <p>したがって特性関数が <span class="math inline">\(L^1\)</span>-収束するために，Fourier 変換の連続性から密度の一様収束が従う，という議論はできない．</p>
+<p>一方で Dirichlet 核というのは <span class="math inline">\(L^2(\mathbb{R};\mathbb{C})\setminus L^1(\mathbb{R};\mathbb{C})\)</span> に属するものの典型である．</p>
 </section>
 <section id="密度の各点収束" class="level4" data-number="3.4.3">
 <h4 data-number="3.4.3" class="anchored" data-anchor-id="密度の各点収束"><span class="header-section-number">3.4.3</span> 密度の各点収束</h4>
@@ -584,8 +585,12 @@ Gauss 密度の場合
 \]</span> という特性関数の分母に注目する．</p>
 <p>すると Rouché の定理より，<span class="math inline">\(f(u)=\frac{p^1(0)}{p^1(a)}-\frac{iu}{\kappa}\)</span> と <span class="math inline">\(g(u)\)</span> の，十分大きい円 <span class="math inline">\(U(0,R)\)</span> 内での零点の個数は，重複度も含めて等しい．すなわち１位の零点しか持たない．</p>
 <p>よって <span class="math display">\[
-\int^\infty_{-\infty}\varphi^a_0(u)e^{itu}\,du\xrightarrow{a\to0}\int^\infty_{-\infty}\varphi^0_0(u)e^{itu}\,du.
+\int^\infty_{-\infty}\varphi^a_0(u)e^{-itu}\,du\xrightarrow{a\to0}\int^\infty_{-\infty}\varphi^0_0(u)e^{-itu}\,du.
 \]</span></p>
+</section>
+<section id="密度-pi_0a-の-partial_a-による微分可能性" class="level4" data-number="3.4.4">
+<h4 data-number="3.4.4" class="anchored" data-anchor-id="密度-pi_0a-の-partial_a-による微分可能性"><span class="header-section-number">3.4.4</span> 密度 <span class="math inline">\(\pi_0^a\)</span> の <span class="math inline">\(\partial_a\)</span> による微分可能性</h4>
+<p>密度 <span class="math inline">\(\pi_0^a\)</span> が <span class="math inline">\(\partial_a\)</span> により微分可能であるかは，<span class="math inline">\(\partial_a\varphi_0^a\)</span> が可積分になるかに依存する．</p>
 </section>
 </section>
 </section>
@@ -735,7 +740,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const onCopySuccess = function(e) {
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -767,27 +783,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
-  }
-  const getTextToCopy = function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-  }
-  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
-    text: getTextToCopy
   });
-  clipboard.on('success', onCopySuccess);
-  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
-      text: getTextToCopy,
-      container: window.document.getElementById('quarto-embedded-source-code-modal')
-    });
-    clipboardModal.on('success', onCopySuccess);
-  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/puniupa\.github\.io\/");
@@ -795,7 +791,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -892,6 +888,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
+      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

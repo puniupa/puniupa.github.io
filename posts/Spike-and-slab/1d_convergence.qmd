@@ -18,23 +18,125 @@ csl: ../../assets/apalike.csl
 
 {{< include ../../assets/_preamble.qmd >}}
 
-## 設定
+
 
 $$
-p_\ep(x)=\frac{1-\gamma}{\sqrt{2\pi\sigma^2}}e^{-\frac{x^2}{2\sigma^2}}+\frac{\gamma}{\sqrt{2\pi\sigma^2\ep^2}}e^{-\frac{x^2}{2\sigma^2\ep^2}}
+p_\ep(x)=(1-\gamma)p(x)+\frac{\gamma}{\ep}p\paren{\frac{x}{\ep}}
 $$
 を continuous spike-and-slab prior とする．
 
+## イベント時刻
+
+### 生存関数
+
 $(x,v)=(0,\pm1)$ から開始したサンプラーのイベント時刻 $T_\ep$ の生存関数は
 $$
-S_\ep(t)=\frac{p_\ep(t)}{p_\ep(0)}=\frac{(1-\gamma)e^{-\frac{t^2}{2\sigma^2}}+(\gamma/\ep)e^{-\frac{t^2}{2\sigma^2\ep^2}}}{1-\gamma+(\gamma/\ep)}
+S_\ep(t)=\frac{p_\ep(t)}{p_\ep(0)}=\frac{1-\gamma}{1-\gamma+\gamma/\ep}\frac{p(t)}{p(0)}+\frac{\gamma}{\ep(1-\gamma)+\gamma}\frac{p\paren{\frac{t}{\ep}}}{p(0)}
 $$
-で与えられる．
+で与えられる．次の収束に注意：
+$$
+S_\ep(t)\xrightarrow{\ep\to0}1_{\Brace{0}}(t),\qquad t\in\R_+.
+$$
+
+### 密度
 
 $T_\ep$ の密度 $f_\ep$ は
 $$
-f_\ep(t)=-S_\ep'(t)=\frac{\frac{(1-\gamma)\ep^3t}{\sigma^2}e^{-\frac{t^2}{2\sigma^2}}+\frac{\gamma t}{\sigma^2}e^{-\frac{t^2}{2\sigma^2\ep^2}}}{(1-\gamma)\ep^3+\gamma\ep^2}
+f_\ep(t)=-S_\ep'(t)=\frac{1-\gamma}{1-\gamma+\gamma/\ep}\frac{p'(t)}{p(0)}+\frac{\gamma}{\ep(1-\gamma)+\gamma}\frac{1}{\ep}\frac{p'\paren{\frac{t}{\ep}}}{p(0)}
 $$
+と表される．$p$ が Gauss である場合は，$\ep\to0$ の極限で $t=0$ において $\infty$ に発散し，$t>0$ において $0$ に収束する：
+$$
+f_\ep(t)=-S_\ep'(t)=\frac{\frac{(1-\gamma)\ep^3t}{\sigma^2}e^{-\frac{t^2}{2\sigma^2}}+\frac{\gamma t}{\sigma^2}e^{-\frac{t^2}{2\sigma^2\ep^2}}}{(1-\gamma)\ep^3+\gamma\ep^2}.
+$$
+
+つまりイベント時刻 $T_\ep$ は全変動収束先は持たず，$T_\ep$ そのままを解析することは難しいようである．これは $\epsilon\to0$ の極限で「イベント」の概念（スケール）が変化するためである．
+
+::: {.callout-important appearance="simple" icon="false"}
+
+実は到着時刻 $\tau_\ep^a$ を見ると，$\ep,a$ どの極限でも全変動収束する．この $\tau_\ep^a$ に着目することが今回の解析の鍵となる．
+
+:::
+
+### $0$ への集積の速さ
+
+$\ep\to0$ の極限を取ると，$T_\ep$ は $0$ に集積していく．
+
+区間 $[0,\ep]$ で見ると，ある値 $\paren{1-\frac{p(1)}{p(0)}}\in(0,1)$ に収束する割合でイベントが起こる．
+
+$[0,\ep^p]\;(p>1)$ には確率１で入らず，$[0,\ep^p]\;(0<p<1)$ には確率１で入る．
+
+::: {.callout-tip appearance="simple" icon="false"}
+
+$$
+\P[T_\ep\le\ep^p]\xrightarrow{\ep\to0}\begin{cases}
+0,&1<p,\\
+1-\frac{p(1)}{p(0)},&p=1,\\
+1,&0<p<1.
+\end{cases}
+$$
+
+:::
+
+$p>1$ のときの収束の速さは $O(\ep^{(p-1)\land1})$ である．
+
+$p=1$ のときは $O(\ep)$，$0<p<1$ のときは $p(x)$ の $\abs{x}\to\infty$ での減衰の速さに依存する．
+
+::: {.callout-note title="証明" icon="false" collapse="true"}
+
+一般に
+$$
+\P[T_\ep\le\ep^p]=1-S_\ep(\ep^p)
+$$
+が成り立つ．
+\begin{align*}
+  S_\ep(\ep^p)&=\frac{p_\ep(\ep^p)}{p_\ep(0)}\\
+  &=\frac{1-\gamma}{1-\gamma+\gamma/\ep}\frac{p(\ep^p)}{p(0)}+\frac{\gamma}{\ep(1-\gamma)+\gamma}\frac{p(\ep^{p-1})}{p(0)}\\
+\end{align*}
+
+第一項は Taylor 展開により $O(\ep)$ と判る．第二項の最初の因子は
+$$
+\frac{\gamma}{\ep(1-\gamma)+\gamma}=1-\frac{1-\gamma}{\gamma}\ep+O(\ep^2)
+$$
+に注意すると，$p\ge1$ の場合が従う．
+
+:::
+
+### $\tau_\ep^a$ への着目
+
+$T_\ep$ は $\ep$ と同じスケールで $0$ に収束していくタイムスケールの事象であり，Sticky PDMP の振る舞いを見るには１段階遅いスケールを見る必要がある．
+
+これが $\tau_\ep^a$ である．この量は
+$$
+\P[\tau_\ep^a\le t]=
+\P[\tau_\ep^a\le t]-\P[\tau^a_0\le t]+\P[\tau^a_0\le t]-\P[\tau^0_0\le t]+\P[\tau_0^0\le t]-\P[\tau_0^0\le 0]
+$$
+と表示ができる．$\ep,t,a\to0$ の極限を考えたとき，最初の2項は
+$$
+\int^t_0\Paren{f^a_\ep(s)-f^a_0(s)}\,ds
+$$
+という表示を持つために，
+
+1. 第1項 $\P[\tau^a_\ep\le t]-\P[\tau^a_0\le t]$ は $O(\ep^p)O(t)$ のオーダーで収束する．
+2. 第2項 $\P[\tau^a_0\le t]-\P[\tau^0_0\le t]$ は $O(a^q)O(t)$ のオーダーで収束する．
+3. 第3項 $\P[\tau_0^0\le t]-\P[\tau_0^0\le 0]$ は $O(t)$ のオーダーで収束する @sec-fourth-term．
+
+と予想される．
+
+このために第3項が $a,\ep$ を（$t$ に比べて）どのスピードで $0$ に近づけようとも，同じオーダーで $0$ に収束するのである．
+
+$\tau_\ep^a$ で見た際，$\ep\to0$ 収束による $0$ への集積は起こらないために，上式の $\ep,t\to0$ での極限は安定したスピードを持つ．
+
+### $N_\ep$ への着目
+
+さらに $0$ への密度の集積を見るために，計数過程
+$$
+N_\ep(t):=\max\Brace{n\ge1\,\middle|\,\sum_{i=1}^{n-1}2T_\ep^{(i)}+T_\ep^{(n)}\le t}
+$$
+を考える @sec-1d-qualitative．
+
+$N_\ep(\ep)$ という確率変数は $\ep\to0$ の極限で安定した分布を持つ @sec-1d-convergence-regime．
+
+$\tau_\ep^a$ という粗視化をしない場合は $N_\ep$ の解析が必要になるだろう．
 
 ## 遷移核
 
@@ -47,7 +149,7 @@ $$
 \supp P^t_\ep(0,-)\subset[-t,t].
 $$
 
-### 定性的議論
+### 定性的議論 {#sec-1d-qualitative}
 
 $T_\ep^{(i)}$ を $\displaystyle S_\ep(t)=\frac{p_\ep(t)}{p_\ep(0)}$ からの i.i.d. 確率変数列とする．
 
@@ -204,7 +306,7 @@ $2\sum_{i=1}^{n-1}T_\ep^{(i)}$ の密度は $\frac{1}{2}f_\ep^{*(n-1)}\paren{\fr
 \end{align*}
 と表せる．
 
-### どの収束レジーム？
+### どの収束レジーム？ {#sec-1d-convergence-regime}
 
 \begin{align*}
   \frac{P^t_\ep\varphi(0)-\varphi(0)}{t}&=S_\ep(t)\frac{\varphi(t)-\varphi(0)}{t}\\
@@ -279,53 +381,60 @@ Sticky PDMP は $(0_-,1),(0_+,-1)$ での挙動を決定論的なジャンプに
 
 $P^t_\ep$ の表示はわからないと言って良いが，収束先は停止時による分解を通じて判明する．
 
-具体的には，$\tau_\ep^{a+},\tau_\ep^{a-}$ をそれぞれ上側と下側の脱出時刻とすると，
+具体的には，$\tau_\ep^{a+},\tau_\ep^{a-}$ をそれぞれ上側 $x=a>0$ と下側 $x=-a$ の脱出時刻とすると，$0<a<t$ のとき，
 
 \begin{align*}
-  P^{2t}_\ep((0,1),dx)&=\P[\tau_\ep^{t+}\le\tau_\ep^{t-},\tau_\ep^t\le 2t]\mu_{t+}(dx)\\
-  &\quad+\P[\tau_\ep^{t-}\le\tau_\ep^{t+},\tau_\ep^t\le 2t]\mu_{t-}(dx)+\P[\tau^t_\ep>2t]\mu_t(dx),
+  P^{t}_\ep((0,1),dx)&=\P[\tau_\ep^{a+}\le\tau_\ep^{a-},\tau_\ep^a\le t]\mu_{a+}(dx)\\
+  &\quad+\P[\tau_\ep^{a-}\le\tau_\ep^{a+},\tau_\ep^a\le t]\mu_{a-}(dx)+\P[\tau^a_\ep>t]\mu_a(dx),
 \end{align*}
 $$
-\mu_{t\pm}:=\L[X_\ep(2t)\mi\tau^{t\pm}_\ep\le2t],\quad\mu_t:=\L[X_\ep(2t)\mi\tau^t_\ep>2t],
+\mu_{t\pm}:=\L[X_\ep(t)\mi\tau^{t\pm}_\ep\le t],\quad\mu_t:=\L[X_\ep(t)\mi\tau^t_\ep>t],
 $$
 
 と分解できる．これを用いると，
 
 \begin{align*}
-  &\qquad\frac{P^{2t}_\ep\varphi(0,1)-\varphi(0,1)}{2t}\\
-  &=\frac{\E_{(0,1)}[\varphi(X_\ep(2t),V_\ep(2t))]-\varphi(0,1)}{2t}\\
-  &=\E_{(0,1)}\Square{\varphi(X_\ep(2t),V_\ep(2t))\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}+\E_{(0,1)}\Square{\varphi(X_\ep(2t),V_\ep(2t))\frac{1_{\Brace{\tau_\ep^{t-}\le2t}}}{2t}}\\
-  &\qquad+\E_{(0,1)}\Square{\frac{\varphi(X_\ep(2t),V_\ep(2t))-\varphi(0,1)}{2t}1_{\Brace{\tau_\ep^t>2t}}}-\varphi(0,1)\E_{(0,1)}\Square{\frac{1_{\Brace{\tau_\ep^t\le2t}}}{2t}}
+  &\qquad\frac{P^{t}_\ep\varphi(0,1)-\varphi(0,1)}{t}\\
+  &=\frac{\E_{(0,1)}[\varphi(X_\ep(t),V_\ep(t))]-\varphi(0,1)}{t}\\
+  &=\E_{(0,1)}\Square{\varphi(X_\ep(t),V_\ep(t))\frac{1_{\Brace{\tau_\ep^{a}\le t}}1_{\Brace{\tau_\ep^{a+}\le\tau_\ep^{a-}}}}{t}}+\E_{(0,1)}\Square{\varphi(X_\ep(t),V_\ep(t))\frac{1_{\Brace{\tau_\ep^{a}\le t}}1_{\Brace{\tau_\ep^{a-}\le\tau_\ep^{a+}}}}{t}}\\
+  &\qquad+\E_{(0,1)}\Square{\frac{\varphi(X_\ep(t),V_\ep(t))-\varphi(0,1)}{t}1_{\Brace{\tau_\ep^a>t}}}-\varphi(0,1)\E_{(0,1)}\Square{\frac{1_{\Brace{\tau_\ep^a\le t}}}{t}}
 \end{align*}
 
-$[0,2t]$ 以内に $t$ と $-t$ の両方に到達することはないため，
+なお，$\frac{t}{2}<a$ のときは $[0,t]$ 以内に $a$ と $-a$ の両方に到達することはないため，
 $$
-\Brace{\tau_\ep^{t+}\le2t}=\Brace{\tau_\ep^{t+}\le\tau_{\ep}^{t-}}\cap\Brace{\tau_\ep^t\le2t}
+\Brace{\tau_\ep^{a+}\le t}=\Brace{\tau_\ep^{a+}\le t}\cap\Brace{\tau_\ep^{a-}>t}=\Brace{\tau_\ep^{a+}\le\tau_{\ep}^{a-}}\cap\Brace{\tau_\ep^a\le t}
 $$
-が成り立つことに注意．
+が成り立つ．
 
 第四項 [@sec-fourth-term]，第一二項 [@sec-first-term]，第三項 [@sec-third-term] の順に考える．
 
-### 第四項 $\E_{(0,1)}\Square{1_{\Brace{\tau_\ep^t\le2t}}}/2t$ {#sec-fourth-term}
+::: {.callout-important collapse="true" icon="false" title="直感"}
 
-$\tau^t_\ep\xrightarrow{\ep\to0}\tau_0^t\xrightarrow{t\to0}\tau_0^0$ は弱収束するから，
+* 第四項は，$\ep,a\to0$ の近づけ方に依らず，$-\kappa^{-1}\varphi(0,1)$ に収束する．
+* 第一二項は，$\ep,a$ の $0$ への近づけ方に依らず，そもそも $\pm a$ に到達するという確率が $O(t)$ で小さくなっていくため，その成分だけが $\kappa^{-1}\varphi(0_+,1),\kappa^{-1}\varphi(0,-1)$ として残る．
+* 第三項では，$\ep\to0$ の近づけ方に応じて，$a\to0$ を適切に速く取ることが必要になる．
+
+:::
+
+### 第四項 $\E_{(0,1)}\Square{1_{\Brace{\tau_\ep^a\le t}}}/t$ {#sec-fourth-term}
+
+$\tau^a_\ep\xrightarrow{\ep\to0}\tau_0^a\xrightarrow{a\to0}\tau_0^0$ は弱収束するから，
 $$
-\frac{\P[\tau_\ep^t\le 2t]}{2t}\xrightarrow{\ep\to0}\frac{\P[\tau_0^t\le 2t]}{2t}
+\frac{\P[\tau_\ep^a\le t]}{t}\xrightarrow{\ep\to0}\frac{\P[\tau_0^a\le t]}{t}
 $$
 は分布関数の連続点における収束から従う．続いて，
 \begin{align*}
-  \frac{\P[\tau_0^t\le 2t]}{2t}&=\frac{\P[\tau_0^t\le 2t]-\P[\tau^0_0\le2t]}{2t}+\frac{\P[\tau^0_0\le2t]-\P[\tau^0_0\le0]}{2t}
+  \frac{\P[\tau_0^a\le t]}{t}&=\frac{\P[\tau_0^a\le t]-\P[\tau_0^0\le t]}{t}+\frac{\P[\tau_0^0\le t]-\P[\tau_0^0\le0]}{t}
 \end{align*}
-という分解を考えると，$\tau^t_0$ の密度を $f_t$ とすれば，$t\to0$ の極限で第二項は $f_0(0)=\kappa^{-1}$ に収束する．
+という分解を考えると，$\tau^a_0$ の密度を $f_a$ とすれば，$t\to0$ の極限で第二項は $f_0(0)=\kappa^{-1}$ に収束する．
 
 しかし第一項の $0$ への収束には問題がある．
 
 ::: {.callout-important icon="false" title="第一項の収束には密度の概収束が必要"}
 
-第一項の収束は弱収束 $\tau^{2t}_0\Rightarrow\tau^0_0$ のみからは従わない．密度が概収束することが示せたならば，
-
+第一項の収束は弱収束 $\tau^{a}_0\Rightarrow\tau^0_0$ のみからは従わない．密度が局所一様収束することが示せたならば，
 $$
-\frac{1}{2t}\int^{2t}_0\Paren{f_t(s)-f_0(s)}\,ds\xrightarrow{t\to0}0
+\frac{1}{t}\int^t_0\Paren{f_a(s)-f_0(s)}\,ds\xrightarrow{a,t\to0}0
 $$
 が従う．
 
@@ -351,7 +460,9 @@ $$
 
 :::
 
-::: {.callout-note title="証明" icon="false" collapse="true"}
+今回は積分区間が小さくなっていくと同時に $t$ によってスケーリングされるために，密度の概収束と Egorov の定理では不十分であり，局所一様収束が必要になる．
+
+::: {.callout-note title="deprecated" icon="false" collapse="true"}
 
 任意の $\ep>0$ について，Egorov の定理より，
 $$
@@ -367,6 +478,24 @@ $$
   \Abs{\frac{1}{2t}\int^{2t}_0\Paren{f_t(s)-f_0(s)}\,ds}&\le\frac{1}{2t}\int_{[0,2t]\setminus A}\abs{f_t(s)-f_0(s)}\,ds+\ell(A)\Paren{\norm{f_t}_{[0,2t]}+\norm{f_0}_{[0,2t]}}\\
   &\le\frac{\ep}{2}+\frac{\ep}{2}=\ep.
 \end{align*}
+
+:::
+
+あるいは，仮に $\partial_af$ が存在して局所有界であるならば，$a$ を $t$ 以上急速に，例えば $a=t^p\;(p\ge1)$ と取ることで収束させることができる．
+
+::: {.callout-note title="証明" icon="false" collapse="true"}
+
+仮に $\partial_a^2 f$ も存在して局所有界であるならば，
+$$
+\frac{1}{t}\int^t_0\Paren{f_a(s)-f_0(s)}\,ds=\frac{1}{t}\int^t_0\Paren{\norm{\partial_af_a(s)}_{[0,t]}a+O(a^2)}\,ds
+$$
+の変形により収束を示せる．
+
+そうでなくとも，
+$$
+\frac{1}{t}\int^t_0\Paren{f_a(s)-f_0(s)}\,ds\le\int_{A\cap[0,t]}\frac{f_a(s)-f_0(s)}{t}\,ds+\frac{1}{t}\int_0^t\frac{\ep}{2}\,ds
+$$
+と見ることができる．
 
 :::
 
@@ -427,11 +556,11 @@ $$
 
 :::
 
-$\varphi\in C^\infty_c(\R)$ であるから，Taylor 展開に基づいて，事象 $\Brace{\tau_\ep^{t+}\le2t}$ 上では
+$\varphi\in C^1_c(\R)$ のとき，Taylor 展開に基づいて，事象 $\Brace{\tau_\ep^{t+}\le2t}$ 上では
 $$
 \varphi(X_\ep(2t),V_\ep(2t))=\varphi(t,1)+\pp{\varphi}{x}(t,1)\Delta X_\ep+\pp{\varphi}{v}(t,1)\Delta V_\ep+\frac{1}{2}\pp{^2\varphi}{x\partial v}(c_1(\om),c_2(\om))\Delta X_\ep\Delta V_\ep+\cdots
 $$
-とできる．$c_1,c_2:\Om\to\R$ の可測性が不明である点に注意．しかし，$\varphi$ は任意次の導関数まで有界であるために，任意の $\ep,t>0$ について次の評価が成り立つ：
+とできる．$c_1,c_2:\Om\to\R$ の可測性が不明である点に注意．しかし，$\varphi$ は２次の導関数まで有界であるために，任意の $\ep,t>0$ について次の評価が成り立つ：
 $$
 \Abs{\varphi(X_\ep(2t),V_\ep(2t))-\varphi(t,1)}\le\pp{\varphi}{x}(t,1)\Delta X_\ep+\pp{\varphi}{v}(t,1)\Delta V_\ep+\frac{1}{2}\norm{\partial_x\partial_v\varphi}_\infty\Delta X_\ep\Delta V_\ep+\cdots
 $$

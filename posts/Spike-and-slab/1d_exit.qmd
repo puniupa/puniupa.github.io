@@ -386,6 +386,8 @@ Fourier 変換が存在するだけである．
 
 したがって特性関数が $L^1$-収束するために，Fourier 変換の連続性から密度の一様収束が従う，という議論はできない．
 
+一方で Dirichlet 核というのは $L^2(\R;\bC)\setminus L^1(\R;\bC)$ に属するものの典型である．
+
 #### 密度の各点収束
 
 $$
@@ -397,8 +399,14 @@ $$
 
 よって
 $$
-\int^\infty_{-\infty}\varphi^a_0(u)e^{itu}\,du\xrightarrow{a\to0}\int^\infty_{-\infty}\varphi^0_0(u)e^{itu}\,du.
+\int^\infty_{-\infty}\varphi^a_0(u)e^{-itu}\,du\xrightarrow{a\to0}\int^\infty_{-\infty}\varphi^0_0(u)e^{-itu}\,du.
 $$
+
+#### 密度 $\pi_0^a$ の $\partial_a$ による微分可能性
+
+密度 $\pi_0^a$ が $\partial_a$ により微分可能であるかは，$\partial_a\varphi_0^a$ が可積分になるかに依存する．
+
+さらに $\partial_a\pi_0^a$ が存在して局所有界（連続なら良い）であることは，のちの収束の証明でも用いる．
 
 ## 上下の脱出時刻
 
