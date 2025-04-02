@@ -576,6 +576,7 @@ Gauss 密度の場合
 \]</span> という複素関数は <span class="math inline">\(L^1(\mathbb{R};\mathbb{C})\)</span> に入っていない．</p>
 <p>Fourier 変換が存在するだけである．</p>
 <p>したがって特性関数が <span class="math inline">\(L^1\)</span>-収束するために，Fourier 変換の連続性から密度の一様収束が従う，という議論はできない．</p>
+<p>一方で Dirichlet 核というのは <span class="math inline">\(L^2(\mathbb{R};\mathbb{C})\setminus L^1(\mathbb{R};\mathbb{C})\)</span> に属するものの典型である．</p>
 </section>
 <section id="密度の各点収束" class="level4" data-number="3.4.3">
 <h4 data-number="3.4.3" class="anchored" data-anchor-id="密度の各点収束"><span class="header-section-number">3.4.3</span> 密度の各点収束</h4>
@@ -584,8 +585,13 @@ Gauss 密度の場合
 \]</span> という特性関数の分母に注目する．</p>
 <p>すると Rouché の定理より，<span class="math inline">\(f(u)=\frac{p^1(0)}{p^1(a)}-\frac{iu}{\kappa}\)</span> と <span class="math inline">\(g(u)\)</span> の，十分大きい円 <span class="math inline">\(U(0,R)\)</span> 内での零点の個数は，重複度も含めて等しい．すなわち１位の零点しか持たない．</p>
 <p>よって <span class="math display">\[
-\int^\infty_{-\infty}\varphi^a_0(u)e^{itu}\,du\xrightarrow{a\to0}\int^\infty_{-\infty}\varphi^0_0(u)e^{itu}\,du.
+\int^\infty_{-\infty}\varphi^a_0(u)e^{-itu}\,du\xrightarrow{a\to0}\int^\infty_{-\infty}\varphi^0_0(u)e^{-itu}\,du.
 \]</span></p>
+</section>
+<section id="密度-pi_0a-の-partial_a-による微分可能性" class="level4" data-number="3.4.4">
+<h4 data-number="3.4.4" class="anchored" data-anchor-id="密度-pi_0a-の-partial_a-による微分可能性"><span class="header-section-number">3.4.4</span> 密度 <span class="math inline">\(\pi_0^a\)</span> の <span class="math inline">\(\partial_a\)</span> による微分可能性</h4>
+<p>密度 <span class="math inline">\(\pi_0^a\)</span> が <span class="math inline">\(\partial_a\)</span> により微分可能であるかは，<span class="math inline">\(\partial_a\varphi_0^a\)</span> が可積分になるかに依存する．</p>
+<p>さらに <span class="math inline">\(\partial_a\pi_0^a\)</span> が存在して局所有界（連続なら良い）であることは，のちの収束の証明でも用いる．</p>
 </section>
 </section>
 </section>

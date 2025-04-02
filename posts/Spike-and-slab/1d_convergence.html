@@ -175,23 +175,30 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#設定" id="toc-設定" class="nav-link active" data-scroll-target="#設定"><span class="header-section-number">1</span> 設定</a></li>
+  <li><a href="#イベント時刻" id="toc-イベント時刻" class="nav-link active" data-scroll-target="#イベント時刻"><span class="header-section-number">1</span> イベント時刻</a>
+  <ul class="collapse">
+  <li><a href="#生存関数" id="toc-生存関数" class="nav-link" data-scroll-target="#生存関数"><span class="header-section-number">1.1</span> 生存関数</a></li>
+  <li><a href="#密度" id="toc-密度" class="nav-link" data-scroll-target="#密度"><span class="header-section-number">1.2</span> 密度</a></li>
+  <li><a href="#への集積の速さ" id="toc-への集積の速さ" class="nav-link" data-scroll-target="#への集積の速さ"><span class="header-section-number">1.3</span> <span class="math inline">\(0\)</span> への集積の速さ</a></li>
+  <li><a href="#tau_epsilona-への着目" id="toc-tau_epsilona-への着目" class="nav-link" data-scroll-target="#tau_epsilona-への着目"><span class="header-section-number">1.4</span> <span class="math inline">\(\tau_\epsilon^a\)</span> への着目</a></li>
+  <li><a href="#n_epsilon-への着目" id="toc-n_epsilon-への着目" class="nav-link" data-scroll-target="#n_epsilon-への着目"><span class="header-section-number">1.5</span> <span class="math inline">\(N_\epsilon\)</span> への着目</a></li>
+  </ul></li>
   <li><a href="#遷移核" id="toc-遷移核" class="nav-link" data-scroll-target="#遷移核"><span class="header-section-number">2</span> 遷移核</a>
   <ul class="collapse">
   <li><a href="#初等的観察" id="toc-初等的観察" class="nav-link" data-scroll-target="#初等的観察"><span class="header-section-number">2.1</span> 初等的観察</a></li>
-  <li><a href="#定性的議論" id="toc-定性的議論" class="nav-link" data-scroll-target="#定性的議論"><span class="header-section-number">2.2</span> 定性的議論</a></li>
+  <li><a href="#sec-1d-qualitative" id="toc-sec-1d-qualitative" class="nav-link" data-scroll-target="#sec-1d-qualitative"><span class="header-section-number">2.2</span> 定性的議論</a></li>
   <li><a href="#定量的議論" id="toc-定量的議論" class="nav-link" data-scroll-target="#定量的議論"><span class="header-section-number">2.3</span> 定量的議論</a></li>
   <li><a href="#作用" id="toc-作用" class="nav-link" data-scroll-target="#作用"><span class="header-section-number">2.4</span> 作用</a></li>
   <li><a href="#生成作用素の初等的考察" id="toc-生成作用素の初等的考察" class="nav-link" data-scroll-target="#生成作用素の初等的考察"><span class="header-section-number">2.5</span> 生成作用素の初等的考察</a></li>
   <li><a href="#時間内に起こるイベント計数過程-n_epsilon" id="toc-時間内に起こるイベント計数過程-n_epsilon" class="nav-link" data-scroll-target="#時間内に起こるイベント計数過程-n_epsilon"><span class="header-section-number">2.6</span> 時間内に起こるイベント計数過程 <span class="math inline">\(N_\epsilon\)</span></a></li>
-  <li><a href="#どの収束レジーム" id="toc-どの収束レジーム" class="nav-link" data-scroll-target="#どの収束レジーム"><span class="header-section-number">2.7</span> どの収束レジーム？</a></li>
+  <li><a href="#sec-1d-convergence-regime" id="toc-sec-1d-convergence-regime" class="nav-link" data-scroll-target="#sec-1d-convergence-regime"><span class="header-section-number">2.7</span> どの収束レジーム？</a></li>
   <li><a href="#分布収束先" id="toc-分布収束先" class="nav-link" data-scroll-target="#分布収束先"><span class="header-section-number">2.8</span> 分布収束先</a></li>
   </ul></li>
   <li><a href="#生成作用素" id="toc-生成作用素" class="nav-link" data-scroll-target="#生成作用素"><span class="header-section-number">3</span> 生成作用素</a>
   <ul class="collapse">
   <li><a href="#はじめに定義に戻る" id="toc-はじめに定義に戻る" class="nav-link" data-scroll-target="#はじめに定義に戻る"><span class="header-section-number">3.1</span> はじめに：定義に戻る</a></li>
   <li><a href="#停止時による分解" id="toc-停止時による分解" class="nav-link" data-scroll-target="#停止時による分解"><span class="header-section-number">3.2</span> 停止時による分解</a></li>
-  <li><a href="#sec-fourth-term" id="toc-sec-fourth-term" class="nav-link" data-scroll-target="#sec-fourth-term"><span class="header-section-number">3.3</span> 第四項 <span class="math inline">\(\operatorname{E}_{(0,1)}\left[1_{\left\{\tau_\epsilon^t\le 2t\right\}}\right]/2t\)</span></a></li>
+  <li><a href="#sec-fourth-term" id="toc-sec-fourth-term" class="nav-link" data-scroll-target="#sec-fourth-term"><span class="header-section-number">3.3</span> 第四項 <span class="math inline">\(\operatorname{E}_{(0,1)}\left[1_{\left\{\tau_\epsilon^a\le t\right\}}\right]/t\)</span></a></li>
   <li><a href="#sec-first-term" id="toc-sec-first-term" class="nav-link" data-scroll-target="#sec-first-term"><span class="header-section-number">3.4</span> 第一項（上から脱出した場合）の解析</a></li>
   <li><a href="#sec-third-term" id="toc-sec-third-term" class="nav-link" data-scroll-target="#sec-third-term"><span class="header-section-number">3.5</span> 第三項の解析</a></li>
   </ul></li>
@@ -235,17 +242,112 @@ window.Quarto = {
 <p>$$</p>
 <p>$$</p>
 </div>
-<section id="設定" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="設定"><span class="header-section-number">1</span> 設定</h2>
 <p><span class="math display">\[
-p_\epsilon(x)=\frac{1-\gamma}{\sqrt{2\pi\sigma^2}}e^{-\frac{x^2}{2\sigma^2}}+\frac{\gamma}{\sqrt{2\pi\sigma^2\epsilon^2}}e^{-\frac{x^2}{2\sigma^2\epsilon^2}}
+p_\epsilon(x)=(1-\gamma)p(x)+\frac{\gamma}{\epsilon}p\left(\frac{x}{\epsilon}\right)
 \]</span> を continuous spike-and-slab prior とする．</p>
+<section id="イベント時刻" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="イベント時刻"><span class="header-section-number">1</span> イベント時刻</h2>
+<section id="生存関数" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="生存関数"><span class="header-section-number">1.1</span> 生存関数</h3>
 <p><span class="math inline">\((x,v)=(0,\pm1)\)</span> から開始したサンプラーのイベント時刻 <span class="math inline">\(T_\epsilon\)</span> の生存関数は <span class="math display">\[
-S_\epsilon(t)=\frac{p_\epsilon(t)}{p_\epsilon(0)}=\frac{(1-\gamma)e^{-\frac{t^2}{2\sigma^2}}+(\gamma/\epsilon)e^{-\frac{t^2}{2\sigma^2\epsilon^2}}}{1-\gamma+(\gamma/\epsilon)}
-\]</span> で与えられる．</p>
-<p><span class="math inline">\(T_\epsilon\)</span> の密度 <span class="math inline">\(f_\epsilon\)</span> は <span class="math display">\[
-f_\epsilon(t)=-S_\epsilon'(t)=\frac{\frac{(1-\gamma)\epsilon^3t}{\sigma^2}e^{-\frac{t^2}{2\sigma^2}}+\frac{\gamma t}{\sigma^2}e^{-\frac{t^2}{2\sigma^2\epsilon^2}}}{(1-\gamma)\epsilon^3+\gamma\epsilon^2}
+S_\epsilon(t)=\frac{p_\epsilon(t)}{p_\epsilon(0)}=\frac{1-\gamma}{1-\gamma+\gamma/\epsilon}\frac{p(t)}{p(0)}+\frac{\gamma}{\epsilon(1-\gamma)+\gamma}\frac{p\left(\frac{t}{\epsilon}\right)}{p(0)}
+\]</span> で与えられる．次の収束に注意： <span class="math display">\[
+S_\epsilon(t)\xrightarrow{\epsilon\to0}1_{\left\{0\right\}}(t),\qquad t\in\mathbb{R}_+.
 \]</span></p>
+</section>
+<section id="密度" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="密度"><span class="header-section-number">1.2</span> 密度</h3>
+<p><span class="math inline">\(T_\epsilon\)</span> の密度 <span class="math inline">\(f_\epsilon\)</span> は <span class="math display">\[
+f_\epsilon(t)=-S_\epsilon'(t)=\frac{1-\gamma}{1-\gamma+\gamma/\epsilon}\frac{p'(t)}{p(0)}+\frac{\gamma}{\epsilon(1-\gamma)+\gamma}\frac{1}{\epsilon}\frac{p'\left(\frac{t}{\epsilon}\right)}{p(0)}
+\]</span> と表される．<span class="math inline">\(p\)</span> が Gauss である場合は，<span class="math inline">\(\epsilon\to0\)</span> の極限で <span class="math inline">\(t=0\)</span> において <span class="math inline">\(\infty\)</span> に発散し，<span class="math inline">\(t&gt;0\)</span> において <span class="math inline">\(0\)</span> に収束する： <span class="math display">\[
+f_\epsilon(t)=-S_\epsilon'(t)=\frac{\frac{(1-\gamma)\epsilon^3t}{\sigma^2}e^{-\frac{t^2}{2\sigma^2}}+\frac{\gamma t}{\sigma^2}e^{-\frac{t^2}{2\sigma^2\epsilon^2}}}{(1-\gamma)\epsilon^3+\gamma\epsilon^2}.
+\]</span></p>
+<p>つまりイベント時刻 <span class="math inline">\(T_\epsilon\)</span> は全変動収束先は持たず，<span class="math inline">\(T_\epsilon\)</span> そのままを解析することは難しいようである．これは <span class="math inline">\(\epsilon\to0\)</span> の極限で「イベント」の概念（スケール）が変化するためである．</p>
+<div class="callout callout-style-simple callout-important no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>実は到着時刻 <span class="math inline">\(\tau_\epsilon^a\)</span> を見ると，<span class="math inline">\(\epsilon,a\)</span> どの極限でも全変動収束する．この <span class="math inline">\(\tau_\epsilon^a\)</span> に着目することが今回の解析の鍵となる．</p>
+</div>
+</div>
+</div>
+</section>
+<section id="への集積の速さ" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="への集積の速さ"><span class="header-section-number">1.3</span> <span class="math inline">\(0\)</span> への集積の速さ</h3>
+<p><span class="math inline">\(\epsilon\to0\)</span> の極限を取ると，<span class="math inline">\(T_\epsilon\)</span> は <span class="math inline">\(0\)</span> に集積していく．</p>
+<p>区間 <span class="math inline">\([0,\epsilon]\)</span> で見ると，ある値 <span class="math inline">\(\left(1-\frac{p(1)}{p(0)}\right)\in(0,1)\)</span> に収束する割合でイベントが起こる．</p>
+<p><span class="math inline">\([0,\epsilon^p]\;(p&gt;1)\)</span> には確率１で入らず，<span class="math inline">\([0,\epsilon^p]\;(0&lt;p&lt;1)\)</span> には確率１で入る．</p>
+<div class="callout callout-style-simple callout-tip no-icon">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><span class="math display">\[
+\operatorname{P}[T_\epsilon\le\epsilon^p]\xrightarrow{\epsilon\to0}\begin{cases}
+0,&amp;1&lt;p,\\
+1-\frac{p(1)}{p(0)},&amp;p=1,\\
+1,&amp;0&lt;p&lt;1.
+\end{cases}
+\]</span></p>
+</div>
+</div>
+</div>
+<p><span class="math inline">\(p&gt;1\)</span> のときの収束の速さは <span class="math inline">\(O(\epsilon^{(p-1)\land1})\)</span> である．</p>
+<p><span class="math inline">\(p=1\)</span> のときは <span class="math inline">\(O(\epsilon)\)</span>，<span class="math inline">\(0&lt;p&lt;1\)</span> のときは <span class="math inline">\(p(x)\)</span> の <span class="math inline">\(\lvert x\rvert\to\infty\)</span> での減衰の速さに依存する．</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="証明">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+証明
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>一般に <span class="math display">\[
+\operatorname{P}[T_\epsilon\le\epsilon^p]=1-S_\epsilon(\epsilon^p)
+\]</span> が成り立つ． <span class="math display">\[\begin{align*}
+  S_\epsilon(\epsilon^p)&amp;=\frac{p_\epsilon(\epsilon^p)}{p_\epsilon(0)}\\
+  &amp;=\frac{1-\gamma}{1-\gamma+\gamma/\epsilon}\frac{p(\epsilon^p)}{p(0)}+\frac{\gamma}{\epsilon(1-\gamma)+\gamma}\frac{p(\epsilon^{p-1})}{p(0)}\\
+\end{align*}\]</span></p>
+<p>第一項は Taylor 展開により <span class="math inline">\(O(\epsilon)\)</span> と判る．第二項の最初の因子は <span class="math display">\[
+\frac{\gamma}{\epsilon(1-\gamma)+\gamma}=1-\frac{1-\gamma}{\gamma}\epsilon+O(\epsilon^2)
+\]</span> に注意すると，<span class="math inline">\(p\ge1\)</span> の場合が従う．</p>
+</div>
+</div>
+</div>
+</section>
+<section id="tau_epsilona-への着目" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="tau_epsilona-への着目"><span class="header-section-number">1.4</span> <span class="math inline">\(\tau_\epsilon^a\)</span> への着目</h3>
+<p><span class="math inline">\(T_\epsilon\)</span> は <span class="math inline">\(\epsilon\)</span> と同じスケールで <span class="math inline">\(0\)</span> に収束していくタイムスケールの事象であり，Sticky PDMP の振る舞いを見るには１段階遅いスケールを見る必要がある．</p>
+<p>これが <span class="math inline">\(\tau_\epsilon^a\)</span> である．この量は <span class="math display">\[
+\operatorname{P}[\tau_\epsilon^a\le t]=
+\operatorname{P}[\tau_\epsilon^a\le t]-\operatorname{P}[\tau^a_0\le t]+\operatorname{P}[\tau^a_0\le t]-\operatorname{P}[\tau^0_0\le t]+\operatorname{P}[\tau_0^0\le t]-\operatorname{P}[\tau_0^0\le 0]
+\]</span> と表示ができる．<span class="math inline">\(\epsilon,t,a\to0\)</span> の極限を考えたとき，最初の2項は <span class="math display">\[
+\int^t_0\biggr(f^a_\epsilon(s)-f^a_0(s)\biggl)\,ds
+\]</span> という表示を持つために，</p>
+<ol type="1">
+<li>第1項 <span class="math inline">\(\operatorname{P}[\tau^a_\epsilon\le t]-\operatorname{P}[\tau^a_0\le t]\)</span> は <span class="math inline">\(O(\epsilon^p)O(t)\)</span> のオーダーで収束する．</li>
+<li>第2項 <span class="math inline">\(\operatorname{P}[\tau^a_0\le t]-\operatorname{P}[\tau^0_0\le t]\)</span> は <span class="math inline">\(O(a^q)O(t)\)</span> のオーダーで収束する．</li>
+<li>第3項 <span class="math inline">\(\operatorname{P}[\tau_0^0\le t]-\operatorname{P}[\tau_0^0\le 0]\)</span> は <span class="math inline">\(O(t)\)</span> のオーダーで収束する <a href="#sec-fourth-term" class="quarto-xref">Section&nbsp;3.3</a>．</li>
+</ol>
+<p>と予想される．</p>
+<p>このために第3項が <span class="math inline">\(a,\epsilon\)</span> を（<span class="math inline">\(t\)</span> に比べて）どのスピードで <span class="math inline">\(0\)</span> に近づけようとも，同じオーダーで <span class="math inline">\(0\)</span> に収束するのである．</p>
+<p><span class="math inline">\(\tau_\epsilon^a\)</span> で見た際，<span class="math inline">\(\epsilon\to0\)</span> 収束による <span class="math inline">\(0\)</span> への集積は起こらないために，上式の <span class="math inline">\(\epsilon,t\to0\)</span> での極限は安定したスピードを持つ．</p>
+</section>
+<section id="n_epsilon-への着目" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="n_epsilon-への着目"><span class="header-section-number">1.5</span> <span class="math inline">\(N_\epsilon\)</span> への着目</h3>
+<p>さらに <span class="math inline">\(0\)</span> への密度の集積を見るために，計数過程 <span class="math display">\[
+N_\epsilon(t):=\max\left\{n\ge 1\,\middle|\,\sum_{i=1}^{n-1}2T_\epsilon^{(i)}+T_\epsilon^{(n)}\le t\right\}
+\]</span> を考える <a href="#sec-1d-qualitative" class="quarto-xref">Section&nbsp;2.2</a>．</p>
+<p><span class="math inline">\(N_\epsilon(\epsilon)\)</span> という確率変数は <span class="math inline">\(\epsilon\to0\)</span> の極限で安定した分布を持つ <a href="#sec-1d-convergence-regime" class="quarto-xref">Section&nbsp;2.7</a>．</p>
+<p><span class="math inline">\(\tau_\epsilon^a\)</span> という粗視化をしない場合は <span class="math inline">\(N_\epsilon\)</span> の解析が必要になるだろう．</p>
+</section>
 </section>
 <section id="遷移核" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="遷移核"><span class="header-section-number">2</span> 遷移核</h2>
@@ -256,8 +358,8 @@ f_\epsilon(t)=-S_\epsilon'(t)=\frac{\frac{(1-\gamma)\epsilon^3t}{\sigma^2}e^{-\f
 \mathrm{supp}\;P^t_\epsilon(0,-)\subset[-t,t].
 \]</span></p>
 </section>
-<section id="定性的議論" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="定性的議論"><span class="header-section-number">2.2</span> 定性的議論</h3>
+<section id="sec-1d-qualitative" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="sec-1d-qualitative"><span class="header-section-number">2.2</span> 定性的議論</h3>
 <p><span class="math inline">\(T_\epsilon^{(i)}\)</span> を <span class="math inline">\(\displaystyle S_\epsilon(t)=\frac{p_\epsilon(t)}{p_\epsilon(0)}\)</span> からの i.i.d. 確率変数列とする．</p>
 <p><span class="math inline">\(N_\epsilon(t)\)</span> を <span class="math inline">\(0\)</span> からスタートした場合の時刻 <span class="math inline">\(t\)</span> でのイベント発生回数とする： <span class="math display">\[
 N_\epsilon(t):=\max\left\{n\ge 1\,\middle|\,\sum_{i=1}^{n-1}2T_\epsilon^{(i)}+T_\epsilon^{(n)}\le t\right\}.
@@ -378,8 +480,8 @@ L_\epsilon\varphi(0,1)=\varphi'(x)+0\cdot\biggr(\varphi(0,-1)-\varphi(0,1)\biggl
   &amp;=\int^t_0F_\epsilon^{*(n-1)}\left(\frac{t-t_1}{2}\right)f_\epsilon(t_1)\,dt_1.
 \end{align*}\]</span> と表せる．</p>
 </section>
-<section id="どの収束レジーム" class="level3" data-number="2.7">
-<h3 data-number="2.7" class="anchored" data-anchor-id="どの収束レジーム"><span class="header-section-number">2.7</span> どの収束レジーム？</h3>
+<section id="sec-1d-convergence-regime" class="level3" data-number="2.7">
+<h3 data-number="2.7" class="anchored" data-anchor-id="sec-1d-convergence-regime"><span class="header-section-number">2.7</span> どの収束レジーム？</h3>
 <p><span class="math display">\[\begin{align*}
   \frac{P^t_\epsilon\varphi(0)-\varphi(0)}{t}&amp;=S_\epsilon(t)\frac{\varphi(t)-\varphi(0)}{t}\\
   &amp;\qquad+\operatorname{P}[N_\epsilon(t)=1]\frac{\operatorname{E}[\varphi(2T_\epsilon^{(1)}-t)]-\varphi(0)}{t}\\
@@ -443,32 +545,52 @@ L_0\varphi(0,1)=\kappa\left(\frac{1}{2}\varphi(0_+,1)+\frac{1}{2}\varphi(0,-1)-\
 <section id="停止時による分解" class="level3" data-number="3.2">
 <h3 data-number="3.2" class="anchored" data-anchor-id="停止時による分解"><span class="header-section-number">3.2</span> 停止時による分解</h3>
 <p><span class="math inline">\(P^t_\epsilon\)</span> の表示はわからないと言って良いが，収束先は停止時による分解を通じて判明する．</p>
-<p>具体的には，<span class="math inline">\(\tau_\epsilon^{a+},\tau_\epsilon^{a-}\)</span> をそれぞれ上側と下側の脱出時刻とすると，</p>
+<p>具体的には，<span class="math inline">\(\tau_\epsilon^{a+},\tau_\epsilon^{a-}\)</span> をそれぞれ上側 <span class="math inline">\(x=a&gt;0\)</span> と下側 <span class="math inline">\(x=-a\)</span> の脱出時刻とすると，<span class="math inline">\(0&lt;a&lt;t\)</span> のとき，</p>
 <p><span class="math display">\[\begin{align*}
-  P^{2t}_\epsilon((0,1),dx)&amp;=\operatorname{P}[\tau_\epsilon^{t+}\le\tau_\epsilon^{t-},\tau_\epsilon^t\le 2t]\mu_{t+}(dx)\\
-  &amp;\quad+\operatorname{P}[\tau_\epsilon^{t-}\le\tau_\epsilon^{t+},\tau_\epsilon^t\le 2t]\mu_{t-}(dx)+\operatorname{P}[\tau^t_\epsilon&gt;2t]\mu_t(dx),
+  P^{t}_\epsilon((0,1),dx)&amp;=\operatorname{P}[\tau_\epsilon^{a+}\le\tau_\epsilon^{a-},\tau_\epsilon^a\le t]\mu_{a+}(dx)\\
+  &amp;\quad+\operatorname{P}[\tau_\epsilon^{a-}\le\tau_\epsilon^{a+},\tau_\epsilon^a\le t]\mu_{a-}(dx)+\operatorname{P}[\tau^a_\epsilon&gt;t]\mu_a(dx),
 \end{align*}\]</span> <span class="math display">\[
-\mu_{t\pm}:=\mathcal{L}[X_\epsilon(2t)\,|\,\tau^{t\pm}_\epsilon\le2t],\quad\mu_t:=\mathcal{L}[X_\epsilon(2t)\,|\,\tau^t_\epsilon&gt;2t],
+\mu_{t\pm}:=\mathcal{L}[X_\epsilon(t)\,|\,\tau^{t\pm}_\epsilon\le t],\quad\mu_t:=\mathcal{L}[X_\epsilon(t)\,|\,\tau^t_\epsilon&gt;t],
 \]</span></p>
 <p>と分解できる．これを用いると，</p>
 <p><span class="math display">\[\begin{align*}
-  &amp;\qquad\frac{P^{2t}_\epsilon\varphi(0,1)-\varphi(0,1)}{2t}\\
-  &amp;=\frac{\operatorname{E}_{(0,1)}[\varphi(X_\epsilon(2t),V_\epsilon(2t))]-\varphi(0,1)}{2t}\\
-  &amp;=\operatorname{E}_{(0,1)}\left[\varphi(X_\epsilon(2t),V_\epsilon(2t))\frac{1_{\left\{\tau_\epsilon^{t+}\le 2t\right\}}}{2t}\right]+\operatorname{E}_{(0,1)}\left[\varphi(X_\epsilon(2t),V_\epsilon(2t))\frac{1_{\left\{\tau_\epsilon^{t-}\le 2t\right\}}}{2t}\right]\\
-  &amp;\qquad+\operatorname{E}_{(0,1)}\left[\frac{\varphi(X_\epsilon(2t),V_\epsilon(2t))-\varphi(0,1)}{2t}1_{\left\{\tau_\epsilon^t&gt;2t\right\}}\right]-\varphi(0,1)\operatorname{E}_{(0,1)}\left[\frac{1_{\left\{\tau_\epsilon^t\le 2t\right\}}}{2t}\right]
+  &amp;\qquad\frac{P^{t}_\epsilon\varphi(0,1)-\varphi(0,1)}{t}\\
+  &amp;=\frac{\operatorname{E}_{(0,1)}[\varphi(X_\epsilon(t),V_\epsilon(t))]-\varphi(0,1)}{t}\\
+  &amp;=\operatorname{E}_{(0,1)}\left[\varphi(X_\epsilon(t),V_\epsilon(t))\frac{1_{\left\{\tau_\epsilon^{a}\le t\right\}}1_{\left\{\tau_\epsilon^{a+}\le\tau_\epsilon^{a-}\right\}}}{t}\right]+\operatorname{E}_{(0,1)}\left[\varphi(X_\epsilon(t),V_\epsilon(t))\frac{1_{\left\{\tau_\epsilon^{a}\le t\right\}}1_{\left\{\tau_\epsilon^{a-}\le\tau_\epsilon^{a+}\right\}}}{t}\right]\\
+  &amp;\qquad+\operatorname{E}_{(0,1)}\left[\frac{\varphi(X_\epsilon(t),V_\epsilon(t))-\varphi(0,1)}{t}1_{\left\{\tau_\epsilon^a&gt;t\right\}}\right]-\varphi(0,1)\operatorname{E}_{(0,1)}\left[\frac{1_{\left\{\tau_\epsilon^a\le t\right\}}}{t}\right]
 \end{align*}\]</span></p>
-<p><span class="math inline">\([0,2t]\)</span> 以内に <span class="math inline">\(t\)</span> と <span class="math inline">\(-t\)</span> の両方に到達することはないため， <span class="math display">\[
-\left\{\tau_\epsilon^{t+}\le 2t\right\}=\left\{\tau_\epsilon^{t+}\le\tau_{\epsilon}^{t-}\right\}\cap\left\{\tau_\epsilon^t\le 2t\right\}
-\]</span> が成り立つことに注意．</p>
+<p>なお，<span class="math inline">\(\frac{t}{2}&lt;a\)</span> のときは <span class="math inline">\([0,t]\)</span> 以内に <span class="math inline">\(a\)</span> と <span class="math inline">\(-a\)</span> の両方に到達することはないため， <span class="math display">\[
+\left\{\tau_\epsilon^{a+}\le t\right\}=\left\{\tau_\epsilon^{a+}\le t\right\}\cap\left\{\tau_\epsilon^{a-}&gt;t\right\}=\left\{\tau_\epsilon^{a+}\le\tau_{\epsilon}^{a-}\right\}\cap\left\{\tau_\epsilon^a\le t\right\}
+\]</span> が成り立つ．</p>
 <p>第四項 <a href="#sec-fourth-term" class="quarto-xref">Section&nbsp;3.3</a>，第一二項 <a href="#sec-first-term" class="quarto-xref">Section&nbsp;3.4</a>，第三項 <a href="#sec-third-term" class="quarto-xref">Section&nbsp;3.5</a> の順に考える．</p>
+<div class="callout callout-style-default callout-important no-icon callout-titled" title="直感">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+直感
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<ul>
+<li>第四項は，<span class="math inline">\(\epsilon,a\to0\)</span> の近づけ方に依らず，<span class="math inline">\(-\kappa^{-1}\varphi(0,1)\)</span> に収束する．</li>
+<li>第一二項は，<span class="math inline">\(\epsilon,a\)</span> の <span class="math inline">\(0\)</span> への近づけ方に依らず，そもそも <span class="math inline">\(\pm a\)</span> に到達するという確率が <span class="math inline">\(O(t)\)</span> で小さくなっていくため，その成分だけが <span class="math inline">\(\kappa^{-1}\varphi(0_+,1),\kappa^{-1}\varphi(0,-1)\)</span> として残る．</li>
+<li>第三項では，<span class="math inline">\(\epsilon\to0\)</span> の近づけ方に応じて，<span class="math inline">\(a\to0\)</span> を適切に速く取ることが必要になる．</li>
+</ul>
+</div>
+</div>
+</div>
 </section>
 <section id="sec-fourth-term" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="sec-fourth-term"><span class="header-section-number">3.3</span> 第四項 <span class="math inline">\(\operatorname{E}_{(0,1)}\left[1_{\left\{\tau_\epsilon^t\le 2t\right\}}\right]/2t\)</span></h3>
-<p><span class="math inline">\(\tau^t_\epsilon\xrightarrow{\epsilon\to0}\tau_0^t\xrightarrow{t\to0}\tau_0^0\)</span> は弱収束するから， <span class="math display">\[
-\frac{\operatorname{P}[\tau_\epsilon^t\le 2t]}{2t}\xrightarrow{\epsilon\to0}\frac{\operatorname{P}[\tau_0^t\le 2t]}{2t}
+<h3 data-number="3.3" class="anchored" data-anchor-id="sec-fourth-term"><span class="header-section-number">3.3</span> 第四項 <span class="math inline">\(\operatorname{E}_{(0,1)}\left[1_{\left\{\tau_\epsilon^a\le t\right\}}\right]/t\)</span></h3>
+<p><span class="math inline">\(\tau^a_\epsilon\xrightarrow{\epsilon\to0}\tau_0^a\xrightarrow{a\to0}\tau_0^0\)</span> は弱収束するから， <span class="math display">\[
+\frac{\operatorname{P}[\tau_\epsilon^a\le t]}{t}\xrightarrow{\epsilon\to0}\frac{\operatorname{P}[\tau_0^a\le t]}{t}
 \]</span> は分布関数の連続点における収束から従う．続いて， <span class="math display">\[\begin{align*}
-  \frac{\operatorname{P}[\tau_0^t\le 2t]}{2t}&amp;=\frac{\operatorname{P}[\tau_0^t\le 2t]-\operatorname{P}[\tau^0_0\le2t]}{2t}+\frac{\operatorname{P}[\tau^0_0\le2t]-\operatorname{P}[\tau^0_0\le0]}{2t}
-\end{align*}\]</span> という分解を考えると，<span class="math inline">\(\tau^t_0\)</span> の密度を <span class="math inline">\(f_t\)</span> とすれば，<span class="math inline">\(t\to0\)</span> の極限で第二項は <span class="math inline">\(f_0(0)=\kappa^{-1}\)</span> に収束する．</p>
+  \frac{\operatorname{P}[\tau_0^a\le t]}{t}&amp;=\frac{\operatorname{P}[\tau_0^a\le t]-\operatorname{P}[\tau_0^0\le t]}{t}+\frac{\operatorname{P}[\tau_0^0\le t]-\operatorname{P}[\tau_0^0\le0]}{t}
+\end{align*}\]</span> という分解を考えると，<span class="math inline">\(\tau^a_0\)</span> の密度を <span class="math inline">\(f_a\)</span> とすれば，<span class="math inline">\(t\to0\)</span> の極限で第二項は <span class="math inline">\(f_0(0)=\kappa^{-1}\)</span> に収束する．</p>
 <p>しかし第一項の <span class="math inline">\(0\)</span> への収束には問題がある．</p>
 <div class="callout callout-style-default callout-important no-icon callout-titled" title="第一項の収束には密度の概収束が必要">
 <div class="callout-header d-flex align-content-center">
@@ -480,14 +602,13 @@ L_0\varphi(0,1)=\kappa\left(\frac{1}{2}\varphi(0_+,1)+\frac{1}{2}\varphi(0,-1)-\
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>第一項の収束は弱収束 <span class="math inline">\(\tau^{2t}_0\Rightarrow\tau^0_0\)</span> のみからは従わない．密度が概収束することが示せたならば，</p>
-<p><span class="math display">\[
-\frac{1}{2t}\int^{2t}_0\biggr(f_t(s)-f_0(s)\biggl)\,ds\xrightarrow{t\to0}0
+<p>第一項の収束は弱収束 <span class="math inline">\(\tau^{a}_0\Rightarrow\tau^0_0\)</span> のみからは従わない．密度が局所一様収束することが示せたならば， <span class="math display">\[
+\frac{1}{t}\int^t_0\biggr(f_a(s)-f_0(s)\biggl)\,ds\xrightarrow{a,t\to0}0
 \]</span> が従う．</p>
 </div>
 </div>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="例">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -496,7 +617,7 @@ L_0\varphi(0,1)=\kappa\left(\frac{1}{2}\varphi(0_+,1)+\frac{1}{2}\varphi(0,-1)-\
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
+<div id="callout-6" class="callout-6-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="math inline">\([0,1]\)</span> 上の密度関数 <span class="math display">\[
 f_n(x):=1+\sin(2\pi nx)
@@ -509,17 +630,18 @@ F_n(t)=\int^t_0f_n(s)\,ds=t+\frac{1-\cos(2\pi nt)}{2\pi n}
 </div>
 </div>
 </div>
-<div class="callout callout-style-default callout-note no-icon callout-titled" title="証明">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<p>今回は積分区間が小さくなっていくと同時に <span class="math inline">\(t\)</span> によってスケーリングされるために，密度の概収束と Egorov の定理では不十分であり，局所一様収束が必要になる．</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="deprecated">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-証明
+deprecated
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div id="callout-7" class="callout-7-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>任意の <span class="math inline">\(\epsilon&gt;0\)</span> について，Egorov の定理より， <span class="math display">\[
 \ell(A)&lt;\frac{\epsilon}{2}\frac{1}{\|f_t\|_{[0,2t]}+\|f_0\|_{[0,2t]}}
@@ -530,6 +652,28 @@ F_n(t)=\int^t_0f_n(s)\,ds=t+\frac{1-\cos(2\pi nt)}{2\pi n}
   \left|\frac{1}{2t}\int^{2t}_0\biggr(f_t(s)-f_0(s)\biggl)\,ds\right|&amp;\le\frac{1}{2t}\int_{[0,2t]\setminus A}\lvert f_t(s)-f_0(s)\rvert\,ds+\ell(A)\biggr(\|f_t\|_{[0,2t]}+\|f_0\|_{[0,2t]}\biggl)\\
   &amp;\le\frac{\epsilon}{2}+\frac{\epsilon}{2}=\epsilon.
 \end{align*}\]</span></p>
+</div>
+</div>
+</div>
+<p>あるいは，仮に <span class="math inline">\(\partial_af\)</span> が存在して局所有界であるならば，<span class="math inline">\(a\)</span> を <span class="math inline">\(t\)</span> 以上急速に，例えば <span class="math inline">\(a=t^p\;(p\ge1)\)</span> と取ることで収束させることができる．</p>
+<div class="callout callout-style-default callout-note no-icon callout-titled" title="証明">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+証明
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-8" class="callout-8-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<p>仮に <span class="math inline">\(\partial_a^2 f\)</span> も存在して局所有界であるならば， <span class="math display">\[
+\frac{1}{t}\int^t_0\biggr(f_a(s)-f_0(s)\biggl)\,ds=\frac{1}{t}\int^t_0\biggr(\|\partial_af_a(s)\|_{[0,t]}a+O(a^2)\biggl)\,ds
+\]</span> の変形により収束を示せる．</p>
+<p>そうでなくとも， <span class="math display">\[
+\frac{1}{t}\int^t_0\biggr(f_a(s)-f_0(s)\biggl)\,ds\le\int_{A\cap[0,t]}\frac{f_a(s)-f_0(s)}{t}\,ds+\frac{1}{t}\int_0^t\frac{\epsilon}{2}\,ds
+\]</span> と見ることができる．</p>
 </div>
 </div>
 </div>
@@ -547,7 +691,7 @@ F_n(t)=\int^t_0f_n(s)\,ds=t+\frac{1-\cos(2\pi nt)}{2\pi n}
 \operatorname{E}_{(0,1)}[\lvert\Delta X_\epsilon\rvert\lvert\Delta V_\epsilon\rvert]\xrightarrow{\epsilon\to0}\operatorname{E}_{(0,1)}[\lvert\Delta X_0\rvert\lvert\Delta V_0\rvert]
 \]</span> を用いる．</p>
 <div class="callout callout-style-default callout-note no-icon callout-titled" title="deprecated">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon no-icon"></i>
 </div>
@@ -556,7 +700,7 @@ deprecated
 </div>
 <div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse">
+<div id="callout-9" class="callout-9-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p><span class="math inline">\(\left\{\tau_\epsilon^t\le 2t\right\}\)</span> 上では，時刻 <span class="math inline">\(2t\)</span> までに再び原点を越すことはない．従って，イベントが起こる回数は高々１回である： <span class="math display">\[
 \biggr(N_\epsilon(2t)-N_\epsilon(\tau^t_\epsilon)\biggl)1_{\left\{\tau_\epsilon^t\le 2t\right\}}\le1.
@@ -581,9 +725,9 @@ deprecated
 </div>
 </div>
 </div>
-<p><span class="math inline">\(\varphi\in C^\infty_c(\mathbb{R})\)</span> であるから，Taylor 展開に基づいて，事象 <span class="math inline">\(\left\{\tau_\epsilon^{t+}\le 2t\right\}\)</span> 上では <span class="math display">\[
+<p><span class="math inline">\(\varphi\in C^1_c(\mathbb{R})\)</span> のとき，Taylor 展開に基づいて，事象 <span class="math inline">\(\left\{\tau_\epsilon^{t+}\le 2t\right\}\)</span> 上では <span class="math display">\[
 \varphi(X_\epsilon(2t),V_\epsilon(2t))=\varphi(t,1)+\frac{\partial \varphi}{\partial x}(t,1)\Delta X_\epsilon+\frac{\partial \varphi}{\partial v}(t,1)\Delta V_\epsilon+\frac{1}{2}\frac{\partial ^2\varphi}{\partial x\partial v}(c_1(\omega),c_2(\omega))\Delta X_\epsilon\Delta V_\epsilon+\cdots
-\]</span> とできる．<span class="math inline">\(c_1,c_2:\Omega\to\mathbb{R}\)</span> の可測性が不明である点に注意．しかし，<span class="math inline">\(\varphi\)</span> は任意次の導関数まで有界であるために，任意の <span class="math inline">\(\epsilon,t&gt;0\)</span> について次の評価が成り立つ： <span class="math display">\[
+\]</span> とできる．<span class="math inline">\(c_1,c_2:\Omega\to\mathbb{R}\)</span> の可測性が不明である点に注意．しかし，<span class="math inline">\(\varphi\)</span> は２次の導関数まで有界であるために，任意の <span class="math inline">\(\epsilon,t&gt;0\)</span> について次の評価が成り立つ： <span class="math display">\[
 \left|\varphi(X_\epsilon(2t),V_\epsilon(2t))-\varphi(t,1)\right|\le\frac{\partial \varphi}{\partial x}(t,1)\Delta X_\epsilon+\frac{\partial \varphi}{\partial v}(t,1)\Delta V_\epsilon+\frac{1}{2}\|\partial_x\partial_v\varphi\|_\infty\Delta X_\epsilon\Delta V_\epsilon+\cdots
 \]</span> <span class="math display">\[\begin{align*}
   &amp;\left|\operatorname{E}_{(0,1)}\left[\varphi(X_\epsilon(2t),V_\epsilon(2t))\frac{1_{\left\{\tau_\epsilon^{t+}\le 2t\right\}}}{2t}\right]-\operatorname{E}_{(0,1)}\left[\varphi(t,1)\frac{1_{\left\{\tau_\epsilon^{t+}\le 2t\right\}}}{2t}\right]\right|\\
