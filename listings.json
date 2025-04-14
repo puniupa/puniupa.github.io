@@ -2,6 +2,7 @@
   {
     "listing": "/notes.html",
     "items": [
+      "/posts/Spike-and-slab/1d_generator.html",
       "/posts/Spike-and-slab/1d_convergence.html",
       "/posts/Spike-and-slab/1d_exit.html",
       "/posts/Spike-and-slab/spiky-density.html",
@@ -28,6 +29,14 @@
     ]
   },
   {
+    "listing": "/posts/Spike-and-slab/1d_convergence.html",
+    "items": [
+      "/posts/Spike-and-slab/spiky-density.html",
+      "/posts/Spike-and-slab/1d_generator.html",
+      "/posts/Spike-and-slab/1d_exit.html"
+    ]
+  },
+  {
     "listing": "/posts/Cocosiru/source0.html",
     "items": [
       "/posts/Cocosiru/source1.html",
@@ -37,6 +46,7 @@
   {
     "listing": "/static/all.html",
     "items": [
+      "/posts/Spike-and-slab/Background/1d_convergence1.html",
       "/posts/2024/AI/各国の生成AI関連政策.html",
       "/posts/2024/Blog/Seoul3.html",
       "/posts/2024/Blog/Seoul1.html",

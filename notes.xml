@@ -14,7 +14,7 @@
 <title>ぷにうぱ</title>
 <link>https://puniupa.github.io/notes.html</link>
 </image>
-<generator>quarto-1.6.42</generator>
+<generator>quarto-1.6.43</generator>
 <lastBuildDate>Wed, 26 Feb 2025 00:00:00 GMT</lastBuildDate>
 <item>
   <title>ココシルデータ解析２</title>
@@ -2646,7 +2646,7 @@ Itoh, H., Mori, I., Matsumoto, Y., Maki, S., and Ogawa, Y. (2012). <a href="http
 </ul>
 <div id="listing-cocosiru1-listing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-1">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1743584906643" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1492">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1744626568323" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1492">
 <a href="../../posts/Cocosiru/source1.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <!-- img(9CEB782EFEE6)[progressive=false, height=100%]:cocosiru1-listing:posts/Cocosiru/source1.html -->
@@ -2685,7 +2685,7 @@ No matching items
 </ul>
 <div id="listing-cocosiru2-listing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-1">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1743584906743" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="447">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1744626568412" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="447">
 <a href="../../posts/Cocosiru/source2.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <!-- img(9CEB782EFEE6)[progressive=false, height=100%]:cocosiru2-listing:posts/Cocosiru/source2.html -->
@@ -2764,9 +2764,9 @@ Wake, R., Araki, T., Fukushima, M., Matsuda, H., Inagaki, T., Hayashida, M., …
   <pubDate>Wed, 26 Feb 2025 00:00:00 GMT</pubDate>
 </item>
 <item>
-  <title>１次元での収束の証明</title>
+  <title>１次元での生成作用素の形の証明</title>
   <dc:creator>司馬博文 </dc:creator>
-  <link>https://puniupa.github.io/posts/Spike-and-slab/1d_convergence.html</link>
+  <link>https://puniupa.github.io/posts/Spike-and-slab/1d_generator.html</link>
   <description><![CDATA[ 
 
 
@@ -3111,8 +3111,103 @@ Durmus, A., Guillin, A., and Monmarché, P. (2021). <a href="https://doi.org/10.
 </div>
 </div></section></div> ]]></description>
   <category>ノート</category>
+  <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_generator.html</guid>
+  <pubDate>Mon, 14 Apr 2025 10:30:10 GMT</pubDate>
+</item>
+<item>
+  <title>１次元での収束の証明</title>
+  <dc:creator>司馬博文 </dc:creator>
+  <link>https://puniupa.github.io/posts/Spike-and-slab/1d_convergence.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="hidden">
+<p>A Blog Entry on Bayesian Computation by an Applied Mathematician</p>
+<p>$$</p>
+<p>$$</p>
+</div>
+<div id="listing-lst-spiky" class="listing quarto-float quarto-figure quarto-figure-left quarto-listing quarto-listing-container-grid anchored">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="JUUzJTgzJTg5JUUzJTgzJUE5JUUzJTgzJTk1JUUzJTgzJTg4" data-listing-file-modified-sort="1744626568544" data-listing-reading-time-sort="1" data-listing-word-count-sort="24">
+<a href="../../posts/Spike-and-slab/spiky-density.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<!-- img(9CEB782EFEE6)[progressive=false, height=150px]:lst-spiky:posts/Spike-and-slab/spiky-density.html -->
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities
+</h5>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1744626568544" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
+<a href="../../posts/Spike-and-slab/1d_generator.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<!-- img(9CEB782EFEE6)[progressive=false, height=150px]:lst-spiky:posts/Spike-and-slab/1d_generator.html -->
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+１次元での生成作用素の形の証明
+</h5>
+<div class="card-subtitle listing-subtitle">
+Spike-and-Slab prior からの効率的なサンプリング
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1744626568542" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
+<a href="../../posts/Spike-and-slab/1d_exit.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<!-- img(9CEB782EFEE6)[progressive=false, height=150px]:lst-spiky:posts/Spike-and-slab/1d_exit.html -->
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+脱出時刻の分析
+</h5>
+<div class="card-subtitle listing-subtitle">
+Spike-and-Slab prior からの効率的なサンプリング
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+<section id="設定" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="設定"><span class="header-section-number">1</span> 設定</h2>
+<p>密度 <img src="https://latex.codecogs.com/png.latex?%0Ap_%5Cepsilon(x)=(1-%5Cgamma)p(x)+%5Cfrac%7B%5Cgamma%7D%7B%5Cepsilon%7Dp%5Cleft(%5Cfrac%7Bx%7D%7B%5Cepsilon%7D%5Cright)%0A"> を対象にした Zig-Zag 過程 <img src="https://latex.codecogs.com/png.latex?(Z%5E%5Cepsilon_t)_%7Bt%5Cin%5Cmathbb%7BN%7D%7D"> は拡張生成作用素 <img src="https://latex.codecogs.com/png.latex?%0A%5Cwidehat%7BA%7D_%5Cepsilon%20f(x,v)=(v%7Cf'(x))+%5Clambda_n(x)%5Cbiggr(f(x,-v)-f(x,v)%5Cbiggl)%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Clambda_n(x)=(v%7C-%5Cpartial_x%5Clog%20p_%5Cepsilon(x))_+%0A"> をもち，核は <img src="https://latex.codecogs.com/png.latex?C%5E%5Cinfty_c(%5Cmathbb%7BR%7D%5E2)"> に取れる．</p>
+<p>一方で極限だと思われる Sticky Zig-Zag 過程 <img src="https://latex.codecogs.com/png.latex?(Z_t)_%7Bt%5Cin%5Cmathbb%7BN%7D%7D"> は，拡張された状態空間 <img src="https://latex.codecogs.com/png.latex?%0A%5Coverline%7BE%7D:=%5Cbiggr((-%5Cinfty,0-%5D%5Csqcup%5B0+,%5Cinfty)%5Cbiggl)%5Ctimes%5Cmathbb%7BR%7D%0A"> 上に存在するとした場合は，拡張生成作用素 <img src="https://latex.codecogs.com/png.latex?%0A%5Cwidehat%7BA%7Df(x,v)=%0A%5Cbegin%7Bcases%7D%0A%20%20(v%7Cf'(x))+%5Clambda(x)%5Cbiggr(f(x,-v)-f(x,v)%5Cbiggl)%20&amp;%20x%5Cne(0+,-1),(0-,+1)%5C%5C%0A%20%20%5Ckappa%5Cbiggr(%5Cfrac%7B1%7D%7B2%7Df(0_+,+v)+%5Cfrac%7B1%7D%7B2%7Df(0_-,-v)-f(x,v)%5Cbiggl)%20&amp;%20x=(0+,-1),(0-,+1)%0A%5Cend%7Bcases%7D%0A"> <img src="https://latex.codecogs.com/png.latex?%0A%5Clambda(x)=(v%7C-%5Cpartial_x%5Clog%20p(x))_+,%5Cqquad%5Ckappa%5E%7B-1%7D:=%5Cfrac%7B%5Cgamma%7D%7B1-%5Cgamma%7D%5Csqrt%7B2%5Cpi%5Csigma%5E2%7D%0A"> をもつ．定義域は <img src="https://latex.codecogs.com/png.latex?%0A%5Cmathcal%7BD%7D(%5Cwidehat%7BA%7D)=%5Cleft%5C%7Bf:%5Coverline%7BE%7D%5Cto%5Cmathbb%7BR%7D%5C,%5Cmiddle%7C%5C,%0A%5Cbegin%7Barray%7D%7Bl%7D%0A%5C%7B0_%7B%5Cpm%7D%5C%7D%5Ctimes%5Cmathbb%7BR%7D%5C,%5Ctext%7B%E4%B8%8A%E3%82%92%E9%99%A4%E3%81%84%E3%81%A6%E7%B5%B6%E5%AF%BE%E9%80%A3%E7%B6%9A%7D%5C%5C%0A%5C%7B0_+%5C%7D%5Ctimes(-%5Cinfty,0)%5C,%5Ctext%7B%E3%81%A7%E3%81%AF%E5%8F%B3%E9%80%A3%E7%B6%9A%7D%5C%5C%0A%5C%7B0_-%5C%7D%5Ctimes(0,%5Cinfty)%5C,%5Ctext%7B%E3%81%A7%E3%81%AF%E5%B7%A6%E9%80%A3%E7%B6%9A%7D%5C%5C%0Af(0_+,-1)=f(0_-,+1)=%5Cfrac%7Bf(0_-,-1)+f(0_+,+1)%7D%7B2%7D%0A%5Cend%7Barray%7D%0A%5Cright%5C%7D.%0A"></p>
+</section>
+<section id="強生成作用素-a-の核" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="強生成作用素-a-の核"><span class="header-section-number">2</span> 強生成作用素 <img src="https://latex.codecogs.com/png.latex?A"> の核</h2>
+</section>
+<section id="収束の証明" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="収束の証明"><span class="header-section-number">3</span> 収束の証明</h2>
+<p><img src="https://latex.codecogs.com/png.latex?%5Cmathcal%7BD%7D(A)"> の核から，任意に <img src="https://latex.codecogs.com/png.latex?((-%5Cinfty,0_-)%5Ccup(0_+,%5Cinfty))%5Ctimes%5Cmathbb%7BR%7D"> 上 <img src="https://latex.codecogs.com/png.latex?C%5E1">-級でコンパクト台を持つ関数 <img src="https://latex.codecogs.com/png.latex?f"> を取る．</p>
+<p><img src="https://latex.codecogs.com/png.latex?f_%5Cepsilon%5Cin%5Cmathcal%7BD%7D(%5Cwidehat%7BA%7D_%5Cepsilon)"> を満たす関数 <img src="https://latex.codecogs.com/png.latex?f_%5Cepsilon"> であって， <img src="https://latex.codecogs.com/png.latex?%0Af_%5Cepsilon%5Cto%20f%5C;%5C;%5Ctext%7Ba.s.%7D%5Cqquad(%5Cepsilon%5Csearrow0)%0A"> が起こるものを構成したい．</p>
+<p>まず <img src="https://latex.codecogs.com/png.latex?f_%5Cepsilon%5Cin%5Cmathcal%7BD%7D(%5Cwidehat%7BA%7D_%5Cepsilon)"> であるためには， <img src="https://latex.codecogs.com/png.latex?%0Ax%5Cmapsto%20f_%5Cepsilon(x,+1),%5Cqquad%20x%5Cmapsto%20f_%5Cepsilon(x,-1)%0A"> がそれぞれ絶対連続であれば良い．</p>
+<section id="絶対連続緩和の構成" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="絶対連続緩和の構成"><span class="header-section-number">3.1</span> 絶対連続緩和の構成</h3>
+<p><img src="https://latex.codecogs.com/png.latex?f(-,%5Cpm1)"> を <img src="https://latex.codecogs.com/png.latex?(-%5Cepsilon,%5Cepsilon)"> 上でのみ変更し，<img src="https://latex.codecogs.com/png.latex?f(-%5Cepsilon,%5Cpm1),f(%5Cepsilon,%5Cpm1)"> を線型に補間したものを <img src="https://latex.codecogs.com/png.latex?f_%5Cepsilon"> とする： <img src="https://latex.codecogs.com/png.latex?%0Af_%5Cepsilon(x,v)=%5Cbegin%7Bcases%7D%0Af(x,v)&amp;x%5Cin(-%5Cinfty,-%5Cepsilon%5D%5Ccup%5B%5Cepsilon,%5Cinfty)%5C%5C%0Af(%5Cepsilon,v)+%5Cfrac%7Bf(%5Cepsilon,v)-f(-%5Cepsilon,v)%7D%7B2%5Cepsilon%7D(x-%5Cepsilon)&amp;x%5Cin(-%5Cepsilon,%5Cepsilon)%5C%5C%0A%5Cend%7Bcases%7D%0A"> <img src="https://latex.codecogs.com/png.latex?x%5Cmapsto%20f_%5Cepsilon(x,v)"> は <img src="https://latex.codecogs.com/png.latex?f(-,v)%5Cin%20C%5E1((-%5Cinfty,0_-)%5Ccup(0_+,%5Cinfty))"> より，２点を除いて微分可能であるため，絶対連続である．従って <img src="https://latex.codecogs.com/png.latex?f_%5Cepsilon%5Cin%5Cmathcal%7BD%7D(%5Cwidehat%7BA%7D_%5Cepsilon)"> である．</p>
+</section>
+<section id="絶対連続緩和の収束" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="絶対連続緩和の収束"><span class="header-section-number">3.2</span> 絶対連続緩和の収束</h3>
+<p>任意の <img src="https://latex.codecogs.com/png.latex?%5Cepsilon_0%3E0"> を取る．<img src="https://latex.codecogs.com/png.latex?(-%5Cdelta,%5Cdelta)"> を除けば，十分小さな <img src="https://latex.codecogs.com/png.latex?%5Cepsilon%3E0"> について <img src="https://latex.codecogs.com/png.latex?f_%5Cepsilon"> と <img src="https://latex.codecogs.com/png.latex?f"> は一致する．</p>
+<p>それ以外では <img src="https://latex.codecogs.com/png.latex?0"> を除いて各点収束するが， <img src="https://latex.codecogs.com/png.latex?%0Af_%5Cepsilon(0,v)%5Cxrightarrow%7B%5Cepsilon%5Cto0%7D%5Cfrac%7Bf(0_-,v)+f(0_+,v)%7D%7B2%7D%0A"> は <img src="https://latex.codecogs.com/png.latex?f(0_-,v)"> の値とは違う．</p>
+
+
+
+</section>
+</section>
+
+ ]]></description>
+  <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_convergence.html</guid>
-  <pubDate>Wed, 02 Apr 2025 09:09:17 GMT</pubDate>
+  <pubDate>Mon, 14 Apr 2025 10:30:10 GMT</pubDate>
 </item>
 <item>
   <title>脱出時刻の分析</title>
@@ -3397,7 +3492,7 @@ Lang, S. (1999). <em><a href="https://doi.org/10.1007/978-1-4757-3083-8">Complex
 </div></section></div> ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_exit.html</guid>
-  <pubDate>Wed, 02 Apr 2025 09:09:17 GMT</pubDate>
+  <pubDate>Mon, 14 Apr 2025 10:30:10 GMT</pubDate>
 </item>
 <item>
   <title>Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities</title>
@@ -3436,7 +3531,7 @@ Lang, S. (1999). <em><a href="https://doi.org/10.1007/978-1-4757-3083-8">Complex
  ]]></description>
   <category>ドラフト</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/spiky-density.html</guid>
-  <pubDate>Wed, 02 Apr 2025 09:09:17 GMT</pubDate>
+  <pubDate>Mon, 14 Apr 2025 10:30:10 GMT</pubDate>
 </item>
 </channel>
 </rss>

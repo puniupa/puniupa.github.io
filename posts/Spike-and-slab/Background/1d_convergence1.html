@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="ぷに Draft">
+<meta name="author" content="司馬博文">
 
-<title>うぱ・夏の韓国インターン１週間目 – ぷにうぱ</title>
+<title>背景 – ぷにうぱ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -74,15 +74,44 @@ ul.task-list li input[type="checkbox"] {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&amp;display=swap" rel="stylesheet">
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="../../../assets/styles.css">
-<meta property="og:title" content="うぱ・夏の韓国インターン１週間目 – ぷにうぱ">
-<meta property="og:description" content="食で見る初の韓国">
-<meta property="og:image" content="https://puniupa.github.io/posts/2024/Blog/assets/ぷにうぱ.jpg">
+<meta property="og:title" content="背景 – ぷにうぱ">
+<meta property="og:description" content="１次元での収束の証明">
+<meta property="og:image" content="https://puniupa.github.io/posts/Spike-and-slab/Background/assets/ぷにうぱ.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
-<meta name="twitter:title" content="うぱ・夏の韓国インターン１週間目 – ぷにうぱ">
-<meta name="twitter:description" content="食で見る初の韓国">
-<meta name="twitter:image" content="https://puniupa.github.io/posts/2024/Blog/assets/ぷにうぱ.jpg">
+<meta name="twitter:title" content="背景 – ぷにうぱ">
+<meta name="twitter:description" content="１次元での収束の証明">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/Spike-and-slab/Background/assets/ぷにうぱ.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -127,7 +156,7 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#日目土曜日" id="toc-日目土曜日" class="nav-link active" data-scroll-target="#日目土曜日"><span class="header-section-number">1</span> ８日目（土曜日）</a></li>
+  <li><a href="#第一案0-を避ける必要がある" id="toc-第一案0-を避ける必要がある" class="nav-link active" data-scroll-target="#第一案0-を避ける必要がある"><span class="header-section-number">1</span> 第一案：<span class="math inline">\(0\)</span> を避ける必要がある</a></li>
   </ul>
 </nav>
     </div>
@@ -136,10 +165,11 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">うぱ・夏の韓国インターン１週間目</h1>
-<p class="subtitle lead">食で見る初の韓国</p>
+<h1 class="title">背景</h1>
+<p class="subtitle lead">１次元での収束の証明</p>
   <div class="quarto-categories">
-    <div class="quarto-category">Blog</div>
+    <div class="quarto-category">ノート</div>
+    <div class="quarto-category">Background</div>
   </div>
   </div>
 
@@ -150,23 +180,11 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">著者</div>
     <div class="quarto-title-meta-contents">
-             <p>ぷに Draft </p>
+             <p>司馬博文 </p>
           </div>
   </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">日付</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">8/17/2024</p>
-    </div>
-  </div>
   
-    <div>
-    <div class="quarto-title-meta-heading">Modified</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date-modified">9/01/2024</p>
-    </div>
-  </div>
     
   </div>
   
@@ -175,8 +193,24 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<section id="日目土曜日" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="日目土曜日"><span class="header-section-number">1</span> ８日目（土曜日）</h2>
+<div class="hidden">
+<p>A Blog Entry on Bayesian Computation by an Applied Mathematician</p>
+<p>$$</p>
+<p>$$</p>
+</div>
+<section id="第一案0-を避ける必要がある" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="第一案0-を避ける必要がある"><span class="header-section-number">1</span> 第一案：<span class="math inline">\(0\)</span> を避ける必要がある</h2>
+<p><span class="math inline">\(f(-,\pm1)\)</span> を <span class="math inline">\((-\epsilon,\epsilon)\)</span> 上でのみ変更し，<span class="math inline">\(f(-\epsilon),f(\epsilon)\)</span> を線型に補間したものを <span class="math inline">\(f_\epsilon\)</span> とする： <span class="math display">\[
+f_\epsilon(x,v)=\begin{cases}
+f(x,v)&amp;x\in(-\infty,-\epsilon]\cup[\epsilon,\infty)\\
+f(\epsilon,v)+\frac{f(\epsilon,v)-f(-\epsilon,v)}{2\epsilon}(x-\epsilon)&amp;x\in(-\epsilon,\epsilon)\\
+\end{cases}
+\]</span> <span class="math inline">\(x\mapsto f_\epsilon(x,v)\)</span> は <span class="math inline">\(f(-,v)\in C^1((-\infty,0_-)\cup(0_+,\infty))\)</span> より，２点を除いて微分可能であるため，絶対連続である．</p>
+<p>ここまでは良いように見えたが，次の積分を評価するときに問題になる．<span class="math inline">\((-\delta,\delta)\)</span> を除けば，十分小さな <span class="math inline">\(\epsilon&gt;0\)</span> について <span class="math inline">\(f_\epsilon\)</span> と <span class="math inline">\(f\)</span> は一致するから <span class="math display">\[
+\operatorname{E}\biggl[\biggl|f_n(X_n(t))-f(X_n(t))\biggr|\biggr]=\operatorname{E}\biggl[1_{\left\{X_n(t)\in(-\delta,\delta)\right\}}\biggl|f_n(X_n(t))-f(X_n(t))\biggr|\biggr]
+\]</span> と変形できるが，<span class="math inline">\(\operatorname{P}[X_\epsilon(t)\in(-\delta,\delta)]\)</span> は <span class="math inline">\(\epsilon\to0\)</span> の極限で <span class="math inline">\(0\)</span> に収束しない．</p>
+<p>では修正して <span class="math inline">\(f\)</span> を <span class="math inline">\((0,\epsilon)\)</span> 上でのみ変更するとすれば，一様収束しない領域は <span class="math inline">\((-\delta,\delta)\)</span> と取れる．だがこれは問題が解決していない，有限の <span class="math inline">\(\epsilon&gt;0\)</span> 上では <span class="math inline">\(X_\epsilon(t)\)</span> はやはり絶対連続であり，端点 <span class="math inline">\(0\)</span> を含むかとか関係なく，<span class="math inline">\((0,\delta)\)</span> 上での積分はオーダー <span class="math inline">\(O(\epsilon)\)</span> である．</p>
+<p>これは実は，速度が重要な働きをしていて，最初の第一案の方が採用されるのである．</p>
 
 
 </section>
