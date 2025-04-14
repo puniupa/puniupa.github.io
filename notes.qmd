@@ -7,6 +7,8 @@ listing:
     sort: 
       - "date"
       - "title desc"
+    exclude: 
+      categories: [Background]
     type: default
     sort-ui: false
     filter-ui: false

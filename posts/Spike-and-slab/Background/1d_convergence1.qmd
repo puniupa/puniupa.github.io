@@ -1,0 +1,35 @@
+---
+title: "背景"
+subtitle: "１次元での収束の証明"
+categories: [ノート, Background]
+author: 司馬博文
+format:
+  html: default
+bibliography:
+  - ../../../assets/2024.bib
+  - ../../../assets/2025.bib
+csl: ../../../assets/apalike.csl
+---
+
+{{< include ../../../assets/_preamble.qmd >}}
+
+## 第一案：$0$ を避ける必要がある
+
+$f(-,\pm1)$ を $(-\ep,\ep)$ 上でのみ変更し，$f(-\ep),f(\ep)$ を線型に補間したものを $f_\ep$ とする：
+$$
+f_\ep(x,v)=\begin{cases}
+f(x,v)&x\in\ocinterval{-\infty,-\ep}\cup\cointerval{\ep,\infty}\\
+f(\ep,v)+\frac{f(\ep,v)-f(-\ep,v)}{2\ep}(x-\ep)&x\in(-\ep,\ep)\\
+\end{cases}
+$$
+$x\mapsto f_\ep(x,v)$ は $f(-,v)\in C^1((-\infty,0_-)\cup(0_+,\infty))$ より，２点を除いて微分可能であるため，絶対連続である．
+
+ここまでは良いように見えたが，次の積分を評価するときに問題になる．$(-\delta,\delta)$ を除けば，十分小さな $\ep>0$ について $f_\ep$ と $f$ は一致するから
+$$
+\E\SQuare{\ABs{f_n(X_n(t))-f(X_n(t))}}=\E\SQuare{1_{\Brace{X_n(t)\in(-\delta,\delta)}}\ABs{f_n(X_n(t))-f(X_n(t))}}
+$$
+と変形できるが，$\P[X_\ep(t)\in(-\delta,\delta)]$ は $\ep\to0$ の極限で $0$ に収束しない．
+
+では修正して $f$ を $(0,\ep)$ 上でのみ変更するとすれば，一様収束しない領域は $(-\delta,\delta)$ と取れる．だがこれは問題が解決していない，有限の $\ep>0$ 上では $X_\ep(t)$ はやはり絶対連続であり，端点 $0$ を含むかとか関係なく，$(0,\delta)$ 上での積分はオーダー $O(\ep)$ である．
+
+これは実は，速度が重要な働きをしていて，最初の第一案の方が採用されるのである．

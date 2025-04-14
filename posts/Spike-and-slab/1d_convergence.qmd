@@ -10,6 +10,17 @@ format:
   #     - ../../assets/before-title.tex
   #   keep-tex: true
   html: default
+listing: 
+    -   id: lst-spiky
+        type: grid
+        sort: false
+        contents:
+            - "spiky-density.qmd"
+            - "1d_generator.qmd"
+            - "1d_exit.qmd"
+        date-format: iso
+        grid-columns: 3
+        fields: [title,image,date,subtitle]
 bibliography:
   - ../../assets/2024.bib
   - ../../assets/2025.bib
@@ -18,612 +29,86 @@ csl: ../../assets/apalike.csl
 
 {{< include ../../assets/_preamble.qmd >}}
 
+::: {#lst-spiky}
+:::
 
+## 設定
 
+密度
 $$
 p_\ep(x)=(1-\gamma)p(x)+\frac{\gamma}{\ep}p\paren{\frac{x}{\ep}}
 $$
-を continuous spike-and-slab prior とする．
-
-## イベント時刻
-
-### 生存関数
-
-$(x,v)=(0,\pm1)$ から開始したサンプラーのイベント時刻 $T_\ep$ の生存関数は
+を対象にした Zig-Zag 過程 $(Z^\ep_t)_{t\in\N}$ は拡張生成作用素
 $$
-S_\ep(t)=\frac{p_\ep(t)}{p_\ep(0)}=\frac{1-\gamma}{1-\gamma+\gamma/\ep}\frac{p(t)}{p(0)}+\frac{\gamma}{\ep(1-\gamma)+\gamma}\frac{p\paren{\frac{t}{\ep}}}{p(0)}
+\wh{A}_\ep f(x,v)=(v|f'(x))+\lambda_n(x)\Paren{f(x,-v)-f(x,v)}
 $$
-で与えられる．次の収束に注意：
 $$
-S_\ep(t)\xrightarrow{\ep\to0}1_{\Brace{0}}(t),\qquad t\in\R_+.
+\lambda_n(x)=(v|-\partial_x\log p_\ep(x))_+
 $$
+をもち，核は $C^\infty_c(\R^2)$ に取れる．
 
-### 密度
-
-$T_\ep$ の密度 $f_\ep$ は
+一方で極限だと思われる Sticky Zig-Zag 過程 $(Z_t)_{t\in\N}$ は，拡張された状態空間
 $$
-f_\ep(t)=-S_\ep'(t)=\frac{1-\gamma}{1-\gamma+\gamma/\ep}\frac{p'(t)}{p(0)}+\frac{\gamma}{\ep(1-\gamma)+\gamma}\frac{1}{\ep}\frac{p'\paren{\frac{t}{\ep}}}{p(0)}
+\ov{E}:=\Paren{\ocinterval{-\infty,0-}\sqcup\cointerval{0+,\infty}}\times\R
 $$
-と表される．$p$ が Gauss である場合は，$\ep\to0$ の極限で $t=0$ において $\infty$ に発散し，$t>0$ において $0$ に収束する：
+上に存在するとした場合は，拡張生成作用素
 $$
-f_\ep(t)=-S_\ep'(t)=\frac{\frac{(1-\gamma)\ep^3t}{\sigma^2}e^{-\frac{t^2}{2\sigma^2}}+\frac{\gamma t}{\sigma^2}e^{-\frac{t^2}{2\sigma^2\ep^2}}}{(1-\gamma)\ep^3+\gamma\ep^2}.
-$$
-
-つまりイベント時刻 $T_\ep$ は全変動収束先は持たず，$T_\ep$ そのままを解析することは難しいようである．これは $\epsilon\to0$ の極限で「イベント」の概念（スケール）が変化するためである．
-
-::: {.callout-important appearance="simple" icon="false"}
-
-実は到着時刻 $\tau_\ep^a$ を見ると，$\ep,a$ どの極限でも全変動収束する．この $\tau_\ep^a$ に着目することが今回の解析の鍵となる．
-
-:::
-
-### $0$ への集積の速さ
-
-$\ep\to0$ の極限を取ると，$T_\ep$ は $0$ に集積していく．
-
-区間 $[0,\ep]$ で見ると，ある値 $\paren{1-\frac{p(1)}{p(0)}}\in(0,1)$ に収束する割合でイベントが起こる．
-
-$[0,\ep^p]\;(p>1)$ には確率１で入らず，$[0,\ep^p]\;(0<p<1)$ には確率１で入る．
-
-::: {.callout-tip appearance="simple" icon="false"}
-
-$$
-\P[T_\ep\le\ep^p]\xrightarrow{\ep\to0}\begin{cases}
-0,&1<p,\\
-1-\frac{p(1)}{p(0)},&p=1,\\
-1,&0<p<1.
+\wh{A}f(x,v)=
+\begin{cases}
+  (v|f'(x))+\lambda(x)\Paren{f(x,-v)-f(x,v)} & x\ne(0+,-1),(0-,+1)\\
+  \kappa\Paren{\frac{1}{2}f(0_+,+v)+\frac{1}{2}f(0_-,-v)-f(x,v)} & x=(0+,-1),(0-,+1)
 \end{cases}
 $$
-
-:::
-
-$p>1$ のときの収束の速さは $O(\ep^{(p-1)\land1})$ である．
-
-$p=1$ のときは $O(\ep)$，$0<p<1$ のときは $p(x)$ の $\abs{x}\to\infty$ での減衰の速さに依存する．
-
-::: {.callout-note title="証明" icon="false" collapse="true"}
-
-一般に
-$$
-\P[T_\ep\le\ep^p]=1-S_\ep(\ep^p)
-$$
-が成り立つ．
-\begin{align*}
-  S_\ep(\ep^p)&=\frac{p_\ep(\ep^p)}{p_\ep(0)}\\
-  &=\frac{1-\gamma}{1-\gamma+\gamma/\ep}\frac{p(\ep^p)}{p(0)}+\frac{\gamma}{\ep(1-\gamma)+\gamma}\frac{p(\ep^{p-1})}{p(0)}\\
-\end{align*}
-
-第一項は Taylor 展開により $O(\ep)$ と判る．第二項の最初の因子は
-$$
-\frac{\gamma}{\ep(1-\gamma)+\gamma}=1-\frac{1-\gamma}{\gamma}\ep+O(\ep^2)
-$$
-に注意すると，$p\ge1$ の場合が従う．
-
-:::
-
-### $\tau_\ep^a$ への着目
-
-$T_\ep$ は $\ep$ と同じスケールで $0$ に収束していくタイムスケールの事象であり，Sticky PDMP の振る舞いを見るには１段階遅いスケールを見る必要がある．
-
-これが $\tau_\ep^a$ である．この量は
-$$
-\P[\tau_\ep^a\le t]=
-\P[\tau_\ep^a\le t]-\P[\tau^a_0\le t]+\P[\tau^a_0\le t]-\P[\tau^0_0\le t]+\P[\tau_0^0\le t]-\P[\tau_0^0\le 0]
-$$
-と表示ができる．$\ep,t,a\to0$ の極限を考えたとき，最初の2項は
-$$
-\int^t_0\Paren{f^a_\ep(s)-f^a_0(s)}\,ds
-$$
-という表示を持つために，
-
-1. 第1項 $\P[\tau^a_\ep\le t]-\P[\tau^a_0\le t]$ は $O(\ep^p)O(t)$ のオーダーで収束する．
-2. 第2項 $\P[\tau^a_0\le t]-\P[\tau^0_0\le t]$ は $O(a^q)O(t)$ のオーダーで収束する．
-3. 第3項 $\P[\tau_0^0\le t]-\P[\tau_0^0\le 0]$ は $O(t)$ のオーダーで収束する @sec-fourth-term．
-
-と予想される．
-
-このために第3項が $a,\ep$ を（$t$ に比べて）どのスピードで $0$ に近づけようとも，同じオーダーで $0$ に収束するのである．
-
-$\tau_\ep^a$ で見た際，$\ep\to0$ 収束による $0$ への集積は起こらないために，上式の $\ep,t\to0$ での極限は安定したスピードを持つ．
-
-### $N_\ep$ への着目
-
-さらに $0$ への密度の集積を見るために，計数過程
-$$
-N_\ep(t):=\max\Brace{n\ge1\,\middle|\,\sum_{i=1}^{n-1}2T_\ep^{(i)}+T_\ep^{(n)}\le t}
-$$
-を考える @sec-1d-qualitative．
-
-$N_\ep(\ep)$ という確率変数は $\ep\to0$ の極限で安定した分布を持つ @sec-1d-convergence-regime．
-
-$\tau_\ep^a$ という粗視化をしない場合は $N_\ep$ の解析が必要になるだろう．
-
-## 遷移核
-
-### 初等的観察
-
-$P^t_\ep(0,-)$ は $S_\ep(t)\delta_t$ という非絶対連続部分と，$(-t,t)$ 上に重み $F_\ep(t)$ の絶対連続部分とを持つ．
-
-総じてコンパクト台を持つ：
-$$
-\supp P^t_\ep(0,-)\subset[-t,t].
-$$
-
-### 定性的議論 {#sec-1d-qualitative}
-
-$T_\ep^{(i)}$ を $\displaystyle S_\ep(t)=\frac{p_\ep(t)}{p_\ep(0)}$ からの i.i.d. 確率変数列とする．
-
-$N_\ep(t)$ を $0$ からスタートした場合の時刻 $t$ でのイベント発生回数とする：
-$$
-N_\ep(t):=\max\Brace{n\ge1\,\middle|\,\sum_{i=1}^{n-1}2T_\ep^{(i)}+T_\ep^{(n)}\le t}.
-$$
-
-::: {.callout-tip icon="false" title="$t$ 時間後に $x\in(-t,t)$ に居る場合"}
-
-$N_\ep(t)=0$ の事象では $x\ne t$ には到達できないことに注意．
-
-1. $N_\ep(t)=1$ で，$\displaystyle T_\ep^{(1)}=\frac{t+x}{2}$ にて折り返した場合．
-2. $N_\ep(t)=2$ で，次を満たす時刻 $T_\ep^{(1)},2T_\ep^{(1)}+T_\ep^{(2)}$ で折り返した場合：
-  $$
-  T_\ep^{(1)}+T_\ep^{(2)}=\frac{t-x}{2}.
-  $$
-1. $N_\ep(t)=3$ で，次を満たす時刻 $T_\ep^{(1)},2T_\ep^{(1)}+T_\ep^{(2)},2T_\ep^{(1)}+2T_\ep^{(2)}+T_\ep^{(3)}$ で折り返した場合：
-  $$
-  T_\ep^{(1)}+T_\ep^{(2)}+T_\ep^{(3)}=\frac{t+x}{2}.
-  $$
-
-これらの事象は互いに排反である．
-
-:::
-
-以上を式にすると，$P^t_\ep$ の $(-t,t)$ 上の密度 $p_\ep^t$ は，
-\begin{align*}
-  p^t_\ep(x)&\propt \P[N_\ep(t)=1]f_\ep\paren{\frac{t+x}{2}}+\P[N_\ep(t)=2]f^{*2}_\ep\paren{\frac{t-x}{2}}\\
-  &\qquad +\P[N_\ep(t)=3]f^{*3}_\ep\paren{\frac{t+x}{2}}+\cdots,\qquad x\in(-t,t),
-\end{align*}
-と表せる．あとは規格化条件 $\displaystyle\int^t_{-t}p^t_\ep(x)\,dx=F_\ep(t)$ を満たせば良い．
-
-### 定量的議論
-
-\begin{align*}
-  P^t_\ep(0,dx)&=S_\ep(t)\delta_t(dx)+\P[N_\ep(t)=1]\frac{1}{2}f_\ep\paren{\frac{t+x}{2}}\,dx\\
-  &\qquad+\P[N_\ep(t)=2]\frac{1}{2}f^{*2}_\ep\paren{\frac{t-x}{2}}\,dx\\
-  &\qquad+\P[N_\ep(t)=3]\frac{1}{2}f^{*3}_\ep\paren{\frac{t+x}{2}}\,dx\\
-  &\qquad+\qquad\cdots\qquad\qquad x\in[-t,t].
-\end{align*}
-
-ということがわかる．
-
-$N_\ep(t)=n\ge1$ のときのサンプラーの位置 $X_\ep(t)$ の分布は $\frac{1}{2}f_\ep^{*n}\paren{\frac{t-(-1)^nx}{2}}\,dx$ になるのである．
-
-$f_\ep\paren{\frac{t+x}{2}}/2$ は $2T_\ep^{(1)}-t$ の密度，$f_\ep^{*2}\paren{\frac{t-x}{2}}/2$ は $t-2T_\ep^{(1)}-2T_\ep^{(2)}$ の密度の反転であることに注意．
-
-### 作用
-
-\begin{align*}
-  P^t_\ep\varphi(0)&=\int^t_{-t}P^t_\ep(0,dx)\varphi(x)\\
-  &=S_\ep(t)\int^t_{-t}\varphi(x)\delta_t(dx)+\P[N_\ep(t)=1]\int^t_{-t}\varphi(x)\frac{1}{2}f_\ep\paren{\frac{t+x}{2}}\,dx\\
-  &\qquad+\P[N_\ep(t)=2]\int^t_{-t}\varphi(x)\frac{1}{2}f^{*2}_\ep\paren{\frac{t-x}{2}}\,dx\\
-  &\qquad+\P[N_\ep(t)=3]\int^t_{-t}\varphi(x)\frac{1}{2}f^{*3}_\ep\paren{\frac{t+x}{2}}\,dx\\
-  &\qquad+\qquad\cdots\\
-  &=S_\ep(t)\varphi(t)+\P[N_\ep(t)=1]\E[\varphi(2T_\ep^{(1)}-t)]\\
-  &\qquad-\P[N_\ep(t)=2]\E[\varphi(t-2T_\ep^{(1)}-2T_\ep^{(2)})]\\
-  &\qquad+\P[N_\ep(t)=3]\E[\varphi(2T_\ep^{(1)}+2T_\ep^{(2)}+2T_\ep^{(3)}-t)]\\
-  &\qquad-\qquad\cdots
-\end{align*}
-
-$\varphi\in C^1_0(\R)$ の場合のみを考えれば良い [Prop. 23 @Durmus+2021 p.1469]．
-
-$N_\ep(t)$ が奇数のときは $V_\ep(t)=-1$，$0$ や偶数のときは $V_\ep(t)=1$ であることに注意．
-
-$S_\ep(\ep)\xrightarrow{\ep\to0}e^{-\frac{1}{2\sigma^2}}$ に注意．一方で $S_\ep(\sqrt{\ep})\xrightarrow{\ep\to0}0$．
-
-今後の展望としては，
-\begin{align*}
-  \frac{P^t_\ep\varphi(0)-\varphi(0)}{t}&=S_\ep(t)\frac{\varphi(t)-\varphi(0)}{t}\\
-  &\qquad+\P[N_\ep(t)=1]\frac{\E[\varphi(2T_\ep^{(1)}-t)]-\varphi(0)}{t}\\
-  &\qquad-\P[N_\ep(t)=2]\frac{\E[\varphi(t-2T_\ep^{(1)}-2T_\ep^{(2)})]-\varphi(0)}{t}\\
-  &\qquad+\P[N_\ep(t)=3]\frac{\E[\varphi(2T_\ep^{(1)}+2T_\ep^{(2)}+2T_\ep^{(3)}-t)]-\varphi(0)}{t}\\
-  &\qquad-\qquad\cdots
-\end{align*}
-という量の，$t\to0,\ep\to0$ の極限を考えることになる．
-
-### 生成作用素の初等的考察
-
-$$
-L_\ep\varphi(0)=\lim_{t\to0}\frac{P^t_\ep\varphi(0)-\varphi(0)}{t}
-$$
-という極限を考えると，$p_\ep(t)$ をターゲットとした１次元の Zig-Zag 過程の生成作用素：
-$$
-L_\ep\varphi(0,1)=\varphi'(x)+0\cdot\Paren{\varphi(0,-1)-\varphi(0,1)}
-$$
-を得るはずである．これは $\P[N_\ep(t)\ge1]\xrightarrow{t\to0}0$ かつ $S_\ep(t)\xrightarrow{t\to0}1$ であるから確かに確認できる．
-
-問題は $\ep\to0$ にもっていった場合である．この場合は極限過程の遷移作用素 $P_0^t$ の形が見えるはずであるが，上の表示はこの極限の分析には向かないことがわかる．
-
-まず，任意の $t>0$ に対して $S_\ep(t)\xrightarrow{\ep\to0}0$ になる．ドリフト項は消えてなくなる．これは良いだろうが，続いて
-$$
-\P[N_\ep(t)\ge1]=F_\ep(t)\xrightarrow{\ep\to0}1,
-$$
-$$
-\P[N_\ep(t)\ge2]=\int^t_0F_\ep\paren{\frac{t-t_1}{2}}f_\ep(t_1)\,dt_1\xrightarrow{\ep\to0}1
-$$
-となる．２式目は正当化が難しい．すなわち $N_\ep(t)$ の mass は無限遠に向かって逃げていく．実際，分数の項もドリフト項が出てくるが，これが消えてなくなることになる：
-$$
-\frac{\E[\varphi(2T_\ep^{(1)}-t)]-\varphi(0)}{t}\xrightarrow{\ep\to0}\frac{\varphi(-t)-\varphi(0)}{t}\xrightarrow{t\to0}-\varphi'(0).
-$$
-これは $\varphi\in C_0^1(\R)\subset C_b(\R)$ であることと $T_\ep^{(1)}\Rightarrow0$ が分布収束することを用いた．
-
-したがって，$\ep\to0$ を取ってから $t\to0$ を取るためには，$\P[N_\ep(t)\ge n]$ の係数を見る必要がある．
-
-（Zig-Zag 過程としての）遷移核 $P_\ep^t$ の形さえよくわかっていない中で，$P_0^t$ の形を考えることは難しいと思われる．$\delta_0$ 成分を持ちながらも，Zig-Zag 過程としての遷移核の成分も持つはずであるためである．
-
-そこで，$t,\ep$ を同時に $0$ に向かわせる極限を取り，$L_0\varphi(0)$ の形の特定を狙う．
-
-### 時間内に起こるイベント計数過程 $N_\ep$
-
-そこで $N_\ep(t)=n$ という事象の確率の評価が必要になるが，これが難しい．
-
-$N_\ep(t)=1$ という場合は次のように初等的に計算できる：
-\begin{align*}
-  \P[N_\ep(t)=1]&=\P[T_\ep^{(1)}\le t/2,T_\ep^{(2)}>t-2T_\ep^{(1)}]+\P[t/2<T_\ep^{(1)}\le t]\\
-  &=\int^{t/2}_0f_\ep(t_1)\Paren{1-F_\ep(t-2t_1)}\,dt_1+\Paren{F_\ep(t)-F_\ep(t/2)}\\
-  &=F_\ep(t)-\int^{t/2}_0f_\ep(t_1)F_\ep(t-2t_1)\,dt_1
-\end{align*}
-
-この結果は
-$$
-\P[N_\ep(t)\ge1]=\P[T_\ep^{(1)}\le t]=F_\ep(t)
-$$
-\begin{align*}
-  \P[N_\ep(t)\ge2]&=\P[2T_\ep^{(1)}+T_\ep^{(2)}\le t]\\
-  &=\int^t_0\paren{\int^t_{-t}f_\ep(x-y)\frac{1}{2}f_\ep\paren{\frac{y}{2}}\,dy}dx\\
-  &=\int^t_{-t}\paren{\int^t_0f_\ep(x-y)\,dx}\frac{1}{2}f_\ep\paren{\frac{y}{2}}\,dy\\
-  &=\int^t_{-t}\Paren{F_\ep(t-y)-F_\ep(-y)}\frac{1}{2}f_\ep\paren{\frac{y}{2}}\,dy\\
-  &=\int^{t/2}_{-t/2}\Paren{F_\ep(t-2z)+F_\ep(-2z)}f_\ep(z)\,dz\\
-  &=\int^{t/2}_0F_\ep(t-2z)f_\ep(z)\,dz+\underbrace{\int^{t/2}_{-t/2}F_\ep(-2z)f_\ep(z)\,dz}_{=0}\\
-  &=\int^{t/2}_0f_\ep(t_1)F_\ep(t-2t_1)\,dt_1
-\end{align*}
-という観点から
-$$
-\P[N_\ep(t)=1]=\P[N_\ep(t)\ge1]-\P[N_\ep(t)\ge2]
-$$
-の式であると解釈でき，こちらの公式は一般の $n$ に簡単に拡張できる．ただし，こちらの計算では，$f_\ep$ の台が $\cointerval{0,\infty}$ にしかないことに注意する．
-
-また，部分積分により，次の表示も持つ：
-\begin{align*}
-  \P[N_\ep(t)\ge2]&=\int^t_0F_\ep\paren{\frac{t-t_1}{2}}f_\ep(t_1)\,dt_1\\
-  &=\SQuare{F_\ep\paren{\frac{t-t_1}{2}}F_\ep(t_1)}^{t}_0+\frac{1}{2}\int^t_0f_\ep\paren{\frac{t-t_1}{2}}F_\ep(t_1)\,dt_1\\
-  &=\int^{t/2}_0f_\ep(t_1)F_\ep(t-2t_1)\,dt_1.
-\end{align*}
-
-$2\sum_{i=1}^{n-1}T_\ep^{(i)}$ の密度は $\frac{1}{2}f_\ep^{*(n-1)}\paren{\frac{-}{2}}$ と表せる．よって，
-\begin{align*}
-  \P[N_\ep(t)\ge n]&=\int^t_0\int^t_0\frac{1}{2}f_\ep^{*(n-1)}\paren{\frac{x-t_1}{2}}f_\ep(t_1)\,dt_1dx\\
-  &=\int^t_0\paren{\int^t_0\frac{1}{2}f_\ep^{*(n-1)}\paren{\frac{x-t_1}{2}}\,dx}f_\ep(t_1)\,dt_1\\
-  &=\int^t_0\Paren{F_\ep^{*(n-1)}\paren{\frac{t-t_1}{2}}-F_\ep^{*(n-1)}\Paren{-\frac{t_1}{2}}}f_\ep(t_1)\,dt_1\\
-  &=\int^t_0F_\ep^{*(n-1)}\paren{\frac{t-t_1}{2}}f_\ep(t_1)\,dt_1.
-\end{align*}
-と表せる．
-
-### どの収束レジーム？ {#sec-1d-convergence-regime}
-
-\begin{align*}
-  \frac{P^t_\ep\varphi(0)-\varphi(0)}{t}&=S_\ep(t)\frac{\varphi(t)-\varphi(0)}{t}\\
-  &\qquad+\P[N_\ep(t)=1]\frac{\E[\varphi(2T_\ep^{(1)}-t)]-\varphi(0)}{t}\\
-  &\qquad-\P[N_\ep(t)=2]\frac{\E[\varphi(t-2T_\ep^{(1)}-2T_\ep^{(2)})]-\varphi(0)}{t}\\
-  &\qquad+\P[N_\ep(t)=3]\frac{\E[\varphi(2T_\ep^{(1)}+2T_\ep^{(2)}+2T_\ep^{(3)}-t)]-\varphi(0)}{t}\\
-  &\qquad-\qquad\cdots
-\end{align*}
-
-という式において，
-\begin{align*}
-  \P[N_\ep(\sqrt{\ep})\ge2]&=\int^{\sqrt{\ep}}_0F_\ep\paren{\frac{\sqrt{\ep}-t_1}{2}}f_\ep(t_1)\,dt_1\\
-  &=F_\ep(\sqrt{\ep})-F_\ep(0)-\int^1_0S_\ep\paren{\frac{\sqrt{\ep}}{2}(1-s)}f_\ep(\sqrt{\ep}s)\sqrt{\ep}\,ds\\
-  &=F_\ep(\sqrt{\ep})-\int^1_0\frac{(1-\gamma)\ep e^{-\frac{(1-s)^2}{2\sigma^2}\frac{\ep}{4}}+\gamma e^{-\frac{(1-s)^2}{2\sigma^2}\frac{1}{4\ep}}}{(1-\gamma)\ep+\gamma}\\
-  &\qquad\qquad\times\frac{\frac{(1-\gamma)\ep^3s}{2\sigma^2}e^{-\frac{s^2}{2\sigma^2}\ep}+\frac{\gamma s}{\sigma^2}e^{-\frac{s^2}{2\sigma^2}\frac{1}{\ep}}}{(1-\gamma)\ep^2+\gamma\ep}\,ds\\
-  &\xrightarrow{\ep\to0}1.
-\end{align*}
-
-だと mass が逃げる．
-
-一方で，次の場合は有限値を持つ：
-\begin{align*}
-  \P[N_\ep(\ep)\ge2]&=\int^\ep_0F_\ep\paren{\frac{\ep-t_1}{2}}f_\ep(t_1)\,dt_1\\
-  &=F_\ep(\ep)-\int^1_0S_\ep\paren{\frac{\ep}{2}(1-s)}f_\ep(\ep s)\ep\,ds\\
-  &=F_\ep(\ep)-\int^1_0\frac{(1-\gamma)\ep e^{-\frac{(1-s)^2}{2\sigma^2}\frac{\ep}{4}}+\gamma e^{-\frac{(1-s)^2}{2\sigma^2}\frac{1}{4}}}{(1-\gamma)\ep+\gamma}\\
-  &\qquad\qquad\times\frac{\frac{(1-\gamma)\ep^3s}{\sigma^2}e^{-\frac{s^2}{2\sigma^2}\ep^2}+\frac{\gamma s}{\sigma^2}e^{-\frac{s^2}{2\sigma^2}}}{(1-\gamma)\ep+\gamma}\,ds\\
-  &\xrightarrow{\ep\to0}1-e^{-\frac{1}{2\sigma^2}}-\int^1_0e^{-\frac{(1-s)^2}{2\sigma^2}\frac{1}{4}}\frac{s}{\sigma^2}e^{-\frac{s^2}{2\sigma^2}}\,ds
-\end{align*}
-
-最後の積分を計算すると $e^{-\frac{1}{10\sigma^2}}\frac{2}{5\sigma}\sqrt{\frac{2\pi}{5}}$ となるはずである．
-
-### 分布収束先
-
-$P^t_\ep\varphi(0)$ の $\ep\to0$ での極限を見たい場合，$T_\ep^{(1)}$ やその独立和の，$\ep\to0$ での分布収束極限を考える必要がある．
-
-まず $t=\ep$ とした場合，
-\begin{align*}
-  \frac{\E[\varphi(2T_\ep^{(1)}-\ep)]-\varphi(0)}{\ep}&=\int_0^\infty\frac{\varphi(2s-\ep)-\varphi(0)}{\ep}f_\ep(s)\,ds\\
-  &=
-\end{align*}
-は $0$ になるようである．
-
-サンプラーの最初のイベント時刻の平均は
-$$
-\E[T_\ep]=\frac{1}{2p_\ep(0)}=\frac{1}{2}\frac{\sqrt{2\pi\sigma^2}}{1-\gamma+\gamma/\ep}
-$$
-である．
-
-## 生成作用素
-
-### はじめに：定義に戻る
-
-今回は生成作用素 $L_\ep\varphi(0)$ を見ても $0$ しか出ない．どこかから新しい動きが創発される．これを見るには，時間と空間のスケールを同一にした極限
 $$
-L_0\varphi(0,1)=\lim_{t,\ep\to0}\frac{P_\ep^t \varphi(0,1)-\varphi(0,1)}{t}
+\lambda(x)=(v|-\partial_x\log p(x))_+,\qquad\kappa^{-1}:=\frac{\gamma}{1-\gamma}\sqrt{2\pi\sigma^2}
 $$
-を見る必要がある．これは，上式で登場した $0$ に新しい点 $0_+$ を加えて，
+をもつ．定義域は
 $$
-L_0\varphi(0,1)=\kappa\paren{\frac{1}{2}\varphi(0_+,1)+\frac{1}{2}\varphi(0,-1)-\varphi(0,1)}
+\cD(\wh{A})=\Brace{f:\ov{E}\to\R\,\middle|\,
+\begin{array}{l}
+\{0_{\pm}\}\times\R\,\text{上を除いて絶対連続}\\
+\{0_+\}\times(-\infty,0)\,\text{では右連続}\\
+\{0_-\}\times(0,\infty)\,\text{では左連続}\\
+f(0_+,-1)=f(0_-,+1)=\frac{f(0_-,-1)+f(0_+,+1)}{2}
+\end{array}
+}.
 $$
-となるはずである．
 
-::: {.callout-important appearance="simple" icon="false" title="原点の複製"}
+## 強生成作用素 $A$ の核
 
-すなわち，状態空間の原点を $0_-,0_+,0$ の３つの分ける必要がある．これは $\tau_\ep^a$ などの量で，$a=0$ の状態で取った極限と $a\ne0$ で $\ep\to0$ の極限を取り，その後に $a\to0$ と取った場合とで収束先が違うことに起因する．
+## 収束の証明
 
-Sticky PDMP は $(0_-,1),(0_+,-1)$ での挙動を決定論的なジャンプに取ることで，追加の状態 $0$ を不必要にした場合に当たる．
+$\cD(A)$ の核から，任意に $((-\infty,0_-)\cup(0_+,\infty))\times\R$ 上 $C^1$-級でコンパクト台を持つ関数 $f$ を取る．
 
-:::
-
-### 停止時による分解
-
-$P^t_\ep$ の表示はわからないと言って良いが，収束先は停止時による分解を通じて判明する．
-
-具体的には，$\tau_\ep^{a+},\tau_\ep^{a-}$ をそれぞれ上側 $x=a>0$ と下側 $x=-a$ の脱出時刻とすると，$0<a<t$ のとき，
-
-\begin{align*}
-  P^{t}_\ep((0,1),dx)&=\P[\tau_\ep^{a+}\le\tau_\ep^{a-},\tau_\ep^a\le t]\mu_{a+}(dx)\\
-  &\quad+\P[\tau_\ep^{a-}\le\tau_\ep^{a+},\tau_\ep^a\le t]\mu_{a-}(dx)+\P[\tau^a_\ep>t]\mu_a(dx),
-\end{align*}
-$$
-\mu_{t\pm}:=\L[X_\ep(t)\mi\tau^{t\pm}_\ep\le t],\quad\mu_t:=\L[X_\ep(t)\mi\tau^t_\ep>t],
-$$
-
-と分解できる．これを用いると，
-
-\begin{align*}
-  &\qquad\frac{P^{t}_\ep\varphi(0,1)-\varphi(0,1)}{t}\\
-  &=\frac{\E_{(0,1)}[\varphi(X_\ep(t),V_\ep(t))]-\varphi(0,1)}{t}\\
-  &=\E_{(0,1)}\Square{\varphi(X_\ep(t),V_\ep(t))\frac{1_{\Brace{\tau_\ep^{a}\le t}}1_{\Brace{\tau_\ep^{a+}\le\tau_\ep^{a-}}}}{t}}+\E_{(0,1)}\Square{\varphi(X_\ep(t),V_\ep(t))\frac{1_{\Brace{\tau_\ep^{a}\le t}}1_{\Brace{\tau_\ep^{a-}\le\tau_\ep^{a+}}}}{t}}\\
-  &\qquad+\E_{(0,1)}\Square{\frac{\varphi(X_\ep(t),V_\ep(t))-\varphi(0,1)}{t}1_{\Brace{\tau_\ep^a>t}}}-\varphi(0,1)\E_{(0,1)}\Square{\frac{1_{\Brace{\tau_\ep^a\le t}}}{t}}
-\end{align*}
-
-なお，$\frac{t}{2}<a$ のときは $[0,t]$ 以内に $a$ と $-a$ の両方に到達することはないため，
-$$
-\Brace{\tau_\ep^{a+}\le t}=\Brace{\tau_\ep^{a+}\le t}\cap\Brace{\tau_\ep^{a-}>t}=\Brace{\tau_\ep^{a+}\le\tau_{\ep}^{a-}}\cap\Brace{\tau_\ep^a\le t}
-$$
-が成り立つ．
-
-第四項 [@sec-fourth-term]，第一二項 [@sec-first-term]，第三項 [@sec-third-term] の順に考える．
-
-::: {.callout-important collapse="true" icon="false" title="直感"}
-
-* 第四項は，$\ep,a\to0$ の近づけ方に依らず，$-\kappa^{-1}\varphi(0,1)$ に収束する．
-* 第一二項は，$\ep,a$ の $0$ への近づけ方に依らず，そもそも $\pm a$ に到達するという確率が $O(t)$ で小さくなっていくため，その成分だけが $\kappa^{-1}\varphi(0_+,1),\kappa^{-1}\varphi(0,-1)$ として残る．
-* 第三項では，$\ep\to0$ の近づけ方に応じて，$a\to0$ を適切に速く取ることが必要になる．
-
-:::
-
-### 第四項 $\E_{(0,1)}\Square{1_{\Brace{\tau_\ep^a\le t}}}/t$ {#sec-fourth-term}
-
-$\tau^a_\ep\xrightarrow{\ep\to0}\tau_0^a\xrightarrow{a\to0}\tau_0^0$ は弱収束するから，
-$$
-\frac{\P[\tau_\ep^a\le t]}{t}\xrightarrow{\ep\to0}\frac{\P[\tau_0^a\le t]}{t}
-$$
-は分布関数の連続点における収束から従う．続いて，
-\begin{align*}
-  \frac{\P[\tau_0^a\le t]}{t}&=\frac{\P[\tau_0^a\le t]-\P[\tau_0^0\le t]}{t}+\frac{\P[\tau_0^0\le t]-\P[\tau_0^0\le0]}{t}
-\end{align*}
-という分解を考えると，$\tau^a_0$ の密度を $f_a$ とすれば，$t\to0$ の極限で第二項は $f_0(0)=\kappa^{-1}$ に収束する．
-
-しかし第一項の $0$ への収束には問題がある．
-
-::: {.callout-important icon="false" title="第一項の収束には密度の概収束が必要"}
-
-第一項の収束は弱収束 $\tau^{a}_0\Rightarrow\tau^0_0$ のみからは従わない．密度が局所一様収束することが示せたならば，
-$$
-\frac{1}{t}\int^t_0\Paren{f_a(s)-f_0(s)}\,ds\xrightarrow{a,t\to0}0
-$$
-が従う．
-
-:::
-
-::: {.callout-note title="例" icon="false" collapse="true"}
-
-$[0,1]$ 上の密度関数
-$$
-f_n(x):=1+\sin(2\pi nx)
-$$
-は $n\to\infty$ の極限で，一様分布の密度 $f(x)=1$ に弱収束するが，密度関数自体は概収束どころか測度収束もしない．
-
-その結果，
-$$
-F_n(t)=\int^t_0f_n(s)\,ds=t+\frac{1-\cos(2\pi nt)}{2\pi n}
-$$
-という分布関数に対して，
-$$
-\frac{F_n(t)-F(t)}{t}=\frac{1-\cos(2\pi nt)}{2\pi nt}\xrightarrow{n\to\infty}\infty
-$$
-となり収束しない．
-
-:::
-
-今回は積分区間が小さくなっていくと同時に $t$ によってスケーリングされるために，密度の概収束と Egorov の定理では不十分であり，局所一様収束が必要になる．
-
-::: {.callout-note title="deprecated" icon="false" collapse="true"}
-
-任意の $\ep>0$ について，Egorov の定理より，
-$$
-\ell(A)<\frac{\ep}{2}\frac{1}{\norm{f_t}_{[0,2t]}+\norm{f_0}_{[0,2t]}}
-$$
-を満たす可測集合 $A\subset[0,2t]$ が存在して，$[0,2t]\setminus A$ 上で $f_t\to f$ が一様収束する．例えば，
-$$
-\norm{f_t-f}_{[0,2t]\setminus A}<\frac{\ep}{2},\qquad t>t_\ep.
-$$
-
-以上の設定の下では，
-\begin{align*}
-  \Abs{\frac{1}{2t}\int^{2t}_0\Paren{f_t(s)-f_0(s)}\,ds}&\le\frac{1}{2t}\int_{[0,2t]\setminus A}\abs{f_t(s)-f_0(s)}\,ds+\ell(A)\Paren{\norm{f_t}_{[0,2t]}+\norm{f_0}_{[0,2t]}}\\
-  &\le\frac{\ep}{2}+\frac{\ep}{2}=\ep.
-\end{align*}
-
-:::
-
-あるいは，仮に $\partial_af$ が存在して局所有界であるならば，$a$ を $t$ 以上急速に，例えば $a=t^p\;(p\ge1)$ と取ることで収束させることができる．
-
-::: {.callout-note title="証明" icon="false" collapse="true"}
-
-仮に $\partial_a^2 f$ も存在して局所有界であるならば，
-$$
-\frac{1}{t}\int^t_0\Paren{f_a(s)-f_0(s)}\,ds=\frac{1}{t}\int^t_0\Paren{\norm{\partial_af_a(s)}_{[0,t]}a+O(a^2)}\,ds
-$$
-の変形により収束を示せる．
-
-そうでなくとも，
-$$
-\frac{1}{t}\int^t_0\Paren{f_a(s)-f_0(s)}\,ds\le\int_{A\cap[0,t]}\frac{f_a(s)-f_0(s)}{t}\,ds+\frac{1}{t}\int_0^t\frac{\ep}{2}\,ds
-$$
-と見ることができる．
-
-:::
-
-### 第一項（上から脱出した場合）の解析 {#sec-first-term}
-
-この解析を上手く活かせる秘訣は，
-$$
-\Delta X_\ep:=\Paren{X_\ep(2t)-X_\ep(\tau_\ep^t)}1_{\Brace{\tau_\ep^t\le2t}},
-$$
-$$
-\Delta V_\ep:=\Paren{V_\ep(2t)-V_\ep(\tau_\ep^t)}1_{\Brace{\tau_\ep^t\le2t}},
-$$
-と定めた場合，$\Delta X_\ep$ は $\ep\to0$ の極限での収束先 $\Delta X_0$ を持つということである．
-
-特に証明では積率の収束
-$$
-\E_{(0,1)}[\abs{\Delta X_\ep}]\xrightarrow{\ep\to0}\E_{(0,1)}[\abs{\Delta X_0}]
-$$
-$$
-\E_{(0,1)}[\abs{\Delta X_\ep}\abs{\Delta V_\ep}]\xrightarrow{\ep\to0}\E_{(0,1)}[\abs{\Delta X_0}\abs{\Delta V_0}]
-$$
-を用いる．
-
-::: {.callout-note title="deprecated" icon="false" collapse="true"}
-
-$\Brace{\tau_\ep^t\le2t}$ 上では，時刻 $2t$ までに再び原点を越すことはない．従って，イベントが起こる回数は高々１回である：
-$$
-\Paren{N_\ep(2t)-N_\ep(\tau^t_\ep)}1_{\Brace{\tau_\ep^t\le2t}}\le1.
-$$
-
-到着時刻 $\tau_\ep^{t+}$ で条件づけた上では，イベントが１度も起こらない確率は
-$$
-\frac{S_\ep(3t-\tau_\ep^{t+})}{S_\ep(t)}
-$$
-で表せる．この値の，事象 $\Brace{\tau_\ep^t\le2t}$ 上での条件付き平均は
-\begin{align*}
-  \E[N_\ep(2t)-N_\ep(\tau_\ep^{t+})\mi\tau_\ep^{t+}\le2t]&=\frac{\E\SQuare{\Paren{N_\ep(2t)-N_\ep(\tau_\ep^{t+})}1_{\Brace{\tau_\ep^{t+}\le2t}}}}{\P[\tau_\ep^{t+}\le2t]}=:\Delta N_\ep^{t+}\\
-  &\xrightarrow{\ep\to0}\frac{\E\SQuare{\Paren{N_0(2t)-N_0(\tau_0^{t+})}1_{\Brace{\tau_0^{t+}\le2t}}}}{\P[\tau_0^{t+}\le2t]}\\
-  &=\frac{\E\Square{\frac{S_0(3t-\tau_0^{t+})}{S_0(t)}1_{\Brace{\tau_0^{t+}\le2t}}}}{\P[\tau_0^{t+}\le2t]}\\
-  &=\qquad\cdots
-\end{align*}
-となりうまく計算できない．
-
-過程 $X_\ep,V_\ep$ の $\ep\to0$ の極限を取る際は注意すべきである．過程 $\{(X_\ep(t),V_\ep(t))\}_{t=0}^\infty$ が全体として収束先を持つかは現時点では不明であるが，$\tau_\ep^{t+}$ は収束先を持ち，過程 $(N_\ep(s))_{s=\tau_\ep^{t+}}^{2t}$ も原点を通過しないので収束先 $(N_0(s))_{s=\tau_0^{t+}}^{2t}$ は存在するはずである．
-
-第１項は
-\begin{align*}
-  &\qquad\E_{(0,1)}\Square{\varphi(X_\ep(2t),V_\ep(2t))\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}\\
-  &=\E_{(0,1)}\Square{\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}\E_{(0,1)}\Square{\varphi(X_\ep(2t),V_\ep(2t))\mi\F_{\tau_\ep^{t+}}}}\\
-  &=\E_{(0,1)}\Square{\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}\E_{(t,1)}\SQuare{\varphi\Paren{X_\ep(2t-\tau_\ep^{t+}),V_\ep(2t-\tau_\ep^{t+})}}}
-\end{align*}
-
-本当は $\Brace{\tau_\ep^{t+}\le2t}$ を $\Brace{\tau_\ep^{t+}<\tau_\ep^{t-},\tau_\ep^t\le2t}$ と分解したいところだが，直接留数計算により
-$$
-\frac{\P[\tau_\ep^{t+}\le2t]}{2t}\xrightarrow{\ep\to0}(f^+_0)'(0)=\frac{2}{\kappa}
-$$
-を出すこともできるだろう．
-
-:::
-
-$\varphi\in C^1_c(\R)$ のとき，Taylor 展開に基づいて，事象 $\Brace{\tau_\ep^{t+}\le2t}$ 上では
-$$
-\varphi(X_\ep(2t),V_\ep(2t))=\varphi(t,1)+\pp{\varphi}{x}(t,1)\Delta X_\ep+\pp{\varphi}{v}(t,1)\Delta V_\ep+\frac{1}{2}\pp{^2\varphi}{x\partial v}(c_1(\om),c_2(\om))\Delta X_\ep\Delta V_\ep+\cdots
-$$
-とできる．$c_1,c_2:\Om\to\R$ の可測性が不明である点に注意．しかし，$\varphi$ は２次の導関数まで有界であるために，任意の $\ep,t>0$ について次の評価が成り立つ：
-$$
-\Abs{\varphi(X_\ep(2t),V_\ep(2t))-\varphi(t,1)}\le\pp{\varphi}{x}(t,1)\Delta X_\ep+\pp{\varphi}{v}(t,1)\Delta V_\ep+\frac{1}{2}\norm{\partial_x\partial_v\varphi}_\infty\Delta X_\ep\Delta V_\ep+\cdots
-$$
-\begin{align*}
-  &\Abs{\E_{(0,1)}\Square{\varphi(X_\ep(2t),V_\ep(2t))\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}-\E_{(0,1)}\Square{\varphi(t,1)\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}}\\
-  &\le\E_{(0,1)}\Square{\ABs{\varphi(X_\ep(2t),V_\ep(2t))-\varphi(t,1)}\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}\\
-  &\le\norm{\partial_x\varphi}\E_{(0,1)}\Square{\abs{\Delta X_\ep}\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}+\norm{\partial_v\varphi}\E_{(0,1)}\Square{\abs{\Delta V_\ep}\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}\\
-  &\qquad+\frac{1}{2}\norm{\partial_x\partial_v\varphi}\E_{(0,1)}\Square{\abs{\Delta X_\ep\Delta V_\ep}\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}+\cdots
-\end{align*}
-
-#### 方針
-
-右辺が $\ep\to0$ かつ $t\to0$ の極限で $0$ に収束することを示す．
-
-このことと
+$f_\ep\in\cD(\wh{A}_\ep)$ を満たす関数 $f_\ep$ であって，
 $$
-\E_{(0,1)}\Square{\varphi(t,1)\frac{1_{\Brace{\tau_\ep^{t+}\le2t}}}{2t}}\xrightarrow{\ep\to0,t\to0}\varphi(0_+,1)\frac{\kappa^{-1}}{2}
+f_\ep\to f\;\as\qquad(\ep\searrow0)
 $$
-が成り立つことを併せて，所望の第一項の収束を得る．
+が起こるものを構成したい．
 
-その際に必要な次の収束：
+まず $f_\ep\in\cD(\wh{A}_\ep)$ であるためには，
 $$
-\E_{(0,1)}\Square{\frac{1_{\Brace{\tau_0^{t+}\le2t}}}{2t}}\xrightarrow{t\to0}\frac{\kappa^{-1}}{2}
+x\mapsto f_\ep(x,+1),\qquad x\mapsto f_\ep(x,-1)
 $$
-は，密度の概収束と，$\tau_0^{0+}$ の密度の $0$ における値が $\kappa^{-1}/2$ であることが特性関数の Fourier 変換を留数計算することにより得ることから従う．
+がそれぞれ絶対連続であれば良い．
 
-#### $\abs{\Delta X_\ep}$ の収束
+### 絶対連続緩和の構成
 
-独立性に注意すれば
+$f(-,\pm1)$ を $(-\ep,\ep)$ 上でのみ変更し，$f(-\ep,\pm1),f(\ep,\pm1)$ を線型に補間したものを $f_\ep$ とする：
 $$
-\E_{(0,1)}\Square{\abs{\Delta X_0}\frac{1_{\Brace{\tau_0^{t+}\le2t}}}{2t}}=\E_{(0,1)}\SQuare{\abs{\Delta X_0}1_{\Brace{\tau_0^{t+}\le2t}}}\E_{(0,1)}\Square{\frac{1_{\Brace{\tau_0^{t+}\le2t}}}{2t}}
+f_\ep(x,v)=\begin{cases}
+f(x,v)&x\in\ocinterval{-\infty,-\ep}\cup\cointerval{\ep,\infty}\\
+f(\ep,v)+\frac{f(\ep,v)-f(-\ep,v)}{2\ep}(x-\ep)&x\in(-\ep,\ep)\\
+\end{cases}
 $$
-が成り立つ．右の因子が $t\to0$ の極限で有界であるから，あとは左の因子が $t\to0$ の極限で（スピードに依らず）$0$ に収束することを示せば良いが，これは極めて簡単な議論から判る．
+$x\mapsto f_\ep(x,v)$ は $f(-,v)\in C^1((-\infty,0_-)\cup(0_+,\infty))$ より，２点を除いて微分可能であるため，絶対連続である．従って $f_\ep\in\cD(\wh{A}_\ep)$ である．
 
-時区間 $[\tau_0^{t+},2t]$ 間で一度もイベントが起こらない場合が，$\abs{\Delta X_0}$ の値が最も大きい．さらに $\tau_0^{t}$ の値は $t+\tau_0^0$ の値で下から抑えることができる．
-$$
-\abs{\Delta X_0}1_{\Brace{\tau_0^{t+}\le2t}}\le (2t-\tau_0^t)1_{\Brace{\tau_0^{t+}\le2t}}\le(t-\tau_0^0)1_{\Brace{\tau_0^0\le2t}}
-$$
-$\tau_0^0\sim\Exp(\kappa^{-1})$ に注意すれば，
-$$
-\therefore\quad\E_{(0,1)}\Square{\abs{\Delta X_0}1_{\Brace{\tau_0^{t+}\le2t}}}\le t\P[\tau_0^0\le 2t]-\int^{2t}_0s\kappa e^{-\kappa s}\,ds\le t+\kappa^{-1}\paren{e^{-2\kappa t}-1}\xrightarrow{t\to0}0
-$$
-
-#### $\abs{\Delta V_\ep}$ の収束
-
-$(t,1)$ から開始したサンプラー $(X_0,V_0)$ が最初にイベントを経験する時刻を $T^t$ とすると，
-$$
-\Delta V_0=-2\cdot1_{\Brace{T^t\le2t-\tau_0^{t+}}}.
-$$
-$\abs{\Delta V_0}\xrightarrow{t\to0}$ は，そもそも時区間 $[\tau_0^{t+},2t]$ 間でイベントが起こる確率が $0$ に収束するために従う．
-
-具体的には，生存関数
-$$
-S_0^t(s)=\frac{p^1(t+s)}{p^1(t)}
-$$
-を持つ $T^t$ に関して，条件付き期待値の性質から
-$$
-\P[T^t\le2t-\tau^t_0]=1-\E\Square{\frac{p^1(3t-\tau^t_0)}{p^1(t)}}\le1-\E\Square{\frac{p^1(0)}{p^1(t)}}\xrightarrow{t\to0}0.
-$$
+### 絶対連続緩和の収束
 
-### 第三項の解析 {#sec-third-term}
+任意の $\ep_0>0$ を取る．$(-\delta,\delta)$ を除けば，十分小さな $\ep>0$ について $f_\ep$ と $f$ は一致する．
 
+それ以外では $0$ を除いて各点収束するが，
 $$
-\E_{(0,1)}\Square{\frac{\varphi(X_\ep(2t),V_\ep(2t))-\varphi(0,1)}{2t}1_{\Brace{\tau_\ep^t>2t}}}
+f_\ep(0,v)\xrightarrow{\ep\to0}\frac{f(0_-,v)+f(0_+,v)}{2}
 $$
-は $0$ に収束するはずである．
+は $f(0_-,v)$ の値とは違う．
