@@ -40,7 +40,7 @@ p_\ep(x)=(1-\gamma)p(x)+\frac{\gamma}{\ep}p\paren{\frac{x}{\ep}}
 $$
 を対象にした Zig-Zag 過程 $(Z^\ep_t)_{t\in\N}$ は拡張生成作用素
 $$
-\wh{A}_\ep f(x,v)=(v|f'(x))+\lambda_n(x)\Paren{f(x,-v)-f(x,v)}
+\wh{A}_\ep f(x,v)=(v|f'(z))+\lambda_n(x)\Paren{f(x,-v)-f(x,v)}
 $$
 $$
 \lambda_n(x)=(v|-\partial_x\log p_\ep(x))_+
@@ -55,7 +55,7 @@ $$
 $$
 \wh{A}f(x,v)=
 \begin{cases}
-  (v|f'(x))+\lambda(x)\Paren{f(x,-v)-f(x,v)} & x\ne(0+,-1),(0-,+1)\\
+  (v|f'(z))+\lambda(x)\Paren{f(x,-v)-f(x,v)} & x\ne(0+,-1),(0-,+1)\\
   \kappa\Paren{\frac{1}{2}f(0_+,+v)+\frac{1}{2}f(0_-,-v)-f(x,v)} & x=(0+,-1),(0-,+1)
 \end{cases}
 $$
@@ -74,7 +74,17 @@ f(0_+,-1)=f(0_-,+1)=\frac{f(0_-,-1)+f(0_+,+1)}{2}
 }.
 $$
 
+収束の議論は，$0\in\R$ を，$\ov{E}$ における吸着点と同一視して行う：
+$$
+(0,-1)\sim(0_+,-1),\quad(0,+1)\sim(0_-,+1).
+$$
+従って無限遠 $\ep\to0$ では，「復帰点」$(0_-,-1),(0_+,+1)$ が創発されると見る．
+
 ## 強生成作用素 $A$ の核
+
+後続の証明（特に @sec-8-8-9 ）が成功するには，特に $\wh{A}_\ep f_\ep$ が $Af$ に有界収束するためには，$\cD(A)$ の核として，区分的 $C^1$-級でコンパクト台を持つ関数の全体が取れることが必要である．
+
+
 
 ## 収束の証明
 
@@ -82,7 +92,7 @@ $\cD(A)$ の核から，任意に $((-\infty,0_-)\cup(0_+,\infty))\times\R$ 上 
 
 $f_\ep\in\cD(\wh{A}_\ep)$ を満たす関数 $f_\ep$ であって，
 $$
-f_\ep\to f\;\as\qquad(\ep\searrow0)
+f_\ep\to f\qquad(\ep\searrow0)
 $$
 が起こるものを構成したい．
 
@@ -92,23 +102,50 @@ x\mapsto f_\ep(x,+1),\qquad x\mapsto f_\ep(x,-1)
 $$
 がそれぞれ絶対連続であれば良い．
 
-### 絶対連続緩和の構成
+### 絶対連続緩和の構成（[背景](Background/1d_convergence1.qmd)）
 
-$f(-,\pm1)$ を $(-\ep,\ep)$ 上でのみ変更し，$f(-\ep,\pm1),f(\ep,\pm1)$ を線型に補間したものを $f_\ep$ とする：
-$$
-f_\ep(x,v)=\begin{cases}
-f(x,v)&x\in\ocinterval{-\infty,-\ep}\cup\cointerval{\ep,\infty}\\
-f(\ep,v)+\frac{f(\ep,v)-f(-\ep,v)}{2\ep}(x-\ep)&x\in(-\ep,\ep)\\
-\end{cases}
-$$
-$x\mapsto f_\ep(x,v)$ は $f(-,v)\in C^1((-\infty,0_-)\cup(0_+,\infty))$ より，２点を除いて微分可能であるため，絶対連続である．従って $f_\ep\in\cD(\wh{A}_\ep)$ である．
+$f(-,+1)$ を $(0,\ep^p)$ 上でのみ，$f(-,-1)$ を $(-\ep^p,0)$ でのみ変更して，$f_\ep$ を定める．
 
-### 絶対連続緩和の収束
+具体的には，$f(0,+1),f(\ep^p,+1)$ を線型に補間した関数を $f_\ep(-,+1)$ とする．
 
-任意の $\ep_0>0$ を取る．$(-\delta,\delta)$ を除けば，十分小さな $\ep>0$ について $f_\ep$ と $f$ は一致する．
+この際，関数 $x\mapsto f_\ep(x,v)$ は２点を除いて微分可能であるため，特に絶対連続である．従って $f_\ep\in\cD(\wh{A}_\ep)$ である．
 
-それ以外では $0$ を除いて各点収束するが，
+加えてこのとき，$0$ の近傍で一様には収束しないことだけ注意して，
 $$
-f_\ep(0,v)\xrightarrow{\ep\to0}\frac{f(0_-,v)+f(0_+,v)}{2}
+f_\ep(x,v)\xrightarrow{\ep\to0}f(x,v),\qquad (x,v)\in\ov{E}\setminus\{(0_-,-1),(0_+,+1)\}
 $$
-は $f(0_-,v)$ の値とは違う．
+が成り立つ．$(0_-,-1),(0_+,+1)$ というのは復帰用の点で，この点に確率が集積することはないため，のちの証明で問題が起こることはないのである．
+
+### 条件 (8.8), (8.9) の充足 {#sec-8-8-9}
+
+これは $\{f_\ep\}$ と $\{\wh{A}_\ep f_\ep\}$ が有界ならば良い．
+
+これは $f_\ep$ が区分的に $C^1$-級でコンパクト台を持てば成り立つ．
+
+### 条件 (8.10) の充足
+
+特定の部分を除いて $f$ と $f_\ep$ の値は一致するので，次のように評価できる：
+
+\begin{align*}
+  &\qquad\E\SQuare{\ABs{f_\ep(Z_\ep(t))-f(Z_t(t))}}\\
+  &=\E\SQuare{1_{\Brace{X_\ep(t)\in(0,\ep^p),V_\ep(t)=+1}}\abs{f_\ep(Z_\ep(t))-f(Z_t(t))}}\\
+  &\qquad+\E\SQuare{1_{\Brace{X_\ep(t)\in(-\ep^,0),V_\ep(t)=-1}}\abs{f_\ep(Z_\ep(t))-f(Z_t(t))}}\\
+  &<\P[0<X_\ep(t)<\ep^p,V_\ep(t)=+1]2\Delta f(0,+1)+\P[-\ep^p<X_\ep(t)<0,V_\ep(t)=-1]2\Delta f(0,-1)\\
+\end{align*}
+
+今回は $X_\ep(t)$ の確率が $0$ に集積するスピードは $O(\ep^{-1})$ であるため，$p>1$ と取れば良いが，一般の場合に関しても十分に速く収束する $\ep\mapsto\delta(\ep)$ を取ることで，
+$$
+\P[-\delta(\ep)<X_\ep(t)<\delta(\ep)]\xrightarrow{\ep\to0}0
+$$
+を満たすようにできる．
+
+### 条件 (8.11) の充足
+
+\begin{align*}
+  &\qquad\E\SQuare{\wh{A}_\ep f_\ep(Z_\ep(t))-Af(Z_\ep(t))}\\
+  &\le\E\SQuare{1_{\Brace{X_\ep(t)\ne0}}\ABs{(V_\ep(t)|f_\ep'(Z_\ep(t))-f'(Z_\ep(t)))}}\\
+  &\qquad+\E\SQuare{1_{\Brace{X_\ep(t)\ne0}}\ABs{\lambda_\ep(Z_\ep(t))\Paren{f_\ep(X_\ep(t),-V_\ep(t))-f(Z_\ep(t))}-\lambda(Z_\ep(t))\Paren{f(X_\ep(t),-V_\ep(t))-f(Z_\ep(t))}}}\\
+  &\qquad+\E\SQuare{1_{\Brace{X_\ep(t)=0}}\ABs{(V_\ep(t)|f'_\ep(Z_\ep(t)))+\lambda_\ep(Z_\ep(t))\Paren{f_\ep(0,-V_\ep(t))-f_\ep(0,+V_\ep(t))}-\kappa\Paren{\frac{1}{2}f(0_+,+V_\ep(t))+\frac{1}{2}f(0_-,-V_\ep(t))-f(Z_\ep(t))}}}\\
+\end{align*}
+
+$f'_\ep(0,V_\ep(t))$ は $0$ にはできる．吸着する状態 $(0,\pm1)$ は本質的に１つなので，そこでの $f$ の値は同一である．

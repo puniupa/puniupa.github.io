@@ -156,7 +156,7 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#第一案" id="toc-第一案" class="nav-link active" data-scroll-target="#第一案"><span class="header-section-number">1</span> 第一案：</a></li>
+  <li><a href="#第一案0-を避ける必要がある" id="toc-第一案0-を避ける必要がある" class="nav-link active" data-scroll-target="#第一案0-を避ける必要がある"><span class="header-section-number">1</span> 第一案：<span class="math inline">\(0\)</span> を避ける必要がある</a></li>
   </ul>
 </nav>
     </div>
@@ -198,8 +198,8 @@ window.Quarto = {
 <p>$$</p>
 <p>$$</p>
 </div>
-<section id="第一案" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="第一案"><span class="header-section-number">1</span> 第一案：</h2>
+<section id="第一案0-を避ける必要がある" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="第一案0-を避ける必要がある"><span class="header-section-number">1</span> 第一案：<span class="math inline">\(0\)</span> を避ける必要がある</h2>
 <p><span class="math inline">\(f(-,\pm1)\)</span> を <span class="math inline">\((-\epsilon,\epsilon)\)</span> 上でのみ変更し，<span class="math inline">\(f(-\epsilon),f(\epsilon)\)</span> を線型に補間したものを <span class="math inline">\(f_\epsilon\)</span> とする： <span class="math display">\[
 f_\epsilon(x,v)=\begin{cases}
 f(x,v)&amp;x\in(-\infty,-\epsilon]\cup[\epsilon,\infty)\\
@@ -209,6 +209,8 @@ f(\epsilon,v)+\frac{f(\epsilon,v)-f(-\epsilon,v)}{2\epsilon}(x-\epsilon)&amp;x\i
 <p>ここまでは良いように見えたが，次の積分を評価するときに問題になる．<span class="math inline">\((-\delta,\delta)\)</span> を除けば，十分小さな <span class="math inline">\(\epsilon&gt;0\)</span> について <span class="math inline">\(f_\epsilon\)</span> と <span class="math inline">\(f\)</span> は一致するから <span class="math display">\[
 \operatorname{E}\biggl[\biggl|f_n(X_n(t))-f(X_n(t))\biggr|\biggr]=\operatorname{E}\biggl[1_{\left\{X_n(t)\in(-\delta,\delta)\right\}}\biggl|f_n(X_n(t))-f(X_n(t))\biggr|\biggr]
 \]</span> と変形できるが，<span class="math inline">\(\operatorname{P}[X_\epsilon(t)\in(-\delta,\delta)]\)</span> は <span class="math inline">\(\epsilon\to0\)</span> の極限で <span class="math inline">\(0\)</span> に収束しない．</p>
+<p>では修正して <span class="math inline">\(f\)</span> を <span class="math inline">\((0,\epsilon)\)</span> 上でのみ変更するとすれば，一様収束しない領域は <span class="math inline">\((-\delta,\delta)\)</span> と取れる．だがこれは問題が解決していない，有限の <span class="math inline">\(\epsilon&gt;0\)</span> 上では <span class="math inline">\(X_\epsilon(t)\)</span> はやはり絶対連続であり，端点 <span class="math inline">\(0\)</span> を含むかとか関係なく，<span class="math inline">\((0,\delta)\)</span> 上での積分はオーダー <span class="math inline">\(O(\epsilon)\)</span> である．</p>
+<p>これは実は，速度が重要な働きをしていて，最初の第一案の方が採用されるのである．</p>
 
 
 </section>
