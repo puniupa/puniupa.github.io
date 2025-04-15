@@ -191,8 +191,10 @@ window.Quarto = {
   <li><a href="#強生成作用素-a-の核" id="toc-強生成作用素-a-の核" class="nav-link" data-scroll-target="#強生成作用素-a-の核"><span class="header-section-number">2</span> 強生成作用素 <span class="math inline">\(A\)</span> の核</a></li>
   <li><a href="#収束の証明" id="toc-収束の証明" class="nav-link" data-scroll-target="#収束の証明"><span class="header-section-number">3</span> 収束の証明</a>
   <ul class="collapse">
-  <li><a href="#絶対連続緩和の構成" id="toc-絶対連続緩和の構成" class="nav-link" data-scroll-target="#絶対連続緩和の構成"><span class="header-section-number">3.1</span> 絶対連続緩和の構成</a></li>
-  <li><a href="#絶対連続緩和の収束" id="toc-絶対連続緩和の収束" class="nav-link" data-scroll-target="#絶対連続緩和の収束"><span class="header-section-number">3.2</span> 絶対連続緩和の収束</a></li>
+  <li><a href="#絶対連続緩和の構成背景" id="toc-絶対連続緩和の構成背景" class="nav-link" data-scroll-target="#絶対連続緩和の構成背景"><span class="header-section-number">3.1</span> 絶対連続緩和の構成（背景）</a></li>
+  <li><a href="#sec-8-8-9" id="toc-sec-8-8-9" class="nav-link" data-scroll-target="#sec-8-8-9"><span class="header-section-number">3.2</span> 条件 (8.8), (8.9) の充足</a></li>
+  <li><a href="#条件-8.10-の充足" id="toc-条件-8.10-の充足" class="nav-link" data-scroll-target="#条件-8.10-の充足"><span class="header-section-number">3.3</span> 条件 (8.10) の充足</a></li>
+  <li><a href="#条件-8.11-の充足" id="toc-条件-8.11-の充足" class="nav-link" data-scroll-target="#条件-8.11-の充足"><span class="header-section-number">3.4</span> 条件 (8.11) の充足</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -236,7 +238,7 @@ window.Quarto = {
 </div>
 <div id="listing-lst-spiky" class="listing quarto-float quarto-figure quarto-figure-left quarto-listing quarto-listing-container-grid anchored">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="JUUzJTgzJTg5JUUzJTgzJUE5JUUzJTgzJTk1JUUzJTgzJTg4" data-listing-file-modified-sort="1744626568544" data-listing-reading-time-sort="1" data-listing-word-count-sort="24">
+<div class="g-col-1" data-index="0" data-categories="JUUzJTgzJTg5JUUzJTgzJUE5JUUzJTgzJTk1JUUzJTgzJTg4" data-listing-file-modified-sort="1744691495134" data-listing-reading-time-sort="1" data-listing-word-count-sort="24">
 <a href="../../posts/Spike-and-slab/spiky-density.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -248,7 +250,7 @@ Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densiti
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1744626568544" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
+<div class="g-col-1" data-index="1" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1744691495134" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
 <a href="../../posts/Spike-and-slab/1d_generator.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -263,7 +265,7 @@ Spike-and-Slab prior からの効率的なサンプリング
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1744626568542" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
+<div class="g-col-1" data-index="2" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1744691495132" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
 <a href="../../posts/Spike-and-slab/1d_exit.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -288,7 +290,7 @@ No matching items
 <p>密度 <span class="math display">\[
 p_\epsilon(x)=(1-\gamma)p(x)+\frac{\gamma}{\epsilon}p\left(\frac{x}{\epsilon}\right)
 \]</span> を対象にした Zig-Zag 過程 <span class="math inline">\((Z^\epsilon_t)_{t\in\mathbb{N}}\)</span> は拡張生成作用素 <span class="math display">\[
-\widehat{A}_\epsilon f(x,v)=(v|f'(x))+\lambda_n(x)\biggr(f(x,-v)-f(x,v)\biggl)
+\widehat{A}_\epsilon f(x,v)=(v|f'(z))+\lambda_n(x)\biggr(f(x,-v)-f(x,v)\biggl)
 \]</span> <span class="math display">\[
 \lambda_n(x)=(v|-\partial_x\log p_\epsilon(x))_+
 \]</span> をもち，核は <span class="math inline">\(C^\infty_c(\mathbb{R}^2)\)</span> に取れる．</p>
@@ -297,7 +299,7 @@ p_\epsilon(x)=(1-\gamma)p(x)+\frac{\gamma}{\epsilon}p\left(\frac{x}{\epsilon}\ri
 \]</span> 上に存在するとした場合は，拡張生成作用素 <span class="math display">\[
 \widehat{A}f(x,v)=
 \begin{cases}
-  (v|f'(x))+\lambda(x)\biggr(f(x,-v)-f(x,v)\biggl) &amp; x\ne(0+,-1),(0-,+1)\\
+  (v|f'(z))+\lambda(x)\biggr(f(x,-v)-f(x,v)\biggl) &amp; x\ne(0+,-1),(0-,+1)\\
   \kappa\biggr(\frac{1}{2}f(0_+,+v)+\frac{1}{2}f(0_-,-v)-f(x,v)\biggl) &amp; x=(0+,-1),(0-,+1)
 \end{cases}
 \]</span> <span class="math display">\[
@@ -312,34 +314,59 @@ f(0_+,-1)=f(0_-,+1)=\frac{f(0_-,-1)+f(0_+,+1)}{2}
 \end{array}
 \right\}.
 \]</span></p>
+<p>収束の議論は，<span class="math inline">\(0\in\mathbb{R}\)</span> を，<span class="math inline">\(\overline{E}\)</span> における吸着点と同一視して行う： <span class="math display">\[
+(0,-1)\sim(0_+,-1),\quad(0,+1)\sim(0_-,+1).
+\]</span> 従って無限遠 <span class="math inline">\(\epsilon\to0\)</span> では，「復帰点」<span class="math inline">\((0_-,-1),(0_+,+1)\)</span> が創発されると見る．</p>
 </section>
 <section id="強生成作用素-a-の核" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="強生成作用素-a-の核"><span class="header-section-number">2</span> 強生成作用素 <span class="math inline">\(A\)</span> の核</h2>
+<p>後続の証明（特に <a href="#sec-8-8-9" class="quarto-xref">Section&nbsp;3.2</a> ）が成功するには，特に <span class="math inline">\(\widehat{A}_\epsilon f_\epsilon\)</span> が <span class="math inline">\(Af\)</span> に有界収束するためには，<span class="math inline">\(\mathcal{D}(A)\)</span> の核として，区分的 <span class="math inline">\(C^1\)</span>-級でコンパクト台を持つ関数の全体が取れることが必要である．</p>
 </section>
 <section id="収束の証明" class="level2" data-number="3">
 <h2 data-number="3" class="anchored" data-anchor-id="収束の証明"><span class="header-section-number">3</span> 収束の証明</h2>
 <p><span class="math inline">\(\mathcal{D}(A)\)</span> の核から，任意に <span class="math inline">\(((-\infty,0_-)\cup(0_+,\infty))\times\mathbb{R}\)</span> 上 <span class="math inline">\(C^1\)</span>-級でコンパクト台を持つ関数 <span class="math inline">\(f\)</span> を取る．</p>
 <p><span class="math inline">\(f_\epsilon\in\mathcal{D}(\widehat{A}_\epsilon)\)</span> を満たす関数 <span class="math inline">\(f_\epsilon\)</span> であって， <span class="math display">\[
-f_\epsilon\to f\;\;\text{a.s.}\qquad(\epsilon\searrow0)
+f_\epsilon\to f\qquad(\epsilon\searrow0)
 \]</span> が起こるものを構成したい．</p>
 <p>まず <span class="math inline">\(f_\epsilon\in\mathcal{D}(\widehat{A}_\epsilon)\)</span> であるためには， <span class="math display">\[
 x\mapsto f_\epsilon(x,+1),\qquad x\mapsto f_\epsilon(x,-1)
 \]</span> がそれぞれ絶対連続であれば良い．</p>
-<section id="絶対連続緩和の構成" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="絶対連続緩和の構成"><span class="header-section-number">3.1</span> 絶対連続緩和の構成</h3>
-<p><span class="math inline">\(f(-,\pm1)\)</span> を <span class="math inline">\((-\epsilon,\epsilon)\)</span> 上でのみ変更し，<span class="math inline">\(f(-\epsilon,\pm1),f(\epsilon,\pm1)\)</span> を線型に補間したものを <span class="math inline">\(f_\epsilon\)</span> とする： <span class="math display">\[
-f_\epsilon(x,v)=\begin{cases}
-f(x,v)&amp;x\in(-\infty,-\epsilon]\cup[\epsilon,\infty)\\
-f(\epsilon,v)+\frac{f(\epsilon,v)-f(-\epsilon,v)}{2\epsilon}(x-\epsilon)&amp;x\in(-\epsilon,\epsilon)\\
-\end{cases}
-\]</span> <span class="math inline">\(x\mapsto f_\epsilon(x,v)\)</span> は <span class="math inline">\(f(-,v)\in C^1((-\infty,0_-)\cup(0_+,\infty))\)</span> より，２点を除いて微分可能であるため，絶対連続である．従って <span class="math inline">\(f_\epsilon\in\mathcal{D}(\widehat{A}_\epsilon)\)</span> である．</p>
+<section id="絶対連続緩和の構成背景" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="絶対連続緩和の構成背景"><span class="header-section-number">3.1</span> 絶対連続緩和の構成（<a href="../../posts/Spike-and-slab/Background/1d_convergence1.html">背景</a>）</h3>
+<p><span class="math inline">\(f(-,+1)\)</span> を <span class="math inline">\((0,\epsilon^p)\)</span> 上でのみ，<span class="math inline">\(f(-,-1)\)</span> を <span class="math inline">\((-\epsilon^p,0)\)</span> でのみ変更して，<span class="math inline">\(f_\epsilon\)</span> を定める．</p>
+<p>具体的には，<span class="math inline">\(f(0,+1),f(\epsilon^p,+1)\)</span> を線型に補間した関数を <span class="math inline">\(f_\epsilon(-,+1)\)</span> とする．</p>
+<p>この際，関数 <span class="math inline">\(x\mapsto f_\epsilon(x,v)\)</span> は２点を除いて微分可能であるため，特に絶対連続である．従って <span class="math inline">\(f_\epsilon\in\mathcal{D}(\widehat{A}_\epsilon)\)</span> である．</p>
+<p>加えてこのとき，<span class="math inline">\(0\)</span> の近傍で一様には収束しないことだけ注意して， <span class="math display">\[
+f_\epsilon(x,v)\xrightarrow{\epsilon\to0}f(x,v),\qquad (x,v)\in\overline{E}\setminus\{(0_-,-1),(0_+,+1)\}
+\]</span> が成り立つ．<span class="math inline">\((0_-,-1),(0_+,+1)\)</span> というのは復帰用の点で，この点に確率が集積することはないため，のちの証明で問題が起こることはないのである．</p>
 </section>
-<section id="絶対連続緩和の収束" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="絶対連続緩和の収束"><span class="header-section-number">3.2</span> 絶対連続緩和の収束</h3>
-<p>任意の <span class="math inline">\(\epsilon_0&gt;0\)</span> を取る．<span class="math inline">\((-\delta,\delta)\)</span> を除けば，十分小さな <span class="math inline">\(\epsilon&gt;0\)</span> について <span class="math inline">\(f_\epsilon\)</span> と <span class="math inline">\(f\)</span> は一致する．</p>
-<p>それ以外では <span class="math inline">\(0\)</span> を除いて各点収束するが， <span class="math display">\[
-f_\epsilon(0,v)\xrightarrow{\epsilon\to0}\frac{f(0_-,v)+f(0_+,v)}{2}
-\]</span> は <span class="math inline">\(f(0_-,v)\)</span> の値とは違う．</p>
+<section id="sec-8-8-9" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="sec-8-8-9"><span class="header-section-number">3.2</span> 条件 (8.8), (8.9) の充足</h3>
+<p>これは <span class="math inline">\(\{f_\epsilon\}\)</span> と <span class="math inline">\(\{\widehat{A}_\epsilon f_\epsilon\}\)</span> が有界ならば良い．</p>
+<p>これは <span class="math inline">\(f_\epsilon\)</span> が区分的に <span class="math inline">\(C^1\)</span>-級でコンパクト台を持てば成り立つ．</p>
+</section>
+<section id="条件-8.10-の充足" class="level3" data-number="3.3">
+<h3 data-number="3.3" class="anchored" data-anchor-id="条件-8.10-の充足"><span class="header-section-number">3.3</span> 条件 (8.10) の充足</h3>
+<p>特定の部分を除いて <span class="math inline">\(f\)</span> と <span class="math inline">\(f_\epsilon\)</span> の値は一致するので，次のように評価できる：</p>
+<p><span class="math display">\[\begin{align*}
+  &amp;\qquad\operatorname{E}\biggl[\biggl|f_\epsilon(Z_\epsilon(t))-f(Z_t(t))\biggr|\biggr]\\
+  &amp;=\operatorname{E}\biggl[1_{\left\{X_\epsilon(t)\in(0,\epsilon^p),V_\epsilon(t)=+1\right\}}\lvert f_\epsilon(Z_\epsilon(t))-f(Z_t(t))\rvert\biggr]\\
+  &amp;\qquad+\operatorname{E}\biggl[1_{\left\{X_\epsilon(t)\in(-\epsilon^,0),V_\epsilon(t)=-1\right\}}\lvert f_\epsilon(Z_\epsilon(t))-f(Z_t(t))\rvert\biggr]\\
+  &amp;&lt;\operatorname{P}[0&lt;X_\epsilon(t)&lt;\epsilon^p,V_\epsilon(t)=+1]2\Delta f(0,+1)+\operatorname{P}[-\epsilon^p&lt;X_\epsilon(t)&lt;0,V_\epsilon(t)=-1]2\Delta f(0,-1)\\
+\end{align*}\]</span></p>
+<p>今回は <span class="math inline">\(X_\epsilon(t)\)</span> の確率が <span class="math inline">\(0\)</span> に集積するスピードは <span class="math inline">\(O(\epsilon^{-1})\)</span> であるため，<span class="math inline">\(p&gt;1\)</span> と取れば良いが，一般の場合に関しても十分に速く収束する <span class="math inline">\(\epsilon\mapsto\delta(\epsilon)\)</span> を取ることで， <span class="math display">\[
+\operatorname{P}[-\delta(\epsilon)&lt;X_\epsilon(t)&lt;\delta(\epsilon)]\xrightarrow{\epsilon\to0}0
+\]</span> を満たすようにできる．</p>
+</section>
+<section id="条件-8.11-の充足" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="条件-8.11-の充足"><span class="header-section-number">3.4</span> 条件 (8.11) の充足</h3>
+<p><span class="math display">\[\begin{align*}
+  &amp;\qquad\operatorname{E}\biggl[\widehat{A}_\epsilon f_\epsilon(Z_\epsilon(t))-Af(Z_\epsilon(t))\biggr]\\
+  &amp;\le\operatorname{E}\biggl[1_{\left\{X_\epsilon(t)\ne 0\right\}}\biggl|(V_\epsilon(t)|f_\epsilon'(Z_\epsilon(t))-f'(Z_\epsilon(t)))\biggr|\biggr]\\
+  &amp;\qquad+\operatorname{E}\biggl[1_{\left\{X_\epsilon(t)\ne 0\right\}}\biggl|\lambda_\epsilon(Z_\epsilon(t))\biggr(f_\epsilon(X_\epsilon(t),-V_\epsilon(t))-f(Z_\epsilon(t))\biggl)-\lambda(Z_\epsilon(t))\biggr(f(X_\epsilon(t),-V_\epsilon(t))-f(Z_\epsilon(t))\biggl)\biggr|\biggr]\\
+  &amp;\qquad+\operatorname{E}\biggl[1_{\left\{X_\epsilon(t)=0\right\}}\biggl|(V_\epsilon(t)|f'_\epsilon(Z_\epsilon(t)))+\lambda_\epsilon(Z_\epsilon(t))\biggr(f_\epsilon(0,-V_\epsilon(t))-f_\epsilon(0,+V_\epsilon(t))\biggl)-\kappa\biggr(\frac{1}{2}f(0_+,+V_\epsilon(t))+\frac{1}{2}f(0_-,-V_\epsilon(t))-f(Z_\epsilon(t))\biggl)\biggr|\biggr]\\
+\end{align*}\]</span></p>
+<p><span class="math inline">\(f'_\epsilon(0,V_\epsilon(t))\)</span> は <span class="math inline">\(0\)</span> にはできる．吸着する状態 <span class="math inline">\((0,\pm1)\)</span> は本質的に１つなので，そこでの <span class="math inline">\(f\)</span> の値は同一である．</p>
 
 
 
