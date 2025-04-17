@@ -1494,7 +1494,7 @@ font-style: inherit;"># ブランチの作成とチェックアウト</span></sp
 <h2 data-number="1" class="anchored" data-anchor-id="euv-リトグラフィ"><span class="header-section-number">1</span> EUV リトグラフィ</h2>
 <p><a href="https://ja.wikipedia.org/wiki/%E6%A5%B5%E7%AB%AF%E7%B4%AB%E5%A4%96%E7%B7%9A%E3%83%AA%E3%82%BD%E3%82%B0%E3%83%A9%E3%83%95%E3%82%A3">極端紫外線リソグラフィ</a> (Extreme Ultraviolet Lithography) は波長 13.5 nm で露光する技術である．</p>
 <p>オランダの <a href="https://ja.wikipedia.org/wiki/ASML">ASML</a> 社が唯一 EUV 露光装置を製造している．</p>
-<p></p><div id="tweet-18518"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-18518").innerHTML = tweet["html"];</script><p></p>
+<p></p><div id="tweet-76490"></div><script>tweet={"url":"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474","author_name":"Kazuto Suzuki","author_url":"https:\/\/twitter.com\/KS_1013","html":"\u003Cblockquote class=\"twitter-tweet\" align=\"center\"\u003E\u003Cp lang=\"ja\" dir=\"ltr\"\u003E中国はオランダとの交渉で何とかしてASMLの露光機を売って欲しいと懇願しているが、オランダはレガシー向けのものしか輸出するつもりはないらしい。中国が「米国の言うなりになるな」といってもオランダは「米国の圧力で輸出を止めているわけじゃない」と反論。\u003Ca href=\"https:\/\/t.co\/CsRB29zn9c\"\u003Ehttps:\/\/t.co\/CsRB29zn9c\u003C\/a\u003E\u003C\/p\u003E&mdash; Kazuto Suzuki (@KS_1013) \u003Ca href=\"https:\/\/twitter.com\/KS_1013\/status\/1773449946207031474?ref_src=twsrc%5Etfw\"\u003EMarch 28, 2024\u003C\/a\u003E\u003C\/blockquote\u003E\n\u003Cscript async src=\"https:\/\/platform.twitter.com\/widgets.js\" charset=\"utf-8\"\u003E\u003C\/script\u003E\n\n","width":550,"height":null,"type":"rich","cache_age":"3153600000","provider_name":"Twitter","provider_url":"https:\/\/twitter.com","version":"1.0"};document.getElementById("tweet-76490").innerHTML = tweet["html"];</script><p></p>
 <a class="embedly-card" href="https://www.scmp.com/economy/global-economy/article/3257118/china-asks-netherlands-exporter-worlds-top-chipmaking-equipment-avoid-decoupling?utm_source=twitter&amp;utm_campaign=3257118&amp;utm_medium=share_widget">China asks Netherlands, with world-leading chipmaking equipment, to not decouple</a><script async="" src="//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
 <p>ここまで短い波長では光を透過するレンズはなく，反射鏡で光学系を構成する必要がある．13.5 nm という波長はミラーの反射率の極大点の１つをとって決定された． <img src="https://latex.codecogs.com/png.latex?0.68%5E%7B12%7D=0.98"> というように重ねて用いる．</p>
 <div class="quarto-figure quarto-figure-center">
@@ -2688,7 +2688,60 @@ Wang, Y., Kordi, Y., Mishra, S., Liu, A., Smith, N. A., Khashabi, D., and Hajish
   <category>ノート</category>
   <category>Background</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/Background/1d_convergence1.html</guid>
-  <pubDate>Thu, 17 Apr 2025 05:39:34 GMT</pubDate>
+  <pubDate>Thu, 17 Apr 2025 06:04:43 GMT</pubDate>
+</item>
+<item>
+  <title>生成作用素の収束の証明</title>
+  <dc:creator>司馬博文 </dc:creator>
+  <link>https://puniupa.github.io/posts/Spike-and-slab/Background/note.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="hidden">
+<p>A Blog Entry on Bayesian Computation by an Applied Mathematician</p>
+<p>$$</p>
+<p>$$</p>
+</div>
+<section id="示したいこと" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="示したいこと"><span class="header-section-number">1</span> 示したいこと</h2>
+<p>密度 <img src="https://latex.codecogs.com/png.latex?%0Ap_%5Cepsilon(x)=(1-%5Cgamma)p(x)+%5Cfrac%7B%5Cgamma%7D%7B%5Cepsilon%7Dp%5Cleft(%5Cfrac%7Bx%7D%7B%5Cepsilon%7D%5Cright)%0A"> を対象にした Zig-Zag 過程 <img src="https://latex.codecogs.com/png.latex?(Z%5E%5Cepsilon_t)_%7Bt%5Cin%5Cmathbb%7BN%7D%7D"> の遷移核 <img src="https://latex.codecogs.com/png.latex?P_%5Cepsilon%5Et"> は次のようにかける：</p>
+<p><span id="eq-1"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign*%7D%0A%20%20P%5Et_%5Cepsilon((0,1),dx)&amp;=S_%5Cepsilon(t)%5Cdelta_t(dx)+%5Cbiggr(%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=1%5D%5Cfrac%7B1%7D%7B2%7Df_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)%5C%5C%0A%20%20&amp;%5Cqquad+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=2%5D%5Cfrac%7B1%7D%7B2%7Df%5E%7B*2%7D_%5Cepsilon%5Cleft(%5Cfrac%7Bt-x%7D%7B2%7D%5Cright)%5C%5C%0A%20%20&amp;%5Cqquad+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=3%5D%5Cfrac%7B1%7D%7B2%7Df%5E%7B*3%7D_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)+%5Ccdots%5Cbiggl)dx&amp;%20x%5Cin%5B-t,t%5D.%0A%5Cend%7Balign*%7D%0A%5Ctag%7B1%7D"></span></p>
+<p>ただし，<img src="https://latex.codecogs.com/png.latex?S_%5Cepsilon"> は <img src="https://latex.codecogs.com/png.latex?(0,1)"> からスタートした場合のイベント時刻の生存関数， <img src="https://latex.codecogs.com/png.latex?%0AS_%5Cepsilon(t)=%5Cfrac%7Bp_%5Cepsilon(t)%7D%7Bp_%5Cepsilon(0)%7D=%5Cfrac%7B1-%5Cgamma%7D%7B1-%5Cgamma+%5Cgamma/%5Cepsilon%7D%5Cfrac%7Bp(t)%7D%7Bp(0)%7D+%5Cfrac%7B%5Cgamma%7D%7B%5Cepsilon(1-%5Cgamma)+%5Cgamma%7D%5Cfrac%7Bp%5Cleft(%5Cfrac%7Bt%7D%7B%5Cepsilon%7D%5Cright)%7D%7Bp(0)%7D%0A"> <img src="https://latex.codecogs.com/png.latex?f_%5Cepsilon"> はその密度 <img src="https://latex.codecogs.com/png.latex?%0Af_%5Cepsilon(t)=-S_%5Cepsilon'(t)=%5Cfrac%7B1-%5Cgamma%7D%7B1-%5Cgamma+%5Cgamma/%5Cepsilon%7D%5Cfrac%7Bp'(t)%7D%7Bp(0)%7D+%5Cfrac%7B%5Cgamma%7D%7B%5Cepsilon(1-%5Cgamma)+%5Cgamma%7D%5Cfrac%7B1%7D%7B%5Cepsilon%7D%5Cfrac%7Bp'%5Cleft(%5Cfrac%7Bt%7D%7B%5Cepsilon%7D%5Cright)%7D%7Bp(0)%7D%0A"> <img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon"> は <img src="https://latex.codecogs.com/png.latex?(0,1)"> からスタートした場合のイベント発生回数の過程 <img src="https://latex.codecogs.com/png.latex?%0AN_%5Cepsilon(t):=%5Cmax%5Cleft%5C%7Bn%5Cge%201%5C,%5Cmiddle%7C%5C,%5Csum_%7Bi=1%7D%5E%7Bn-1%7D2T_%5Cepsilon%5E%7B(i)%7D+T_%5Cepsilon%5E%7B(n)%7D%5Cle%20t%5Cright%5C%7D.%0A"> とする．</p>
+<p>式 (1) の右辺の無限和が収束することは，<img src="https://latex.codecogs.com/png.latex?f_%5Cepsilon"> が有界であることから判る．</p>
+<p>式 (1) を認めると，<img src="https://latex.codecogs.com/png.latex?P%5Et_%5Cepsilon"> は <img src="https://latex.codecogs.com/png.latex?(-t,t)"> 上では絶対連続である．</p>
+</section>
+<section id="式のモチベーション" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="式のモチベーション"><span class="header-section-number">2</span> 式のモチベーション</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="$t$ 時間後に $x\in(-t,t)$ に居る場合">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<img src="https://latex.codecogs.com/png.latex?t"> 時間後に <img src="https://latex.codecogs.com/png.latex?x%5Cin(-t,t)"> に居る場合
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=0"> の事象では <img src="https://latex.codecogs.com/png.latex?x%5Cne%20t"> には到達できないことに注意．</p>
+<ol type="1">
+<li><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=1"> で，<img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20T_%5Cepsilon%5E%7B(1)%7D=%5Cfrac%7Bt+x%7D%7B2%7D"> にて折り返した場合．</li>
+<li><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=2"> で，次を満たす時刻 <img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon%5E%7B(1)%7D,2T_%5Cepsilon%5E%7B(1)%7D+T_%5Cepsilon%5E%7B(2)%7D"> で折り返した場合： <img src="https://latex.codecogs.com/png.latex?%0A%20%20T_%5Cepsilon%5E%7B(1)%7D+T_%5Cepsilon%5E%7B(2)%7D=%5Cfrac%7Bt-x%7D%7B2%7D.%0A%20%20"></li>
+<li><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=3"> で，次を満たす時刻 <img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon%5E%7B(1)%7D,2T_%5Cepsilon%5E%7B(1)%7D+T_%5Cepsilon%5E%7B(2)%7D,2T_%5Cepsilon%5E%7B(1)%7D+2T_%5Cepsilon%5E%7B(2)%7D+T_%5Cepsilon%5E%7B(3)%7D"> で折り返した場合： <img src="https://latex.codecogs.com/png.latex?%0A%20%20T_%5Cepsilon%5E%7B(1)%7D+T_%5Cepsilon%5E%7B(2)%7D+T_%5Cepsilon%5E%7B(3)%7D=%5Cfrac%7Bt+x%7D%7B2%7D.%0A%20%20"></li>
+</ol>
+<p>これらの事象は互いに排反である．</p>
+</div>
+</div>
+<p>以上を式にすると，<img src="https://latex.codecogs.com/png.latex?P%5Et_%5Cepsilon"> の <img src="https://latex.codecogs.com/png.latex?(-t,t)"> 上の密度 <img src="https://latex.codecogs.com/png.latex?p_%5Cepsilon%5Et"> は， <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20p%5Et_%5Cepsilon(x)&amp;%5C,%5Cpropto%5C,%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=1%5Df_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=2%5Df%5E%7B*2%7D_%5Cepsilon%5Cleft(%5Cfrac%7Bt-x%7D%7B2%7D%5Cright)%5C%5C%0A%20%20&amp;%5Cqquad%20+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=3%5Df%5E%7B*3%7D_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)+%5Ccdots,%5Cqquad%20x%5Cin(-t,t),%0A%5Cend%7Balign*%7D"> と表せる．</p>
+
+
+</section>
+
+ ]]></description>
+  <category>ノート</category>
+  <guid>https://puniupa.github.io/posts/Spike-and-slab/Background/note.html</guid>
+  <pubDate>Thu, 17 Apr 2025 06:04:43 GMT</pubDate>
 </item>
 </channel>
 </rss>

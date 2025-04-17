@@ -2646,7 +2646,7 @@ Itoh, H., Mori, I., Matsumoto, Y., Maki, S., and Ogawa, Y. (2012). <a href="http
 </ul>
 <div id="listing-cocosiru1-listing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-1">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1744868338834" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1492">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1744869842876" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1492">
 <a href="../../posts/Cocosiru/source1.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <!-- img(9CEB782EFEE6)[progressive=false, height=100%]:cocosiru1-listing:posts/Cocosiru/source1.html -->
@@ -2685,7 +2685,7 @@ No matching items
 </ul>
 <div id="listing-cocosiru2-listing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-1">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1744868338922" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="447">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1744869842965" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="447">
 <a href="../../posts/Cocosiru/source2.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <!-- img(9CEB782EFEE6)[progressive=false, height=100%]:cocosiru2-listing:posts/Cocosiru/source2.html -->
@@ -3112,7 +3112,7 @@ Durmus, A., Guillin, A., and Monmarché, P. (2021). <a href="https://doi.org/10.
 </div></section></div> ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_generator.html</guid>
-  <pubDate>Thu, 17 Apr 2025 05:39:36 GMT</pubDate>
+  <pubDate>Thu, 17 Apr 2025 06:04:44 GMT</pubDate>
 </item>
 <item>
   <title>１次元での収束の証明</title>
@@ -3130,7 +3130,7 @@ Durmus, A., Guillin, A., and Monmarché, P. (2021). <a href="https://doi.org/10.
 </div>
 <div id="listing-lst-spiky" class="listing quarto-float quarto-figure quarto-figure-left quarto-listing quarto-listing-container-grid anchored">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="JUUzJTgzJTg5JUUzJTgzJUE5JUUzJTgzJTk1JUUzJTgzJTg4" data-listing-file-modified-sort="1744868339056" data-listing-reading-time-sort="1" data-listing-word-count-sort="24">
+<div class="g-col-1" data-index="0" data-categories="JUUzJTgzJTg5JUUzJTgzJUE5JUUzJTgzJTk1JUUzJTgzJTg4" data-listing-file-modified-sort="1744869843101" data-listing-reading-time-sort="1" data-listing-word-count-sort="24">
 <a href="../../posts/Spike-and-slab/spiky-density.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <!-- img(9CEB782EFEE6)[progressive=false, height=150px]:lst-spiky:posts/Spike-and-slab/spiky-density.html -->
@@ -3142,7 +3142,7 @@ Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densiti
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1744868339054" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
+<div class="g-col-1" data-index="1" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1744869843098" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
 <a href="../../posts/Spike-and-slab/1d_generator.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <!-- img(9CEB782EFEE6)[progressive=false, height=150px]:lst-spiky:posts/Spike-and-slab/1d_generator.html -->
@@ -3157,7 +3157,7 @@ Spike-and-Slab prior からの効率的なサンプリング
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1744868339052" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
+<div class="g-col-1" data-index="2" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1744869843096" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
 <a href="../../posts/Spike-and-slab/1d_exit.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <!-- img(9CEB782EFEE6)[progressive=false, height=150px]:lst-spiky:posts/Spike-and-slab/1d_exit.html -->
@@ -3236,7 +3236,7 @@ No matching items
 </section></div> ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_convergence.html</guid>
-  <pubDate>Thu, 17 Apr 2025 05:39:36 GMT</pubDate>
+  <pubDate>Thu, 17 Apr 2025 06:04:44 GMT</pubDate>
 </item>
 <item>
   <title>脱出時刻の分析</title>
@@ -3521,7 +3521,60 @@ Lang, S. (1999). <em><a href="https://doi.org/10.1007/978-1-4757-3083-8">Complex
 </div></section></div> ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_exit.html</guid>
-  <pubDate>Thu, 17 Apr 2025 05:39:36 GMT</pubDate>
+  <pubDate>Thu, 17 Apr 2025 06:04:44 GMT</pubDate>
+</item>
+<item>
+  <title>生成作用素の収束の証明</title>
+  <dc:creator>司馬博文 </dc:creator>
+  <link>https://puniupa.github.io/posts/Spike-and-slab/Background/note.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="hidden">
+<p>A Blog Entry on Bayesian Computation by an Applied Mathematician</p>
+<p>$$</p>
+<p>$$</p>
+</div>
+<section id="示したいこと" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="示したいこと"><span class="header-section-number">1</span> 示したいこと</h2>
+<p>密度 <img src="https://latex.codecogs.com/png.latex?%0Ap_%5Cepsilon(x)=(1-%5Cgamma)p(x)+%5Cfrac%7B%5Cgamma%7D%7B%5Cepsilon%7Dp%5Cleft(%5Cfrac%7Bx%7D%7B%5Cepsilon%7D%5Cright)%0A"> を対象にした Zig-Zag 過程 <img src="https://latex.codecogs.com/png.latex?(Z%5E%5Cepsilon_t)_%7Bt%5Cin%5Cmathbb%7BN%7D%7D"> の遷移核 <img src="https://latex.codecogs.com/png.latex?P_%5Cepsilon%5Et"> は次のようにかける：</p>
+<p><span id="eq-1"><img src="https://latex.codecogs.com/png.latex?%0A%5Cbegin%7Balign*%7D%0A%20%20P%5Et_%5Cepsilon((0,1),dx)&amp;=S_%5Cepsilon(t)%5Cdelta_t(dx)+%5Cbiggr(%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=1%5D%5Cfrac%7B1%7D%7B2%7Df_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)%5C%5C%0A%20%20&amp;%5Cqquad+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=2%5D%5Cfrac%7B1%7D%7B2%7Df%5E%7B*2%7D_%5Cepsilon%5Cleft(%5Cfrac%7Bt-x%7D%7B2%7D%5Cright)%5C%5C%0A%20%20&amp;%5Cqquad+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=3%5D%5Cfrac%7B1%7D%7B2%7Df%5E%7B*3%7D_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)+%5Ccdots%5Cbiggl)dx&amp;%20x%5Cin%5B-t,t%5D.%0A%5Cend%7Balign*%7D%0A%5Ctag%7B1%7D"></span></p>
+<p>ただし，<img src="https://latex.codecogs.com/png.latex?S_%5Cepsilon"> は <img src="https://latex.codecogs.com/png.latex?(0,1)"> からスタートした場合のイベント時刻の生存関数， <img src="https://latex.codecogs.com/png.latex?%0AS_%5Cepsilon(t)=%5Cfrac%7Bp_%5Cepsilon(t)%7D%7Bp_%5Cepsilon(0)%7D=%5Cfrac%7B1-%5Cgamma%7D%7B1-%5Cgamma+%5Cgamma/%5Cepsilon%7D%5Cfrac%7Bp(t)%7D%7Bp(0)%7D+%5Cfrac%7B%5Cgamma%7D%7B%5Cepsilon(1-%5Cgamma)+%5Cgamma%7D%5Cfrac%7Bp%5Cleft(%5Cfrac%7Bt%7D%7B%5Cepsilon%7D%5Cright)%7D%7Bp(0)%7D%0A"> <img src="https://latex.codecogs.com/png.latex?f_%5Cepsilon"> はその密度 <img src="https://latex.codecogs.com/png.latex?%0Af_%5Cepsilon(t)=-S_%5Cepsilon'(t)=%5Cfrac%7B1-%5Cgamma%7D%7B1-%5Cgamma+%5Cgamma/%5Cepsilon%7D%5Cfrac%7Bp'(t)%7D%7Bp(0)%7D+%5Cfrac%7B%5Cgamma%7D%7B%5Cepsilon(1-%5Cgamma)+%5Cgamma%7D%5Cfrac%7B1%7D%7B%5Cepsilon%7D%5Cfrac%7Bp'%5Cleft(%5Cfrac%7Bt%7D%7B%5Cepsilon%7D%5Cright)%7D%7Bp(0)%7D%0A"> <img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon"> は <img src="https://latex.codecogs.com/png.latex?(0,1)"> からスタートした場合のイベント発生回数の過程 <img src="https://latex.codecogs.com/png.latex?%0AN_%5Cepsilon(t):=%5Cmax%5Cleft%5C%7Bn%5Cge%201%5C,%5Cmiddle%7C%5C,%5Csum_%7Bi=1%7D%5E%7Bn-1%7D2T_%5Cepsilon%5E%7B(i)%7D+T_%5Cepsilon%5E%7B(n)%7D%5Cle%20t%5Cright%5C%7D.%0A"> とする．</p>
+<p>式 (1) の右辺の無限和が収束することは，<img src="https://latex.codecogs.com/png.latex?f_%5Cepsilon"> が有界であることから判る．</p>
+<p>式 (1) を認めると，<img src="https://latex.codecogs.com/png.latex?P%5Et_%5Cepsilon"> は <img src="https://latex.codecogs.com/png.latex?(-t,t)"> 上では絶対連続である．</p>
+</section>
+<section id="式のモチベーション" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="式のモチベーション"><span class="header-section-number">2</span> 式のモチベーション</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="$t$ 時間後に $x\in(-t,t)$ に居る場合">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<img src="https://latex.codecogs.com/png.latex?t"> 時間後に <img src="https://latex.codecogs.com/png.latex?x%5Cin(-t,t)"> に居る場合
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=0"> の事象では <img src="https://latex.codecogs.com/png.latex?x%5Cne%20t"> には到達できないことに注意．</p>
+<ol type="1">
+<li><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=1"> で，<img src="https://latex.codecogs.com/png.latex?%5Cdisplaystyle%20T_%5Cepsilon%5E%7B(1)%7D=%5Cfrac%7Bt+x%7D%7B2%7D"> にて折り返した場合．</li>
+<li><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=2"> で，次を満たす時刻 <img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon%5E%7B(1)%7D,2T_%5Cepsilon%5E%7B(1)%7D+T_%5Cepsilon%5E%7B(2)%7D"> で折り返した場合： <img src="https://latex.codecogs.com/png.latex?%0A%20%20T_%5Cepsilon%5E%7B(1)%7D+T_%5Cepsilon%5E%7B(2)%7D=%5Cfrac%7Bt-x%7D%7B2%7D.%0A%20%20"></li>
+<li><img src="https://latex.codecogs.com/png.latex?N_%5Cepsilon(t)=3"> で，次を満たす時刻 <img src="https://latex.codecogs.com/png.latex?T_%5Cepsilon%5E%7B(1)%7D,2T_%5Cepsilon%5E%7B(1)%7D+T_%5Cepsilon%5E%7B(2)%7D,2T_%5Cepsilon%5E%7B(1)%7D+2T_%5Cepsilon%5E%7B(2)%7D+T_%5Cepsilon%5E%7B(3)%7D"> で折り返した場合： <img src="https://latex.codecogs.com/png.latex?%0A%20%20T_%5Cepsilon%5E%7B(1)%7D+T_%5Cepsilon%5E%7B(2)%7D+T_%5Cepsilon%5E%7B(3)%7D=%5Cfrac%7Bt+x%7D%7B2%7D.%0A%20%20"></li>
+</ol>
+<p>これらの事象は互いに排反である．</p>
+</div>
+</div>
+<p>以上を式にすると，<img src="https://latex.codecogs.com/png.latex?P%5Et_%5Cepsilon"> の <img src="https://latex.codecogs.com/png.latex?(-t,t)"> 上の密度 <img src="https://latex.codecogs.com/png.latex?p_%5Cepsilon%5Et"> は， <img src="https://latex.codecogs.com/png.latex?%5Cbegin%7Balign*%7D%0A%20%20p%5Et_%5Cepsilon(x)&amp;%5C,%5Cpropto%5C,%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=1%5Df_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=2%5Df%5E%7B*2%7D_%5Cepsilon%5Cleft(%5Cfrac%7Bt-x%7D%7B2%7D%5Cright)%5C%5C%0A%20%20&amp;%5Cqquad%20+%5Coperatorname%7BP%7D%5BN_%5Cepsilon(t)=3%5Df%5E%7B*3%7D_%5Cepsilon%5Cleft(%5Cfrac%7Bt+x%7D%7B2%7D%5Cright)+%5Ccdots,%5Cqquad%20x%5Cin(-t,t),%0A%5Cend%7Balign*%7D"> と表せる．</p>
+
+
+</section>
+
+ ]]></description>
+  <category>ノート</category>
+  <guid>https://puniupa.github.io/posts/Spike-and-slab/Background/note.html</guid>
+  <pubDate>Thu, 17 Apr 2025 06:04:44 GMT</pubDate>
 </item>
 <item>
   <title>Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities</title>
@@ -3560,7 +3613,7 @@ Lang, S. (1999). <em><a href="https://doi.org/10.1007/978-1-4757-3083-8">Complex
  ]]></description>
   <category>ドラフト</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/spiky-density.html</guid>
-  <pubDate>Thu, 17 Apr 2025 05:39:36 GMT</pubDate>
+  <pubDate>Thu, 17 Apr 2025 06:04:44 GMT</pubDate>
 </item>
 </channel>
 </rss>
