@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="司馬博文">
 
-<title>ぷにうぱ - Notes</title>
+<title>ぷにうぱ - 生成作用素の収束の証明</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +24,23 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<link href="./assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script src="../../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../../">
+<link href="../../../assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
+<script src="../../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -67,63 +66,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-spike-and-slab .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-filename','listing-categories','listing-title','listing-subtitle','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-spike-and-slab'] = new List('listing-spike-and-slab', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-cocosiru .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-filename','listing-categories','listing-title','listing-subtitle','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-date","listing-title","listing-author","listing-subtitle","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-cocosiru'] = new List('listing-cocosiru', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&amp;display=swap" rel="stylesheet">
@@ -162,23 +104,25 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="assets/styles.css">
-<link rel="alternate" type="application/rss+xml" title="ぷにうぱ" href="notes.xml" data-external="1"><meta property="og:title" content="ぷにうぱ - Notes">
-<meta property="og:image" content="https://puniupa.github.io/assets/ぷにうぱ.jpg">
+<link rel="stylesheet" href="../../../assets/styles.css">
+<meta property="og:title" content="ぷにうぱ - 生成作用素の収束の証明">
+<meta property="og:description" content="Spike-and-Slab prior からの効率的なサンプリング">
+<meta property="og:image" content="https://puniupa.github.io/posts/Spike-and-slab/Background/assets/ぷにうぱ.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
-<meta name="twitter:title" content="ぷにうぱ - Notes">
-<meta name="twitter:image" content="https://puniupa.github.io/assets/ぷにうぱ.jpg">
+<meta name="twitter:title" content="ぷにうぱ - 生成作用素の収束の証明">
+<meta name="twitter:description" content="Spike-and-Slab prior からの効率的なサンプリング">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/Spike-and-slab/Background/assets/ぷにうぱ.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../../index.html">
     <span class="navbar-title">ぷにうぱ</span>
     </a>
   </div>
@@ -189,11 +133,11 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./static/AllCategories.html"> 
+    <a class="nav-link" href="../../../static/AllCategories.html"> 
 <span class="menu-text">カテゴリ一覧</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./static/AboutUs.html"> 
+    <a class="nav-link" href="../../../static/AboutUs.html"> 
 <span class="menu-text">自己紹介</span></a>
   </li>  
 </ul>
@@ -204,237 +148,112 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page">
-      <h1 class="title">Notes</h1>
-                      </div>
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">目次</h2>
+   
+  <ul>
+  <li><a href="#示したいこと" id="toc-示したいこと" class="nav-link active" data-scroll-target="#示したいこと"><span class="header-section-number">1</span> 示したいこと</a></li>
+  <li><a href="#式のモチベーション" id="toc-式のモチベーション" class="nav-link" data-scroll-target="#式のモチベーション"><span class="header-section-number">2</span> 式のモチベーション</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">生成作用素の収束の証明</h1>
+<p class="subtitle lead">Spike-and-Slab prior からの効率的なサンプリング</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">ノート</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">著者</div>
+    <div class="quarto-title-meta-contents">
+             <p>司馬博文 </p>
+          </div>
   </div>
     
   
-  <div class="quarto-title-meta column-page">
-
-      
     
-      
-    </div>
-    
+  </div>
   
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
-<!-- sidebar -->
-<!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
-    </div>
-<!-- main -->
-<main class="content quarto-banner-title-block column-page" id="quarto-document-content">
 
 
+</header>
 
 
+<div class="hidden">
+<p>A Blog Entry on Bayesian Computation by an Applied Mathematician</p>
+<p>$$</p>
+<p>$$</p>
+</div>
+<section id="示したいこと" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="示したいこと"><span class="header-section-number">1</span> 示したいこと</h2>
+<p>密度 <span class="math display">\[
+p_\epsilon(x)=(1-\gamma)p(x)+\frac{\gamma}{\epsilon}p\left(\frac{x}{\epsilon}\right)
+\]</span> を対象にした Zig-Zag 過程 <span class="math inline">\((Z^\epsilon_t)_{t\in\mathbb{N}}\)</span> の遷移核 <span class="math inline">\(P_\epsilon^t\)</span> は次のようにかける：</p>
+<p><span id="eq-1"><span class="math display">\[
+\begin{align*}
+  P^t_\epsilon((0,1),dx)&amp;=S_\epsilon(t)\delta_t(dx)+\biggr(\operatorname{P}[N_\epsilon(t)=1]\frac{1}{2}f_\epsilon\left(\frac{t+x}{2}\right)\\
+  &amp;\qquad+\operatorname{P}[N_\epsilon(t)=2]\frac{1}{2}f^{*2}_\epsilon\left(\frac{t-x}{2}\right)\\
+  &amp;\qquad+\operatorname{P}[N_\epsilon(t)=3]\frac{1}{2}f^{*3}_\epsilon\left(\frac{t+x}{2}\right)+\cdots\biggl)dx&amp; x\in[-t,t].
+\end{align*}
+\tag{1}\]</span></span></p>
+<p>ただし，<span class="math inline">\(S_\epsilon\)</span> は <span class="math inline">\((0,1)\)</span> からスタートした場合のイベント時刻の生存関数， <span class="math display">\[
+S_\epsilon(t)=\frac{p_\epsilon(t)}{p_\epsilon(0)}=\frac{1-\gamma}{1-\gamma+\gamma/\epsilon}\frac{p(t)}{p(0)}+\frac{\gamma}{\epsilon(1-\gamma)+\gamma}\frac{p\left(\frac{t}{\epsilon}\right)}{p(0)}
+\]</span> <span class="math inline">\(f_\epsilon\)</span> はその密度 <span class="math display">\[
+f_\epsilon(t)=-S_\epsilon'(t)=\frac{1-\gamma}{1-\gamma+\gamma/\epsilon}\frac{p'(t)}{p(0)}+\frac{\gamma}{\epsilon(1-\gamma)+\gamma}\frac{1}{\epsilon}\frac{p'\left(\frac{t}{\epsilon}\right)}{p(0)}
+\]</span> <span class="math inline">\(N_\epsilon\)</span> は <span class="math inline">\((0,1)\)</span> からスタートした場合のイベント発生回数の過程 <span class="math display">\[
+N_\epsilon(t):=\max\left\{n\ge 1\,\middle|\,\sum_{i=1}^{n-1}2T_\epsilon^{(i)}+T_\epsilon^{(n)}\le t\right\}.
+\]</span> とする．</p>
+<p>式 (<a href="#eq-1" class="quarto-xref">1</a>) の右辺の無限和が収束することは，<span class="math inline">\(f_\epsilon\)</span> が有界であることから判る．</p>
+<p>式 (<a href="#eq-1" class="quarto-xref">1</a>) を認めると，<span class="math inline">\(P^t_\epsilon\)</span> は <span class="math inline">\((-t,t)\)</span> 上では絶対連続である．</p>
+</section>
+<section id="式のモチベーション" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="式のモチベーション"><span class="header-section-number">2</span> 式のモチベーション</h2>
+<div class="callout callout-style-default callout-tip no-icon callout-titled" title="$t$ 時間後に $x\in(-t,t)$ に居る場合">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+<span class="math inline">\(t\)</span> 時間後に <span class="math inline">\(x\in(-t,t)\)</span> に居る場合
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><span class="math inline">\(N_\epsilon(t)=0\)</span> の事象では <span class="math inline">\(x\ne t\)</span> には到達できないことに注意．</p>
+<ol type="1">
+<li><span class="math inline">\(N_\epsilon(t)=1\)</span> で，<span class="math inline">\(\displaystyle T_\epsilon^{(1)}=\frac{t+x}{2}\)</span> にて折り返した場合．</li>
+<li><span class="math inline">\(N_\epsilon(t)=2\)</span> で，次を満たす時刻 <span class="math inline">\(T_\epsilon^{(1)},2T_\epsilon^{(1)}+T_\epsilon^{(2)}\)</span> で折り返した場合： <span class="math display">\[
+  T_\epsilon^{(1)}+T_\epsilon^{(2)}=\frac{t-x}{2}.
+  \]</span></li>
+<li><span class="math inline">\(N_\epsilon(t)=3\)</span> で，次を満たす時刻 <span class="math inline">\(T_\epsilon^{(1)},2T_\epsilon^{(1)}+T_\epsilon^{(2)},2T_\epsilon^{(1)}+2T_\epsilon^{(2)}+T_\epsilon^{(3)}\)</span> で折り返した場合： <span class="math display">\[
+  T_\epsilon^{(1)}+T_\epsilon^{(2)}+T_\epsilon^{(3)}=\frac{t+x}{2}.
+  \]</span></li>
+</ol>
+<p>これらの事象は互いに排反である．</p>
+</div>
+</div>
+<p>以上を式にすると，<span class="math inline">\(P^t_\epsilon\)</span> の <span class="math inline">\((-t,t)\)</span> 上の密度 <span class="math inline">\(p_\epsilon^t\)</span> は， <span class="math display">\[\begin{align*}
+  p^t_\epsilon(x)&amp;\,\propto\,\operatorname{P}[N_\epsilon(t)=1]f_\epsilon\left(\frac{t+x}{2}\right)+\operatorname{P}[N_\epsilon(t)=2]f^{*2}_\epsilon\left(\frac{t-x}{2}\right)\\
+  &amp;\qquad +\operatorname{P}[N_\epsilon(t)=3]f^{*3}_\epsilon\left(\frac{t+x}{2}\right)+\cdots,\qquad x\in(-t,t),
+\end{align*}\]</span> と表せる．</p>
 
 
+</section>
 
-
-
-<div class="quarto-listing quarto-listing-container-default" id="listing-spike-and-slab">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="ノート" data-listing-file-modified-sort="1744611234582" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Spike-and-slab/1d_generator.html" class="no-external">１次元での生成作用素の形の証明</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Spike-and-slab/1d_generator.html" class="no-external">Spike-and-Slab prior からの効率的なサンプリング</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ノート'); return false;">
-ノート
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Spike-and-slab/1d_generator.html" class="no-external">A Blog Entry on Bayesian Computation by an Applied Mathematician</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/Spike-and-slab/1d_generator.html" class="no-external"></a></p><a href="./posts/Spike-and-slab/1d_generator.html" class="no-external">
-<div class="metadata-value listing-filename">
-1d_generator.qmd
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="ノート" data-listing-file-modified-sort="1744867590853" data-listing-reading-time-sort="1" data-listing-word-count-sort="168">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Spike-and-slab/1d_convergence.html" class="no-external">１次元での収束の証明</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Spike-and-slab/1d_convergence.html" class="no-external">Spike-and-Slab prior からの効率的なサンプリング</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ノート'); return false;">
-ノート
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Spike-and-slab/1d_convergence.html" class="no-external">A Blog Entry on Bayesian Computation by an Applied Mathematician</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/Spike-and-slab/1d_convergence.html" class="no-external"></a></p><a href="./posts/Spike-and-slab/1d_convergence.html" class="no-external">
-<div class="metadata-value listing-filename">
-1d_convergence.qmd
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-categories="ノート" data-listing-file-modified-sort="1743581452272" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Spike-and-slab/1d_exit.html" class="no-external">脱出時刻の分析</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Spike-and-slab/1d_exit.html" class="no-external">Spike-and-Slab prior からの効率的なサンプリング</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ノート'); return false;">
-ノート
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Spike-and-slab/1d_exit.html" class="no-external">A Blog Entry on Bayesian Computation by an Applied Mathematician</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/Spike-and-slab/1d_exit.html" class="no-external"></a></p><a href="./posts/Spike-and-slab/1d_exit.html" class="no-external">
-<div class="metadata-value listing-filename">
-1d_exit.qmd
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="3" data-categories="ノート" data-listing-file-modified-sort="1744868196890" data-listing-reading-time-sort="1" data-listing-word-count-sort="81">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Spike-and-slab/Background/note.html" class="no-external">生成作用素の収束の証明</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Spike-and-slab/Background/note.html" class="no-external">Spike-and-Slab prior からの効率的なサンプリング</a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ノート'); return false;">
-ノート
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Spike-and-slab/Background/note.html" class="no-external">A Blog Entry on Bayesian Computation by an Applied Mathematician</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/Spike-and-slab/Background/note.html" class="no-external"></a></p><a href="./posts/Spike-and-slab/Background/note.html" class="no-external">
-<div class="metadata-value listing-filename">
-note.qmd
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="4" data-categories="ドラフト" data-listing-file-modified-sort="1743398410090" data-listing-reading-time-sort="1" data-listing-word-count-sort="24">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Spike-and-slab/spiky-density.html" class="no-external">Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Spike-and-slab/spiky-density.html" class="no-external"></a>
-</div>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('ドラフト'); return false;">
-ドラフト
-</div>
-</div>
-<div class="listing-description">
-<a href="./posts/Spike-and-slab/spiky-density.html" class="no-external">A Blog Entry on Bayesian Computation by an Applied Mathematician</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/Spike-and-slab/spiky-density.html" class="no-external"></a></p><a href="./posts/Spike-and-slab/spiky-density.html" class="no-external">
-<div class="metadata-value listing-filename">
-spiky-density.qmd
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div><div class="quarto-listing quarto-listing-container-default" id="listing-cocosiru">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-listing-date-sort="1740495600000" data-listing-file-modified-sort="1743398409991" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="447">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Cocosiru/source2.html" class="no-external">ココシルデータ解析２</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Cocosiru/source2.html" class="no-external">ココシルスコアと職業性ストレスチェックとの関係の特定</a>
-</div>
-<div class="listing-description">
-<a href="./posts/Cocosiru/source2.html" class="no-external">ココシルの位置付けをわかりやすく説明するために， バイオピリンと職業性ストレスチェックとの相関を詳細に検討し， <strong>ココシルスコアがどのような意味で職業性ストレスチェックの要約になっているかを解明する</strong>． これは結局変数選択をした後の，右辺の式の形を見る問題になる． </a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/Cocosiru/source2.html" class="no-external"></a></p><a href="./posts/Cocosiru/source2.html" class="no-external">
-<div class="metadata-value listing-filename">
-source2.qmd
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-listing-date-sort="1740495600000" data-listing-file-modified-sort="1743398409913" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1492">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Cocosiru/source1.html" class="no-external">ココシルデータ解析１</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Cocosiru/source1.html" class="no-external">昇格・降格との関連性と項目反応モデル</a>
-</div>
-<div class="listing-description">
-<a href="./posts/Cocosiru/source1.html" class="no-external">ココシルを予測に使うことを考える． 昇格はココシルスコアに影響を与える可能性がある（さらに言えば３ヶ月前の残業時間も）． データ数の不足と，未知の説明変数が問題である． 既知の季節変動があったら，それも説明変数に入れたい． </a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/Cocosiru/source1.html" class="no-external"></a></p><a href="./posts/Cocosiru/source1.html" class="no-external">
-<div class="metadata-value listing-filename">
-source1.qmd
-</div>
-</a>
-</div>
-</div>
-<div class="quarto-post image-right" data-index="2" data-listing-date-sort="1740495600000" data-listing-file-modified-sort="1743398409911" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="61">
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Cocosiru/source0.html" class="no-external">ココシルデータ解析０</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Cocosiru/source0.html" class="no-external">概観：背景情報とミーティングの記録</a>
-</div>
-<div class="listing-description">
-<a href="./posts/Cocosiru/source0.html" class="no-external">ビリルビンが活性酵素を除去しようとする中で，その残滓であるバイオピリンが活性酸素上昇／酸化ストレスのマーカーになることが知られている．</a>
-</div>
-</div>
-<div class="metadata">
-<p><a href="./posts/Cocosiru/source0.html" class="no-external"></a></p><a href="./posts/Cocosiru/source0.html" class="no-external">
-<div class="metadata-value listing-filename">
-source0.qmd
-</div>
-</a>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
@@ -915,7 +734,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     </a>
   </li>  
     <li class="nav-item compact">
-    <a class="nav-link" href="./blog.xml">
+    <a class="nav-link" href="../../../blog.xml">
       <i class="bi bi-rss" role="img">
 </i> 
     </a>

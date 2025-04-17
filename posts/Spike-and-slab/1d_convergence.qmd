@@ -49,14 +49,14 @@ $$
 
 一方で極限だと思われる Sticky Zig-Zag 過程 $(Z_t)_{t\in\N}$ は，拡張された状態空間
 $$
-\ov{E}:=\Paren{\ocinterval{-\infty,0-}\sqcup\cointerval{0+,\infty}}\times\R
+E_0:=\R^2\sqcup\{(O,O)\}
 $$
 上に存在するとした場合は，拡張生成作用素
 $$
-\wh{A}f(x,v)=
+\wh{A}_0f(x,v)=
 \begin{cases}
-  (v|f'(z))+\lambda(x)\Paren{f(x,-v)-f(x,v)} & x\ne(0+,-1),(0-,+1)\\
-  \kappa\Paren{\frac{1}{2}f(0_+,+v)+\frac{1}{2}f(0_-,-v)-f(x,v)} & x=(0+,-1),(0-,+1)
+  (v|f'(z))+\lambda(x)\Paren{f(x,-v)-f(x,v)} & x\ne(O,O)\\
+  \kappa\Paren{\frac{1}{2}f(0,+v)+\frac{1}{2}f(0,-v)-f(O,O)} & x=(O,O)
 \end{cases}
 $$
 $$
@@ -64,43 +64,46 @@ $$
 $$
 をもつ．定義域は
 $$
-\cD(\wh{A})=\Brace{f:\ov{E}\to\R\,\middle|\,
+\cD(\wh{A})=\Brace{f:E_0\to\R\,\middle|\,
 \begin{array}{l}
-\{0_{\pm}\}\times\R\,\text{上を除いて絶対連続}\\
-\{0_+\}\times(-\infty,0)\,\text{では右連続}\\
-\{0_-\}\times(0,\infty)\,\text{では左連続}\\
-f(0_+,-1)=f(0_-,+1)=\frac{f(0_-,-1)+f(0_+,+1)}{2}
+\{0\}\times\R\,\text{上を除いて絶対連続}\\
+\{0\}\times(-\infty,0)\,\text{では右連続}\\
+\{0\}\times(0,\infty)\,\text{では左連続}\\
+\text{残った2つの右極限は}\,f(O,O)\,\text{に一致する}
 \end{array}
 }.
 $$
 
-収束の議論は，$0\in\R$ を，$\ov{E}$ における吸着点と同一視して行う：
-$$
-(0,-1)\sim(0_+,-1),\quad(0,+1)\sim(0_-,+1).
-$$
-従って無限遠 $\ep\to0$ では，「復帰点」$(0_-,-1),(0_+,+1)$ が創発されると見る．
+無限遠 $\ep\to0$ では，「吸着点」$(O,O)$ が創発されると見る．
+
+この見方は直感的であるが，$E_0$ には特別な位相が入っていることに注意．^[$(-\infty,0),(0,\infty)$ 内の開集合と，$v>0$ のときは $\ocinterval{-a,0}\subset U\;(U\osub\R^+)$ の形も開集合になる．]
+そのため $x=0$ でジャンプしていても $E_0$ 上では連続関数になる．これは $E_0$ では通常の方法では絶対に $x=0$ に辿り着いてはいけないためである．
+
+生成作用素 $\wh{A}_0$ に登場する $f'$ は $x=0$ では片側微分である．
 
 ## 強生成作用素 $A$ の核
 
-後続の証明（特に @sec-8-8-9 ）が成功するには，特に $\wh{A}_\ep f_\ep$ が $Af$ に有界収束するためには，$\cD(A)$ の核として，区分的 $C^1$-級でコンパクト台を持つ関数の全体が取れることが必要である．
+後続の証明（特に @sec-8-8-9 ）が成功するには，
+特に $\wh{A}_\ep f_\ep$ が $Af$ に有界収束するためには，
+$\cD(A)$ の核として，$x=0$ 以外で $C^1$-級でコンパクト台を持つ関数の全体が取れることが必要である．
 
 
 
 ## 収束の証明
 
-$\cD(A)$ の核から，任意に $((-\infty,0_-)\cup(0_+,\infty))\times\R$ 上 $C^1$-級でコンパクト台を持つ関数 $f$ を取る．
+$\cD(A)$ の核から，任意に $(\R\setminus\{0\})\times\R$ 上 $C^1$-級でコンパクト台を持つ関数 $f$ を取る．
 
-$f_\ep\in\cD(\wh{A}_\ep)$ を満たす関数 $f_\ep$ であって，
+$f_\ep\in\cD(\wh{A}_\ep)$ を満たす関数 $f_\ep$ であって，各点で
 $$
 f_\ep\to f\qquad(\ep\searrow0)
 $$
-が起こるものを構成したい．
+が起こるものは構成できるが，一様収束は決して成り立たせることができない．
 
-まず $f_\ep\in\cD(\wh{A}_\ep)$ であるためには，
+そもそも $f_\ep\in\cD(\wh{A}_\ep)$ であるためには，
 $$
 x\mapsto f_\ep(x,+1),\qquad x\mapsto f_\ep(x,-1)
 $$
-がそれぞれ絶対連続であれば良い．
+がそれぞれ絶対連続であれば良いことに注意．
 
 ### 絶対連続緩和の構成（[背景](Background/1d_convergence1.qmd)）
 
@@ -127,9 +130,9 @@ $$
 特定の部分を除いて $f$ と $f_\ep$ の値は一致するので，次のように評価できる：
 
 \begin{align*}
-  &\qquad\E\SQuare{\ABs{f_\ep(Z_\ep(t))-f(Z_t(t))}}\\
-  &=\E\SQuare{1_{\Brace{X_\ep(t)\in(0,\ep^p),V_\ep(t)=+1}}\abs{f_\ep(Z_\ep(t))-f(Z_t(t))}}\\
-  &\qquad+\E\SQuare{1_{\Brace{X_\ep(t)\in(-\ep^,0),V_\ep(t)=-1}}\abs{f_\ep(Z_\ep(t))-f(Z_t(t))}}\\
+  &\qquad\E\SQuare{\ABs{f_\ep(Z_\ep(t))-f(Z_\ep(t))}}\\
+  &=\E\SQuare{1_{\Brace{X_\ep(t)\in(0,\ep^p),V_\ep(t)=+1}}\abs{f_\ep(Z_\ep(t))-f(Z_\ep(t))}}\\
+  &\qquad+\E\SQuare{1_{\Brace{X_\ep(t)\in(-\ep^,0),V_\ep(t)=-1}}\abs{f_\ep(Z_\ep(t))-f(Z_\ep(t))}}\\
   &<\P[0<X_\ep(t)<\ep^p,V_\ep(t)=+1]2\Delta f(0,+1)+\P[-\ep^p<X_\ep(t)<0,V_\ep(t)=-1]2\Delta f(0,-1)\\
 \end{align*}
 
@@ -144,8 +147,16 @@ $$
 \begin{align*}
   &\qquad\E\SQuare{\wh{A}_\ep f_\ep(Z_\ep(t))-Af(Z_\ep(t))}\\
   &\le\E\SQuare{1_{\Brace{X_\ep(t)\ne0}}\ABs{(V_\ep(t)|f_\ep'(Z_\ep(t))-f'(Z_\ep(t)))}}\\
-  &\qquad+\E\SQuare{1_{\Brace{X_\ep(t)\ne0}}\ABs{\lambda_\ep(Z_\ep(t))\Paren{f_\ep(X_\ep(t),-V_\ep(t))-f(Z_\ep(t))}-\lambda(Z_\ep(t))\Paren{f(X_\ep(t),-V_\ep(t))-f(Z_\ep(t))}}}\\
-  &\qquad+\E\SQuare{1_{\Brace{X_\ep(t)=0}}\ABs{(V_\ep(t)|f'_\ep(Z_\ep(t)))+\lambda_\ep(Z_\ep(t))\Paren{f_\ep(0,-V_\ep(t))-f_\ep(0,+V_\ep(t))}-\kappa\Paren{\frac{1}{2}f(0_+,+V_\ep(t))+\frac{1}{2}f(0_-,-V_\ep(t))-f(Z_\ep(t))}}}\\
+  &\qquad+\E\SQuare{1_{\Brace{X_\ep(t)\ne0}}\ABs{\lambda_\ep(Z_\ep(t))\Paren{f_\ep(X_\ep(t),-V_\ep(t))-f(Z_\ep(t))}\\
+  &\qqquad\qqquad-\lambda(Z_\ep(t))\Paren{f(X_\ep(t),-V_\ep(t))-f(Z_\ep(t))}}}\\
+  &\qquad+\E\SQuare{1_{\Brace{X_\ep(t)=0}}\ABs{(V_\ep(t)|f'_\ep(Z_\ep(t)))+\\
+  &\qqquad\qqquad\lambda_\ep(Z_\ep(t))\Paren{f_\ep(0,-V_\ep(t))-f_\ep(0,+V_\ep(t))}\\
+  &\qqquad\qqquad-\kappa\Paren{\frac{1}{2}f(0_+,+V_\ep(t))+\frac{1}{2}f(0_-,-V_\ep(t))-f(Z_\ep(t))}}}\\
 \end{align*}
 
 $f'_\ep(0,V_\ep(t))$ は $0$ にはできる．吸着する状態 $(0,\pm1)$ は本質的に１つなので，そこでの $f$ の値は同一である．
+
+２つのポイントが効いてくる
+
+* $\lambda_\ep$ が $0$ で消えるか？
+* $p_\ep$ が対称かどうか？
