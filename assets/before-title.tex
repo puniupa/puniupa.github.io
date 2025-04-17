@@ -1,0 +1,82 @@
+%%% Layout
+\usepackage{geometry}
+\PassOptionsToPackage{top=1truemm,bottom=1truemm,left=10truemm,right=10truemm}{geometry}
+\pagestyle{empty}
+% Floats
+\usepackage{picture}\usepackage{footnote}
+% Decorations
+\usepackage{fontawesome5}
+\definecolor{minty}{HTML}{80c4ac}\definecolor{ParisGreen}{cmyk}{1,0.07,0.10,0.10}\definecolor{ISMBlue}{HTML}{2F579C}
+% Links
+\usepackage{url}\PassOptionsToPackage{colorlinks,linkcolor=minty,urlcolor=minty,citecolor=minty}{hyperref}
+
+%%% Language & Mathematics
+% Mathematics
+\usepackage{mathtools} %内部でamsmathを呼び出すことに注意．
+\usepackage{amsfonts} %mathfrak, mathcal, mathbbなど．
+\usepackage{amsthm} %定理環境．
+\usepackage{amssymb} %AMSFontsを使うためのパッケージ．
+\usepackage{ascmac} %screen, itembox, shadebox環境．全てLATEX2εの標準機能の範囲で作られたもの．
+\everymath{\displaystyle}
+% Fonts
+  % \usepackage[math]{anttor}\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}  % LaTeX Error: Math alphabet identifier \mathrm  is undefined in math version `antt'.
+% Japanese
+\usepackage{luatexja}
+% \usepackage{xeCJK}  % ダウンロード長すぎる
+% \setCJKmainfont{UDEVGothicNF-Regular.ttf}  % UDEVGothicNF-Regular.ttf が使いたい
+% \usepackage{luatexja-fontspec}
+% \setmainfont{みかちゃん.ttf}  % 英語だけ動いた．何？
+
+
+%%% Environments
+\usepackage{enumerate} %enumerate環境を凝らせる．
+\renewcommand{\labelenumi}{(\arabic{enumi})} %(1),(2),...がデフォルトであって欲しい
+\renewcommand{\labelenumii}{(\roman{enumii})}
+\renewcommand{\labelenumiii}{(\alph{enumiii})}
+% Bibliography
+% \usepackage{etoolbox}
+% \AtBeginEnvironment{CSLReferences}{% thebibliography 環境の前にフックを追加
+%   \setlength{\itemsep}{1pt} % \bibitem 間のスペースを0ptに設定
+%   \setlength{\parskip}{1pt} % 段落間のスペースを0ptに設定
+% }
+% Theorems
+\usepackage{amsthm}\newtheoremstyle{StatementsWithUnderline}% ?name?
+{3pt}% ?Space above? 1
+{3pt}% ?Space below? 1
+{}% ?Body font?
+{}% ?Indent amount? 2
+{\bfseries}% ?Theorem head font?
+{\textbf{.}}% ?Punctuation after theorem head?
+{.5em}% ?Space after theorem head? 3
+{\textbf{\underline{\textup{#1~\thetheorem{}}}}\;\thmnote{(#3)}}% ?Theorem head spec (can be left empty, meaning ‘normal’)?
+\definecolor{darkolivegreen}{rgb}{0.33, 0.42, 0.18}\newenvironment{Proof}[1][\bf\underline{［証明］}]{\proof[#1]\color{darkolivegreen}}{\endproof}
+\theoremstyle{StatementsWithUnderline}\newtheorem{theorem}{定理}[section]\newtheorem{definition}[theorem]{定義}\newtheorem{corollary}[theorem]{系}\newtheorem{proposition}[theorem]{命題}\newtheorem{lemma}[theorem]{補題}\newtheorem{example}[theorem]{例}
+\theoremstyle{definition}\newtheorem{notation}[theorem]{記法}\newtheorem{algorithm}[theorem]{算譜}\newtheorem{remarks}[theorem]{要諦}\newtheorem{remark}[theorem]{注}
+\usepackage{etoolbox}\AtEndEnvironment{example}{\hfill\ensuremath{\Box}}\renewcommand{\thefootnote}{\dag\arabic{footnote}}\renewcommand{\thempfootnote}{\dag\arabic{mpfootnote}}
+% 行間調整
+\renewcommand{\baselinestretch}{1.5}  % なぜか行間がものすごく詰まってしまうので．
+
+
+% \titleformat{\subsection}[block]
+% {}{}{0pt}
+% {
+%     \colorbox{minty}{\begin{picture}(0,10)\end{picture}}
+%     \hspace{0pt}
+%     \normalfont \Large\bfseries
+%     \hspace{-4pt}
+% }
+% [
+% \begin{picture}(100,0)
+%     \put(3,18){\color{minty}\line(1,0){300}}
+% \end{picture}
+% \\
+% \vspace{-30pt}
+% ]
+
+% \titlespacing{\subsection}{0pc}{3.5ex plus .1ex minus .2ex}{1.5ex minus .1ex}
+
+% \renewcommand{\labelitemi}{\textcolor{minty}{\faCheckCircle}} %https://mirrors.ibiblio.org/CTAN/fonts/fontawesome/doc/fontawesome.pdf
+% \faPaperclip が文献の列挙に良いかも．
+
+
+

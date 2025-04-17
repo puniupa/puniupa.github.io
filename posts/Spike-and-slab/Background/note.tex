@@ -1,14 +1,257 @@
-::: {.hidden}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames,x11names}{xcolor}
+%
+\documentclass[
+]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else  
+    % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+% Make \paragraph and \subparagraph free-standing
+\ifx\paragraph\undefined\else
+  \let\oldparagraph\paragraph
+  \renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+  \let\oldsubparagraph\subparagraph
+  \renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+\makeatletter
+\@ifpackageloaded{tcolorbox}{}{\usepackage[skins,breakable]{tcolorbox}}
+\@ifpackageloaded{fontawesome5}{}{\usepackage{fontawesome5}}
+\definecolor{quarto-callout-color}{HTML}{909090}
+\definecolor{quarto-callout-note-color}{HTML}{0758E5}
+\definecolor{quarto-callout-important-color}{HTML}{CC1914}
+\definecolor{quarto-callout-warning-color}{HTML}{EB9113}
+\definecolor{quarto-callout-tip-color}{HTML}{00A047}
+\definecolor{quarto-callout-caution-color}{HTML}{FC5300}
+\definecolor{quarto-callout-color-frame}{HTML}{acacac}
+\definecolor{quarto-callout-note-color-frame}{HTML}{4582ec}
+\definecolor{quarto-callout-important-color-frame}{HTML}{d9534f}
+\definecolor{quarto-callout-warning-color-frame}{HTML}{f0ad4e}
+\definecolor{quarto-callout-tip-color-frame}{HTML}{02b875}
+\definecolor{quarto-callout-caution-color-frame}{HTML}{fd7e14}
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\AtBeginDocument{%
+\ifdefined\contentsname
+  \renewcommand*\contentsname{Table of contents}
+\else
+  \newcommand\contentsname{Table of contents}
+\fi
+\ifdefined\listfigurename
+  \renewcommand*\listfigurename{List of Figures}
+\else
+  \newcommand\listfigurename{List of Figures}
+\fi
+\ifdefined\listtablename
+  \renewcommand*\listtablename{List of Tables}
+\else
+  \newcommand\listtablename{List of Tables}
+\fi
+\ifdefined\figurename
+  \renewcommand*\figurename{図}
+\else
+  \newcommand\figurename{図}
+\fi
+\ifdefined\tablename
+  \renewcommand*\tablename{Table}
+\else
+  \newcommand\tablename{Table}
+\fi
+}
+\@ifpackageloaded{float}{}{\usepackage{float}}
+\floatstyle{ruled}
+\@ifundefined{c@chapter}{\newfloat{codelisting}{h}{lop}}{\newfloat{codelisting}{h}{lop}[chapter]}
+\floatname{codelisting}{Listing}
+\newcommand*\listoflistings{\listof{codelisting}{List of Listings}}
+\makeatother
+\makeatletter
+\makeatother
+\makeatletter
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{subcaption}{}{\usepackage{subcaption}}
+\makeatother
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={生成作用素の収束の証明},
+  pdfauthor={司馬博文},
+  colorlinks=true,
+  linkcolor={blue},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  pdfcreator={LaTeX via pandoc}}
+
+%%% Layout
+\usepackage{geometry}
+\PassOptionsToPackage{top=1truemm,bottom=1truemm,left=10truemm,right=10truemm}{geometry}
+\pagestyle{empty}
+% Floats
+\usepackage{picture}\usepackage{footnote}
+% Decorations
+\usepackage{fontawesome5}
+\definecolor{minty}{HTML}{80c4ac}\definecolor{ParisGreen}{cmyk}{1,0.07,0.10,0.10}\definecolor{ISMBlue}{HTML}{2F579C}
+% Links
+\usepackage{url}\PassOptionsToPackage{colorlinks,linkcolor=minty,urlcolor=minty,citecolor=minty}{hyperref}
+
+%%% Language & Mathematics
+% Mathematics
+\usepackage{mathtools} %内部でamsmathを呼び出すことに注意．
+\usepackage{amsfonts} %mathfrak, mathcal, mathbbなど．
+\usepackage{amsthm} %定理環境．
+\usepackage{amssymb} %AMSFontsを使うためのパッケージ．
+\usepackage{ascmac} %screen, itembox, shadebox環境．全てLATEX2εの標準機能の範囲で作られたもの．
+\everymath{\displaystyle}
+% Fonts
+  % \usepackage[math]{anttor}\DeclareMathAlphabet{\mathcal}{OMS}{cmsy}{m}{n}  % LaTeX Error: Math alphabet identifier \mathrm  is undefined in math version `antt'.
+% Japanese
+\usepackage{luatexja}
+% \usepackage{xeCJK}  % ダウンロード長すぎる
+% \setCJKmainfont{UDEVGothicNF-Regular.ttf}  % UDEVGothicNF-Regular.ttf が使いたい
+% \usepackage{luatexja-fontspec}
+% \setmainfont{みかちゃん.ttf}  % 英語だけ動いた．何？
+
+
+%%% Environments
+\usepackage{enumerate} %enumerate環境を凝らせる．
+\renewcommand{\labelenumi}{(\arabic{enumi})} %(1),(2),...がデフォルトであって欲しい
+\renewcommand{\labelenumii}{(\roman{enumii})}
+\renewcommand{\labelenumiii}{(\alph{enumiii})}
+% Bibliography
+% \usepackage{etoolbox}
+% \AtBeginEnvironment{CSLReferences}{% thebibliography 環境の前にフックを追加
+%   \setlength{\itemsep}{1pt} % \bibitem 間のスペースを0ptに設定
+%   \setlength{\parskip}{1pt} % 段落間のスペースを0ptに設定
+% }
+% Theorems
+\usepackage{amsthm}\newtheoremstyle{StatementsWithUnderline}% ?name?
+{3pt}% ?Space above? 1
+{3pt}% ?Space below? 1
+{}% ?Body font?
+{}% ?Indent amount? 2
+{\bfseries}% ?Theorem head font?
+{\textbf{.}}% ?Punctuation after theorem head?
+{.5em}% ?Space after theorem head? 3
+{\textbf{\underline{\textup{#1~\thetheorem{}}}}\;\thmnote{(#3)}}% ?Theorem head spec (can be left empty, meaning ‘normal’)?
+\definecolor{darkolivegreen}{rgb}{0.33, 0.42, 0.18}\newenvironment{Proof}[1][\bf\underline{［証明］}]{\proof[#1]\color{darkolivegreen}}{\endproof}
+\theoremstyle{StatementsWithUnderline}\newtheorem{theorem}{定理}[section]\newtheorem{definition}[theorem]{定義}\newtheorem{corollary}[theorem]{系}\newtheorem{proposition}[theorem]{命題}\newtheorem{lemma}[theorem]{補題}\newtheorem{example}[theorem]{例}
+\theoremstyle{definition}\newtheorem{notation}[theorem]{記法}\newtheorem{algorithm}[theorem]{算譜}\newtheorem{remarks}[theorem]{要諦}\newtheorem{remark}[theorem]{注}
+\usepackage{etoolbox}\AtEndEnvironment{example}{\hfill\ensuremath{\Box}}\renewcommand{\thefootnote}{\dag\arabic{footnote}}\renewcommand{\thempfootnote}{\dag\arabic{mpfootnote}}
+% 行間調整
+\renewcommand{\baselinestretch}{1.5}  % なぜか行間がものすごく詰まってしまうので．
+
+
+% \titleformat{\subsection}[block]
+% {}{}{0pt}
+% {
+%     \colorbox{minty}{\begin{picture}(0,10)\end{picture}}
+%     \hspace{0pt}
+%     \normalfont \Large\bfseries
+%     \hspace{-4pt}
+% }
+% [
+% \begin{picture}(100,0)
+%     \put(3,18){\color{minty}\line(1,0){300}}
+% \end{picture}
+% \\
+% \vspace{-30pt}
+% ]
+
+% \titlespacing{\subsection}{0pc}{3.5ex plus .1ex minus .2ex}{1.5ex minus .1ex}
+
+% \renewcommand{\labelitemi}{\textcolor{minty}{\faCheckCircle}} %https://mirrors.ibiblio.org/CTAN/fonts/fontawesome/doc/fontawesome.pdf
+% \faPaperclip が文献の列挙に良いかも．
+
+
+\title{生成作用素の収束の証明}
+\usepackage{etoolbox}
+\makeatletter
+\providecommand{\subtitle}[1]{% add subtitle to \maketitle
+  \apptocmd{\@title}{\par {\large #1 \par}}{}{}
+}
+\makeatother
+\subtitle{Spike-and-Slab prior からの効率的なサンプリング}
+\author{司馬博文}
+\date{}
+
+\begin{document}
+\maketitle
 
 A Blog Entry on Bayesian Computation by an Applied Mathematician
 
-$$
+\$\$
 
 \renewcommand{\P}{\operatorname{P}}\newcommand{\E}{\operatorname{E}}
 \newcommand{\R}{\mathbb{R}}\newcommand{\F}{\mathcal{F}}
 \newcommand{\abs}[1]{\lvert#1\rvert}\newcommand{\Abs}[1]{\left|#1\right|}\newcommand{\ABs}[1]{\biggl|#1\biggr|}\newcommand{\norm}[1]{\|#1\|}\newcommand{\Norm}[1]{\left\|#1\right\|}\newcommand{\NOrm}[1]{\biggl\|#1\biggr\|}\newcommand{\Brace}[1]{\left\{#1\right\}}\newcommand{\BRace}[1]{\biggl\{#1\biggr\}}\newcommand{\paren}[1]{\left(#1\right)}\newcommand{\Paren}[1]{\biggr(#1\biggl)}\newcommand{\brac}[1]{\langle#1\rangle}\newcommand{\Brac}[1]{\left\langle#1\right\rangle}\newcommand{\BRac}[1]{\biggl\langle#1\biggr\rangle}\newcommand{\bra}[1]{\left\langle#1\right|}\newcommand{\ket}[1]{\left|#1\right\rangle}\newcommand{\Square}[1]{\left[#1\right]}\newcommand{\SQuare}[1]{\biggl[#1\biggr]}\newcommand{\rN}{\mathrm{N}}\newcommand{\ov}[1]{\overline{#1}}\newcommand{\un}[1]{\underline{#1}}\newcommand{\wt}[1]{\widetilde{#1}}\newcommand{\wh}[1]{\widehat{#1}}\newcommand{\pp}[2]{\frac{\partial #1}{\partial #2}}\newcommand{\ppp}[3]{\frac{\partial #1}{\partial #2\partial #3}}\newcommand{\dd}[2]{\frac{d #1}{d #2}}\newcommand{\floor}[1]{\lfloor#1\rfloor}\newcommand{\Floor}[1]{\left\lfloor#1\right\rfloor}\newcommand{\ceil}[1]{\lceil#1\rceil}\newcommand{\ocinterval}[1]{(#1]}\newcommand{\cointerval}[1]{[#1)}\newcommand{\COinterval}[1]{\left[#1\right)}\newcommand{\iso}{\overset{\sim}{\to}}
-
-
 
 \newcommand{\y}{\b{y}}\newcommand{\mi}{\,|\,}\newcommand{\Mark}{\mathrm{Mark}}
 \newcommand{\argmax}{\operatorname*{argmax}}\newcommand{\argmin}{\operatorname*{argmin}}
@@ -39,7 +282,6 @@ $$
 \newcommand{\round}{\mathrm{round}}\newcommand{\cond}{\mathrm{cond}}\newcommand{\diag}{\mathrm{diag}}
 \newcommand{\Adj}{\mathrm{Adj}}\newcommand{\Pf}{\mathrm{Pf}}\newcommand{\Sg}{\mathrm{Sg}}
 
-
 \newcommand{\aseq}{\overset{\text{a.s.}}{=}}\newcommand{\deq}{\overset{\text{d}}{=}}\newcommand{\cV}{\mathcal{V}}\newcommand{\FM}{\mathrm{FM}}\newcommand{\KR}{\mathrm{KR}}\newcommand{\rba}{\mathrm{rba}}\newcommand{\rca}{\mathrm{rca}}\newcommand{\Prob}{\mathrm{Prob}}\newcommand{\X}{\mathcal{X}}\newcommand{\Meas}{\mathrm{Meas}}\newcommand{\as}{\;\text{a.s.}}\newcommand{\io}{\;\mathrm{i.o.}}\newcommand{\fe}{\;\text{f.e.}}\newcommand{\bF}{\mathbb{F}}\newcommand{\W}{\mathcal{W}}\newcommand{\Pois}{\mathrm{Pois}}\newcommand{\iid}{\text{i.i.d.}}\newcommand{\wconv}{\rightsquigarrow}\newcommand{\Var}{\mathrm{Var}}\newcommand{\xrightarrown}{\xrightarrow{n\to\infty}}\newcommand{\au}{\mathrm{au}}\newcommand{\cT}{\mathcal{T}}\newcommand{\wto}{\overset{\text{w}}{\to}}\newcommand{\dto}{\overset{\text{d}}{\to}}\newcommand{\sto}{\overset{\text{s}}{\to}}\newcommand{\pto}{\overset{\text{p}}{\to}}\newcommand{\mto}{\overset{\text{m}}{\to}}\newcommand{\vto}{\overset{v}{\to}}\newcommand{\Cont}{\mathrm{Cont}}\newcommand{\stably}{\mathrm{stably}}\newcommand{\Np}{\mathbb{N}^+}\newcommand{\oM}{\overline{\mathcal{M}}}\newcommand{\fP}{\mathfrak{P}}\newcommand{\sign}{\mathrm{sign}}
 \newcommand{\Borel}{\mathrm{Borel}}\newcommand{\Mid}{\,|\,}\newcommand{\middleMid}{\;\middle|\;}\newcommand{\CP}{\mathrm{CP}}\newcommand{\bD}{\mathbb{D}}\newcommand{\bL}{\mathbb{L}}\newcommand{\fW}{\mathfrak{W}}\newcommand{\DL}{\mathcal{D}\mathcal{L}}\renewcommand{\r}[1]{\mathrm{#1}}\newcommand{\rC}{\mathrm{C}}\newcommand{\qqquad}{\qquad\quad}
 
@@ -50,7 +292,6 @@ $$
 \newcommand{\varparallel}{\mathbin{\!/\mkern-5mu/\!}}\newcommand{\Ri}{\mathrm{Ri}}\newcommand{\Cone}{\mathrm{Cone}}\newcommand{\Int}{\mathrm{Int}}
 
 \newcommand{\pre}{\mathrm{pre}}\newcommand{\om}{\omega}
-
 
 \newcommand{\del}{\partial}
 \newcommand{\LHS}{\mathrm{LHS}}\newcommand{\RHS}{\mathrm{RHS}}\newcommand{\bnu}{\boldsymbol{\nu}}\newcommand{\interior}{\mathrm{in}\;}\newcommand{\SH}{\mathrm{SH}}\renewcommand{\v}{\boldsymbol{\nu}}\newcommand{\n}{\mathbf{n}}\newcommand{\ssub}{\Subset}\newcommand{\curl}{\mathrm{curl}}
@@ -70,7 +311,6 @@ $$
 \newcommand{\FE}{\mathrm{FE}}\newcommand{\bV}{\boldsymbol{V}}\newcommand{\GLS}{\mathrm{GLS}}\newcommand{\be}{\boldsymbol{e}}\newcommand{\POOL}{\mathrm{POOL}}\newcommand{\GMM}{\mathrm{GMM}}\newcommand{\MM}{\mathrm{MM}}\newcommand{\SSIV}{\mathrm{SSIV}}\newcommand{\JIV}{\mathrm{JIV}}\newcommand{\AR}{\mathrm{AR}}\newcommand{\ILS}{\mathrm{ILS}}\newcommand{\SLS}{\mathrm{SLS}}\newcommand{\LIML}{\mathrm{LIML}}
 
 \newcommand{\Rad}{\mathrm{Rad}}\newcommand{\bY}{\boldsymbol{Y}}\newcommand{\pone}{{(1)}}\newcommand{\ptwo}{{(2)}}\newcommand{\ps}[1]{{(#1)}}\newcommand{\fsub}{\overset{\text{finite}}{\subset}}
-
 
 \newcommand{\varlim}{\varprojlim}\newcommand{\Hom}{\mathrm{Hom}}\newcommand{\Iso}{\mathrm{Iso}}\newcommand{\Mor}{\mathrm{Mor}}\newcommand{\Isom}{\mathrm{Isom}}\newcommand{\Aut}{\mathrm{Aut}}\newcommand{\End}{\mathrm{End}}\newcommand{\op}{\mathrm{op}}\newcommand{\ev}{\mathrm{ev}}\newcommand{\Ob}{\mathrm{Ob}}\newcommand{\Ar}{\mathrm{Ar}}\newcommand{\Arr}{\mathrm{Arr}}\newcommand{\Set}{\mathrm{Set}}\newcommand{\Grp}{\mathrm{Grp}}\newcommand{\Cat}{\mathrm{Cat}}\newcommand{\Mon}{\mathrm{Mon}}\newcommand{\Ring}{\mathrm{Ring}}\newcommand{\CRing}{\mathrm{CRing}}\newcommand{\Ab}{\mathrm{Ab}}\newcommand{\Pos}{\mathrm{Pos}}\newcommand{\Vect}{\mathrm{Vect}}\newcommand{\FinVect}{\mathrm{FinVect}}\newcommand{\FinSet}{\mathrm{FinSet}}\newcommand{\FinMeas}{\mathrm{FinMeas}}\newcommand{\OmegaAlg}{\Omega\text{-}\mathrm{Alg}}\newcommand{\OmegaEAlg}{(\Omega,E)\text{-}\mathrm{Alg}}\newcommand{\Fun}{\mathrm{Fun}}\newcommand{\Func}{\mathrm{Func}}
 
@@ -94,5 +334,77 @@ $$
 \newcommand{\cI}{\mathcal{I}}
 
 \newcommand{\Lrarrow}{\;\;\Leftrightarrow\;\;}
-$$
-:::
+
+\$\$
+
+\subsection{示したいこと}\label{ux793aux3057ux305fux3044ux3053ux3068}
+
+密度 \[
+p_\epsilon(x)=(1-\gamma)p(x)+\frac{\gamma}{\epsilon}p\left(\frac{x}{\epsilon}\right)
+\] を対象にした Zig-Zag 過程 \((Z^\epsilon_t)_{t\in\mathbb{N}}\)
+の遷移核 \(P_\epsilon^t\) は次のようにかける：
+
+\begin{equation}\phantomsection\label{eq-1}{
+\begin{align*}
+  P^t_\epsilon((0,1),dx)&=S_\epsilon(t)\delta_t(dx)+\biggr(\operatorname{P}[N_\epsilon(t)=1]\frac{1}{2}f_\epsilon\left(\frac{t+x}{2}\right)\\
+  &\qquad+\operatorname{P}[N_\epsilon(t)=2]\frac{1}{2}f^{*2}_\epsilon\left(\frac{t-x}{2}\right)\\
+  &\qquad+\operatorname{P}[N_\epsilon(t)=3]\frac{1}{2}f^{*3}_\epsilon\left(\frac{t+x}{2}\right)+\cdots\biggl)dx& x\in[-t,t].
+\end{align*}
+}\end{equation}
+
+ただし，\(S_\epsilon\) は \((0,1)\)
+からスタートした場合のイベント時刻の生存関数， \[
+S_\epsilon(t)=\frac{p_\epsilon(t)}{p_\epsilon(0)}=\frac{1-\gamma}{1-\gamma+\gamma/\epsilon}\frac{p(t)}{p(0)}+\frac{\gamma}{\epsilon(1-\gamma)+\gamma}\frac{p\left(\frac{t}{\epsilon}\right)}{p(0)}
+\] \(f_\epsilon\) はその密度 \[
+f_\epsilon(t)=-S_\epsilon'(t)=\frac{1-\gamma}{1-\gamma+\gamma/\epsilon}\frac{p'(t)}{p(0)}+\frac{\gamma}{\epsilon(1-\gamma)+\gamma}\frac{1}{\epsilon}\frac{p'\left(\frac{t}{\epsilon}\right)}{p(0)}
+\] \(N_\epsilon\) は \((0,1)\)
+からスタートした場合のイベント発生回数の過程 \[
+N_\epsilon(t):=\max\left\{n\ge 1\,\middle|\,\sum_{i=1}^{n-1}2T_\epsilon^{(i)}+T_\epsilon^{(n)}\le t\right\}.
+\] とする．
+
+式 (\ref{eq-1}) の右辺の無限和が収束することは，\(f_\epsilon\)
+が有界であることから判る．
+
+式 (\ref{eq-1}) を認めると，\(P^t_\epsilon\) は \((-t,t)\)
+上では絶対連続である．
+
+\subsection{式のモチベーション}\label{ux5f0fux306eux30e2ux30c1ux30d9ux30fcux30b7ux30e7ux30f3}
+
+\begin{tcolorbox}[enhanced jigsaw, titlerule=0mm, arc=.35mm, title={\(t\) 時間後に \(x\in(-t,t)\) に居る場合}, breakable, colback=white, opacityback=0, left=2mm, toprule=.15mm, colbacktitle=quarto-callout-tip-color!10!white, leftrule=.75mm, opacitybacktitle=0.6, bottomtitle=1mm, toptitle=1mm, coltitle=black, bottomrule=.15mm, rightrule=.15mm, colframe=quarto-callout-tip-color-frame]
+
+\(N_\epsilon(t)=0\) の事象では \(x\ne t\) には到達できないことに注意．
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \(N_\epsilon(t)=1\)
+  で，\(\displaystyle T_\epsilon^{(1)}=\frac{t+x}{2}\)
+  にて折り返した場合．
+\item
+  \(N_\epsilon(t)=2\) で，次を満たす時刻
+  \(T_\epsilon^{(1)},2T_\epsilon^{(1)}+T_\epsilon^{(2)}\)
+  で折り返した場合： \[
+    T_\epsilon^{(1)}+T_\epsilon^{(2)}=\frac{t-x}{2}.
+    \]
+\item
+  \(N_\epsilon(t)=3\) で，次を満たす時刻
+  \(T_\epsilon^{(1)},2T_\epsilon^{(1)}+T_\epsilon^{(2)},2T_\epsilon^{(1)}+2T_\epsilon^{(2)}+T_\epsilon^{(3)}\)
+  で折り返した場合： \[
+    T_\epsilon^{(1)}+T_\epsilon^{(2)}+T_\epsilon^{(3)}=\frac{t+x}{2}.
+    \]
+\end{enumerate}
+
+これらの事象は互いに排反である．
+
+\end{tcolorbox}
+
+以上を式にすると，\(P^t_\epsilon\) の \((-t,t)\) 上の密度
+\(p_\epsilon^t\) は， \begin{align*}
+  p^t_\epsilon(x)&\,\propto\,\operatorname{P}[N_\epsilon(t)=1]f_\epsilon\left(\frac{t+x}{2}\right)+\operatorname{P}[N_\epsilon(t)=2]f^{*2}_\epsilon\left(\frac{t-x}{2}\right)\\
+  &\qquad +\operatorname{P}[N_\epsilon(t)=3]f^{*3}_\epsilon\left(\frac{t+x}{2}\right)+\cdots,\qquad x\in(-t,t),
+\end{align*} と表せる．
+
+
+
+\end{document}

@@ -4,6 +4,11 @@ subtitle: "Spike-and-Slab prior からの効率的なサンプリング"
 categories: [ノート]
 author: 司馬博文
 format:
+  # pdf:
+  #   pdf-engine: lualatex
+  #   template-partials: 
+  #     - ../../../assets/before-title.tex
+  #   keep-tex: true
   html: default
 bibliography:
   - ../../../assets/2024.bib
