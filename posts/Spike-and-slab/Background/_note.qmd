@@ -1,0 +1,75 @@
+---
+title: "生成作用素の収束の証明"
+subtitle: "Spike-and-Slab prior からの効率的なサンプリング"
+categories: [ノート]
+author: 司馬博文
+format:
+  html: default
+bibliography:
+  - ../../../assets/2024.bib
+  - ../../../assets/2025.bib
+csl: ../../../assets/apalike.csl
+---
+
+{{< include ../../../assets/_preamble.qmd >}}
+
+## 示したいこと
+
+密度
+$$
+p_\ep(x)=(1-\gamma)p(x)+\frac{\gamma}{\ep}p\paren{\frac{x}{\ep}}
+$$
+を対象にした Zig-Zag 過程 $(Z^\ep_t)_{t\in\N}$ の遷移核 $P_\ep^t$ は次のようにかける：
+
+$$
+\begin{align*}
+  P^t_\ep((0,1),dx)&=S_\ep(t)\delta_t(dx)+\Paren{\P[N_\ep(t)=1]\frac{1}{2}f_\ep\paren{\frac{t+x}{2}}\\
+  &\qquad+\P[N_\ep(t)=2]\frac{1}{2}f^{*2}_\ep\paren{\frac{t-x}{2}}\\
+  &\qquad+\P[N_\ep(t)=3]\frac{1}{2}f^{*3}_\ep\paren{\frac{t+x}{2}}+\cdots}dx& x\in[-t,t].
+\end{align*}
+$$ {#eq-1}
+
+ただし，$S_\ep$ は $(0,1)$ からスタートした場合のイベント時刻の生存関数，
+$$
+S_\ep(t)=\frac{p_\ep(t)}{p_\ep(0)}=\frac{1-\gamma}{1-\gamma+\gamma/\ep}\frac{p(t)}{p(0)}+\frac{\gamma}{\ep(1-\gamma)+\gamma}\frac{p\paren{\frac{t}{\ep}}}{p(0)}
+$$
+$f_\ep$ はその密度
+$$
+f_\ep(t)=-S_\ep'(t)=\frac{1-\gamma}{1-\gamma+\gamma/\ep}\frac{p'(t)}{p(0)}+\frac{\gamma}{\ep(1-\gamma)+\gamma}\frac{1}{\ep}\frac{p'\paren{\frac{t}{\ep}}}{p(0)}
+$$
+$N_\ep$ は $(0,1)$ からスタートした場合のイベント発生回数の過程
+$$
+N_\ep(t):=\max\Brace{n\ge1\,\middle|\,\sum_{i=1}^{n-1}2T_\ep^{(i)}+T_\ep^{(n)}\le t}.
+$$
+とする．
+
+式 ([-@eq-1]) の右辺の無限和が収束することは，$f_\ep$ が有界であることから判る．
+
+式 ([-@eq-1]) を認めると，$P^t_\ep$ は $(-t,t)$ 上では絶対連続である．
+
+## 式のモチベーション
+
+::: {.callout-tip icon="false" title="$t$ 時間後に $x\in(-t,t)$ に居る場合"}
+
+$N_\ep(t)=0$ の事象では $x\ne t$ には到達できないことに注意．
+
+1. $N_\ep(t)=1$ で，$\displaystyle T_\ep^{(1)}=\frac{t+x}{2}$ にて折り返した場合．
+2. $N_\ep(t)=2$ で，次を満たす時刻 $T_\ep^{(1)},2T_\ep^{(1)}+T_\ep^{(2)}$ で折り返した場合：
+  $$
+  T_\ep^{(1)}+T_\ep^{(2)}=\frac{t-x}{2}.
+  $$
+1. $N_\ep(t)=3$ で，次を満たす時刻 $T_\ep^{(1)},2T_\ep^{(1)}+T_\ep^{(2)},2T_\ep^{(1)}+2T_\ep^{(2)}+T_\ep^{(3)}$ で折り返した場合：
+  $$
+  T_\ep^{(1)}+T_\ep^{(2)}+T_\ep^{(3)}=\frac{t+x}{2}.
+  $$
+
+これらの事象は互いに排反である．
+
+:::
+
+以上を式にすると，$P^t_\ep$ の $(-t,t)$ 上の密度 $p_\ep^t$ は，
+\begin{align*}
+  p^t_\ep(x)&\propt \P[N_\ep(t)=1]f_\ep\paren{\frac{t+x}{2}}+\P[N_\ep(t)=2]f^{*2}_\ep\paren{\frac{t-x}{2}}\\
+  &\qquad +\P[N_\ep(t)=3]f^{*3}_\ep\paren{\frac{t+x}{2}}+\cdots,\qquad x\in(-t,t),
+\end{align*}
+と表せる．
