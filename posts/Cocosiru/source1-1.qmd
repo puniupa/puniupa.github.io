@@ -1,0 +1,327 @@
+---
+title: "ココシルデータ解析１-１"
+subtitle: "昇格の影響の特定"
+author: "司馬博文"
+date: 4/26/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+execute: 
+  cache: false
+fig-align: center
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: true
+  # pdf:
+  #   fig-format: svg
+  #   include-in-header:
+  #     - ../assets/before-body.tex
+  #   mainfont: "UDEV Gothic NF"
+  #   shift-heading-level-by: -1
+  #   fig-width: 6
+  #   fig-asp: 0.8
+  #   fig-env: figure
+  #   fig-align: center
+  #   fig-pos: H
+  #   code-overflow: wrap
+  #   colorlinks: true
+  #   linkcolor: Cyan3
+  #   pdf-engine: lualatex
+  #   documentclass: ltjsarticle
+  #   keep-tex: true
+abstract: |
+  従業員 28 名を対象に，７月と10月の２回，繰り返しココシルスコアが測定された．同時に本企業では４月と10月に異動と昇進があり，その有無も紐づけられている．しかし，初回の測定は昇進の辞令発令後３ヶ月であるのに対し，２回目の測定は辞令があった当月である．
+  この違いを考慮したモデルを複数フィットしてみる．
+---
+
+```{r}
+#| output: false
+#| echo: false
+library(readxl)
+library(knitr)
+# df1_result1 <- read_excel("./資料/data_Other.xlsx", sheet = "1回目結果")
+# df1_covariate1 <- read_excel("./資料/data_Other.xlsx", sheet = "1回目労務管理データ")
+# df1_result2 <- read_excel("./資料/data_Other.xlsx", sheet = "2回目結果")
+# df1_covariate2 <- read_excel("./資料/data_Other.xlsx", sheet = "2回目労務管理データ")
+
+# # 最初の列の名前を変更
+# names(df1_result1)[1] <- "number1"
+# names(df1_result2)[1] <- "number2"
+
+# # データフレームの構造を確認
+# str(df1_result1)
+# str(df1_result2)
+
+# # 「1回目キットNo」列を使って結合
+# # df1_result2から、df1_result1の「1回目キットNo」と一致するnumber2を持つ行を選択して結合
+# df1_result <- merge(df1_result2, df1_result1, 
+#                     by.x = "1回目キットNo", 
+#                     by.y = "number1", 
+#                     all.x = TRUE)
+df1 <- read_excel("./資料/data_Other.xlsx", sheet = "2回目結果")
+df <- df1[,c(1,2,4,116,117,118,120,121,122,137,138,129,130,131,133,134,127,128)]
+colnames(df)[c(1,4,5,6,7,8,9,10,12,13,14,15,16,17)] <- c("id", "8月", "9月", "10月", "部署異動2", "昇降格", "顧客変更2", "BPCRE2", "4月", "5月", "6月", "部署異動1", "顧客変更1", "BPCRE1")
+cols_to_convert <- c("部署異動1", "昇降格", "顧客変更1", "部署異動2", "顧客変更2")
+df[cols_to_convert] <- lapply(df[cols_to_convert], function(x) {
+  # NAを0に、"〇"または"○"を1に変換
+  ifelse(is.na(x), 0, ifelse(x %in% c("〇", "○"), 1, 0))
+})
+```
+
+```{r}
+#| output: false
+#| echo: false
+library(tidyr)
+df_long <- pivot_longer(
+  df,
+  cols = c("スコア", "1回目スコア"),
+  names_to = "測定時点",
+  values_to = "スコア値"
+)
+df_long$測定時点 <- ifelse(df_long$測定時点 == "スコア", 1, 0)  # 0: 1回目, 1: 2回目
+
+# 部署異動1と部署異動2を統合した新しい列を作成
+df_long$部署異動 <- ifelse(df_long$測定時点 == 1, 
+                        df_long$部署異動2,  # 測定時点が1（2回目）なら部署異動2の値
+                        df_long$部署異動1)  # 測定時点が0（1回目）なら部署異動1の値
+df_long$顧客変更 <- ifelse(df_long$測定時点 == 1, 
+                        df_long$顧客変更2, 
+                        df_long$顧客変更1)
+df_long$BPCRE <- ifelse(df_long$測定時点 == 1, 
+                        df_long$BPCRE2, 
+                        df_long$BPCRE1)
+df_long$OT1 <- ifelse(df_long$測定時点 == 1, # OT: Overtime. 検査当月の残業時間
+                        df_long$`10月`, 
+                        df_long$`6月`)
+df_long$OT2 <- ifelse(df_long$測定時点 == 1, # OT: Overtime. 検査前月の残業時間
+                        df_long$`9月`, 
+                        df_long$`5月`)
+df_long$OT3 <- ifelse(df_long$測定時点 == 1, # OT: Overtime. 検査前々月の残業時間
+                        df_long$`8月`, 
+                        df_long$`4月`)
+df_long$昇降格 <- ifelse(df_long$測定時点 == 1,
+                        df_long$`昇降格`, 
+                        0)
+df_long <- df_long[, !names(df_long) %in% c("部署異動1", "部署異動2", "顧客変更1", "顧客変更2", "BPCRE1", "BPCRE2", "10月", "9月", "8月", "6月", "5月", "4月")]
+```
+
+基本的に説明変数は，顧客変更，部署異動，昇進の３つのみを考える．
+
+## 測定時点ごとの変動係数モデル
+
+２回の測定で，昇降格の影響が大きく違う可能性があることがわかった．
+
+ランダム係数の間の標準偏差がすごく大きい：$\sigma=17.04$．
+
+### 昇降格の影響だけ変動係数にした場合
+
+```{r}
+#| output: false
+#| warning: false
+library(brms)
+formula <- bf(スコア値 ~ 1 + 顧客変更 + 部署異動 + (昇降格 | 測定時点))
+fit <- brm(formula, data = df_long, chains = 4, cores = 4, iter = 10000)
+```
+
+```{r}
+summary(fit)
+```
+
+```{r}
+print(ranef(fit))
+```
+
+### 昇降格の変動係数のプロット
+
+```{r}
+#| output: false
+library(brms)
+formula <- bf(スコア値 ~ (1 + 昇降格 | 測定時点))
+fit <- brm(formula, data = df_long, chains = 4, cores = 4, iter = 10000)
+```
+
+
+
+```{r}
+library(ggplot2)
+ranef_昇降格 <- ranef(fit)$測定時点
+posterior_means <- ranef_昇降格[,1,2]
+lower_bounds <- ranef_昇降格[,3,2]
+upper_bounds <- ranef_昇降格[,4,2]
+plot_df_昇降格 <- data.frame(
+  term = rownames(ranef_昇降格),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+# termを因子型に変換（順序を保持するため）
+plot_df_昇降格$term <- factor(plot_df_昇降格$term, 
+                           levels = c("0", "1"), 
+                           labels = c("7月", "10月"))
+
+ggplot(plot_df_昇降格, aes(x = factor(term), y = mean)) +
+  geom_point(aes(color = term == "10月"), size = 10) +
+  geom_errorbar(aes(ymin = lower, ymax = upper, 
+                    color = term == "10月"),  # 条件による色分け
+                width = 0.2, linewidth = 1.5) +
+  geom_hline(yintercept = 0, color = "gray40", linewidth = 0.5) +
+  theme_minimal() +
+  labs(x = "測定時点", y = "昇格の効果の大きさ") +
+  scale_color_manual(values = c("black", "red"), guide = "none") +  # ガイド（凡例）を非表示
+  theme(
+    axis.title.x = element_text(size = 45),      # x軸ラベルのサイズ
+    axis.title.y = element_text(size = 45),      # y軸ラベルのサイズ
+    axis.text.x = element_text(size = 32),       # x軸目盛りのサイズ
+    axis.text.y = element_text(size = 32),       # y軸目盛りのサイズ
+  text = element_text(family = "HiraginoSans-W3")
+  ) +
+  coord_cartesian(ylim = c(-50, 50))  # y軸の範囲を調整
+
+ggsave("昇格.png", bg="white")
+```
+
+### すごい！じゃあ顧客変更は？
+
+```{r}
+#| output: false
+library(brms)
+formula <- bf(スコア値 ~ (1 + 顧客変更 | 測定時点))
+fit <- brm(formula, data = df_long, chains = 4, cores = 4, iter = 10000)
+```
+
+```{r}
+library(ggplot2)
+ranef_顧客変更 <- ranef(fit)$測定時点
+posterior_means <- ranef_顧客変更[,1,2]
+lower_bounds <- ranef_顧客変更[,3,2]
+upper_bounds <- ranef_顧客変更[,4,2]
+plot_df_顧客変更 <- data.frame(
+  term = rownames(ranef_顧客変更),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+# termを因子型に変換（順序を保持するため）
+plot_df_顧客変更$term <- factor(plot_df_顧客変更$term, 
+                           levels = c("0", "1"), 
+                           labels = c("7月", "10月"))
+
+ggplot(plot_df_顧客変更, aes(x = factor(term), y = mean)) +
+  geom_point(size = 10) +  # 平均値のポイント
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.2, linewidth = 1.5) +  # エラーバー
+  geom_hline(yintercept = 0, color = "gray40", linewidth = 0.5) +
+  theme_minimal() +
+  labs(x = "測定時点", y = "顧客変更の効果の大きさ") +
+  theme(
+    axis.title.x = element_text(size = 45),      # x軸ラベルのサイズ
+    axis.title.y = element_text(size = 45),      # y軸ラベルのサイズ
+    axis.text.x = element_text(size = 32),       # x軸目盛りのサイズ
+    axis.text.y = element_text(size = 32),       # y軸目盛りのサイズ
+  text = element_text(family = "HiraginoSans-W3")
+  ) +
+  coord_cartesian(ylim = c(-50, 50))  # y軸の範囲を調整
+
+ggsave("顧客変更.png", bg="white")
+```
+
+### すごい！続けて部署異動は？
+
+```{r}
+#| output: false
+library(brms)
+formula <- bf(スコア値 ~ (1 + 部署異動 | 測定時点))
+fit <- brm(formula, data = df_long, chains = 4, cores = 4, iter = 10000)
+```
+
+```{r}
+library(ggplot2)
+ranef_部署異動 <- ranef(fit)$測定時点
+posterior_means <- ranef_部署異動[,1,2]
+lower_bounds <- ranef_部署異動[,3,2]
+upper_bounds <- ranef_部署異動[,4,2]
+plot_df_部署異動 <- data.frame(
+  term = rownames(ranef_部署異動),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+# termを因子型に変換（順序を保持するため）
+plot_df_部署異動$term <- factor(plot_df_部署異動$term, 
+                           levels = c("0", "1"), 
+                           labels = c("7月", "10月"))
+
+ggplot(plot_df_部署異動, aes(x = factor(term), y = mean)) +
+  geom_point(size = 10) +  # 平均値のポイント
+  geom_errorbar(aes(ymin = lower, ymax = upper), width = 0.2, linewidth = 1.5) +  # エラーバー
+  geom_hline(yintercept = 0, color = "gray40", linewidth = 0.5) +
+  theme_minimal() +
+  labs(x = "測定時点", y = "部署異動の効果の大きさ") +
+  theme(
+    axis.title.x = element_text(size = 45),      # x軸ラベルのサイズ
+    axis.title.y = element_text(size = 45),      # y軸ラベルのサイズ
+    axis.text.x = element_text(size = 32),       # x軸目盛りのサイズ
+    axis.text.y = element_text(size = 32),       # y軸目盛りのサイズ
+  text = element_text(family = "HiraginoSans-W3")
+  ) +
+  coord_cartesian(ylim = c(-50, 50))  # y軸の範囲を調整
+
+ggsave("部署異動.png", bg="white")
+```
+
+### ちょっと prior を検証したくなった
+
+```{r}
+get_prior(formula, data = df_long)
+```
+
+### 頻度論的な検定もしてみたい
+
+```{r}
+t.test(スコア値 ~ 測定時点, data = df_long)
+```
+
+### 全て変動係数にした場合
+
+```{r}
+#| output: false
+library(brms)
+formula <- bf(スコア値 ~ (1 + 顧客変更 + 部署異動 + 昇降格 | 測定時点))
+fit <- brm(formula, data = df_long, chains = 4, cores = 4, iter = 10000)
+```
+
+```{r}
+summary(fit)
+```
+
+```{r}
+print(ranef(fit))
+```
+
+## 固定効果モデル（従来の分析）
+
+```{r}
+#| output: false
+library(brms)
+formula <- bf(スコア値 ~ (1|id) + 測定時点 + 顧客変更 + 部署異動 + 昇降格)
+fit <- brm(formula, data = df_long, chains = 4, cores = 4)
+```
+
+```{r}
+summary(fit)
+```
+
+```{r}
+#| echo: false
+#| layout-ncol: 2
+#| layout-nrow: 2
+conditional_effects(fit, "測定時点")
+conditional_effects(fit, "昇降格")
+conditional_effects(fit, "顧客変更")
+conditional_effects(fit, "部署異動")
+```

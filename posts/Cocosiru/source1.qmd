@@ -40,15 +40,32 @@ abstract: |
   昇格はココシルスコアに影響を与える可能性がある（さらに言えば３ヶ月前の残業時間も）．
   データ数の不足と，未知の説明変数が問題である．
   既知の季節変動があったら，それも説明変数に入れたい．
+listing:
+  - id: cocosiru1-listing
+    type: grid
+    sort: false
+    contents:
+      - "source1-1.qmd"
+    page-size: 3
+    image-height: 100%
+    grid-columns: 1
 ---
 
 ## まとめ
 
 ::: {.callout-tip appearance="simple" icon="false" title="現状の仮説"}
 
-* 本当に時期によってストレス値の中央値が違う可能性がある．
-* 職位変更と顧客変更で，ココシルスコアの変化率に違いが見られる可能性がある．
-* 「職業性ストレスチェック」は（バイオマーカーなどが反映するような）現実を全く反映していないと思われる．
+* 季節変動の影響が全く拭えない．
+* 「職業性ストレスチェック」との関係が本当に薄い．
+* ７月測定に昇進との関係は認められないが，10月測定には大きく認められる．
+
+::: {layout-ncol=3}
+![昇格 $\sigma=16.8$](Files/昇格.png){width=5cm}
+
+![顧客変更 $\sigma=10.5$](Files/顧客変更.png){width=5cm}
+
+![部署異動 $\sigma=9.1$](Files/部署異動.png){width=5cm}
+:::
 
 :::
 
@@ -56,6 +73,8 @@ abstract: |
 
 * 昇格・降格変数の本当の意味がわかったら，より正確に解析をし直す．
   * → 多分ほとんど終わった 2/27/2025
+* ７月測定と10月測定と，昇進があった月からの距離が遠い．
+  * → 本当に２回の測定で全然違う！ 4/30/2025
 
 :::
 
@@ -112,6 +131,8 @@ df1 <- read_excel("./資料/data_Other.xlsx", sheet = "2回目結果")
 
 ```
 
+#### データ整形とラベル変更
+
 ```{r}
 #| code-fold: true
 df <- df1[,c(1,2,4,116,117,118,120,121,122,137,138,129,130,131,133,134,127,128)]
@@ -127,6 +148,7 @@ kable(head(df))
 #### 長形式化
 
 ```{r}
+#| code-fold: true
 library(tidyr)
 df_long <- pivot_longer(
   df,
@@ -164,6 +186,8 @@ kable(head(df_long))
 
 ### 残業時間は関係なさそうだが，「どれくらい遅れて出るか？」は見たい？
 
+#### 残業時間のプロット
+
 ```{r}
 #| output: false
 #| code-fold: true
@@ -197,6 +221,8 @@ ggplot(df_months, aes(x = 月, y = 値, group = id, color = factor(id))) +
   theme(legend.position = "none")  # IDが多い場合は凡例を非表示に
 ```
 
+#### 残業時間の中央値のプロット
+
 ```{r}
 #| code-fold: true
 #| fig-cap: "月次残業時間数の中央値の推移"
@@ -216,7 +242,7 @@ ggplot(monthly_medians, aes(x = 月, y = 中央値, group = 1)) +
        y = "median")
 ```
 
-#### 「どれくらい遅れて出るか？」を見たが，ほとんど切片と測定時点で説明してしまい，３ヶ月前の残業時間に関しては負の影響を持っている． {#sec-item-response-to-OT}
+#### ３ヶ月前の残業時間と負の相関 {#sec-item-response-to-OT}
 
 結構高確率で３ヶ月前の残業時間が負に働いているのはなんだ？残業をすると後々楽になってストレスが下がる？？
 
@@ -329,7 +355,10 @@ p_OT3
 
 人によっては強く，過去の残業時間がストレスに影響を及ぼしている可能性があるが，エラーバーが長すぎる．やっぱ一人２回しか測定してないからね．
 
-### 顧客変更の影響 {#sec-昇降格}
+### 主解析：顧客変更の影響 {#sec-昇降格}
+
+::: {#cocosiru1-listing}
+:::
 
 ```{r}
 #| output: false
@@ -353,6 +382,8 @@ conditional_effects(fit, "昇降格")
 conditional_effects(fit, "顧客変更")
 conditional_effects(fit, "部署異動")
 ```
+
+
 
 ### 属人的影響への考察 {#sec-昇降格-IRT}
 

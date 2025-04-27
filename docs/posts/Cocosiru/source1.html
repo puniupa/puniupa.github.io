@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="司馬博文">
 
-<title>ぷにうぱ - ココシルデータ解析１</title>
+<title>ココシルデータ解析１ – ぷにうぱ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -85,15 +85,17 @@ div.csl-indent {
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
+<script src="../../site_libs/quarto-listing/list.min.js"></script>
+<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-cf7929f4d66a2bdccc4ecf0c4d40c672.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4fad84e8e0fe087195d5fc131974df6c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -119,6 +121,35 @@ div.csl-indent {
     "search-label": "Search"
   }
 }</script>
+<script>
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-cocosiru1-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-cocosiru1-listing'] = new List('listing-cocosiru1-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&amp;display=swap" rel="stylesheet">
@@ -127,7 +158,7 @@ div.csl-indent {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&amp;display=swap" rel="stylesheet">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -158,13 +189,17 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../assets/styles.css">
-<meta property="og:title" content="ぷにうぱ - ココシルデータ解析１">
+<meta property="og:title" content="ココシルデータ解析１ – ぷにうぱ">
 <meta property="og:description" content="ココシルを予測に使うことを考える． 昇格はココシルスコアに影響を与える可能性がある（さらに言えば３ヶ月前の残業時間も）． データ数の不足と，未知の説明変数が問題である． 既知の季節変動があったら，それも説明変数に入れたい．">
-<meta property="og:image" content="https://puniupa.github.io/posts/Cocosiru/assets/ぷにうぱ.jpg">
+<meta property="og:image" content="https://puniupa.github.io/posts/Cocosiru/Files/昇格.png">
 <meta property="og:site_name" content="ぷにうぱ">
-<meta name="twitter:title" content="ぷにうぱ - ココシルデータ解析１">
+<meta property="og:image:height" content="3042">
+<meta property="og:image:width" content="3042">
+<meta name="twitter:title" content="ココシルデータ解析１ – ぷにうぱ">
 <meta name="twitter:description" content="ココシルを予測に使うことを考える． 昇格はココシルスコアに影響を与える可能性がある（さらに言えば３ヶ月前の残業時間も）． データ数の不足と，未知の説明変数が問題である． 既知の季節変動があったら，それも説明変数に入れたい．">
-<meta name="twitter:image" content="https://puniupa.github.io/posts/Cocosiru/assets/ぷにうぱ.jpg">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/Cocosiru/Files/昇格.png">
+<meta name="twitter:image-height" content="3042">
+<meta name="twitter:image-width" content="3042">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -180,7 +215,7 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -195,7 +230,7 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -214,7 +249,7 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#事前処理" id="toc-事前処理" class="nav-link" data-scroll-target="#事前処理"><span class="header-section-number">2.1</span> 事前処理</a></li>
   <li><a href="#残業時間は関係なさそうだがどれくらい遅れて出るかは見たい" id="toc-残業時間は関係なさそうだがどれくらい遅れて出るかは見たい" class="nav-link" data-scroll-target="#残業時間は関係なさそうだがどれくらい遅れて出るかは見たい"><span class="header-section-number">2.2</span> 残業時間は関係なさそうだが，「どれくらい遅れて出るか？」は見たい？</a></li>
-  <li><a href="#sec-昇降格" id="toc-sec-昇降格" class="nav-link" data-scroll-target="#sec-昇降格"><span class="header-section-number">2.3</span> 顧客変更の影響</a></li>
+  <li><a href="#sec-昇降格" id="toc-sec-昇降格" class="nav-link" data-scroll-target="#sec-昇降格"><span class="header-section-number">2.3</span> 主解析：顧客変更の影響</a></li>
   <li><a href="#sec-昇降格-IRT" id="toc-sec-昇降格-IRT" class="nav-link" data-scroll-target="#sec-昇降格-IRT"><span class="header-section-number">2.4</span> 属人的影響への考察</a></li>
   <li><a href="#ストレスの季節間変動に関する関連文献" id="toc-ストレスの季節間変動に関する関連文献" class="nav-link" data-scroll-target="#ストレスの季節間変動に関する関連文献"><span class="header-section-number">2.5</span> ストレスの季節間変動に関する関連文献</a></li>
   </ul></li>
@@ -258,7 +293,7 @@ window.Quarto = {
 <div>
   <div class="abstract">
     <div class="block-title">はじめに</div>
-    <p>ココシルを予測に使うことを考える． 昇格・降格は</p>
+    <p>ココシルを予測に使うことを考える． 昇格はココシルスコアに影響を与える可能性がある（さらに言えば３ヶ月前の残業時間も）． データ数の不足と，未知の説明変数が問題である． 既知の季節変動があったら，それも説明変数に入れたい．</p>
   </div>
 </div>
 
@@ -279,10 +314,41 @@ window.Quarto = {
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>本当に時期によってストレス値の中央値が違う可能性がある．</li>
-<li>職位変更と顧客変更で，ココシルスコアの変化率に違いが見られる可能性がある．</li>
-<li>「職業性ストレスチェック」は（バイオマーカーなどが反映するような）現実を全く反映していないと思われる．</li>
+<li>季節変動の影響が全く拭えない．</li>
+<li>「職業性ストレスチェック」との関係が本当に薄い．</li>
+<li>７月測定に昇進との関係は認められないが，10月測定には大きく認められる．</li>
 </ul>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Files/昇格.png" class="img-fluid figure-img" style="width:5cm"></p>
+<figcaption>昇格 <span class="math inline">\(\sigma=16.8\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Files/顧客変更.png" class="img-fluid figure-img" style="width:5cm"></p>
+<figcaption>顧客変更 <span class="math inline">\(\sigma=10.5\)</span></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="Files/部署異動.png" class="img-fluid figure-img" style="width:5cm"></p>
+<figcaption>部署異動 <span class="math inline">\(\sigma=9.1\)</span></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="ToDo">
@@ -299,6 +365,10 @@ ToDo
 <li>昇格・降格変数の本当の意味がわかったら，より正確に解析をし直す．
 <ul>
 <li>→ 多分ほとんど終わった 2/27/2025</li>
+</ul></li>
+<li>７月測定と10月測定と，昇進があった月からの距離が遠い．
+<ul>
+<li>→ 本当に２回の測定で全然違う！ 4/30/2025</li>
 </ul></li>
 </ul>
 </div>
@@ -337,7 +407,7 @@ ToDo
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>結構 <span class="math inline">\(0\)</span> から分離されるくらい，３ヶ月前の残業時間が負に働いているのはなんだ？残業をすると後々楽になってストレスが下がる？？ <a href="#sec-item-response-to-OT" class="quarto-xref">Section&nbsp;2.2.1</a></li>
+<li>結構 <span class="math inline">\(0\)</span> から分離されるくらい，３ヶ月前の残業時間が負に働いているのはなんだ？残業をすると後々楽になってストレスが下がる？？ <a href="#sec-item-response-to-OT" class="quarto-xref">Section&nbsp;2.2.3</a></li>
 <li>これについては一人２回しか測定していないこともあり，不確実性が高すぎる．</li>
 <li>顧客変更の時期も入れたら結果が変わる可能性がある．</li>
 </ol>
@@ -349,6 +419,8 @@ ToDo
 <section id="事前処理" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="事前処理"><span class="header-section-number">2.1</span> 事前処理</h3>
 <p>２回繰り返しココシル測定データを R に読み込んで整理する．</p>
+<section id="データ整形とラベル変更" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="データ整形とラベル変更"><span class="header-section-number">2.1.1</span> データ整形とラベル変更</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -362,7 +434,7 @@ ToDo
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 3%">
 <col style="width: 5%">
@@ -530,9 +602,12 @@ ToDo
 </table>
 </div>
 </div>
-<section id="長形式化" class="level4" data-number="2.1.1">
-<h4 data-number="2.1.1" class="anchored" data-anchor-id="長形式化"><span class="header-section-number">2.1.1</span> 長形式化</h4>
+</section>
+<section id="長形式化" class="level4" data-number="2.1.2">
+<h4 data-number="2.1.2" class="anchored" data-anchor-id="長形式化"><span class="header-section-number">2.1.2</span> 長形式化</h4>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyr)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> <span class="fu">pivot_longer</span>(</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  df,</span>
@@ -565,8 +640,9 @@ ToDo
 <span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>                        <span class="dv">0</span>)</span>
 <span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>df_long <span class="ot">&lt;-</span> df_long[, <span class="sc">!</span><span class="fu">names</span>(df_long) <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"部署異動1"</span>, <span class="st">"部署異動2"</span>, <span class="st">"顧客変更1"</span>, <span class="st">"顧客変更2"</span>, <span class="st">"BPCRE1"</span>, <span class="st">"BPCRE2"</span>, <span class="st">"10月"</span>, <span class="st">"9月"</span>, <span class="st">"8月"</span>, <span class="st">"6月"</span>, <span class="st">"5月"</span>, <span class="st">"4月"</span>)]</span>
 <span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(df_long))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 5%">
 <col style="width: 8%">
@@ -690,6 +766,8 @@ ToDo
 </section>
 <section id="残業時間は関係なさそうだがどれくらい遅れて出るかは見たい" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="残業時間は関係なさそうだがどれくらい遅れて出るかは見たい"><span class="header-section-number">2.2</span> 残業時間は関係なさそうだが，「どれくらい遅れて出るか？」は見たい？</h3>
+<section id="残業時間のプロット" class="level4" data-number="2.2.1">
+<h4 data-number="2.2.1" class="anchored" data-anchor-id="残業時間のプロット"><span class="header-section-number">2.2.1</span> 残業時間のプロット</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -731,6 +809,9 @@ ToDo
 </div>
 </div>
 </div>
+</section>
+<section id="残業時間の中央値のプロット" class="level4" data-number="2.2.2">
+<h4 data-number="2.2.2" class="anchored" data-anchor-id="残業時間の中央値のプロット"><span class="header-section-number">2.2.2</span> 残業時間の中央値のプロット</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -757,8 +838,9 @@ ToDo
 </div>
 </div>
 </div>
-<section id="sec-item-response-to-OT" class="level4" data-number="2.2.1">
-<h4 data-number="2.2.1" class="anchored" data-anchor-id="sec-item-response-to-OT"><span class="header-section-number">2.2.1</span> 「どれくらい遅れて出るか？」を見たが，ほとんど切片と測定時点で説明してしまい，３ヶ月前の残業時間に関しては負の影響を持っている．</h4>
+</section>
+<section id="sec-item-response-to-OT" class="level4" data-number="2.2.3">
+<h4 data-number="2.2.3" class="anchored" data-anchor-id="sec-item-response-to-OT"><span class="header-section-number">2.2.3</span> ３ヶ月前の残業時間と負の相関</h4>
 <p>結構高確率で３ヶ月前の残業時間が負に働いているのはなんだ？残業をすると後々楽になってストレスが下がる？？</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
@@ -856,7 +938,37 @@ data's colour values.</code></pre>
 </section>
 </section>
 <section id="sec-昇降格" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="sec-昇降格"><span class="header-section-number">2.3</span> 顧客変更の影響</h3>
+<h3 data-number="2.3" class="anchored" data-anchor-id="sec-昇降格"><span class="header-section-number">2.3</span> 主解析：顧客変更の影響</h3>
+<div id="listing-cocosiru1-listing" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-1">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1745593200000" data-listing-file-modified-sort="1745676454084" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1519">
+<a href="../../posts/Cocosiru/source1-1.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="source1-1_files/figure-html/unnamed-chunk-7-1.png" style="height: 100%;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+ココシルデータ解析１-１
+</h5>
+<div class="card-text listing-description">
+<p>従業員 28 名を対象に，７月と10月の２回，繰り返しココシルスコアが測定された．同時に本企業では４月と10月に異動と昇進があり，その有無も紐づけられている．しかし，初回の測定は昇進の辞令発令後３ヶ月であるのに対し，２回目の測定は辞令があった当月である． この違いを考慮したモデルを複数フィットしてみる．</p>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+司馬博文
+</div>
+<div class="listing-date">
+4/26/2025
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> (<span class="dv">1</span><span class="sc">|</span>id) <span class="sc">+</span> 測定時点 <span class="sc">+</span> 顧客変更 <span class="sc">+</span> 部署異動 <span class="sc">+</span> 昇降格)</span>
@@ -915,7 +1027,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="source1_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="576"></p>
@@ -1036,6 +1148,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 
 
 
+
 </section>
 </section>
 
@@ -1082,18 +1195,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -1125,7 +1227,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/puniupa\.github\.io\/");
@@ -1133,7 +1255,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -1230,7 +1352,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
