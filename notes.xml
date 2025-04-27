@@ -15,7 +15,1120 @@
 <link>https://puniupa.github.io/notes.html</link>
 </image>
 <generator>quarto-1.6.43</generator>
-<lastBuildDate>Wed, 26 Feb 2025 00:00:00 GMT</lastBuildDate>
+<lastBuildDate>Sat, 26 Apr 2025 00:00:00 GMT</lastBuildDate>
+<item>
+  <title>ココシルデータ解析１-１</title>
+  <dc:creator>司馬博文 </dc:creator>
+  <link>https://puniupa.github.io/posts/Cocosiru/source1-1.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<p>基本的に説明変数は，顧客変更，部署異動，昇進の３つのみを考える．</p>
+<section id="測定時点ごとの変動係数モデル" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="測定時点ごとの変動係数モデル"><span class="header-section-number">1</span> 測定時点ごとの変動係数モデル</h2>
+<p>２回の測定で，昇降格の影響が大きく違う可能性があることがわかった．</p>
+<p>ランダム係数の間の標準偏差がすごく大きい：<img src="https://latex.codecogs.com/png.latex?%5Csigma=17.04">．</p>
+<section id="昇降格の影響だけ変動係数にした場合" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="昇降格の影響だけ変動係数にした場合"><span class="header-section-number">1.1</span> 昇降格の影響だけ変動係数にした場合</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(brms)</span>
+<span id="cb1-2">formula <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bf</span>(スコア値 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 顧客変更 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 部署異動 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> (昇降格 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> 測定時点))</span>
+<span id="cb1-3">fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">brm</span>(formula, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> df_long, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">chains =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cores =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">iter =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10000</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(fit)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There were 159 divergent transitions after warmup. Increasing
+adapt_delta above 0.8 may help. See
+http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: スコア値 ~ 1 + 顧客変更 + 部署異動 + (昇降格 | 測定時点) 
+   Data: df_long (Number of observations: 54) 
+  Draws: 4 chains, each with iter = 10000; warmup = 5000; thin = 1;
+         total post-warmup draws = 20000
+
+Multilevel Hyperparameters:
+~測定時点 (Number of levels: 2) 
+                      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sd(Intercept)            13.29     10.23     1.16    39.67 1.00     4451
+sd(昇降格)               16.12     14.36     0.87    51.99 1.00     4633
+cor(Intercept,昇降格)     0.11      0.56    -0.92     0.96 1.00    11854
+                      Tail_ESS
+sd(Intercept)             1947
+sd(昇降格)                2260
+cor(Intercept,昇降格)     9975
+
+Regression Coefficients:
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept    38.06      8.72    20.43    56.52 1.00     5539     5019
+顧客変更     -2.49      6.32   -14.87     9.99 1.00    15678    11700
+部署異動     -0.55      7.55   -15.43    14.24 1.00    11526     2682
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma    18.10      1.86    14.90    22.20 1.00     9374     2895
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ranef</span>(fit))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$測定時点
+, , Intercept
+
+   Estimate Est.Error      Q2.5    Q97.5
+0 -5.914550  8.731831 -24.97542 11.19211
+1  4.947094  8.598296 -12.20286 24.22834
+
+, , 昇降格
+
+    Estimate Est.Error       Q2.5    Q97.5
+0 -0.1636156 20.398576 -44.213229 42.29425
+1  8.4911687  6.920103  -2.779656 22.85782</code></pre>
+</div>
+</div>
+</section>
+<section id="昇降格の変動係数のプロット" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="昇降格の変動係数のプロット"><span class="header-section-number">1.2</span> 昇降格の変動係数のプロット</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(brms)</span>
+<span id="cb7-2">formula <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bf</span>(スコア値 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 昇降格 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> 測定時点))</span>
+<span id="cb7-3">fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">brm</span>(formula, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> df_long, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">chains =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cores =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">iter =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10000</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb8-2">ranef_昇降格 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ranef</span>(fit)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>測定時点</span>
+<span id="cb8-3">posterior_means <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_昇降格[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]</span>
+<span id="cb8-4">lower_bounds <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_昇降格[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]</span>
+<span id="cb8-5">upper_bounds <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_昇降格[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]</span>
+<span id="cb8-6">plot_df_昇降格 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb8-7">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">term =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rownames</span>(ranef_昇降格),</span>
+<span id="cb8-8">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> posterior_means,</span>
+<span id="cb8-9">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lower =</span> lower_bounds,</span>
+<span id="cb8-10">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">upper =</span> upper_bounds</span>
+<span id="cb8-11">)</span>
+<span id="cb8-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># termを因子型に変換（順序を保持するため）</span></span>
+<span id="cb8-13">plot_df_昇降格<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>term <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(plot_df_昇降格<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>term, </span>
+<span id="cb8-14">                           <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">levels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1"</span>), </span>
+<span id="cb8-15">                           <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">labels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"7月"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"10月"</span>))</span>
+<span id="cb8-16"></span>
+<span id="cb8-17"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(plot_df_昇降格, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(term), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> mean)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 平均値のポイント</span></span>
+<span id="cb8-19">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_errorbar</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ymin =</span> lower, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ymax =</span> upper), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># エラーバー</span></span>
+<span id="cb8-20">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-21">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"測定時点"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"昇格の効果の大きさ"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-22">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb8-23">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># axis.title.x = element_text(size = 30),      # x軸ラベルのサイズ</span></span>
+<span id="cb8-24">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># axis.title.y = element_text(size = 30),      # y軸ラベルのサイズ</span></span>
+<span id="cb8-25">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># axis.text.x = element_text(size = 22),       # x軸目盛りのサイズ</span></span>
+<span id="cb8-26">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># axis.text.y = element_text(size = 22),       # y軸目盛りのサイズ</span></span>
+<span id="cb8-27">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">text =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">family =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"HiraginoSans-W3"</span>)</span>
+<span id="cb8-28">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-29">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coord_cartesian</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>))  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># y軸の範囲を調整</span></span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/source1-1_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="すごいじゃあ顧客変更は" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="すごいじゃあ顧客変更は"><span class="header-section-number">1.3</span> すごい！じゃあ顧客変更は？</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(brms)</span>
+<span id="cb9-2">formula <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bf</span>(スコア値 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 顧客変更 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> 測定時点))</span>
+<span id="cb9-3">fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">brm</span>(formula, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> df_long, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">chains =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cores =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">iter =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10000</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb10-2">ranef_顧客変更 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ranef</span>(fit)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>測定時点</span>
+<span id="cb10-3">posterior_means <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_顧客変更[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]</span>
+<span id="cb10-4">lower_bounds <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_顧客変更[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]</span>
+<span id="cb10-5">upper_bounds <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_顧客変更[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]</span>
+<span id="cb10-6">plot_df_顧客変更 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb10-7">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">term =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rownames</span>(ranef_顧客変更),</span>
+<span id="cb10-8">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> posterior_means,</span>
+<span id="cb10-9">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lower =</span> lower_bounds,</span>
+<span id="cb10-10">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">upper =</span> upper_bounds</span>
+<span id="cb10-11">)</span>
+<span id="cb10-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># termを因子型に変換（順序を保持するため）</span></span>
+<span id="cb10-13">plot_df_顧客変更<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>term <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(plot_df_顧客変更<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>term, </span>
+<span id="cb10-14">                           <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">levels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1"</span>), </span>
+<span id="cb10-15">                           <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">labels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"7月"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"10月"</span>))</span>
+<span id="cb10-16"></span>
+<span id="cb10-17"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(plot_df_顧客変更, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(term), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> mean)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb10-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 平均値のポイント</span></span>
+<span id="cb10-19">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_errorbar</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ymin =</span> lower, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ymax =</span> upper), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># エラーバー</span></span>
+<span id="cb10-20">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb10-21">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"測定時点"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"顧客変更の効果の大きさ"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb10-22">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb10-23">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># axis.title.x = element_text(size = 30),      # x軸ラベルのサイズ</span></span>
+<span id="cb10-24">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># axis.title.y = element_text(size = 30),      # y軸ラベルのサイズ</span></span>
+<span id="cb10-25">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># axis.text.x = element_text(size = 22),       # x軸目盛りのサイズ</span></span>
+<span id="cb10-26">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># axis.text.y = element_text(size = 22),       # y軸目盛りのサイズ</span></span>
+<span id="cb10-27">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">text =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">family =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"HiraginoSans-W3"</span>)</span>
+<span id="cb10-28">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb10-29">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coord_cartesian</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>))  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># y軸の範囲を調整</span></span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/source1-1_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="すごい続けて部署異動は" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="すごい続けて部署異動は"><span class="header-section-number">1.4</span> すごい！続けて部署異動は？</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(brms)</span>
+<span id="cb11-2">formula <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bf</span>(スコア値 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 部署異動 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> 測定時点))</span>
+<span id="cb11-3">fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">brm</span>(formula, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> df_long, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">chains =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cores =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">iter =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10000</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb12-2">ranef_部署異動 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ranef</span>(fit)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>測定時点</span>
+<span id="cb12-3">posterior_means <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_部署異動[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]</span>
+<span id="cb12-4">lower_bounds <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_部署異動[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]</span>
+<span id="cb12-5">upper_bounds <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_部署異動[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>]</span>
+<span id="cb12-6">plot_df_部署異動 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb12-7">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">term =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rownames</span>(ranef_部署異動),</span>
+<span id="cb12-8">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> posterior_means,</span>
+<span id="cb12-9">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lower =</span> lower_bounds,</span>
+<span id="cb12-10">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">upper =</span> upper_bounds</span>
+<span id="cb12-11">)</span>
+<span id="cb12-12"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># termを因子型に変換（順序を保持するため）</span></span>
+<span id="cb12-13">plot_df_部署異動<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>term <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(plot_df_部署異動<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>term, </span>
+<span id="cb12-14">                           <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">levels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1"</span>), </span>
+<span id="cb12-15">                           <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">labels =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"7月"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"10月"</span>))</span>
+<span id="cb12-16"></span>
+<span id="cb12-17"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(plot_df_部署異動, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(term), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> mean)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb12-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">8</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 平均値のポイント</span></span>
+<span id="cb12-19">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_errorbar</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ymin =</span> lower, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ymax =</span> upper), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span>  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># エラーバー</span></span>
+<span id="cb12-20">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb12-21">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"測定時点"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"部署異動の効果の大きさ"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb12-22">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb12-23">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># axis.title.x = element_text(size = 30),      # x軸ラベルのサイズ</span></span>
+<span id="cb12-24">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># axis.title.y = element_text(size = 30),      # y軸ラベルのサイズ</span></span>
+<span id="cb12-25">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># axis.text.x = element_text(size = 22),       # x軸目盛りのサイズ</span></span>
+<span id="cb12-26">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># axis.text.y = element_text(size = 22),       # y軸目盛りのサイズ</span></span>
+<span id="cb12-27">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">text =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">family =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"HiraginoSans-W3"</span>)</span>
+<span id="cb12-28">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb12-29">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">coord_cartesian</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">ylim =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">50</span>))  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># y軸の範囲を調整</span></span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/source1-1_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="ちょっと-prior-を検証したくなった" class="level3" data-number="1.5">
+<h3 data-number="1.5" class="anchored" data-anchor-id="ちょっと-prior-を検証したくなった"><span class="header-section-number">1.5</span> ちょっと prior を検証したくなった</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">get_prior</span>(formula, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> df_long)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Rows containing NAs were excluded from the model.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                  prior     class      coef    group resp dpar nlpar lb ub
+                 lkj(1)       cor                                         
+                 lkj(1)       cor           測定時点                      
+ student_t(3, 39, 17.8) Intercept                                         
+  student_t(3, 0, 17.8)        sd                                     0   
+  student_t(3, 0, 17.8)        sd           測定時点                  0   
+  student_t(3, 0, 17.8)        sd Intercept 測定時点                  0   
+  student_t(3, 0, 17.8)        sd  部署異動 測定時点                  0   
+  student_t(3, 0, 17.8)     sigma                                     0   
+       source
+      default
+ (vectorized)
+      default
+      default
+ (vectorized)
+ (vectorized)
+ (vectorized)
+      default</code></pre>
+</div>
+</div>
+</section>
+<section id="頻度論的な検定もしてみたい" class="level3" data-number="1.6">
+<h3 data-number="1.6" class="anchored" data-anchor-id="頻度論的な検定もしてみたい"><span class="header-section-number">1.6</span> 頻度論的な検定もしてみたい</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">t.test</span>(スコア値 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> 測定時点, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> df_long)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  スコア値 by 測定時点
+t = -3.4348, df = 51.89, p-value = 0.001174
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -26.257600  -6.890752
+sample estimates:
+mean in group 0 mean in group 1 
+       30.46154        47.03571 </code></pre>
+</div>
+</div>
+</section>
+<section id="全て変動係数にした場合" class="level3" data-number="1.7">
+<h3 data-number="1.7" class="anchored" data-anchor-id="全て変動係数にした場合"><span class="header-section-number">1.7</span> 全て変動係数にした場合</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(brms)</span>
+<span id="cb18-2">formula <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bf</span>(スコア値 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 顧客変更 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 部署異動 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 昇降格 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span> 測定時点))</span>
+<span id="cb18-3">fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">brm</span>(formula, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> df_long, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">chains =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cores =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">iter =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10000</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(fit)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There were 178 divergent transitions after warmup. Increasing
+adapt_delta above 0.8 may help. See
+http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: スコア値 ~ (1 + 顧客変更 + 部署異動 + 昇降格 | 測定時点) 
+   Data: df_long (Number of observations: 54) 
+  Draws: 4 chains, each with iter = 10000; warmup = 5000; thin = 1;
+         total post-warmup draws = 20000
+
+Multilevel Hyperparameters:
+~測定時点 (Number of levels: 2) 
+                        Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
+sd(Intercept)              13.02     10.84     0.86    40.07 1.00     5734
+sd(顧客変更)               10.46      9.60     0.35    34.77 1.00     8901
+sd(部署異動)                9.10      8.51     0.28    30.77 1.00    11675
+sd(昇降格)                 16.80     13.63     0.97    52.41 1.00     7938
+cor(Intercept,顧客変更)     0.08      0.44    -0.76     0.84 1.00    15479
+cor(Intercept,部署異動)    -0.05      0.45    -0.83     0.78 1.00    16852
+cor(顧客変更,部署異動)     -0.04      0.45    -0.83     0.80 1.00    16413
+cor(Intercept,昇降格)       0.06      0.44    -0.77     0.83 1.00    15336
+cor(顧客変更,昇降格)        0.06      0.44    -0.78     0.84 1.00    15113
+cor(部署異動,昇降格)       -0.03      0.45    -0.82     0.80 1.00    13479
+                        Tail_ESS
+sd(Intercept)               5179
+sd(顧客変更)                6443
+sd(部署異動)                7835
+sd(昇降格)                  5847
+cor(Intercept,顧客変更)     9274
+cor(Intercept,部署異動)    12757
+cor(顧客変更,部署異動)     14203
+cor(Intercept,昇降格)      12941
+cor(顧客変更,昇降格)       14055
+cor(部署異動,昇降格)       13380
+
+Regression Coefficients:
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept    37.70      8.00    21.54    55.06 1.00     5889     4410
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma    17.81      1.84    14.68    21.83 1.00    18430    12678
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">print</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ranef</span>(fit))</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$測定時点
+, , Intercept
+
+   Estimate Est.Error      Q2.5    Q97.5
+0 -5.296327  8.254648 -23.93404 10.39839
+1  4.277332  8.168683 -12.06008 22.27568
+
+, , 顧客変更
+
+   Estimate Est.Error       Q2.5     Q97.5
+0 -5.061549  6.806061 -21.044570  5.531166
+1  2.898094  6.067458  -7.877003 16.672359
+
+, , 部署異動
+
+   Estimate Est.Error      Q2.5     Q97.5
+0  1.447428  7.025993 -12.55609 18.051264
+1 -1.954029  5.585638 -14.84872  8.604595
+
+, , 昇降格
+
+    Estimate Est.Error       Q2.5    Q97.5
+0 -0.2065083 20.038361 -41.392683 40.45593
+1  9.0999253  6.931397  -2.192394 23.35420</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="固定効果モデル従来の分析" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="固定効果モデル従来の分析"><span class="header-section-number">2</span> 固定効果モデル（従来の分析）</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(brms)</span>
+<span id="cb24-2">formula <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">bf</span>(スコア値 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">~</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">|</span>id) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 測定時点 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 顧客変更 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 部署異動 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> 昇降格)</span>
+<span id="cb24-3">fit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">brm</span>(formula, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">data =</span> df_long, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">chains =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">cores =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(fit)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: gaussian 
+  Links: mu = identity; sigma = identity 
+Formula: スコア値 ~ (1 | id) + 測定時点 + 顧客変更 + 部署異動 + 昇降格 
+   Data: df_long (Number of observations: 54) 
+  Draws: 4 chains, each with iter = 2000; warmup = 1000; thin = 1;
+         total post-warmup draws = 4000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 28) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     9.31      3.90     1.18    16.60 1.00      860     1090
+
+Regression Coefficients:
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept    30.31      3.87    22.60    37.80 1.00     2636     2414
+測定時点     12.17      5.31     1.86    22.39 1.00     2762     2753
+顧客変更     -0.16      6.74   -13.41    13.21 1.00     2722     2413
+部署異動      0.26      6.49   -12.59    12.96 1.00     3879     3041
+昇降格       10.53      6.75    -2.74    23.76 1.00     2596     2635
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma    15.36      2.22    11.63    20.18 1.00     1271     2456
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+<div>
+
+</div>
+<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/source1-1_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="576"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/source1-1_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid" width="576"></p>
+</div>
+</div>
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/source1-1_files/figure-html/unnamed-chunk-19-3.png" class="img-fluid" width="576"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/source1-1_files/figure-html/unnamed-chunk-19-4.png" class="img-fluid" width="576"></p>
+</div>
+</div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://puniupa.github.io/posts/Cocosiru/source1-1.html</guid>
+  <pubDate>Sat, 26 Apr 2025 00:00:00 GMT</pubDate>
+</item>
 <item>
   <title>ココシルデータ解析２</title>
   <dc:creator>司馬博文 </dc:creator>
@@ -1094,10 +2207,41 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 <div class="callout-body-container callout-body">
 <ul>
-<li>本当に時期によってストレス値の中央値が違う可能性がある．</li>
-<li>職位変更と顧客変更で，ココシルスコアの変化率に違いが見られる可能性がある．</li>
-<li>「職業性ストレスチェック」は（バイオマーカーなどが反映するような）現実を全く反映していないと思われる．</li>
+<li>季節変動の影響が全く拭えない．</li>
+<li>「職業性ストレスチェック」との関係が本当に薄い．</li>
+<li>７月測定に昇進との関係は認められないが，10月測定には大きく認められる．</li>
 </ul>
+<div>
+
+</div>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/Files/昇格.png" class="img-fluid figure-img" style="width:5cm"></p>
+<figcaption>昇格 <img src="https://latex.codecogs.com/png.latex?%5Csigma=16.8"></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/Files/顧客変更.png" class="img-fluid figure-img" style="width:5cm"></p>
+<figcaption>顧客変更 <img src="https://latex.codecogs.com/png.latex?%5Csigma=10.5"></figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/Files/部署異動.png" class="img-fluid figure-img" style="width:5cm"></p>
+<figcaption>部署異動 <img src="https://latex.codecogs.com/png.latex?%5Csigma=9.1"></figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="callout callout-style-default callout-tip no-icon callout-titled" title="ToDo">
@@ -1114,6 +2258,10 @@ ToDo
 <li>昇格・降格変数の本当の意味がわかったら，より正確に解析をし直す．
 <ul>
 <li>→ 多分ほとんど終わった 2/27/2025</li>
+</ul></li>
+<li>７月測定と10月測定と，昇進があった月からの距離が遠い．
+<ul>
+<li>→ 本当に２回の測定で全然違う！ 4/30/2025</li>
 </ul></li>
 </ul>
 </div>
@@ -1152,7 +2300,7 @@ ToDo
 </div>
 <div class="callout-body-container callout-body">
 <ol type="1">
-<li>結構 <img src="https://latex.codecogs.com/png.latex?0"> から分離されるくらい，３ヶ月前の残業時間が負に働いているのはなんだ？残業をすると後々楽になってストレスが下がる？？ Section&nbsp;2.2.1</li>
+<li>結構 <img src="https://latex.codecogs.com/png.latex?0"> から分離されるくらい，３ヶ月前の残業時間が負に働いているのはなんだ？残業をすると後々楽になってストレスが下がる？？ Section&nbsp;2.2.3</li>
 <li>これについては一人２回しか測定していないこともあり，不確実性が高すぎる．</li>
 <li>顧客変更の時期も入れたら結果が変わる可能性がある．</li>
 </ol>
@@ -1164,6 +2312,8 @@ ToDo
 <section id="事前処理" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="事前処理"><span class="header-section-number">2.1</span> 事前処理</h3>
 <p>２回繰り返しココシル測定データを R に読み込んで整理する．</p>
+<section id="データ整形とラベル変更" class="level4" data-number="2.1.1">
+<h4 data-number="2.1.1" class="anchored" data-anchor-id="データ整形とラベル変更"><span class="header-section-number">2.1.1</span> データ整形とラベル変更</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1496,9 +2646,12 @@ font-style: inherit;">head</span>(df))</span></code></pre></div>
 </table>
 </div>
 </div>
-<section id="長形式化" class="level4" data-number="2.1.1">
-<h4 data-number="2.1.1" class="anchored" data-anchor-id="長形式化"><span class="header-section-number">2.1.1</span> 長形式化</h4>
+</section>
+<section id="長形式化" class="level4" data-number="2.1.2">
+<h4 data-number="2.1.2" class="anchored" data-anchor-id="長形式化"><span class="header-section-number">2.1.2</span> 長形式化</h4>
 <div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(tidyr)</span>
@@ -1775,6 +2928,7 @@ background-color: null;
 font-style: inherit;">kable</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">head</span>(df_long))</span></code></pre></div>
+</details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
@@ -1900,6 +3054,8 @@ font-style: inherit;">head</span>(df_long))</span></code></pre></div>
 </section>
 <section id="残業時間は関係なさそうだがどれくらい遅れて出るかは見たい" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="残業時間は関係なさそうだがどれくらい遅れて出るかは見たい"><span class="header-section-number">2.2</span> 残業時間は関係なさそうだが，「どれくらい遅れて出るか？」は見たい？</h3>
+<section id="残業時間のプロット" class="level4" data-number="2.2.1">
+<h4 data-number="2.2.1" class="anchored" data-anchor-id="残業時間のプロット"><span class="header-section-number">2.2.1</span> 残業時間のプロット</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -2061,6 +3217,9 @@ font-style: inherit;"># IDが多い場合は凡例を非表示に</span></span><
 </div>
 </div>
 </div>
+</section>
+<section id="残業時間の中央値のプロット" class="level4" data-number="2.2.2">
+<h4 data-number="2.2.2" class="anchored" data-anchor-id="残業時間の中央値のプロット"><span class="header-section-number">2.2.2</span> 残業時間の中央値のプロット</h4>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -2165,8 +3324,9 @@ font-style: inherit;">"median"</span>)</span></code></pre></div>
 </div>
 </div>
 </div>
-<section id="sec-item-response-to-OT" class="level4" data-number="2.2.1">
-<h4 data-number="2.2.1" class="anchored" data-anchor-id="sec-item-response-to-OT"><span class="header-section-number">2.2.1</span> 「どれくらい遅れて出るか？」を見たが，ほとんど切片と測定時点で説明してしまい，３ヶ月前の残業時間に関しては負の影響を持っている．</h4>
+</section>
+<section id="sec-item-response-to-OT" class="level4" data-number="2.2.3">
+<h4 data-number="2.2.3" class="anchored" data-anchor-id="sec-item-response-to-OT"><span class="header-section-number">2.2.3</span> ３ヶ月前の残業時間と負の相関</h4>
 <p>結構高確率で３ヶ月前の残業時間が負に働いているのはなんだ？残業をすると後々楽になってストレスが下がる？？</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><span class="fu" style="color: #4758AB;
@@ -2330,7 +3490,37 @@ data's colour values.</code></pre>
 </section>
 </section>
 <section id="sec-昇降格" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="sec-昇降格"><span class="header-section-number">2.3</span> 顧客変更の影響</h3>
+<h3 data-number="2.3" class="anchored" data-anchor-id="sec-昇降格"><span class="header-section-number">2.3</span> 主解析：顧客変更の影響</h3>
+<div id="listing-cocosiru1-listing" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-1">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1745625600000" data-listing-file-modified-sort="1745728607946" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1519">
+<a href="../../posts/Cocosiru/source1-1.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<!-- img(9CEB782EFEE6)[progressive=false, height=100%]:cocosiru1-listing:posts/Cocosiru/source1-1.html -->
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+ココシルデータ解析１-１
+</h5>
+<div class="card-text listing-description">
+<p>従業員 28 名を対象に，７月と10月の２回，繰り返しココシルスコアが測定された．同時に本企業では４月と10月に異動と昇進があり，その有無も紐づけられている．しかし，初回の測定は昇進の辞令発令後３ヶ月であるのに対し，２回目の測定は辞令があった当月である． この違いを考慮したモデルを複数フィットしてみる．</p>
+</div>
+<div class="card-attribution card-text-small justify">
+<div class="listing-author">
+司馬博文
+</div>
+<div class="listing-date">
+4/26/2025
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2423,7 +3613,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2">
+<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="https://puniupa.github.io/posts/Cocosiru/source1_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="576"></p>
@@ -2586,6 +3776,7 @@ font-style: inherit;">"./資料/data_PMC.xlsx"</span>)</span></code></pre></div>
 
 
 
+
 </section>
 </section>
 
@@ -2609,31 +3800,48 @@ Itoh, H., Mori, I., Matsumoto, Y., Maki, S., and Ogawa, Y. (2012). <a href="http
 
 
 
-<section id="はじめに1312025-ミーティング内容のまとめ" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="はじめに1312025-ミーティング内容のまとめ"><span class="header-section-number">1</span> はじめに（1/31/2025 ミーティング内容のまとめ）</h2>
-<p>ビリルビンが活性酵素を除去しようとする中で，その残滓であるバイオピリンが活性酸素上昇／酸化ストレスのマーカーになることが知られている．</p>
-<p>特に重度の精神疾患患者の判別には AUC 0.779 の精度を持つ <span class="citation" data-cites="Wake+2022">(Wake et al., 2022)</span>．</p>
-<p>しかし，職業ストレス <span class="citation" data-cites="Mourad-Gaballah2023">(Mourad and Gaballah, 2023)</span> のほかに，心不全，肝硬変，妊娠，スポーツなど種々の理由でもバイオピリンの尿中排出濃度が変化する．BMI （特にトリグリセリド）との相関も疑われている．</p>
-<p>そこで本研究では，バイオピリンと他変数の依存構造を詳細に検討する．</p>
-<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="リサーチクエスチョン">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-リサーチクエスチョン
-</div>
-</div>
-<div class="callout-body-container callout-body">
+<section id="ブリーフィング" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="ブリーフィング"><span class="header-section-number">1</span> ブリーフィング</h2>
+<p>株式会社プリメディカは新たにバイオピリン測定サービス「ココシル」を2024年４月にスタートさせた．このサービスは尿中のバイオピリン濃度を測定し，その濃度を100点満点にリスケーリングした「ココシルスコア」を報告する．</p>
+<p>当社はすでに，LABとLOX-1の血中濃度測定による動脈硬化リスク評価サービス「LOX-index」と，便から腸内フローラの多様性を測定するサービス「フローラスキャン」との２つのサービスを提供している．</p>
+<p>本新サービス「ココシル」は働く人のメンタルヘルスに焦点を合わせており，既存２サービスと併せて，多角的な予防医療サービスを提供することで顧客の囲い込みを目指している．</p>
+<section id="解析目的" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="解析目的"><span class="header-section-number">1.1</span> 解析目的</h3>
+<p>本案件では２つの目的がある．</p>
+<section id="目的１バイオピリンと離職イベントの依存構造の検討" class="level4" data-number="1.1.1">
+<h4 data-number="1.1.1" class="anchored" data-anchor-id="目的１バイオピリンと離職イベントの依存構造の検討"><span class="header-section-number">1.1.1</span> 目的１：バイオピリンと離職イベントの依存構造の検討</h4>
+<p>究極的には，休職・離職イベントの関連を解析することが目標である．休職・離職のデータは得にくいため，他にも昇進・異動とバイオピリンの関係を，個人ごとの変動効果を考慮した項目反応モデルで詳細に分析したい．</p>
+</section>
+<section id="目的２バイオピリンと法定診断との相関の検討" class="level4" data-number="1.1.2">
+<h4 data-number="1.1.2" class="anchored" data-anchor-id="目的２バイオピリンと法定診断との相関の検討"><span class="header-section-number">1.1.2</span> 目的２：バイオピリンと法定診断との相関の検討</h4>
+<p>2015年以降，労働安全衛生法に基づいて「職業性ストレスチェック」が常時50人以上の事業場にて毎年の実施が義務付けられている．</p>
+<p>従って多くの企業では，この「職業性ストレスチェック」の結果とココシルスコアの結果を総合して，従業員のメンタルヘルスの評価に役立てたいという需要がある．</p>
+<p>従って，「職業性ストレスチェック」の結果とココシルスコアの結果との相関や深い関係性の解明が必要である．その独自知見がある場合，より多くの企業に「ココシル」サービスを導入してもらえることになる．</p>
+</section>
+<section id="目的３バイオピリンとlox-indexとフローラスキャンとの関係の検討" class="level4" data-number="1.1.3">
+<h4 data-number="1.1.3" class="anchored" data-anchor-id="目的３バイオピリンとlox-indexとフローラスキャンとの関係の検討"><span class="header-section-number">1.1.3</span> 目的３：バイオピリンと，LOX-indexとフローラスキャンとの関係の検討</h4>
+<p>ココシルスコアと，２つの既存サービスであったLOX-indexとフローラスキャンとの関係を検討する．</p>
+<p>それだけでなく，「ココシルスコアだけでなく，LOX-indexやフローラスキャンの結果もあれば，自身の健康状態についてより多くのことが知れる」というサービスを提供できれば，複数のサービス間で強いシナジー効果が生じ，囲い込み効果が強くなることが期待できる．</p>
+</section>
+</section>
+<section id="データ" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="データ"><span class="header-section-number">1.2</span> データ</h3>
+<p>使用可能なデータは３種類ある．</p>
 <ol type="1">
-<li><span class="color-united">究極的には休職・離職を見たい</span>．昇進との関係などを項目反応理論で補足したい．</li>
-<li>バイピリンと職業性ストレスチェック（57項目）との相関．→ バイオピリンと法定検診との相関：補正や注意事項を構成したい．</li>
-<li>また一般に LOX・フローラなどの他サービスとの連関が得られれば，囲い込みが強くなる．「ココシルの人と LOX / フローラの人でどんな関係があるんだろう？」</li>
+<li><p>弘前データ</p>
+<p>2024 年度に弘前大学により，いわき市にて実施された健康診断の <img src="https://latex.codecogs.com/png.latex?N=1162"> の大規模データである．全被験者はプリメディカ社が提供する３サービスの測定結果が報告されていると同時に，職業性ストレスチェックのグループ B 29 項目への回答結果もあり，これらのデータを用いて，バイオピリンと職業性ストレスチェックとの関係を検討することができる．</p></li>
+<li><p>プリメディカでのココシル検査データ</p>
+<p>プリメディカ社員 43 名を対象に実施された検査の結果があるが，関連する労務情報（勤務時間や昇進の有無）がないため，データの用途が定まっていない．</p></li>
+<li><p>一般企業でのココシル検査データ</p>
+<p>ある企業では，従業員 28 名を対象に，７月と10月の２回，繰り返しココシルスコアが測定された．同時に本企業では４月と10月に異動と昇進があり，その有無も紐づけられている．解析の結果，昇格がココシルスコアに正の影響を与える可能性が示唆されたが，28 名のデータではサイズが小さく，有意性は確認できなかった．</p>
+<p>また初回の測定は昇進の辞令発令後３ヶ月であるのに対し，２回目の測定は辞令があった当月である． この違いを考慮した項目反応モデルで解析したい．</p></li>
 </ol>
-</div>
-</div>
-<section id="ココシルスコアと異動との関係-2272025" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="ココシルスコアと異動との関係-2272025"><span class="header-section-number">1.1</span> ココシルスコアと異動との関係 (~2/27/2025)</h3>
+</section>
+</section>
+<section id="現在までの研究結果の概要" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="現在までの研究結果の概要"><span class="header-section-number">2</span> 現在までの研究結果の概要</h2>
+<section id="ココシルスコアと異動との関係-2272025" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="ココシルスコアと異動との関係-2272025"><span class="header-section-number">2.1</span> ココシルスコアと異動との関係 (~2/27/2025)</h3>
 <ul>
 <li>随時尿にしたからなのか，とんでもない変化率が３ヶ月で出た（７から１０）．
 <ul>
@@ -2641,12 +3849,12 @@ Itoh, H., Mori, I., Matsumoto, Y., Maki, S., and Ogawa, Y. (2012). <a href="http
 </ul></li>
 <li>ストレススコアの変化率を調べてもよく判らなかった．
 <ul>
-<li>これについては次節 Section&nbsp;1.2 で検討．</li>
+<li>これについては次節 Section&nbsp;2.2 で検討．</li>
 </ul></li>
 </ul>
 <div id="listing-cocosiru1-listing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-1">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1744869842876" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1492">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1745728608036" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1508">
 <a href="../../posts/Cocosiru/source1.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <!-- img(9CEB782EFEE6)[progressive=false, height=100%]:cocosiru1-listing:posts/Cocosiru/source1.html -->
@@ -2675,8 +3883,8 @@ No matching items
 </div>
 </div>
 </section>
-<section id="sec-stress-check" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="sec-stress-check"><span class="header-section-number">1.2</span> 職業性ストレスチェックとの関係</h3>
+<section id="sec-stress-check" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="sec-stress-check"><span class="header-section-number">2.2</span> 職業性ストレスチェックとの関係</h3>
 <p>第２回 (2/27/2025) ミーティング内容まとめ</p>
 <ul>
 <li>職業性ストレスチェックは産業界で一大サービスであり，それとの関連から説明したい．</li>
@@ -2685,7 +3893,7 @@ No matching items
 </ul>
 <div id="listing-cocosiru2-listing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-1">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1744869842965" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="447">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1740528000000" data-listing-file-modified-sort="1745728608124" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="447">
 <a href="../../posts/Cocosiru/source2.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <!-- img(9CEB782EFEE6)[progressive=false, height=100%]:cocosiru2-listing:posts/Cocosiru/source2.html -->
@@ -2714,14 +3922,26 @@ No matching items
 </div>
 </div>
 </section>
-<section id="先行研究" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="先行研究"><span class="header-section-number">1.3</span> 先行研究</h3>
+</section>
+<section id="ビリルビンとバイオピリンの背景" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="ビリルビンとバイオピリンの背景"><span class="header-section-number">3</span> ビリルビンとバイオピリンの背景</h2>
+<section id="摘要1312025-ミーティング内容のまとめ" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="摘要1312025-ミーティング内容のまとめ"><span class="header-section-number">3.1</span> 摘要（1/31/2025 ミーティング内容のまとめ）</h3>
+<p>ビリルビンが活性酵素を除去しようとする中で，その残滓であるバイオピリンが活性酸素上昇／酸化ストレスのマーカーになることが知られている．</p>
+<p>特に重度の精神疾患患者の判別には AUC 0.779 の精度を持つ <span class="citation" data-cites="Wake+2022">(Wake et al., 2022)</span>．</p>
+<p>しかし，職業ストレス <span class="citation" data-cites="Mourad-Gaballah2023">(Mourad and Gaballah, 2023)</span> のほかに，心不全，肝硬変，妊娠，スポーツなど種々の理由でもバイオピリンの尿中排出濃度が変化する．BMI （特にトリグリセリド）との相関も疑われている．</p>
+</section>
+
+
+</section>
+
+<div id="quarto-appendix" class="default"><section id="先行研究" class="level3 appendix" data-number="3.2"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3.2</span> 先行研究</h2><div class="quarto-appendix-contents">
+
 <p>臨床実習のある３回生の方が，４回生よりもバイオピリンレベルが高かった <span class="citation" data-cites="Tada+2020">(Tada et al., 2020)</span>．</p>
 <p><span class="citation" data-cites="高知恵+2023">(高知恵 et al., 2023)</span> でも質問票と尿中バイオピリンの双方を用いている．2022年の10月から12月末までのデータである．</p>
 <p>しかし「調査当日の受け持ち褥婦数」を調べており，これでは２群間で有意差を認めなかったという結果であった．これには，「翌日から上昇する」という報告を引用して，もう少し時間を空けるべきであった可能性が指摘されている．</p>
-</section>
-<section id="示唆" class="level3" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="示唆"><span class="header-section-number">1.4</span> 示唆</h3>
+</div></section><section id="示唆" class="level3 appendix" data-number="3.3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3.3</span> 示唆</h2><div class="quarto-appendix-contents">
+
 <div class="callout callout-style-simple callout-important no-icon">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -2743,10 +3963,7 @@ No matching items
 
 
 
-</section>
-</section>
-
-<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Mourad-Gaballah2023" class="csl-entry">
 Mourad, B. H., and Gaballah, I. F. (2023). <a href="https://journals.lww.com/joem/fulltext/2023/01000/studying_the_association_between_occupational.10.aspx">Studying the association between occupational stress and urinary levels of oxidative stress biomarkers (8-OHdG and biopyrrins) in brickfield workers</a>. <em>Journal of Occupational and Environmental Medicine</em>, <em>65</em>(1).
 </div>
@@ -3112,7 +4329,7 @@ Durmus, A., Guillin, A., and Monmarché, P. (2021). <a href="https://doi.org/10.
 </div></section></div> ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_generator.html</guid>
-  <pubDate>Thu, 17 Apr 2025 06:04:44 GMT</pubDate>
+  <pubDate>Sun, 27 Apr 2025 04:37:28 GMT</pubDate>
 </item>
 <item>
   <title>１次元での収束の証明</title>
@@ -3130,7 +4347,7 @@ Durmus, A., Guillin, A., and Monmarché, P. (2021). <a href="https://doi.org/10.
 </div>
 <div id="listing-lst-spiky" class="listing quarto-float quarto-figure quarto-figure-left quarto-listing quarto-listing-container-grid anchored">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="JUUzJTgzJTg5JUUzJTgzJUE5JUUzJTgzJTk1JUUzJTgzJTg4" data-listing-file-modified-sort="1744869843101" data-listing-reading-time-sort="1" data-listing-word-count-sort="24">
+<div class="g-col-1" data-index="0" data-categories="JUUzJTgzJTg5JUUzJTgzJUE5JUUzJTgzJTk1JUUzJTgzJTg4" data-listing-file-modified-sort="1745728608259" data-listing-reading-time-sort="1" data-listing-word-count-sort="24">
 <a href="../../posts/Spike-and-slab/spiky-density.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <!-- img(9CEB782EFEE6)[progressive=false, height=150px]:lst-spiky:posts/Spike-and-slab/spiky-density.html -->
@@ -3142,7 +4359,7 @@ Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densiti
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1744869843098" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
+<div class="g-col-1" data-index="1" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1745728608257" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
 <a href="../../posts/Spike-and-slab/1d_generator.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <!-- img(9CEB782EFEE6)[progressive=false, height=150px]:lst-spiky:posts/Spike-and-slab/1d_generator.html -->
@@ -3157,7 +4374,7 @@ Spike-and-Slab prior からの効率的なサンプリング
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1744869843096" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
+<div class="g-col-1" data-index="2" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1745728608254" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
 <a href="../../posts/Spike-and-slab/1d_exit.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <!-- img(9CEB782EFEE6)[progressive=false, height=150px]:lst-spiky:posts/Spike-and-slab/1d_exit.html -->
@@ -3236,7 +4453,7 @@ No matching items
 </section></div> ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_convergence.html</guid>
-  <pubDate>Thu, 17 Apr 2025 06:04:44 GMT</pubDate>
+  <pubDate>Sun, 27 Apr 2025 04:37:28 GMT</pubDate>
 </item>
 <item>
   <title>脱出時刻の分析</title>
@@ -3521,7 +4738,7 @@ Lang, S. (1999). <em><a href="https://doi.org/10.1007/978-1-4757-3083-8">Complex
 </div></section></div> ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_exit.html</guid>
-  <pubDate>Thu, 17 Apr 2025 06:04:44 GMT</pubDate>
+  <pubDate>Sun, 27 Apr 2025 04:37:28 GMT</pubDate>
 </item>
 <item>
   <title>生成作用素の収束の証明</title>
@@ -3574,7 +4791,7 @@ Lang, S. (1999). <em><a href="https://doi.org/10.1007/978-1-4757-3083-8">Complex
  ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/Background/note.html</guid>
-  <pubDate>Thu, 17 Apr 2025 06:04:44 GMT</pubDate>
+  <pubDate>Sun, 27 Apr 2025 04:37:28 GMT</pubDate>
 </item>
 <item>
   <title>Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities</title>
@@ -3613,7 +4830,7 @@ Lang, S. (1999). <em><a href="https://doi.org/10.1007/978-1-4757-3083-8">Complex
  ]]></description>
   <category>ドラフト</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/spiky-density.html</guid>
-  <pubDate>Thu, 17 Apr 2025 06:04:44 GMT</pubDate>
+  <pubDate>Sun, 27 Apr 2025 04:37:28 GMT</pubDate>
 </item>
 </channel>
 </rss>

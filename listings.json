@@ -9,7 +9,8 @@
       "/posts/Spike-and-slab/spiky-density.html",
       "/posts/Cocosiru/source2.html",
       "/posts/Cocosiru/source1.html",
-      "/posts/Cocosiru/source0.html"
+      "/posts/Cocosiru/source0.html",
+      "/posts/Cocosiru/source1-1.html"
     ]
   },
   {
@@ -34,6 +35,12 @@
     "items": [
       "/posts/Cocosiru/source1.html",
       "/posts/Cocosiru/source2.html"
+    ]
+  },
+  {
+    "listing": "/posts/Cocosiru/source1.html",
+    "items": [
+      "/posts/Cocosiru/source1-1.html"
     ]
   },
   {
