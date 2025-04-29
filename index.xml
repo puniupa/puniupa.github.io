@@ -14,7 +14,7 @@
 <title>ぷにうぱ</title>
 <link>https://puniupa.github.io/</link>
 </image>
-<generator>quarto-1.6.43</generator>
+<generator>quarto-1.7.29</generator>
 <lastBuildDate>Tue, 24 Sep 2024 00:00:00 GMT</lastBuildDate>
 <item>
   <title>各国の生成AI関連政策動向 [第1弾]</title>
@@ -704,7 +704,7 @@ Zomorodian, A., and Carlsson, G. (2005). <a href="https://doi.org/10.1007/s00454
 <p>武見充晃先生は，内閣府の政策である <a href="https://www8.cao.go.jp/cstp/moonshot/index.html">ムーンショット型研究開発制度</a> に採択されているプロジェクト <a href="https://brains.link/">Internet of Brains</a> の課題推進者の一人である．</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://www.jst.go.jp/moonshot/program/goal1/12_kanai.html"><img src="https://puniupa.github.io/posts/2024/Brain/Files/IoB.png" class="img-fluid figure-img" alt="画像をクリックでリンクを開く"></a></p>
+<p><a href="https://www.jst.go.jp/moonshot/program/goal1/12_kanai.html"><img src="https://puniupa.github.io/posts/2024/Brain/Files/IoB.png" class="img-fluid figure-img"></a></p>
 <figcaption>画像をクリックでリンクを開く</figcaption>
 </figure>
 </div>
@@ -736,14 +736,14 @@ Zomorodian, A., and Carlsson, G. (2005). <a href="https://doi.org/10.1007/s00454
 <p>人間が手足や表情筋を動かすための最後の指令を脊髄に出すにあたって，脳内でまとめ役の役割を果たす部位である <strong>一次運動野</strong> はちょうどヘッドセットが当たる部分に位置する．</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://bsd.neuroinf.jp/wiki/一次運動野"><img src="https://puniupa.github.io/posts/2024/Brain/Files/一次運動野.png" class="img-fluid figure-img" alt="一次運動野の位置（脳科学辞典，画像クリックでリンクを開く）"></a></p>
+<p><a href="https://bsd.neuroinf.jp/wiki/一次運動野"><img src="https://puniupa.github.io/posts/2024/Brain/Files/一次運動野.png" class="img-fluid figure-img"></a></p>
 <figcaption>一次運動野の位置（脳科学辞典，画像クリックでリンクを開く）</figcaption>
 </figure>
 </div>
 <p>「走ろう」「足を動かそう」と思うと，一次運動野において特定の周波数帯の脳波が抑制されるという <strong>事象関連脱同期</strong> (ERD) という現象が起こる．</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://doi.org/10.5687/iscie.22.199"><img src="https://puniupa.github.io/posts/2024/Brain/Files/ERD.png" class="img-fluid figure-img" alt="ERD の模式図（(高橋光 et al., 2009)，画像クリックでリンクを開く）"></a></p>
+<p><a href="https://doi.org/10.5687/iscie.22.199"><img src="https://puniupa.github.io/posts/2024/Brain/Files/ERD.png" class="img-fluid figure-img"></a></p>
 <figcaption>ERD の模式図（<span class="citation" data-cites="高橋光+2009">(高橋光 et al., 2009)</span>，画像クリックでリンクを開く）</figcaption>
 </figure>
 </div>
@@ -858,7 +858,7 @@ Zomorodian, A., and Carlsson, G. (2005). <a href="https://doi.org/10.1007/s00454
 <p>これは <strong>スペラー</strong> (speller) と呼ばれる種のインターフェースであり，画面上で点滅する文字を注視する際の脳波を通じてタイピングをする．</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="http://onishi.starfree.jp/research_BMI.html"><img src="https://puniupa.github.io/posts/2024/Brain/Files/P300_speller_s.gif" class="img-fluid figure-img" alt="P300 speller のアニメーション（大西章也氏のブログより，画像をタップでリンクを開く）"></a></p>
+<p><a href="http://onishi.starfree.jp/research_BMI.html"><img src="https://puniupa.github.io/posts/2024/Brain/Files/P300_speller_s.gif" class="img-fluid figure-img"></a></p>
 <figcaption>P300 speller のアニメーション（大西章也氏のブログより，画像をタップでリンクを開く）</figcaption>
 </figure>
 </div>
@@ -2258,7 +2258,7 @@ Welker, H. (1952). <a href="https://doi.org/10.1515/zna-1952-1110">Über neue ha
 <p>これに対する対抗手段として，ウクライナのスタートアップ <a href="https://www.osavul.cloud/">Osavul</a> や <a href="https://mantisanalytics.com/">Mantis Analytics</a> によって使われているのもやはり LLM である．</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><a href="https://mantisanalytics.com/"><img src="https://puniupa.github.io/static/Files/MantisAnalytics.png" class="img-fluid figure-img" alt="Mantis Analytics の製品のデモ（クリックで URL を開く）"></a></p>
+<p><a href="https://mantisanalytics.com/"><img src="https://puniupa.github.io/static/Files/MantisAnalytics.png" class="img-fluid figure-img"></a></p>
 <figcaption>Mantis Analytics の製品のデモ（クリックで URL を開く）</figcaption>
 </figure>
 </div>

@@ -10,7 +10,10 @@
       "/posts/Cocosiru/source2.html",
       "/posts/Cocosiru/source1.html",
       "/posts/Cocosiru/source0.html",
-      "/posts/Cocosiru/source1-1.html"
+      "/posts/Cocosiru/source1-1.html",
+      "/posts/Cocosiru/hirosaki1.html",
+      "/posts/Cocosiru/hirosaki0.html",
+      "/posts/Cocosiru/hirosaki2.html"
     ]
   },
   {
@@ -41,6 +44,12 @@
     "listing": "/posts/Cocosiru/source1.html",
     "items": [
       "/posts/Cocosiru/source1-1.html"
+    ]
+  },
+  {
+    "listing": "/posts/Cocosiru/hirosaki2.html",
+    "items": [
+      "/posts/Cocosiru/hirosaki1.html"
     ]
   },
   {
