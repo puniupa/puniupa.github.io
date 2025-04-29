@@ -1,0 +1,15 @@
+{
+  "hash": "31df058f3e21bb74db4a103726e02868",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"弘前データの前処理\"\nauthor: \"司馬博文\"\ndate: 4/27/2025\nnumber-sections: true\ncode-fold: true\nbibliography: \n  - ../../assets/2023.bib\n  - ../../assets/2024.bib\n  - ../../assets/2025.bib\ncsl: ../../assets/apalike.csl\nexecute: \n  cache: false\nfig-align: center\nformat:\n  html: \n    code-fold: false\n    execute:\n      cache: true\n# abstract: |\n#   ココシルを予測に使うことを考える．\n#   昇格はココシルスコアに影響を与える可能性がある（さらに言えば３ヶ月前の残業時間も）．\n#   データ数の不足と，未知の説明変数が問題である．\n#   既知の季節変動があったら，それも説明変数に入れたい．\n# listing:\n#   - id: cocosiru1-listing\n#     type: grid\n#     sort: false\n#     contents:\n#       - \"source1-1.qmd\"\n#     page-size: 3\n#     image-height: 100%\n#     grid-columns: 1\n---\n\n::: {.cell}\n\n:::\n\n\n\n## データの概観\n\n### プリメディカデータ\n\n\n\n::: {.cell}\n\n```{.r .cell-code}\nkable(head(df1))\n```\n\n::: {.cell-output-display}\n\n\n| ID|   BP| FLCκ| FLCλ| FLCΣ| ココシルスコア|     LOX-1|      LAB| LOX-index|タイプ | 多様性|郵送ID        | 機器連携ID|\n|--:|----:|----:|----:|----:|--------------:|---------:|--------:|---------:|:------|------:|:-------------|----------:|\n|  1| 1.08| 1.27| 0.46| 1.73|         -2.880|  86.43617| 2.634708| 227.73410|B      |      2|2024iwaki0057 |    2002388|\n|  2| 0.47| 0.18| 0.63| 0.81|         -3.343|  75.48498| 2.231168| 168.41968|B      |      2|2024iwaki0180 |    2005759|\n|  3| 0.67| 0.12| 0.18| 0.30|         -2.727|  55.14706| 2.803142| 154.58507|A      |      1|2024iwaki0145 |    2000967|\n|  4| 1.10| 0.87| 1.08| 1.95|         -2.974| 136.49875| 3.751603| 512.08912|B      |      2|2024iwaki0121 |    1007382|\n|  5| 0.88| 5.21| 3.75| 8.96|         -7.338|  58.27597| 2.290822| 133.49987|C      |      2|2024iwaki0026 |    1009663|\n|  6| 0.76| 0.19| 0.45| 0.64|         -2.776|  45.76033| 2.178532|  99.69035|B      |      2|2024iwaki0196 |    1000552|\n\n\n:::\n:::\n\n\n\n主に BP とココシルスコア（すでに FLC は加味されている）を用いて，別の変数との関係を調べる．\n\n::: {.callout-tip appearance=\"simple\" icon=\"false\" title=\"次の変数からなる欠測なしのデータ\"}\n\n* BP: Biopyrin 量\n* FLC: 遊離L鎖 (Free Light Chain) の量．$\\Sigma=\\kappa+\\lambda$ で計算される，免疫系のマーカー．\n* ココシル結果：FLC も加味されている．\n* 多様性：数字が大きいほど多様．\n\n:::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

@@ -1,0 +1,75 @@
+---
+title: "弘前データ"
+author: "司馬博文"
+date: 4/27/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+execute: 
+  cache: false
+fig-align: center
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: true
+# abstract: |
+#   ココシルを予測に使うことを考える．
+#   昇格はココシルスコアに影響を与える可能性がある（さらに言えば３ヶ月前の残業時間も）．
+#   データ数の不足と，未知の説明変数が問題である．
+#   既知の季節変動があったら，それも説明変数に入れたい．
+# listing:
+#   - id: cocosiru1-listing
+#     type: grid
+#     sort: false
+#     contents:
+#       - "source1-1.qmd"
+#     page-size: 3
+#     image-height: 100%
+#     grid-columns: 1
+---
+
+```{r}
+#| output: false
+#| echo: false
+library(readxl)
+library(knitr)
+df1 <- read_excel("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/資料/Hirosaki1.xlsx", sheet = "データ統合")
+df2 <- read_excel("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/資料/Hirosaki2.xlsx", sheet = "統合_最終")
+```
+
+## データの概観
+
+### プリメディカデータ
+
+```{r}
+kable(head(df1))
+```
+
+主に BP とココシルスコア（すでに FLC は加味されている）を用いて，別の変数との関係を調べる．
+
+::: {.callout-tip appearance="simple" icon="false" title="次の変数からなる欠測なしのデータ"}
+
+* BP: Biopyrin 量
+* FLC: 遊離L鎖 (Free Light Chain) の量．$\Sigma=\kappa+\lambda$ で計算される，免疫系のマーカー．
+* ココシル結果：FLC も加味されている．
+* 多様性：数字が大きいほど多様．
+
+:::
+
+::: {.callout-tip appearance="simple" icon="false" title="BP 備考について"}
+
+* A: 採尿条件不良（測定条件を満たしていない）
+* B: BP 測定値が下限以下
+* C: kappa 下限値未満
+* D: kappa 10倍希釈では失敗（上限オーバー）
+* E: kappa が凍結融解を２回必要とした
+* F: lambda 下限値未満
+* G: lambda 10倍希釈では失敗（上限オーバー）
+* H: lambda が凍結融解を２回必要とした
+
+:::

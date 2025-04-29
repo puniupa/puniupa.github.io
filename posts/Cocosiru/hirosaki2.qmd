@@ -1,0 +1,383 @@
+---
+title: "弘前データ２：階層モデリング"
+author: "司馬博文"
+date: 4/29/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+fig-align: center
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: false
+    fig-width: 10
+    fig-height: 8
+listing:
+  - id: hirosaki-listing
+    type: grid
+    sort: false
+    contents:
+      - "hirosaki1.qmd"
+    page-size: 3
+    image-height: 100%
+    grid-columns: 1
+---
+
+::: {#hirosaki-listing}
+:::
+
+```{r}
+#| output: false
+#| echo: false
+library(readxl)
+library(knitr)
+df_raw <- read_excel("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/資料/Hirosaki2.xlsx", sheet = "統合_最終")
+df <- df_raw[, c("受診日年齢", "性別", "Weight", "BP", "BP備考", "判別式", "LOX-1_H", "LAB_H", "LOX-index_H", "タイプ", "多様性", paste0("item", 1:18))]
+
+# BP の整理
+df$BP_A_flag <- as.numeric(grepl("A", df$`BP備考`))
+df$BP <- ifelse(df$BP < 0, -1 * df$BP, df$BP)
+df$判別式 <- as.numeric(gsub("[()]", "", df$判別式))
+
+# 年代を作成（10で割って切り捨てた後、10をかけて年代を表現）
+df$年代 <- paste0(floor(df$受診日年齢/10)*10, "代")
+df$年代 <- factor(df$年代,
+                  levels = c("20代", "30代", "40代", "50代", "60代", "70代", "80代"),
+                  ordered = TRUE)
+```
+
+```{r}
+#| output: false
+#| echo: false
+library(dplyr)
+# ストレスチェックの前処理
+
+item_sum <- df$item1 + df$item2 + df$item3
+score_activity <- function(x) {
+  case_when(
+    x == 3 ~ 5,
+    x >= 4 & x <= 5 ~ 4,
+    x >= 6 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 2,
+    x >= 10 & x <= 12 ~ 1,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$活気 <- score_activity(item_sum)
+
+item_sum <- df$item4 + df$item5 + df$item6
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 4,
+    x >= 10 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 8 ~ 3,
+    x >= 9 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$イライラ感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item7 + df$item8 + df$item9
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 8 ~ 3,
+    x >= 9 & x <= 11 ~ 4,
+    x == 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$疲労感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item10 + df$item11 + df$item12
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 4,
+    x >= 10 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$不安感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item13 + df$item14 + df$item15 + df$item16 + df$item17 + df$item18
+score_activity_m <- function(x) {
+  case_when(
+    x == 6 ~ 1,
+    x >= 7 & x <= 8 ~ 2,
+    x >= 9 & x <= 12 ~ 3,
+    x >= 13 & x <= 16 ~ 4,
+    x >= 17 & x <= 24 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 6 ~ 1,
+    x >= 7 & x <= 8 ~ 2,
+    x >= 9 & x <= 12 ~ 3,
+    x >= 13 & x <= 17 ~ 4,
+    x >= 18 & x <= 24 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$抑うつ感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+```
+
+```{r}
+kable(head(df))
+```
+
+```{r}
+mdf <- df[, c(1:11, 30:36)]
+colnames(mdf) <- gsub("_H$", "", colnames(mdf))
+colnames(mdf) <- gsub("LOX-1", "LOX", colnames(mdf))  # LOX-1をLOXに
+colnames(mdf) <- gsub("LOX-index", "LI", colnames(mdf))  # LOX-indexをLIに
+kable(head(mdf))
+```
+
+## LAB と BP の相関
+
+```{r}
+library(ggplot2)
+mini_df <- df[df$BP_A_flag == 0, c("BP", "LAB_H")]
+colnames(mini_df) <- c("BP", "LAB")
+
+ggplot(mini_df, aes(x = LAB, y = BP)) +
+  geom_point(alpha = 0.5, color = "skyblue") +
+  geom_smooth(method = "lm", color = "red", se = TRUE) +
+  theme_minimal() +
+  labs(title = "LAB と BP の相関",
+       x = "LAB",
+       y = "BP") +
+  theme(
+    text = element_text(family = "BIZUDGothic-Regular", size = 12),
+    axis.text = element_text(size = 34),
+    axis.title = element_text(size = 45),
+    plot.title = element_text(size = 45)
+  ) +
+  # 両軸のスケールを同じに
+  coord_fixed(ratio = 1) +
+  # 軸の範囲を-3から3に設定（標準偏差の±3倍程度）
+  scale_x_continuous(limits = c(0, 5)) +
+  scale_y_continuous(limits = c(0, 2.5))
+```
+
+### 30 代のみを用いた場合
+
+```{r}
+# 30代のデータのみを抽出
+mini_df_30s <- df[df$BP_A_flag == 0 & df$年代 == "30代", c("BP", "LAB_H")]
+colnames(mini_df_30s) <- c("BP", "LAB")
+
+# プロット
+ggplot(mini_df_30s, aes(x = LAB, y = BP)) +
+  geom_point(alpha = 0.5, color = "skyblue") +
+  geom_smooth(method = "lm", color = "red", se = TRUE) +
+  theme_minimal() +
+  labs(title = "30 代での相関",
+       x = "LAB",
+       y = "BP") +
+  theme(
+    text = element_text(family = "BIZUDGothic-Regular", size = 12),
+    axis.text = element_text(size = 34),
+    axis.title = element_text(size = 45),
+    plot.title = element_text(size = 45)
+  ) +
+  coord_fixed(ratio = 1) +
+  scale_x_continuous(limits = c(1, 4.5)) +
+  scale_y_continuous(limits = c(0, 2.0))
+ggsave("LAB_BP_30.png", bg="white")
+```
+
+```{r}
+# 70代のデータのみを抽出
+mini_df_70s <- df[df$BP_A_flag == 0 & df$年代 == "70代", c("BP", "LAB_H")]
+colnames(mini_df_70s) <- c("BP", "LAB")
+
+# プロット
+ggplot(mini_df_70s, aes(x = LAB, y = BP)) +
+  geom_point(alpha = 0.5, color = "skyblue") +
+  geom_smooth(method = "lm", color = "red", se = TRUE) +
+  theme_minimal() +
+  labs(title = "70 代での相関",
+       x = "LAB",
+       y = "BP") +
+  theme(
+    text = element_text(family = "BIZUDGothic-Regular", size = 12),
+    axis.text = element_text(size = 34),
+    axis.title = element_text(size = 45),
+    plot.title = element_text(size = 45)
+  ) +
+  coord_fixed(ratio = 1) +
+  scale_x_continuous(limits = c(2, 5.5)) +
+  scale_y_continuous(limits = c(0, 2.0))
+ggsave("LAB_BP_70.png", bg="white")
+```
+
+### LAB, LOX, LI
+
+```{r}
+normalize <- function(x) {
+  (x - mean(x, na.rm = TRUE)) / sd(x, na.rm = TRUE)
+}
+
+# 新しいデータフレームを作成し、必要な列を標準化
+df_norm <- data.frame(
+  BP = normalize(mdf$BP),
+  LAB = normalize(mdf$LAB),
+  LOX = normalize(mdf$LOX),
+  LI = normalize(mdf$LI)
+)
+```
+
+```{r}
+library(brms)
+
+formula <- bf(
+  BP ~ 1 + LAB + LOX + LI
+)
+fit <- brm(
+  formula,
+  data = df_norm,
+  family = gaussian(),
+  chains = 4,
+  iter = 4000,
+  cores = 4
+)
+```
+
+```{r}
+plot(fit)
+```
+
+```{r}
+summary(fit)
+```
+
+```{r}
+conditional_effects(fit)
+```
+
+### 年齢で層別
+
+そもそも BP の背景濃度が年代別に違うならば，切片項も年代ごとに変動させる必要があるか？
+
+```{r}
+library(brms)
+
+formula <- bf(
+  BP ~ 1 + (1 + LAB | 年代)
+)
+fit <- brm(
+  formula,
+  data = mdf,
+  family = gaussian(),
+  chains = 4,
+  iter = 8000,
+  cores = 4
+)
+```
+
+```{r}
+# データフレームの作成
+plot_data <- data.frame(
+  年代 = 1:7,  # 数値として扱う（20代=1, 30代=2, ...）
+  効果 = ranef(fit)$年代[,1,"LAB"]
+)
+
+# プロット
+ggplot(plot_data, aes(x = 年代, y = 効果)) +
+  # 回帰直線
+  geom_smooth(method = "lm", color = "black", se = TRUE) +
+  # 大きな赤い点
+  geom_point(color = "#E15759", size = 4) +
+  theme_minimal() +
+  labs(title = "年代別のランダム効果（LAB）",
+       x = "年代",
+       y = "LAB のランダム係数") +
+  theme(
+    text = element_text(family = "BIZUDGothic-Regular", size = 16),
+    axis.text = element_text(size = 34),
+    axis.title = element_text(size = 45),
+    plot.title = element_text(size = 45)
+  ) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "black") +
+  scale_x_continuous(
+    breaks = 1:7,
+    labels = c("20代", "30代", "40代", "50代", "60代", "70代", "80代")
+  ) +
+  coord_fixed(ratio = 70)
+# ggsave("LABの年代効果.png", bg="white")
+```
+
+```{r}
+library(brms)
+
+formula <- bf(
+  BP ~ 1 + (LOX | 年代)
+)
+fit <- brm(
+  formula,
+  data = mdf,
+  family = gaussian(),
+  chains = 4,
+  iter = 8000,
+  cores = 4
+)
+```
