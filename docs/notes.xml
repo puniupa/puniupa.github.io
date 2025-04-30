@@ -14,7 +14,7 @@
 <title>ぷにうぱ</title>
 <link>https://puniupa.github.io/notes.html</link>
 </image>
-<generator>quarto-1.6.39</generator>
+<generator>quarto-1.4.552</generator>
 <lastBuildDate>Mon, 28 Apr 2025 15:00:00 GMT</lastBuildDate>
 <item>
   <title>弘前データ２：階層モデリング</title>
@@ -27,10 +27,10 @@
 
 <div id="listing-hirosaki-listing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-1">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1745679600000" data-listing-file-modified-sort="1745909017897" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="37" data-listing-word-count-sort="7307">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1745679600000" data-listing-file-modified-sort="1745997243368" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="37" data-listing-word-count-sort="7309">
 <a href="../../posts/Cocosiru/hirosaki1.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
-<!-- img(9CEB782EFEE6)[progressive=false, height=100%]:hirosaki-listing:posts/Cocosiru/hirosaki1.html -->
+<p class="card-img-top"><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1_files/figure-html/unnamed-chunk-5-1.png" style="height: 100%;" class="thumbnail-image card-img"></p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
 弘前データ１：法定検診との関係
@@ -62,7 +62,7 @@ font-style: inherit;">kable</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">head</span>(df))</span></code></pre></div>
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 4%">
 <col style="width: 1%">
@@ -441,7 +441,7 @@ font-style: inherit;">kable</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">head</span>(mdf))</span></code></pre></div>
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 9%">
 <col style="width: 4%">
@@ -818,7 +818,6 @@ font-style: inherit;">2.5</span>))</span></code></pre></div>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">function</span>(x) {</span>
 <span id="cb7-2">  (x <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -1047,7 +1046,7 @@ font-style: inherit;">kable</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">head</span>(df))</span></code></pre></div>
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 4%">
 <col style="width: 1%">
@@ -1991,7 +1990,6 @@ font-style: inherit;">$</span>BP_A_flag, df<span class="sc" style="color: #5E5E5
 background-color: null;
 font-style: inherit;">$</span>年代, <span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">function</span>(x) <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sum</span>(x, <span class="at" style="color: #657422;
@@ -2032,7 +2030,6 @@ font-style: inherit;">$</span>BP_A_flag, df<span class="sc" style="color: #5E5E5
 background-color: null;
 font-style: inherit;">$</span>年代, <span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">function</span>(x) <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sum</span>(x, <span class="at" style="color: #657422;
@@ -2056,7 +2053,6 @@ font-style: inherit;">$</span>BP_A_flag, df<span class="sc" style="color: #5E5E5
 background-color: null;
 font-style: inherit;">$</span>年代, <span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">function</span>(x) <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">sum</span>(x, <span class="at" style="color: #657422;
@@ -9351,7 +9347,6 @@ font-style: inherit;"># 標準化関数（NaNを考慮）</span></span>
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">function</span>(x) {</span>
 <span id="cb199-6">  (x <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -9790,7 +9785,7 @@ font-style: inherit;">kable</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">head</span>(df1))</span></code></pre></div>
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 2%">
 <col style="width: 4%">
@@ -12374,7 +12369,6 @@ font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">lapply</span>(df[cols_to_convert], <span class="cf" style="color: #003B4F;
 background-color: null;
-font-weight: bold;
 font-style: inherit;">function</span>(x) {</span>
 <span id="cb1-5">  <span class="co" style="color: #5E5E5E;
 background-color: null;
@@ -12408,7 +12402,7 @@ background-color: null;
 font-style: inherit;">head</span>(df))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 3%">
 <col style="width: 5%">
@@ -12860,7 +12854,7 @@ background-color: null;
 font-style: inherit;">head</span>(df_long))</span></code></pre></div>
 </details>
 <div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
+<table class="table table-sm table-striped small">
 <colgroup>
 <col style="width: 5%">
 <col style="width: 8%">
@@ -13423,7 +13417,7 @@ data's colour values.</code></pre>
 <h3 data-number="2.3" class="anchored" data-anchor-id="sec-昇降格"><span class="header-section-number">2.3</span> 主解析：顧客変更の影響</h3>
 <div id="listing-cocosiru1-listing" class="quarto-listing quarto-listing-container-grid">
 <div class="list grid quarto-listing-cols-1">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1745593200000" data-listing-file-modified-sort="1745733664301" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1519">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1745593200000" data-listing-file-modified-sort="1746015577441" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1647">
 <a href="../../posts/Cocosiru/source1-1.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <p class="card-img-top"><img src="https://puniupa.github.io/posts/Cocosiru/source1-1_files/figure-html/unnamed-chunk-7-1.png" style="height: 100%;" class="thumbnail-image card-img"></p>
@@ -13543,7 +13537,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 <div>
 
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
 <p><img src="https://puniupa.github.io/posts/Cocosiru/source1_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid" width="576"></p>
@@ -13732,26 +13726,29 @@ Itoh, H., Mori, I., Matsumoto, Y., Maki, S., and Ogawa, Y. (2012). <a href="http
 
 <section id="ブリーフィング" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="ブリーフィング"><span class="header-section-number">1</span> ブリーフィング</h2>
-<p>株式会社プリメディカは新たにバイオピリン測定サービス「ココシル」を2024年４月にスタートさせた．このサービスは尿中のバイオピリン濃度を測定し，その濃度を100点満点にリスケーリングした「ココシルスコア」を報告する．</p>
-<p>当社はすでに，LABとLOX-1の血中濃度測定による動脈硬化リスク評価サービス「LOX-index」と，便から腸内フローラの多様性を測定するサービス「フローラスキャン」との２つのサービスを提供している．</p>
+<p>株式会社プリメディカ (<a href="https://www.premedica.co.jp/">HP</a> / <a href="https://ja.wikipedia.org/wiki/%E3%83%97%E3%83%AA%E3%83%A1%E3%83%87%E3%82%A3%E3%82%AB">Wikipedia</a>) は新たにバイオピリン測定サービス「<a href="https://cocoshiru.com/">ココシル</a>」を2024年４月にスタートさせた．このサービスは尿中のバイオピリン濃度<sup>1</sup> を測定し，その濃度を100点満点にリスケーリングした「ココシルスコア」を報告する．</p>
+<p>当社はすでに，LABとLOX-1の血中濃度測定による動脈硬化リスク評価サービス「<a href="https://lox-index.com/">LOX-index</a>」と，便から腸内フローラの多様性を測定するサービス「<a href="https://flora-scan.jp/">フローラスキャン</a>」との２つのサービスを提供している．</p>
 <p>本新サービス「ココシル」は働く人のメンタルヘルスに焦点を合わせており，既存２サービスと併せて，多角的な予防医療サービスを提供することで顧客の囲い込みを目指している．</p>
 <section id="解析目的" class="level3" data-number="1.1">
 <h3 data-number="1.1" class="anchored" data-anchor-id="解析目的"><span class="header-section-number">1.1</span> 解析目的</h3>
-<p>本案件では２つの目的がある．</p>
+<p>本案件では，大きく分けて次の３つの目的がある．</p>
 <section id="目的１バイオピリンと離職イベントの依存構造の検討" class="level4" data-number="1.1.1">
 <h4 data-number="1.1.1" class="anchored" data-anchor-id="目的１バイオピリンと離職イベントの依存構造の検討"><span class="header-section-number">1.1.1</span> 目的１：バイオピリンと離職イベントの依存構造の検討</h4>
-<p>究極的には，休職・離職イベントの関連を解析することが目標である．休職・離職のデータは得にくいため，他にも昇進・異動とバイオピリンの関係を，個人ごとの変動効果を考慮した項目反応モデルで詳細に分析したい．</p>
+<p>究極的には，<u>休職・離職イベントの関連</u>を解析することが目標である．</p>
+<p>ただし，休職・離職のデータは得にくいため，「昇進・異動」というエンドイベントと，バイオピリンという絶対的な説明変数の間を媒介する変数を特定したり，個人ごとの変動効果も考慮した項目反応モデルを用いるなどの方法を模索することが基本的な方向性になる．</p>
 </section>
 <section id="目的２バイオピリンと法定診断との相関の検討" class="level4" data-number="1.1.2">
 <h4 data-number="1.1.2" class="anchored" data-anchor-id="目的２バイオピリンと法定診断との相関の検討"><span class="header-section-number">1.1.2</span> 目的２：バイオピリンと法定診断との相関の検討</h4>
-<p>2015年以降，労働安全衛生法に基づいて「職業性ストレスチェック」が常時50人以上の事業場にて毎年の実施が義務付けられている．</p>
-<p>従って多くの企業では，この「職業性ストレスチェック」の結果とココシルスコアの結果を総合して，従業員のメンタルヘルスの評価に役立てたいという需要がある．</p>
-<p>従って，「職業性ストレスチェック」の結果とココシルスコアの結果との相関や深い関係性の解明が必要である．その独自知見がある場合，より多くの企業に「ココシル」サービスを導入してもらえることになる．</p>
+<p>2015年以降，労働安全衛生法に基づいて「<a href="https://www.mhlw.go.jp/bunya/roudoukijun/anzeneisei12/index.html">職業性ストレスチェック</a>」が常時50人以上の事業場にて毎年の実施が義務付けられている．</p>
+<p>従って多くの企業では，この法定義務である「職業性ストレスチェック」の結果とココシルスコアの結果を総合して，従業員のメンタルヘルスの評価に役立てたいという需要がある．</p>
+<p>「職業性ストレスチェック」の結果とココシルスコアの結果との相関や深い関係性の解明が第一の目標．加えて，そのような独自知見があったならば，より多くの企業に「ココシル」サービスを導入してもらえることになり，マーケティングに大きく助力できる．</p>
 </section>
 <section id="目的３バイオピリンとlox-indexとフローラスキャンとの関係の検討" class="level4" data-number="1.1.3">
 <h4 data-number="1.1.3" class="anchored" data-anchor-id="目的３バイオピリンとlox-indexとフローラスキャンとの関係の検討"><span class="header-section-number">1.1.3</span> 目的３：バイオピリンと，LOX-indexとフローラスキャンとの関係の検討</h4>
-<p>ココシルスコアと，２つの既存サービスであったLOX-indexとフローラスキャンとの関係を検討する．</p>
-<p>それだけでなく，「ココシルスコアだけでなく，LOX-indexやフローラスキャンの結果もあれば，自身の健康状態についてより多くのことが知れる」というサービスを提供できれば，複数のサービス間で強いシナジー効果が生じ，囲い込み効果が強くなることが期待できる．</p>
+<p>ココシルスコアと，２つの既存サービスであるLOX-indexとフローラスキャンとの関係を検討する．</p>
+<p>「ココシルスコアだけでなく，LOX-indexやフローラスキャンの結果もあれば，自身の健康状態についてより多くのことが知れる」というサービスを提供できれば，複数のサービス間で強いシナジー効果が生じ，囲い込み効果が強くなることが期待できる．</p>
+<p>例えば，LOX-index では LDL などの脂質が酸化して得られる LAB の血中濃度が測定されるが，中高年では脂質を抑える薬を飲んでいる人の割合が多く，LAB の値が低く出てしまう一方で，バイオピリンは服薬に左右されない酸化ストレスの指標を与える．</p>
+<p>服薬の存在により，LAB とバイオピリンと動脈硬化・精神疾患などのエンドイベントとの関係がどう変わるか？も重要な研究対象になる．</p>
 </section>
 </section>
 <section id="データ" class="level3" data-number="1.2">
@@ -13773,130 +13770,76 @@ Itoh, H., Mori, I., Matsumoto, Y., Maki, S., and Ogawa, Y. (2012). <a href="http
 <section id="ココシルスコアと昇進との関係" class="level3" data-number="2.1">
 <h3 data-number="2.1" class="anchored" data-anchor-id="ココシルスコアと昇進との関係"><span class="header-section-number">2.1</span> ココシルスコアと昇進との関係</h3>
 <ul>
-<li>随時尿にしたからなのか，とんでもない変化率が３ヶ月で出た（７から１０）．
+<li>7月と10月での２回測定データでは，随時尿にしたからなのか，とんでもない変化率が３ヶ月で出た．
 <ul>
-<li>10月に組織変更があり，職位変更あり群となし群，顧客変更あり群で違いが結構見れる．</li>
-</ul></li>
-<li>ストレススコアの変化率を調べてもよく判らなかった．
-<ul>
-<li>これについては次節 Section&nbsp;2.2 で検討．</li>
+<li>「３ヶ月でそんな変わるか？」というのが最初の疑問．</li>
+<li>10月に組織変更があった．顧客変更・部署異動の回帰係数は意味のある値を示さなかったが，昇進の回帰係数は何か反応があるようだった．</li>
 </ul></li>
 </ul>
-<div id="listing-cocosiru1-listing" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-1">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1740495600000" data-listing-file-modified-sort="1745728548881" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1508">
-<a href="../../posts/Cocosiru/source1.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="https://puniupa.github.io/posts/Cocosiru/Files/昇格.png" style="height: 100%;" class="thumbnail-image card-img"></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-ココシルデータ解析１
-</h5>
-<div class="card-text listing-description">
-<p>ココシルを予測に使うことを考える． 昇格はココシルスコアに影響を与える可能性がある（さらに言えば３ヶ月前の残業時間も）． データ数の不足と，未知の説明変数が問題である． 既知の季節変動があったら，それも説明変数に入れたい．</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-司馬博文
-</div>
-<div class="listing-date">
-2/26/2025
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
+<p>たかだか 28 名のデータで２回の繰り返し測定しかしておらず，10 月に昇進のあったものがうち 12 名だが４月に昇進したものは居なかったという不均衡性もあり，全く意味のある結論は出なかった．</p>
+<!-- ::: {#cocosiru1-listing}
+::: -->
 </section>
 <section id="sec-stress-check" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="sec-stress-check"><span class="header-section-number">2.2</span> 職業性ストレスチェックとの関係</h3>
-<p>第２回 (2/27/2025) ミーティング内容まとめ</p>
+<p>第２回 (2/27/2025) ミーティングでは次のアジェンダが設定された：</p>
 <ul>
 <li>職業性ストレスチェックは産業界で一大サービスであり，それとの関連から説明したい．</li>
 <li>「職業性ストレスチェックのどのような意味での要約になっているか？」を知りたい．</li>
-<li><span class="color-united"><strong>弘前の大規模データで検証したい</strong></span>．</li>
+<li><span class="color-united">弘前の大規模データで検証したい</span>．</li>
 </ul>
-<div id="listing-cocosiru2-listing" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-1">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1740495600000" data-listing-file-modified-sort="1745732179898" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="447">
-<a href="../../posts/Cocosiru/source2.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="https://puniupa.github.io/posts/Cocosiru/source2_files/figure-html/unnamed-chunk-7-1.png" style="height: 100%;" class="thumbnail-image card-img"></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-ココシルデータ解析２
-</h5>
-<div class="card-text listing-description">
-<p>ココシルの位置付けをわかりやすく説明するために， バイオピリンと職業性ストレスチェックとの相関を詳細に検討し， <strong>ココシルスコアがどのような意味で職業性ストレスチェックの要約になっているかを解明する</strong>． これは結局変数選択をした後の，右辺の式の形を見る問題になる．</p>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-司馬博文
-</div>
-<div class="listing-date">
-2/26/2025
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div>
+<p>しかし職業性ストレスチェックの結果は，問診による回答でそもそも信頼性が低い上に，問診表としても本当に解像度が低く， 「イライラ感」「疲労感」「抑うつ感」「不安感」などの項目で５段階でのストレススコアが出るが，バイオピリン濃度との関係は希薄だった．</p>
+<p>しかし唯一，「疲労感」「抑うつ感」「不安感」の項目で，最大値であるストレス５と回答した者（と言っても全体の 2~3% 程度）には，極めて低いバイオピリン値（0.5以下，通常0.5~1.0の間に入る）の者がほとんど居ない，という傾向が判明したのみであった．</p>
+<ul>
+<li>バイオピリン値で層別し，ストレスチェックという項目応答に対する項目反応モデルを推定し，そのパラメータの違いを見る，という方法はあり得るが，どう実務に活かせるか？</li>
+<li>「バイオピリン値が平均より高かった者（例えば 1.0 以上）」のみを抜き出した部分標本を取り，そこで極値分布を用いたモデリングをし，違いが出るかどうかを見る？</li>
+</ul>
+<!-- ::: {#cocosiru2-listing}
+::: -->
 </section>
 <section id="他サービスとの関連" class="level3" data-number="2.3">
 <h3 data-number="2.3" class="anchored" data-anchor-id="他サービスとの関連"><span class="header-section-number">2.3</span> 他サービスとの関連</h3>
+<ul>
+<li>バイオピリン値と LAB の値は関係があるようだった．
+<ul>
+<li>しかし，バイオピリンを被説明変数，LAB を説明変数とし，年代ごとの LAB の変動効果をベイズ階層モデルを用いて推定した．</li>
+<li>その結果，年齢が上がるごとに回帰係数は下がっていく関係が見られた．20~30 代と 50~60 代では LAB の変動効果が大きく異なり，符号を跨ぐほどであった．</li>
+<li>これは服薬による交絡であることが疑われる．脂質 (LDL など) を抑える薬を飲んでいる者は，背景にある活性酸素量に依らずに LAB 値が低く出るが，バイオピリンは変わらず高い値を示す，ということが起こるためである．</li>
+<li>一方で少なくとも 20 代や 30 代で正の係数が推定されたことは想定通りであった．</li>
+</ul></li>
+<li>FCL 値と LOX-1 の値も同様に関係があることが期待され，次の解析目標である．</li>
+</ul>
 </section>
 </section>
-<section id="ビリルビンとバイオピリンの背景" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="ビリルビンとバイオピリンの背景"><span class="header-section-number">3</span> ビリルビンとバイオピリンの背景</h2>
-<section id="摘要1312025-ミーティング内容のまとめ" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="摘要1312025-ミーティング内容のまとめ"><span class="header-section-number">3.1</span> 摘要（1/31/2025 ミーティング内容のまとめ）</h3>
+<section id="sec-appendix" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="sec-appendix"><span class="header-section-number">3</span> 背景</h2>
+<section id="ビリルビンとバイオピリン" class="level3" data-number="3.1">
+<h3 data-number="3.1" class="anchored" data-anchor-id="ビリルビンとバイオピリン"><span class="header-section-number">3.1</span> ビリルビンとバイオピリン</h3>
 <p>ビリルビンが活性酵素を除去しようとする中で，その残滓であるバイオピリンが活性酸素上昇／酸化ストレスのマーカーになることが知られている．</p>
 <p>特に重度の精神疾患患者の判別には AUC 0.779 の精度を持つ <span class="citation" data-cites="Wake+2022">(Wake et al., 2022)</span>．</p>
 <p>しかし，職業ストレス <span class="citation" data-cites="Mourad-Gaballah2023">(Mourad and Gaballah, 2023)</span> のほかに，心不全，肝硬変，妊娠，スポーツなど種々の理由でもバイオピリンの尿中排出濃度が変化する．BMI （特にトリグリセリド）との相関も疑われている．</p>
 </section>
-
-
-</section>
-
-<div id="quarto-appendix" class="default"><section id="先行研究" class="level3 appendix" data-number="3.2"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3.2</span> 先行研究</h2><div class="quarto-appendix-contents">
-
+<section id="バイオピリンレベルによるモニタリングの先行研究" class="level3" data-number="3.2">
+<h3 data-number="3.2" class="anchored" data-anchor-id="バイオピリンレベルによるモニタリングの先行研究"><span class="header-section-number">3.2</span> バイオピリンレベルによるモニタリングの先行研究</h3>
 <p>臨床実習のある３回生の方が，４回生よりもバイオピリンレベルが高かった <span class="citation" data-cites="Tada+2020">(Tada et al., 2020)</span>．</p>
 <p><span class="citation" data-cites="高知恵+2023">(高知恵 et al., 2023)</span> でも質問票と尿中バイオピリンの双方を用いている．2022年の10月から12月末までのデータである．</p>
 <p>しかし「調査当日の受け持ち褥婦数」を調べており，これでは２群間で有意差を認めなかったという結果であった．これには，「翌日から上昇する」という報告を引用して，もう少し時間を空けるべきであった可能性が指摘されている．</p>
-</div></section><section id="示唆" class="level3 appendix" data-number="3.3"><h2 class="anchored quarto-appendix-heading"><span class="header-section-number">3.3</span> 示唆</h2><div class="quarto-appendix-contents">
+<!-- ::: {.callout-important appearance="simple" icon="false"}
 
-<div class="callout callout-style-simple callout-important no-icon">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-body-container">
-<ul>
-<li>人事に昇進の影響が違うと思われる．やはり <strong>項目反応モデル</strong> だろうか？</li>
-<li>そもそもココシルデータ解析は，「どのようなデータを取れば，有用な結論を導けるか？」というベイズ最適化的な側面があるかもしれない．
-<ul>
-<li>Big Five を取って，関連性が見れたらすごいことになる．</li>
-<li>NEC が出している視線解析のベンチャーがある．尿検査のデータ以外も取れるかもしれない．</li>
-</ul></li>
-</ul>
-</div>
-</div>
-</div>
+* 人事に昇進の影響が違うと思われる．やはり **項目反応モデル** だろうか？
+* そもそもココシルデータ解析は，「どのようなデータを取れば，有用な結論を導けるか？」というベイズ最適化的な側面があるかもしれない．
+  * Big Five を取って，関連性が見れたらすごいことになる．
+  * NEC が出している視線解析のベンチャーがある．尿検査のデータ以外も取れるかもしれない．
+
+::: -->
 
 
 
+</section>
+</section>
 
-</div></section><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-Mourad-Gaballah2023" class="csl-entry">
 Mourad, B. H., and Gaballah, I. F. (2023). <a href="https://journals.lww.com/joem/fulltext/2023/01000/studying_the_association_between_occupational.10.aspx">Studying the association between occupational stress and urinary levels of oxidative stress biomarkers (8-OHdG and biopyrrins) in brickfield workers</a>. <em>Journal of Occupational and Environmental Medicine</em>, <em>65</em>(1).
 </div>
@@ -13909,7 +13852,12 @@ Wake, R., Araki, T., Fukushima, M., Matsuda, H., Inagaki, T., Hayashida, M., …
 <div id="ref-高知恵+2023" class="csl-entry">
 高知恵, 千葉貴子, 中根祥子, 谷口朱子, 北條渉, 中嶋有加里, … 渡邊香織. (2023). <a href="https://mol.medicalonline.jp/archive/search?jo=fm0kokus&amp;ye=2023&amp;vo=7&amp;issue=1">在留外国人褥婦への保健指導を実践する助産師の思いと心理的ストレス - 尿中バイオピリンと心理尺度による横断的研究 -</a>. <em>国際臨床医学会雑誌</em>, <em>7</em>(1), 22–28.
 </div>
-</div></section></div> ]]></description>
+</div></section><section id="footnotes" class="footnotes footnotes-end-of-document"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>バイオピリンは体内のビリルビンが，活性酸素と結びつくことで生じる物質であり，体内の活性酸素の量の指標になる．極めて迅速に代謝され尿中に出るので，（ほとんど）リアルタイムな体内ストレスのモニタリングが可能として注目されている．Section&nbsp;3 も参照．↩︎</p></li>
+</ol>
+</section></div> ]]></description>
   <guid>https://puniupa.github.io/posts/Cocosiru/source0.html</guid>
   <pubDate>Tue, 25 Feb 2025 15:00:00 GMT</pubDate>
 </item>
@@ -14262,7 +14210,7 @@ Durmus, A., Guillin, A., and Monmarché, P. (2021). <a href="https://doi.org/10.
 </div></section></div> ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_generator.html</guid>
-  <pubDate>Tue, 29 Apr 2025 06:55:44 GMT</pubDate>
+  <pubDate>Wed, 30 Apr 2025 12:43:30 GMT</pubDate>
 </item>
 <item>
   <title>１次元での収束の証明</title>
@@ -14386,7 +14334,7 @@ No matching items
 </section></div> ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_convergence.html</guid>
-  <pubDate>Tue, 29 Apr 2025 06:55:44 GMT</pubDate>
+  <pubDate>Wed, 30 Apr 2025 12:43:30 GMT</pubDate>
 </item>
 <item>
   <title>脱出時刻の分析</title>
@@ -14671,7 +14619,7 @@ Lang, S. (1999). <em><a href="https://doi.org/10.1007/978-1-4757-3083-8">Complex
 </div></section></div> ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_exit.html</guid>
-  <pubDate>Tue, 29 Apr 2025 06:55:44 GMT</pubDate>
+  <pubDate>Wed, 30 Apr 2025 12:43:30 GMT</pubDate>
 </item>
 <item>
   <title>生成作用素の収束の証明</title>
@@ -14724,7 +14672,7 @@ Lang, S. (1999). <em><a href="https://doi.org/10.1007/978-1-4757-3083-8">Complex
  ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/Background/note.html</guid>
-  <pubDate>Tue, 29 Apr 2025 06:55:44 GMT</pubDate>
+  <pubDate>Wed, 30 Apr 2025 12:43:30 GMT</pubDate>
 </item>
 <item>
   <title>Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities</title>
@@ -14763,7 +14711,7 @@ Lang, S. (1999). <em><a href="https://doi.org/10.1007/978-1-4757-3083-8">Complex
  ]]></description>
   <category>ドラフト</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/spiky-density.html</guid>
-  <pubDate>Tue, 29 Apr 2025 06:55:44 GMT</pubDate>
+  <pubDate>Wed, 30 Apr 2025 12:43:30 GMT</pubDate>
 </item>
 </channel>
 </rss>

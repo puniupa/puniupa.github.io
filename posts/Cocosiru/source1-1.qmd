@@ -113,6 +113,83 @@ df_long <- df_long[, !names(df_long) %in% c("部署異動1", "部署異動2", "�
 
 基本的に説明変数は，顧客変更，部署異動，昇進の３つのみを考える．
 
+## 検定
+
+```{r}
+df_long_first <- df_long[df_long$測定時点 == 1, ]
+
+t.test(df_long_first$スコア値[df_long_first$昇降格 == 1],
+       df_long_first$スコア値[df_long_first$昇降格 == 0])
+
+t.test(スコア値 ~ 昇降格, data = df_long_first, var.equal = TRUE)
+```
+
+有意差ないなあ……．
+
+```{r}
+# まず昇降格が1の人のIDを取得
+target_ids <- df_long_first$id[df_long_first$昇降格 == 1]
+
+# そのIDを持つ人のデータをdf_longから抽出
+df_long_promoted <- df_long[df_long$id %in% target_ids, ]
+```
+
+```{r}
+t.test(df_long_promoted$スコア値[df_long_promoted$測定時点 == 0],
+       df_long_promoted$スコア値[df_long_promoted$測定時点 == 1])
+```
+
+```{r}
+wilcox.test(スコア値 ~ 測定時点, data = df_long_promoted)
+```
+
+
+```{r}
+# まず昇降格が1の人のIDを取得
+target_ids <- df_long_first$id[df_long_first$昇降格 == 1]
+
+# そのIDを持つ人のデータをdf_longから抽出
+df_long_not_promoted <- df_long[!(df_long$id %in% target_ids), ]
+```
+
+```{r}
+t.test(df_long_not_promoted$スコア値[df_long_not_promoted$測定時点 == 0],
+       df_long_not_promoted$スコア値[df_long_not_promoted$測定時点 == 1])
+```
+
+```{r}
+wilcox.test(スコア値 ~ 測定時点, data = df_long_not_promoted)
+```
+
+```{r}
+sum(na.omit(df_long_not_promoted[df_long_not_promoted$測定時点==1, "スコア値"] - df_long_not_promoted[df_long_not_promoted$測定時点==0, "スコア値"]))/dim(na.omit(df_long_not_promoted))[1]/2
+sum(na.omit(df_long_promoted[df_long_promoted$測定時点==1, "スコア値"] - df_long_promoted[df_long_promoted$測定時点==0, "スコア値"])/dim(na.omit(df_long_promoted)))[1]/2
+```
+
+```{r}
+diff1 <- na.omit(df_long_not_promoted[df_long_not_promoted$測定時点==1, "スコア値"] - df_long_not_promoted[df_long_not_promoted$測定時点==0, "スコア値"])
+diff2 <- na.omit(df_long_promoted[df_long_promoted$測定時点==1, "スコア値"] - df_long_promoted[df_long_promoted$測定時点==0, "スコア値"])
+
+wilcox.test(diff1, diff2)
+t.test(diff1, diff2)
+```
+
+```{r}
+# データフレームから値を抽出する際に$演算子を使用
+diff1 <- na.omit(
+    df_long_not_promoted$スコア値[df_long_not_promoted$測定時点==1] - 
+    df_long_not_promoted$スコア値[df_long_not_promoted$測定時点==0]
+)
+diff2 <- na.omit(
+    df_long_promoted$スコア値[df_long_promoted$測定時点==1] - 
+    df_long_promoted$スコア値[df_long_promoted$測定時点==0]
+)
+
+# 検定を実行
+wilcox.test(diff1, diff2)
+```
+
+
 ## 測定時点ごとの変動係数モデル
 
 ２回の測定で，昇降格の影響が大きく違う可能性があることがわかった．
