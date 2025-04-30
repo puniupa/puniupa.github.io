@@ -239,7 +239,7 @@ window.Quarto = {
 </div>
 <div id="listing-lst-spiky" class="listing quarto-float quarto-figure quarto-figure-left quarto-listing quarto-listing-container-grid anchored">
 <div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="JUUzJTgzJTg5JUUzJTgzJUE5JUUzJTgzJTk1JUUzJTgzJTg4" data-listing-file-modified-sort="1745912074434" data-listing-reading-time-sort="1" data-listing-word-count-sort="24">
+<div class="g-col-1" data-index="0" data-categories="JUUzJTgzJTg5JUUzJTgzJUE5JUUzJTgzJTk1JUUzJTgzJTg4" data-listing-file-modified-sort="1745997277617" data-listing-reading-time-sort="1" data-listing-word-count-sort="24">
 <a href="../../posts/Spike-and-slab/spiky-density.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -250,7 +250,7 @@ Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densiti
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="1" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1745912074431" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
+<div class="g-col-1" data-index="1" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1745997277614" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
 <a href="../../posts/Spike-and-slab/1d_generator.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -264,7 +264,7 @@ Spike-and-Slab prior からの効率的なサンプリング
 </div>
 </div></a>
 </div>
-<div class="g-col-1" data-index="2" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1745912074429" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
+<div class="g-col-1" data-index="2" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1745997277612" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
 <a href="../../posts/Spike-and-slab/1d_exit.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-left">
 <div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
@@ -290,13 +290,11 @@ p_\epsilon(x)=(1-\gamma)p(x)+\frac{\gamma}{\epsilon}p\left(\frac{x}{\epsilon}\ri
 \]</span> <span class="math display">\[
 \lambda_n(x)=(v|-\partial_x\log p_\epsilon(x))_+
 \]</span> をもち，核は <span class="math inline">\(C^\infty_c(\mathbb{R}^2)\)</span> に取れる．</p>
-<p>一方で極限だと思われる Sticky Zig-Zag 過程 <span class="math inline">\((Z_t)_{t\in\mathbb{N}}\)</span> は，拡張された状態空間 <span class="math display">\[
-E_0:=\mathbb{R}^2\sqcup\{(O,O)\}
-\]</span> 上に存在するとした場合は，拡張生成作用素 <span class="math display">\[
+<p>一方で極限だと思われる Sticky Zig-Zag 過程 <span class="math inline">\((Z_t)_{t\in\mathbb{N}}\)</span> は拡張生成作用素 <span class="math display">\[
 \widehat{A}_0f(x,v)=
 \begin{cases}
-  (v|f'(z))+\lambda(x)\biggr(f(x,-v)-f(x,v)\biggl) &amp; x\ne(O,O)\\
-  \kappa\biggr(\frac{1}{2}f(0,+v)+\frac{1}{2}f(0,-v)-f(O,O)\biggl) &amp; x=(O,O)
+  (v|f'(z))+\lambda(x)\biggr(f(x,-v)-f(x,v)\biggl) &amp; x\ne(0,0)\\
+  \kappa\biggr(\frac{1}{2}f(0,+v)+\frac{1}{2}f(0,-v)-f(0,0)\biggl) &amp; x=(0,0)
 \end{cases}
 \]</span> <span class="math display">\[
 \lambda(x)=(v|-\partial_x\log p(x))_+,\qquad\kappa^{-1}:=\frac{\gamma}{1-\gamma}\sqrt{2\pi\sigma^2}
@@ -306,11 +304,11 @@ E_0:=\mathbb{R}^2\sqcup\{(O,O)\}
 \{0\}\times\mathbb{R}\,\text{上を除いて絶対連続}\\
 \{0\}\times(-\infty,0)\,\text{では右連続}\\
 \{0\}\times(0,\infty)\,\text{では左連続}\\
-\text{残った2つの右極限は}\,f(O,O)\,\text{に一致する}
+\text{残った2つの右極限は}\,f(0,0)\,\text{に一致する}
 \end{array}
 \right\}.
 \]</span></p>
-<p>無限遠 <span class="math inline">\(\epsilon\to0\)</span> では，「吸着点」<span class="math inline">\((O,O)\)</span> が創発されると見る．</p>
+<p>無限遠 <span class="math inline">\(\epsilon\to0\)</span> では，「吸着点」<span class="math inline">\((0,0)\)</span> が創発されると見る．</p>
 <p>この見方は直感的であるが，<span class="math inline">\(E_0\)</span> には特別な位相が入っていることに注意．<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> そのため <span class="math inline">\(x=0\)</span> でジャンプしていても <span class="math inline">\(E_0\)</span> 上では連続関数になる．これは <span class="math inline">\(E_0\)</span> では通常の方法では絶対に <span class="math inline">\(x=0\)</span> に辿り着いてはいけないためである．</p>
 <p>生成作用素 <span class="math inline">\(\widehat{A}_0\)</span> に登場する <span class="math inline">\(f'\)</span> は <span class="math inline">\(x=0\)</span> では片側微分である．</p>
 </section>
