@@ -143,13 +143,13 @@ window.Quarto = {
 <link rel="stylesheet" href="../../assets/styles.css">
 <meta property="og:title" content="ココシルデータ解析１-１ – ぷにうぱ">
 <meta property="og:description" content="従業員 28 名を対象に，７月と10月の２回，繰り返しココシルスコアが測定された．同時に本企業では４月と10月に異動と昇進があり，その有無も紐づけられている．しかし，初回の測定は昇進の辞令発令後３ヶ月であるのに対し，２回目の測定は辞令があった当月である． この違いを考慮したモデルを複数フィットしてみる．">
-<meta property="og:image" content="https://puniupa.github.io/posts/Cocosiru/source1-1_files/figure-html/unnamed-chunk-7-1.png">
+<meta property="og:image" content="https://puniupa.github.io/posts/Cocosiru/source1-1_files/figure-html/unnamed-chunk-5-1.png">
 <meta property="og:site_name" content="ぷにうぱ">
 <meta property="og:image:height" content="768">
 <meta property="og:image:width" content="1152">
 <meta name="twitter:title" content="ココシルデータ解析１-１ – ぷにうぱ">
 <meta name="twitter:description" content="従業員 28 名を対象に，７月と10月の２回，繰り返しココシルスコアが測定された．同時に本企業では４月と10月に異動と昇進があり，その有無も紐づけられている．しかし，初回の測定は昇進の辞令発令後３ヶ月であるのに対し，２回目の測定は辞令があった当月である． この違いを考慮したモデルを複数フィットしてみる．">
-<meta name="twitter:image" content="https://puniupa.github.io/posts/Cocosiru/source1-1_files/figure-html/unnamed-chunk-7-1.png">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/Cocosiru/source1-1_files/figure-html/unnamed-chunk-5-1.png">
 <meta name="twitter:image-height" content="768">
 <meta name="twitter:image-width" content="1152">
 <meta name="twitter:card" content="summary_large_image">
@@ -196,17 +196,18 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#測定時点ごとの変動係数モデル" id="toc-測定時点ごとの変動係数モデル" class="nav-link active" data-scroll-target="#測定時点ごとの変動係数モデル"><span class="header-section-number">1</span> 測定時点ごとの変動係数モデル</a>
+  <li><a href="#検定" id="toc-検定" class="nav-link active" data-scroll-target="#検定"><span class="header-section-number">1</span> 検定</a></li>
+  <li><a href="#測定時点ごとの変動係数モデル" id="toc-測定時点ごとの変動係数モデル" class="nav-link" data-scroll-target="#測定時点ごとの変動係数モデル"><span class="header-section-number">2</span> 測定時点ごとの変動係数モデル</a>
   <ul class="collapse">
-  <li><a href="#昇降格の影響だけ変動係数にした場合" id="toc-昇降格の影響だけ変動係数にした場合" class="nav-link" data-scroll-target="#昇降格の影響だけ変動係数にした場合"><span class="header-section-number">1.1</span> 昇降格の影響だけ変動係数にした場合</a></li>
-  <li><a href="#昇降格の変動係数のプロット" id="toc-昇降格の変動係数のプロット" class="nav-link" data-scroll-target="#昇降格の変動係数のプロット"><span class="header-section-number">1.2</span> 昇降格の変動係数のプロット</a></li>
-  <li><a href="#すごいじゃあ顧客変更は" id="toc-すごいじゃあ顧客変更は" class="nav-link" data-scroll-target="#すごいじゃあ顧客変更は"><span class="header-section-number">1.3</span> すごい！じゃあ顧客変更は？</a></li>
-  <li><a href="#すごい続けて部署異動は" id="toc-すごい続けて部署異動は" class="nav-link" data-scroll-target="#すごい続けて部署異動は"><span class="header-section-number">1.4</span> すごい！続けて部署異動は？</a></li>
-  <li><a href="#ちょっと-prior-を検証したくなった" id="toc-ちょっと-prior-を検証したくなった" class="nav-link" data-scroll-target="#ちょっと-prior-を検証したくなった"><span class="header-section-number">1.5</span> ちょっと prior を検証したくなった</a></li>
-  <li><a href="#頻度論的な検定もしてみたい" id="toc-頻度論的な検定もしてみたい" class="nav-link" data-scroll-target="#頻度論的な検定もしてみたい"><span class="header-section-number">1.6</span> 頻度論的な検定もしてみたい</a></li>
-  <li><a href="#全て変動係数にした場合" id="toc-全て変動係数にした場合" class="nav-link" data-scroll-target="#全て変動係数にした場合"><span class="header-section-number">1.7</span> 全て変動係数にした場合</a></li>
+  <li><a href="#昇降格の影響だけ変動係数にした場合" id="toc-昇降格の影響だけ変動係数にした場合" class="nav-link" data-scroll-target="#昇降格の影響だけ変動係数にした場合"><span class="header-section-number">2.1</span> 昇降格の影響だけ変動係数にした場合</a></li>
+  <li><a href="#昇降格の変動係数のプロット" id="toc-昇降格の変動係数のプロット" class="nav-link" data-scroll-target="#昇降格の変動係数のプロット"><span class="header-section-number">2.2</span> 昇降格の変動係数のプロット</a></li>
+  <li><a href="#すごいじゃあ顧客変更は" id="toc-すごいじゃあ顧客変更は" class="nav-link" data-scroll-target="#すごいじゃあ顧客変更は"><span class="header-section-number">2.3</span> すごい！じゃあ顧客変更は？</a></li>
+  <li><a href="#すごい続けて部署異動は" id="toc-すごい続けて部署異動は" class="nav-link" data-scroll-target="#すごい続けて部署異動は"><span class="header-section-number">2.4</span> すごい！続けて部署異動は？</a></li>
+  <li><a href="#ちょっと-prior-を検証したくなった" id="toc-ちょっと-prior-を検証したくなった" class="nav-link" data-scroll-target="#ちょっと-prior-を検証したくなった"><span class="header-section-number">2.5</span> ちょっと prior を検証したくなった</a></li>
+  <li><a href="#頻度論的な検定もしてみたい" id="toc-頻度論的な検定もしてみたい" class="nav-link" data-scroll-target="#頻度論的な検定もしてみたい"><span class="header-section-number">2.6</span> 頻度論的な検定もしてみたい</a></li>
+  <li><a href="#全て変動係数にした場合" id="toc-全て変動係数にした場合" class="nav-link" data-scroll-target="#全て変動係数にした場合"><span class="header-section-number">2.7</span> 全て変動係数にした場合</a></li>
   </ul></li>
-  <li><a href="#固定効果モデル従来の分析" id="toc-固定効果モデル従来の分析" class="nav-link" data-scroll-target="#固定効果モデル従来の分析"><span class="header-section-number">2</span> 固定効果モデル（従来の分析）</a></li>
+  <li><a href="#固定効果モデル従来の分析" id="toc-固定効果モデル従来の分析" class="nav-link" data-scroll-target="#固定効果モデル従来の分析"><span class="header-section-number">3</span> 固定効果モデル（従来の分析）</a></li>
   </ul>
 </nav>
     </div>
@@ -252,21 +253,263 @@ window.Quarto = {
 
 
 <p>基本的に説明変数は，顧客変更，部署異動，昇進の３つのみを考える．</p>
-<section id="測定時点ごとの変動係数モデル" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="測定時点ごとの変動係数モデル"><span class="header-section-number">1</span> 測定時点ごとの変動係数モデル</h2>
-<p>２回の測定で，昇降格の影響が大きく違う可能性があることがわかった．</p>
-<p>ランダム係数の間の標準偏差がすごく大きい：<span class="math inline">\(\sigma=17.04\)</span>．</p>
-<section id="昇降格の影響だけ変動係数にした場合" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="昇降格の影響だけ変動係数にした場合"><span class="header-section-number">1.1</span> 昇降格の影響だけ変動係数にした場合</h3>
+<section id="検定" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="検定"><span class="header-section-number">1</span> 検定</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> 顧客変更 <span class="sc">+</span> 部署異動 <span class="sc">+</span> (昇降格 <span class="sc">|</span> 測定時点))</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>df_long_first <span class="ot">&lt;-</span> df_long[df_long<span class="sc">$</span>測定時点 <span class="sc">==</span> <span class="dv">1</span>, ]</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(df_long_first<span class="sc">$</span>スコア値[df_long_first<span class="sc">$</span>昇降格 <span class="sc">==</span> <span class="dv">1</span>],</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>       df_long_first<span class="sc">$</span>スコア値[df_long_first<span class="sc">$</span>昇降格 <span class="sc">==</span> <span class="dv">0</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  df_long_first$スコア値[df_long_first$昇降格 == 1] and df_long_first$スコア値[df_long_first$昇降格 == 0]
+t = 1.6724, df = 24.042, p-value = 0.1074
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -2.715026 25.923359
+sample estimates:
+mean of x mean of y 
+ 53.66667  42.06250 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(スコア値 <span class="sc">~</span> 昇降格, <span class="at">data =</span> df_long_first, <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  スコア値 by 昇降格
+t = -1.6687, df = 26, p-value = 0.1072
+alternative hypothesis: true difference in means between group 0 and group 1 is not equal to 0
+95 percent confidence interval:
+ -25.898354   2.690021
+sample estimates:
+mean in group 0 mean in group 1 
+       42.06250        53.66667 </code></pre>
+</div>
+</div>
+<p>有意差ないなあ……．</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># まず昇降格が1の人のIDを取得</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>target_ids <span class="ot">&lt;-</span> df_long_first<span class="sc">$</span>id[df_long_first<span class="sc">$</span>昇降格 <span class="sc">==</span> <span class="dv">1</span>]</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># そのIDを持つ人のデータをdf_longから抽出</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>df_long_promoted <span class="ot">&lt;-</span> df_long[df_long<span class="sc">$</span>id <span class="sc">%in%</span> target_ids, ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 基本的な時系列プロット（各個人の変化を線で結ぶ）</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_long_promoted, <span class="fu">aes</span>(<span class="at">x =</span> 測定時点, <span class="at">y =</span> スコア値, <span class="at">group =</span> id)) <span class="sc">+</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">alpha =</span> <span class="fl">1.0</span>) <span class="sc">+</span>  <span class="co"># 個人の変化を示す線</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span>            <span class="co"># 各測定点</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span>         <span class="co"># シンプルなテーマ</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"10 月昇格者のスコア値"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"測定時点"</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"スコア値"</span>) <span class="sc">+</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">34</span>),</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>),</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), </span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>                    <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"７月"</span>, <span class="st">"10月（昇格当月）"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: There were 159 divergent transitions after warmup. Increasing
+<pre><code>Warning: Removed 1 row containing missing values (`geom_line()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="source1-1_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 平均値の変化も追加したバージョン</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplot(df_long_promoted, aes(x = 測定時点, y = スコア値)) +</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_line(aes(group = id), alpha = 0.3) +  # 個人の変化（薄く表示）</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">#   geom_point(alpha = 0.3) +                   # 個人の測定点</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">#   stat_summary(fun = mean, geom = "point", color = "red", size = 3) +  # 平均値</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">#   stat_summary(fun = mean, geom = "line", color = "red", group = 1) +  # 平均値を結ぶ線</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">#   theme_minimal() +</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">#   labs(title = "昇降格群のスコア値の変化（赤線は平均値）",</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">#        x = "測定時点",</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">#        y = "スコア値") +</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">#   scale_x_continuous(breaks = c(0, 1), </span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co">#                     labels = c("1回目", "2回目"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df_long_promoted, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(測定時点), <span class="at">y =</span> スコア値)) <span class="sc">+</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.3</span>, <span class="at">fill =</span> <span class="st">"lightgray"</span>) <span class="sc">+</span>  <span class="co"># 箱ひげ図</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">group =</span> id), <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span>        <span class="co"># 個人の変化</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">3</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span>                        <span class="co"># 個人の測定点</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"10 月昇格者のココシルスコア"</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"測定時点"</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"ココシルスコア"</span>) <span class="sc">+</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>   <span class="fu">theme</span>(</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">11</span>),</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">30</span>),</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">40</span>),</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">40</span>)</span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"昇格３ヶ月前"</span>, <span class="st">"昇格当月"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 rows containing non-finite values (`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values (`geom_line()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="source1-1_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="576"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"昇格者のスコア.svg"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Saving 6 x 4 in image</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 rows containing non-finite values (`stat_boxplot()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 row containing missing values (`geom_line()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(df_long_promoted<span class="sc">$</span>スコア値[df_long_promoted<span class="sc">$</span>測定時点 <span class="sc">==</span> <span class="dv">0</span>],</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>       df_long_promoted<span class="sc">$</span>スコア値[df_long_promoted<span class="sc">$</span>測定時点 <span class="sc">==</span> <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  df_long_promoted$スコア値[df_long_promoted$測定時点 == 0] and df_long_promoted$スコア値[df_long_promoted$測定時点 == 1]
+t = -2.848, df = 20.976, p-value = 0.00964
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -36.073366  -5.623604
+sample estimates:
+mean of x mean of y 
+ 32.81818  53.66667 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(スコア値 <span class="sc">~</span> 測定時点, <span class="at">data =</span> df_long_promoted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...):
+タイがあるため、正確な p 値を計算することができません</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon rank sum test with continuity correction
+
+data:  スコア値 by 測定時点
+W = 21.5, p-value = 0.006606
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># まず昇降格が1の人のIDを取得</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>target_ids <span class="ot">&lt;-</span> df_long_first<span class="sc">$</span>id[df_long_first<span class="sc">$</span>昇降格 <span class="sc">==</span> <span class="dv">1</span>]</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="co"># そのIDを持つ人のデータをdf_longから抽出</span></span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>df_long_not_promoted <span class="ot">&lt;-</span> df_long[<span class="sc">!</span>(df_long<span class="sc">$</span>id <span class="sc">%in%</span> target_ids), ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(df_long_not_promoted<span class="sc">$</span>スコア値[df_long_not_promoted<span class="sc">$</span>測定時点 <span class="sc">==</span> <span class="dv">0</span>],</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>       df_long_not_promoted<span class="sc">$</span>スコア値[df_long_not_promoted<span class="sc">$</span>測定時点 <span class="sc">==</span> <span class="dv">1</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Welch Two Sample t-test
+
+data:  df_long_not_promoted$スコア値[df_long_not_promoted$測定時点 == 0] and df_long_not_promoted$スコア値[df_long_not_promoted$測定時点 == 1]
+t = -2.1173, df = 28.982, p-value = 0.04293
+alternative hypothesis: true difference in means is not equal to 0
+95 percent confidence interval:
+ -26.2046758  -0.4536575
+sample estimates:
+mean of x mean of y 
+ 28.73333  42.06250 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(スコア値 <span class="sc">~</span> 測定時点, <span class="at">data =</span> df_long_not_promoted)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in wilcox.test.default(x = DATA[[1L]], y = DATA[[2L]], ...):
+タイがあるため、正確な p 値を計算することができません</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon rank sum test with continuity correction
+
+data:  スコア値 by 測定時点
+W = 65, p-value = 0.03018
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">na.omit</span>(df_long_not_promoted[df_long_not_promoted<span class="sc">$</span>測定時点<span class="sc">==</span><span class="dv">1</span>, <span class="st">"スコア値"</span>] <span class="sc">-</span> df_long_not_promoted[df_long_not_promoted<span class="sc">$</span>測定時点<span class="sc">==</span><span class="dv">0</span>, <span class="st">"スコア値"</span>]))<span class="sc">/</span><span class="fu">dim</span>(<span class="fu">na.omit</span>(df_long_not_promoted))[<span class="dv">1</span>]<span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3.290323</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">na.omit</span>(df_long_promoted[df_long_promoted<span class="sc">$</span>測定時点<span class="sc">==</span><span class="dv">1</span>, <span class="st">"スコア値"</span>] <span class="sc">-</span> df_long_promoted[df_long_promoted<span class="sc">$</span>測定時点<span class="sc">==</span><span class="dv">0</span>, <span class="st">"スコア値"</span>])<span class="sc">/</span><span class="fu">dim</span>(<span class="fu">na.omit</span>(df_long_promoted)))[<span class="dv">1</span>]<span class="sc">/</span><span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.596014</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレームから値を抽出する際に$演算子を使用</span></span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>diff1 <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(</span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>    df_long_not_promoted<span class="sc">$</span>スコア値[df_long_not_promoted<span class="sc">$</span>測定時点<span class="sc">==</span><span class="dv">1</span>] <span class="sc">-</span> </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>    df_long_not_promoted<span class="sc">$</span>スコア値[df_long_not_promoted<span class="sc">$</span>測定時点<span class="sc">==</span><span class="dv">0</span>]</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>diff2 <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(</span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>    df_long_promoted<span class="sc">$</span>スコア値[df_long_promoted<span class="sc">$</span>測定時点<span class="sc">==</span><span class="dv">1</span>] <span class="sc">-</span> </span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>    df_long_promoted<span class="sc">$</span>スコア値[df_long_promoted<span class="sc">$</span>測定時点<span class="sc">==</span><span class="dv">0</span>]</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 検定を実行</span></span>
+<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a><span class="fu">wilcox.test</span>(diff1, diff2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in wilcox.test.default(diff1, diff2): タイがあるため、正確な p
+値を計算することができません</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Wilcoxon rank sum test with continuity correction
+
+data:  diff1 and diff2
+W = 58, p-value = 0.2121
+alternative hypothesis: true location shift is not equal to 0</code></pre>
+</div>
+</div>
+</section>
+<section id="測定時点ごとの変動係数モデル" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="測定時点ごとの変動係数モデル"><span class="header-section-number">2</span> 測定時点ごとの変動係数モデル</h2>
+<p>２回の測定で，昇降格の影響が大きく違う可能性があることがわかった．</p>
+<p>ランダム係数の間の標準偏差がすごく大きい：<span class="math inline">\(\sigma=17.04\)</span>．</p>
+<section id="昇降格の影響だけ変動係数にした場合" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="昇降格の影響だけ変動係数にした場合"><span class="header-section-number">2.1</span> 昇降格の影響だけ変動係数にした場合</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> 顧客変更 <span class="sc">+</span> 部署異動 <span class="sc">+</span> (昇降格 <span class="sc">|</span> 測定時点))</span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There were 86 divergent transitions after warmup. Increasing
 adapt_delta above 0.8 may help. See
 http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
 </div>
@@ -281,23 +524,23 @@ Formula: スコア値 ~ 1 + 顧客変更 + 部署異動 + (昇降格 | 測定時
 Multilevel Hyperparameters:
 ~測定時点 (Number of levels: 2) 
                       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-sd(Intercept)            13.29     10.23     1.16    39.67 1.00     4451
-sd(昇降格)               16.12     14.36     0.87    51.99 1.00     4633
-cor(Intercept,昇降格)     0.11      0.56    -0.92     0.96 1.00    11854
+sd(Intercept)            13.40     10.04     1.40    39.27 1.00     7242
+sd(昇降格)               15.55     12.76     0.82    49.33 1.00     8309
+cor(Intercept,昇降格)     0.11      0.56    -0.91     0.96 1.00    13160
                       Tail_ESS
-sd(Intercept)             1947
-sd(昇降格)                2260
-cor(Intercept,昇降格)     9975
+sd(Intercept)             5617
+sd(昇降格)                6813
+cor(Intercept,昇降格)    11316
 
 Regression Coefficients:
           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept    38.06      8.72    20.43    56.52 1.00     5539     5019
-顧客変更     -2.49      6.32   -14.87     9.99 1.00    15678    11700
-部署異動     -0.55      7.55   -15.43    14.24 1.00    11526     2682
+Intercept    38.00      8.69    20.61    56.10 1.00     6546     5285
+顧客変更     -2.44      6.37   -14.93    10.08 1.00    14820     7116
+部署異動     -0.54      7.36   -14.78    14.03 1.00    15710    12255
 
 Further Distributional Parameters:
       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma    18.10      1.86    14.90    22.20 1.00     9374     2895
+sigma    18.13      1.85    14.98    22.20 1.00    16138    12716
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -305,165 +548,174 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">ranef</span>(fit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">ranef</span>(fit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$測定時点
 , , Intercept
 
    Estimate Est.Error      Q2.5    Q97.5
-0 -5.914550  8.731831 -24.97542 11.19211
-1  4.947094  8.598296 -12.20286 24.22834
+0 -5.909091  8.719841 -24.82095 11.21010
+1  5.094694  8.583053 -11.48179 23.90954
 
 , , 昇降格
 
-    Estimate Est.Error       Q2.5    Q97.5
-0 -0.1636156 20.398576 -44.213229 42.29425
-1  8.4911687  6.920103  -2.779656 22.85782</code></pre>
+     Estimate Est.Error       Q2.5    Q97.5
+0 0.009877498 19.434528 -41.289913 40.83618
+1 8.357619973  6.856646  -2.602692 22.76199</code></pre>
 </div>
 </div>
 </section>
-<section id="昇降格の変動係数のプロット" class="level3" data-number="1.2">
-<h3 data-number="1.2" class="anchored" data-anchor-id="昇降格の変動係数のプロット"><span class="header-section-number">1.2</span> 昇降格の変動係数のプロット</h3>
+<section id="昇降格の変動係数のプロット" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="昇降格の変動係数のプロット"><span class="header-section-number">2.2</span> 昇降格の変動係数のプロット</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">+</span> 昇降格 <span class="sc">|</span> 測定時点))</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">+</span> 昇降格 <span class="sc">|</span> 測定時点))</span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>ranef_昇降格 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(fit)<span class="sc">$</span>測定時点</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>posterior_means <span class="ot">&lt;-</span> ranef_昇降格[,<span class="dv">1</span>,<span class="dv">2</span>]</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>lower_bounds <span class="ot">&lt;-</span> ranef_昇降格[,<span class="dv">3</span>,<span class="dv">2</span>]</span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>upper_bounds <span class="ot">&lt;-</span> ranef_昇降格[,<span class="dv">4</span>,<span class="dv">2</span>]</span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>plot_df_昇降格 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">term =</span> <span class="fu">rownames</span>(ranef_昇降格),</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean =</span> posterior_means,</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> lower_bounds,</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper =</span> upper_bounds</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># termを因子型に変換（順序を保持するため）</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>plot_df_昇降格<span class="sc">$</span>term <span class="ot">&lt;-</span> <span class="fu">factor</span>(plot_df_昇降格<span class="sc">$</span>term, </span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"1"</span>), </span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>                           <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7月"</span>, <span class="st">"10月"</span>))</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_df_昇降格, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(term), <span class="at">y =</span> mean)) <span class="sc">+</span></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">8</span>) <span class="sc">+</span>  <span class="co"># 平均値のポイント</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper), <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span>  <span class="co"># エラーバー</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"測定時点"</span>, <span class="at">y =</span> <span class="st">"昇格の効果の大きさ"</span>) <span class="sc">+</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axis.title.x = element_text(size = 30),      # x軸ラベルのサイズ</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axis.title.y = element_text(size = 30),      # y軸ラベルのサイズ</span></span>
-<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axis.text.x = element_text(size = 22),       # x軸目盛りのサイズ</span></span>
-<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axis.text.y = element_text(size = 22),       # y軸目盛りのサイズ</span></span>
-<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"HiraginoSans-W3"</span>)</span>
-<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">50</span>, <span class="dv">50</span>))  <span class="co"># y軸の範囲を調整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>ranef_昇降格 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(fit)<span class="sc">$</span>測定時点</span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>posterior_means <span class="ot">&lt;-</span> ranef_昇降格[,<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>lower_bounds <span class="ot">&lt;-</span> ranef_昇降格[,<span class="dv">3</span>,<span class="dv">2</span>]</span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>upper_bounds <span class="ot">&lt;-</span> ranef_昇降格[,<span class="dv">4</span>,<span class="dv">2</span>]</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>plot_df_昇降格 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">term =</span> <span class="fu">rownames</span>(ranef_昇降格),</span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean =</span> posterior_means,</span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> lower_bounds,</span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper =</span> upper_bounds</span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a><span class="co"># termを因子型に変換（順序を保持するため）</span></span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>plot_df_昇降格<span class="sc">$</span>term <span class="ot">&lt;-</span> <span class="fu">factor</span>(plot_df_昇降格<span class="sc">$</span>term, </span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"1"</span>), </span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>                           <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7月"</span>, <span class="st">"10月"</span>))</span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_df_昇降格, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(term), <span class="at">y =</span> mean)) <span class="sc">+</span></span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">color =</span> term <span class="sc">==</span> <span class="st">"10月"</span>), <span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span></span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper, </span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>                    <span class="at">color =</span> term <span class="sc">==</span> <span class="st">"10月"</span>),  <span class="co"># 条件による色分け</span></span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>                <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span></span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"gray40"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb44-24"><a href="#cb44-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"測定時点"</span>, <span class="at">y =</span> <span class="st">"昇格の効果の大きさ"</span>) <span class="sc">+</span></span>
+<span id="cb44-25"><a href="#cb44-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"red"</span>), <span class="at">guide =</span> <span class="st">"none"</span>) <span class="sc">+</span>  <span class="co"># ガイド（凡例）を非表示</span></span>
+<span id="cb44-26"><a href="#cb44-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb44-27"><a href="#cb44-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>),      <span class="co"># x軸ラベルのサイズ</span></span>
+<span id="cb44-28"><a href="#cb44-28" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>),      <span class="co"># y軸ラベルのサイズ</span></span>
+<span id="cb44-29"><a href="#cb44-29" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">32</span>),       <span class="co"># x軸目盛りのサイズ</span></span>
+<span id="cb44-30"><a href="#cb44-30" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">32</span>),       <span class="co"># y軸目盛りのサイズ</span></span>
+<span id="cb44-31"><a href="#cb44-31" aria-hidden="true" tabindex="-1"></a>  <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"HiraginoSans-W3"</span>)</span>
+<span id="cb44-32"><a href="#cb44-32" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb44-33"><a href="#cb44-33" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">50</span>, <span class="dv">50</span>))  <span class="co"># y軸の範囲を調整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="source1-1_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="576"></p>
+<p><img src="source1-1_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave("昇格.png", bg="white")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="すごいじゃあ顧客変更は" class="level3" data-number="1.3">
-<h3 data-number="1.3" class="anchored" data-anchor-id="すごいじゃあ顧客変更は"><span class="header-section-number">1.3</span> すごい！じゃあ顧客変更は？</h3>
+<section id="すごいじゃあ顧客変更は" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="すごいじゃあ顧客変更は"><span class="header-section-number">2.3</span> すごい！じゃあ顧客変更は？</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">+</span> 顧客変更 <span class="sc">|</span> 測定時点))</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">+</span> 顧客変更 <span class="sc">|</span> 測定時点))</span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ranef_顧客変更 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(fit)<span class="sc">$</span>測定時点</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>posterior_means <span class="ot">&lt;-</span> ranef_顧客変更[,<span class="dv">1</span>,<span class="dv">2</span>]</span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>lower_bounds <span class="ot">&lt;-</span> ranef_顧客変更[,<span class="dv">3</span>,<span class="dv">2</span>]</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>upper_bounds <span class="ot">&lt;-</span> ranef_顧客変更[,<span class="dv">4</span>,<span class="dv">2</span>]</span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>plot_df_顧客変更 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">term =</span> <span class="fu">rownames</span>(ranef_顧客変更),</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean =</span> posterior_means,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> lower_bounds,</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper =</span> upper_bounds</span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a><span class="co"># termを因子型に変換（順序を保持するため）</span></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>plot_df_顧客変更<span class="sc">$</span>term <span class="ot">&lt;-</span> <span class="fu">factor</span>(plot_df_顧客変更<span class="sc">$</span>term, </span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"1"</span>), </span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>                           <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7月"</span>, <span class="st">"10月"</span>))</span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_df_顧客変更, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(term), <span class="at">y =</span> mean)) <span class="sc">+</span></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">8</span>) <span class="sc">+</span>  <span class="co"># 平均値のポイント</span></span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper), <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span>  <span class="co"># エラーバー</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"測定時点"</span>, <span class="at">y =</span> <span class="st">"顧客変更の効果の大きさ"</span>) <span class="sc">+</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axis.title.x = element_text(size = 30),      # x軸ラベルのサイズ</span></span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axis.title.y = element_text(size = 30),      # y軸ラベルのサイズ</span></span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axis.text.x = element_text(size = 22),       # x軸目盛りのサイズ</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axis.text.y = element_text(size = 22),       # y軸目盛りのサイズ</span></span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"HiraginoSans-W3"</span>)</span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">50</span>, <span class="dv">50</span>))  <span class="co"># y軸の範囲を調整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>ranef_顧客変更 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(fit)<span class="sc">$</span>測定時点</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>posterior_means <span class="ot">&lt;-</span> ranef_顧客変更[,<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>lower_bounds <span class="ot">&lt;-</span> ranef_顧客変更[,<span class="dv">3</span>,<span class="dv">2</span>]</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>upper_bounds <span class="ot">&lt;-</span> ranef_顧客変更[,<span class="dv">4</span>,<span class="dv">2</span>]</span>
+<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>plot_df_顧客変更 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">term =</span> <span class="fu">rownames</span>(ranef_顧客変更),</span>
+<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean =</span> posterior_means,</span>
+<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> lower_bounds,</span>
+<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper =</span> upper_bounds</span>
+<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a><span class="co"># termを因子型に変換（順序を保持するため）</span></span>
+<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>plot_df_顧客変更<span class="sc">$</span>term <span class="ot">&lt;-</span> <span class="fu">factor</span>(plot_df_顧客変更<span class="sc">$</span>term, </span>
+<span id="cb47-14"><a href="#cb47-14" aria-hidden="true" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"1"</span>), </span>
+<span id="cb47-15"><a href="#cb47-15" aria-hidden="true" tabindex="-1"></a>                           <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7月"</span>, <span class="st">"10月"</span>))</span>
+<span id="cb47-16"><a href="#cb47-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb47-17"><a href="#cb47-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_df_顧客変更, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(term), <span class="at">y =</span> mean)) <span class="sc">+</span></span>
+<span id="cb47-18"><a href="#cb47-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span>  <span class="co"># 平均値のポイント</span></span>
+<span id="cb47-19"><a href="#cb47-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper), <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span>  <span class="co"># エラーバー</span></span>
+<span id="cb47-20"><a href="#cb47-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"gray40"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb47-21"><a href="#cb47-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb47-22"><a href="#cb47-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"測定時点"</span>, <span class="at">y =</span> <span class="st">"顧客変更の効果の大きさ"</span>) <span class="sc">+</span></span>
+<span id="cb47-23"><a href="#cb47-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb47-24"><a href="#cb47-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>),      <span class="co"># x軸ラベルのサイズ</span></span>
+<span id="cb47-25"><a href="#cb47-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>),      <span class="co"># y軸ラベルのサイズ</span></span>
+<span id="cb47-26"><a href="#cb47-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">32</span>),       <span class="co"># x軸目盛りのサイズ</span></span>
+<span id="cb47-27"><a href="#cb47-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">32</span>),       <span class="co"># y軸目盛りのサイズ</span></span>
+<span id="cb47-28"><a href="#cb47-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"HiraginoSans-W3"</span>)</span>
+<span id="cb47-29"><a href="#cb47-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb47-30"><a href="#cb47-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">50</span>, <span class="dv">50</span>))  <span class="co"># y軸の範囲を調整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="source1-1_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" width="576"></p>
+<p><img src="source1-1_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave("顧客変更.png", bg="white")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="すごい続けて部署異動は" class="level3" data-number="1.4">
-<h3 data-number="1.4" class="anchored" data-anchor-id="すごい続けて部署異動は"><span class="header-section-number">1.4</span> すごい！続けて部署異動は？</h3>
+<section id="すごい続けて部署異動は" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="すごい続けて部署異動は"><span class="header-section-number">2.4</span> すごい！続けて部署異動は？</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">+</span> 部署異動 <span class="sc">|</span> 測定時点))</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">+</span> 部署異動 <span class="sc">|</span> 測定時点))</span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ranef_部署異動 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(fit)<span class="sc">$</span>測定時点</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>posterior_means <span class="ot">&lt;-</span> ranef_部署異動[,<span class="dv">1</span>,<span class="dv">2</span>]</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>lower_bounds <span class="ot">&lt;-</span> ranef_部署異動[,<span class="dv">3</span>,<span class="dv">2</span>]</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>upper_bounds <span class="ot">&lt;-</span> ranef_部署異動[,<span class="dv">4</span>,<span class="dv">2</span>]</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>plot_df_部署異動 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">term =</span> <span class="fu">rownames</span>(ranef_部署異動),</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean =</span> posterior_means,</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> lower_bounds,</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper =</span> upper_bounds</span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="co"># termを因子型に変換（順序を保持するため）</span></span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>plot_df_部署異動<span class="sc">$</span>term <span class="ot">&lt;-</span> <span class="fu">factor</span>(plot_df_部署異動<span class="sc">$</span>term, </span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"1"</span>), </span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>                           <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7月"</span>, <span class="st">"10月"</span>))</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_df_部署異動, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(term), <span class="at">y =</span> mean)) <span class="sc">+</span></span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">8</span>) <span class="sc">+</span>  <span class="co"># 平均値のポイント</span></span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper), <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span>  <span class="co"># エラーバー</span></span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"測定時点"</span>, <span class="at">y =</span> <span class="st">"部署異動の効果の大きさ"</span>) <span class="sc">+</span></span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axis.title.x = element_text(size = 30),      # x軸ラベルのサイズ</span></span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axis.title.y = element_text(size = 30),      # y軸ラベルのサイズ</span></span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axis.text.x = element_text(size = 22),       # x軸目盛りのサイズ</span></span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    <span class="co"># axis.text.y = element_text(size = 22),       # y軸目盛りのサイズ</span></span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>  <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"HiraginoSans-W3"</span>)</span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">50</span>, <span class="dv">50</span>))  <span class="co"># y軸の範囲を調整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>ranef_部署異動 <span class="ot">&lt;-</span> <span class="fu">ranef</span>(fit)<span class="sc">$</span>測定時点</span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>posterior_means <span class="ot">&lt;-</span> ranef_部署異動[,<span class="dv">1</span>,<span class="dv">2</span>]</span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>lower_bounds <span class="ot">&lt;-</span> ranef_部署異動[,<span class="dv">3</span>,<span class="dv">2</span>]</span>
+<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a>upper_bounds <span class="ot">&lt;-</span> ranef_部署異動[,<span class="dv">4</span>,<span class="dv">2</span>]</span>
+<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a>plot_df_部署異動 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">term =</span> <span class="fu">rownames</span>(ranef_部署異動),</span>
+<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean =</span> posterior_means,</span>
+<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> lower_bounds,</span>
+<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper =</span> upper_bounds</span>
+<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a><span class="co"># termを因子型に変換（順序を保持するため）</span></span>
+<span id="cb50-13"><a href="#cb50-13" aria-hidden="true" tabindex="-1"></a>plot_df_部署異動<span class="sc">$</span>term <span class="ot">&lt;-</span> <span class="fu">factor</span>(plot_df_部署異動<span class="sc">$</span>term, </span>
+<span id="cb50-14"><a href="#cb50-14" aria-hidden="true" tabindex="-1"></a>                           <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"1"</span>), </span>
+<span id="cb50-15"><a href="#cb50-15" aria-hidden="true" tabindex="-1"></a>                           <span class="at">labels =</span> <span class="fu">c</span>(<span class="st">"7月"</span>, <span class="st">"10月"</span>))</span>
+<span id="cb50-16"><a href="#cb50-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-17"><a href="#cb50-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_df_部署異動, <span class="fu">aes</span>(<span class="at">x =</span> <span class="fu">factor</span>(term), <span class="at">y =</span> mean)) <span class="sc">+</span></span>
+<span id="cb50-18"><a href="#cb50-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">10</span>) <span class="sc">+</span>  <span class="co"># 平均値のポイント</span></span>
+<span id="cb50-19"><a href="#cb50-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> lower, <span class="at">ymax =</span> upper), <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">linewidth =</span> <span class="fl">1.5</span>) <span class="sc">+</span>  <span class="co"># エラーバー</span></span>
+<span id="cb50-20"><a href="#cb50-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_hline</span>(<span class="at">yintercept =</span> <span class="dv">0</span>, <span class="at">color =</span> <span class="st">"gray40"</span>, <span class="at">linewidth =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb50-21"><a href="#cb50-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb50-22"><a href="#cb50-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"測定時点"</span>, <span class="at">y =</span> <span class="st">"部署異動の効果の大きさ"</span>) <span class="sc">+</span></span>
+<span id="cb50-23"><a href="#cb50-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb50-24"><a href="#cb50-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>),      <span class="co"># x軸ラベルのサイズ</span></span>
+<span id="cb50-25"><a href="#cb50-25" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>),      <span class="co"># y軸ラベルのサイズ</span></span>
+<span id="cb50-26"><a href="#cb50-26" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">32</span>),       <span class="co"># x軸目盛りのサイズ</span></span>
+<span id="cb50-27"><a href="#cb50-27" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text.y =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">32</span>),       <span class="co"># y軸目盛りのサイズ</span></span>
+<span id="cb50-28"><a href="#cb50-28" aria-hidden="true" tabindex="-1"></a>  <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"HiraginoSans-W3"</span>)</span>
+<span id="cb50-29"><a href="#cb50-29" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb50-30"><a href="#cb50-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_cartesian</span>(<span class="at">ylim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">50</span>, <span class="dv">50</span>))  <span class="co"># y軸の範囲を調整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="source1-1_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="576"></p>
+<p><img src="source1-1_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="576"></p>
 </figure>
 </div>
 </div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave("部署異動.png", bg="white")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="ちょっと-prior-を検証したくなった" class="level3" data-number="1.5">
-<h3 data-number="1.5" class="anchored" data-anchor-id="ちょっと-prior-を検証したくなった"><span class="header-section-number">1.5</span> ちょっと prior を検証したくなった</h3>
+<section id="ちょっと-prior-を検証したくなった" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="ちょっと-prior-を検証したくなった"><span class="header-section-number">2.5</span> ちょっと prior を検証したくなった</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_prior</span>(formula, <span class="at">data =</span> df_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">get_prior</span>(formula, <span class="at">data =</span> df_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Rows containing NAs were excluded from the model.</code></pre>
 </div>
@@ -489,10 +741,10 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
 </section>
-<section id="頻度論的な検定もしてみたい" class="level3" data-number="1.6">
-<h3 data-number="1.6" class="anchored" data-anchor-id="頻度論的な検定もしてみたい"><span class="header-section-number">1.6</span> 頻度論的な検定もしてみたい</h3>
+<section id="頻度論的な検定もしてみたい" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="頻度論的な検定もしてみたい"><span class="header-section-number">2.6</span> 頻度論的な検定もしてみたい</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(スコア値 <span class="sc">~</span> 測定時点, <span class="at">data =</span> df_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(スコア値 <span class="sc">~</span> 測定時点, <span class="at">data =</span> df_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -508,17 +760,17 @@ mean in group 0 mean in group 1
 </div>
 </div>
 </section>
-<section id="全て変動係数にした場合" class="level3" data-number="1.7">
-<h3 data-number="1.7" class="anchored" data-anchor-id="全て変動係数にした場合"><span class="header-section-number">1.7</span> 全て変動係数にした場合</h3>
+<section id="全て変動係数にした場合" class="level3" data-number="2.7">
+<h3 data-number="2.7" class="anchored" data-anchor-id="全て変動係数にした場合"><span class="header-section-number">2.7</span> 全て変動係数にした場合</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">+</span> 顧客変更 <span class="sc">+</span> 部署異動 <span class="sc">+</span> 昇降格 <span class="sc">|</span> 測定時点))</span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> (<span class="dv">1</span> <span class="sc">+</span> 顧客変更 <span class="sc">+</span> 部署異動 <span class="sc">+</span> 昇降格 <span class="sc">|</span> 測定時点))</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">10000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: There were 178 divergent transitions after warmup. Increasing
+<pre><code>Warning: There were 111 divergent transitions after warmup. Increasing
 adapt_delta above 0.8 may help. See
 http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
 </div>
@@ -533,35 +785,35 @@ Formula: スコア値 ~ (1 + 顧客変更 + 部署異動 + 昇降格 | 測定時
 Multilevel Hyperparameters:
 ~測定時点 (Number of levels: 2) 
                         Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS
-sd(Intercept)              13.02     10.84     0.86    40.07 1.00     5734
-sd(顧客変更)               10.46      9.60     0.35    34.77 1.00     8901
-sd(部署異動)                9.10      8.51     0.28    30.77 1.00    11675
-sd(昇降格)                 16.80     13.63     0.97    52.41 1.00     7938
-cor(Intercept,顧客変更)     0.08      0.44    -0.76     0.84 1.00    15479
-cor(Intercept,部署異動)    -0.05      0.45    -0.83     0.78 1.00    16852
-cor(顧客変更,部署異動)     -0.04      0.45    -0.83     0.80 1.00    16413
-cor(Intercept,昇降格)       0.06      0.44    -0.77     0.83 1.00    15336
-cor(顧客変更,昇降格)        0.06      0.44    -0.78     0.84 1.00    15113
-cor(部署異動,昇降格)       -0.03      0.45    -0.82     0.80 1.00    13479
+sd(Intercept)              12.58      9.74     0.86    37.60 1.00     7362
+sd(顧客変更)               10.60      9.35     0.42    34.48 1.00    10133
+sd(部署異動)                9.37      9.83     0.33    32.83 1.00    10214
+sd(昇降格)                 16.80     13.66     1.05    52.09 1.00     9434
+cor(Intercept,顧客変更)     0.08      0.44    -0.76     0.85 1.00    15044
+cor(Intercept,部署異動)    -0.05      0.44    -0.83     0.78 1.00    19759
+cor(顧客変更,部署異動)     -0.03      0.45    -0.83     0.80 1.00    15836
+cor(Intercept,昇降格)       0.07      0.44    -0.76     0.83 1.00    15226
+cor(顧客変更,昇降格)        0.06      0.44    -0.78     0.84 1.00    14599
+cor(部署異動,昇降格)       -0.02      0.45    -0.82     0.80 1.00    13589
                         Tail_ESS
-sd(Intercept)               5179
-sd(顧客変更)                6443
-sd(部署異動)                7835
-sd(昇降格)                  5847
-cor(Intercept,顧客変更)     9274
-cor(Intercept,部署異動)    12757
-cor(顧客変更,部署異動)     14203
-cor(Intercept,昇降格)      12941
-cor(顧客変更,昇降格)       14055
-cor(部署異動,昇降格)       13380
+sd(Intercept)               6830
+sd(顧客変更)                8109
+sd(部署異動)                7919
+sd(昇降格)                  7091
+cor(Intercept,顧客変更)    12853
+cor(Intercept,部署異動)    12946
+cor(顧客変更,部署異動)     14607
+cor(Intercept,昇降格)      12694
+cor(顧客変更,昇降格)       13632
+cor(部署異動,昇降格)       15194
 
 Regression Coefficients:
           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept    37.70      8.00    21.54    55.06 1.00     5889     4410
+Intercept    37.68      7.91    21.85    54.69 1.00     6710     8195
 
 Further Distributional Parameters:
       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma    17.81      1.84    14.68    21.83 1.00    18430    12678
+sigma    17.78      1.79    14.69    21.62 1.00    17831    13424
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -569,45 +821,50 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">ranef</span>(fit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">ranef</span>(fit))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>$測定時点
 , , Intercept
 
    Estimate Est.Error      Q2.5    Q97.5
-0 -5.296327  8.254648 -23.93404 10.39839
-1  4.277332  8.168683 -12.06008 22.27568
+0 -5.214108  8.150085 -23.46991 10.18071
+1  4.243538  8.050756 -11.47130 22.49473
 
 , , 顧客変更
 
-   Estimate Est.Error       Q2.5     Q97.5
-0 -5.061549  6.806061 -21.044570  5.531166
-1  2.898094  6.067458  -7.877003 16.672359
+   Estimate Est.Error       Q2.5    Q97.5
+0 -5.203859  6.846780 -21.181843  5.70881
+1  2.988036  6.037004  -7.517553 17.17517
 
 , , 部署異動
 
    Estimate Est.Error      Q2.5     Q97.5
-0  1.447428  7.025993 -12.55609 18.051264
-1 -1.954029  5.585638 -14.84872  8.604595
+0  1.505993  7.049372 -12.20847 18.163898
+1 -1.910259  5.598964 -14.84205  8.655186
 
 , , 昇降格
 
     Estimate Est.Error       Q2.5    Q97.5
-0 -0.2065083 20.038361 -41.392683 40.45593
-1  9.0999253  6.931397  -2.192394 23.35420</code></pre>
+0 0.05449668 20.186178 -40.472147 43.88947
+1 9.17204662  6.842582  -2.096607 23.21416</code></pre>
 </div>
 </div>
 </section>
 </section>
-<section id="固定効果モデル従来の分析" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="固定効果モデル従来の分析"><span class="header-section-number">2</span> 固定効果モデル（従来の分析）</h2>
+<section id="固定効果モデル従来の分析" class="level2" data-number="3">
+<h2 data-number="3" class="anchored" data-anchor-id="固定効果モデル従来の分析"><span class="header-section-number">3</span> 固定効果モデル（従来の分析）</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> (<span class="dv">1</span><span class="sc">|</span>id) <span class="sc">+</span> 測定時点 <span class="sc">+</span> 顧客変更 <span class="sc">+</span> 部署異動 <span class="sc">+</span> 昇降格)</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(スコア値 <span class="sc">~</span> (<span class="dv">1</span><span class="sc">|</span>id) <span class="sc">+</span> 測定時点 <span class="sc">+</span> 顧客変更 <span class="sc">+</span> 部署異動 <span class="sc">+</span> 昇降格)</span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(formula, <span class="at">data =</span> df_long, <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There were 4 divergent transitions after warmup. Increasing
+adapt_delta above 0.8 may help. See
+http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
+</div>
 <div class="cell-output cell-output-stdout">
 <pre><code> Family: gaussian 
   Links: mu = identity; sigma = identity 
@@ -619,40 +876,40 @@ Formula: スコア値 ~ (1 | id) + 測定時点 + 顧客変更 + 部署異動 + 
 Multilevel Hyperparameters:
 ~id (Number of levels: 28) 
               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(Intercept)     9.31      3.90     1.18    16.60 1.00      860     1090
+sd(Intercept)     9.06      3.92     1.18    16.74 1.00      809     1343
 
 Regression Coefficients:
           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept    30.31      3.87    22.60    37.80 1.00     2636     2414
-測定時点     12.17      5.31     1.86    22.39 1.00     2762     2753
-顧客変更     -0.16      6.74   -13.41    13.21 1.00     2722     2413
-部署異動      0.26      6.49   -12.59    12.96 1.00     3879     3041
-昇降格       10.53      6.75    -2.74    23.76 1.00     2596     2635
+Intercept    30.53      3.86    23.02    38.21 1.00     3228     2771
+測定時点     12.01      5.44     1.06    22.70 1.00     3282     2449
+顧客変更     -0.48      6.47   -13.27    12.18 1.00     3318     2804
+部署異動      0.38      6.90   -13.03    13.87 1.00     4063     3082
+昇降格       10.61      7.16    -3.27    24.51 1.00     2841     2502
 
 Further Distributional Parameters:
       Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma    15.36      2.22    11.63    20.18 1.00     1271     2456
+sigma    15.47      2.23    11.63    20.34 1.00      994     1805
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
 scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
-<div class="cell quarto-layout-panel" data-layout-ncol="2" data-layout-nrow="2">
+<div class="cell quarto-layout-panel" data-layout-nrow="2" data-layout-ncol="2">
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="source1-1_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid" width="576"></p>
+<p><img src="source1-1_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid" width="576"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="source1-1_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid" width="576"></p>
+<p><img src="source1-1_files/figure-html/unnamed-chunk-30-2.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 <div class="quarto-layout-row">
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="source1-1_files/figure-html/unnamed-chunk-19-3.png" class="img-fluid" width="576"></p>
+<p><img src="source1-1_files/figure-html/unnamed-chunk-30-3.png" class="img-fluid" width="576"></p>
 </div>
 <div class="quarto-layout-cell" style="flex-basis: 50.0%;justify-content: center;">
-<p><img src="source1-1_files/figure-html/unnamed-chunk-19-4.png" class="img-fluid" width="576"></p>
+<p><img src="source1-1_files/figure-html/unnamed-chunk-30-4.png" class="img-fluid" width="576"></p>
 </div>
 </div>
 </div>
