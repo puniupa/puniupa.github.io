@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.29">
+<meta name="generator" content="quarto-1.7.31">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="司馬博文">
 
-<title>弘前データの前処理 – ぷにうぱ</title>
+<title>弘前データ – ぷにうぱ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -73,10 +73,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-b0fd8c2faf68ac8189ad83a0007d6d5e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-a7f668540759429cccfaaad44fe13cdc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-ef7348c66a2d2de8e81e6c0a6bb7c646.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-84e9886d3baa5a1154a56839e9e1fa0c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -202,7 +202,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">弘前データの前処理</h1>
+<h1 class="title">弘前データ</h1>
 </div>
 
 
@@ -242,16 +242,16 @@ window.Quarto = {
 <colgroup>
 <col style="width: 2%">
 <col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 14%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 13%">
 <col style="width: 9%">
 <col style="width: 8%">
 <col style="width: 9%">
 <col style="width: 6%">
 <col style="width: 6%">
-<col style="width: 13%">
+<col style="width: 12%">
 <col style="width: 10%">
 </colgroup>
 <thead>
@@ -382,6 +382,28 @@ window.Quarto = {
 <li>FLC: 遊離L鎖 (Free Light Chain) の量．<span class="math inline">\(\Sigma=\kappa+\lambda\)</span> で計算される，免疫系のマーカー．</li>
 <li>ココシル結果：FLC も加味されている．</li>
 <li>多様性：数字が大きいほど多様．</li>
+</ul>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="BP 備考について">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+BP 備考について
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A: 採尿条件不良（測定条件を満たしていない）</li>
+<li>B: BP 測定値が下限以下</li>
+<li>C: kappa 下限値未満</li>
+<li>D: kappa 10倍希釈では失敗（上限オーバー）</li>
+<li>E: kappa が凍結融解を２回必要とした</li>
+<li>F: lambda 下限値未満</li>
+<li>G: lambda 10倍希釈では失敗（上限オーバー）</li>
+<li>H: lambda が凍結融解を２回必要とした</li>
 </ul>
 </div>
 </div>
