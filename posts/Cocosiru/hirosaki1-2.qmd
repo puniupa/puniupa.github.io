@@ -1,0 +1,322 @@
+---
+title: "弘前データ１-２：法定検診との関係の詳細検討"
+subtitle: "BP, FLCΣ の値の高低を用いた項目反応モデル"
+author: "司馬博文"
+date: 5/13/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+fig-align: center
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: false
+    fig-width: 10
+    fig-height: 8
+    fig-format: "png"
+    fig-dpi: 300
+    fig-font-family: "Hiragino Sans"
+abstract: |
+  [前々稿](hirosaki1.qmd)で得た知見を基に，さらに詳細な検討を行う．
+  [前稿](hirosaki1-1.qmd)では BP, FLCΣ の値で層別して可視化した．
+  ここでは層別して回帰する，項目反応モデリングを考える．
+  [次節](hirosaki2.qmd)では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す．
+# listing:
+#   - id: cocosiru1-listing
+#     type: grid
+#     sort: false
+#     contents:
+#       - "source1-1.qmd"
+#     page-size: 3
+#     image-height: 100%
+#     grid-columns: 1
+---
+
+
+```{r}
+#| output: false
+#| echo: false
+library(readxl)
+library(knitr)
+df_raw <- read_excel("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/資料/Hirosaki2.xlsx", sheet = "統合_最終")
+df <- df_raw[, c("受付番号", "受診日年齢", "性別", "Weight", "BP", "FLCΣ", "BP備考", "判別式", "LOX-1_H", "LAB_H", "LOX-index_H", "タイプ", "多様性", paste0("item", 1:18))]
+
+# BP の整理
+df <- df[is.na(df$`BP備考`), ]
+df$BP <- ifelse(df$BP < 0, -1 * df$BP, df$BP)
+df$判別式 <- as.numeric(gsub("[()]", "", df$判別式))
+
+# 年代を作成（10で割って切り捨てた後、10をかけて年代を表現）
+df$年代 <- paste0(floor(df$受診日年齢/10)*10, "代")
+df$年代 <- factor(df$年代,
+                  levels = c("20代", "30代", "40代", "50代", "60代", "70代", "80代"),
+                  ordered = TRUE)
+```
+
+```{r}
+#| output: false
+#| echo: false
+library(dplyr)
+# ストレスチェックの前処理
+
+item_sum <- df$item1 + df$item2 + df$item3
+score_activity <- function(x) {
+  case_when(
+    x == 3 ~ 5,
+    x >= 4 & x <= 5 ~ 4,
+    x >= 6 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 2,
+    x >= 10 & x <= 12 ~ 1,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$活気 <- score_activity(item_sum)
+
+item_sum <- df$item4 + df$item5 + df$item6
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 4,
+    x >= 10 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 8 ~ 3,
+    x >= 9 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$イライラ感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item7 + df$item8 + df$item9
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 8 ~ 3,
+    x >= 9 & x <= 11 ~ 4,
+    x == 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$疲労感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item10 + df$item11 + df$item12
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 4,
+    x >= 10 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$不安感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item13 + df$item14 + df$item15 + df$item16 + df$item17 + df$item18
+score_activity_m <- function(x) {
+  case_when(
+    x == 6 ~ 1,
+    x >= 7 & x <= 8 ~ 2,
+    x >= 9 & x <= 12 ~ 3,
+    x >= 13 & x <= 16 ~ 4,
+    x >= 17 & x <= 24 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 6 ~ 1,
+    x >= 7 & x <= 8 ~ 2,
+    x >= 9 & x <= 12 ~ 3,
+    x >= 13 & x <= 17 ~ 4,
+    x >= 18 & x <= 24 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$抑うつ感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+```
+
+```{r}
+kable(head(df))
+```
+
+## 低解像度項目反応モデル
+
+### データ長形式化
+
+```{r}
+df_1PL <- df[, c("受付番号", "BP", "FLCΣ", paste0("item", 1:18))]
+colnames(df_1PL) <- c("id", "BP", "FLCΣ", paste0("item", 1:18))
+
+library(tidyr)
+
+df_1PL_long <- df_1PL %>%
+  pivot_longer(
+    cols = starts_with("item"),
+    names_to = "item",
+    values_to = "response"
+  )
+
+df_1PL_long$res <- ifelse(df_1PL_long$response > 3, 1, 0)
+
+kable(head(df_1PL_long[6:13,]))
+```
+
+
+### 2PL モデル
+
+```r
+library(brms)
+
+formula_2PL <- bf(
+  res ~ exp(loggamma) * eta,
+  loggamma ~ 1 + (1|item),
+  eta ~ 1 + (1|item) + (1|id),
+  nl = TRUE
+)
+
+fit_2PL <- brm(
+  formula = formula_2PL,
+  data = df_1PL_long,
+  family = brmsfamily("bernoulli", link = "logit"),
+  chains = 4, cores = 4, iter = 5000
+)
+```
+
+### 1PL モデル
+
+```{r}
+library(brms)
+
+formula_1PL <- bf(
+  res ~ 1 + (1|item) + (1|BP)
+)
+
+fit_1PL <- brm(
+  formula = formula_1PL,
+  data = df_1PL_long,
+  family = brmsfamily("bernoulli", link = "logit"),
+  chains = 4, cores = 4, iter = 5000
+)
+```
+
+```{r}
+summary(fit_1PL)
+```
+
+```{r}
+plot(fit_1PL)
+```
+
+```{r}
+library(ggplot2)
+ranef_item <- ranef(fit_1PL)$item
+posterior_means <- ranef_item[,1,1]
+lower_bounds <- ranef_item[,3,1]
+upper_bounds <- ranef_item[,4,1]
+plot_df_item <- data.frame(
+  item = rownames(ranef_item),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p_PL1 <- ggplot(plot_df_item, aes(x = mean, y = item)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "Posterior Means and 95% Credible Intervals for Items",
+       x = "Posterior Estimate",
+       y = "Item")
+p_PL1
+```
+
+## BP の高低と項目反応
+
+### BP の層別
+
+```{r}
+df$BP_level <- case_when(
+  df$BP > 0.9 ~ 3,
+  df$BP > 0.6 & df$BP <= 0.9 ~ 2,
+  df$BP <= 0.6 ~ 1
+)
+length(df[df$BP_level == 3, ]$BP)/dim(df)[1]
+length(df[df$BP_level == 2, ]$BP)/dim(df)[1]
+length(df[df$BP_level == 1, ]$BP)/dim(df)[1]
+```
+
+### 1PL モデル
+
+```{r}
+#| output: false
+library(brms)
+
+formula_1PL <- bf(
+  活気 ~ 1 + (1 | BP_level)
+)
+
+fit_1PL <- brm(
+  formula = formula_1PL,
+  data = df,
+  family = brmsfamily("categorical"),
+  chains = 4, cores = 4, iter = 5000
+)
+```
+
+```{r}
+summary(fit_1PL)
+```
+
+```{r}
+ranef(fit_1PL)
+```
