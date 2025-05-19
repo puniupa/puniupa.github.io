@@ -23,7 +23,13 @@ format:
     fig-font-family: "Hiragino Sans"
 abstract: |
   [前稿](hirosaki1.qmd)で得た知見を基に，さらに詳細な検討を行う．
-  [次節](hirosaki2.qmd)では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す．
+
+  BP の生の値で回帰するよりも，「BP が高いかどうか」の２値変数（あるいは３値変数）に向けて，
+  ロジスティック回帰を行うことが有望なのではないかと判明した．
+  「疲労感」と「抑うつ感」で高 BP 群がスコア５を付けやすいことが簡単なバープロットから判る．
+  $\Sigma$-FLC が低い群は「活気」と「抑うつ感」でスコア５を付けやすい・
+
+  [次節](hirosaki2.qmd)では LAB と BP，LOX-1 と FLCΣ の間のロジスティック回帰関係の階層モデリングを目指す．
 # listing:
 #   - id: cocosiru1-listing
 #     type: grid

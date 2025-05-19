@@ -111,11 +111,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <link rel="stylesheet" href="../../assets/styles.css">
 <meta property="og:title" content="ぷにうぱ - 弘前データ１-２：法定検診との関係の詳細検討">
-<meta property="og:description" content="前々稿で得た知見を基に，さらに詳細な検討を行う． 前稿では BP, FLCΣ の値で層別して可視化した． ここでは層別して回帰する，項目反応モデリングを考える． 次節では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す．">
+<meta property="og:description" content="[前々稿](hirosaki1.qmd)で得た知見を基に，さらに詳細な検討を行う．
+[前稿](hirosaki1-1.qmd)では BP, FLCΣ の値を３段階で離散化して，層別して可視化した．
+ここではこの離散化に基づいて層別して回帰する，項目反応モデリングを考える．
+[次節](hirosaki2.">
 <meta property="og:image" content="https://puniupa.github.io/posts/Cocosiru/assets/ぷにうぱ.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
 <meta name="twitter:title" content="ぷにうぱ - 弘前データ１-２：法定検診との関係の詳細検討">
-<meta name="twitter:description" content="前々稿で得た知見を基に，さらに詳細な検討を行う． 前稿では BP, FLCΣ の値で層別して可視化した． ここでは層別して回帰する，項目反応モデリングを考える． 次節では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す．">
+<meta name="twitter:description" content="[前々稿](hirosaki1.qmd)で得た知見を基に，さらに詳細な検討を行う．
+[前稿](hirosaki1-1.qmd)では BP, FLCΣ の値を３段階で離散化して，層別して可視化した．
+ここではこの離散化に基づいて層別して回帰する，項目反応モデリングを考える．
+[次節](hirosaki2.">
 <meta name="twitter:image" content="https://puniupa.github.io/posts/Cocosiru/assets/ぷにうぱ.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -161,11 +167,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#低解像度項目反応モデル" id="toc-低解像度項目反応モデル" class="nav-link active" data-scroll-target="#低解像度項目反応モデル"><span class="header-section-number">1</span> 低解像度項目反応モデル</a></li>
+  <li><a href="#各項目データに対する項目反応モデリング" id="toc-各項目データに対する項目反応モデリング" class="nav-link active" data-scroll-target="#各項目データに対する項目反応モデリング"><span class="header-section-number">1</span> 各項目データに対する項目反応モデリング</a>
+  <ul class="collapse">
+  <li><a href="#データ長形式化" id="toc-データ長形式化" class="nav-link" data-scroll-target="#データ長形式化"><span class="header-section-number">1.1</span> データ長形式化</a></li>
+  <li><a href="#pl-モデル" id="toc-pl-モデル" class="nav-link" data-scroll-target="#pl-モデル"><span class="header-section-number">1.2</span> 2PL モデル</a></li>
+  <li><a href="#pl-モデル-1" id="toc-pl-モデル-1" class="nav-link" data-scroll-target="#pl-モデル-1"><span class="header-section-number">1.3</span> 1PL モデル</a></li>
+  </ul></li>
   <li><a href="#bp-の高低と項目反応" id="toc-bp-の高低と項目反応" class="nav-link" data-scroll-target="#bp-の高低と項目反応"><span class="header-section-number">2</span> BP の高低と項目反応</a>
   <ul class="collapse">
   <li><a href="#bp-の層別" id="toc-bp-の層別" class="nav-link" data-scroll-target="#bp-の層別"><span class="header-section-number">2.1</span> BP の層別</a></li>
-  <li><a href="#pl-モデル" id="toc-pl-モデル" class="nav-link" data-scroll-target="#pl-モデル"><span class="header-section-number">2.2</span> 1PL モデル</a></li>
+  <li><a href="#pl-モデル-2" id="toc-pl-モデル-2" class="nav-link" data-scroll-target="#pl-モデル-2"><span class="header-section-number">2.2</span> 1PL モデル</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -203,7 +214,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div>
   <div class="abstract">
     <div class="block-title">はじめに</div>
-    <p><a href="../../posts/Cocosiru/hirosaki1.html">前々稿</a>で得た知見を基に，さらに詳細な検討を行う． <a href="../../posts/Cocosiru/hirosaki1-1.html">前稿</a>では BP, FLCΣ の値で層別して可視化した． ここでは層別して回帰する，項目反応モデリングを考える． <a href="../../posts/Cocosiru/hirosaki2.html">次節</a>では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す．</p>
+    <p><a href="../../posts/Cocosiru/hirosaki1.html">前々稿</a>で得た知見を基に，さらに詳細な検討を行う． <a href="../../posts/Cocosiru/hirosaki1-1.html">前稿</a>では BP, FLCΣ の値を３段階で離散化して，層別して可視化した． ここではこの離散化に基づいて層別して回帰する，項目反応モデリングを考える． <a href="../../posts/Cocosiru/hirosaki2.html">次節</a>では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す．</p>
+    <p>各項目に対する項目反応モデリングは最も面白い方向であろうが，「項目毎」「個人毎」では PC で簡単に実行できるモデルにはならない． 代わりに，男女差調整済みの尺度である「活気」「抑うつ感」などに対して，「BP のレベル３段階毎」で違う係数を推定することを考える．</p>
   </div>
 </div>
 
@@ -534,8 +546,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
-<section id="低解像度項目反応モデル" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="低解像度項目反応モデル"><span class="header-section-number">1</span> 低解像度項目反応モデル</h2>
+<section id="各項目データに対する項目反応モデリング" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="各項目データに対する項目反応モデリング"><span class="header-section-number">1</span> 各項目データに対する項目反応モデリング</h2>
+<section id="データ長形式化" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="データ長形式化"><span class="header-section-number">1.1</span> データ長形式化</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_1PL <span class="ot">&lt;-</span> df[, <span class="fu">c</span>(<span class="st">"受付番号"</span>, <span class="st">"BP"</span>, <span class="st">"FLCΣ"</span>, <span class="fu">paste0</span>(<span class="st">"item"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>))]</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(df_1PL) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"id"</span>, <span class="st">"BP"</span>, <span class="st">"FLCΣ"</span>, <span class="fu">paste0</span>(<span class="st">"item"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>))</span>
@@ -549,7 +563,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_to =</span> <span class="st">"response"</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  )</span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(df_1PL_long))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>df_1PL_long<span class="sc">$</span>res <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(df_1PL_long<span class="sc">$</span>response <span class="sc">&gt;</span> <span class="dv">3</span>, <span class="dv">1</span>, <span class="dv">0</span>)</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(df_1PL_long[<span class="dv">6</span><span class="sc">:</span><span class="dv">13</span>,]))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <thead>
@@ -559,6 +575,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <th style="text-align: right;">FLCΣ</th>
 <th style="text-align: left;">item</th>
 <th style="text-align: right;">response</th>
+<th style="text-align: right;">res</th>
 </tr>
 </thead>
 <tbody>
@@ -566,77 +583,78 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">1.1</td>
 <td style="text-align: right;">1.95</td>
-<td style="text-align: left;">item1</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1.1</td>
-<td style="text-align: right;">1.95</td>
-<td style="text-align: left;">item2</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1.1</td>
-<td style="text-align: right;">1.95</td>
-<td style="text-align: left;">item3</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1.1</td>
-<td style="text-align: right;">1.95</td>
-<td style="text-align: left;">item4</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1.1</td>
-<td style="text-align: right;">1.95</td>
-<td style="text-align: left;">item5</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">1.1</td>
-<td style="text-align: right;">1.95</td>
 <td style="text-align: left;">item6</td>
 <td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">1.95</td>
+<td style="text-align: left;">item7</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">1.95</td>
+<td style="text-align: left;">item8</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">1.95</td>
+<td style="text-align: left;">item9</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">1.95</td>
+<td style="text-align: left;">item10</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.1</td>
+<td style="text-align: right;">1.95</td>
+<td style="text-align: left;">item11</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </section>
-<section id="bp-の高低と項目反応" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="bp-の高低と項目反応"><span class="header-section-number">2</span> BP の高低と項目反応</h2>
-<section id="bp-の層別" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="bp-の層別"><span class="header-section-number">2.1</span> BP の層別</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>BP_level <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>BP <span class="sc">&gt;</span> <span class="fl">0.9</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>BP <span class="sc">&gt;</span> <span class="fl">0.6</span> <span class="sc">&amp;</span> df<span class="sc">$</span>BP <span class="sc">&lt;=</span> <span class="fl">0.9</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>BP <span class="sc">&lt;=</span> <span class="fl">0.6</span> <span class="sc">~</span> <span class="dv">1</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(df[df<span class="sc">$</span>BP_level <span class="sc">==</span> <span class="dv">3</span>, ]<span class="sc">$</span>BP)<span class="sc">/</span><span class="fu">dim</span>(df)[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.2945205</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(df[df<span class="sc">$</span>BP_level <span class="sc">==</span> <span class="dv">2</span>, ]<span class="sc">$</span>BP)<span class="sc">/</span><span class="fu">dim</span>(df)[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.4263699</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(df[df<span class="sc">$</span>BP_level <span class="sc">==</span> <span class="dv">1</span>, ]<span class="sc">$</span>BP)<span class="sc">/</span><span class="fu">dim</span>(df)[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 0.3065068</code></pre>
-</div>
-</div>
+<section id="pl-モデル" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="pl-モデル"><span class="header-section-number">1.2</span> 2PL モデル</h3>
+<p>次のモデルは重すぎて実行できず．</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>formula_2PL <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  res <span class="sc">~</span> <span class="fu">exp</span>(loggamma) <span class="sc">*</span> eta,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  loggamma <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>item),</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  eta <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>item) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>id),</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">nl =</span> <span class="cn">TRUE</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>fit_2PL <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> formula_2PL,</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> df_1PL_long,</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">brmsfamily</span>(<span class="st">"bernoulli"</span>, <span class="at">link =</span> <span class="st">"logit"</span>),</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>  <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">5000</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="pl-モデル" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="pl-モデル"><span class="header-section-number">2.2</span> 1PL モデル</h3>
+<section id="pl-モデル-1" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="pl-モデル-1"><span class="header-section-number">1.3</span> 1PL モデル</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: パッケージ 'brms' はバージョン 4.3.1 の R の下で造られました</code></pre>
 </div>
@@ -657,16 +675,16 @@ to the package is available through vignette('brms_overview').</code></pre>
 
     ar</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>formula_1PL <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  活気 <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> BP_level)</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>fit_1PL <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> formula_1PL,</span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> df,</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">brmsfamily</span>(<span class="st">"categorical"</span>),</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">5000</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>formula_1PL <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  res <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>item) <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>BP)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>fit_1PL <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> formula_1PL,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> df_1PL_long,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">brmsfamily</span>(<span class="st">"bernoulli"</span>, <span class="at">link =</span> <span class="st">"logit"</span>),</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">5000</span></span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: Rows containing NAs were excluded from the model.</code></pre>
 </div>
@@ -676,49 +694,29 @@ to the package is available through vignette('brms_overview').</code></pre>
 <div class="cell-output cell-output-stderr">
 <pre><code>Start sampling</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: There were 114 divergent transitions after warmup. See
-https://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup
-to find out why this is a problem and how to eliminate them.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Examine the pairs() plot to diagnose sampling problems</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Tail Effective Samples Size (ESS) is too low, indicating posterior variances and tail quantiles may be unreliable.
-Running the chains for more iterations may help. See
-https://mc-stan.org/misc/warnings.html#tail-ess</code></pre>
-</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_1PL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: There were 114 divergent transitions after warmup. Increasing
-adapt_delta above 0.8 may help. See
-http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_1PL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Family: categorical 
-  Links: mu2 = logit; mu3 = logit; mu4 = logit; mu5 = logit 
-Formula: 活気 ~ 1 + (1 | BP_level) 
-   Data: df (Number of observations: 574) 
+<pre><code> Family: bernoulli 
+  Links: mu = logit 
+Formula: res ~ 1 + (1 | item) + (1 | BP) 
+   Data: df_1PL_long (Number of observations: 10365) 
   Draws: 4 chains, each with iter = 5000; warmup = 2500; thin = 1;
          total post-warmup draws = 10000
 
 Multilevel Hyperparameters:
-~BP_level (Number of levels: 3) 
-                  Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sd(mu2_Intercept)     0.37      0.44     0.01     1.62 1.00     1522     1151
-sd(mu3_Intercept)     0.32      0.43     0.01     1.68 1.01      518      291
-sd(mu4_Intercept)     0.40      0.50     0.01     1.94 1.00     1694     1151
-sd(mu5_Intercept)     0.49      0.56     0.01     2.08 1.00     1473      645
+~BP (Number of levels: 130) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     1.24      0.14     0.99     1.54 1.00     3054     4847
+
+~item (Number of levels: 18) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     0.86      0.18     0.57     1.30 1.00     3752     5935
 
 Regression Coefficients:
-              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-mu2_Intercept     0.85      0.29     0.19     1.44 1.00     2161     1749
-mu3_Intercept     1.31      0.29     0.70     1.91 1.01      536      304
-mu4_Intercept    -0.25      0.40    -1.09     0.52 1.00     1208     1168
-mu5_Intercept    -0.22      0.38    -1.01     0.57 1.00     2634     2410
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept    -3.88      0.26    -4.41    -3.37 1.00     2903     4664
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -726,38 +724,135 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ranef</span>(fit_1PL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit_1PL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hirosaki1-2_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<section id="項目パラメータ" class="level4" data-number="1.3.1">
+<h4 data-number="1.3.1" class="anchored" data-anchor-id="項目パラメータ"><span class="header-section-number">1.3.1</span> 項目パラメータ</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>ranef_item <span class="ot">&lt;-</span> <span class="fu">ranef</span>(fit_1PL)<span class="sc">$</span>item</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>posterior_means <span class="ot">&lt;-</span> ranef_item[,<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>lower_bounds <span class="ot">&lt;-</span> ranef_item[,<span class="dv">3</span>,<span class="dv">1</span>]</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>upper_bounds <span class="ot">&lt;-</span> ranef_item[,<span class="dv">4</span>,<span class="dv">1</span>]</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>plot_df_item <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">item =</span> <span class="fu">rownames</span>(ranef_item),</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean =</span> posterior_means,</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> lower_bounds,</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper =</span> upper_bounds</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a>p_PL1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(plot_df_item, <span class="fu">aes</span>(<span class="at">x =</span> mean, <span class="at">y =</span> item)) <span class="sc">+</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> lower, <span class="at">xmax =</span> upper), <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Posterior Means and 95% Credible Intervals for Items"</span>,</span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Posterior Estimate"</span>,</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"Item"</span>)</span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a>p_PL1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hirosaki1-2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>item2_3 <span class="ot">&lt;-</span> df_1PL_long[df_1PL_long<span class="sc">$</span>item <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"item2"</span>, <span class="st">"item3"</span>),]</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(item2_3<span class="sc">$</span>response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>$BP_level
-, , mu2_Intercept
-
-      Estimate Est.Error       Q2.5     Q97.5
-1 -0.002767444 0.2765460 -0.6126602 0.6460095
-2  0.101241834 0.2820170 -0.4131437 0.8025082
-3 -0.062163503 0.2755219 -0.7090834 0.5361673
-
-, , mu3_Intercept
-
-     Estimate Est.Error       Q2.5     Q97.5
-1 -0.03017919 0.2666555 -0.7101845 0.5511241
-2  0.02386738 0.2727084 -0.5859600 0.6344416
-3  0.01308053 0.2644802 -0.5917844 0.6216514
-
-, , mu4_Intercept
-
-      Estimate Est.Error       Q2.5     Q97.5
-1  0.006807681 0.3950714 -0.8290616 0.7899072
-2  0.026015626 0.3904436 -0.7649470 0.8777076
-3 -0.028314794 0.3916191 -0.8778796 0.7411583
-
-, , mu5_Intercept
-
-     Estimate Est.Error       Q2.5     Q97.5
-1 -0.09206797 0.3769070 -0.9784561 0.6423157
-2 -0.05411590 0.3700199 -0.8991633 0.6890706
-3  0.12645463 0.3769075 -0.6053285 1.0331347</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   1.00    2.00    2.00    2.37    3.00    4.00       2 </code></pre>
 </div>
 </div>
+<p>ほとんどの人が高い値を答えた．</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>item4_9 <span class="ot">&lt;-</span> df_1PL_long[df_1PL_long<span class="sc">$</span>item <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"item4"</span>, <span class="st">"item5"</span>, <span class="st">"item6"</span>, <span class="st">"item7"</span>, <span class="st">"item8"</span>, <span class="st">"item9"</span>),]</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(item4_9<span class="sc">$</span>response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+   1.00    1.00    2.00    1.91    2.00    4.00       1 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>item15_18 <span class="ot">&lt;-</span> df_1PL_long[df_1PL_long<span class="sc">$</span>item <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"item15"</span>, <span class="st">"item16"</span>, <span class="st">"item17"</span>, <span class="st">"item18"</span>),]</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(item15_18<span class="sc">$</span>response)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  1.000   1.000   1.000   1.405   2.000   4.000 </code></pre>
+</div>
+</div>
+<p>ほとんどの人が低い値を答えた．</p>
+</section>
+<section id="個人パラメータ" class="level4" data-number="1.3.2">
+<h4 data-number="1.3.2" class="anchored" data-anchor-id="個人パラメータ"><span class="header-section-number">1.3.2</span> 個人パラメータ</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>ranef_BP <span class="ot">&lt;-</span> <span class="fu">ranef</span>(fit_1PL)<span class="sc">$</span>BP</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>posterior_means <span class="ot">&lt;-</span> ranef_BP[,<span class="dv">1</span>,<span class="dv">1</span>]</span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>lower_bounds <span class="ot">&lt;-</span> ranef_BP[,<span class="dv">3</span>,<span class="dv">1</span>]</span>
+<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>upper_bounds <span class="ot">&lt;-</span> ranef_BP[,<span class="dv">4</span>,<span class="dv">1</span>]</span>
+<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>plot_df_BP <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">BP =</span> <span class="fu">rownames</span>(ranef_BP),</span>
+<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">mean =</span> posterior_means,</span>
+<span id="cb24-9"><a href="#cb24-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">lower =</span> lower_bounds,</span>
+<span id="cb24-10"><a href="#cb24-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">upper =</span> upper_bounds</span>
+<span id="cb24-11"><a href="#cb24-11" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb24-12"><a href="#cb24-12" aria-hidden="true" tabindex="-1"></a>p_PL1 <span class="ot">&lt;-</span> <span class="fu">ggplot</span>(plot_df_BP, <span class="fu">aes</span>(<span class="at">x =</span> mean, <span class="at">y =</span> BP)) <span class="sc">+</span></span>
+<span id="cb24-13"><a href="#cb24-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb24-14"><a href="#cb24-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">xmin =</span> lower, <span class="at">xmax =</span> upper), <span class="at">width =</span> <span class="fl">0.2</span>) <span class="sc">+</span></span>
+<span id="cb24-15"><a href="#cb24-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">90</span>, <span class="at">hjust =</span> <span class="dv">1</span>)) <span class="sc">+</span></span>
+<span id="cb24-16"><a href="#cb24-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Posterior Means and 95% Credible Intervals for BP"</span>,</span>
+<span id="cb24-17"><a href="#cb24-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"Posterior Estimate"</span>,</span>
+<span id="cb24-18"><a href="#cb24-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"BP"</span>)</span>
+<span id="cb24-19"><a href="#cb24-19" aria-hidden="true" tabindex="-1"></a>p_PL1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hirosaki1-2_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>基本的に，BP は項目反応には関係ない．しかし，一部の人だけ高い回帰係数が推定されている．</p>
+</section>
+</section>
+</section>
+<section id="bp-の高低と項目反応" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="bp-の高低と項目反応"><span class="header-section-number">2</span> BP の高低と項目反応</h2>
+<section id="bp-の層別" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="bp-の層別"><span class="header-section-number">2.1</span> BP の層別</h3>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>df<span class="sc">$</span>BP_level <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>BP <span class="sc">&gt;</span> <span class="fl">0.9</span> <span class="sc">~</span> <span class="dv">3</span>,</span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>BP <span class="sc">&gt;</span> <span class="fl">0.6</span> <span class="sc">&amp;</span> df<span class="sc">$</span>BP <span class="sc">&lt;=</span> <span class="fl">0.9</span> <span class="sc">~</span> <span class="dv">2</span>,</span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  df<span class="sc">$</span>BP <span class="sc">&lt;=</span> <span class="fl">0.6</span> <span class="sc">~</span> <span class="dv">1</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(df[df<span class="sc">$</span>BP_level <span class="sc">==</span> <span class="dv">3</span>, ]<span class="sc">$</span>BP)<span class="sc">/</span><span class="fu">dim</span>(df)[<span class="dv">1</span>]</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(df[df<span class="sc">$</span>BP_level <span class="sc">==</span> <span class="dv">2</span>, ]<span class="sc">$</span>BP)<span class="sc">/</span><span class="fu">dim</span>(df)[<span class="dv">1</span>]</span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(df[df<span class="sc">$</span>BP_level <span class="sc">==</span> <span class="dv">1</span>, ]<span class="sc">$</span>BP)<span class="sc">/</span><span class="fu">dim</span>(df)[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="pl-モデル-2" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="pl-モデル-2"><span class="header-section-number">2.2</span> 1PL モデル</h3>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>formula_1PL <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>  活気 <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span> <span class="sc">|</span> BP_level)</span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>fit_1PL <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> formula_1PL,</span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> df,</span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">brmsfamily</span>(<span class="st">"categorical"</span>),</span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">5000</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_1PL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ranef</span>(fit_1PL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

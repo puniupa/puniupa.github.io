@@ -15,7 +15,7 @@ format:
   html: 
     code-fold: false
     execute:
-      cache: false
+      cache: true
     fig-width: 10
     fig-height: 8
     fig-format: "png"
@@ -23,9 +23,14 @@ format:
     fig-font-family: "Hiragino Sans"
 abstract: |
   [前々稿](hirosaki1.qmd)で得た知見を基に，さらに詳細な検討を行う．
-  [前稿](hirosaki1-1.qmd)では BP, FLCΣ の値で層別して可視化した．
-  ここでは層別して回帰する，項目反応モデリングを考える．
+  [前稿](hirosaki1-1.qmd)では BP, FLCΣ の値を３段階で離散化して，層別して可視化した．
+  ここではこの離散化に基づいて層別して回帰する，項目反応モデリングを考える．
   [次節](hirosaki2.qmd)では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す．
+
+  各項目に対する項目反応モデリングは最も面白い方向であろうが，「項目毎」「個人毎」では
+  PC で簡単に実行できるモデルにはならない．
+  代わりに，男女差調整済みの尺度である「活気」「抑うつ感」などに対して，「BP のレベル３段階毎」で違う係数を推定することを考える．
+
 # listing:
 #   - id: cocosiru1-listing
 #     type: grid
@@ -190,7 +195,7 @@ df$抑うつ感 <- ifelse(
 kable(head(df))
 ```
 
-## 低解像度項目反応モデル
+## 各項目データに対する項目反応モデリング
 
 ### データ長形式化
 
@@ -214,6 +219,8 @@ kable(head(df_1PL_long[6:13,]))
 
 
 ### 2PL モデル
+
+次のモデルは重すぎて実行できず．
 
 ```r
 library(brms)
@@ -258,6 +265,8 @@ summary(fit_1PL)
 plot(fit_1PL)
 ```
 
+#### 項目パラメータ
+
 ```{r}
 library(ggplot2)
 ranef_item <- ranef(fit_1PL)$item
@@ -280,11 +289,56 @@ p_PL1 <- ggplot(plot_df_item, aes(x = mean, y = item)) +
 p_PL1
 ```
 
+```{r}
+item2_3 <- df_1PL_long[df_1PL_long$item %in% c("item2", "item3"),]
+summary(item2_3$response)
+```
+
+ほとんどの人が高い値を答えた．
+
+```{r}
+item4_9 <- df_1PL_long[df_1PL_long$item %in% c("item4", "item5", "item6", "item7", "item8", "item9"),]
+summary(item4_9$response)
+```
+
+```{r}
+item15_18 <- df_1PL_long[df_1PL_long$item %in% c("item15", "item16", "item17", "item18"),]
+summary(item15_18$response)
+```
+
+ほとんどの人が低い値を答えた．
+
+#### 個人パラメータ
+
+```{r}
+library(ggplot2)
+ranef_BP <- ranef(fit_1PL)$BP
+posterior_means <- ranef_BP[,1,1]
+lower_bounds <- ranef_BP[,3,1]
+upper_bounds <- ranef_BP[,4,1]
+plot_df_BP <- data.frame(
+  BP = rownames(ranef_BP),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p_PL1 <- ggplot(plot_df_BP, aes(x = mean, y = BP)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "Posterior Means and 95% Credible Intervals for BP",
+       x = "Posterior Estimate",
+       y = "BP")
+p_PL1
+```
+
+基本的に，BP は項目反応には関係ない．しかし，一部の人だけ高い回帰係数が推定されている．
+
 ## BP の高低と項目反応
 
 ### BP の層別
 
-```{r}
+```r
 df$BP_level <- case_when(
   df$BP > 0.9 ~ 3,
   df$BP > 0.6 & df$BP <= 0.9 ~ 2,
@@ -297,8 +351,7 @@ length(df[df$BP_level == 1, ]$BP)/dim(df)[1]
 
 ### 1PL モデル
 
-```{r}
-#| output: false
+```r
 library(brms)
 
 formula_1PL <- bf(
@@ -313,10 +366,10 @@ fit_1PL <- brm(
 )
 ```
 
-```{r}
+```r
 summary(fit_1PL)
 ```
 
-```{r}
+```r
 ranef(fit_1PL)
 ```

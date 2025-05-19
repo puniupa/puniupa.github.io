@@ -7,3 +7,5 @@ qgraph
 igraph
 ggplot2
 dplyr
+coda
+BayesFactor

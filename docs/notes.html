@@ -450,7 +450,7 @@ source1-1.qmd
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1745679600000" data-listing-file-modified-sort="1747122942465" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="37" data-listing-word-count-sort="7309">
+<div class="quarto-post image-right" data-index="4" data-listing-date-sort="1745679600000" data-listing-file-modified-sort="1747652658294" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="37" data-listing-word-count-sort="7309">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/Cocosiru/hirosaki1.html" class="no-external">弘前データ１：法定検診との関係</a>
@@ -510,16 +510,17 @@ hirosaki2.qmd
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1747062000000" data-listing-file-modified-sort="1747131920128" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1443">
+<div class="quarto-post image-right" data-index="7" data-listing-date-sort="1747062000000" data-listing-file-modified-sort="1747660769573" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1443">
 <div class="body">
 <h3 class="no-anchor listing-title">
-<a href="./posts/Cocosiru/hirosaki1-3.html" class="no-external">弘前データ１-２：法定検診との関係の詳細検討</a>
+<a href="./posts/Cocosiru/hirosaki1-3.html" class="no-external">弘前データ１-３：法定検診との関係の詳細検討</a>
 </h3>
 <div class="listing-subtitle">
 <a href="./posts/Cocosiru/hirosaki1-3.html" class="no-external">BP, FLCΣ の値の高低を用いた項目反応モデル</a>
 </div>
 <div class="listing-description">
-<a href="./posts/Cocosiru/hirosaki1-3.html" class="no-external"><span>前々稿</span>で得た知見を基に，さらに詳細な検討を行う． <span>前稿</span>では BP, FLCΣ の値で層別して可視化した． ここでは層別して回帰する，項目反応モデリングを考える． <span>次節</span>では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す． </a>
+<p><a href="./posts/Cocosiru/hirosaki1-3.html" class="no-external"><span>前々稿</span>では BP, FLCΣ の値で３段階に離散化・層別して可視化した． ここでは層別して回帰する，項目反応モデリングを考える． 項目毎・個人毎のパラメータを識別するのはうまくいかないことを<span>前稿</span>で見たから，ここでは「活気」「抑うつ感」のレベルで，そして BP のレベル感３クラスで，別々のパラメータを推定することを考える．さらに，「４以上の値を取る」という事象のみに向かって回帰する．</a></p><a href="./posts/Cocosiru/hirosaki1-3.html" class="no-external">
+最後に，項目毎の固定効果と個人毎の固定効果を追加することで過分散を吸収し，その下で BP と <span class="math inline">\(\Sigma\)</span>-FLC の効果を見た．すると綺麗な条件付き効果のプロットを得ることができる． </a>
 </div>
 </div>
 <div class="metadata">
@@ -530,7 +531,7 @@ hirosaki1-3.qmd
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1747062000000" data-listing-file-modified-sort="1747129352364" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="6" data-listing-word-count-sort="1141">
+<div class="quarto-post image-right" data-index="8" data-listing-date-sort="1747062000000" data-listing-file-modified-sort="1747657522932" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1252">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/Cocosiru/hirosaki1-2.html" class="no-external">弘前データ１-２：法定検診との関係の詳細検討</a>
@@ -539,7 +540,8 @@ hirosaki1-3.qmd
 <a href="./posts/Cocosiru/hirosaki1-2.html" class="no-external">BP, FLCΣ の値の高低を用いた項目反応モデル</a>
 </div>
 <div class="listing-description">
-<a href="./posts/Cocosiru/hirosaki1-2.html" class="no-external"><span>前々稿</span>で得た知見を基に，さらに詳細な検討を行う． <span>前稿</span>では BP, FLCΣ の値で層別して可視化した． ここでは層別して回帰する，項目反応モデリングを考える． <span>次節</span>では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す． </a>
+<p><a href="./posts/Cocosiru/hirosaki1-2.html" class="no-external"><span>前々稿</span>で得た知見を基に，さらに詳細な検討を行う． <span>前稿</span>では BP, FLCΣ の値を３段階で離散化して，層別して可視化した． ここではこの離散化に基づいて層別して回帰する，項目反応モデリングを考える． <span>次節</span>では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す．</a></p><a href="./posts/Cocosiru/hirosaki1-2.html" class="no-external">
+各項目に対する項目反応モデリングは最も面白い方向であろうが，「項目毎」「個人毎」では PC で簡単に実行できるモデルにはならない． 代わりに，男女差調整済みの尺度である「活気」「抑うつ感」などに対して，「BP のレベル３段階毎」で違う係数を推定することを考える． </a>
 </div>
 </div>
 <div class="metadata">
@@ -550,7 +552,7 @@ hirosaki1-2.qmd
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1747062000000" data-listing-file-modified-sort="1747126627272" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2771">
+<div class="quarto-post image-right" data-index="9" data-listing-date-sort="1747062000000" data-listing-file-modified-sort="1747655780322" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="14" data-listing-word-count-sort="2771">
 <div class="body">
 <h3 class="no-anchor listing-title">
 <a href="./posts/Cocosiru/hirosaki1-1.html" class="no-external">弘前データ１-１：法定検診との関係の詳細検討</a>
@@ -559,7 +561,9 @@ hirosaki1-2.qmd
 <a href="./posts/Cocosiru/hirosaki1-1.html" class="no-external">BP, FLCΣ の値で層別して可視化</a>
 </div>
 <div class="listing-description">
-<a href="./posts/Cocosiru/hirosaki1-1.html" class="no-external"><span>前稿</span>で得た知見を基に，さらに詳細な検討を行う． <span>次節</span>では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す． </a>
+<p><a href="./posts/Cocosiru/hirosaki1-1.html" class="no-external"><span>前稿</span>で得た知見を基に，さらに詳細な検討を行う．</a></p><a href="./posts/Cocosiru/hirosaki1-1.html" class="no-external">
+<p>BP の生の値で回帰するよりも，「BP が高いかどうか」の２値変数（あるいは３値変数）に向けて， ロジスティック回帰を行うことが有望なのではないかと判明した． 「疲労感」と「抑うつ感」で高 BP 群がスコア５を付けやすいことが簡単なバープロットから判る． <span class="math inline">\(\Sigma\)</span>-FLC が低い群は「活気」と「抑うつ感」でスコア５を付けやすい・</p>
+<span>次節</span>では LAB と BP，LOX-1 と FLCΣ の間のロジスティック回帰関係の階層モデリングを目指す． </a>
 </div>
 </div>
 <div class="metadata">

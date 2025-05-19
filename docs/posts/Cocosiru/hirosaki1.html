@@ -217,12 +217,21 @@ window.Quarto = {
   <li><a href="#疲労感お-1" id="toc-疲労感お-1" class="nav-link" data-scroll-target="#疲労感お-1"><span class="header-section-number">3.1</span> 疲労感：お？</a></li>
   <li><a href="#疲労感判別式-1" id="toc-疲労感判別式-1" class="nav-link" data-scroll-target="#疲労感判別式-1"><span class="header-section-number">3.2</span> 疲労感×判別式</a></li>
   <li><a href="#不安感おお-1" id="toc-不安感おお-1" class="nav-link" data-scroll-target="#不安感おお-1"><span class="header-section-number">3.3</span> 不安感：おお！？</a></li>
-  <li><a href="#不安感判別式-1" id="toc-不安感判別式-1" class="nav-link" data-scroll-target="#不安感判別式-1"><span class="header-section-number">3.4</span> 不安感×判別式</a></li>
+  <li><a href="#全く備考情報を考慮しないと" id="toc-全く備考情報を考慮しないと" class="nav-link" data-scroll-target="#全く備考情報を考慮しないと"><span class="header-section-number">3.4</span> 全く備考情報を考慮しないと？</a></li>
+  <li><a href="#不安感判別式-1" id="toc-不安感判別式-1" class="nav-link" data-scroll-target="#不安感判別式-1"><span class="header-section-number">3.5</span> 不安感×判別式</a></li>
   </ul></li>
-  <li><a href="#bp-値の方が分散が違うが判別式の方が-p-値が小さい" id="toc-bp-値の方が分散が違うが判別式の方が-p-値が小さい" class="nav-link" data-scroll-target="#bp-値の方が分散が違うが判別式の方が-p-値が小さい"><span class="header-section-number">4</span> BP 値の方が分散が違うが，判別式の方が <span class="math inline">\(p\)</span>-値が小さい</a></li>
+  <li><a href="#bp-値の方が分散が違うが判別式の方が-p-値が小さい" id="toc-bp-値の方が分散が違うが判別式の方が-p-値が小さい" class="nav-link" data-scroll-target="#bp-値の方が分散が違うが判別式の方が-p-値が小さい"><span class="header-section-number">4</span> BP 値の方が分散が違うが，判別式の方が <span class="math inline">\(p\)</span>-値が小さい</a>
+  <ul class="collapse">
+  <li><a href="#疲労感と-bp-の散布図" id="toc-疲労感と-bp-の散布図" class="nav-link" data-scroll-target="#疲労感と-bp-の散布図"><span class="header-section-number">4.1</span> 疲労感と BP の散布図</a></li>
+  <li><a href="#不安感と-bp-の散布図" id="toc-不安感と-bp-の散布図" class="nav-link" data-scroll-target="#不安感と-bp-の散布図"><span class="header-section-number">4.2</span> 不安感と BP の散布図</a></li>
+  <li><a href="#抑うつ感と-bp-の散布図" id="toc-抑うつ感と-bp-の散布図" class="nav-link" data-scroll-target="#抑うつ感と-bp-の散布図"><span class="header-section-number">4.3</span> 抑うつ感と BP の散布図</a></li>
+  <li><a href="#イライラ感と-bp-の散布図" id="toc-イライラ感と-bp-の散布図" class="nav-link" data-scroll-target="#イライラ感と-bp-の散布図"><span class="header-section-number">4.4</span> イライラ感と BP の散布図</a></li>
+  <li><a href="#活気と-bp-の散布図" id="toc-活気と-bp-の散布図" class="nav-link" data-scroll-target="#活気と-bp-の散布図"><span class="header-section-number">4.5</span> 活気と BP の散布図</a></li>
+  </ul></li>
   <li><a href="#lasso-をやってみる" id="toc-lasso-をやってみる" class="nav-link" data-scroll-target="#lasso-をやってみる"><span class="header-section-number">5</span> LASSO をやってみる</a></li>
   <li><a href="#graphical-lasso-をやってみる" id="toc-graphical-lasso-をやってみる" class="nav-link" data-scroll-target="#graphical-lasso-をやってみる"><span class="header-section-number">6</span> Graphical Lasso をやってみる</a></li>
   <li><a href="#判別式と-lox-の間の関係" id="toc-判別式と-lox-の間の関係" class="nav-link" data-scroll-target="#判別式と-lox-の間の関係"><span class="header-section-number">7</span> 判別式と LOX の間の関係</a></li>
+  <li><a href="#bp-と-lab-との関係" id="toc-bp-と-lab-との関係" class="nav-link" data-scroll-target="#bp-と-lab-との関係"><span class="header-section-number">8</span> BP と LAB との関係</a></li>
   </ul>
 </nav>
     </div>
@@ -681,12 +690,10 @@ $`80代`
 <span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 26 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 26 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 27 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 26 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -754,12 +761,10 @@ $`80代`
 <span id="cb14-22"><a href="#cb14-22" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb14-23"><a href="#cb14-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">8</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 48 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 48 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 48 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 48 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -871,12 +876,10 @@ $`80代`
 <span id="cb25-19"><a href="#cb25-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb25-20"><a href="#cb25-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 29 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 29 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 29 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 29 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -910,12 +913,10 @@ $`80代`
 <span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 13 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 13 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 14 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 14 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの準備（BP_A_flag = 0 かつ 性別 = 1 の行のみ選択）</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>judge_by_age_male <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
@@ -938,12 +939,10 @@ $`80代`
 <span id="cb31-19"><a href="#cb31-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb31-20"><a href="#cb31-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 13 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 13 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 13 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 13 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
@@ -976,12 +975,10 @@ $`80代`
 <span id="cb34-19"><a href="#cb34-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb34-20"><a href="#cb34-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 20 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 20 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 20 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 20 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの準備（BP_A_flag = 0 かつ 性別 = 1 の行のみ選択）</span></span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>judge_by_age_male <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
@@ -1004,12 +1001,10 @@ $`80代`
 <span id="cb37-19"><a href="#cb37-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb37-20"><a href="#cb37-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">10</span>, <span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 14 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 14 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 14 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 14 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell quarto-layout-panel" data-layout-ncol="2">
 <div class="quarto-layout-row">
@@ -1048,12 +1043,10 @@ $`80代`
 <span id="cb40-21"><a href="#cb40-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">2</span>)) <span class="sc">+</span></span>
 <span id="cb40-22"><a href="#cb40-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"男"</span> <span class="ot">=</span> <span class="st">"skyblue"</span>, <span class="st">"女"</span> <span class="ot">=</span> <span class="st">"#E15759"</span>))  <span class="co"># 性別ごとの色を指定</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 26 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 26 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 27 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 27 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1087,12 +1080,10 @@ $`80代`
 <span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">1</span>)) <span class="sc">+</span></span>
 <span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values =</span> <span class="fu">c</span>(<span class="st">"男"</span> <span class="ot">=</span> <span class="st">"skyblue"</span>, <span class="st">"女"</span> <span class="ot">=</span> <span class="st">"#E15759"</span>))  <span class="co"># 性別ごとの色を指定</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 188 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 188 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 189 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 189 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1107,12 +1098,10 @@ $`80代`
 <h3 data-number="1.6" class="anchored" data-anchor-id="体重"><span class="header-section-number">1.6</span> 体重</h3>
 <div class="cell">
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 3 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 3 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 3 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 3 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1144,12 +1133,10 @@ $`80代`
 <span id="cb48-19"><a href="#cb48-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
 <span id="cb48-20"><a href="#cb48-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">40</span>, <span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 24 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 24 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 24 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 24 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1193,12 +1180,10 @@ $`80代`
 <span id="cb51-25"><a href="#cb51-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Reds"</span>) <span class="sc">+</span></span>
 <span id="cb51-26"><a href="#cb51-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">2.5</span>))  <span class="co"># y軸の範囲を-2.5から2.5に設定</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 13 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 13 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 13 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 14 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1277,12 +1262,10 @@ mean of x mean of y
 <span id="cb58-24"><a href="#cb58-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>)) <span class="sc">+</span></span>
 <span id="cb58-25"><a href="#cb58-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio=</span><span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 227 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 227 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 238 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 235 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1362,12 +1345,10 @@ mean of x mean of y
 <span id="cb66-24"><a href="#cb66-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>)) <span class="sc">+</span> <span class="co"># y軸の範囲を-2.5から2.5に設定</span></span>
 <span id="cb66-25"><a href="#cb66-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 226 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 226 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 235 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 234 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1447,12 +1428,10 @@ mean of x mean of y
 <span id="cb74-24"><a href="#cb74-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="fl">1.5</span>)) <span class="sc">+</span></span>
 <span id="cb74-25"><a href="#cb74-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 750 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 750 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 750 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 751 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1532,12 +1511,10 @@ mean of x mean of y
 <span id="cb82-24"><a href="#cb82-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>)) <span class="sc">+</span></span>
 <span id="cb82-25"><a href="#cb82-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 227 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 227 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 237 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 236 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1616,12 +1593,10 @@ mean of x mean of y
 <span id="cb90-24"><a href="#cb90-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Reds"</span>) <span class="sc">+</span></span>
 <span id="cb90-25"><a href="#cb90-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">2.5</span>, <span class="dv">0</span>))  <span class="co"># y軸の範囲を-2.5から2.5に設定</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 980 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 980 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 980 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 980 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1700,12 +1675,10 @@ mean of x mean of y
 <span id="cb97-24"><a href="#cb97-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>)) <span class="sc">+</span></span>
 <span id="cb97-25"><a href="#cb97-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="fl">2.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 226 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 226 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 237 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 238 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1785,12 +1758,10 @@ mean of x mean of y
 <span id="cb105-24"><a href="#cb105-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="fl">1.5</span>)) <span class="sc">+</span></span>
 <span id="cb105-25"><a href="#cb105-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio=</span><span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 750 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 750 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 751 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 750 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1869,12 +1840,10 @@ mean of x mean of y
 <span id="cb113-24"><a href="#cb113-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>)) <span class="sc">+</span></span>
 <span id="cb113-25"><a href="#cb113-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio=</span><span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 226 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 226 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 234 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 237 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -1954,12 +1923,10 @@ mean of x mean of y
 <span id="cb121-24"><a href="#cb121-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="sc">-</span><span class="fl">1.5</span>)) <span class="sc">+</span></span>
 <span id="cb121-25"><a href="#cb121-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="fl">1.5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 749 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 749 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 750 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 750 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -2046,12 +2013,10 @@ mean of x mean of y
 <span id="cb130-24"><a href="#cb130-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Reds"</span>) <span class="sc">+</span></span>
 <span id="cb130-25"><a href="#cb130-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">2.5</span>))  <span class="co"># y軸の範囲を-2.5から2.5に設定</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 10 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 10 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 11 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 10 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -2129,12 +2094,10 @@ mean of x mean of y
 <span id="cb137-24"><a href="#cb137-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Reds"</span>) <span class="sc">+</span></span>
 <span id="cb137-25"><a href="#cb137-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="fl">2.5</span>, <span class="dv">0</span>))  <span class="co"># y軸の範囲を-2.5から2.5に設定</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 526 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 526 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 526 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 526 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -2213,12 +2176,10 @@ mean of x mean of y
 <span id="cb144-24"><a href="#cb144-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">1.5</span>)) <span class="sc">+</span></span>
 <span id="cb144-25"><a href="#cb144-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="fl">2.1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 109 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 109 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 115 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 112 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -2270,10 +2231,10 @@ mean of x mean of y
 <div class="cell">
 <div class="sourceCode cell-code" id="cb152"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb152-1"><a href="#cb152-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BayesFactor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: coda</code></pre>
+<pre><code>Warning: パッケージ 'BayesFactor' はバージョン 4.3.1 の R の下で造られました</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: Matrix</code></pre>
+<pre><code> 要求されたパッケージ coda をロード中です </code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
 <pre><code>************
@@ -2282,19 +2243,28 @@ Welcome to BayesFactor 0.9.12-4.7. If you have questions, please contact Richard
 Type BFManual() to open the manual.
 ************</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb156"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb156-1"><a href="#cb156-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NAを除外したデータの作成</span></span>
-<span id="cb156-2"><a href="#cb156-2" aria-hidden="true" tabindex="-1"></a>bp_不安感_1_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(bp_不安感_1)</span>
-<span id="cb156-3"><a href="#cb156-3" aria-hidden="true" tabindex="-1"></a>bp_不安感_2_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(bp_不安感_2)</span>
-<span id="cb156-4"><a href="#cb156-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb156-5"><a href="#cb156-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ベイズ因子の計算</span></span>
-<span id="cb156-6"><a href="#cb156-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BayesFactor)</span>
-<span id="cb156-7"><a href="#cb156-7" aria-hidden="true" tabindex="-1"></a>bf <span class="ot">&lt;-</span> <span class="fu">ttestBF</span>(<span class="at">x =</span> bp_不安感_1_clean, </span>
-<span id="cb156-8"><a href="#cb156-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">y =</span> bp_不安感_2_clean,</span>
-<span id="cb156-9"><a href="#cb156-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
-<span id="cb156-10"><a href="#cb156-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">rscale =</span> <span class="st">"medium"</span>)</span>
-<span id="cb156-11"><a href="#cb156-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb156-12"><a href="#cb156-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 結果の表示</span></span>
-<span id="cb156-13"><a href="#cb156-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+ 次のパッケージを付け加えます: 'BayesFactor' </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 以下のオブジェクトは 'package:igraph' からマスクされています:
+
+    compare</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># NAを除外したデータの作成</span></span>
+<span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a>bp_不安感_1_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(bp_不安感_1)</span>
+<span id="cb158-3"><a href="#cb158-3" aria-hidden="true" tabindex="-1"></a>bp_不安感_2_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(bp_不安感_2)</span>
+<span id="cb158-4"><a href="#cb158-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-5"><a href="#cb158-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ベイズ因子の計算</span></span>
+<span id="cb158-6"><a href="#cb158-6" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BayesFactor)</span>
+<span id="cb158-7"><a href="#cb158-7" aria-hidden="true" tabindex="-1"></a>bf <span class="ot">&lt;-</span> <span class="fu">ttestBF</span>(<span class="at">x =</span> bp_不安感_1_clean, </span>
+<span id="cb158-8"><a href="#cb158-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">y =</span> bp_不安感_2_clean,</span>
+<span id="cb158-9"><a href="#cb158-9" aria-hidden="true" tabindex="-1"></a>              <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb158-10"><a href="#cb158-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">rscale =</span> <span class="st">"medium"</span>)</span>
+<span id="cb158-11"><a href="#cb158-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb158-12"><a href="#cb158-12" aria-hidden="true" tabindex="-1"></a><span class="co"># 結果の表示</span></span>
+<span id="cb158-13"><a href="#cb158-13" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Bayes factor analysis
 --------------
@@ -2305,74 +2275,116 @@ Against denominator:
 ---
 Bayes factor type: BFindepSample, JZS</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb158"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb158-1"><a href="#cb158-1" aria-hidden="true" tabindex="-1"></a><span class="co"># サンプルサイズの確認</span></span>
-<span id="cb158-2"><a href="#cb158-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">サンプルサイズ:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb160"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="co"># サンプルサイズの確認</span></span>
+<span id="cb160-2"><a href="#cb160-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">サンプルサイズ:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 サンプルサイズ:</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb160"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb160-1"><a href="#cb160-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"グループ1:"</span>, <span class="fu">length</span>(bp_不安感_1_clean), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb162"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"グループ1:"</span>, <span class="fu">length</span>(bp_不安感_1_clean), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>グループ1: 195 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb162"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb162-1"><a href="#cb162-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"グループ2:"</span>, <span class="fu">length</span>(bp_不安感_2_clean), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"グループ2:"</span>, <span class="fu">length</span>(bp_不安感_2_clean), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>グループ2: 14 </code></pre>
 </div>
 </div>
 </section>
-<section id="不安感判別式-1" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="不安感判別式-1"><span class="header-section-number">3.4</span> 不安感×判別式</h3>
+<section id="全く備考情報を考慮しないと" class="level3" data-number="3.4">
+<h3 data-number="3.4" class="anchored" data-anchor-id="全く備考情報を考慮しないと"><span class="header-section-number">3.4</span> 全く備考情報を考慮しないと？</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb166"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb166-1"><a href="#cb166-1" aria-hidden="true" tabindex="-1"></a>bp_不安感_1 <span class="ot">&lt;-</span> df<span class="sc">$</span>BP[df<span class="sc">$</span>不安感 <span class="sc">==</span> <span class="dv">1</span>]</span>
+<span id="cb166-2"><a href="#cb166-2" aria-hidden="true" tabindex="-1"></a>bp_不安感_2 <span class="ot">&lt;-</span> df<span class="sc">$</span>BP[df<span class="sc">$</span>不安感 <span class="sc">==</span> <span class="dv">5</span>]</span>
+<span id="cb166-3"><a href="#cb166-3" aria-hidden="true" tabindex="-1"></a><span class="co"># NAを除外したデータの作成</span></span>
+<span id="cb166-4"><a href="#cb166-4" aria-hidden="true" tabindex="-1"></a>bp_不安感_1_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(bp_不安感_1)</span>
+<span id="cb166-5"><a href="#cb166-5" aria-hidden="true" tabindex="-1"></a>bp_不安感_2_clean <span class="ot">&lt;-</span> <span class="fu">na.omit</span>(bp_不安感_2)</span>
+<span id="cb166-6"><a href="#cb166-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-7"><a href="#cb166-7" aria-hidden="true" tabindex="-1"></a><span class="co"># ベイズ因子の計算</span></span>
+<span id="cb166-8"><a href="#cb166-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BayesFactor)</span>
+<span id="cb166-9"><a href="#cb166-9" aria-hidden="true" tabindex="-1"></a>bf <span class="ot">&lt;-</span> <span class="fu">ttestBF</span>(<span class="at">x =</span> bp_不安感_1_clean, </span>
+<span id="cb166-10"><a href="#cb166-10" aria-hidden="true" tabindex="-1"></a>              <span class="at">y =</span> bp_不安感_2_clean,</span>
+<span id="cb166-11"><a href="#cb166-11" aria-hidden="true" tabindex="-1"></a>              <span class="at">paired =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb166-12"><a href="#cb166-12" aria-hidden="true" tabindex="-1"></a>              <span class="at">rscale =</span> <span class="st">"medium"</span>)</span>
+<span id="cb166-13"><a href="#cb166-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb166-14"><a href="#cb166-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 結果の表示</span></span>
+<span id="cb166-15"><a href="#cb166-15" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(bf)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Bayes factor analysis
+--------------
+[1] Alt., r=0.707 : 0.2298194 ±0.02%
+
+Against denominator:
+  Null, mu1-mu2 = 0 
+---
+Bayes factor type: BFindepSample, JZS</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb168"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb168-1"><a href="#cb168-1" aria-hidden="true" tabindex="-1"></a><span class="co"># サンプルサイズの確認</span></span>
+<span id="cb168-2"><a href="#cb168-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">サンプルサイズ:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+サンプルサイズ:</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb170"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb170-1"><a href="#cb170-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"グループ1:"</span>, <span class="fu">length</span>(bp_不安感_1_clean), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>グループ1: 387 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb172"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb172-1"><a href="#cb172-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"グループ2:"</span>, <span class="fu">length</span>(bp_不安感_2_clean), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>グループ2: 22 </code></pre>
+</div>
+</div>
+</section>
+<section id="不安感判別式-1" class="level3" data-number="3.5">
+<h3 data-number="3.5" class="anchored" data-anchor-id="不安感判別式-1"><span class="header-section-number">3.5</span> 不安感×判別式</h3>
 <p>やはり判別式も有意に低いが，少し分散が大きくなる．</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb164"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb164-1"><a href="#cb164-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの準備（BP_A_flag = 0 の行のみ選択）</span></span>
-<span id="cb164-2"><a href="#cb164-2" aria-hidden="true" tabindex="-1"></a>judge_by_不安感 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb164-3"><a href="#cb164-3" aria-hidden="true" tabindex="-1"></a>  不安感 <span class="ot">=</span> <span class="fu">factor</span>(df_na_BP備考<span class="sc">$</span>不安感[df_na_BP備考<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df_na_BP備考<span class="sc">$</span>不安感)], </span>
-<span id="cb164-4"><a href="#cb164-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
-<span id="cb164-5"><a href="#cb164-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>),</span>
-<span id="cb164-6"><a href="#cb164-6" aria-hidden="true" tabindex="-1"></a>  判別式 <span class="ot">=</span> df_na_BP備考<span class="sc">$</span>判別式[df_na_BP備考<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df_na_BP備考<span class="sc">$</span>不安感)]</span>
-<span id="cb164-7"><a href="#cb164-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb164-8"><a href="#cb164-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb164-9"><a href="#cb164-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplotでプロット</span></span>
-<span id="cb164-10"><a href="#cb164-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(judge_by_不安感, <span class="fu">aes</span>(<span class="at">x =</span> 不安感, <span class="at">y =</span> 判別式, <span class="at">fill =</span> 不安感)) <span class="sc">+</span></span>
-<span id="cb164-11"><a href="#cb164-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb164-12"><a href="#cb164-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
-<span id="cb164-13"><a href="#cb164-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb164-14"><a href="#cb164-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"不安感の回答別判別式の分布"</span>,</span>
-<span id="cb164-15"><a href="#cb164-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"不安感"</span>,</span>
-<span id="cb164-16"><a href="#cb164-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"判別式"</span>) <span class="sc">+</span></span>
-<span id="cb164-17"><a href="#cb164-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb164-18"><a href="#cb164-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">16</span>),  <span class="co"># 基本フォントサイズを16に</span></span>
-<span id="cb164-19"><a href="#cb164-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),  <span class="co"># 軸の目盛りの文字サイズ</span></span>
-<span id="cb164-20"><a href="#cb164-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>),  <span class="co"># 軸タイトルの文字サイズ</span></span>
-<span id="cb164-21"><a href="#cb164-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),  <span class="co"># プロットタイトルの文字サイズ</span></span>
-<span id="cb164-22"><a href="#cb164-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span></span>
-<span id="cb164-23"><a href="#cb164-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb164-24"><a href="#cb164-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Reds"</span>) <span class="sc">+</span></span>
-<span id="cb164-25"><a href="#cb164-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">0</span>))  <span class="co"># y軸の範囲を-2.5から2.5に設定</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb174"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb174-1"><a href="#cb174-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの準備（BP_A_flag = 0 の行のみ選択）</span></span>
+<span id="cb174-2"><a href="#cb174-2" aria-hidden="true" tabindex="-1"></a>judge_by_不安感 <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb174-3"><a href="#cb174-3" aria-hidden="true" tabindex="-1"></a>  不安感 <span class="ot">=</span> <span class="fu">factor</span>(df_na_BP備考<span class="sc">$</span>不安感[df_na_BP備考<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df_na_BP備考<span class="sc">$</span>不安感)], </span>
+<span id="cb174-4"><a href="#cb174-4" aria-hidden="true" tabindex="-1"></a>                <span class="at">levels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>,</span>
+<span id="cb174-5"><a href="#cb174-5" aria-hidden="true" tabindex="-1"></a>                <span class="at">labels =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>),</span>
+<span id="cb174-6"><a href="#cb174-6" aria-hidden="true" tabindex="-1"></a>  判別式 <span class="ot">=</span> df_na_BP備考<span class="sc">$</span>判別式[df_na_BP備考<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df_na_BP備考<span class="sc">$</span>不安感)]</span>
+<span id="cb174-7"><a href="#cb174-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb174-8"><a href="#cb174-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb174-9"><a href="#cb174-9" aria-hidden="true" tabindex="-1"></a><span class="co"># ggplotでプロット</span></span>
+<span id="cb174-10"><a href="#cb174-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(judge_by_不安感, <span class="fu">aes</span>(<span class="at">x =</span> 不安感, <span class="at">y =</span> 判別式, <span class="at">fill =</span> 不安感)) <span class="sc">+</span></span>
+<span id="cb174-11"><a href="#cb174-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb174-12"><a href="#cb174-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span></span>
+<span id="cb174-13"><a href="#cb174-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb174-14"><a href="#cb174-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"不安感の回答別判別式の分布"</span>,</span>
+<span id="cb174-15"><a href="#cb174-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"不安感"</span>,</span>
+<span id="cb174-16"><a href="#cb174-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"判別式"</span>) <span class="sc">+</span></span>
+<span id="cb174-17"><a href="#cb174-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb174-18"><a href="#cb174-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">16</span>),  <span class="co"># 基本フォントサイズを16に</span></span>
+<span id="cb174-19"><a href="#cb174-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),  <span class="co"># 軸の目盛りの文字サイズ</span></span>
+<span id="cb174-20"><a href="#cb174-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>),  <span class="co"># 軸タイトルの文字サイズ</span></span>
+<span id="cb174-21"><a href="#cb174-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>),  <span class="co"># プロットタイトルの文字サイズ</span></span>
+<span id="cb174-22"><a href="#cb174-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">legend.position =</span> <span class="st">"none"</span></span>
+<span id="cb174-23"><a href="#cb174-23" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb174-24"><a href="#cb174-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Reds"</span>) <span class="sc">+</span></span>
+<span id="cb174-25"><a href="#cb174-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">0</span>))  <span class="co"># y軸の範囲を-2.5から2.5に設定</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 402 rows containing non-finite outside the scale range
-(`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 402 rows containing non-finite values (`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 402 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 403 rows containing missing values (`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="hirosaki1_files/figure-html/unnamed-chunk-48-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="hirosaki1_files/figure-html/unnamed-chunk-49-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb167"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb167-1"><a href="#cb167-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの抽出（BP_A_flag = 0 かつ item2 が 1 または 2 のデータ）</span></span>
-<span id="cb167-2"><a href="#cb167-2" aria-hidden="true" tabindex="-1"></a>bp_不安感_1 <span class="ot">&lt;-</span> df_na_BP備考<span class="sc">$</span>判別式[df_na_BP備考<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> df_na_BP備考<span class="sc">$</span>不安感 <span class="sc">==</span> <span class="dv">1</span>]</span>
-<span id="cb167-3"><a href="#cb167-3" aria-hidden="true" tabindex="-1"></a>bp_不安感_2 <span class="ot">&lt;-</span> df_na_BP備考<span class="sc">$</span>判別式[df_na_BP備考<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> df_na_BP備考<span class="sc">$</span>不安感 <span class="sc">==</span> <span class="dv">5</span>]</span>
-<span id="cb167-4"><a href="#cb167-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb167-5"><a href="#cb167-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 等分散性の検定（Levene検定）</span></span>
-<span id="cb167-6"><a href="#cb167-6" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(bp_不安感_1, bp_不安感_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの抽出（BP_A_flag = 0 かつ item2 が 1 または 2 のデータ）</span></span>
+<span id="cb177-2"><a href="#cb177-2" aria-hidden="true" tabindex="-1"></a>bp_不安感_1 <span class="ot">&lt;-</span> df_na_BP備考<span class="sc">$</span>判別式[df_na_BP備考<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> df_na_BP備考<span class="sc">$</span>不安感 <span class="sc">==</span> <span class="dv">1</span>]</span>
+<span id="cb177-3"><a href="#cb177-3" aria-hidden="true" tabindex="-1"></a>bp_不安感_2 <span class="ot">&lt;-</span> df_na_BP備考<span class="sc">$</span>判別式[df_na_BP備考<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> df_na_BP備考<span class="sc">$</span>不安感 <span class="sc">==</span> <span class="dv">5</span>]</span>
+<span id="cb177-4"><a href="#cb177-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb177-5"><a href="#cb177-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 等分散性の検定（Levene検定）</span></span>
+<span id="cb177-6"><a href="#cb177-6" aria-hidden="true" tabindex="-1"></a><span class="fu">var.test</span>(bp_不安感_1, bp_不安感_2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     F test to compare two variances
@@ -2386,10 +2398,10 @@ sample estimates:
 ratio of variances 
           2.244666 </code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb169"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb169-1"><a href="#cb169-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t検定の実施</span></span>
-<span id="cb169-2"><a href="#cb169-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(bp_不安感_1, bp_不安感_2, </span>
-<span id="cb169-3"><a href="#cb169-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">FALSE</span>,  <span class="co"># 等分散を仮定しない（Welchのt検定）</span></span>
-<span id="cb169-4"><a href="#cb169-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">"two.sided"</span>)  <span class="co"># 両側検定</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t検定の実施</span></span>
+<span id="cb179-2"><a href="#cb179-2" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(bp_不安感_1, bp_不安感_2, </span>
+<span id="cb179-3"><a href="#cb179-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">FALSE</span>,  <span class="co"># 等分散を仮定しない（Welchのt検定）</span></span>
+<span id="cb179-4"><a href="#cb179-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">"two.sided"</span>)  <span class="co"># 両側検定</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Welch Two Sample t-test
@@ -2409,82 +2421,249 @@ mean of x mean of y
 <section id="bp-値の方が分散が違うが判別式の方が-p-値が小さい" class="level2" data-number="4">
 <h2 data-number="4" class="anchored" data-anchor-id="bp-値の方が分散が違うが判別式の方が-p-値が小さい"><span class="header-section-number">4</span> BP 値の方が分散が違うが，判別式の方が <span class="math inline">\(p\)</span>-値が小さい</h2>
 <p>判別式はすごい出るが，<span class="math inline">\(p&lt;0.05\)</span> まではいかない．一方で，測定できない以上が出たという情報まで入れると有意性が出てくる．</p>
+<section id="疲労感と-bp-の散布図" class="level3" data-number="4.1">
+<h3 data-number="4.1" class="anchored" data-anchor-id="疲労感と-bp-の散布図"><span class="header-section-number">4.1</span> 疲労感と BP の散布図</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb171"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb171-1"><a href="#cb171-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの準備（NAを除外）</span></span>
-<span id="cb171-2"><a href="#cb171-2" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb171-3"><a href="#cb171-3" aria-hidden="true" tabindex="-1"></a>  疲労感 <span class="ot">=</span> df<span class="sc">$</span>疲労感[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>疲労感) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>BP)],</span>
-<span id="cb171-4"><a href="#cb171-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">BP =</span> df<span class="sc">$</span>BP[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>疲労感) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>BP)]</span>
-<span id="cb171-5"><a href="#cb171-5" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb171-6"><a href="#cb171-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb171-7"><a href="#cb171-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 散布図の作成</span></span>
-<span id="cb171-8"><a href="#cb171-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(scatter_data, <span class="fu">aes</span>(<span class="at">x =</span> 疲労感, <span class="at">y =</span> BP)) <span class="sc">+</span></span>
-<span id="cb171-9"><a href="#cb171-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"#E15759"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb171-10"><a href="#cb171-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb171-11"><a href="#cb171-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"疲労感とBPの散布図"</span>,</span>
-<span id="cb171-12"><a href="#cb171-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"疲労感"</span>,</span>
-<span id="cb171-13"><a href="#cb171-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"BP"</span>) <span class="sc">+</span></span>
-<span id="cb171-14"><a href="#cb171-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb171-15"><a href="#cb171-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
-<span id="cb171-16"><a href="#cb171-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">14</span>),</span>
-<span id="cb171-17"><a href="#cb171-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">18</span>),</span>
-<span id="cb171-18"><a href="#cb171-18" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">20</span>)</span>
-<span id="cb171-19"><a href="#cb171-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb171-20"><a href="#cb171-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb171-21"><a href="#cb171-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">2.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの準備（NAを除外）</span></span>
+<span id="cb181-2"><a href="#cb181-2" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb181-3"><a href="#cb181-3" aria-hidden="true" tabindex="-1"></a>  疲労感 <span class="ot">=</span> df<span class="sc">$</span>疲労感[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>疲労感) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>BP)],</span>
+<span id="cb181-4"><a href="#cb181-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">BP =</span> df<span class="sc">$</span>BP[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>疲労感) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>BP)]</span>
+<span id="cb181-5"><a href="#cb181-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb181-6"><a href="#cb181-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb181-7"><a href="#cb181-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 散布図の作成</span></span>
+<span id="cb181-8"><a href="#cb181-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(scatter_data, <span class="fu">aes</span>(<span class="at">x =</span> 疲労感, <span class="at">y =</span> BP)) <span class="sc">+</span></span>
+<span id="cb181-9"><a href="#cb181-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb181-10"><a href="#cb181-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb181-11"><a href="#cb181-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb181-12"><a href="#cb181-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"疲労感"</span>,</span>
+<span id="cb181-13"><a href="#cb181-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"BP"</span>) <span class="sc">+</span></span>
+<span id="cb181-14"><a href="#cb181-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb181-15"><a href="#cb181-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb181-16"><a href="#cb181-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">34</span>),</span>
+<span id="cb181-17"><a href="#cb181-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>),</span>
+<span id="cb181-18"><a href="#cb181-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb181-19"><a href="#cb181-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb181-20"><a href="#cb181-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">2.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 5 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 5 rows containing missing values (`geom_point()`).</code></pre>
 </div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hirosaki1_files/figure-html/unnamed-chunk-50-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="lasso-をやってみる" class="level2" data-number="5">
-<h2 data-number="5" class="anchored" data-anchor-id="lasso-をやってみる"><span class="header-section-number">5</span> LASSO をやってみる</h2>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb173"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb173-1"><a href="#cb173-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loaded glmnet 4.1-8</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb175"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb175-1"><a href="#cb175-1" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> df<span class="sc">$</span>判別式</span>
-<span id="cb175-2"><a href="#cb175-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> df[, <span class="fu">paste0</span>(<span class="st">"item"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>)]</span>
-<span id="cb175-3"><a href="#cb175-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 前処理の確認</span></span>
-<span id="cb175-4"><a href="#cb175-4" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(df<span class="sc">$</span>判別式))  <span class="co"># 元の判別式の値を確認</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] -2.880 -3.343 -2.727 -2.974 -7.338 -2.776</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb177"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb177-1"><a href="#cb177-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 完全なケースのみを抽出</span></span>
-<span id="cb177-2"><a href="#cb177-2" aria-hidden="true" tabindex="-1"></a>complete_cases <span class="ot">&lt;-</span> <span class="fu">complete.cases</span>(x) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(y)</span>
-<span id="cb177-3"><a href="#cb177-3" aria-hidden="true" tabindex="-1"></a>x_complete <span class="ot">&lt;-</span> x[complete_cases, ]</span>
-<span id="cb177-4"><a href="#cb177-4" aria-hidden="true" tabindex="-1"></a>y_complete <span class="ot">&lt;-</span> y[complete_cases]</span>
-<span id="cb177-5"><a href="#cb177-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb177-6"><a href="#cb177-6" aria-hidden="true" tabindex="-1"></a><span class="co"># データの次元を確認</span></span>
-<span id="cb177-7"><a href="#cb177-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">dim</span>(x_complete))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1148   18</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb179"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb179-1"><a href="#cb179-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">length</span>(y_complete))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 1148</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb181"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb181-1"><a href="#cb181-1" aria-hidden="true" tabindex="-1"></a><span class="co"># y_completeの要約統計量</span></span>
-<span id="cb181-2"><a href="#cb181-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">summary</span>(y_complete))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
--70.246  -4.207  -3.295  -3.976  -2.796   3.120 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb183"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GLMNETを実行</span></span>
-<span id="cb183-2"><a href="#cb183-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">glmnet</span>(<span class="fu">as.matrix</span>(x_complete), y_complete)</span>
-<span id="cb183-3"><a href="#cb183-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
 <p><img src="hirosaki1_files/figure-html/unnamed-chunk-51-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb183"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb183-1"><a href="#cb183-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"疲労感とBPの散布図.png"</span>, <span class="at">bg=</span><span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Saving 10 x 8 in image</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 5 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+</div>
+</section>
+<section id="不安感と-bp-の散布図" class="level3" data-number="4.2">
+<h3 data-number="4.2" class="anchored" data-anchor-id="不安感と-bp-の散布図"><span class="header-section-number">4.2</span> 不安感と BP の散布図</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb186"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの準備（NAを除外）</span></span>
+<span id="cb186-2"><a href="#cb186-2" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb186-3"><a href="#cb186-3" aria-hidden="true" tabindex="-1"></a>  不安感 <span class="ot">=</span> df<span class="sc">$</span>不安感[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>不安感) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>BP)],</span>
+<span id="cb186-4"><a href="#cb186-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">BP =</span> df<span class="sc">$</span>BP[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>不安感) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>BP)]</span>
+<span id="cb186-5"><a href="#cb186-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb186-6"><a href="#cb186-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb186-7"><a href="#cb186-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 散布図の作成</span></span>
+<span id="cb186-8"><a href="#cb186-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(scatter_data, <span class="fu">aes</span>(<span class="at">x =</span> 不安感, <span class="at">y =</span> BP)) <span class="sc">+</span></span>
+<span id="cb186-9"><a href="#cb186-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb186-10"><a href="#cb186-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb186-11"><a href="#cb186-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb186-12"><a href="#cb186-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"不安感"</span>,</span>
+<span id="cb186-13"><a href="#cb186-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"BP"</span>) <span class="sc">+</span></span>
+<span id="cb186-14"><a href="#cb186-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb186-15"><a href="#cb186-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb186-16"><a href="#cb186-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">34</span>),</span>
+<span id="cb186-17"><a href="#cb186-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>),</span>
+<span id="cb186-18"><a href="#cb186-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb186-19"><a href="#cb186-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb186-20"><a href="#cb186-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">2.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 5 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hirosaki1_files/figure-html/unnamed-chunk-52-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb188"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb188-1"><a href="#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"不安感とBPの散布図.png"</span>, <span class="at">bg=</span><span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Saving 10 x 8 in image</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 5 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+</div>
+</section>
+<section id="抑うつ感と-bp-の散布図" class="level3" data-number="4.3">
+<h3 data-number="4.3" class="anchored" data-anchor-id="抑うつ感と-bp-の散布図"><span class="header-section-number">4.3</span> 抑うつ感と BP の散布図</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb191"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb191-1"><a href="#cb191-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの準備（NAを除外）</span></span>
+<span id="cb191-2"><a href="#cb191-2" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb191-3"><a href="#cb191-3" aria-hidden="true" tabindex="-1"></a>  抑うつ感 <span class="ot">=</span> df<span class="sc">$</span>抑うつ感[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>抑うつ感) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>BP)],</span>
+<span id="cb191-4"><a href="#cb191-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">BP =</span> df<span class="sc">$</span>BP[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>抑うつ感) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>BP)]</span>
+<span id="cb191-5"><a href="#cb191-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb191-6"><a href="#cb191-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb191-7"><a href="#cb191-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 散布図の作成</span></span>
+<span id="cb191-8"><a href="#cb191-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(scatter_data, <span class="fu">aes</span>(<span class="at">x =</span> 抑うつ感, <span class="at">y =</span> BP)) <span class="sc">+</span></span>
+<span id="cb191-9"><a href="#cb191-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb191-10"><a href="#cb191-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb191-11"><a href="#cb191-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb191-12"><a href="#cb191-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"抑うつ感"</span>,</span>
+<span id="cb191-13"><a href="#cb191-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"BP"</span>) <span class="sc">+</span></span>
+<span id="cb191-14"><a href="#cb191-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb191-15"><a href="#cb191-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb191-16"><a href="#cb191-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">34</span>),</span>
+<span id="cb191-17"><a href="#cb191-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>),</span>
+<span id="cb191-18"><a href="#cb191-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb191-19"><a href="#cb191-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb191-20"><a href="#cb191-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">2.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 5 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hirosaki1_files/figure-html/unnamed-chunk-53-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb193"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb193-1"><a href="#cb193-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"抑うつ感とBPの散布図.png"</span>, <span class="at">bg=</span><span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Saving 10 x 8 in image</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 5 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+</div>
+</section>
+<section id="イライラ感と-bp-の散布図" class="level3" data-number="4.4">
+<h3 data-number="4.4" class="anchored" data-anchor-id="イライラ感と-bp-の散布図"><span class="header-section-number">4.4</span> イライラ感と BP の散布図</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb196"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの準備（NAを除外）</span></span>
+<span id="cb196-2"><a href="#cb196-2" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb196-3"><a href="#cb196-3" aria-hidden="true" tabindex="-1"></a>  イライラ感 <span class="ot">=</span> df<span class="sc">$</span>イライラ感[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>イライラ感) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>BP)],</span>
+<span id="cb196-4"><a href="#cb196-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">BP =</span> df<span class="sc">$</span>BP[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>イライラ感) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>BP)]</span>
+<span id="cb196-5"><a href="#cb196-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb196-6"><a href="#cb196-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb196-7"><a href="#cb196-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 散布図の作成</span></span>
+<span id="cb196-8"><a href="#cb196-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(scatter_data, <span class="fu">aes</span>(<span class="at">x =</span> イライラ感, <span class="at">y =</span> BP)) <span class="sc">+</span></span>
+<span id="cb196-9"><a href="#cb196-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb196-10"><a href="#cb196-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb196-11"><a href="#cb196-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb196-12"><a href="#cb196-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"イライラ感"</span>,</span>
+<span id="cb196-13"><a href="#cb196-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"BP"</span>) <span class="sc">+</span></span>
+<span id="cb196-14"><a href="#cb196-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb196-15"><a href="#cb196-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb196-16"><a href="#cb196-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">34</span>),</span>
+<span id="cb196-17"><a href="#cb196-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>),</span>
+<span id="cb196-18"><a href="#cb196-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb196-19"><a href="#cb196-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb196-20"><a href="#cb196-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">2.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 5 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hirosaki1_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb198"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"イライラ感とBPの散布図.png"</span>, <span class="at">bg=</span><span class="st">"white"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Saving 10 x 8 in image</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 5 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+</div>
+</section>
+<section id="活気と-bp-の散布図" class="level3" data-number="4.5">
+<h3 data-number="4.5" class="anchored" data-anchor-id="活気と-bp-の散布図"><span class="header-section-number">4.5</span> 活気と BP の散布図</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb201"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb201-1"><a href="#cb201-1" aria-hidden="true" tabindex="-1"></a><span class="co"># データの準備（NAを除外）</span></span>
+<span id="cb201-2"><a href="#cb201-2" aria-hidden="true" tabindex="-1"></a>scatter_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb201-3"><a href="#cb201-3" aria-hidden="true" tabindex="-1"></a>  活気 <span class="ot">=</span> df<span class="sc">$</span>活気[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>活気) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>BP)],</span>
+<span id="cb201-4"><a href="#cb201-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">BP =</span> df<span class="sc">$</span>BP[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>活気) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(df<span class="sc">$</span>BP)]</span>
+<span id="cb201-5"><a href="#cb201-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb201-6"><a href="#cb201-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb201-7"><a href="#cb201-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 散布図の作成</span></span>
+<span id="cb201-8"><a href="#cb201-8" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(scatter_data, <span class="fu">aes</span>(<span class="at">x =</span> 活気, <span class="at">y =</span> BP)) <span class="sc">+</span></span>
+<span id="cb201-9"><a href="#cb201-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"skyblue"</span>, <span class="at">size =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb201-10"><a href="#cb201-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb201-11"><a href="#cb201-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb201-12"><a href="#cb201-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"活気"</span>,</span>
+<span id="cb201-13"><a href="#cb201-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"BP"</span>) <span class="sc">+</span></span>
+<span id="cb201-14"><a href="#cb201-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb201-15"><a href="#cb201-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">16</span>),</span>
+<span id="cb201-16"><a href="#cb201-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">34</span>),</span>
+<span id="cb201-17"><a href="#cb201-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>),</span>
+<span id="cb201-18"><a href="#cb201-18" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb201-19"><a href="#cb201-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb201-20"><a href="#cb201-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.0</span>, <span class="fl">2.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 5 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hirosaki1_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb203"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href="#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave("活気とBPの散布図.png", bg="white")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+</section>
+<section id="lasso-をやってみる" class="level2" data-number="5">
+<h2 data-number="5" class="anchored" data-anchor-id="lasso-をやってみる"><span class="header-section-number">5</span> LASSO をやってみる</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb204"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb204-1"><a href="#cb204-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glmnet)</span>
+<span id="cb204-2"><a href="#cb204-2" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> df<span class="sc">$</span>判別式</span>
+<span id="cb204-3"><a href="#cb204-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> df[, <span class="fu">paste0</span>(<span class="st">"item"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>)]</span>
+<span id="cb204-4"><a href="#cb204-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 前処理の確認</span></span>
+<span id="cb204-5"><a href="#cb204-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">head</span>(df<span class="sc">$</span>判別式))  <span class="co"># 元の判別式の値を確認</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -2.880 -3.343 -2.727 -2.974 -7.338 -2.776</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb206"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb206-1"><a href="#cb206-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 完全なケースのみを抽出</span></span>
+<span id="cb206-2"><a href="#cb206-2" aria-hidden="true" tabindex="-1"></a>complete_cases <span class="ot">&lt;-</span> <span class="fu">complete.cases</span>(x) <span class="sc">&amp;</span> <span class="sc">!</span><span class="fu">is.na</span>(y)</span>
+<span id="cb206-3"><a href="#cb206-3" aria-hidden="true" tabindex="-1"></a>x_complete <span class="ot">&lt;-</span> x[complete_cases, ]</span>
+<span id="cb206-4"><a href="#cb206-4" aria-hidden="true" tabindex="-1"></a>y_complete <span class="ot">&lt;-</span> y[complete_cases]</span>
+<span id="cb206-5"><a href="#cb206-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb206-6"><a href="#cb206-6" aria-hidden="true" tabindex="-1"></a><span class="co"># データの次元を確認</span></span>
+<span id="cb206-7"><a href="#cb206-7" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">dim</span>(x_complete))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1148   18</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb208"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb208-1"><a href="#cb208-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">length</span>(y_complete))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1148</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb210"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb210-1"><a href="#cb210-1" aria-hidden="true" tabindex="-1"></a><span class="co"># y_completeの要約統計量</span></span>
+<span id="cb210-2"><a href="#cb210-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(<span class="fu">summary</span>(y_complete))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-70.246  -4.207  -3.295  -3.976  -2.796   3.120 </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb212"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb212-1"><a href="#cb212-1" aria-hidden="true" tabindex="-1"></a><span class="co"># GLMNETを実行</span></span>
+<span id="cb212-2"><a href="#cb212-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">glmnet</span>(<span class="fu">as.matrix</span>(x_complete), y_complete)</span>
+<span id="cb212-3"><a href="#cb212-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hirosaki1_files/figure-html/unnamed-chunk-56-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -2497,7 +2676,7 @@ mean of x mean of y
 </ol>
 <p>職業性ストレスチェックでは何も説明できていないことが如実に現れている．</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb184"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb184-1"><a href="#cb184-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb213"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb213-1"><a href="#cb213-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:  glmnet(x = as.matrix(x_complete), y = y_complete) 
@@ -2574,7 +2753,7 @@ Call:  glmnet(x = as.matrix(x_complete), y = y_complete)
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb186"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb186-1"><a href="#cb186-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(fit, <span class="at">s =</span> <span class="fl">0.10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb215"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb215-1"><a href="#cb215-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(fit, <span class="at">s =</span> <span class="fl">0.10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>19 x 1 sparse Matrix of class "dgCMatrix"
                      s1
@@ -2603,218 +2782,32 @@ item18       .         </code></pre>
 <section id="graphical-lasso-をやってみる" class="level2" data-number="6">
 <h2 data-number="6" class="anchored" data-anchor-id="graphical-lasso-をやってみる"><span class="header-section-number">6</span> Graphical Lasso をやってみる</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb188"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb188-1"><a href="#cb188-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glasso)</span>
-<span id="cb188-2"><a href="#cb188-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 相関行列の計算</span></span>
-<span id="cb188-3"><a href="#cb188-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 完全なケースのみを使用</span></span>
-<span id="cb188-4"><a href="#cb188-4" aria-hidden="true" tabindex="-1"></a>x_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(x_complete)</span>
-<span id="cb188-5"><a href="#cb188-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb188-6"><a href="#cb188-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Graphical LASSOの実行</span></span>
-<span id="cb188-7"><a href="#cb188-7" aria-hidden="true" tabindex="-1"></a><span class="co"># rhoは正則化パラメータ。小さいほど密なネットワーク、大きいほど疎なネットワークになります</span></span>
-<span id="cb188-8"><a href="#cb188-8" aria-hidden="true" tabindex="-1"></a>glasso_result <span class="ot">&lt;-</span> <span class="fu">glasso</span>(x_cor, <span class="at">rho =</span> <span class="fl">0.5</span>)</span>
-<span id="cb188-9"><a href="#cb188-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb188-10"><a href="#cb188-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 結果の確認</span></span>
-<span id="cb188-11"><a href="#cb188-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 精度行列（逆共分散行列）</span></span>
-<span id="cb188-12"><a href="#cb188-12" aria-hidden="true" tabindex="-1"></a>precision_matrix <span class="ot">&lt;-</span> glasso_result<span class="sc">$</span>wi</span>
-<span id="cb188-13"><a href="#cb188-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb188-14"><a href="#cb188-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 推定された共分散行列</span></span>
-<span id="cb188-15"><a href="#cb188-15" aria-hidden="true" tabindex="-1"></a>estimated_covariance <span class="ot">&lt;-</span> glasso_result<span class="sc">$</span>w</span>
-<span id="cb188-16"><a href="#cb188-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb188-17"><a href="#cb188-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ネットワークの可視化</span></span>
-<span id="cb188-18"><a href="#cb188-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qgraph)</span>
-<span id="cb188-19"><a href="#cb188-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'igraph'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:BayesFactor':
-
-    compare</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:dplyr':
-
-    as_data_frame, groups, union</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    decompose, spectrum</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:base':
-
-    union</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb194"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb194-1"><a href="#cb194-1" aria-hidden="true" tabindex="-1"></a><span class="co"># qgraphを使用してネットワークを可視化</span></span>
-<span id="cb194-2"><a href="#cb194-2" aria-hidden="true" tabindex="-1"></a><span class="fu">qgraph</span>(precision_matrix, </span>
-<span id="cb194-3"><a href="#cb194-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">layout =</span> <span class="st">"spring"</span>,</span>
-<span id="cb194-4"><a href="#cb194-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels =</span> <span class="fu">paste0</span>(<span class="st">"item"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>),</span>
-<span id="cb194-5"><a href="#cb194-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge.color =</span> <span class="st">"darkblue"</span>,</span>
-<span id="cb194-6"><a href="#cb194-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Graphical LASSO Network"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hirosaki1_files/figure-html/unnamed-chunk-54-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb195"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb195-1"><a href="#cb195-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> df[, <span class="fu">c</span>(<span class="st">"活気"</span>, <span class="st">"イライラ感"</span>, <span class="st">"疲労感"</span>, <span class="st">"不安感"</span>, <span class="st">"抑うつ感"</span>)]</span>
-<span id="cb195-2"><a href="#cb195-2" aria-hidden="true" tabindex="-1"></a>x_complete <span class="ot">&lt;-</span> x[<span class="fu">complete.cases</span>(x), ]</span>
-<span id="cb195-3"><a href="#cb195-3" aria-hidden="true" tabindex="-1"></a>x_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(x_complete)</span>
-<span id="cb195-4"><a href="#cb195-4" aria-hidden="true" tabindex="-1"></a>glasso_result <span class="ot">&lt;-</span> <span class="fu">glasso</span>(x_cor, <span class="at">rho =</span> <span class="fl">0.05</span>)</span>
-<span id="cb195-5"><a href="#cb195-5" aria-hidden="true" tabindex="-1"></a>precision_matrix <span class="ot">&lt;-</span> glasso_result<span class="sc">$</span>wi</span>
-<span id="cb195-6"><a href="#cb195-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>)</span>
-<span id="cb195-7"><a href="#cb195-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb195-8"><a href="#cb195-8" aria-hidden="true" tabindex="-1"></a><span class="co"># qgraphでの表示（fontFamilyは削除）</span></span>
-<span id="cb195-9"><a href="#cb195-9" aria-hidden="true" tabindex="-1"></a><span class="fu">qgraph</span>(precision_matrix, </span>
-<span id="cb195-10"><a href="#cb195-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">layout =</span> <span class="st">"spring"</span>,</span>
-<span id="cb195-11"><a href="#cb195-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels =</span> <span class="fu">colnames</span>(x),</span>
-<span id="cb195-12"><a href="#cb195-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge.color =</span> <span class="st">"darkblue"</span>,</span>
-<span id="cb195-13"><a href="#cb195-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Graphical LASSO Network"</span>,</span>
-<span id="cb195-14"><a href="#cb195-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.font =</span> <span class="dv">2</span>,      <span class="co"># フォントの太さ</span></span>
-<span id="cb195-15"><a href="#cb195-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.scale =</span> <span class="cn">TRUE</span>,  <span class="co"># ラベルのサイズを自動調整</span></span>
-<span id="cb195-16"><a href="#cb195-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.cex =</span> <span class="fl">1.2</span>,     <span class="co"># ラベルの文字サイズ</span></span>
-<span id="cb195-17"><a href="#cb195-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.norm =</span> <span class="st">"0000"</span>) <span class="co"># 日本語文字の位置調整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hirosaki1_files/figure-html/unnamed-chunk-55-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<p>抑うつ感と不安感は強く連動しているようだ．</p>
-<p>プリメディカの３つのサービス間に，簡単な相関はみられない．</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb196"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb196-1"><a href="#cb196-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> df[, <span class="fu">c</span>(<span class="st">"判別式"</span>, <span class="st">"BP"</span>, <span class="st">"LOX-index_H"</span>, <span class="st">"タイプ"</span>, <span class="st">"多様性"</span>, <span class="fu">paste0</span>(<span class="st">"item"</span>, <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">17</span>)))]</span>
-<span id="cb196-2"><a href="#cb196-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>タイプ <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">factor</span>(df<span class="sc">$</span>タイプ, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>)))</span>
-<span id="cb196-3"><a href="#cb196-3" aria-hidden="true" tabindex="-1"></a>x_complete <span class="ot">&lt;-</span> x[<span class="fu">complete.cases</span>(x), ]</span>
-<span id="cb196-4"><a href="#cb196-4" aria-hidden="true" tabindex="-1"></a>x_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(x_complete)</span>
-<span id="cb196-5"><a href="#cb196-5" aria-hidden="true" tabindex="-1"></a>glasso_result <span class="ot">&lt;-</span> <span class="fu">glasso</span>(x_cor, <span class="at">rho =</span> <span class="fl">0.05</span>)</span>
-<span id="cb196-6"><a href="#cb196-6" aria-hidden="true" tabindex="-1"></a>precision_matrix <span class="ot">&lt;-</span> glasso_result<span class="sc">$</span>wi</span>
-<span id="cb196-7"><a href="#cb196-7" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>)</span>
-<span id="cb196-8"><a href="#cb196-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb196-9"><a href="#cb196-9" aria-hidden="true" tabindex="-1"></a><span class="co"># qgraphでの表示（fontFamilyは削除）</span></span>
-<span id="cb196-10"><a href="#cb196-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qgraph</span>(precision_matrix, </span>
-<span id="cb196-11"><a href="#cb196-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">layout =</span> <span class="st">"spring"</span>,</span>
-<span id="cb196-12"><a href="#cb196-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels =</span> <span class="fu">colnames</span>(x),</span>
-<span id="cb196-13"><a href="#cb196-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge.color =</span> <span class="st">"darkblue"</span>,</span>
-<span id="cb196-14"><a href="#cb196-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Graphical LASSO Network"</span>,</span>
-<span id="cb196-15"><a href="#cb196-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.font =</span> <span class="dv">2</span>,      <span class="co"># フォントの太さ</span></span>
-<span id="cb196-16"><a href="#cb196-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.scale =</span> <span class="cn">TRUE</span>,  <span class="co"># ラベルのサイズを自動調整</span></span>
-<span id="cb196-17"><a href="#cb196-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.cex =</span> <span class="fl">1.2</span>,     <span class="co"># ラベルの文字サイズ</span></span>
-<span id="cb196-18"><a href="#cb196-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.norm =</span> <span class="st">"0000"</span>) <span class="co"># 日本語文字の位置調整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hirosaki1_files/figure-html/unnamed-chunk-56-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb197"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb197-1"><a href="#cb197-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> df[, <span class="fu">c</span>(<span class="st">"判別式"</span>, <span class="st">"BP"</span>, <span class="st">"LOX-index_H"</span>, <span class="st">"タイプ"</span>, <span class="st">"多様性"</span>, <span class="st">"活気"</span>, <span class="st">"イライラ感"</span>, <span class="st">"疲労感"</span>, <span class="st">"不安感"</span>, <span class="st">"抑うつ感"</span>)]</span>
-<span id="cb197-2"><a href="#cb197-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>タイプ <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">factor</span>(df<span class="sc">$</span>タイプ, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>)))</span>
-<span id="cb197-3"><a href="#cb197-3" aria-hidden="true" tabindex="-1"></a>x_complete <span class="ot">&lt;-</span> x[<span class="fu">complete.cases</span>(x), ]</span>
-<span id="cb197-4"><a href="#cb197-4" aria-hidden="true" tabindex="-1"></a>x_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(x_complete)</span>
-<span id="cb197-5"><a href="#cb197-5" aria-hidden="true" tabindex="-1"></a>glasso_result <span class="ot">&lt;-</span> <span class="fu">glasso</span>(x_cor, <span class="at">rho =</span> <span class="fl">0.05</span>)</span>
-<span id="cb197-6"><a href="#cb197-6" aria-hidden="true" tabindex="-1"></a>precision_matrix <span class="ot">&lt;-</span> glasso_result<span class="sc">$</span>wi</span>
-<span id="cb197-7"><a href="#cb197-7" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>)</span>
-<span id="cb197-8"><a href="#cb197-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb197-9"><a href="#cb197-9" aria-hidden="true" tabindex="-1"></a><span class="co"># qgraphでの表示（fontFamilyは削除）</span></span>
-<span id="cb197-10"><a href="#cb197-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qgraph</span>(precision_matrix, </span>
-<span id="cb197-11"><a href="#cb197-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">layout =</span> <span class="st">"spring"</span>,</span>
-<span id="cb197-12"><a href="#cb197-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels =</span> <span class="fu">colnames</span>(x),</span>
-<span id="cb197-13"><a href="#cb197-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge.color =</span> <span class="st">"darkblue"</span>,</span>
-<span id="cb197-14"><a href="#cb197-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Graphical LASSO Network"</span>,</span>
-<span id="cb197-15"><a href="#cb197-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.font =</span> <span class="dv">2</span>,      <span class="co"># フォントの太さ</span></span>
-<span id="cb197-16"><a href="#cb197-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.scale =</span> <span class="cn">TRUE</span>,  <span class="co"># ラベルのサイズを自動調整</span></span>
-<span id="cb197-17"><a href="#cb197-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.cex =</span> <span class="fl">1.2</span>,     <span class="co"># ラベルの文字サイズ</span></span>
-<span id="cb197-18"><a href="#cb197-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.norm =</span> <span class="st">"0000"</span>) <span class="co"># 日本語文字の位置調整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hirosaki1_files/figure-html/unnamed-chunk-57-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb198"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb198-1"><a href="#cb198-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> df[, <span class="fu">c</span>(<span class="st">"判別式"</span>, <span class="st">"BP"</span>, <span class="st">"LOX-index_H"</span>, <span class="st">"タイプ"</span>, <span class="st">"多様性"</span>,<span class="st">"疲労感"</span>, <span class="st">"不安感"</span>)]</span>
-<span id="cb198-2"><a href="#cb198-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>タイプ <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">factor</span>(df<span class="sc">$</span>タイプ, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>)))</span>
-<span id="cb198-3"><a href="#cb198-3" aria-hidden="true" tabindex="-1"></a>x_complete <span class="ot">&lt;-</span> x[<span class="fu">complete.cases</span>(x), ]</span>
-<span id="cb198-4"><a href="#cb198-4" aria-hidden="true" tabindex="-1"></a>x_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(x_complete)</span>
-<span id="cb198-5"><a href="#cb198-5" aria-hidden="true" tabindex="-1"></a>glasso_result <span class="ot">&lt;-</span> <span class="fu">glasso</span>(x_cor, <span class="at">rho =</span> <span class="fl">0.05</span>)</span>
-<span id="cb198-6"><a href="#cb198-6" aria-hidden="true" tabindex="-1"></a>precision_matrix <span class="ot">&lt;-</span> glasso_result<span class="sc">$</span>wi</span>
-<span id="cb198-7"><a href="#cb198-7" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>)</span>
-<span id="cb198-8"><a href="#cb198-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb198-9"><a href="#cb198-9" aria-hidden="true" tabindex="-1"></a><span class="co"># qgraphでの表示（fontFamilyは削除）</span></span>
-<span id="cb198-10"><a href="#cb198-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qgraph</span>(precision_matrix, </span>
-<span id="cb198-11"><a href="#cb198-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">layout =</span> <span class="st">"spring"</span>,</span>
-<span id="cb198-12"><a href="#cb198-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels =</span> <span class="fu">colnames</span>(x),</span>
-<span id="cb198-13"><a href="#cb198-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge.color =</span> <span class="st">"darkblue"</span>,</span>
-<span id="cb198-14"><a href="#cb198-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Graphical LASSO Network"</span>,</span>
-<span id="cb198-15"><a href="#cb198-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.font =</span> <span class="dv">2</span>,      <span class="co"># フォントの太さ</span></span>
-<span id="cb198-16"><a href="#cb198-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.scale =</span> <span class="cn">TRUE</span>,  <span class="co"># ラベルのサイズを自動調整</span></span>
-<span id="cb198-17"><a href="#cb198-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.cex =</span> <span class="fl">1.2</span>,     <span class="co"># ラベルの文字サイズ</span></span>
-<span id="cb198-18"><a href="#cb198-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.norm =</span> <span class="st">"0000"</span>) <span class="co"># 日本語文字の位置調整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hirosaki1_files/figure-html/unnamed-chunk-58-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="判別式と-lox-の間の関係" class="level2" data-number="7">
-<h2 data-number="7" class="anchored" data-anchor-id="判別式と-lox-の間の関係"><span class="header-section-number">7</span> 判別式と LOX の間の関係</h2>
-<p>全く線型関係ではないようであるし，背後に別の因子が関係しているようだ．</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb199"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb199-1"><a href="#cb199-1" aria-hidden="true" tabindex="-1"></a><span class="co"># BP_A_flag = 0 のデータを抽出</span></span>
-<span id="cb199-2"><a href="#cb199-2" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="ot">&lt;-</span> df[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span>, ]</span>
-<span id="cb199-3"><a href="#cb199-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb199-4"><a href="#cb199-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 標準化関数（NaNを考慮）</span></span>
-<span id="cb199-5"><a href="#cb199-5" aria-hidden="true" tabindex="-1"></a>standardize <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb199-6"><a href="#cb199-6" aria-hidden="true" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb199-7"><a href="#cb199-7" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb199-8"><a href="#cb199-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb199-9"><a href="#cb199-9" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレームの作成（標準化したデータ）</span></span>
-<span id="cb199-10"><a href="#cb199-10" aria-hidden="true" tabindex="-1"></a>plot_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb199-11"><a href="#cb199-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">LOX_index_H_std =</span> <span class="fu">standardize</span>(df_filtered<span class="sc">$</span><span class="st">`</span><span class="at">LOX-index_H</span><span class="st">`</span>),</span>
-<span id="cb199-12"><a href="#cb199-12" aria-hidden="true" tabindex="-1"></a>  判別式<span class="at">_std =</span> <span class="fu">standardize</span>(df_filtered<span class="sc">$</span>判別式)</span>
-<span id="cb199-13"><a href="#cb199-13" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb199-14"><a href="#cb199-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb199-15"><a href="#cb199-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 散布図</span></span>
-<span id="cb199-16"><a href="#cb199-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_data, <span class="fu">aes</span>(<span class="at">x =</span> LOX_index_H_std, <span class="at">y =</span> 判別式_std)) <span class="sc">+</span></span>
-<span id="cb199-17"><a href="#cb199-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
-<span id="cb199-18"><a href="#cb199-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb199-19"><a href="#cb199-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb199-20"><a href="#cb199-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"LOX-index_H と判別式の関係（標準化済）"</span>,</span>
-<span id="cb199-21"><a href="#cb199-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"LOX-index_H（標準化）"</span>,</span>
-<span id="cb199-22"><a href="#cb199-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"判別式（標準化）"</span>) <span class="sc">+</span></span>
-<span id="cb199-23"><a href="#cb199-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb199-24"><a href="#cb199-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">12</span>)</span>
-<span id="cb199-25"><a href="#cb199-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb199-26"><a href="#cb199-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 両軸のスケールを同じに</span></span>
-<span id="cb199-27"><a href="#cb199-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb199-28"><a href="#cb199-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 軸の範囲を-3から3に設定（標準偏差の±3倍程度）</span></span>
-<span id="cb199-29"><a href="#cb199-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>)) <span class="sc">+</span></span>
-<span id="cb199-30"><a href="#cb199-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 50 rows containing non-finite outside the scale range
-(`stat_smooth()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 50 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb217"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb217-1"><a href="#cb217-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(glasso)</span>
+<span id="cb217-2"><a href="#cb217-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 相関行列の計算</span></span>
+<span id="cb217-3"><a href="#cb217-3" aria-hidden="true" tabindex="-1"></a><span class="co"># 完全なケースのみを使用</span></span>
+<span id="cb217-4"><a href="#cb217-4" aria-hidden="true" tabindex="-1"></a>x_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(x_complete)</span>
+<span id="cb217-5"><a href="#cb217-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb217-6"><a href="#cb217-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Graphical LASSOの実行</span></span>
+<span id="cb217-7"><a href="#cb217-7" aria-hidden="true" tabindex="-1"></a><span class="co"># rhoは正則化パラメータ。小さいほど密なネットワーク、大きいほど疎なネットワークになります</span></span>
+<span id="cb217-8"><a href="#cb217-8" aria-hidden="true" tabindex="-1"></a>glasso_result <span class="ot">&lt;-</span> <span class="fu">glasso</span>(x_cor, <span class="at">rho =</span> <span class="fl">0.5</span>)</span>
+<span id="cb217-9"><a href="#cb217-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb217-10"><a href="#cb217-10" aria-hidden="true" tabindex="-1"></a><span class="co"># 結果の確認</span></span>
+<span id="cb217-11"><a href="#cb217-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 精度行列（逆共分散行列）</span></span>
+<span id="cb217-12"><a href="#cb217-12" aria-hidden="true" tabindex="-1"></a>precision_matrix <span class="ot">&lt;-</span> glasso_result<span class="sc">$</span>wi</span>
+<span id="cb217-13"><a href="#cb217-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb217-14"><a href="#cb217-14" aria-hidden="true" tabindex="-1"></a><span class="co"># 推定された共分散行列</span></span>
+<span id="cb217-15"><a href="#cb217-15" aria-hidden="true" tabindex="-1"></a>estimated_covariance <span class="ot">&lt;-</span> glasso_result<span class="sc">$</span>w</span>
+<span id="cb217-16"><a href="#cb217-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb217-17"><a href="#cb217-17" aria-hidden="true" tabindex="-1"></a><span class="co"># ネットワークの可視化</span></span>
+<span id="cb217-18"><a href="#cb217-18" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(qgraph)</span>
+<span id="cb217-19"><a href="#cb217-19" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(igraph)</span>
+<span id="cb217-20"><a href="#cb217-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb217-21"><a href="#cb217-21" aria-hidden="true" tabindex="-1"></a><span class="co"># qgraphを使用してネットワークを可視化</span></span>
+<span id="cb217-22"><a href="#cb217-22" aria-hidden="true" tabindex="-1"></a><span class="fu">qgraph</span>(precision_matrix, </span>
+<span id="cb217-23"><a href="#cb217-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">layout =</span> <span class="st">"spring"</span>,</span>
+<span id="cb217-24"><a href="#cb217-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels =</span> <span class="fu">paste0</span>(<span class="st">"item"</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">18</span>),</span>
+<span id="cb217-25"><a href="#cb217-25" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge.color =</span> <span class="st">"darkblue"</span>,</span>
+<span id="cb217-26"><a href="#cb217-26" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Graphical LASSO Network"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2824,50 +2817,23 @@ Attaching package: 'igraph'</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb203"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb203-1"><a href="#cb203-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_data, <span class="fu">aes</span>(<span class="at">x =</span> LOX_index_H_std, <span class="at">y =</span> 判別式_std)) <span class="sc">+</span></span>
-<span id="cb203-2"><a href="#cb203-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
-<span id="cb203-3"><a href="#cb203-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 線形回帰</span></span>
-<span id="cb203-4"><a href="#cb203-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
-<span id="cb203-5"><a href="#cb203-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># GAM（一般化加法モデル）による非線形回帰</span></span>
-<span id="cb203-6"><a href="#cb203-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"gam"</span>, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb203-7"><a href="#cb203-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># LOESS（局所回帰）による非線形回帰</span></span>
-<span id="cb203-8"><a href="#cb203-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">color =</span> <span class="st">"green"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb203-9"><a href="#cb203-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb203-10"><a href="#cb203-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"LOX-index_H と判別式の関係（標準化済）"</span>,</span>
-<span id="cb203-11"><a href="#cb203-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"異なる回帰手法の比較"</span>,</span>
-<span id="cb203-12"><a href="#cb203-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"LOX-index_H（標準化）"</span>,</span>
-<span id="cb203-13"><a href="#cb203-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"判別式（標準化）"</span>) <span class="sc">+</span></span>
-<span id="cb203-14"><a href="#cb203-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb203-15"><a href="#cb203-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">12</span>)</span>
-<span id="cb203-16"><a href="#cb203-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb203-17"><a href="#cb203-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb203-18"><a href="#cb203-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>)) <span class="sc">+</span></span>
-<span id="cb203-19"><a href="#cb203-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 50 rows containing non-finite outside the scale range
-(`stat_smooth()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ s(x, bs = "cs")'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 50 rows containing non-finite outside the scale range
-(`stat_smooth()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 50 rows containing non-finite outside the scale range
-(`stat_smooth()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 50 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb218"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb218-1"><a href="#cb218-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> df[, <span class="fu">c</span>(<span class="st">"活気"</span>, <span class="st">"イライラ感"</span>, <span class="st">"疲労感"</span>, <span class="st">"不安感"</span>, <span class="st">"抑うつ感"</span>)]</span>
+<span id="cb218-2"><a href="#cb218-2" aria-hidden="true" tabindex="-1"></a>x_complete <span class="ot">&lt;-</span> x[<span class="fu">complete.cases</span>(x), ]</span>
+<span id="cb218-3"><a href="#cb218-3" aria-hidden="true" tabindex="-1"></a>x_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(x_complete)</span>
+<span id="cb218-4"><a href="#cb218-4" aria-hidden="true" tabindex="-1"></a>glasso_result <span class="ot">&lt;-</span> <span class="fu">glasso</span>(x_cor, <span class="at">rho =</span> <span class="fl">0.05</span>)</span>
+<span id="cb218-5"><a href="#cb218-5" aria-hidden="true" tabindex="-1"></a>precision_matrix <span class="ot">&lt;-</span> glasso_result<span class="sc">$</span>wi</span>
+<span id="cb218-6"><a href="#cb218-6" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>)</span>
+<span id="cb218-7"><a href="#cb218-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb218-8"><a href="#cb218-8" aria-hidden="true" tabindex="-1"></a><span class="co"># qgraphでの表示（fontFamilyは削除）</span></span>
+<span id="cb218-9"><a href="#cb218-9" aria-hidden="true" tabindex="-1"></a><span class="fu">qgraph</span>(precision_matrix, </span>
+<span id="cb218-10"><a href="#cb218-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">layout =</span> <span class="st">"spring"</span>,</span>
+<span id="cb218-11"><a href="#cb218-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels =</span> <span class="fu">colnames</span>(x),</span>
+<span id="cb218-12"><a href="#cb218-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge.color =</span> <span class="st">"darkblue"</span>,</span>
+<span id="cb218-13"><a href="#cb218-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Graphical LASSO Network"</span>,</span>
+<span id="cb218-14"><a href="#cb218-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.font =</span> <span class="dv">2</span>,      <span class="co"># フォントの太さ</span></span>
+<span id="cb218-15"><a href="#cb218-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.scale =</span> <span class="cn">TRUE</span>,  <span class="co"># ラベルのサイズを自動調整</span></span>
+<span id="cb218-16"><a href="#cb218-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.cex =</span> <span class="fl">1.2</span>,     <span class="co"># ラベルの文字サイズ</span></span>
+<span id="cb218-17"><a href="#cb218-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.norm =</span> <span class="st">"0000"</span>) <span class="co"># 日本語文字の位置調整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2876,10 +2842,243 @@ Attaching package: 'igraph'</code></pre>
 </div>
 </div>
 </div>
+<p>抑うつ感と不安感は強く連動しているようだ．</p>
+<p>プリメディカの３つのサービス間に，簡単な相関はみられない．</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb219"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb219-1"><a href="#cb219-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> df[, <span class="fu">c</span>(<span class="st">"判別式"</span>, <span class="st">"BP"</span>, <span class="st">"LOX-index_H"</span>, <span class="st">"タイプ"</span>, <span class="st">"多様性"</span>, <span class="fu">paste0</span>(<span class="st">"item"</span>, <span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">6</span>,<span class="dv">9</span>,<span class="dv">17</span>)))]</span>
+<span id="cb219-2"><a href="#cb219-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>タイプ <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">factor</span>(df<span class="sc">$</span>タイプ, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>)))</span>
+<span id="cb219-3"><a href="#cb219-3" aria-hidden="true" tabindex="-1"></a>x_complete <span class="ot">&lt;-</span> x[<span class="fu">complete.cases</span>(x), ]</span>
+<span id="cb219-4"><a href="#cb219-4" aria-hidden="true" tabindex="-1"></a>x_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(x_complete)</span>
+<span id="cb219-5"><a href="#cb219-5" aria-hidden="true" tabindex="-1"></a>glasso_result <span class="ot">&lt;-</span> <span class="fu">glasso</span>(x_cor, <span class="at">rho =</span> <span class="fl">0.05</span>)</span>
+<span id="cb219-6"><a href="#cb219-6" aria-hidden="true" tabindex="-1"></a>precision_matrix <span class="ot">&lt;-</span> glasso_result<span class="sc">$</span>wi</span>
+<span id="cb219-7"><a href="#cb219-7" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>)</span>
+<span id="cb219-8"><a href="#cb219-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb219-9"><a href="#cb219-9" aria-hidden="true" tabindex="-1"></a><span class="co"># qgraphでの表示（fontFamilyは削除）</span></span>
+<span id="cb219-10"><a href="#cb219-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qgraph</span>(precision_matrix, </span>
+<span id="cb219-11"><a href="#cb219-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">layout =</span> <span class="st">"spring"</span>,</span>
+<span id="cb219-12"><a href="#cb219-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels =</span> <span class="fu">colnames</span>(x),</span>
+<span id="cb219-13"><a href="#cb219-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge.color =</span> <span class="st">"darkblue"</span>,</span>
+<span id="cb219-14"><a href="#cb219-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Graphical LASSO Network"</span>,</span>
+<span id="cb219-15"><a href="#cb219-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.font =</span> <span class="dv">2</span>,      <span class="co"># フォントの太さ</span></span>
+<span id="cb219-16"><a href="#cb219-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.scale =</span> <span class="cn">TRUE</span>,  <span class="co"># ラベルのサイズを自動調整</span></span>
+<span id="cb219-17"><a href="#cb219-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.cex =</span> <span class="fl">1.2</span>,     <span class="co"># ラベルの文字サイズ</span></span>
+<span id="cb219-18"><a href="#cb219-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.norm =</span> <span class="st">"0000"</span>) <span class="co"># 日本語文字の位置調整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hirosaki1_files/figure-html/unnamed-chunk-61-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb220"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb220-1"><a href="#cb220-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> df[, <span class="fu">c</span>(<span class="st">"判別式"</span>, <span class="st">"BP"</span>, <span class="st">"LOX-index_H"</span>, <span class="st">"タイプ"</span>, <span class="st">"多様性"</span>, <span class="st">"活気"</span>, <span class="st">"イライラ感"</span>, <span class="st">"疲労感"</span>, <span class="st">"不安感"</span>, <span class="st">"抑うつ感"</span>)]</span>
+<span id="cb220-2"><a href="#cb220-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>タイプ <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">factor</span>(df<span class="sc">$</span>タイプ, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>)))</span>
+<span id="cb220-3"><a href="#cb220-3" aria-hidden="true" tabindex="-1"></a>x_complete <span class="ot">&lt;-</span> x[<span class="fu">complete.cases</span>(x), ]</span>
+<span id="cb220-4"><a href="#cb220-4" aria-hidden="true" tabindex="-1"></a>x_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(x_complete)</span>
+<span id="cb220-5"><a href="#cb220-5" aria-hidden="true" tabindex="-1"></a>glasso_result <span class="ot">&lt;-</span> <span class="fu">glasso</span>(x_cor, <span class="at">rho =</span> <span class="fl">0.05</span>)</span>
+<span id="cb220-6"><a href="#cb220-6" aria-hidden="true" tabindex="-1"></a>precision_matrix <span class="ot">&lt;-</span> glasso_result<span class="sc">$</span>wi</span>
+<span id="cb220-7"><a href="#cb220-7" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>)</span>
+<span id="cb220-8"><a href="#cb220-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb220-9"><a href="#cb220-9" aria-hidden="true" tabindex="-1"></a><span class="co"># qgraphでの表示（fontFamilyは削除）</span></span>
+<span id="cb220-10"><a href="#cb220-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qgraph</span>(precision_matrix, </span>
+<span id="cb220-11"><a href="#cb220-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">layout =</span> <span class="st">"spring"</span>,</span>
+<span id="cb220-12"><a href="#cb220-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels =</span> <span class="fu">colnames</span>(x),</span>
+<span id="cb220-13"><a href="#cb220-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge.color =</span> <span class="st">"darkblue"</span>,</span>
+<span id="cb220-14"><a href="#cb220-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Graphical LASSO Network"</span>,</span>
+<span id="cb220-15"><a href="#cb220-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.font =</span> <span class="dv">2</span>,      <span class="co"># フォントの太さ</span></span>
+<span id="cb220-16"><a href="#cb220-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.scale =</span> <span class="cn">TRUE</span>,  <span class="co"># ラベルのサイズを自動調整</span></span>
+<span id="cb220-17"><a href="#cb220-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.cex =</span> <span class="fl">1.2</span>,     <span class="co"># ラベルの文字サイズ</span></span>
+<span id="cb220-18"><a href="#cb220-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.norm =</span> <span class="st">"0000"</span>) <span class="co"># 日本語文字の位置調整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hirosaki1_files/figure-html/unnamed-chunk-62-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb221"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb221-1"><a href="#cb221-1" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> df[, <span class="fu">c</span>(<span class="st">"判別式"</span>, <span class="st">"BP"</span>, <span class="st">"LOX-index_H"</span>, <span class="st">"タイプ"</span>, <span class="st">"多様性"</span>,<span class="st">"疲労感"</span>, <span class="st">"不安感"</span>)]</span>
+<span id="cb221-2"><a href="#cb221-2" aria-hidden="true" tabindex="-1"></a>x<span class="sc">$</span>タイプ <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(<span class="fu">factor</span>(df<span class="sc">$</span>タイプ, <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"A"</span>, <span class="st">"B"</span>, <span class="st">"C"</span>, <span class="st">"D"</span>, <span class="st">"E"</span>)))</span>
+<span id="cb221-3"><a href="#cb221-3" aria-hidden="true" tabindex="-1"></a>x_complete <span class="ot">&lt;-</span> x[<span class="fu">complete.cases</span>(x), ]</span>
+<span id="cb221-4"><a href="#cb221-4" aria-hidden="true" tabindex="-1"></a>x_cor <span class="ot">&lt;-</span> <span class="fu">cor</span>(x_complete)</span>
+<span id="cb221-5"><a href="#cb221-5" aria-hidden="true" tabindex="-1"></a>glasso_result <span class="ot">&lt;-</span> <span class="fu">glasso</span>(x_cor, <span class="at">rho =</span> <span class="fl">0.05</span>)</span>
+<span id="cb221-6"><a href="#cb221-6" aria-hidden="true" tabindex="-1"></a>precision_matrix <span class="ot">&lt;-</span> glasso_result<span class="sc">$</span>wi</span>
+<span id="cb221-7"><a href="#cb221-7" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>)</span>
+<span id="cb221-8"><a href="#cb221-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb221-9"><a href="#cb221-9" aria-hidden="true" tabindex="-1"></a><span class="co"># qgraphでの表示（fontFamilyは削除）</span></span>
+<span id="cb221-10"><a href="#cb221-10" aria-hidden="true" tabindex="-1"></a><span class="fu">qgraph</span>(precision_matrix, </span>
+<span id="cb221-11"><a href="#cb221-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">layout =</span> <span class="st">"spring"</span>,</span>
+<span id="cb221-12"><a href="#cb221-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">labels =</span> <span class="fu">colnames</span>(x),</span>
+<span id="cb221-13"><a href="#cb221-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">edge.color =</span> <span class="st">"darkblue"</span>,</span>
+<span id="cb221-14"><a href="#cb221-14" aria-hidden="true" tabindex="-1"></a>       <span class="at">title =</span> <span class="st">"Graphical LASSO Network"</span>,</span>
+<span id="cb221-15"><a href="#cb221-15" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.font =</span> <span class="dv">2</span>,      <span class="co"># フォントの太さ</span></span>
+<span id="cb221-16"><a href="#cb221-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.scale =</span> <span class="cn">TRUE</span>,  <span class="co"># ラベルのサイズを自動調整</span></span>
+<span id="cb221-17"><a href="#cb221-17" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.cex =</span> <span class="fl">1.2</span>,     <span class="co"># ラベルの文字サイズ</span></span>
+<span id="cb221-18"><a href="#cb221-18" aria-hidden="true" tabindex="-1"></a>       <span class="at">label.norm =</span> <span class="st">"0000"</span>) <span class="co"># 日本語文字の位置調整</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hirosaki1_files/figure-html/unnamed-chunk-63-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="判別式と-lox-の間の関係" class="level2" data-number="7">
+<h2 data-number="7" class="anchored" data-anchor-id="判別式と-lox-の間の関係"><span class="header-section-number">7</span> 判別式と LOX の間の関係</h2>
+<p>全く線型関係ではないようであるし，背後に別の因子が関係しているようだ．</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb222"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb222-1"><a href="#cb222-1" aria-hidden="true" tabindex="-1"></a><span class="co"># BP_A_flag = 0 のデータを抽出</span></span>
+<span id="cb222-2"><a href="#cb222-2" aria-hidden="true" tabindex="-1"></a>df_filtered <span class="ot">&lt;-</span> df[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span>, ]</span>
+<span id="cb222-3"><a href="#cb222-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-4"><a href="#cb222-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 標準化関数（NaNを考慮）</span></span>
+<span id="cb222-5"><a href="#cb222-5" aria-hidden="true" tabindex="-1"></a>standardize <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
+<span id="cb222-6"><a href="#cb222-6" aria-hidden="true" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb222-7"><a href="#cb222-7" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb222-8"><a href="#cb222-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-9"><a href="#cb222-9" aria-hidden="true" tabindex="-1"></a><span class="co"># データフレームの作成（標準化したデータ）</span></span>
+<span id="cb222-10"><a href="#cb222-10" aria-hidden="true" tabindex="-1"></a>plot_data <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
+<span id="cb222-11"><a href="#cb222-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">LOX_index_H_std =</span> <span class="fu">standardize</span>(df_filtered<span class="sc">$</span><span class="st">`</span><span class="at">LOX-index_H</span><span class="st">`</span>),</span>
+<span id="cb222-12"><a href="#cb222-12" aria-hidden="true" tabindex="-1"></a>  判別式<span class="at">_std =</span> <span class="fu">standardize</span>(df_filtered<span class="sc">$</span>判別式)</span>
+<span id="cb222-13"><a href="#cb222-13" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb222-14"><a href="#cb222-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb222-15"><a href="#cb222-15" aria-hidden="true" tabindex="-1"></a><span class="co"># 散布図</span></span>
+<span id="cb222-16"><a href="#cb222-16" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_data, <span class="fu">aes</span>(<span class="at">x =</span> LOX_index_H_std, <span class="at">y =</span> 判別式_std)) <span class="sc">+</span></span>
+<span id="cb222-17"><a href="#cb222-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
+<span id="cb222-18"><a href="#cb222-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb222-19"><a href="#cb222-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb222-20"><a href="#cb222-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"LOX-index_H と判別式の関係（標準化済）"</span>,</span>
+<span id="cb222-21"><a href="#cb222-21" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"LOX-index_H（標準化）"</span>,</span>
+<span id="cb222-22"><a href="#cb222-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"判別式（標準化）"</span>) <span class="sc">+</span></span>
+<span id="cb222-23"><a href="#cb222-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb222-24"><a href="#cb222-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">12</span>)</span>
+<span id="cb222-25"><a href="#cb222-25" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb222-26"><a href="#cb222-26" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 両軸のスケールを同じに</span></span>
+<span id="cb222-27"><a href="#cb222-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb222-28"><a href="#cb222-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 軸の範囲を-3から3に設定（標準偏差の±3倍程度）</span></span>
+<span id="cb222-29"><a href="#cb222-29" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb222-30"><a href="#cb222-30" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 50 rows containing non-finite values (`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 50 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hirosaki1_files/figure-html/unnamed-chunk-64-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb226"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb226-1"><a href="#cb226-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(plot_data, <span class="fu">aes</span>(<span class="at">x =</span> LOX_index_H_std, <span class="at">y =</span> 判別式_std)) <span class="sc">+</span></span>
+<span id="cb226-2"><a href="#cb226-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
+<span id="cb226-3"><a href="#cb226-3" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 線形回帰</span></span>
+<span id="cb226-4"><a href="#cb226-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>, <span class="at">linetype =</span> <span class="st">"dashed"</span>) <span class="sc">+</span></span>
+<span id="cb226-5"><a href="#cb226-5" aria-hidden="true" tabindex="-1"></a>  <span class="co"># GAM（一般化加法モデル）による非線形回帰</span></span>
+<span id="cb226-6"><a href="#cb226-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"gam"</span>, <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb226-7"><a href="#cb226-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># LOESS（局所回帰）による非線形回帰</span></span>
+<span id="cb226-8"><a href="#cb226-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"loess"</span>, <span class="at">color =</span> <span class="st">"green"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb226-9"><a href="#cb226-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb226-10"><a href="#cb226-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"LOX-index_H と判別式の関係（標準化済）"</span>,</span>
+<span id="cb226-11"><a href="#cb226-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">subtitle =</span> <span class="st">"異なる回帰手法の比較"</span>,</span>
+<span id="cb226-12"><a href="#cb226-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"LOX-index_H（標準化）"</span>,</span>
+<span id="cb226-13"><a href="#cb226-13" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"判別式（標準化）"</span>) <span class="sc">+</span></span>
+<span id="cb226-14"><a href="#cb226-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb226-15"><a href="#cb226-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">12</span>)</span>
+<span id="cb226-16"><a href="#cb226-16" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb226-17"><a href="#cb226-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb226-18"><a href="#cb226-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>)) <span class="sc">+</span></span>
+<span id="cb226-19"><a href="#cb226-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">3</span>, <span class="dv">3</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 50 rows containing non-finite values (`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ s(x, bs = "cs")'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 50 rows containing non-finite values (`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 50 rows containing non-finite values (`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 50 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hirosaki1_files/figure-html/unnamed-chunk-65-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
 <ol type="1">
 <li>trancation が見える</li>
 <li>真のスケールはすごく小さくて，他は外れ値というべき？</li>
 </ol>
+</section>
+<section id="bp-と-lab-との関係" class="level2" data-number="8">
+<h2 data-number="8" class="anchored" data-anchor-id="bp-と-lab-との関係"><span class="header-section-number">8</span> BP と LAB との関係</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb234"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb234-1"><a href="#cb234-1" aria-hidden="true" tabindex="-1"></a>mini_df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span>, <span class="fu">c</span>(<span class="st">"BP"</span>, <span class="st">"LAB_H"</span>)]</span>
+<span id="cb234-2"><a href="#cb234-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mini_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"BP"</span>, <span class="st">"LAB"</span>)</span>
+<span id="cb234-3"><a href="#cb234-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mini_df<span class="sc">$</span>LAB)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.900   2.400   3.000   3.022   3.500   6.400      29 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb236"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb236-1"><a href="#cb236-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mini_df, <span class="fu">aes</span>(<span class="at">x =</span> LAB, <span class="at">y =</span> BP)) <span class="sc">+</span></span>
+<span id="cb236-2"><a href="#cb236-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
+<span id="cb236-3"><a href="#cb236-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
+<span id="cb236-4"><a href="#cb236-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb236-5"><a href="#cb236-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"LAB と BP の相関"</span>,</span>
+<span id="cb236-6"><a href="#cb236-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"LAB"</span>,</span>
+<span id="cb236-7"><a href="#cb236-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"BP"</span>) <span class="sc">+</span></span>
+<span id="cb236-8"><a href="#cb236-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb236-9"><a href="#cb236-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
+<span id="cb236-10"><a href="#cb236-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">34</span>),</span>
+<span id="cb236-11"><a href="#cb236-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>),</span>
+<span id="cb236-12"><a href="#cb236-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>)</span>
+<span id="cb236-13"><a href="#cb236-13" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb236-14"><a href="#cb236-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 両軸のスケールを同じに</span></span>
+<span id="cb236-15"><a href="#cb236-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<span id="cb236-16"><a href="#cb236-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 軸の範囲を-3から3に設定（標準偏差の±3倍程度）</span></span>
+<span id="cb236-17"><a href="#cb236-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
+<span id="cb236-18"><a href="#cb236-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">2.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 56 rows containing non-finite values (`stat_smooth()`).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 56 rows containing missing values (`geom_point()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="hirosaki1_files/figure-html/unnamed-chunk-67-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb240"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb240-1"><a href="#cb240-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ggsave("LABとBPの相関.png", bg="white")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 </section>
