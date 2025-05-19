@@ -142,13 +142,13 @@ window.Quarto = {
 
 <link rel="stylesheet" href="../../assets/styles.css">
 <meta property="og:title" content="弘前データ１-１：法定検診との関係の詳細検討 – ぷにうぱ">
-<meta property="og:description" content="前稿で得た知見を基に，さらに詳細な検討を行う． 次節では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す．">
+<meta property="og:description" content="[前稿](hirosaki1.">
 <meta property="og:image" content="https://puniupa.github.io/posts/Cocosiru/hirosaki1-1_files/figure-html/unnamed-chunk-4-1.png">
 <meta property="og:site_name" content="ぷにうぱ">
 <meta property="og:image:height" content="1800">
 <meta property="og:image:width" content="3000">
 <meta name="twitter:title" content="弘前データ１-１：法定検診との関係の詳細検討 – ぷにうぱ">
-<meta name="twitter:description" content="前稿で得た知見を基に，さらに詳細な検討を行う． 次節では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す．">
+<meta name="twitter:description" content="[前稿](hirosaki1.">
 <meta name="twitter:image" content="https://puniupa.github.io/posts/Cocosiru/hirosaki1-1_files/figure-html/unnamed-chunk-4-1.png">
 <meta name="twitter:image-height" content="1800">
 <meta name="twitter:image-width" content="3000">
@@ -250,7 +250,9 @@ window.Quarto = {
 <div>
   <div class="abstract">
     <div class="block-title">はじめに</div>
-    <p><a href="../../posts/Cocosiru/hirosaki1.html">前稿</a>で得た知見を基に，さらに詳細な検討を行う． <a href="../../posts/Cocosiru/hirosaki2.html">次節</a>から階層モデリングを目指す．</p>
+    <p><a href="../../posts/Cocosiru/hirosaki1.html">前稿</a>で得た知見を基に，さらに詳細な検討を行う．</p>
+    <p>BP の生の値で回帰するよりも，「BP が高いかどうか」の２値変数（あるいは３値変数）に向けて， ロジスティック回帰を行うことが有望なのではないかと判明した． 「疲労感」と「抑うつ感」で高 BP 群がスコア５を付けやすいことが簡単なバープロットから判る． <span class="math inline">\(\Sigma\)</span>-FLC が低い群は「活気」と「抑うつ感」でスコア５を付けやすい・</p>
+    <p><a href="../../posts/Cocosiru/hirosaki2.html">次節</a>では LAB と BP，LOX-1 と FLCΣ の間のロジスティック回帰関係の階層モデリングを目指す．</p>
   </div>
 </div>
 
@@ -579,6 +581,28 @@ window.Quarto = {
 </tr>
 </tbody>
 </table>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip no-icon callout-titled" title="BP 備考について">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+BP 備考について
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>A: 採尿条件不良（測定条件を満たしていない）</li>
+<li>B: BP 測定値が下限以下</li>
+<li>C: kappa 下限値未満</li>
+<li>D: kappa 10倍希釈では失敗（上限オーバー）</li>
+<li>E: kappa が凍結融解を２回必要とした</li>
+<li>F: lambda 下限値未満</li>
+<li>G: lambda 10倍希釈では失敗（上限オーバー）</li>
+<li>H: lambda が凍結融解を２回必要とした</li>
+</ul>
 </div>
 </div>
 <section id="bp-の値が高い人だけの部分標本でモデリングをする" class="level2" data-number="1">

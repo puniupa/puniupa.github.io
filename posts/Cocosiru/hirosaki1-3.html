@@ -8,7 +8,7 @@
 
 <meta name="author" content="司馬博文">
 
-<title>弘前データ１-２：法定検診との関係の詳細検討 – ぷにうぱ</title>
+<title>弘前データ１-３：法定検診との関係の詳細検討 – ぷにうぱ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -141,14 +141,18 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../assets/styles.css">
-<meta property="og:title" content="弘前データ１-２：法定検診との関係の詳細検討 – ぷにうぱ">
-<meta property="og:description" content="前々稿で得た知見を基に，さらに詳細な検討を行う． 前稿では BP, FLCΣ の値で層別して可視化した． ここでは層別して回帰する，項目反応モデリングを考える． 次節では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す．">
+<meta property="og:title" content="弘前データ１-３：法定検診との関係の詳細検討 – ぷにうぱ">
+<meta property="og:description" content="[前々稿](hirosaki1-1.qmd)では BP, FLCΣ の値で３段階に離散化・層別して可視化した．
+ここでは層別して回帰する，項目反応モデリングを考える．
+項目毎・個人毎のパラメータを識別するのはうまくいかないことを[前稿](hirosaki1-2.">
 <meta property="og:image" content="https://puniupa.github.io/posts/Cocosiru/hirosaki1-3_files/figure-html/unnamed-chunk-7-1.png">
 <meta property="og:site_name" content="ぷにうぱ">
 <meta property="og:image:height" content="2400">
 <meta property="og:image:width" content="3000">
-<meta name="twitter:title" content="弘前データ１-２：法定検診との関係の詳細検討 – ぷにうぱ">
-<meta name="twitter:description" content="前々稿で得た知見を基に，さらに詳細な検討を行う． 前稿では BP, FLCΣ の値で層別して可視化した． ここでは層別して回帰する，項目反応モデリングを考える． 次節では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す．">
+<meta name="twitter:title" content="弘前データ１-３：法定検診との関係の詳細検討 – ぷにうぱ">
+<meta name="twitter:description" content="[前々稿](hirosaki1-1.qmd)では BP, FLCΣ の値で３段階に離散化・層別して可視化した．
+ここでは層別して回帰する，項目反応モデリングを考える．
+項目毎・個人毎のパラメータを識別するのはうまくいかないことを[前稿](hirosaki1-2.">
 <meta name="twitter:image" content="https://puniupa.github.io/posts/Cocosiru/hirosaki1-3_files/figure-html/unnamed-chunk-7-1.png">
 <meta name="twitter:image-height" content="2400">
 <meta name="twitter:image-width" content="3000">
@@ -213,7 +217,7 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">弘前データ１-２：法定検診との関係の詳細検討</h1>
+<h1 class="title">弘前データ１-３：法定検診との関係の詳細検討</h1>
 <p class="subtitle lead">BP, FLCΣ の値の高低を用いた項目反応モデル</p>
 </div>
 
@@ -241,7 +245,8 @@ window.Quarto = {
 <div>
   <div class="abstract">
     <div class="block-title">はじめに</div>
-    <p><a href="../../posts/Cocosiru/hirosaki1.html">前々稿</a>で得た知見を基に，さらに詳細な検討を行う． <a href="../../posts/Cocosiru/hirosaki1-1.html">前稿</a>では BP, FLCΣ の値で層別して可視化した． ここでは層別して回帰する，項目反応モデリングを考える． <a href="../../posts/Cocosiru/hirosaki2.html">次節</a>では LAB と BP，LOX-1 と FLCΣ の間の回帰関係の階層モデリングを目指す．</p>
+    <p><a href="../../posts/Cocosiru/hirosaki1-1.html">前々稿</a>では BP, FLCΣ の値で３段階に離散化・層別して可視化した． ここでは層別して回帰する，項目反応モデリングを考える． 項目毎・個人毎のパラメータを識別するのはうまくいかないことを<a href="../../posts/Cocosiru/hirosaki1-2.html">前稿</a>で見たから，ここでは「活気」「抑うつ感」のレベルで，そして BP のレベル感３クラスで，別々のパラメータを推定することを考える．さらに，「４以上の値を取る」という事象のみに向かって回帰する．</p>
+    <p>最後に，項目毎の固定効果と個人毎の固定効果を追加することで過分散を吸収し，その下で BP と <span class="math inline">\(\Sigma\)</span>-FLC の効果を見た．すると綺麗な条件付き効果のプロットを得ることができる．</p>
   </div>
 </div>
 
