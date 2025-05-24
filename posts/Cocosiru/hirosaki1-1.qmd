@@ -1,0 +1,596 @@
+---
+title: "弘前データ１-１：法定検診との関係の詳細検討"
+subtitle: "BP, FLCΣ の値で層別して可視化"
+author: "司馬博文"
+date: 5/13/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+fig-align: center
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: false
+    fig-width: 10
+    fig-height: 8
+    fig-format: "png"
+    fig-dpi: 300
+    fig-font-family: "Hiragino Sans"
+abstract: |
+  [前稿](hirosaki1.qmd)で得た知見を基に，さらに詳細な検討を行う．
+
+  BP の生の値で回帰するよりも，「BP が高いかどうか」の２値変数（あるいは３値変数）に向けて，
+  ロジスティック回帰を行うことが有望なのではないかと判明した．
+  「疲労感」と「抑うつ感」で高 BP 群がスコア５を付けやすいことが簡単なバープロットから判る．
+  $\Sigma$-FLC が低い群は「活気」と「抑うつ感」でスコア５を付けやすい・
+
+  [次節](hirosaki2.qmd)では LAB と BP，LOX-1 と FLCΣ の間のロジスティック回帰関係の階層モデリングを目指す．
+# listing:
+#   - id: cocosiru1-listing
+#     type: grid
+#     sort: false
+#     contents:
+#       - "source1-1.qmd"
+#     page-size: 3
+#     image-height: 100%
+#     grid-columns: 1
+---
+
+
+```{r}
+#| output: false
+#| echo: false
+library(readxl)
+library(knitr)
+df_raw <- read_excel("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/資料/Hirosaki2.xlsx", sheet = "統合_最終")
+df <- df_raw[, c("受診日年齢", "性別", "Weight", "BP", "FLCΣ", "BP備考", "判別式", "LOX-1_H", "LAB_H", "LOX-index_H", "タイプ", "多様性", paste0("item", 1:18))]
+
+# BP の整理
+df$BP_A_flag <- as.numeric(grepl("A", df$`BP備考`))
+df <- df[df$BP_A_flag == 0, ]
+df$BP <- ifelse(df$BP < 0, -1 * df$BP, df$BP)
+df$判別式 <- as.numeric(gsub("[()]", "", df$判別式))
+
+# 年代を作成（10で割って切り捨てた後、10をかけて年代を表現）
+df$年代 <- paste0(floor(df$受診日年齢/10)*10, "代")
+df$年代 <- factor(df$年代,
+                  levels = c("20代", "30代", "40代", "50代", "60代", "70代", "80代"),
+                  ordered = TRUE)
+```
+
+```{r}
+#| output: false
+#| echo: false
+library(dplyr)
+# ストレスチェックの前処理
+
+item_sum <- df$item1 + df$item2 + df$item3
+score_activity <- function(x) {
+  case_when(
+    x == 3 ~ 5,
+    x >= 4 & x <= 5 ~ 4,
+    x >= 6 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 2,
+    x >= 10 & x <= 12 ~ 1,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$活気 <- score_activity(item_sum)
+
+item_sum <- df$item4 + df$item5 + df$item6
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 4,
+    x >= 10 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 8 ~ 3,
+    x >= 9 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$イライラ感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item7 + df$item8 + df$item9
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 8 ~ 3,
+    x >= 9 & x <= 11 ~ 4,
+    x == 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$疲労感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item10 + df$item11 + df$item12
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 4,
+    x >= 10 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$不安感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item13 + df$item14 + df$item15 + df$item16 + df$item17 + df$item18
+score_activity_m <- function(x) {
+  case_when(
+    x == 6 ~ 1,
+    x >= 7 & x <= 8 ~ 2,
+    x >= 9 & x <= 12 ~ 3,
+    x >= 13 & x <= 16 ~ 4,
+    x >= 17 & x <= 24 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 6 ~ 1,
+    x >= 7 & x <= 8 ~ 2,
+    x >= 9 & x <= 12 ~ 3,
+    x >= 13 & x <= 17 ~ 4,
+    x >= 18 & x <= 24 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$抑うつ感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+```
+
+```{r}
+kable(head(df))
+```
+
+::: {.callout-tip appearance="simple" icon="false" title="BP 備考について"}
+
+* A: 採尿条件不良（測定条件を満たしていない）
+* B: BP 測定値が下限以下
+* C: kappa 下限値未満
+* D: kappa 10倍希釈では失敗（上限オーバー）
+* E: kappa が凍結融解を２回必要とした
+* F: lambda 下限値未満
+* G: lambda 10倍希釈では失敗（上限オーバー）
+* H: lambda が凍結融解を２回必要とした
+
+:::
+
+## BP の値が高い人だけの部分標本でモデリングをする
+
+### BP 分布の可視化
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-cap: "BP値の分布"
+
+df <- df[!is.na(df$BP), ]
+
+# 日本語フォントの設定
+par(family = "HiraKakuPro-W3")  # macOSの場合
+
+# 基本的なヒストグラム
+hist(df$BP,
+     main = "BP値の分布",
+     xlab = "BP値",
+     ylab = "頻度",
+     col = "lightblue",
+     border = "white",
+     breaks = 20)  # Sturgesの公式に基づくビン数の自動設定
+
+# 密度曲線を追加
+lines(density(df$BP, na.rm = TRUE), 
+      col = "red", 
+      lwd = 2)
+
+# 基本統計量を表示
+summary(df$BP)
+```
+
+BP が 1 以上の人が上位 $23\%$ に入る．そこで，0.9 以上の3割，4割，3割に分ける．
+
+```{r}
+df$BP_level <- case_when(
+  df$BP > 0.9 ~ 3,
+  df$BP > 0.6 & df$BP <= 0.9 ~ 2,
+  df$BP <= 0.6 ~ 1
+)
+length(df[df$BP_level == 3, ]$BP)/dim(df)[1]
+length(df[df$BP_level == 2, ]$BP)/dim(df)[1]
+length(df[df$BP_level == 1, ]$BP)/dim(df)[1]
+```
+
+### $\mathtt{BP}>1$ 部分標本の解析（活気で試す）
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-cap: "BP_level別の活気スコアの分布"
+
+library(ggplot2)
+
+# BP_levelを因子型に変換
+df$BP_level <- factor(df$BP_level, 
+                      levels = c(1, 2, 3),
+                      labels = c("低 (BP ≤ 0.6)", "中 (0.6 < BP ≤ 0.9)", "高 (BP > 0.9)"))
+
+# 箱ひげ図の作成（平均値付き）
+ggplot(df, aes(x = BP_level, y = 活気, fill = BP_level)) +
+  geom_boxplot() +
+  stat_summary(fun = mean, geom = "point", shape = 23, size = 3, fill = "white") +  # 平均値を追加
+  scale_y_continuous(breaks = 1:5) +  # y軸を1から5までの整数に設定
+  theme_minimal() +
+  labs(title = "BP_level別の活気スコアの分布（平均値付き）",
+       x = "BP_level",
+       y = "活気スコア") +
+  theme(text = element_text(family = "HiraKakuPro-W3"),
+        plot.title = element_text(hjust = 0.5),
+        legend.position = "none") +
+  scale_fill_brewer(palette = "Pastel1")
+```
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-cap: "BP_level別の活気スコアの分布"
+#| echo: false
+
+# 棒グラフの作成
+ggplot(df, aes(x = 活気, fill = BP_level)) +
+  geom_bar(position = "fill") +
+  geom_text(data = df, aes(label = ..count..), stat = "count", position = position_fill(vjust = 0.5)) +
+  scale_x_continuous(breaks = 1:5) +  # x軸を1から5までの整数に設定
+  theme_minimal() +
+  labs(title = "BP_level別の活気スコアの分布（人数付き）",
+       x = "活気スコア",
+       y = "割合") +
+  theme(text = element_text(family = "HiraKakuPro-W3"),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual(values = c(
+    "低 (BP ≤ 0.6)" = "#9999FF",    # 薄い青
+    "中 (0.6 < BP ≤ 0.9)" = "#99FF99",  # 薄い緑
+    "高 (BP > 0.9)" = "#FF9999"     # 薄い赤
+  ))
+```
+
+### イライラ感
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-cap: "BP_level別の活気スコアの分布"
+#| echo: false
+
+# 棒グラフの作成
+ggplot(df, aes(x = イライラ感, fill = BP_level)) +
+  geom_bar(position = "fill") +
+    geom_text(data = df, aes(label = ..count..), stat = "count", position = position_fill(vjust = 0.5)) +
+  scale_x_continuous(breaks = 1:5) +  # x軸を1から5までの整数に設定
+  theme_minimal() +
+  labs(title = "BP_level別のイライラ感の分布",
+       x = "イライラ感",
+       y = "割合") +
+  theme(text = element_text(family = "HiraKakuPro-W3"),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual(values = c(
+    "低 (BP ≤ 0.6)" = "#9999FF",    # 薄い青
+    "中 (0.6 < BP ≤ 0.9)" = "#99FF99",  # 薄い緑
+    "高 (BP > 0.9)" = "#FF9999"     # 薄い赤
+  ))
+```
+
+### 疲労感
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-cap: "BP_level別の活気スコアの分布"
+#| echo: false
+
+# 棒グラフの作成
+ggplot(df, aes(x = 疲労感, fill = BP_level)) +
+  geom_bar(position = "fill") +
+    geom_text(data = df, aes(label = ..count..), stat = "count", position = position_fill(vjust = 0.5)) +
+  scale_x_continuous(breaks = 1:5) +  # x軸を1から5までの整数に設定
+  theme_minimal() +
+  labs(title = "BP_level別の疲労感の分布",
+       x = "疲労感",
+       y = "割合") +
+  theme(text = element_text(family = "HiraKakuPro-W3"),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual(values = c(
+    "低 (BP ≤ 0.6)" = "#9999FF",    # 薄い青
+    "中 (0.6 < BP ≤ 0.9)" = "#99FF99",  # 薄い緑
+    "高 (BP > 0.9)" = "#FF9999"     # 薄い赤
+  ))
+```
+
+### 不安感
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-cap: "BP_level別の活気スコアの分布"
+#| echo: false
+
+# 棒グラフの作成
+ggplot(df, aes(x = 不安感, fill = BP_level)) +
+  geom_bar(position = "fill") +
+  geom_text(data = df, aes(label = ..count..), stat = "count", position = position_fill(vjust = 0.5)) +
+  scale_x_continuous(breaks = 1:5) +  # x軸を1から5までの整数に設定
+  theme_minimal() +
+  labs(title = "BP_level別の不安感の分布",
+       x = "不安感",
+       y = "割合") +
+  theme(text = element_text(family = "HiraKakuPro-W3"),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual(values = c(
+    "低 (BP ≤ 0.6)" = "#9999FF",    # 薄い青
+    "中 (0.6 < BP ≤ 0.9)" = "#99FF99",  # 薄い緑
+    "高 (BP > 0.9)" = "#FF9999"     # 薄い赤
+  ))
+```
+
+### 抑うつ感
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-cap: "BP_level別の活気スコアの分布"
+#| echo: false
+
+# 棒グラフの作成
+ggplot(df, aes(x = 抑うつ感, fill = BP_level)) +
+  geom_bar(position = "fill") +
+  geom_text(data = df, aes(label = ..count..), stat = "count", position = position_fill(vjust = 0.5)) +
+  scale_x_continuous(breaks = 1:5) +  # x軸を1から5までの整数に設定
+  theme_minimal() +
+  labs(title = "BP_level別の抑うつ感の分布",
+       x = "抑うつ感",
+       y = "割合") +
+  theme(text = element_text(family = "HiraKakuPro-W3"),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual(values = c(
+    "低 (BP ≤ 0.6)" = "#9999FF",    # 薄い青
+    "中 (0.6 < BP ≤ 0.9)" = "#99FF99",  # 薄い緑
+    "高 (BP > 0.9)" = "#FF9999"     # 薄い赤
+  ))
+```
+
+## $\Sigma$-FLC で同じことをしてみる
+
+### $\Sigma$-FLC の可視化
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-cap: "FLCΣの分布"
+
+df <- df[is.na(df$`BP備考`), ]
+
+# 日本語フォントの設定
+par(family = "HiraKakuPro-W3")  # macOSの場合
+
+# 基本的なヒストグラム
+hist(df$FLCΣ,
+     main = "FLCΣの分布",
+     xlab = "FLCΣ",
+     ylab = "頻度",
+     col = "lightblue",
+     border = "white",
+     breaks = 20)  # Sturgesの公式に基づくビン数の自動設定
+
+# 密度曲線を追加
+lines(density(df$FLCΣ, na.rm = TRUE), 
+      col = "red", 
+      lwd = 2)
+
+# 基本統計量を表示
+summary(df$FLCΣ)
+```
+
+次のように，30%, 30%, 40% に分ける．
+
+```{r}
+df$FLC_level <- case_when(
+  df$FLCΣ >= 2 ~ 3,
+  df$FLCΣ >= 0.7 & df$FLCΣ < 2 ~ 2,
+  df$FLCΣ < 0.7 ~ 1
+)
+length(df[df$FLC_level == 3, ]$FLCΣ)/dim(df)[1]
+length(df[df$FLC_level == 2, ]$FLCΣ)/dim(df)[1]
+length(df[df$FLC_level == 1, ]$FLCΣ)/dim(df)[1]
+```
+
+
+### 活気
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-cap: "FLC_level別の活気スコアの分布"
+#| echo: false
+
+# BP_levelを因子型に変換
+df$FLC_level <- factor(df$FLC_level, 
+                      levels = c(1, 2, 3),
+                      labels = c("低 (FLCΣ < 0.7)", "中 (0.7 ≤ FLCΣ < 2)", "高 (FLCΣ ≥ 2)"))
+
+# 棒グラフの作成
+ggplot(df, aes(x = 活気, fill = FLC_level)) +
+  geom_bar(position = "fill") +
+    geom_text(data = df, aes(label = ..count..), stat = "count", position = position_fill(vjust = 0.5)) +
+  scale_x_continuous(breaks = 1:5) +  # x軸を1から5までの整数に設定
+  theme_minimal() +
+  labs(title = "FLC_level別の活気スコアの分布",
+       x = "活気スコア",
+       y = "割合") +
+  theme(text = element_text(family = "HiraKakuPro-W3"),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual(values = c(
+    "低 (FLCΣ < 0.7)" = "#9999FF",    # 薄い青
+    "中 (0.7 ≤ FLCΣ < 2)" = "#99FF99",  # 薄い緑
+    "高 (FLCΣ ≥ 2)" = "#FF9999"     # 薄い赤
+  ))
+```
+
+### イライラ感
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-cap: "BP_level別の活気スコアの分布"
+#| echo: false
+
+# 棒グラフの作成
+ggplot(df, aes(x = イライラ感, fill = FLC_level)) +
+  geom_bar(position = "fill") +
+  geom_text(data = df, aes(label = ..count..), stat = "count", position = position_fill(vjust = 0.5)) +
+  scale_x_continuous(breaks = 1:5) +  # x軸を1から5までの整数に設定
+  theme_minimal() +
+  labs(title = "FLC_level別のイライラ感の分布",
+       x = "イライラ感",
+       y = "割合") +
+  theme(text = element_text(family = "HiraKakuPro-W3"),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual(values = c(
+    "低 (FLCΣ < 0.7)" = "#9999FF",    # 薄い青
+    "中 (0.7 ≤ FLCΣ < 2)" = "#99FF99",  # 薄い緑
+    "高 (FLCΣ ≥ 2)" = "#FF9999"     # 薄い赤
+  ))
+```
+
+### 疲労感
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-cap: "BP_level別の活気スコアの分布"
+#| echo: false
+
+# 棒グラフの作成
+ggplot(df, aes(x = 疲労感, fill = FLC_level)) +
+  geom_bar(position = "fill") +
+  geom_text(data = df, aes(label = ..count..), stat = "count", position = position_fill(vjust = 0.5)) +
+  scale_x_continuous(breaks = 1:5) +  # x軸を1から5までの整数に設定
+  theme_minimal() +
+  labs(title = "FLC_level別の疲労感の分布",
+       x = "疲労感",
+       y = "割合") +
+  theme(text = element_text(family = "HiraKakuPro-W3"),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual(values = c(
+    "低 (FLCΣ < 0.7)" = "#9999FF",    # 薄い青
+    "中 (0.7 ≤ FLCΣ < 2)" = "#99FF99",  # 薄い緑
+    "高 (FLCΣ ≥ 2)" = "#FF9999"     # 薄い赤
+  ))
+```
+
+```{r}
+df[df$疲労感 == 5, ]$FLCΣ
+```
+
+### 不安感
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-cap: "BP_level別の活気スコアの分布"
+#| echo: false
+
+# 棒グラフの作成
+ggplot(df, aes(x = 不安感, fill = FLC_level)) +
+  geom_bar(position = "fill") +
+  geom_text(data = df, aes(label = ..count..), stat = "count", position = position_fill(vjust = 0.5)) +
+  scale_x_continuous(breaks = 1:5) +  # x軸を1から5までの整数に設定
+  theme_minimal() +
+  labs(title = "FLC_level別の不安感の分布",
+       x = "不安感",
+       y = "割合") +
+  theme(text = element_text(family = "HiraKakuPro-W3"),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual(values = c(
+    "低 (FLCΣ < 0.7)" = "#9999FF",    # 薄い青
+    "中 (0.7 ≤ FLCΣ < 2)" = "#99FF99",  # 薄い緑
+    "高 (FLCΣ ≥ 2)" = "#FF9999"     # 薄い赤
+  ))
+```
+
+### 抑うつ感
+
+```{r}
+#| fig-width: 10
+#| fig-height: 6
+#| fig-cap: "BP_level別の活気スコアの分布"
+#| echo: false
+
+# 棒グラフの作成
+ggplot(df, aes(x = 抑うつ感, fill = FLC_level)) +
+  geom_bar(position = "fill") +
+  geom_text(data = df, aes(label = ..count..), stat = "count", position = position_fill(vjust = 0.5)) +
+  scale_x_continuous(breaks = 1:5) +  # x軸を1から5までの整数に設定
+  theme_minimal() +
+  labs(title = "FLC_level別の抑うつ感の分布",
+       x = "抑うつ感",
+       y = "割合") +
+  theme(text = element_text(family = "HiraKakuPro-W3"),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual(values = c(
+    "低 (FLCΣ < 0.7)" = "#9999FF",    # 薄い青
+    "中 (0.7 ≤ FLCΣ < 2)" = "#99FF99",  # 薄い緑
+    "高 (FLCΣ ≥ 2)" = "#FF9999"     # 薄い赤
+  ))
+```

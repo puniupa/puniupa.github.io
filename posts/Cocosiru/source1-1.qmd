@@ -11,7 +11,7 @@ bibliography:
   - ../../assets/2025.bib
 csl: ../../assets/apalike.csl
 execute: 
-  cache: false
+  cache: true
 fig-align: center
 format:
   html: 
@@ -113,6 +113,159 @@ df_long <- df_long[, !names(df_long) %in% c("部署異動1", "部署異動2", "�
 
 基本的に説明変数は，顧客変更，部署異動，昇進の３つのみを考える．
 
+## 検定
+
+```{r}
+df_long_first <- df_long[df_long$測定時点 == 1, ]
+
+t.test(df_long_first$スコア値[df_long_first$昇降格 == 1],
+       df_long_first$スコア値[df_long_first$昇降格 == 0])
+
+t.test(スコア値 ~ 昇降格, data = df_long_first, var.equal = TRUE)
+```
+
+有意差ないなあ……．
+
+```{r}
+# まず昇降格が1の人のIDを取得
+target_ids <- df_long_first$id[df_long_first$昇降格 == 1]
+
+# そのIDを持つ人のデータをdf_longから抽出
+df_long_promoted <- df_long[df_long$id %in% target_ids, ]
+```
+
+```{r}
+library(ggplot2)
+
+# 基本的な時系列プロット（各個人の変化を線で結ぶ）
+ggplot(df_long_promoted, aes(x = 測定時点, y = スコア値, group = id)) +
+  geom_line(alpha = 1.0) +  # 個人の変化を示す線
+  geom_point() +            # 各測定点
+  theme_minimal() +         # シンプルなテーマ
+  labs(
+       x = "測定時点",
+       y = "スコア値") +
+  theme(
+    text = element_text(family = "BIZUDGothic-Regular", size = 12),
+    axis.text = element_text(size = 34),
+    axis.title = element_text(size = 45),
+    title = element_text(size = 45)
+  ) +
+  scale_x_continuous(breaks = c(0, 1), 
+                    labels = c("７月", "10月（昇格当月）"))
+
+# 平均値の変化も追加したバージョン
+# ggplot(df_long_promoted, aes(x = 測定時点, y = スコア値)) +
+#   geom_line(aes(group = id), alpha = 0.3) +  # 個人の変化（薄く表示）
+#   geom_point(alpha = 0.3) +                   # 個人の測定点
+#   stat_summary(fun = mean, geom = "point", color = "red", size = 3) +  # 平均値
+#   stat_summary(fun = mean, geom = "line", color = "red", group = 1) +  # 平均値を結ぶ線
+#   theme_minimal() +
+#   labs(title = "昇降格群のスコア値の変化（赤線は平均値）",
+#        x = "測定時点",
+#        y = "スコア値") +
+#   scale_x_continuous(breaks = c(0, 1), 
+#                     labels = c("1回目", "2回目"))
+```
+
+```{r}
+library(showtext)
+showtext_auto()
+font_add(
+  family = "BIZ-UDGothic",  # 使用する際の名前
+  regular = "BIZUDGothic-Regular.ttf"  # フォントファイルのパス
+)
+ggplot(df_long_promoted, aes(x = factor(測定時点), y = スコア値)) +
+  geom_boxplot(width = 0.3, fill = "lightgray") +  # 箱ひげ図
+  geom_line(aes(group = id), alpha = 0.3) +        # 個人の変化
+  geom_point(size = 3, alpha = 0.3) +                        # 個人の測定点
+  theme_minimal() +
+  labs(
+       x = "測定時点",
+       y = "ココシルスコア") +
+   theme(
+    text = element_text(family = "BIZ-UDGothic"),
+    axis.text = element_text(size = 30),
+    axis.title = element_text(size = 40),
+    title = element_text(size = 40),
+    axis.text.x = element_text(
+      margin = margin(t = 0, b = 20),  # 上(top)に20ポイント、下(bottom)に0ポイントのマージン
+      size = 30
+    ),
+    axis.text.y = element_text(
+      margin = margin(l=10),  # 上(top)に20ポイント、下(bottom)に0ポイントのマージン
+      size = 30
+    ),
+    axis.title.x = element_text(
+      margin = margin(t = 0, b = 10),  # 上(top)に20ポイント、下(bottom)に0ポイントのマージン
+      size = 40
+    ),
+    axis.title.y = element_text(
+      margin = margin(l=10),  # 上(top)に20ポイント、下(bottom)に0ポイントのマージン
+      size = 40
+    )
+  ) +
+  scale_x_discrete(labels = c("昇格３ヶ月前", "昇格当月")) +
+  annotate("text", 
+           x = 1.0,      # x座標（1と2の中間）
+           y = 70,  # y座標（データの最大値より少し上）
+           label = "p == 0.01", # LaTeX風の数式
+           parse = TRUE,  # 数式としてパース
+           size = 18,
+           family = "BIZ-UDGothic")     # テキストサイズ
+# ggsave("昇格者のスコア.png")
+```
+
+
+
+```{r}
+t.test(df_long_promoted$スコア値[df_long_promoted$測定時点 == 0],
+       df_long_promoted$スコア値[df_long_promoted$測定時点 == 1])
+```
+
+```{r}
+wilcox.test(スコア値 ~ 測定時点, data = df_long_promoted)
+```
+
+
+```{r}
+# まず昇降格が1の人のIDを取得
+target_ids <- df_long_first$id[df_long_first$昇降格 == 1]
+
+# そのIDを持つ人のデータをdf_longから抽出
+df_long_not_promoted <- df_long[!(df_long$id %in% target_ids), ]
+```
+
+```{r}
+t.test(df_long_not_promoted$スコア値[df_long_not_promoted$測定時点 == 0],
+       df_long_not_promoted$スコア値[df_long_not_promoted$測定時点 == 1])
+```
+
+```{r}
+wilcox.test(スコア値 ~ 測定時点, data = df_long_not_promoted)
+```
+
+```{r}
+sum(na.omit(df_long_not_promoted[df_long_not_promoted$測定時点==1, "スコア値"] - df_long_not_promoted[df_long_not_promoted$測定時点==0, "スコア値"]))/dim(na.omit(df_long_not_promoted))[1]/2
+sum(na.omit(df_long_promoted[df_long_promoted$測定時点==1, "スコア値"] - df_long_promoted[df_long_promoted$測定時点==0, "スコア値"])/dim(na.omit(df_long_promoted)))[1]/2
+```
+
+```{r}
+# データフレームから値を抽出する際に$演算子を使用
+diff1 <- na.omit(
+    df_long_not_promoted$スコア値[df_long_not_promoted$測定時点==1] - 
+    df_long_not_promoted$スコア値[df_long_not_promoted$測定時点==0]
+)
+diff2 <- na.omit(
+    df_long_promoted$スコア値[df_long_promoted$測定時点==1] - 
+    df_long_promoted$スコア値[df_long_promoted$測定時点==0]
+)
+
+# 検定を実行
+wilcox.test(diff1, diff2)
+```
+
+
 ## 測定時点ごとの変動係数モデル
 
 ２回の測定で，昇降格の影響が大きく違う可能性があることがわかった．
@@ -162,8 +315,8 @@ plot_df_昇降格 <- data.frame(
 )
 # termを因子型に変換（順序を保持するため）
 plot_df_昇降格$term <- factor(plot_df_昇降格$term, 
-                           levels = c("0", "1"), 
-                           labels = c("7月", "10月"))
+                           levels = c("1", "0"), 
+                           labels = c("当月", "３ヶ月後"))
 
 ggplot(plot_df_昇降格, aes(x = factor(term), y = mean)) +
   geom_point(aes(color = term == "10月"), size = 10) +
@@ -172,7 +325,7 @@ ggplot(plot_df_昇降格, aes(x = factor(term), y = mean)) +
                 width = 0.2, linewidth = 1.5) +
   geom_hline(yintercept = 0, color = "gray40", linewidth = 0.5) +
   theme_minimal() +
-  labs(x = "測定時点", y = "昇格の効果の大きさ") +
+  labs(x = "測定時点", y = "昇格の BP への効果") +
   scale_color_manual(values = c("black", "red"), guide = "none") +  # ガイド（凡例）を非表示
   theme(
     axis.title.x = element_text(size = 45),      # x軸ラベルのサイズ
@@ -183,7 +336,7 @@ ggplot(plot_df_昇降格, aes(x = factor(term), y = mean)) +
   ) +
   coord_cartesian(ylim = c(-50, 50))  # y軸の範囲を調整
 
-ggsave("昇格.png", bg="white")
+# ggsave("昇格.svg", bg="white")
 ```
 
 ### すごい！じゃあ顧客変更は？
@@ -227,7 +380,7 @@ ggplot(plot_df_顧客変更, aes(x = factor(term), y = mean)) +
   ) +
   coord_cartesian(ylim = c(-50, 50))  # y軸の範囲を調整
 
-ggsave("顧客変更.png", bg="white")
+# ggsave("顧客変更.png", bg="white")
 ```
 
 ### すごい！続けて部署異動は？
@@ -271,7 +424,7 @@ ggplot(plot_df_部署異動, aes(x = factor(term), y = mean)) +
   ) +
   coord_cartesian(ylim = c(-50, 50))  # y軸の範囲を調整
 
-ggsave("部署異動.png", bg="white")
+# ggsave("部署異動.png", bg="white")
 ```
 
 ### ちょっと prior を検証したくなった

@@ -14,7 +14,7 @@ format:
   html: 
     code-fold: false
     execute:
-      cache: false
+      cache: true
     fig-width: 10
     fig-height: 8
 abstract: |

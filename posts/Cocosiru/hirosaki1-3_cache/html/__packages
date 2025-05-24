@@ -1,0 +1,11 @@
+readxl
+knitr
+dplyr
+tidyr
+Rcpp
+brms
+ggplot2
+gridExtra
+sysfonts
+showtextdb
+showtext
