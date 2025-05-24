@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.552">
+<meta name="generator" content="quarto-1.6.39">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="司馬博文">
 
-<title>ぷにうぱ - 弘前データ</title>
+<title>弘前データ – ぷにうぱ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -34,7 +34,7 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -71,10 +71,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-cf7929f4d66a2bdccc4ecf0c4d40c672.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-4fad84e8e0fe087195d5fc131974df6c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -108,7 +108,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=BIZ+UDPGothic&amp;display=swap" rel="stylesheet">
 
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 <script type="text/javascript">
@@ -139,10 +139,10 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../assets/styles.css">
-<meta property="og:title" content="ぷにうぱ - 弘前データ">
+<meta property="og:title" content="弘前データ – ぷにうぱ">
 <meta property="og:image" content="https://puniupa.github.io/posts/Cocosiru/assets/ぷにうぱ.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
-<meta name="twitter:title" content="ぷにうぱ - 弘前データ">
+<meta name="twitter:title" content="弘前データ – ぷにうぱ">
 <meta name="twitter:image" content="https://puniupa.github.io/posts/Cocosiru/assets/ぷにうぱ.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
@@ -159,7 +159,7 @@ window.Quarto = {
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
           <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -174,7 +174,7 @@ window.Quarto = {
   </li>  
 </ul>
           </div> <!-- /navcollapse -->
-          <div class="quarto-navbar-tools">
+            <div class="quarto-navbar-tools">
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -190,7 +190,8 @@ window.Quarto = {
   <ul>
   <li><a href="#データの概観" id="toc-データの概観" class="nav-link active" data-scroll-target="#データの概観"><span class="header-section-number">1</span> データの概観</a>
   <ul class="collapse">
-  <li><a href="#プリメディカデータ" id="toc-プリメディカデータ" class="nav-link" data-scroll-target="#プリメディカデータ"><span class="header-section-number">1.1</span> プリメディカデータ</a></li>
+  <li><a href="#法定検診との関係" id="toc-法定検診との関係" class="nav-link" data-scroll-target="#法定検診との関係"><span class="header-section-number">1.1</span> 法定検診との関係</a></li>
+  <li><a href="#プリメディカ製品関連データ" id="toc-プリメディカ製品関連データ" class="nav-link" data-scroll-target="#プリメディカ製品関連データ"><span class="header-section-number">1.2</span> プリメディカ製品関連データ</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -231,25 +232,41 @@ window.Quarto = {
 
 <section id="データの概観" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="データの概観"><span class="header-section-number">1</span> データの概観</h2>
-<section id="プリメディカデータ" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="プリメディカデータ"><span class="header-section-number">1.1</span> プリメディカデータ</h3>
+<section id="法定検診との関係" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="法定検診との関係"><span class="header-section-number">1.1</span> 法定検診との関係</h3>
+<ul>
+<li><p><a href="../../posts/Cocosiru/hirosaki1.html"><code>hirosaki1.qmd</code></a> 「弘前データ１：法定検診との関係」</p>
+<p>BP の年代別・性別を見たのち，ストレスチェックでの回答で分けて BP の値をプロット．その結果「５と回答する者の中に，BP が低すぎる者はいない」という結論を得た．</p>
+<p>BP の値と最も関連する質問項目を見るために LASSO も試みたが，結果は全く芳しくなかった．関係が微妙すぎるのである．</p></li>
+<li><p><a href="../../posts/Cocosiru/hirosaki1-1.html"><code>hirosaki1-1.qmd</code></a> 「弘前データ１-１：法定検診との関係の詳細検討」BP, FLCΣ の値で層別して可視化</p>
+<p>BP のレベルに応じて，３クラスに分けた．これを回答ごとにプロットすると，疲労感と抑うつ感だけ「5」が BP と相関してる可能性が見られた． 全く同様に <span class="math inline">\(\Sigma\)</span>-FLC で視覚化したところ，その解釈とは程遠い結果が出ている．</p></li>
+<li><p><a href="../../posts/Cocosiru/hirosaki1-2.html"><code>hirosaki1-2.qmd</code></a> 「弘前データ１-２：法定検診との関係の詳細検討」BP, FLCΣ の値の高低を用いた項目反応モデル</p>
+<p>ここでは詳細項目反応モデルを見ている．項目ごとに値の平均が違う．これを説明することは難しいと判断し，ストレスチェックのスコアと直接回帰することを狙う．</p>
+<p>個人ごとのパラメータも推定したところ，ほとんどの人で，BP と項目反応に関係はないという結果を得る．</p></li>
+<li><p><a href="../../posts/Cocosiru/hirosaki1-3.html"><code>hirosaki1-3.qmd</code></a> 「弘前データ１-３：法定検診との関係の詳細検討」BP, FLCΣ の値の高低を用いた項目反応モデル</p>
+<p>そこで項目ではなく５ジャンル，個人ごとではなく BP クラスごとの変動係数を推定した． すると項目によって<strong>識別力が違う</strong>ことがわかった．抑うつ感と不安感だけ識別力があるのである．</p>
+<p>そこでこの２つの項目に絞って１PL モデルを推定する．</p></li>
+</ul>
+</section>
+<section id="プリメディカ製品関連データ" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="プリメディカ製品関連データ"><span class="header-section-number">1.2</span> プリメディカ製品関連データ</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(df1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<table class="table table-sm table-striped small">
+<table class="caption-top table table-sm table-striped small">
 <colgroup>
 <col style="width: 2%">
 <col style="width: 4%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 13%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 14%">
 <col style="width: 9%">
 <col style="width: 8%">
 <col style="width: 9%">
 <col style="width: 6%">
 <col style="width: 6%">
-<col style="width: 12%">
+<col style="width: 13%">
 <col style="width: 10%">
 </colgroup>
 <thead>
@@ -446,18 +463,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
     return false;
   }
-  const clipboard = new window.ClipboardJS('.code-copy-button', {
-    text: function(trigger) {
-      const codeEl = trigger.previousElementSibling.cloneNode(true);
-      for (const childEl of codeEl.children) {
-        if (isCodeAnnotation(childEl)) {
-          childEl.remove();
-        }
-      }
-      return codeEl.innerText;
-    }
-  });
-  clipboard.on('success', function(e) {
+  const onCopySuccess = function(e) {
     // button target
     const button = e.trigger;
     // don't keep focus
@@ -489,7 +495,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }, 1000);
     // clear code selection
     e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
   });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
       var filterRegex = new RegExp("https:\/\/puniupa\.github\.io\/");
@@ -497,7 +523,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
     // Inspect non-navigation links and adorn them if external
- 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
     for (var i=0; i<links.length; i++) {
       const link = links[i];
       if (!isInternal(link.href)) {
@@ -594,7 +620,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

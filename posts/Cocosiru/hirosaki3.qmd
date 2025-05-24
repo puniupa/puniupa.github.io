@@ -1,0 +1,24 @@
+---
+title: "弘前データ３：FLC の階層モデリング"
+subtitle: "LOX-1 との関係は？"
+author: "司馬博文"
+date: 5/24/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+fig-align: center
+abstract: |
+  [`hirosaki2.qmd`](hirosaki2.qmd) では BP と LAB の関係のモデリングを行った．
+  ここでは $\Sigma$-FLC と LOX-1 の関係をモデリングする．
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: false
+    fig-width: 10
+    fig-height: 8
+---

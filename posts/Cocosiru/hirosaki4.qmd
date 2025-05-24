@@ -1,0 +1,25 @@
+---
+title: "弘前データ４：フローラスキャンデータの探索"
+author: "司馬博文"
+date: 5/24/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+fig-align: center
+abstract: |
+  [`hirosaki2.qmd`](hirosaki2.qmd) では BP と LAB の関係のモデリング，
+  [`hirosaki3.qmd`](hirosaki3.qmd) では $\Sigma$-FLC と LOX-1 の関係をモデリングした．
+  ここではフローラスキャンデータの探索を行う．
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: false
+    fig-width: 10
+    fig-height: 8
+---
+
