@@ -192,7 +192,8 @@ window.Quarto = {
   <ul>
   <li><a href="#データの概観" id="toc-データの概観" class="nav-link active" data-scroll-target="#データの概観"><span class="header-section-number">1</span> データの概観</a>
   <ul class="collapse">
-  <li><a href="#プリメディカデータ" id="toc-プリメディカデータ" class="nav-link" data-scroll-target="#プリメディカデータ"><span class="header-section-number">1.1</span> プリメディカデータ</a></li>
+  <li><a href="#法定検診との関係" id="toc-法定検診との関係" class="nav-link" data-scroll-target="#法定検診との関係"><span class="header-section-number">1.1</span> 法定検診との関係</a></li>
+  <li><a href="#プリメディカ製品関連データ" id="toc-プリメディカ製品関連データ" class="nav-link" data-scroll-target="#プリメディカ製品関連データ"><span class="header-section-number">1.2</span> プリメディカ製品関連データ</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -233,8 +234,24 @@ window.Quarto = {
 
 <section id="データの概観" class="level2" data-number="1">
 <h2 data-number="1" class="anchored" data-anchor-id="データの概観"><span class="header-section-number">1</span> データの概観</h2>
-<section id="プリメディカデータ" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="プリメディカデータ"><span class="header-section-number">1.1</span> プリメディカデータ</h3>
+<section id="法定検診との関係" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="法定検診との関係"><span class="header-section-number">1.1</span> 法定検診との関係</h3>
+<ul>
+<li><p><a href="../../posts/Cocosiru/hirosaki1.html"><code>hirosaki1.qmd</code></a> 「弘前データ１：法定検診との関係」</p>
+<p>BP の年代別・性別を見たのち，ストレスチェックでの回答で分けて BP の値をプロット．その結果「５と回答する者の中に，BP が低すぎる者はいない」という結論を得た．</p>
+<p>BP の値と最も関連する質問項目を見るために LASSO も試みたが，結果は全く芳しくなかった．関係が微妙すぎるのである．</p></li>
+<li><p><a href="../../posts/Cocosiru/hirosaki1-1.html"><code>hirosaki1-1.qmd</code></a> 「弘前データ１-１：法定検診との関係の詳細検討」BP, FLCΣ の値で層別して可視化</p>
+<p>BP のレベルに応じて，３クラスに分けた．これを回答ごとにプロットすると，疲労感と抑うつ感だけ「5」が BP と相関してる可能性が見られた． 全く同様に <span class="math inline">\(\Sigma\)</span>-FLC で視覚化したところ，その解釈とは程遠い結果が出ている．</p></li>
+<li><p><a href="../../posts/Cocosiru/hirosaki1-2.html"><code>hirosaki1-2.qmd</code></a> 「弘前データ１-２：法定検診との関係の詳細検討」BP, FLCΣ の値の高低を用いた項目反応モデル</p>
+<p>ここでは詳細項目反応モデルを見ている．項目ごとに値の平均が違う．これを説明することは難しいと判断し，ストレスチェックのスコアと直接回帰することを狙う．</p>
+<p>個人ごとのパラメータも推定したところ，ほとんどの人で，BP と項目反応に関係はないという結果を得る．</p></li>
+<li><p><a href="../../posts/Cocosiru/hirosaki1-3.html"><code>hirosaki1-3.qmd</code></a> 「弘前データ１-３：法定検診との関係の詳細検討」BP, FLCΣ の値の高低を用いた項目反応モデル</p>
+<p>そこで項目ではなく５ジャンル，個人ごとではなく BP クラスごとの変動係数を推定した． すると項目によって<strong>識別力が違う</strong>ことがわかった．抑うつ感と不安感だけ識別力があるのである．</p>
+<p>そこでこの２つの項目に絞って１PL モデルを推定する．</p></li>
+</ul>
+</section>
+<section id="プリメディカ製品関連データ" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="プリメディカ製品関連データ"><span class="header-section-number">1.2</span> プリメディカ製品関連データ</h3>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(df1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
@@ -242,16 +259,16 @@ window.Quarto = {
 <colgroup>
 <col style="width: 2%">
 <col style="width: 4%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 13%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 14%">
 <col style="width: 9%">
 <col style="width: 8%">
 <col style="width: 9%">
 <col style="width: 6%">
 <col style="width: 6%">
-<col style="width: 12%">
+<col style="width: 13%">
 <col style="width: 10%">
 </colgroup>
 <thead>
