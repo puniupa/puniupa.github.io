@@ -1,0 +1,308 @@
+---
+title: "弘前データ１-４：法定検診との関係の詳細検討"
+subtitle: "３レベルに分割してしまうと見えなくなる関係性がある"
+author: "司馬博文"
+date: 5/25/2025
+date-modified: 5/25/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+fig-align: center
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: true
+    fig-width: 10
+    fig-height: 8
+    fig-format: "png"
+    fig-dpi: 300
+    fig-font-family: "Hiragino Sans"
+abstract: |
+  [前項](hirosaki1-3.qmd) で，BP と FLC を３レベルに離散化するよりも，連続なまま使った方が良い，そうでないと失われる情報があるのではないか？と予想した．
+
+  ここでは連続変数を用いる IRT モデルを構築してみた．すると，BP でも FLC でも識別力母数はほとんど変わらないことがわかった．
+
+  なるほど！５つの項目での，高ストレス回答確率は違い，識別力母数はそのスケールの違いを表しているだけである！
+
+  つまり項目反応モデルは完全なる null model となっており，意味のある値を学習していないようである！
+---
+
+```{r}
+library(readxl)
+library(knitr)
+df <- readRDS("df.rds")
+dim(df)
+kable(head(df))
+```
+
+```{r}
+df_IRT_long <- readRDS("df_IRT_long.rds")
+dim(df_IRT_long)
+kable(head(df_IRT_long))
+```
+
+## 連続説明変数の項目応答
+
+### BP の場合
+
+```r
+library(brms)
+
+formula_2PL_BP <- bf(
+  res ~ exp(loggamma) * eta,
+  loggamma ~ 1 + (1|item),
+  eta ~ 1 + (1|item) + BP,
+  nl = TRUE
+)
+
+BP_2PL <- brm(
+  formula = formula_2PL_BP,
+  data = df_IRT_long,
+  family = brmsfamily("bernoulli", link = "logit"),
+  chains = 4, cores = 4, iter = 8000
+)
+```
+
+このモデルはあまりに時間を取るが，よく考えればもっと簡単に実現可能である．
+
+比較のために，データは後の　`df_IRT_long_FLC` に揃える．
+
+```r
+library(brms)
+
+formula_2PL_BP <- bf(
+  res ~ (1+BP|item)
+)
+
+BP_2PL <- brm(
+  formula = formula_2PL_BP,
+  data = df_IRT_long_FLC,
+  family = brmsfamily("bernoulli", link = "logit"),
+  chains = 4, cores = 4, iter = 8000
+)
+
+saveRDS(BP_2PL, "./1-4/BP_2PL.rds")
+```
+
+```{r}
+#| echo: false
+#| output: false
+library(brms)
+BP_2PL <- readRDS("./1-4/BP_2PL.rds")
+```
+
+#### 識別力母数
+
+```{r}
+#| output: false
+library(ggplot2)
+library(gridExtra)
+library(showtext)  # 日本語フォント用のパッケージ
+
+# 日本語フォントの設定
+font_add_google("Noto Sans JP", "notosans")  # Google Fontsからフォントを追加
+showtext_auto()  # 自動的にshowtextを使用するように設定
+```
+
+```{r}
+ranef_item2 <- ranef(BP_2PL)$item
+posterior_means <- ranef_item2[,1,"Intercept"]
+lower_bounds <- ranef_item2[,3,"Intercept"]
+upper_bounds <- ranef_item2[,4,"Intercept"]
+plot_df_item2 <- data.frame(
+  item = rownames(ranef_item2),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p_PL2 <- ggplot(plot_df_item2, aes(x = mean, y = item)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = NULL,
+       x = "Posterior Estimate",
+       y = NULL)
+  #  theme(
+  #   axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+  #   axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+  #   legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+  #   legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+  #   plot.margin = margin(r = 20)  # 右側の余白を50ポイントに設定
+  # )
+p_PL2
+```
+
+#### 項目母数
+
+```{r}
+ranef_item2 <- ranef(BP_2PL)$item
+posterior_means <- ranef_item2[,1,"BP"]
+lower_bounds <- ranef_item2[,3,"BP"]
+upper_bounds <- ranef_item2[,4,"BP"]
+plot_df_item2 <- data.frame(
+  item = rownames(ranef_item2),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p_PL2 <- ggplot(plot_df_item2, aes(x = mean, y = item)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = NULL,
+       x = "Posterior Estimate",
+       y = NULL)
+p_PL2
+```
+
+### FLCΣ の場合
+
+```{r}
+df_IRT_long_FLC <- df_IRT_long[df_IRT_long$id %in% df$受付番号[is.na(df$`BP備考`)], ]
+dim(df_IRT_long_FLC)
+```
+
+```r
+library(brms)
+
+formula_2PL_FLC <- bf(
+  res ~ (1+FLCΣ|item)
+)
+
+FLC_2PL <- brm(
+  formula = formula_2PL_FLC,
+  data = df_IRT_long_FLC,
+  family = brmsfamily("bernoulli", link = "logit"),
+  chains = 4, cores = 4, iter = 8000
+)
+
+saveRDS(FLC_2PL, "./1-4/FLC_2PL.rds")
+```
+
+```{r}
+#| echo: false
+#| output: false
+library(brms)
+FLC_2PL <- readRDS("./1-4/FLC_2PL.rds")
+```
+
+#### 識別力母数
+
+```{r}
+ranef_item2 <- ranef(FLC_2PL)$item
+posterior_means <- ranef_item2[,1,"Intercept"]
+lower_bounds <- ranef_item2[,3,"Intercept"]
+upper_bounds <- ranef_item2[,4,"Intercept"]
+plot_df_item2 <- data.frame(
+  item = rownames(ranef_item2),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p_PL2 <- ggplot(plot_df_item2, aes(x = mean, y = item)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = NULL,
+       x = "Posterior Estimate",
+       y = NULL)
+  #  theme(
+  #   axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+  #   axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+  #   legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+  #   legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+  #   plot.margin = margin(r = 20)  # 右側の余白を50ポイントに設定
+  # )
+p_PL2
+```
+
+#### 項目母数
+
+```{r}
+ranef_item2 <- ranef(FLC_2PL)$item
+posterior_means <- ranef_item2[,1,"FLCΣ"]
+lower_bounds <- ranef_item2[,3,"FLCΣ"]
+upper_bounds <- ranef_item2[,4,"FLCΣ"]
+plot_df_item2 <- data.frame(
+  item = rownames(ranef_item2),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p_PL2 <- ggplot(plot_df_item2, aes(x = mean, y = item)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = NULL,
+       x = "Posterior Estimate",
+       y = NULL)
+p_PL2
+```
+
+### BP と FLC の違い
+
+```{r}
+loo_compare(loo(BP_2PL), loo(FLC_2PL))
+```
+
+BP の方が当てはまりが良いようである．
+
+## 項目ごとの違い
+
+```{r}
+kable(head(df_IRT_long_FLC))
+```
+
+```{r}
+res_疲労感 <- df_IRT_long_FLC$res[df_IRT_long_FLC$item == "疲労感"]
+res_活気 <- df_IRT_long_FLC$res[df_IRT_long_FLC$item == "活気"]
+res_抑うつ感 <- df_IRT_long_FLC$res[df_IRT_long_FLC$item == "抑うつ感"]
+res_不安感 <- df_IRT_long_FLC$res[df_IRT_long_FLC$item == "不安感"]
+res_イライラ感 <- df_IRT_long_FLC$res[df_IRT_long_FLC$item == "イライラ感"]
+```
+
+```{r}
+# 各項目の回答率を計算
+response_rates <- c(
+  mean(res_疲労感),
+  mean(res_活気, na.rm = TRUE),
+  mean(res_抑うつ感),
+  mean(res_不安感),
+  mean(res_イライラ感, na.rm = TRUE)
+)
+
+# 項目名のベクトル
+item_names <- c("疲労感", "活気", "抑うつ感", "不安感", "イライラ感")
+
+# データフレームの作成
+plot_data <- data.frame(
+  item = item_names,
+  rate = response_rates
+)
+
+# 棒グラフの作成
+ggplot(plot_data, aes(x = item, y = rate)) +
+  geom_bar(stat = "identity", fill = "steelblue") +
+  theme_minimal() +
+  labs(
+    title = "各項目の回答率",
+    x = "項目",
+    y = "回答率"
+  ) +
+  theme(
+    axis.text.x = element_text(angle = 45, hjust = 1),
+    text = element_text(family = "notosans"),
+    axis.text = element_text(size = 24),
+    axis.title = element_text(size = 30),
+    legend.text = element_text(size = 36),
+    legend.title = element_text(size = 24),
+    # plot.margin = margin(r = 20, l = 10)
+  ) +
+  ylim(0, 0.2)  # y軸の範囲を0から1に設定
+```
+

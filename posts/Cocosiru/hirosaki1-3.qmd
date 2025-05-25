@@ -1,8 +1,9 @@
 ---
 title: "弘前データ１-３：法定検診との関係の詳細検討"
-subtitle: "BP, FLCΣ の値の高低を用いた項目反応モデル"
+subtitle: "BP の値の高低を用いた項目反応モデル＋変動係数を追加した線型回帰モデル"
 author: "司馬博文"
 date: 5/13/2025
+date-modified: 5/25/2025
 number-sections: true
 code-fold: true
 bibliography: 
@@ -15,7 +16,7 @@ format:
   html: 
     code-fold: false
     execute:
-      cache: true
+      cache: false
     fig-width: 10
     fig-height: 8
     fig-format: "png"
@@ -49,6 +50,8 @@ df <- df_raw[, c("受付番号", "受診日年齢", "性別", "Weight", "BP", "F
 
 # BP の整理
 df <- df[is.na(df$`BP備考`), ]
+# df$BP_A_flag <- as.numeric(grepl("A", df$`BP備考`))
+# df <- df[df$BP_A_flag == 0, ]
 df$BP <- ifelse(df$BP < 0, -1 * df$BP, df$BP)
 df$判別式 <- as.numeric(gsub("[()]", "", df$判別式))
 
@@ -57,6 +60,7 @@ df$年代 <- paste0(floor(df$受診日年齢/10)*10, "代")
 df$年代 <- factor(df$年代,
                   levels = c("20代", "30代", "40代", "50代", "60代", "70代", "80代"),
                   ordered = TRUE)
+
 ```
 
 ```{r}
@@ -218,8 +222,8 @@ kable(head(df_IRT_long[6:13,]))
 ```{r}
 df_IRT_long$BP_level <- case_when(
   df_IRT_long$BP > 0.9 ~ 3,
-  df_IRT_long$BP > 0.6 & df_IRT_long$BP <= 0.9 ~ 2,
-  df_IRT_long$BP <= 0.6 ~ 1
+  df_IRT_long$BP > 0.7 & df_IRT_long$BP <= 0.9 ~ 2,
+  df_IRT_long$BP <= 0.7 ~ 1
 )
 length(df_IRT_long[df_IRT_long$BP_level == 3, ]$BP)/dim(df_IRT_long)[1]
 length(df_IRT_long[df_IRT_long$BP_level == 2, ]$BP)/dim(df_IRT_long)[1]
@@ -227,6 +231,10 @@ length(df_IRT_long[df_IRT_long$BP_level == 1, ]$BP)/dim(df_IRT_long)[1]
 ```
 
 ### 2PL モデル
+
+$$
+g(\operatorname{P}[Y_{ij}=1])=\gamma_j\bigg(\alpha_j+\beta_i\bigg)
+$$
 
 ```r
 library(brms)
@@ -242,8 +250,9 @@ fit_2PL <- brm(
   formula = formula_2PL,
   data = df_IRT_long,
   family = brmsfamily("bernoulli", link = "logit"),
-  chains = 4, cores = 4, iter = 5000
+  chains = 4, cores = 4, iter = 8000
 )
+saveRDS(fit_2PL, "fit_2PL.rds")
 ```
 
 ```{r}
@@ -255,6 +264,8 @@ fit_2PL <- readRDS("fit_2PL.rds")
 ### 結果のプロット
 
 $\eta$ の存在感が消えてしまう，識別力パラメータで全てを説明し切ってしまう．
+
+#### 項目母数 $\alpha_j$
 
 ```{r}
 library(ggplot2)
@@ -279,11 +290,13 @@ p_PL2 <- ggplot(plot_df_item2, aes(x = mean, y = item)) +
   geom_point() +
   geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  labs(title = "2PL Model",
+  labs(title = NULL,
        x = "Posterior Estimate",
-       y = "Item")
+       y = NULL)
 p_PL2
 ```
+
+#### 識別力母数 $\gamma_j$
 
 ```{r}
 ranef_item2 <- ranef(fit_2PL)$item
@@ -300,16 +313,50 @@ p_PL2 <- ggplot(plot_df_item2, aes(x = mean, y = item)) +
   geom_point() +
   geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  labs(title = "2PL Model",
+  labs(title = NULL,
        x = "Posterior Estimate",
-       y = "Item")
+       y = NULL) +
+   theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+    legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+    legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+    plot.margin = margin(r = 20)  # 右側の余白を50ポイントに設定
+  )
 p_PL2
 ```
 
 
 識別力パラメータを見ることで，「不安感」と「抑うつ感」だけ BP に関係していることが見えてくる．
 
+#### 個人母数 $\beta_i$
+
+```{r}
+ranef_BP_level <- ranef(fit_2PL)$BP_level
+posterior_means <- ranef_BP_level[,1,"eta_Intercept"]
+lower_bounds <- ranef_BP_level[,3,"eta_Intercept"]
+upper_bounds <- ranef_BP_level[,4,"eta_Intercept"]
+plot_df_BP_level <- data.frame(
+  BP_level = rownames(ranef_BP_level),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p_PL2 <- ggplot(plot_df_BP_level, aes(x = mean, y = BP_level)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "2PL Model",
+       x = "Posterior Estimate",
+       y = "Item")
+p_PL2
+```
+
 ### 1PL モデル
+
+$$
+g(\operatorname{P}[Y_{ij}=1])=\alpha_j+\beta_i
+$$
 
 ```r
 library(brms)
@@ -322,8 +369,9 @@ fit_1PL <- brm(
   formula = formula_1PL,
   data = df_IRT_long,
   family = brmsfamily("bernoulli", link = "logit"),
-  chains = 4, cores = 4, iter = 5000
+  chains = 4, cores = 4, iter = 8000
 )
+saveRDS(fit_1PL, "fit_1PL.rds")
 ```
 
 ```{r}
@@ -371,26 +419,339 @@ p_PL1_BP_level <- ggplot(plot_df_BP_level, aes(x = mean, y = rank)) +
   geom_point() +
   geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  labs(title = "Posterior Means and 95% Credible Intervals for BP Levels",
+  labs(title = NULL,
        x = "Posterior Estimate",
-       y = "BP Level")
+       y = "BP Level") +
+   theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+    legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+    legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+    plot.margin = margin(r = 20, l = 10)  # 右側の余白を50ポイントに設定
+  )
 p_PL1_BP_level
 ```
 
 確かに，BP レベルが高い人ほど，全般的に回答に高い点数（4や5）を付けやすいことは見て取れる．
 
+<!-- 
+### ２つの項目（抑うつ感と不安感）に集中
+
+識別力の高い項目は，ほとんど「BP が低くないかどうか？」によって来ていることがわかる．
+
+```r
+df_sub_IRT_long <- df_IRT_long[df_IRT_long$item %in% c("抑うつ感", "不安感"), ]
+
+formula_1PL_sub <- bf(
+  res ~ 1 + (1|item) + (1|BP_level)
+)
+
+fit_1PL_sub <- brm(
+  formula = formula_1PL_sub,
+  data = df_sub_IRT_long,
+  family = brmsfamily("bernoulli", link = "logit"),
+  chains = 4, cores = 4, iter = 8000
+)
+saveRDS(fit_1PL_sub, "fit_1PL_sub.rds")
+```
+
+```{r}
+#| echo: false
+library(brms)
+fit_1PL_sub <- readRDS("fit_1PL_sub.rds")
+```
+
+```{r}
+ranef_BP_level <- ranef(fit_1PL_sub)$BP_level
+posterior_means <- ranef_BP_level[,1,1]
+lower_bounds <- ranef_BP_level[,3,1]
+upper_bounds <- ranef_BP_level[,4,1]
+plot_df_BP_level <- data.frame(
+  BP_level = rownames(ranef_BP_level),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+
+plot_df_BP_level <- plot_df_BP_level %>% arrange(mean) %>% mutate(rank = row_number())
+p_PL1_BP_level <- ggplot(plot_df_BP_level, aes(x = mean, y = rank)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = NULL,
+       x = "Posterior Estimate",
+       y = "BP Level") + 
+  theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+    legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+    legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+    plot.margin = margin(r = 20, l = 10)  # 右側の余白を50ポイントに設定
+  )
+p_PL1_BP_level
+```
+-->
+
+## FLC で同じことをやる
+
+### FLC の層別
+
+次のように，30%, 30%, 40% に分ける．
+
+```{r}
+library(dplyr)
+df_IRT_long$FLC_level <- case_when(
+  df_IRT_long$FLCΣ >= 2 ~ 3,
+  df_IRT_long$FLCΣ >= 1.0 & df_IRT_long$FLCΣ < 2 ~ 2,
+  df_IRT_long$FLCΣ < 1.0 ~ 1
+)
+length(df_IRT_long[df_IRT_long$FLC_level == 3, ]$FLCΣ)/dim(df_IRT_long)[1]
+length(df_IRT_long[df_IRT_long$FLC_level == 2, ]$FLCΣ)/dim(df_IRT_long)[1]
+length(df_IRT_long[df_IRT_long$FLC_level == 1, ]$FLCΣ)/dim(df_IRT_long)[1]
+```
+
+### 2PL モデル
+
+なぜかとてもサンプリングが遅い！構造がそんなにも違うのか！
+
+```r
+library(brms)
+
+formula_2PL <- bf(
+  res ~ exp(loggamma) * eta,
+  loggamma ~ 1 + (1|item),
+  eta ~ 1 + (1|item) + (1|FLC_level),
+  nl = TRUE
+)
+
+FLC_2PL <- brm(
+  formula = formula_2PL,
+  data = df_IRT_long,
+  family = brmsfamily("bernoulli", link = "logit"),
+  chains = 4, cores = 4, iter = 8000
+)
+
+saveRDS(FLC_2PL, "./1-3/FLC_2PL.rds")
+```
+
+#### 識別力パラメータ
+
+基本的に BP と同じになる．計算が長すぎるので省略する．
+
+```r
+ranef_item_FLC <- ranef(FLC_2PL)$item
+posterior_means <- ranef_item_FLC[,1,"loggamma_Intercept"]
+lower_bounds <- ranef_item_FLC[,3,"loggamma_Intercept"]
+upper_bounds <- ranef_item_FLC[,4,"loggamma_Intercept"]
+plot_df_item_FLC <- data.frame(
+  item = rownames(ranef_item_FLC),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p_PL2_FLC <- ggplot(plot_df_item_FLC, aes(x = mean, y = item)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "2PL Model",
+       x = "Posterior Estimate",
+       y = "Item")
+p_PL2_FLC
+```
+
+### 1PL モデル
+
+```r
+library(brms)
+
+formula_1PL <- bf(
+  res ~ 1 + (1|item) + (1|FLC_level)
+)
+
+FLC_1PL <- brm(
+  formula = formula_1PL,
+  data = df_IRT_long,
+  family = brmsfamily("bernoulli", link = "logit"),
+  chains = 4, cores = 4, iter = 8000
+)
+saveRDS(FLC_1PL, "FLC_1PL.rds")
+```
+
+```{r}
+#| echo: false
+library(brms)
+FLC_1PL <- readRDS("FLC_1PL.rds")
+```
+
+#### 項目パラメータ
+
+```{r}
+library(ggplot2)
+ranef_item <- ranef(FLC_1PL)$item
+posterior_means <- ranef_item[,1,1]
+lower_bounds <- ranef_item[,3,1]
+upper_bounds <- ranef_item[,4,1]
+plot_df_item <- data.frame(
+  item = rownames(ranef_item),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p_PL1 <- ggplot(plot_df_item, aes(x = mean, y = item)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "Posterior Means and 95% Credible Intervals for Items",
+       x = "Posterior Estimate",
+       y = "Item")
+p_PL1
+```
+
+#### 個人パラメータ
+
+```{r}
+ranef_FLC_level <- ranef(FLC_1PL)$FLC_level
+posterior_means <- ranef_FLC_level[,1,1]
+lower_bounds <- ranef_FLC_level[,3,1]
+upper_bounds <- ranef_FLC_level[,4,1]
+plot_df_FLC_level <- data.frame(
+  FLC_level = rownames(ranef_FLC_level),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+
+plot_df_FLC_level <- plot_df_FLC_level %>% arrange(mean) %>% mutate(rank = row_number())
+p_PL1_FLC_level <- ggplot(plot_df_FLC_level, aes(x = mean, y = rank)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = NULL,
+       x = "Posterior Estimate",
+       y = "FLC Level") +
+  theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+    legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+    legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+    plot.margin = margin(r = 20, l = 10)  # 右側の余白を50ポイントに設定
+  )
+p_PL1_FLC_level
+```
+
+### スケールを変えて FLC の効果を見る
+
+```{r}
+library(dplyr)
+df_IRT_long$FLC_level_2 <- case_when(
+  df_IRT_long$FLCΣ >= 4.0 ~ 3,
+  df_IRT_long$FLCΣ >= 3.0 & df_IRT_long$FLCΣ < 4.0 ~ 2,
+  df_IRT_long$FLCΣ < 3.0 ~ 1
+)
+length(df_IRT_long[df_IRT_long$FLC_level_2 == 3, ]$FLCΣ)/dim(df_IRT_long)[1]
+length(df_IRT_long[df_IRT_long$FLC_level_2 == 2, ]$FLCΣ)/dim(df_IRT_long)[1]
+length(df_IRT_long[df_IRT_long$FLC_level_2 == 1, ]$FLCΣ)/dim(df_IRT_long)[1]
+```
+
+```r
+library(brms)
+
+formula_1PL <- bf(
+  res ~ 1 + (1|item) + (1|FLC_level_2)
+)
+
+FLC_1PL_2 <- brm(
+  formula = formula_1PL,
+  data = df_IRT_long,
+  family = brmsfamily("bernoulli", link = "logit"),
+  chains = 4, cores = 4, iter = 8000
+)
+saveRDS(FLC_1PL_2, "./1-3/FLC_1PL_2.rds")
+```
+
+```{r}
+#| echo: false
+library(brms)
+FLC_1PL_2 <- readRDS("./1-3/FLC_1PL_2.rds")
+```
+
+#### 項目パラメータ
+
+```{r}
+library(ggplot2)
+ranef_item <- ranef(FLC_1PL_2)$item
+posterior_means <- ranef_item[,1,1]
+lower_bounds <- ranef_item[,3,1]
+upper_bounds <- ranef_item[,4,1]
+plot_df_item <- data.frame(
+  item = rownames(ranef_item),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p_PL1 <- ggplot(plot_df_item, aes(x = mean, y = item)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "Posterior Means and 95% Credible Intervals for Items",
+       x = "Posterior Estimate",
+       y = "Item")
+p_PL1
+```
+
+#### 個人パラメータ
+
+```{r}
+ranef_FLC_level <- ranef(FLC_1PL_2)$FLC_level
+posterior_means <- ranef_FLC_level[,1,1]
+lower_bounds <- ranef_FLC_level[,3,1]
+upper_bounds <- ranef_FLC_level[,4,1]
+plot_df_FLC_level <- data.frame(
+  FLC_level = rownames(ranef_FLC_level),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+
+plot_df_FLC_level <- plot_df_FLC_level %>% arrange(mean) %>% mutate(rank = row_number())
+p_PL1_FLC_level <- ggplot(plot_df_FLC_level, aes(x = mean, y = rank)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = NULL,
+       x = "Posterior Estimate",
+       y = "FLC Level") +
+  theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+    legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+    legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+    plot.margin = margin(r = 20, l = 10)  # 右側の余白を50ポイントに設定
+  )
+p_PL1_FLC_level
+```
+
 ## 共変量の追加
+
+### BP / FLCΣ を両方入れたモデル
+
+```{r}
+colnames(df_IRT_long) <- c("id", "BP", "FLCΣ", "item", "response", "高スコア割合", "BP_level")
+```
 
 ```r
 formula_1PL_cov <- bf(
-  res ~ 1 + (1|item) + (1|id) + BP + FLCΣ
+  高スコア割合 ~ 1 + (1|item) + (1|id) + BP + FLCΣ
 )
+
+prior_1PL <-  prior("normal(0,3)", class="sd", group = "id") + prior("normal(0,3)", class="sd", group = "item")
 
 fit_1PL_cov <- brm(
   formula = formula_1PL_cov,
   data = df_IRT_long,
   family = brmsfamily("bernoulli", link = "logit"),
-  chains = 4, cores = 4, iter = 5000
+  prior = prior_1PL,
+  chains = 4, cores = 4, iter = 8000
 )
 saveRDS(fit_1PL_cov, "fit_1PL_cov.rds")
 ```
@@ -401,11 +762,374 @@ fit_1PL_cov <- readRDS("fit_1PL_cov.rds")
 ```
 
 ```{r}
-conditional_effects(fit_1PL_cov, "BP")
+ce <- conditional_effects(fit_1PL_cov, "BP")
+
+# プロットに水平方向の直線を追加
+plot(ce, plot = FALSE)[[1]] +
+  geom_hline(yintercept = 0.14, color = "red", linetype = "dashed") + 
+    theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30)   # 軸ラベルの文字サイズ
+  )
 ```
 
 ```{r}
-conditional_effects(fit_1PL_cov, "FLCΣ")
+# 条件付き効果の計算
+ce <- conditional_effects(fit_1PL_cov, "FLCΣ")
+
+# プロットに水平方向の直線を追加
+plot(ce, plot = FALSE)[[1]] +
+  geom_hline(yintercept = 0.14, color = "red", linetype = "dashed") +
+      theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30)   # 軸ラベルの文字サイズ
+  )
 ```
 
+```{r}
+summary(df_IRT_long$高スコア割合)
+```
 
+### FLC の挙動が不思議
+
+```{r}
+library(ggplot2)
+
+ggplot(df_IRT_long, aes(x = FLCΣ, y = 高スコア割合)) +
+  geom_point(alpha = 0.5) +  # 点の透明度を0.5に設定
+  geom_smooth(method = "lm", se = TRUE) +  # 回帰直線と信頼区間を追加
+  labs(
+    x = "FLCΣ",
+    y = "高スコア割合",
+    title = "FLCΣと高スコア割合の関係"
+  ) +
+  theme_minimal()  # シンプルなテーマを適用
+```
+
+なるほど，ほとんどの被験者が低い FLC に集中しているためか．
+
+もし BP を入れなかったら FLC の効果は逆向きに出る？
+
+
+```r
+formula_1PL_cov <- bf(
+  高スコア割合 ~ 1 + (1|item) + (1|id) + FLCΣ
+)
+
+prior_1PL <-  prior("normal(0,3)", class="sd", group = "id") + prior("normal(0,3)", class="sd", group = "item")
+
+fit_only_FLC_cov <- brm(
+  formula = formula_1PL_cov,
+  data = df_IRT_long,
+  family = brmsfamily("bernoulli", link = "logit"),
+  prior = prior_1PL,
+  chains = 4, cores = 4, iter = 8000
+)
+saveRDS(fit_only_FLC_cov, "fit_only_FLC_cov.rds")
+```
+
+```{r}
+#| echo: false
+library(brms)
+fit_only_FLC_cov <- readRDS("fit_only_FLC_cov.rds")
+```
+
+```{r}
+ce <- conditional_effects(fit_only_FLC_cov, "FLCΣ")
+
+# プロットに水平方向の直線を追加
+plot(ce, plot = FALSE)[[1]] +
+  geom_hline(yintercept = 0.14, color = "red", linetype = "dashed") + 
+    theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30)   # 軸ラベルの文字サイズ
+  )
+```
+
+### ２つの項目（抑うつ感と不安感）に集中
+
+```r
+df_sub_IRT_long <- df_IRT_long[df_IRT_long$item %in% c("抑うつ感", "不安感"), ]
+
+formula_1PL_cov_sub <- bf(
+  高スコア割合 ~ 1 + (1|item) + (1|id) + BP + FLCΣ
+)
+
+prior_1PL <-  prior("normal(0,3)", class="sd", group = "id") + prior("normal(0,3)", class="sd", group = "item")
+
+fit_1PL_sub_cov <- brm(
+  formula = formula_1PL_cov_sub,
+  data = df_sub_IRT_long,
+  prior = prior_1PL,
+  family = brmsfamily("bernoulli", link = "logit"),
+  chains = 4, cores = 4, iter = 8000
+)
+saveRDS(fit_1PL_sub_cov, "fit_1PL_sub_cov.rds")
+```
+
+```{r}
+#| echo: false
+library(brms)
+fit_1PL_sub_cov <- readRDS("fit_1PL_sub_cov.rds")
+```
+
+```{r}
+conditional_effects(fit_1PL_sub_cov, "BP")
+```
+
+```{r}
+conditional_effects(fit_1PL_sub_cov, "FLCΣ")
+```
+
+## FLC と BP の関係
+
+### 散布図でプロット
+
+```{r}
+#| warning: false
+# データの準備（NAを除外）
+scatter_data <- data.frame(
+  BP = df$BP[!is.na(df$BP) & !is.na(df$FLCΣ)],
+  FLCΣ = df$FLCΣ[!is.na(df$BP) & !is.na(df$FLCΣ)]
+)
+
+# 散布図の作成
+ggplot(scatter_data, aes(x = BP, y = FLCΣ)) +
+  geom_point(alpha = 0.5, color = "blue", size = 2) +
+  # 回帰直線を追加
+  geom_smooth(method = "lm", color = "red", se = TRUE) +
+  theme_minimal() +
+  labs(
+    x = "BP",
+    y = "FLCΣ"
+  ) +
+  theme(
+    text = element_text(family = "HiraKakuPro-W3"),
+    axis.text = element_text(size = 14),
+    axis.title = element_text(size = 16)
+  )
+```
+
+```{r}
+# 回帰分析の実行
+lm_result <- lm(FLCΣ ~ BP, data = scatter_data)
+
+# 回帰係数の表示
+summary(lm_result)
+```
+
+外れ値を除外すると傾きは小さくなる．
+
+```{r}
+#| warning: false
+# データの準備（外れ値を除外）
+scatter_data <- data.frame(
+  BP = df$BP[!is.na(df$BP) & !is.na(df$FLCΣ) & df$BP <= 3 & df$FLCΣ <= 10],
+  FLCΣ = df$FLCΣ[!is.na(df$BP) & !is.na(df$FLCΣ) & df$BP <= 3 & df$FLCΣ <= 10]
+)
+
+# 散布図の作成
+ggplot(scatter_data, aes(x = BP, y = FLCΣ)) +
+  geom_point(alpha = 0.5, color = "blue", size = 2) +
+  # 回帰直線を追加
+  # geom_smooth(method = "lm", color = "red", se = TRUE) +
+  geom_hline(yintercept = 2, color = "red", linetype = "dashed") +
+  geom_hline(yintercept = 1, color = "red", linetype = "dashed") +
+  geom_vline(xintercept = 0.7, color = "red", linetype = "dashed") +
+  geom_vline(xintercept = 0.9, color = "red", linetype = "dashed") +
+  theme_minimal() +
+  labs(
+    x = "BP",
+    y = "FLCΣ"
+  ) +
+  theme(
+    text = element_text(family = "HiraKakuPro-W3"),
+    axis.text = element_text(size = 24),
+    axis.title = element_text(size = 36)
+  )
+```
+
+```{r}
+# 回帰分析の実行
+lm_result <- lm(FLCΣ ~ BP, data = scatter_data)
+
+# 回帰係数の表示
+summary(lm_result)
+```
+
+### 2PL モデル
+
+```r
+library(brms)
+
+formula_2PL <- bf(
+  res ~ exp(loggamma) * eta,
+  loggamma ~ 1 + (1|item),
+  eta ~ 1 + (1|item) + (1|BP_level) + (1|FLC_level),
+  nl = TRUE
+)
+
+BP_FLC_2PL <- brm(
+  formula = formula_2PL,
+  data = df_IRT_long,
+  family = brmsfamily("bernoulli", link = "logit"),
+  chains = 4, cores = 4, iter = 8000
+)
+saveRDS(BP_FLC_2PL, "BP_FLC_2PL.rds")
+```
+
+```{r}
+#| echo: false
+library(brms)
+BP_FLC_2PL <- readRDS("BP_FLC_2PL.rds")
+```
+
+#### 識別力パラメータ
+
+```{r}
+ranef_item2 <- ranef(BP_FLC_2PL)$item
+posterior_means <- ranef_item2[,1,"loggamma_Intercept"]
+lower_bounds <- ranef_item2[,3,"loggamma_Intercept"]
+upper_bounds <- ranef_item2[,4,"loggamma_Intercept"]
+plot_df_item2 <- data.frame(
+  item = rownames(ranef_item2),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p_PL2 <- ggplot(plot_df_item2, aes(x = mean, y = item)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "2PL Model",
+       x = "Posterior Estimate",
+       y = "Item")
+p_PL2
+```
+
+#### FLC の効果
+
+```{r}
+ranef(BP_FLC_2PL)$FLC_level
+```
+
+```{r}
+ranef_item2 <- ranef(BP_FLC_2PL)$FLC_level
+posterior_means <- ranef_item2[,1,"eta_Intercept"]
+lower_bounds <- ranef_item2[,3,"eta_Intercept"]
+upper_bounds <- ranef_item2[,4,"eta_Intercept"]
+plot_df_item2 <- data.frame(
+  item = rownames(ranef_item2),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p_PL2 <- ggplot(plot_df_item2, aes(x = mean, y = item)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "2PL Model",
+       x = "Posterior Estimate",
+       y = "Item")
+p_PL2
+```
+
+#### BP の効果
+
+```{r}
+ranef(BP_FLC_2PL)$BP_level
+```
+
+```{r}
+ranef_item2 <- ranef(BP_FLC_2PL)$BP_level
+posterior_means <- ranef_item2[,1,"eta_Intercept"]
+lower_bounds <- ranef_item2[,3,"eta_Intercept"]
+upper_bounds <- ranef_item2[,4,"eta_Intercept"]
+plot_df_item2 <- data.frame(
+  item = rownames(ranef_item2),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p_PL2 <- ggplot(plot_df_item2, aes(x = mean, y = item)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "2PL Model",
+       x = "Posterior Estimate",
+       y = "Item")
+p_PL2
+```
+
+### 1PL モデル
+
+```r
+library(brms)
+
+formula_1PL <- bf(
+  res ~ 1 + (1|item) + (1|FLC_level) + (1|BP_level)
+)
+
+FLC_BP_1PL <- brm(
+  formula = formula_1PL,
+  data = df_IRT_long,
+  family = brmsfamily("bernoulli", link = "logit"),
+  chains = 4, cores = 4, iter = 8000
+)
+saveRDS(FLC_BP_1PL, "FLC_BP_1PL.rds")
+```
+
+```{r}
+#| echo: false
+library(brms)
+FLC_BP_1PL <- readRDS("FLC_BP_1PL.rds")
+```
+
+#### 項目パラメータ
+
+```{r}
+library(ggplot2)
+ranef_item <- ranef(FLC_BP_1PL)$item
+posterior_means <- ranef_item[,1,1]
+lower_bounds <- ranef_item[,3,1]
+upper_bounds <- ranef_item[,4,1]
+plot_df_item <- data.frame(
+  item = rownames(ranef_item),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p_PL1 <- ggplot(plot_df_item, aes(x = mean, y = item)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "Posterior Means and 95% Credible Intervals for Items",
+       x = "Posterior Estimate",
+       y = "Item")
+p_PL1
+```
+
+#### 個人パラメータ
+
+```{r}
+ranef_BP_level <- ranef(FLC_BP_1PL)$FLC_level
+posterior_means <- ranef_BP_level[,1,1]
+lower_bounds <- ranef_BP_level[,3,1]
+upper_bounds <- ranef_BP_level[,4,1]
+plot_df_BP_level <- data.frame(
+  BP_level = rownames(ranef_BP_level),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+
+plot_df_BP_level <- plot_df_BP_level %>% arrange(mean) %>% mutate(rank = row_number())
+p_PL1_BP_level <- ggplot(plot_df_BP_level, aes(x = mean, y = rank)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = "Posterior Means and 95% Credible Intervals for BP Levels",
+       x = "Posterior Estimate",
+       y = "BP Level")
+p_PL1_BP_level
+```

@@ -189,6 +189,8 @@ df$抑うつ感 <- ifelse(
   score_activity_m(item_sum),  # 男性用の関数
   score_activity_f(item_sum)   # 女性用の関数
 )
+
+
 ```
 
 ```{r}
@@ -221,15 +223,18 @@ df <- df[!is.na(df$BP), ]
 
 # 日本語フォントの設定
 par(family = "HiraKakuPro-W3")  # macOSの場合
-
+par(mar = c(5, 6, 2, 2))
 # 基本的なヒストグラム
 hist(df$BP,
-     main = "BP値の分布",
+     main = NULL,
      xlab = "BP値",
-     ylab = "頻度",
+     ylab = "割合",
      col = "lightblue",
      border = "white",
-     breaks = 20)  # Sturgesの公式に基づくビン数の自動設定
+     freq = FALSE,  # 頻度ではなく密度（割合）を表示
+     breaks = 20,  # Sturgesの公式に基づくビン数の自動設定
+     cex.lab = 2.9,   # 軸ラベルの文字サイズ
+     cex.axis = 2.2)  # 軸の目盛りの文字サイズ
 
 # 密度曲線を追加
 lines(density(df$BP, na.rm = TRUE), 
@@ -238,6 +243,13 @@ lines(density(df$BP, na.rm = TRUE),
 
 # 基本統計量を表示
 summary(df$BP)
+```
+
+bin の大きさは約 $0.2$ である．BP が $3.0$ 以上の者は２人のみで，これは外れ値として扱った方が良いと思われる．
+
+```{r}
+df[df$BP > 4.0, ]   # ２人
+df[df$BP > 3.0, ]   # ２人
 ```
 
 BP が 1 以上の人が上位 $23\%$ に入る．そこで，0.9 以上の3割，4割，3割に分ける．
@@ -423,15 +435,18 @@ df <- df[is.na(df$`BP備考`), ]
 
 # 日本語フォントの設定
 par(family = "HiraKakuPro-W3")  # macOSの場合
-
+par(mar = c(5, 6, 2, 2))
 # 基本的なヒストグラム
 hist(df$FLCΣ,
-     main = "FLCΣの分布",
+     main = NULL,
      xlab = "FLCΣ",
-     ylab = "頻度",
+     ylab = "割合",
      col = "lightblue",
      border = "white",
-     breaks = 20)  # Sturgesの公式に基づくビン数の自動設定
+     freq = FALSE,  # 頻度ではなく密度（割合）を表示
+     breaks = 20,  # Sturgesの公式に基づくビン数の自動設定
+     cex.lab = 2.9,   # 軸ラベルの文字サイズ
+     cex.axis = 2.2)  # 軸の目盛りの文字サイズ
 
 # 密度曲線を追加
 lines(density(df$FLCΣ, na.rm = TRUE), 
