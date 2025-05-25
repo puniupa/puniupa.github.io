@@ -755,10 +755,11 @@ fit_1PL_cov <- brm(
 )
 saveRDS(fit_1PL_cov, "fit_1PL_cov.rds")
 ```
+
 ```{r}
 #| echo: false
 library(brms)
-fit_1PL_cov <- readRDS("fit_1PL_cov.rds")
+fit_1PL_cov <- readRDS("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/rdb/fit_1PL_cov.rds")
 ```
 
 ```{r}
@@ -831,7 +832,7 @@ saveRDS(fit_only_FLC_cov, "fit_only_FLC_cov.rds")
 ```{r}
 #| echo: false
 library(brms)
-fit_only_FLC_cov <- readRDS("fit_only_FLC_cov.rds")
+fit_only_FLC_cov <- readRDS("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/rdb/fit_only_FLC_cov.rds")
 ```
 
 ```{r}
@@ -870,7 +871,7 @@ saveRDS(fit_1PL_sub_cov, "fit_1PL_sub_cov.rds")
 ```{r}
 #| echo: false
 library(brms)
-fit_1PL_sub_cov <- readRDS("fit_1PL_sub_cov.rds")
+fit_1PL_sub_cov <- readRDS("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/rdb/fit_1PL_sub_cov.rds")
 ```
 
 ```{r}
@@ -1079,6 +1080,8 @@ FLC_BP_1PL <- brm(
 saveRDS(FLC_BP_1PL, "FLC_BP_1PL.rds")
 ```
 
+
+
 ```{r}
 #| echo: false
 library(brms)
@@ -1103,15 +1106,23 @@ p_PL1 <- ggplot(plot_df_item, aes(x = mean, y = item)) +
   geom_point() +
   geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  labs(title = "Posterior Means and 95% Credible Intervals for Items",
+  labs(title = NULL,
        x = "Posterior Estimate",
-       y = "Item")
+       y = "項目パラメータ") +
+  theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+    legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+    legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+    plot.margin = margin(r = 20, l = 10)  # 右側の余白を50ポイントに設定
+  )
 p_PL1
 ```
 
-#### 個人パラメータ
+#### FLC
 
 ```{r}
+library(dplyr)
 ranef_BP_level <- ranef(FLC_BP_1PL)$FLC_level
 posterior_means <- ranef_BP_level[,1,1]
 lower_bounds <- ranef_BP_level[,3,1]
@@ -1128,8 +1139,47 @@ p_PL1_BP_level <- ggplot(plot_df_BP_level, aes(x = mean, y = rank)) +
   geom_point() +
   geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
-  labs(title = "Posterior Means and 95% Credible Intervals for BP Levels",
+  labs(title = NULL,
        x = "Posterior Estimate",
-       y = "BP Level")
+       y = "FLC Level") +
+  theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+    legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+    legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+    plot.margin = margin(r = 20, l = 10)  # 右側の余白を50ポイントに設定
+  )
+p_PL1_BP_level
+```
+
+#### BP
+
+```{r}
+ranef_BP_level <- ranef(FLC_BP_1PL)$BP_level
+posterior_means <- ranef_BP_level[,1,1]
+lower_bounds <- ranef_BP_level[,3,1]
+upper_bounds <- ranef_BP_level[,4,1]
+plot_df_BP_level <- data.frame(
+  BP_level = rownames(ranef_BP_level),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+
+plot_df_BP_level <- plot_df_BP_level %>% arrange(mean) %>% mutate(rank = row_number())
+p_PL1_BP_level <- ggplot(plot_df_BP_level, aes(x = mean, y = rank)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = NULL,
+       x = "Posterior Estimate",
+       y = "BP Level")  +
+  theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+    legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+    legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+    plot.margin = margin(r = 20, l = 10)  # 右側の余白を50ポイントに設定
+  )
 p_PL1_BP_level
 ```
