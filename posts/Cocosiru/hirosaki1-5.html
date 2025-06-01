@@ -8,7 +8,7 @@
 
 <meta name="author" content="司馬博文">
 
-<title>弘前データ２：階層モデリング – ぷにうぱ</title>
+<title>弘前データ解析１-５：BP とストレスチェック – ぷにうぱ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -56,7 +56,26 @@ div.sourceCode
 @media screen {
 pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
@@ -67,8 +86,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
-<script src="../../site_libs/quarto-listing/list.min.js"></script>
-<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -104,35 +121,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-hirosaki-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-hirosaki-listing'] = new List('listing-hirosaki-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&amp;display=swap" rel="stylesheet">
@@ -172,17 +160,17 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../assets/styles.css">
-<meta property="og:title" content="弘前データ２：BP の階層モデリング – ぷにうぱ">
-<meta property="og:description" content="ここでは BP と LAB の関係のモデリングを行う． hirosaki3.qmd では \(\Sigma\)-FLC と LOX-1 の関係をモデリングする．">
-<meta property="og:image" content="https://puniupa.github.io/posts/Cocosiru/hirosaki2_files/figure-html/unnamed-chunk-5-1.png">
+<meta property="og:title" content="弘前データ解析１-５：BP とストレスチェック – ぷにうぱ">
+<meta property="og:description" content="[`hirosaki1-3.qmd`](hirosaki1-3.">
+<meta property="og:image" content="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-10-1.png">
 <meta property="og:site_name" content="ぷにうぱ">
-<meta property="og:image:height" content="1536">
-<meta property="og:image:width" content="1920">
-<meta name="twitter:title" content="弘前データ２：BP の階層モデリング – ぷにうぱ">
-<meta name="twitter:description" content="ここでは BP と LAB の関係のモデリングを行う． hirosaki3.qmd では \(\Sigma\)-FLC と LOX-1 の関係をモデリングする．">
-<meta name="twitter:image" content="https://puniupa.github.io/posts/Cocosiru/hirosaki2_files/figure-html/unnamed-chunk-5-1.png">
-<meta name="twitter:image-height" content="1536">
-<meta name="twitter:image-width" content="1920">
+<meta property="og:image:height" content="2400">
+<meta property="og:image:width" content="3000">
+<meta name="twitter:title" content="弘前データ解析１-５：BP とストレスチェック – ぷにうぱ">
+<meta name="twitter:description" content="[`hirosaki1-3.qmd`](hirosaki1-3.">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-10-1.png">
+<meta name="twitter:image-height" content="2400">
+<meta name="twitter:image-width" content="3000">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -227,9 +215,15 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#lab-と-bp-の相関" id="toc-lab-と-bp-の相関" class="nav-link active" data-scroll-target="#lab-と-bp-の相関"><span class="header-section-number">1</span> LAB と BP の相関</a>
+  <li><a href="#導入" id="toc-導入" class="nav-link active" data-scroll-target="#導入"><span class="header-section-number">1</span> 導入</a>
   <ul class="collapse">
-  <li><a href="#年齢で層別" id="toc-年齢で層別" class="nav-link" data-scroll-target="#年齢で層別"><span class="header-section-number">1.1</span> 年齢で層別</a></li>
+  <li><a href="#備考データの除去" id="toc-備考データの除去" class="nav-link" data-scroll-target="#備考データの除去"><span class="header-section-number">1.1</span> 備考データの除去</a></li>
+  <li><a href="#判別条件" id="toc-判別条件" class="nav-link" data-scroll-target="#判別条件"><span class="header-section-number">1.2</span> 判別条件</a></li>
+  </ul></li>
+  <li><a href="#項目応答モデル" id="toc-項目応答モデル" class="nav-link" data-scroll-target="#項目応答モデル"><span class="header-section-number">2</span> 項目応答モデル</a>
+  <ul class="collapse">
+  <li><a href="#pl-モデルの推定" id="toc-pl-モデルの推定" class="nav-link" data-scroll-target="#pl-モデルの推定"><span class="header-section-number">2.1</span> 1PL モデルの推定</a></li>
+  <li><a href="#判別分析" id="toc-判別分析" class="nav-link" data-scroll-target="#判別分析"><span class="header-section-number">2.2</span> 判別分析</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -239,8 +233,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">弘前データ２：階層モデリング</h1>
-<p class="subtitle lead">LAB との関係に服薬という行楽がある</p>
+<h1 class="title">弘前データ解析１-５：BP とストレスチェック</h1>
+<p class="subtitle lead">ARMS バイオマーカーは質問表応答も予測するか？</p>
 </div>
 
 
@@ -257,17 +251,24 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">日付</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">4/29/2025</p>
+      <p class="date">5/26/2025</p>
     </div>
   </div>
   
+    <div>
+    <div class="quarto-title-meta-heading">Modified</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date-modified">5/26/2025</p>
+    </div>
+  </div>
     
   </div>
   
 <div>
   <div class="abstract">
     <div class="block-title">はじめに</div>
-    <p>ここでは BP と LAB の関係のモデリングを行う． <a href="../../posts/Cocosiru/hirosaki3.html"><code>hirosaki3.qmd</code></a> では <span class="math inline">\(\Sigma\)</span>-FLC と LOX-1 の関係をモデリングする．</p>
+    <p><a href="../../posts/Cocosiru/hirosaki1-3.html"><code>hirosaki1-3.qmd</code></a> では BP と <span class="math inline">\(\Sigma\)</span>-FLC が高いほど項目応答確率が上がることを見た．しかしこれは先行研究 <span class="citation" data-cites="Wake+2022">(<a href="#ref-Wake+2022" role="doc-biblioref">Wake et al., 2022</a>)</span> と食い違う．2×2 で見たり，交差項を考えたりすることで，この構造をさらに詳しくみる．</p>
+    <p>元論文のロジスティック解析では，（クレアチン補正した）BP と <span class="math inline">\(\Sigma\)</span>-FLC の値を正規化せず，そのままのスケールを保つことで discrimination score を構成し，これを cut-off value <span class="math inline">\(-0.096\)</span> で２値判別することで，AUC <span class="math inline">\(0.912\)</span> を達成している．</p>
   </div>
 </div>
 
@@ -275,45 +276,35 @@ window.Quarto = {
 </header>
 
 
-<div id="listing-hirosaki-listing" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-1">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1745712000000" data-listing-file-modified-sort="1748785191224" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="37" data-listing-word-count-sort="7309">
-<a href="../../posts/Cocosiru/hirosaki1.html" class="quarto-grid-link">
-</a><div class="quarto-grid-item card h-100 card-left"><a href="../../posts/Cocosiru/hirosaki1.html" class="quarto-grid-link">
-<p class="card-img-top"><img src="hirosaki1_files/figure-html/unnamed-chunk-5-1.png" style="height: 100%;"  class="thumbnail-image card-img"/></p>
-</a><div class="card-body post-contents"><a href="../../posts/Cocosiru/hirosaki1.html" class="quarto-grid-link">
-<h5 class="no-anchor card-title listing-title">
-弘前データ１：法定検診との関係
-</h5>
-</a><div class="card-text listing-description delink"><a href="../../posts/Cocosiru/hirosaki1.html" class="quarto-grid-link">
-</a><p><a href="../../posts/Cocosiru/hirosaki1.html" class="quarto-grid-link">ここではまずデータの視覚化を行い，概要をつかむ． </a><a href="../../posts/Cocosiru/hirosaki2.html">次節</a>から階層モデリングを目指す．</p>
+<section id="導入" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="導入"><span class="header-section-number">1</span> 導入</h2>
+<section id="備考データの除去" class="level3" data-number="1.1">
+<h3 data-number="1.1" class="anchored" data-anchor-id="備考データの除去"><span class="header-section-number">1.1</span> 備考データの除去</h3>
+<p><span class="math inline">\(\Sigma\)</span>-FLC の備考データも取り除く．</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"df.rds"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="fu">is.na</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">BP備考</span><span class="st">`</span>), ]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(df)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 584  38</code></pre>
 </div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-司馬博文
-</div>
-<div class="listing-date">
-4/27/2025
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
+<col style="width: 3%">
 <col style="width: 4%">
 <col style="width: 1%">
 <col style="width: 2%">
 <col style="width: 1%">
 <col style="width: 2%">
 <col style="width: 2%">
-<col style="width: 3%">
+<col style="width: 2%">
+<col style="width: 2%">
 <col style="width: 2%">
 <col style="width: 4%">
 <col style="width: 2%">
@@ -346,10 +337,12 @@ window.Quarto = {
 </colgroup>
 <thead>
 <tr class="header">
+<th style="text-align: right;">受付番号</th>
 <th style="text-align: right;">受診日年齢</th>
 <th style="text-align: right;">性別</th>
 <th style="text-align: right;">Weight</th>
 <th style="text-align: right;">BP</th>
+<th style="text-align: right;">FLCΣ</th>
 <th style="text-align: left;">BP備考</th>
 <th style="text-align: right;">判別式</th>
 <th style="text-align: right;">LOX-1_H</th>
@@ -386,48 +379,12 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">64</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">54.2</td>
-<td style="text-align: right;">1.08</td>
-<td style="text-align: left;">ABDG</td>
-<td style="text-align: right;">-2.880</td>
-<td style="text-align: right;">86</td>
-<td style="text-align: right;">2.6</td>
-<td style="text-align: right;">224</td>
-<td style="text-align: left;">B</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: left;">60代</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
 <td style="text-align: right;">48</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">52.7</td>
 <td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
 <td style="text-align: left;">B</td>
 <td style="text-align: right;">-3.343</td>
 <td style="text-align: right;">75</td>
@@ -461,11 +418,13 @@ window.Quarto = {
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">3</td>
 </tr>
-<tr class="odd">
+<tr class="even">
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">53</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">64.8</td>
 <td style="text-align: right;">0.67</td>
+<td style="text-align: right;">-0.30</td>
 <td style="text-align: left;">BDG</td>
 <td style="text-align: right;">-2.727</td>
 <td style="text-align: right;">55</td>
@@ -499,11 +458,13 @@ window.Quarto = {
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">2</td>
 </tr>
-<tr class="even">
+<tr class="odd">
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">46</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">76.3</td>
 <td style="text-align: right;">1.10</td>
+<td style="text-align: right;">1.95</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: right;">-2.974</td>
 <td style="text-align: right;">136</td>
@@ -537,11 +498,13 @@ window.Quarto = {
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">2</td>
 </tr>
-<tr class="odd">
+<tr class="even">
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">65</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">72.4</td>
 <td style="text-align: right;">0.88</td>
+<td style="text-align: right;">-8.96</td>
 <td style="text-align: left;">D</td>
 <td style="text-align: right;">-7.338</td>
 <td style="text-align: right;">58</td>
@@ -575,11 +538,13 @@ window.Quarto = {
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">1</td>
 </tr>
-<tr class="even">
+<tr class="odd">
+<td style="text-align: right;">6</td>
 <td style="text-align: right;">30</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">59.5</td>
 <td style="text-align: right;">0.76</td>
+<td style="text-align: right;">0.64</td>
 <td style="text-align: left;">NA</td>
 <td style="text-align: right;">-2.776</td>
 <td style="text-align: right;">46</td>
@@ -613,51 +578,211 @@ window.Quarto = {
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">4</td>
 </tr>
+<tr class="even">
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">76.6</td>
+<td style="text-align: right;">1.69</td>
+<td style="text-align: right;">2.58</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-2.377</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">50代</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
 </tbody>
 </table>
 </div>
 </div>
+<p>に対して長形式のデータは次の通り：</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>mdf <span class="ot">&lt;-</span> df[, <span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">11</span>, <span class="dv">30</span><span class="sc">:</span><span class="dv">36</span>)]</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mdf) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"_H$"</span>, <span class="st">""</span>, <span class="fu">colnames</span>(mdf))</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mdf) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"LOX-1"</span>, <span class="st">"LOX"</span>, <span class="fu">colnames</span>(mdf))  <span class="co"># LOX-1をLOXに</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mdf) <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"LOX-index"</span>, <span class="st">"LI"</span>, <span class="fu">colnames</span>(mdf))  <span class="co"># LOX-indexをLIに</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(mdf))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>df_IRT_long <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"df_IRT_long.rds"</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(df_IRT_long))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: right;">id</th>
+<th style="text-align: right;">BP</th>
+<th style="text-align: right;">FLCΣ</th>
+<th style="text-align: left;">item</th>
+<th style="text-align: right;">response</th>
+<th style="text-align: right;">res</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">活気</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">イライラ感</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">疲労感</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">不安感</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">抑うつ感</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.67</td>
+<td style="text-align: right;">-0.30</td>
+<td style="text-align: left;">活気</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="判別条件" class="level3" data-number="1.2">
+<h3 data-number="1.2" class="anchored" data-anchor-id="判別条件"><span class="header-section-number">1.2</span> 判別条件</h3>
+<p>論文 <span class="citation" data-cites="Wake+2022">(<a href="#ref-Wake+2022" role="doc-biblioref">Wake et al., 2022</a>)</span> で示唆されている条件を満たすデータは，２つしかない．</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">=</span> <span class="sc">-</span><span class="fl">3.6414</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>b_BP <span class="ot">=</span> <span class="fl">1.6208</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>b_FLC <span class="ot">=</span> <span class="sc">-</span><span class="fl">0.5718</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(df<span class="sc">$</span>BP <span class="sc">*</span> b_BP <span class="sc">+</span> df<span class="sc">$</span>FLCΣ <span class="sc">*</span> b_FLC <span class="sc">+</span> a <span class="sc">&gt;</span> <span class="sc">-</span><span class="fl">0.096</span>, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>BP <span class="sc">*</span> b_BP <span class="sc">+</span> df<span class="sc">$</span>FLCΣ <span class="sc">*</span> b_FLC <span class="sc">+</span> a <span class="sc">&gt;</span> <span class="sc">-</span><span class="fl">0.096</span>, ]</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="ot">&lt;-</span> filtered_df[<span class="sc">!</span><span class="fu">is.na</span>(filtered_df<span class="sc">$</span>BP), ]</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(filtered_df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 9%">
-<col style="width: 4%">
-<col style="width: 5%">
-<col style="width: 4%">
-<col style="width: 5%">
-<col style="width: 5%">
+<col style="width: 1%">
 <col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 3%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 8%">
 <col style="width: 4%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
 <col style="width: 4%">
-<col style="width: 9%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 7%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
 </colgroup>
 <thead>
 <tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">受付番号</th>
 <th style="text-align: right;">受診日年齢</th>
 <th style="text-align: right;">性別</th>
 <th style="text-align: right;">Weight</th>
 <th style="text-align: right;">BP</th>
+<th style="text-align: right;">FLCΣ</th>
 <th style="text-align: left;">BP備考</th>
 <th style="text-align: right;">判別式</th>
-<th style="text-align: right;">LOX</th>
-<th style="text-align: right;">LAB</th>
-<th style="text-align: right;">LI</th>
+<th style="text-align: right;">LOX-1_H</th>
+<th style="text-align: right;">LAB_H</th>
+<th style="text-align: right;">LOX-index_H</th>
 <th style="text-align: left;">タイプ</th>
 <th style="text-align: right;">多様性</th>
+<th style="text-align: right;">item1</th>
+<th style="text-align: right;">item2</th>
+<th style="text-align: right;">item3</th>
+<th style="text-align: right;">item4</th>
+<th style="text-align: right;">item5</th>
+<th style="text-align: right;">item6</th>
+<th style="text-align: right;">item7</th>
+<th style="text-align: right;">item8</th>
+<th style="text-align: right;">item9</th>
+<th style="text-align: right;">item10</th>
+<th style="text-align: right;">item11</th>
+<th style="text-align: right;">item12</th>
+<th style="text-align: right;">item13</th>
+<th style="text-align: right;">item14</th>
+<th style="text-align: right;">item15</th>
+<th style="text-align: right;">item16</th>
+<th style="text-align: right;">item17</th>
+<th style="text-align: right;">item18</th>
 <th style="text-align: right;">BP_A_flag</th>
 <th style="text-align: left;">年代</th>
 <th style="text-align: right;">活気</th>
@@ -669,258 +794,134 @@ window.Quarto = {
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">64</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">54.2</td>
-<td style="text-align: right;">1.08</td>
-<td style="text-align: left;">ABDG</td>
-<td style="text-align: right;">-2.880</td>
-<td style="text-align: right;">86</td>
-<td style="text-align: right;">2.6</td>
-<td style="text-align: right;">224</td>
+<td style="text-align: left;">262</td>
+<td style="text-align: right;">267</td>
+<td style="text-align: right;">45</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">70.7</td>
+<td style="text-align: right;">4.26</td>
+<td style="text-align: right;">0.25</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">3.120</td>
+<td style="text-align: right;">26</td>
+<td style="text-align: right;">3.6</td>
+<td style="text-align: right;">94</td>
 <td style="text-align: left;">B</td>
 <td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: left;">60代</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">48</td>
+<td style="text-align: right;">3</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">52.7</td>
-<td style="text-align: right;">0.47</td>
-<td style="text-align: left;">B</td>
-<td style="text-align: right;">-3.343</td>
-<td style="text-align: right;">75</td>
-<td style="text-align: right;">2.2</td>
-<td style="text-align: right;">165</td>
-<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">40代</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">3</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">53</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">64.8</td>
-<td style="text-align: right;">0.67</td>
-<td style="text-align: left;">BDG</td>
-<td style="text-align: right;">-2.727</td>
-<td style="text-align: right;">55</td>
-<td style="text-align: right;">2.8</td>
-<td style="text-align: right;">154</td>
-<td style="text-align: left;">A</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">50代</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">46</td>
+<td style="text-align: left;">485</td>
+<td style="text-align: right;">493</td>
+<td style="text-align: right;">49</td>
 <td style="text-align: right;">1</td>
-<td style="text-align: right;">76.3</td>
-<td style="text-align: right;">1.10</td>
+<td style="text-align: right;">84.6</td>
+<td style="text-align: right;">4.18</td>
+<td style="text-align: right;">3.13</td>
 <td style="text-align: left;">NA</td>
-<td style="text-align: right;">-2.974</td>
-<td style="text-align: right;">136</td>
-<td style="text-align: right;">3.8</td>
-<td style="text-align: right;">517</td>
+<td style="text-align: right;">1.344</td>
+<td style="text-align: right;">161</td>
+<td style="text-align: right;">3.3</td>
+<td style="text-align: right;">531</td>
 <td style="text-align: left;">B</td>
 <td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
 <td style="text-align: right;">0</td>
 <td style="text-align: left;">40代</td>
 <td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
-<td style="text-align: right;">65</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">72.4</td>
-<td style="text-align: right;">0.88</td>
-<td style="text-align: left;">D</td>
-<td style="text-align: right;">-7.338</td>
-<td style="text-align: right;">58</td>
-<td style="text-align: right;">2.3</td>
-<td style="text-align: right;">133</td>
-<td style="text-align: left;">C</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">60代</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">1</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">30</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">59.5</td>
-<td style="text-align: right;">0.76</td>
-<td style="text-align: left;">NA</td>
-<td style="text-align: right;">-2.776</td>
-<td style="text-align: right;">46</td>
-<td style="text-align: right;">2.2</td>
-<td style="text-align: right;">101</td>
-<td style="text-align: left;">B</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">30代</td>
 <td style="text-align: right;">3</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<section id="lab-と-bp-の相関" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="lab-と-bp-の相関"><span class="header-section-number">1</span> LAB と BP の相関</h2>
+</section>
+</section>
+<section id="項目応答モデル" class="level2" data-number="2">
+<h2 data-number="2" class="anchored" data-anchor-id="項目応答モデル"><span class="header-section-number">2</span> 項目応答モデル</h2>
+<section id="pl-モデルの推定" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="pl-モデルの推定"><span class="header-section-number">2.1</span> 1PL モデルの推定</h3>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>formula_1PL <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  res <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>item) <span class="sc">+</span> FLCΣ <span class="sc">+</span> BP</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>FLC_BP_1PL <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">formula =</span> formula_1PL,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> df_IRT_long,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">brmsfamily</span>(<span class="st">"bernoulli"</span>, <span class="at">link =</span> <span class="st">"logit"</span>),</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="at">chains =</span> <span class="dv">4</span>, <span class="at">cores =</span> <span class="dv">4</span>, <span class="at">iter =</span> <span class="dv">8000</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>mini_df <span class="ot">&lt;-</span> df[df<span class="sc">$</span>BP_A_flag <span class="sc">==</span> <span class="dv">0</span>, <span class="fu">c</span>(<span class="st">"BP"</span>, <span class="st">"LAB_H"</span>)]</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(mini_df) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"BP"</span>, <span class="st">"LAB"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(mini_df, <span class="fu">aes</span>(<span class="at">x =</span> LAB, <span class="at">y =</span> BP)) <span class="sc">+</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">alpha =</span> <span class="fl">0.5</span>, <span class="at">color =</span> <span class="st">"skyblue"</span>) <span class="sc">+</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>, <span class="at">color =</span> <span class="st">"red"</span>, <span class="at">se =</span> <span class="cn">TRUE</span>) <span class="sc">+</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"LAB と BP の相関"</span>,</span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">"LAB"</span>,</span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="st">"BP"</span>) <span class="sc">+</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">family =</span> <span class="st">"BIZUDGothic-Regular"</span>, <span class="at">size =</span> <span class="dv">12</span>),</span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">34</span>),</span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">axis.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>),</span>
-<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">45</span>)</span>
-<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
-<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 両軸のスケールを同じに</span></span>
-<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_fixed</span>(<span class="at">ratio =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
-<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>  <span class="co"># 軸の範囲を-3から3に設定（標準偏差の±3倍程度）</span></span>
-<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">5</span>)) <span class="sc">+</span></span>
-<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">2.5</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(FLC_BP_1PL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
+<pre><code>Warning: There were 41 divergent transitions after warmup. Increasing
+adapt_delta above 0.8 may help. See
+http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
 </div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 55 rows containing non-finite outside the scale range
-(`stat_smooth()`).</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 55 rows containing missing values or values outside the scale range
-(`geom_point()`).</code></pre>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hirosaki2_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<section id="年齢で層別" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="年齢で層別"><span class="header-section-number">1.1</span> 年齢で層別</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>normalize <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  (x <span class="sc">-</span> <span class="fu">mean</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)) <span class="sc">/</span> <span class="fu">sd</span>(x, <span class="at">na.rm =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 新しいデータフレームを作成し、必要な列を標準化</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>df_norm <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">BP =</span> <span class="fu">normalize</span>(mdf<span class="sc">$</span>BP),</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">LAB =</span> <span class="fu">normalize</span>(mdf<span class="sc">$</span>LAB),</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">LOX =</span> <span class="fu">normalize</span>(mdf<span class="sc">$</span>LOX),</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">LI =</span> <span class="fu">normalize</span>(mdf<span class="sc">$</span>LI)</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: Rcpp</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading 'brms' package (version 2.21.0). Useful instructions
-can be found by typing help('brms'). A more detailed introduction
-to the package is available through vignette('brms_overview').</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'brms'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:stats':
-
-    ar</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>formula <span class="ot">&lt;-</span> <span class="fu">bf</span>(</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  BP <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> LAB <span class="sc">+</span> LOX <span class="sc">+</span> LI</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">brm</span>(</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  formula,</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> df_norm,</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">family =</span> <span class="fu">gaussian</span>(),</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">chains =</span> <span class="dv">4</span>,</span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">iter =</span> <span class="dv">4000</span>,</span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">cores =</span> <span class="dv">4</span></span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Rows containing NAs were excluded from the model.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Compiling Stan program...</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Start sampling</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hirosaki2_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code> Family: gaussian 
-  Links: mu = identity; sigma = identity 
-Formula: BP ~ 1 + LAB + LOX + LI 
-   Data: df_norm (Number of observations: 1124) 
-  Draws: 4 chains, each with iter = 4000; warmup = 2000; thin = 1;
-         total post-warmup draws = 8000
+<pre><code> Family: bernoulli 
+  Links: mu = logit 
+Formula: res ~ 1 + (1 | item) + FLCΣ + BP 
+   Data: df_IRT_long (Number of observations: 5594) 
+  Draws: 4 chains, each with iter = 8000; warmup = 4000; thin = 1;
+         total post-warmup draws = 16000
+
+Multilevel Hyperparameters:
+~item (Number of levels: 5) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     0.46      0.24     0.18     1.12 1.00     2745     1562
 
 Regression Coefficients:
           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-Intercept    -0.00      0.03    -0.06     0.06 1.00     4494     4420
-LAB           0.07      0.04    -0.02     0.16 1.00     3261     4176
-LOX           0.02      0.27    -0.52     0.55 1.00     2817     3630
-LI            0.04      0.27    -0.50     0.57 1.00     2828     3685
-
-Further Distributional Parameters:
-      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
-sigma     1.00      0.02     0.96     1.05 1.00     5038     5215
+Intercept    -2.04      0.24    -2.56    -1.53 1.00     2551     1134
+FLCΣ        -0.01      0.01    -0.02    -0.00 1.00    12429     9231
+BP            0.18      0.10    -0.01     0.36 1.00    10425     8836
 
 Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
 and Tail_ESS are effective sample size measures, and Rhat is the potential
@@ -928,25 +929,109 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">conditional_effects</span>(fit)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ranef</span>(FLC_BP_1PL)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$item
+, , Intercept
+
+              Estimate Est.Error        Q2.5     Q97.5
+イライラ感 -0.05670812 0.2401337 -0.56401708 0.4559521
+活気        0.44240072 0.2382509 -0.04059189 0.9705884
+疲労感      0.10342088 0.2377162 -0.39209284 0.6082293
+不安感     -0.33609964 0.2423779 -0.85766510 0.1583487
+抑うつ感   -0.20384570 0.2409346 -0.71164018 0.3023300</code></pre>
+</div>
+</div>
+</section>
+<section id="判別分析" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="判別分析"><span class="header-section-number">2.2</span> 判別分析</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+ 次のパッケージを付け加えます: 'dplyr' </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 以下のオブジェクトは 'package:stats' からマスクされています:
+
+    filter, lag</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 以下のオブジェクトは 'package:base' からマスクされています:
+
+    intersect, setdiff, setequal, union</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>ran_ef_list <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  イライラ感 <span class="ot">=</span> <span class="sc">-</span><span class="fl">0.057</span>,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  活気 <span class="ot">=</span> <span class="fl">0.442</span>,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  疲労感 <span class="ot">=</span> <span class="fl">0.103</span>,</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  不安感 <span class="ot">=</span> <span class="sc">-</span><span class="fl">0.336</span>,</span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  抑うつ感 <span class="ot">=</span> <span class="fl">0.209</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>df_IRT_long<span class="sc">$</span>ran_ef <span class="ot">&lt;-</span> <span class="fu">case_when</span>(</span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  df_IRT_long<span class="sc">$</span>item <span class="sc">==</span> <span class="st">"イライラ感"</span> <span class="sc">~</span> ran_ef_list[[<span class="st">"イライラ感"</span>]],</span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>  df_IRT_long<span class="sc">$</span>item <span class="sc">==</span> <span class="st">"活気"</span> <span class="sc">~</span> ran_ef_list[[<span class="st">"活気"</span>]],</span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>  df_IRT_long<span class="sc">$</span>item <span class="sc">==</span> <span class="st">"疲労感"</span> <span class="sc">~</span> ran_ef_list[[<span class="st">"疲労感"</span>]],</span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>  df_IRT_long<span class="sc">$</span>item <span class="sc">==</span> <span class="st">"不安感"</span> <span class="sc">~</span> ran_ef_list[[<span class="st">"不安感"</span>]],</span>
+<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>  df_IRT_long<span class="sc">$</span>item <span class="sc">==</span> <span class="st">"抑うつ感"</span> <span class="sc">~</span> ran_ef_list[[<span class="st">"抑うつ感"</span>]],</span>
+<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>  <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA_real_</span></span>
+<span id="cb18-16"><a href="#cb18-16" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb18-17"><a href="#cb18-17" aria-hidden="true" tabindex="-1"></a>df_IRT_long <span class="ot">&lt;-</span> df_IRT_long[<span class="sc">!</span><span class="fu">is.na</span>(df_IRT_long<span class="sc">$</span>item), ]</span>
+<span id="cb18-18"><a href="#cb18-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-19"><a href="#cb18-19" aria-hidden="true" tabindex="-1"></a>beta_0 <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">2.04</span></span>
+<span id="cb18-20"><a href="#cb18-20" aria-hidden="true" tabindex="-1"></a>beta_FLC <span class="ot">&lt;-</span> <span class="sc">-</span><span class="fl">0.01</span></span>
+<span id="cb18-21"><a href="#cb18-21" aria-hidden="true" tabindex="-1"></a>beta_BP <span class="ot">&lt;-</span> <span class="fl">0.18</span></span>
+<span id="cb18-22"><a href="#cb18-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-23"><a href="#cb18-23" aria-hidden="true" tabindex="-1"></a>df_IRT_long<span class="sc">$</span>discrimination_score <span class="ot">&lt;-</span> beta_0 <span class="sc">+</span> beta_FLC <span class="sc">*</span> df_IRT_long<span class="sc">$</span>FLCΣ <span class="sc">+</span> beta_BP <span class="sc">*</span> df_IRT_long<span class="sc">$</span>BP <span class="sc">+</span> df_IRT_long<span class="sc">$</span>ran_ef</span>
+<span id="cb18-24"><a href="#cb18-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-25"><a href="#cb18-25" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(df_IRT_long<span class="sc">$</span>discrimination_score)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+ -2.385  -2.002  -1.804  -1.823  -1.640  -0.304      40 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(df_IRT_long)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 8
+     id    BP  FLCΣ item       response   res ran_ef discrimination_score
+  &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;chr&gt;         &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;                &lt;dbl&gt;
+1     2  0.47  0.81 活気              3     0  0.442                -1.52
+2     2  0.47  0.81 イライラ感        3     0 -0.057                -2.02
+3     2  0.47  0.81 疲労感            4     1  0.103                -1.86
+4     2  0.47  0.81 不安感            3     0 -0.336                -2.30
+5     2  0.47  0.81 抑うつ感          3     0  0.209                -1.75
+6     3  0.67 -0.3  活気              4     1  0.442                -1.47</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>param <span class="ot">&lt;-</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="fl">2.385</span>, <span class="sc">-</span><span class="fl">0.304</span>, <span class="fl">0.001</span>)</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (threshold <span class="cf">in</span> param) {</span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  res_predicted <span class="ot">&lt;-</span> df_IRT_long<span class="sc">$</span>discrimination_score <span class="sc">&gt;</span> threshold</span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  is_false <span class="ot">&lt;-</span> res_predicted <span class="sc">!=</span> df_IRT_long<span class="sc">$</span>res</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  is_true <span class="ot">&lt;-</span> res_predicted <span class="sc">==</span> df_IRT_long<span class="sc">$</span>res</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">append</span>(x, <span class="fu">mean</span>(is_false[df_IRT_long<span class="sc">$</span>res <span class="sc">==</span> <span class="dv">0</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="fu">append</span>(y, <span class="fu">mean</span>(is_true[df_IRT_long<span class="sc">$</span>res <span class="sc">==</span> <span class="dv">1</span>], <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">data.frame</span>(<span class="at">x =</span> x, <span class="at">y =</span> y), <span class="fu">aes</span>(<span class="at">x =</span> x, <span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"False Positive Rate"</span>, <span class="at">y =</span> <span class="st">"True Positive Rate"</span>) <span class="sc">+</span></span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lims</span>(<span class="at">x =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>), <span class="at">y =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="hirosaki2_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hirosaki2_files/figure-html/unnamed-chunk-10-2.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="hirosaki2_files/figure-html/unnamed-chunk-10-3.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="hirosaki1-5_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
@@ -957,7 +1042,11 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </section>
 </section>
 
-</main> <!-- /main -->
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-Wake+2022" class="csl-entry" role="listitem">
+Wake, R., Araki, T., Fukushima, M., Matsuda, H., Inagaki, T., Hayashida, M., … Oh-Nishi, A. (2022). <a href="https://doi.org/10.1111/eip.13154">Urinary biopyrrins and free immunoglobin light chains are biomarker candidates for screening at-risk mental state in adolescents</a>. <em>Early Intervention in Psychiatry</em>, <em>16</em>(3), 272–280.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
