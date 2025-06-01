@@ -1,0 +1,164 @@
+---
+title: "弘前データ解析１-５：BP とストレスチェック"
+subtitle: "ARMS バイオマーカーは質問表応答も予測するか？"
+author: "司馬博文"
+date: 5/26/2025
+date-modified: 5/26/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+fig-align: center
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: true
+    fig-width: 10
+    fig-height: 8
+    fig-format: "png"
+    fig-dpi: 300
+    fig-font-family: "Hiragino Sans"
+abstract: |
+  [`hirosaki1-3.qmd`](hirosaki1-3.qmd) では BP と $\Sigma$-FLC が高いほど項目応答確率が上がることを見た．しかしこれは先行研究 [@Wake+2022] と食い違う．2×2 で見たり，交差項を考えたりすることで，この構造をさらに詳しくみる．
+
+  元論文のロジスティック解析では，（クレアチン補正した）BP と $\Sigma$-FLC の値を正規化せず，そのままのスケールを保つことで discrimination score を構成し，これを cut-off value $-0.096$ で２値判別することで，AUC $0.912$ を達成している．
+---
+
+## 導入
+
+### 備考データの除去
+
+$\Sigma$-FLC の備考データも取り除く．
+
+```{r}
+library(readxl)
+library(knitr)
+df <- readRDS("df.rds")
+df <- df[is.na(df$`BP備考`), ]
+dim(df)
+```
+
+
+```{r}
+kable(head(df))
+```
+
+に対して長形式のデータは次の通り：
+
+```{r}
+df_IRT_long <- readRDS("df_IRT_long.rds")
+kable(head(df_IRT_long))
+```
+
+### 判別条件
+
+論文 [@Wake+2022] で示唆されている条件を満たすデータは，２つしかない．
+
+```{r}
+a = -3.6414
+b_BP = 1.6208
+b_FLC = -0.5718
+sum(df$BP * b_BP + df$FLCΣ * b_FLC + a > -0.096, na.rm = TRUE)
+filtered_df <- df[df$BP * b_BP + df$FLCΣ * b_FLC + a > -0.096, ]
+filtered_df <- filtered_df[!is.na(filtered_df$BP), ]
+kable(head(filtered_df))
+```
+
+## 項目応答モデル
+
+### 1PL モデルの推定
+
+```r
+library(brms)
+
+formula_1PL <- bf(
+  res ~ 1 + (1|item) + FLCΣ + BP
+)
+
+FLC_BP_1PL <- brm(
+  formula = formula_1PL,
+  data = df_IRT_long,
+  family = brmsfamily("bernoulli", link = "logit"),
+  chains = 4, cores = 4, iter = 8000
+)
+```
+
+```{r}
+#| echo: false
+#| output: false
+library(brms)
+FLC_BP_1PL <- readRDS("./1-5/FLC_BP_1PL.rds")
+```
+
+```{r}
+summary(FLC_BP_1PL)
+```
+
+```{r}
+ranef(FLC_BP_1PL)
+```
+
+### 判別分析
+
+```{r}
+library(dplyr)
+
+ran_ef_list <- list(
+  イライラ感 = -0.057,
+  活気 = 0.442,
+  疲労感 = 0.103,
+  不安感 = -0.336,
+  抑うつ感 = 0.209
+)
+
+df_IRT_long$ran_ef <- case_when(
+  df_IRT_long$item == "イライラ感" ~ ran_ef_list[["イライラ感"]],
+  df_IRT_long$item == "活気" ~ ran_ef_list[["活気"]],
+  df_IRT_long$item == "疲労感" ~ ran_ef_list[["疲労感"]],
+  df_IRT_long$item == "不安感" ~ ran_ef_list[["不安感"]],
+  df_IRT_long$item == "抑うつ感" ~ ran_ef_list[["抑うつ感"]],
+  TRUE ~ NA_real_
+)
+df_IRT_long <- df_IRT_long[!is.na(df_IRT_long$item), ]
+
+beta_0 <- -2.04
+beta_FLC <- -0.01
+beta_BP <- 0.18
+
+df_IRT_long$discrimination_score <- beta_0 + beta_FLC * df_IRT_long$FLCΣ + beta_BP * df_IRT_long$BP + df_IRT_long$ran_ef
+
+summary(df_IRT_long$discrimination_score)
+```
+
+```{r}
+head(df_IRT_long)
+```
+
+```{r}
+param <- seq(-2.385, -0.304, 0.001)
+x <- c()
+y <- c()
+
+for (threshold in param) {
+  res_predicted <- df_IRT_long$discrimination_score > threshold
+
+  is_false <- res_predicted != df_IRT_long$res
+  is_true <- res_predicted == df_IRT_long$res
+  
+  x <- append(x, mean(is_false[df_IRT_long$res == 0], na.rm = TRUE))
+  y <- append(y, mean(is_true[df_IRT_long$res == 1], na.rm = TRUE))
+}
+
+library(ggplot2)
+
+ggplot(data.frame(x = x, y = y), aes(x = x, y = y)) +
+  geom_point() +
+  geom_line() +
+  theme_minimal() +
+  labs(x = "False Positive Rate", y = "True Positive Rate") +
+  lims(x = c(0, 1), y = c(0, 1))
+```
