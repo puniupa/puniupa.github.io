@@ -33,13 +33,199 @@ format:
 #     grid-columns: 1
 ---
 
+## データの整理
+
+### データフレームの作成
+
 ```{r}
 #| output: false
 #| echo: false
 library(readxl)
 library(knitr)
-df1 <- read_excel("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/資料/Hirosaki1.xlsx", sheet = "データ統合")
-df2 <- read_excel("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/資料/Hirosaki2.xlsx", sheet = "統合_最終")
+df_raw <- read_excel("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/資料/Hirosaki2.xlsx", sheet = "統合_最終")
+
+df <- df_raw[, c("受付番号", "受診日年齢", "性別", "Weight", "BP", "FLCΣ", "BP備考", "判別式", "LOX-1_H", "LAB_H", "LOX-index_H", "タイプ", "多様性", paste0("item", 1:18), "BMI／Body_Mass_Index")]
+
+df$BP_A_flag <- as.numeric(grepl("A", df$`BP備考`))
+df <- df[df$BP_A_flag == 0, ]
+df$BP <- ifelse(df$BP < 0, -1 * df$BP, df$BP)
+df$判別式 <- as.numeric(gsub("[()]", "", df$判別式))
+
+# 年代を作成（10で割って切り捨てた後、10をかけて年代を表現）
+df$年代 <- paste0(floor(df$受診日年齢/10)*10, "代")
+df$年代 <- factor(df$年代,
+                  levels = c("20代", "30代", "40代", "50代", "60代", "70代", "80代"),
+                  ordered = TRUE)
+```
+
+```{r}
+#| output: false
+#| echo: false
+library(dplyr)
+# ストレスチェックの前処理
+
+item_sum <- df$item1 + df$item2 + df$item3
+score_activity <- function(x) {
+  case_when(
+    x == 3 ~ 5,
+    x >= 4 & x <= 5 ~ 4,
+    x >= 6 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 2,
+    x >= 10 & x <= 12 ~ 1,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$活気 <- score_activity(item_sum)
+
+item_sum <- df$item4 + df$item5 + df$item6
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 4,
+    x >= 10 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 8 ~ 3,
+    x >= 9 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$イライラ感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item7 + df$item8 + df$item9
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 8 ~ 3,
+    x >= 9 & x <= 11 ~ 4,
+    x == 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$疲労感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item10 + df$item11 + df$item12
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 4,
+    x >= 10 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$不安感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item13 + df$item14 + df$item15 + df$item16 + df$item17 + df$item18
+score_activity_m <- function(x) {
+  case_when(
+    x == 6 ~ 1,
+    x >= 7 & x <= 8 ~ 2,
+    x >= 9 & x <= 12 ~ 3,
+    x >= 13 & x <= 16 ~ 4,
+    x >= 17 & x <= 24 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 6 ~ 1,
+    x >= 7 & x <= 8 ~ 2,
+    x >= 9 & x <= 12 ~ 3,
+    x >= 13 & x <= 17 ~ 4,
+    x >= 18 & x <= 24 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$抑うつ感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+```
+
+```{r}
+#| output: false
+#| echo: false
+
+df <- df %>% select(-c(paste0("item", 1:18), "BP_A_flag")) %>% rename(id = 受付番号, age = 受診日年齢, sex = 性別, LOX = `LOX-1_H`, LAB = LAB_H, LOX_Index = `LOX-index_H`, type = タイプ, diversity = 多様性, BMI = `BMI／Body_Mass_Index`)
+df$type <- as.factor(df$type)
+df$diversity <- as.factor(df$diversity)
+
+saveRDS(df, "df.rds")
+```
+
+```{r}
+kable(head(df))
+```
+
+### データ長形式化
+
+```{r}
+df_IRT <- df[, c("id", "BP", "FLCΣ", "活気", "イライラ感", "疲労感", "不安感", "抑うつ感", "type", "diversity")]
+
+library(tidyr)
+
+df_IRT_long <- df_IRT %>%
+  pivot_longer(
+    cols = c("活気", "イライラ感", "疲労感", "不安感", "抑うつ感"),
+    names_to = "item",
+    values_to = "response"
+)
+```
+
+```{r}
+#| output: false
+#| echo: false
+df_IRT_long$res <- ifelse(df_IRT_long$response > 3, 1, 0)
+
+saveRDS(df_IRT_long, "df_IRT_long.rds")
+```
+
+```{r}
+kable(head(df_IRT_long[6:13,]))
 ```
 
 ## データの概観

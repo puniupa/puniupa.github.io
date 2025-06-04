@@ -37,17 +37,151 @@ df_IRT_long <- df_IRT_long[df_IRT_long$FLCΣ > 0, ]
 kable(head(df_IRT_long))
 ```
 
-## 個人の応答を予測できたら面白い
+## BP との関係
+
+D は合計 $6$ 人しかいない．
 
 ```{r}
+df <- subset(df, type != "D" & !is.na(diversity))
+df$type <- droplevels(df$type)
+```
+
+### 視覚化
+
+```{r}
+library(ggplot2)
+
+ggplot(df, aes(x = type, fill = diversity)) +
+    geom_bar(position = "fill") +
+    geom_text(data = df, aes(label = ..count..), stat = "count", position = position_fill(vjust = 0.5)) +
+  theme_minimal() +
+  labs(title = "タイプ別の多様性の分布",
+       x = "タイプ",
+       y = "割合") +
+  theme(text = element_text(family = "HiraKakuPro-W3"),
+        plot.title = element_text(hjust = 0.5)) +
+  scale_fill_manual(values = c(
+    "1" = "#9999FF",    # 薄い青
+    "2" = "#99FF99",  # 薄い緑
+    "3" = "#FF9999"     # 薄い赤
+  ))
+```
+
+* 明らかに type A は diversity 1 が少ない．
+
+### 散布図
+
+```{r}
+ggplot(df, aes(x = BP, y = diversity, color = type)) +
+  geom_point() +
+  labs(title = "BPとDiversityの散布図", x = "BP", y = "Diversity", color = "Type") +
+  theme_minimal() +
+  xlim(0, 2.5)
+```
+
+```{r}
+ggplot(df, aes(x = BP, y = FLCΣ, color = type)) +
+  geom_point() +
+  labs(title = "BPとFLCΣの散布図", x = "BP", y = "FLCΣ", color = "Type") +
+  theme_minimal()
+```
+
+```{r}
+ggplot(df, aes(x = BP, y = FLCΣ, color = diversity)) +
+  geom_point() +
+  labs(title = "BPとFLCΣの散布図", x = "BP", y = "FLCΣ", color = "Type") +
+  theme_minimal()
+```
+
+### BP の予測
+
+```r
+library(brms)
+bf <- bf(
+  BP ~ 1 + (1|type:diversity)
+)
+
+fit_BP <- brm(
+  formula = bf,
+  data = df,
+  family = gaussian(),
+  iter = 8000, chains = 4, cores = 4)
+```
+
+## 個人の応答を予測できたら面白い
+
+### 個人係数の予測
+
+```{r}
+#| output: false
 library(brms)
 fit_1PL_cov <- readRDS("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/rdb/fit_1PL_cov.rds")
-
-summary(fit_1PL_cov)
 ```
 
 ```{r}
 ran_id_list <- ranef(fit_1PL_cov)$id[,1,]
 
 df_IRT_long$ran_id <- ran_id_list[match(df_IRT_long$id, names(ran_id_list))]
+
+df_IRT_long <- df_IRT_long[!is.na(df_IRT_long$ran_id), ]
+
+summary(df_IRT_long$ran_id)
+```
+
+```r
+library(brms)
+bf <- bf(
+  ran_id ~ 1 + (1|type)
+)
+
+fit_ranid <- brm(
+  formula = bf,
+  data = df_IRT_long,
+  family = gaussian(),
+  iter = 8000, chains = 4, cores = 4)
+```
+
+```{r}
+#| output: false
+#| echo: false
+library(brms)
+fit_ranid <- readRDS("./4-1/fit_ranid.rds")
+```
+
+```{r}
+library(ggplot2)
+ranef <- ranef(fit_ranid)$type
+posterior_means <- ranef[,1,"Intercept"]
+lower_bounds <- ranef[,3,"Intercept"]
+upper_bounds <- ranef[,4,"Intercept"]
+plot_df <- data.frame(
+  type = rownames(ranef),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p <- ggplot(plot_df, aes(x = mean, y = type)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = NULL,
+       x = "Posterior Estimate",
+       y = NULL)
+p
+```
+
+### タイプごとの係数の予測
+
+大変重くて実行が難しい．
+
+```r
+formula_1PL_cov <- bf(
+  res ~ 1 + (1|item) + (type|BP) + FLCΣ
+)
+fit_1PL_cov <- brm(
+  formula = formula_1PL_cov,
+  data = df_IRT_long,
+  family = brmsfamily("bernoulli", link = "logit"),
+  iter = 8000, chains = 4, cores = 4
+)
 ```
