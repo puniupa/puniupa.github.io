@@ -1,0 +1,53 @@
+---
+title: "弘前データ４：フローラスキャンデータの探索"
+author: "司馬博文"
+date: 5/24/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+fig-align: center
+abstract: |
+  [`hirosaki2.qmd`](hirosaki2.qmd) では BP と LAB の関係のモデリング，
+  [`hirosaki3.qmd`](hirosaki3.qmd) では $\Sigma$-FLC と LOX-1 の関係をモデリングした．
+  ここではフローラスキャンデータの探索を行う．
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: false
+    fig-width: 10
+    fig-height: 8
+---
+
+```{r}
+library(readxl)
+library(knitr)
+df <- readRDS("df.rds")
+df <- df[is.na(df$`BP備考`), ]
+kable(head(df))
+```
+
+```{r}
+df_IRT_long <- readRDS("df_IRT_long.rds")
+df_IRT_long <- df_IRT_long[df_IRT_long$FLCΣ > 0, ]
+kable(head(df_IRT_long))
+```
+
+## 個人の応答を予測できたら面白い
+
+```{r}
+library(brms)
+fit_1PL_cov <- readRDS("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/rdb/fit_1PL_cov.rds")
+
+summary(fit_1PL_cov)
+```
+
+```{r}
+ran_id_list <- ranef(fit_1PL_cov)$id[,1,]
+
+df_IRT_long$ran_id <- ran_id_list[match(df_IRT_long$id, names(ran_id_list))]
+```

@@ -73,6 +73,7 @@ font-style: inherit;">head</span>(df))</span></code></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
+<col style="width: 1%">
 <col style="width: 3%">
 <col style="width: 4%">
 <col style="width: 1%">
@@ -114,6 +115,7 @@ font-style: inherit;">head</span>(df))</span></code></pre></div>
 </colgroup>
 <thead>
 <tr class="header">
+<th style="text-align: left;"></th>
 <th style="text-align: right;">受付番号</th>
 <th style="text-align: right;">受診日年齢</th>
 <th style="text-align: right;">性別</th>
@@ -156,86 +158,7 @@ font-style: inherit;">head</span>(df))</span></code></pre></div>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">48</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">52.7</td>
-<td style="text-align: right;">0.47</td>
-<td style="text-align: right;">0.81</td>
-<td style="text-align: left;">B</td>
-<td style="text-align: right;">-3.343</td>
-<td style="text-align: right;">75</td>
-<td style="text-align: right;">2.2</td>
-<td style="text-align: right;">165</td>
-<td style="text-align: left;">B</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">40代</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">53</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">64.8</td>
-<td style="text-align: right;">0.67</td>
-<td style="text-align: right;">-0.30</td>
-<td style="text-align: left;">BDG</td>
-<td style="text-align: right;">-2.727</td>
-<td style="text-align: right;">55</td>
-<td style="text-align: right;">2.8</td>
-<td style="text-align: right;">154</td>
-<td style="text-align: left;">A</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">50代</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
+<td style="text-align: left;">3</td>
 <td style="text-align: right;">4</td>
 <td style="text-align: right;">46</td>
 <td style="text-align: right;">1</td>
@@ -276,46 +199,7 @@ font-style: inherit;">head</span>(df))</span></code></pre></div>
 <td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">65</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">72.4</td>
-<td style="text-align: right;">0.88</td>
-<td style="text-align: right;">-8.96</td>
-<td style="text-align: left;">D</td>
-<td style="text-align: right;">-7.338</td>
-<td style="text-align: right;">58</td>
-<td style="text-align: right;">2.3</td>
-<td style="text-align: right;">133</td>
-<td style="text-align: left;">C</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">60代</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-</tr>
-<tr class="odd">
+<td style="text-align: left;">5</td>
 <td style="text-align: right;">6</td>
 <td style="text-align: right;">30</td>
 <td style="text-align: right;">1</td>
@@ -355,7 +239,8 @@ font-style: inherit;">head</span>(df))</span></code></pre></div>
 <td style="text-align: right;">5</td>
 <td style="text-align: right;">4</td>
 </tr>
-<tr class="even">
+<tr class="odd">
+<td style="text-align: left;">6</td>
 <td style="text-align: right;">7</td>
 <td style="text-align: right;">51</td>
 <td style="text-align: right;">1</td>
@@ -395,6 +280,129 @@ font-style: inherit;">head</span>(df))</span></code></pre></div>
 <td style="text-align: right;">3</td>
 <td style="text-align: right;">2</td>
 </tr>
+<tr class="even">
+<td style="text-align: left;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">43.2</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-3.048</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">40代</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">61.9</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-3.165</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">130</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">30代</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">61.0</td>
+<td style="text-align: right;">0.89</td>
+<td style="text-align: right;">2.64</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-3.708</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: left;">E</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">50代</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -408,7 +416,16 @@ background-color: null;
 font-style: inherit;">readRDS</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"df_IRT_long.rds"</span>)</span>
-<span id="cb4-2"><span class="fu" style="color: #4758AB;
+<span id="cb4-2">df_IRT_long <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> df_IRT_long[df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>FLCΣ <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, ]</span>
+<span id="cb4-3"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">kable</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -417,6 +434,7 @@ font-style: inherit;">head</span>(df_IRT_long))</span></code></pre></div>
 <table class="table table-sm table-striped small">
 <thead>
 <tr class="header">
+<th style="text-align: left;"></th>
 <th style="text-align: right;">id</th>
 <th style="text-align: right;">BP</th>
 <th style="text-align: right;">FLCΣ</th>
@@ -427,6 +445,7 @@ font-style: inherit;">head</span>(df_IRT_long))</span></code></pre></div>
 </thead>
 <tbody>
 <tr class="odd">
+<td style="text-align: left;">1</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0.47</td>
 <td style="text-align: right;">0.81</td>
@@ -435,6 +454,7 @@ font-style: inherit;">head</span>(df_IRT_long))</span></code></pre></div>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">2</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0.47</td>
 <td style="text-align: right;">0.81</td>
@@ -443,6 +463,7 @@ font-style: inherit;">head</span>(df_IRT_long))</span></code></pre></div>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">3</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0.47</td>
 <td style="text-align: right;">0.81</td>
@@ -451,6 +472,7 @@ font-style: inherit;">head</span>(df_IRT_long))</span></code></pre></div>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">4</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0.47</td>
 <td style="text-align: right;">0.81</td>
@@ -459,6 +481,7 @@ font-style: inherit;">head</span>(df_IRT_long))</span></code></pre></div>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="odd">
+<td style="text-align: left;">5</td>
 <td style="text-align: right;">2</td>
 <td style="text-align: right;">0.47</td>
 <td style="text-align: right;">0.81</td>
@@ -467,12 +490,13 @@ font-style: inherit;">head</span>(df_IRT_long))</span></code></pre></div>
 <td style="text-align: right;">0</td>
 </tr>
 <tr class="even">
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">0.67</td>
-<td style="text-align: right;">-0.30</td>
-<td style="text-align: left;">活気</td>
+<td style="text-align: left;">11</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.10</td>
+<td style="text-align: right;">1.95</td>
+<td style="text-align: left;">活気</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
 </tr>
 </tbody>
 </table>
@@ -739,21 +763,220 @@ font-style: inherit;">head</span>(filtered_df))</span></code></pre></div>
 </div>
 </div>
 </section>
+<section id="視覚化" class="level3" data-number="1.3">
+<h3 data-number="1.3" class="anchored" data-anchor-id="視覚化"><span class="header-section-number">1.3</span> 視覚化</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img"></p>
+<figcaption>不安感への応答</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img"></p>
+<figcaption>抑うつ感への応答</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img"></p>
+<figcaption>疲労感への応答</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img"></p>
+<figcaption>イライラ感への応答</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img"></p>
+<figcaption>活気への応答</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="個人内での応答傾向" class="level3" data-number="1.4">
+<h3 data-number="1.4" class="anchored" data-anchor-id="個人内での応答傾向"><span class="header-section-number">1.4</span> 個人内での応答傾向</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1">resp_df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> df[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"活気"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"疲労感"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"抑うつ感"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"不安感"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"イライラ感"</span>)]</span>
+<span id="cb8-2"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># NAがある行を除外</span></span>
+<span id="cb8-3">resp_df_no_na <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> resp_df[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">complete.cases</span>(resp_df), ]</span>
+<span id="cb8-4"></span>
+<span id="cb8-5"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 各行で4を超えている値の数をカウント</span></span>
+<span id="cb8-6">count_vector <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">apply</span>(resp_df_no_na, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(row) <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(row <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>))</span>
+<span id="cb8-7"></span>
+<span id="cb8-8"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb8-9"></span>
+<span id="cb8-10"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># count_vector をデータフレームに変換</span></span>
+<span id="cb8-11">count_df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">count =</span> count_vector)</span>
+<span id="cb8-12"></span>
+<span id="cb8-13"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 棒グラフの作成</span></span>
+<span id="cb8-14"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(count_df, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">factor</span>(count))) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-15">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_bar</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-16">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(</span>
+<span id="cb8-17">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"4を超える値の数の分布"</span>,</span>
+<span id="cb8-18">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"4を超える値の数"</span>,</span>
+<span id="cb8-19">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"頻度"</span></span>
+<span id="cb8-20">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-21">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-22">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">scale_x_discrete</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">limits =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"0"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"1"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"2"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"3"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"4"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"5"</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb8-23">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ylim</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">70</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Removed 1 rows containing missing values (`geom_bar()`).</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="項目応答モデル" class="level2" data-number="2">
 <h2 data-number="2" class="anchored" data-anchor-id="項目応答モデル"><span class="header-section-number">2</span> 項目応答モデル</h2>
-<section id="pl-モデルの推定" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="pl-モデルの推定"><span class="header-section-number">2.1</span> 1PL モデルの推定</h3>
-<div class="sourceCode" id="cb8" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><span class="fu" style="color: #4758AB;
+<section id="値を直接入れた-1pl-モデル" class="level3" data-number="2.1">
+<h3 data-number="2.1" class="anchored" data-anchor-id="値を直接入れた-1pl-モデル"><span class="header-section-number">2.1</span> 値を直接入れた 1PL モデル</h3>
+<div class="sourceCode" id="cb10" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(brms)</span>
-<span id="cb8-2"></span>
-<span id="cb8-3">formula_1PL <span class="ot" style="color: #003B4F;
+<span id="cb10-2"></span>
+<span id="cb10-3">formula_1PL <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">bf</span>(</span>
-<span id="cb8-4">  res <span class="sc" style="color: #5E5E5E;
+<span id="cb10-4">  res <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">~</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -768,20 +991,20 @@ background-color: null;
 font-style: inherit;">+</span> FLCΣ <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span> BP</span>
-<span id="cb8-5">)</span>
-<span id="cb8-6"></span>
-<span id="cb8-7">FLC_BP_1PL <span class="ot" style="color: #003B4F;
+<span id="cb10-5">)</span>
+<span id="cb10-6"></span>
+<span id="cb10-7">FLC_BP_1PL <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">brm</span>(</span>
-<span id="cb8-8">  <span class="at" style="color: #657422;
+<span id="cb10-8">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">formula =</span> formula_1PL,</span>
-<span id="cb8-9">  <span class="at" style="color: #657422;
+<span id="cb10-9">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">data =</span> df_IRT_long,</span>
-<span id="cb8-10">  <span class="at" style="color: #657422;
+<span id="cb10-10">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">family =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -792,7 +1015,7 @@ background-color: null;
 font-style: inherit;">link =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"logit"</span>),</span>
-<span id="cb8-11">  <span class="at" style="color: #657422;
+<span id="cb10-11">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">chains =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -805,9 +1028,9 @@ background-color: null;
 font-style: inherit;">iter =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">8000</span></span>
-<span id="cb8-12">)</span></code></pre></div>
+<span id="cb10-12">)</span></code></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb11" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(FLC_BP_1PL)</span></code></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -840,7 +1063,7 @@ scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ranef</span>(FLC_BP_1PL)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -856,10 +1079,45 @@ font-style: inherit;">ranef</span>(FLC_BP_1PL)</span></code></pre></div>
 </div>
 </div>
 </section>
-<section id="判別分析" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="判別分析"><span class="header-section-number">2.2</span> 判別分析</h3>
+<section id="条件付き効果" class="level3" data-number="2.2">
+<h3 data-number="2.2" class="anchored" data-anchor-id="条件付き効果"><span class="header-section-number">2.2</span> 条件付き効果</h3>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb16" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">conditional_effects</span>(FLC_BP_1PL, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">effects =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"BP"</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">conditional_effects</span>(FLC_BP_1PL, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">effects =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"FLCΣ"</span>)</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="直接の値による判別分析" class="level3" data-number="2.3">
+<h3 data-number="2.3" class="anchored" data-anchor-id="直接の値による判別分析"><span class="header-section-number">2.3</span> 直接の値による判別分析</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(dplyr)</span></code></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -876,50 +1134,50 @@ font-style: inherit;">library</span>(dplyr)</span></code></pre></div>
 
     intersect, setdiff, setequal, union</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1">ran_ef_list <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">ran_ef_list <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">list</span>(</span>
-<span id="cb18-2">  イライラ感 <span class="ot" style="color: #003B4F;
+<span id="cb22-2">  イライラ感 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.057</span>,</span>
-<span id="cb18-3">  活気 <span class="ot" style="color: #003B4F;
+<span id="cb22-3">  活気 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.442</span>,</span>
-<span id="cb18-4">  疲労感 <span class="ot" style="color: #003B4F;
+<span id="cb22-4">  疲労感 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.103</span>,</span>
-<span id="cb18-5">  不安感 <span class="ot" style="color: #003B4F;
+<span id="cb22-5">  不安感 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.336</span>,</span>
-<span id="cb18-6">  抑うつ感 <span class="ot" style="color: #003B4F;
+<span id="cb22-6">  抑うつ感 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.209</span></span>
-<span id="cb18-7">)</span>
-<span id="cb18-8"></span>
-<span id="cb18-9">df_IRT_long<span class="sc" style="color: #5E5E5E;
+<span id="cb22-7">)</span>
+<span id="cb22-8"></span>
+<span id="cb22-9">df_IRT_long<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>ran_ef <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">case_when</span>(</span>
-<span id="cb18-10">  df_IRT_long<span class="sc" style="color: #5E5E5E;
+<span id="cb22-10">  df_IRT_long<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>item <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -930,7 +1188,7 @@ background-color: null;
 font-style: inherit;">~</span> ran_ef_list[[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"イライラ感"</span>]],</span>
-<span id="cb18-11">  df_IRT_long<span class="sc" style="color: #5E5E5E;
+<span id="cb22-11">  df_IRT_long<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>item <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -941,7 +1199,7 @@ background-color: null;
 font-style: inherit;">~</span> ran_ef_list[[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"活気"</span>]],</span>
-<span id="cb18-12">  df_IRT_long<span class="sc" style="color: #5E5E5E;
+<span id="cb22-12">  df_IRT_long<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>item <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -952,7 +1210,7 @@ background-color: null;
 font-style: inherit;">~</span> ran_ef_list[[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"疲労感"</span>]],</span>
-<span id="cb18-13">  df_IRT_long<span class="sc" style="color: #5E5E5E;
+<span id="cb22-13">  df_IRT_long<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>item <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -963,7 +1221,7 @@ background-color: null;
 font-style: inherit;">~</span> ran_ef_list[[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"不安感"</span>]],</span>
-<span id="cb18-14">  df_IRT_long<span class="sc" style="color: #5E5E5E;
+<span id="cb22-14">  df_IRT_long<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>item <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -974,15 +1232,15 @@ background-color: null;
 font-style: inherit;">~</span> ran_ef_list[[<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"抑うつ感"</span>]],</span>
-<span id="cb18-15">  <span class="cn" style="color: #8f5902;
+<span id="cb22-15">  <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">~</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">NA_real_</span></span>
-<span id="cb18-16">)</span>
-<span id="cb18-17">df_IRT_long <span class="ot" style="color: #003B4F;
+<span id="cb22-16">)</span>
+<span id="cb22-17">df_IRT_long <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> df_IRT_long[<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -991,28 +1249,28 @@ background-color: null;
 font-style: inherit;">is.na</span>(df_IRT_long<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>item), ]</span>
-<span id="cb18-18"></span>
-<span id="cb18-19">beta_0 <span class="ot" style="color: #003B4F;
+<span id="cb22-18"></span>
+<span id="cb22-19">beta_0 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2.04</span></span>
-<span id="cb18-20">beta_FLC <span class="ot" style="color: #003B4F;
+<span id="cb22-20">beta_FLC <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.01</span></span>
-<span id="cb18-21">beta_BP <span class="ot" style="color: #003B4F;
+<span id="cb22-21">beta_BP <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.18</span></span>
-<span id="cb18-22"></span>
-<span id="cb18-23">df_IRT_long<span class="sc" style="color: #5E5E5E;
+<span id="cb22-22"></span>
+<span id="cb22-23">df_IRT_long<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>discrimination_score <span class="ot" style="color: #003B4F;
 background-color: null;
@@ -1033,19 +1291,19 @@ background-color: null;
 font-style: inherit;">+</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>ran_ef</span>
-<span id="cb18-24"></span>
-<span id="cb18-25"><span class="fu" style="color: #4758AB;
+<span id="cb22-24"></span>
+<span id="cb22-25"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(df_IRT_long<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>discrimination_score)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
- -2.385  -2.002  -1.804  -1.823  -1.640  -0.304      40 </code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+-2.3855 -2.0149 -1.8221 -1.8465 -1.6768 -0.8337 </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb24" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">head</span>(df_IRT_long)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -1057,11 +1315,11 @@ font-style: inherit;">head</span>(df_IRT_long)</span></code></pre></div>
 3     2  0.47  0.81 疲労感            4     1  0.103                -1.86
 4     2  0.47  0.81 不安感            3     0 -0.336                -2.30
 5     2  0.47  0.81 抑うつ感          3     0  0.209                -1.75
-6     3  0.67 -0.3  活気              4     1  0.442                -1.47</code></pre>
+6     4  1.1   1.95 活気              2     0  0.442                -1.42</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">param <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1">param <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1076,46 +1334,46 @@ background-color: null;
 font-style: inherit;">0.304</span>, <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.001</span>)</span>
-<span id="cb22-2">x <span class="ot" style="color: #003B4F;
+<span id="cb26-2">x <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>()</span>
-<span id="cb22-3">y <span class="ot" style="color: #003B4F;
+<span id="cb26-3">y <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">c</span>()</span>
-<span id="cb22-4"></span>
-<span id="cb22-5"><span class="cf" style="color: #003B4F;
+<span id="cb26-4"></span>
+<span id="cb26-5"><span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">for</span> (threshold <span class="cf" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">in</span> param) {</span>
-<span id="cb22-6">  res_predicted <span class="ot" style="color: #003B4F;
+<span id="cb26-6">  res_predicted <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>discrimination_score <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">&gt;</span> threshold</span>
-<span id="cb22-7"></span>
-<span id="cb22-8">  is_false <span class="ot" style="color: #003B4F;
+<span id="cb26-7"></span>
+<span id="cb26-8">  is_false <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> res_predicted <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">!=</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>res</span>
-<span id="cb22-9">  is_true <span class="ot" style="color: #003B4F;
+<span id="cb26-9">  is_true <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> res_predicted <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">==</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>res</span>
-<span id="cb22-10">  </span>
-<span id="cb22-11">  x <span class="ot" style="color: #003B4F;
+<span id="cb26-10">  </span>
+<span id="cb26-11">  x <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1132,7 +1390,7 @@ background-color: null;
 font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>))</span>
-<span id="cb22-12">  y <span class="ot" style="color: #003B4F;
+<span id="cb26-12">  y <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1149,13 +1407,13 @@ background-color: null;
 font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>))</span>
-<span id="cb22-13">}</span>
-<span id="cb22-14"></span>
-<span id="cb22-15"><span class="fu" style="color: #4758AB;
+<span id="cb26-13">}</span>
+<span id="cb26-14"></span>
+<span id="cb26-15"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(ggplot2)</span>
-<span id="cb22-16"></span>
-<span id="cb22-17"><span class="fu" style="color: #4758AB;
+<span id="cb26-16"></span>
+<span id="cb26-17"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -1172,22 +1430,26 @@ background-color: null;
 font-style: inherit;">y =</span> y)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb22-18">  <span class="fu" style="color: #4758AB;
+<span id="cb26-18">  <span class="fu" style="color: #4758AB;
 background-color: null;
-font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb22-19">  <span class="fu" style="color: #4758AB;
+<span id="cb26-19">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_line</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb22-20">  <span class="fu" style="color: #4758AB;
+<span id="cb26-20">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb22-21">  <span class="fu" style="color: #4758AB;
+<span id="cb26-21">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1200,7 +1462,7 @@ background-color: null;
 font-style: inherit;">"True Positive Rate"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb22-22">  <span class="fu" style="color: #4758AB;
+<span id="cb26-22">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">lims</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -1222,11 +1484,702 @@ font-style: inherit;">1</span>))</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img"></p>
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1">logit <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(x) {</span>
+<span id="cb27-2">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">log</span>(x <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span> x)))</span>
+<span id="cb27-3">}</span>
+<span id="cb27-4"></span>
+<span id="cb27-5">logistic <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">function</span>(x) {</span>
+<span id="cb27-6">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">return</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> (<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">exp</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span>x)))</span>
+<span id="cb27-7">}</span>
+<span id="cb27-8"></span>
+<span id="cb27-9"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dplyr)</span>
+<span id="cb27-10">df_IRT_long <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> df_IRT_long <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb27-11">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prediction =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">logistic</span>(discrimination_score))</span>
+<span id="cb27-12"></span>
+<span id="cb27-13"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(pROC)</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1">roc_obj <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">roc</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">response =</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>res, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">predictor =</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>prediction)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting levels: control = 0, case = 1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting direction: controls &lt; cases</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb31" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(roc_obj)</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb32" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">auc</span>(roc_obj)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Area under the curve: 0.5697</code></pre>
+</div>
+</div>
+</section>
+<section id="個人ごとの切片も入れてみる" class="level3" data-number="2.4">
+<h3 data-number="2.4" class="anchored" data-anchor-id="個人ごとの切片も入れてみる"><span class="header-section-number">2.4</span> 個人ごとの切片も入れてみる</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(brms)</span>
+<span id="cb34-2">FLC_BP_id_1PL <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readRDS</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/rdb/fit_1PL_cov.rds"</span>)</span>
+<span id="cb34-3"></span>
+<span id="cb34-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(FLC_BP_id_1PL)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There were 26 divergent transitions after warmup. Increasing
+adapt_delta above 0.8 may help. See
+http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: bernoulli 
+  Links: mu = logit 
+Formula: 高スコア割合 ~ 1 + (1 | item) + (1 | id) + BP + FLCΣ 
+   Data: df_IRT_long (Number of observations: 2877) 
+  Draws: 4 chains, each with iter = 8000; warmup = 4000; thin = 1;
+         total post-warmup draws = 16000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 576) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     1.77      0.14     1.51     2.05 1.00     5609     9809
+
+~item (Number of levels: 5) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     0.52      0.31     0.19     1.39 1.00     4148     3588
+
+Regression Coefficients:
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept    -2.96      0.37    -3.70    -2.22 1.00     6032     4383
+BP            0.61      0.26     0.11     1.13 1.00    10057     5684
+FLCΣ        -0.12      0.07    -0.26     0.00 1.00    10961     5397
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+</section>
+<section id="後知恵判別分析" class="level3" data-number="2.5">
+<h3 data-number="2.5" class="anchored" data-anchor-id="後知恵判別分析"><span class="header-section-number">2.5</span> 後知恵判別分析</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1">ran_ef_list <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ranef</span>(FLC_BP_id_1PL)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>item[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,]</span>
+<span id="cb37-2">ran_id_list <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ranef</span>(FLC_BP_id_1PL)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>id[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,]</span>
+<span id="cb37-3"></span>
+<span id="cb37-4">df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>ran_ef <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ran_ef_list[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">match</span>(df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>item, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">names</span>(ran_ef_list))]</span>
+<span id="cb37-5">df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>ran_id <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ran_id_list[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">match</span>(df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>id, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">names</span>(ran_id_list))]</span>
+<span id="cb37-6"></span>
+<span id="cb37-7">beta_0 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2.98</span></span>
+<span id="cb37-8">beta_FLC <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.12</span></span>
+<span id="cb37-9">beta_BP <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.61</span></span>
+<span id="cb37-10"></span>
+<span id="cb37-11">df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>discrimination_score <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> beta_0 <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> beta_FLC <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>FLCΣ <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> beta_BP <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">*</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>BP <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>ran_ef <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>ran_id</span>
+<span id="cb37-12"></span>
+<span id="cb37-13">df_IRT_long <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> df_IRT_long[<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.na</span>(df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>discrimination_score),]</span>
+<span id="cb37-14"></span>
+<span id="cb37-15"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>discrimination_score)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+ -5.068  -3.749  -3.296  -2.752  -1.967   1.912 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1">param <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">seq</span>(<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">-</span><span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.07</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.92</span>, <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.001</span>)</span>
+<span id="cb39-2">x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>()</span>
+<span id="cb39-3">y <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>()</span>
+<span id="cb39-4"></span>
+<span id="cb39-5"><span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">for</span> (threshold <span class="cf" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">in</span> param) {</span>
+<span id="cb39-6">  res_predicted <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>discrimination_score <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> threshold</span>
+<span id="cb39-7"></span>
+<span id="cb39-8">  is_false <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> res_predicted <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!=</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>res</span>
+<span id="cb39-9">  is_true <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> res_predicted <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>res</span>
+<span id="cb39-10">  </span>
+<span id="cb39-11">  x <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">append</span>(x, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(is_false[df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>res <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>))</span>
+<span id="cb39-12">  y <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">append</span>(y, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mean</span>(is_true[df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>res <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>], <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">na.rm =</span> <span class="cn" style="color: #8f5902;
+background-color: null;
+font-style: inherit;">TRUE</span>))</span>
+<span id="cb39-13">}</span>
+<span id="cb39-14"></span>
+<span id="cb39-15"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb39-16"></span>
+<span id="cb39-17"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> x, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> y), <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> x, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> y)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb39-18">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">2</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb39-19">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_line</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb39-20">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb39-21">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"False Positive Rate"</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"True Positive Rate"</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb39-22">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">lims</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">c</span>(<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>))</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">sum</span>(y) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> ((<span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1.92</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">5.07</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">/</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.01</span>)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 6.235536</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(dplyr)</span>
+<span id="cb42-2">df_IRT_long <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> df_IRT_long <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span></span>
+<span id="cb42-3">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">prediction =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">logistic</span>(discrimination_score))</span></code></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(pROC)</span>
+<span id="cb43-2">roc_obj <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">roc</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">response =</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>res, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">predictor =</span> df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>prediction)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting levels: control = 0, case = 1</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting direction: controls &lt; cases</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb46" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">plot</span>(roc_obj)</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb47" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">auc</span>(roc_obj)</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Area under the curve: 0.939</code></pre>
+</div>
+</div>
+</section>
+<section id="個人ごとの係数を見てみよう" class="level3" data-number="2.6">
+<h3 data-number="2.6" class="anchored" data-anchor-id="個人ごとの係数を見てみよう"><span class="header-section-number">2.6</span> 個人ごとの係数を見てみよう</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(ggplot2)</span>
+<span id="cb49-2">ranef_id <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ranef</span>(FLC_BP_id_1PL)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>id</span>
+<span id="cb49-3">posterior_means <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_id[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]</span>
+<span id="cb49-4">lower_bounds <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_id[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]</span>
+<span id="cb49-5">upper_bounds <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_id[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>]</span>
+<span id="cb49-6">plot_df_id <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb49-7">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">id =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rownames</span>(ranef_id),</span>
+<span id="cb49-8">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> posterior_means,</span>
+<span id="cb49-9">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lower =</span> lower_bounds,</span>
+<span id="cb49-10">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">upper =</span> upper_bounds</span>
+<span id="cb49-11">)</span>
+<span id="cb49-12"></span>
+<span id="cb49-13">plot_df_id <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> plot_df_id <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">arrange</span>(mean) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">%&gt;%</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">mutate</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">rank =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">row_number</span>())</span>
+<span id="cb49-14">p_PL1_id <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(plot_df_id, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> mean, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> rank)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb49-15">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb49-16">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_errorbar</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xmin =</span> lower, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xmax =</span> upper), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb49-17">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(</span>
+<span id="cb49-18">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.text =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span>),  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 軸の目盛りの文字サイズ</span></span>
+<span id="cb49-19">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">30</span>),   <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 軸ラベルの文字サイズ</span></span>
+<span id="cb49-20">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">legend.text =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">36</span>),  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 凡例のテキストサイズ</span></span>
+<span id="cb49-21">    <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">legend.title =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">24</span>),  <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># 凡例のタイトルサイズ</span></span>
+<span id="cb49-22">    <span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;"># plot.margin = margin(r = 20)  # 右側の余白を50ポイントに設定</span></span>
+<span id="cb49-23">  ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb49-24">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Posterior Means and 95% Credible Intervals for Individuals"</span>,</span>
+<span id="cb49-25">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"b"</span>,</span>
+<span id="cb49-26">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Individual (ID)"</span>)</span>
+<span id="cb49-27">p_PL1_id</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-5_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>クラスタリングするだけでも精度が出そうだな．</p>
 
 
 
@@ -2883,7 +3836,7 @@ font-style: inherit;"># y軸の範囲を0から1に設定</span></span></code></
 <item>
   <title>弘前データ４：フローラスキャンデータの探索</title>
   <dc:creator>司馬博文 </dc:creator>
-  <link>https://puniupa.github.io/posts/Cocosiru/hirosaki4.html</link>
+  <link>https://puniupa.github.io/posts/Cocosiru/hirosaki4-1.html</link>
   <description><![CDATA[ 
 
 
@@ -2903,7 +3856,20 @@ background-color: null;
 font-style: inherit;">readRDS</span>(<span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"df.rds"</span>)</span>
-<span id="cb1-4"><span class="fu" style="color: #4758AB;
+<span id="cb1-4">df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> df[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.na</span>(df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span><span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">BP備考</span><span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">`</span>), ]</span>
+<span id="cb1-5"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">kable</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -2911,6 +3877,8 @@ font-style: inherit;">head</span>(df))</span></code></pre></div>
 <div class="cell-output-display">
 <table class="table table-sm table-striped small">
 <colgroup>
+<col style="width: 1%">
+<col style="width: 3%">
 <col style="width: 4%">
 <col style="width: 1%">
 <col style="width: 2%">
@@ -2918,7 +3886,7 @@ font-style: inherit;">head</span>(df))</span></code></pre></div>
 <col style="width: 2%">
 <col style="width: 2%">
 <col style="width: 2%">
-<col style="width: 3%">
+<col style="width: 2%">
 <col style="width: 2%">
 <col style="width: 4%">
 <col style="width: 2%">
@@ -2951,6 +3919,8 @@ font-style: inherit;">head</span>(df))</span></code></pre></div>
 </colgroup>
 <thead>
 <tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">受付番号</th>
 <th style="text-align: right;">受診日年齢</th>
 <th style="text-align: right;">性別</th>
 <th style="text-align: right;">Weight</th>
@@ -2992,84 +3962,8 @@ font-style: inherit;">head</span>(df))</span></code></pre></div>
 </thead>
 <tbody>
 <tr class="odd">
-<td style="text-align: right;">48</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">52.7</td>
-<td style="text-align: right;">0.47</td>
-<td style="text-align: right;">0.81</td>
-<td style="text-align: left;">B</td>
-<td style="text-align: right;">-3.343</td>
-<td style="text-align: right;">75</td>
-<td style="text-align: right;">2.2</td>
-<td style="text-align: right;">165</td>
-<td style="text-align: left;">B</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
+<td style="text-align: left;">3</td>
 <td style="text-align: right;">4</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">40代</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-</tr>
-<tr class="even">
-<td style="text-align: right;">53</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">64.8</td>
-<td style="text-align: right;">0.67</td>
-<td style="text-align: right;">-0.30</td>
-<td style="text-align: left;">BDG</td>
-<td style="text-align: right;">-2.727</td>
-<td style="text-align: right;">55</td>
-<td style="text-align: right;">2.8</td>
-<td style="text-align: right;">154</td>
-<td style="text-align: left;">A</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">50代</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="odd">
 <td style="text-align: right;">46</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">76.3</td>
@@ -3109,6 +4003,644 @@ font-style: inherit;">head</span>(df))</span></code></pre></div>
 <td style="text-align: right;">2</td>
 </tr>
 <tr class="even">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">59.5</td>
+<td style="text-align: right;">0.76</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-2.776</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">2.2</td>
+<td style="text-align: right;">101</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">30代</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">76.6</td>
+<td style="text-align: right;">1.69</td>
+<td style="text-align: right;">2.58</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-2.377</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">50代</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">43.2</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-3.048</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">40代</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">61.9</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-3.165</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">130</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">30代</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">61.0</td>
+<td style="text-align: right;">0.89</td>
+<td style="text-align: right;">2.64</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-3.708</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: left;">E</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">50代</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1">df_IRT_long <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readRDS</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"df_IRT_long.rds"</span>)</span>
+<span id="cb2-2">df_IRT_long <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> df_IRT_long[df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>FLCΣ <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&gt;</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0</span>, ]</span>
+<span id="cb2-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(df_IRT_long))</span></code></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">id</th>
+<th style="text-align: right;">BP</th>
+<th style="text-align: right;">FLCΣ</th>
+<th style="text-align: left;">item</th>
+<th style="text-align: right;">response</th>
+<th style="text-align: right;">res</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">活気</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">イライラ感</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">疲労感</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">不安感</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">抑うつ感</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.10</td>
+<td style="text-align: right;">1.95</td>
+<td style="text-align: left;">活気</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<section id="個人の応答を予測できたら面白い" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="個人の応答を予測できたら面白い"><span class="header-section-number">1</span> 個人の応答を予測できたら面白い</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(brms)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: パッケージ 'brms' はバージョン 4.3.1 の R の下で造られました</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 要求されたパッケージ Rcpp をロード中です </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading 'brms' package (version 2.21.0). Useful instructions
+can be found by typing help('brms'). A more detailed introduction
+to the package is available through vignette('brms_overview').</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+ 次のパッケージを付け加えます: 'brms' </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 以下のオブジェクトは 'package:stats' からマスクされています:
+
+    ar</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1">fit_1PL_cov <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readRDS</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/rdb/fit_1PL_cov.rds"</span>)</span>
+<span id="cb9-2"></span>
+<span id="cb9-3"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">summary</span>(fit_1PL_cov)</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There were 26 divergent transitions after warmup. Increasing
+adapt_delta above 0.8 may help. See
+http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: bernoulli 
+  Links: mu = logit 
+Formula: 高スコア割合 ~ 1 + (1 | item) + (1 | id) + BP + FLCΣ 
+   Data: df_IRT_long (Number of observations: 2877) 
+  Draws: 4 chains, each with iter = 8000; warmup = 4000; thin = 1;
+         total post-warmup draws = 16000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 576) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     1.77      0.14     1.51     2.05 1.00     5609     9809
+
+~item (Number of levels: 5) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     0.52      0.31     0.19     1.39 1.00     4148     3588
+
+Regression Coefficients:
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept    -2.96      0.37    -3.70    -2.22 1.00     6032     4383
+BP            0.61      0.26     0.11     1.13 1.00    10057     5684
+FLCΣ        -0.12      0.07    -0.26     0.00 1.00    10961     5397
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1">ran_id_list <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ranef</span>(fit_1PL_cov)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>id[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,]</span>
+<span id="cb12-2"></span>
+<span id="cb12-3">df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>ran_id <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ran_id_list[<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">match</span>(df_IRT_long<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>id, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">names</span>(ran_id_list))]</span></code></pre></div>
+</div>
+
+
+</section>
+
+ ]]></description>
+  <guid>https://puniupa.github.io/posts/Cocosiru/hirosaki4-1.html</guid>
+  <pubDate>Fri, 23 May 2025 16:00:00 GMT</pubDate>
+</item>
+<item>
+  <title>弘前データ４：フローラスキャンデータの探索</title>
+  <dc:creator>司馬博文 </dc:creator>
+  <link>https://puniupa.github.io/posts/Cocosiru/hirosaki4.html</link>
+  <description><![CDATA[ 
+
+
+
+
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(readxl)</span>
+<span id="cb1-2"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">library</span>(knitr)</span>
+<span id="cb1-3">df <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">readRDS</span>(<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"df.rds"</span>)</span>
+<span id="cb1-4"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">kable</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">head</span>(df))</span></code></pre></div>
+<div class="cell-output-display">
+<table class="table table-sm table-striped small">
+<colgroup>
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">受付番号</th>
+<th style="text-align: right;">受診日年齢</th>
+<th style="text-align: right;">性別</th>
+<th style="text-align: right;">Weight</th>
+<th style="text-align: right;">BP</th>
+<th style="text-align: right;">FLCΣ</th>
+<th style="text-align: left;">BP備考</th>
+<th style="text-align: right;">判別式</th>
+<th style="text-align: right;">LOX-1_H</th>
+<th style="text-align: right;">LAB_H</th>
+<th style="text-align: right;">LOX-index_H</th>
+<th style="text-align: left;">タイプ</th>
+<th style="text-align: right;">多様性</th>
+<th style="text-align: right;">item1</th>
+<th style="text-align: right;">item2</th>
+<th style="text-align: right;">item3</th>
+<th style="text-align: right;">item4</th>
+<th style="text-align: right;">item5</th>
+<th style="text-align: right;">item6</th>
+<th style="text-align: right;">item7</th>
+<th style="text-align: right;">item8</th>
+<th style="text-align: right;">item9</th>
+<th style="text-align: right;">item10</th>
+<th style="text-align: right;">item11</th>
+<th style="text-align: right;">item12</th>
+<th style="text-align: right;">item13</th>
+<th style="text-align: right;">item14</th>
+<th style="text-align: right;">item15</th>
+<th style="text-align: right;">item16</th>
+<th style="text-align: right;">item17</th>
+<th style="text-align: right;">item18</th>
+<th style="text-align: right;">BP_A_flag</th>
+<th style="text-align: left;">年代</th>
+<th style="text-align: right;">活気</th>
+<th style="text-align: right;">イライラ感</th>
+<th style="text-align: right;">疲労感</th>
+<th style="text-align: right;">不安感</th>
+<th style="text-align: right;">抑うつ感</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">48</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">52.7</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">-3.343</td>
+<td style="text-align: right;">75</td>
+<td style="text-align: right;">2.2</td>
+<td style="text-align: right;">165</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">40代</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">53</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">64.8</td>
+<td style="text-align: right;">0.67</td>
+<td style="text-align: right;">-0.30</td>
+<td style="text-align: left;">BDG</td>
+<td style="text-align: right;">-2.727</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">2.8</td>
+<td style="text-align: right;">154</td>
+<td style="text-align: left;">A</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">50代</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">76.3</td>
+<td style="text-align: right;">1.10</td>
+<td style="text-align: right;">1.95</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-2.974</td>
+<td style="text-align: right;">136</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">517</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">40代</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">5</td>
 <td style="text-align: right;">65</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">72.4</td>
@@ -3148,6 +4680,7 @@ font-style: inherit;">head</span>(df))</span></code></pre></div>
 <td style="text-align: right;">1</td>
 </tr>
 <tr class="odd">
+<td style="text-align: right;">6</td>
 <td style="text-align: right;">30</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">59.5</td>
@@ -3187,6 +4720,7 @@ font-style: inherit;">head</span>(df))</span></code></pre></div>
 <td style="text-align: right;">4</td>
 </tr>
 <tr class="even">
+<td style="text-align: right;">7</td>
 <td style="text-align: right;">51</td>
 <td style="text-align: right;">1</td>
 <td style="text-align: right;">76.6</td>
@@ -3912,8 +5446,7 @@ font-style: inherit;"># 凡例のタイトルサイズ</span></span>
 </section>
 <section id="flc-は多様性を予測できるか" class="level3" data-number="2.2">
 <h3 data-number="2.2" class="anchored" data-anchor-id="flc-は多様性を予測できるか"><span class="header-section-number">2.2</span> FLC は多様性を予測できるか？</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1">formula_mult <span class="ot" style="color: #003B4F;
+<div class="sourceCode" id="cb21" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1">formula_mult <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -3957,24 +5490,14 @@ background-color: null;
 font-style: inherit;">iter =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">8000</span></span>
-<span id="cb21-9">)</span></code></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: Rows containing NAs were excluded from the model.</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Compiling Stan program...</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Start sampling</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb25" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><span class="fu" style="color: #4758AB;
+<span id="cb21-9">)</span>
+<span id="cb21-10"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">saveRDS</span>(mult_diversity_FLC, <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"mult_diversity_FLC.rds"</span>)</span></code></pre></div>
-</div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1">ce <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb22" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1">ce <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -3987,11 +5510,11 @@ background-color: null;
 font-style: inherit;">categorical =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span>)</span>
-<span id="cb26-2"></span>
-<span id="cb26-3"><span class="co" style="color: #5E5E5E;
+<span id="cb22-2"></span>
+<span id="cb22-3"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># プロットに水平方向の直線を追加</span></span>
-<span id="cb26-4"><span class="fu" style="color: #4758AB;
+<span id="cb22-4"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">plot</span>(ce, <span class="at" style="color: #657422;
 background-color: null;
@@ -4002,10 +5525,10 @@ background-color: null;
 font-style: inherit;">1</span>]] <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb26-5">      <span class="fu" style="color: #4758AB;
+<span id="cb22-5">      <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(</span>
-<span id="cb26-6">    <span class="at" style="color: #657422;
+<span id="cb22-6">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">axis.text =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4016,7 +5539,7 @@ background-color: null;
 font-style: inherit;">24</span>),  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 軸の目盛りの文字サイズ</span></span>
-<span id="cb26-7">    <span class="at" style="color: #657422;
+<span id="cb22-7">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4027,7 +5550,7 @@ background-color: null;
 font-style: inherit;">30</span>),   <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 軸ラベルの文字サイズ</span></span>
-<span id="cb26-8">        <span class="at" style="color: #657422;
+<span id="cb22-8">        <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">legend.text =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4038,7 +5561,7 @@ background-color: null;
 font-style: inherit;">36</span>),  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 凡例のテキストサイズ</span></span>
-<span id="cb26-9">    <span class="at" style="color: #657422;
+<span id="cb22-9">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">legend.title =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -4049,11 +5572,11 @@ background-color: null;
 font-style: inherit;">24</span>)  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 凡例のタイトルサイズ</span></span>
-<span id="cb26-10">)</span></code></pre></div>
+<span id="cb22-10">)</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki4_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="960"></p>
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki4_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="960"></p>
 </figure>
 </div>
 </div>
@@ -7975,15 +9498,58 @@ F-statistic:  20.8 on 1 and 574 DF,  p-value: 6.232e-06</code></pre>
 </div>
 <p>外れ値を除外すると傾きは小さくなる．</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb65" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1">df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>res[<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.na</span>(df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>BP) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.na</span>(df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>FLCΣ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>BP <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>FLCΣ <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>]</span></code></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Unknown or uninitialised column: `res`.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+</div>
+<div class="sourceCode" id="cb68" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><span class="co" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">#| warning: false</span></span>
+<span id="cb68-2"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># データの準備（外れ値を除外）</span></span>
-<span id="cb65-2">scatter_data <span class="ot" style="color: #003B4F;
+<span id="cb68-3">scatter_data <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">data.frame</span>(</span>
-<span id="cb65-3">  <span class="at" style="color: #657422;
+<span id="cb68-4">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">BP =</span> df<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -8018,7 +9584,7 @@ background-color: null;
 font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span>],</span>
-<span id="cb65-4">  FLCΣ <span class="ot" style="color: #003B4F;
+<span id="cb68-5">  FLCΣ <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">=</span> df<span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -8053,12 +9619,60 @@ background-color: null;
 font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">10</span>]</span>
-<span id="cb65-5">)</span>
-<span id="cb65-6"></span>
-<span id="cb65-7"><span class="co" style="color: #5E5E5E;
+<span id="cb68-6">)</span>
+<span id="cb68-7"></span>
+<span id="cb68-8">scatter_data<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>color <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ifelse</span>(df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>res[<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.na</span>(df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>BP) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">!</span><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">is.na</span>(df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>FLCΣ) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>BP <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span> <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&amp;</span> df<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>FLCΣ <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">&lt;=</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">10</span>] <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">==</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"red"</span>, <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"blue"</span>)</span>
+<span id="cb68-9"></span>
+<span id="cb68-10"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 散布図の作成</span></span>
-<span id="cb65-8"><span class="fu" style="color: #4758AB;
+<span id="cb68-11"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ggplot</span>(scatter_data, <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -8066,10 +9680,12 @@ font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> BP, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">y =</span> FLCΣ)) <span class="sc" style="color: #5E5E5E;
+font-style: inherit;">y =</span> FLCΣ, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">color =</span> color)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb65-9">  <span class="fu" style="color: #4758AB;
+<span id="cb68-12">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_point</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -8077,22 +9693,18 @@ font-style: inherit;">alpha =</span> <span class="fl" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">0.5</span>, <span class="at" style="color: #657422;
 background-color: null;
-font-style: inherit;">color =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"blue"</span>, <span class="at" style="color: #657422;
-background-color: null;
 font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">2</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb65-10">  <span class="co" style="color: #5E5E5E;
+<span id="cb68-13">  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 回帰直線を追加</span></span>
-<span id="cb65-11">  <span class="co" style="color: #5E5E5E;
+<span id="cb68-14">  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># geom_smooth(method = "lm", color = "red", se = TRUE) +</span></span>
-<span id="cb65-12">  <span class="fu" style="color: #4758AB;
+<span id="cb68-15">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_hline</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -8109,7 +9721,7 @@ background-color: null;
 font-style: inherit;">"dashed"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb65-13">  <span class="fu" style="color: #4758AB;
+<span id="cb68-16">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_hline</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -8126,7 +9738,7 @@ background-color: null;
 font-style: inherit;">"dashed"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb65-14">  <span class="fu" style="color: #4758AB;
+<span id="cb68-17">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_vline</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -8143,7 +9755,7 @@ background-color: null;
 font-style: inherit;">"dashed"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb65-15">  <span class="fu" style="color: #4758AB;
+<span id="cb68-18">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_vline</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -8160,31 +9772,31 @@ background-color: null;
 font-style: inherit;">"dashed"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb65-16">  <span class="fu" style="color: #4758AB;
+<span id="cb68-19">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme_minimal</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb65-17">  <span class="fu" style="color: #4758AB;
+<span id="cb68-20">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(</span>
-<span id="cb65-18">    <span class="at" style="color: #657422;
+<span id="cb68-21">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"BP"</span>,</span>
-<span id="cb65-19">    <span class="at" style="color: #657422;
+<span id="cb68-22">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"FLCΣ"</span></span>
-<span id="cb65-20">  ) <span class="sc" style="color: #5E5E5E;
+<span id="cb68-23">  ) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb65-21">  <span class="fu" style="color: #4758AB;
+<span id="cb68-24">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(</span>
-<span id="cb65-22">    <span class="at" style="color: #657422;
+<span id="cb68-25">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">text =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -8193,7 +9805,7 @@ background-color: null;
 font-style: inherit;">family =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"HiraKakuPro-W3"</span>),</span>
-<span id="cb65-23">    <span class="at" style="color: #657422;
+<span id="cb68-26">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">axis.text =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -8202,7 +9814,7 @@ background-color: null;
 font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">24</span>),</span>
-<span id="cb65-24">    <span class="at" style="color: #657422;
+<span id="cb68-27">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -8211,20 +9823,12 @@ background-color: null;
 font-style: inherit;">size =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">36</span>)</span>
-<span id="cb65-25">  )</span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-3_files/figure-html/unnamed-chunk-36-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
+<span id="cb68-28">  )</span></code></pre></div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb66" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><span class="co" style="color: #5E5E5E;
+<div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 回帰分析の実行</span></span>
-<span id="cb66-2">lm_result <span class="ot" style="color: #003B4F;
+<span id="cb69-2">lm_result <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -8233,11 +9837,11 @@ background-color: null;
 font-style: inherit;">~</span> BP, <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">data =</span> scatter_data)</span>
-<span id="cb66-3"></span>
-<span id="cb66-4"><span class="co" style="color: #5E5E5E;
+<span id="cb69-3"></span>
+<span id="cb69-4"><span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 回帰係数の表示</span></span>
-<span id="cb66-5"><span class="fu" style="color: #4758AB;
+<span id="cb69-5"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">summary</span>(lm_result)</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -8247,40 +9851,40 @@ lm(formula = FLCΣ ~ BP, data = scatter_data)
 
 Residuals:
     Min      1Q  Median      3Q     Max 
--2.5586 -0.9887 -0.3866  0.5516  7.1546 
+-4.6768 -1.0433 -0.4409  0.5081 15.0072 
 
 Coefficients:
             Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept)   1.2390     0.1618   7.656 8.30e-14 ***
-BP            0.8293     0.1882   4.406 1.26e-05 ***
+(Intercept)   1.2697     0.1690   7.513 2.23e-13 ***
+BP            0.8585     0.1882   4.561 6.23e-06 ***
 ---
 Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
 
-Residual standard error: 1.443 on 569 degrees of freedom
-Multiple R-squared:  0.033, Adjusted R-squared:  0.0313 
-F-statistic: 19.42 on 1 and 569 DF,  p-value: 1.256e-05</code></pre>
+Residual standard error: 1.72 on 574 degrees of freedom
+Multiple R-squared:  0.03497,   Adjusted R-squared:  0.03329 
+F-statistic:  20.8 on 1 and 574 DF,  p-value: 6.232e-06</code></pre>
 </div>
 </div>
 </section>
 <section id="pl-モデル-4" class="level3" data-number="4.2">
 <h3 data-number="4.2" class="anchored" data-anchor-id="pl-モデル-4"><span class="header-section-number">4.2</span> 2PL モデル</h3>
-<div class="sourceCode" id="cb68" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode" id="cb71" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(brms)</span>
-<span id="cb68-2"></span>
-<span id="cb68-3">formula_2PL <span class="ot" style="color: #003B4F;
+<span id="cb71-2"></span>
+<span id="cb71-3">formula_2PL <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">bf</span>(</span>
-<span id="cb68-4">  res <span class="sc" style="color: #5E5E5E;
+<span id="cb71-4">  res <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">~</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">exp</span>(loggamma) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">*</span> eta,</span>
-<span id="cb68-5">  loggamma <span class="sc" style="color: #5E5E5E;
+<span id="cb71-5">  loggamma <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">~</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -8291,7 +9895,7 @@ background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|</span>item),</span>
-<span id="cb68-6">  eta <span class="sc" style="color: #5E5E5E;
+<span id="cb71-6">  eta <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">~</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -8314,25 +9918,25 @@ background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|</span>FLC_level),</span>
-<span id="cb68-7">  <span class="at" style="color: #657422;
+<span id="cb71-7">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">nl =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">TRUE</span></span>
-<span id="cb68-8">)</span>
-<span id="cb68-9"></span>
-<span id="cb68-10">BP_FLC_2PL <span class="ot" style="color: #003B4F;
+<span id="cb71-8">)</span>
+<span id="cb71-9"></span>
+<span id="cb71-10">BP_FLC_2PL <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">brm</span>(</span>
-<span id="cb68-11">  <span class="at" style="color: #657422;
+<span id="cb71-11">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">formula =</span> formula_2PL,</span>
-<span id="cb68-12">  <span class="at" style="color: #657422;
+<span id="cb71-12">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">data =</span> df_IRT_long,</span>
-<span id="cb68-13">  <span class="at" style="color: #657422;
+<span id="cb71-13">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">family =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -8343,7 +9947,7 @@ background-color: null;
 font-style: inherit;">link =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"logit"</span>),</span>
-<span id="cb68-14">  <span class="at" style="color: #657422;
+<span id="cb71-14">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">chains =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -8356,8 +9960,8 @@ background-color: null;
 font-style: inherit;">iter =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">8000</span></span>
-<span id="cb68-15">)</span>
-<span id="cb68-16"><span class="fu" style="color: #4758AB;
+<span id="cb71-15">)</span>
+<span id="cb71-16"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">saveRDS</span>(BP_FLC_2PL, <span class="st" style="color: #20794D;
 background-color: null;
@@ -8365,177 +9969,34 @@ font-style: inherit;">"BP_FLC_2PL.rds"</span>)</span></code></pre></div>
 <section id="識別力パラメータ-1" class="level4" data-number="4.2.1">
 <h4 data-number="4.2.1" class="anchored" data-anchor-id="識別力パラメータ-1"><span class="header-section-number">4.2.1</span> 識別力パラメータ</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb69" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1">ranef_item2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ranef</span>(BP_FLC_2PL)<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>item</span>
-<span id="cb69-2">posterior_means <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> ranef_item2[,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>,<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"loggamma_Intercept"</span>]</span>
-<span id="cb69-3">lower_bounds <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> ranef_item2[,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">3</span>,<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"loggamma_Intercept"</span>]</span>
-<span id="cb69-4">upper_bounds <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> ranef_item2[,<span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">4</span>,<span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"loggamma_Intercept"</span>]</span>
-<span id="cb69-5">plot_df_item2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">data.frame</span>(</span>
-<span id="cb69-6">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">item =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">rownames</span>(ranef_item2),</span>
-<span id="cb69-7">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">mean =</span> posterior_means,</span>
-<span id="cb69-8">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">lower =</span> lower_bounds,</span>
-<span id="cb69-9">  <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">upper =</span> upper_bounds</span>
-<span id="cb69-10">)</span>
-<span id="cb69-11">p_PL2 <span class="ot" style="color: #003B4F;
-background-color: null;
-font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ggplot</span>(plot_df_item2, <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> mean, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> item)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb69-12">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb69-13">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">geom_errorbar</span>(<span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xmin =</span> lower, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">xmax =</span> upper), <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">width =</span> <span class="fl" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">0.2</span>) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb69-14">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">axis.text.x =</span> <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">angle =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">90</span>, <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">hjust =</span> <span class="dv" style="color: #AD0000;
-background-color: null;
-font-style: inherit;">1</span>)) <span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">+</span></span>
-<span id="cb69-15">  <span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"2PL Model"</span>,</span>
-<span id="cb69-16">       <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Posterior Estimate"</span>,</span>
-<span id="cb69-17">       <span class="at" style="color: #657422;
-background-color: null;
-font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
-background-color: null;
-font-style: inherit;">"Item"</span>)</span>
-<span id="cb69-18">p_PL2</span></code></pre></div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-3_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img"></p>
-</figure>
-</div>
-</div>
-</div>
-</section>
-<section id="flc-の効果" class="level4" data-number="4.2.2">
-<h4 data-number="4.2.2" class="anchored" data-anchor-id="flc-の効果"><span class="header-section-number">4.2.2</span> FLC の効果</h4>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb70" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><span class="fu" style="color: #4758AB;
-background-color: null;
-font-style: inherit;">ranef</span>(BP_FLC_2PL)<span class="sc" style="color: #5E5E5E;
-background-color: null;
-font-style: inherit;">$</span>FLC_level</span></code></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>, , eta_Intercept
-
-     Estimate Est.Error      Q2.5    Q97.5
-1 -0.01367187  4.034668 -7.907516 8.200159
-2  0.02511441  4.146893 -8.081726 7.960670
-3  0.01255282  4.036578 -7.732230 7.740534</code></pre>
-</div>
-</div>
-<div class="cell">
 <div class="sourceCode cell-code" id="cb72" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1">ranef_item2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ranef</span>(BP_FLC_2PL)<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>FLC_level</span>
+font-style: inherit;">$</span>item</span>
 <span id="cb72-2">posterior_means <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> ranef_item2[,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>,<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"eta_Intercept"</span>]</span>
+font-style: inherit;">"loggamma_Intercept"</span>]</span>
 <span id="cb72-3">lower_bounds <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> ranef_item2[,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>,<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"eta_Intercept"</span>]</span>
+font-style: inherit;">"loggamma_Intercept"</span>]</span>
 <span id="cb72-4">upper_bounds <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> ranef_item2[,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">4</span>,<span class="st" style="color: #20794D;
 background-color: null;
-font-style: inherit;">"eta_Intercept"</span>]</span>
+font-style: inherit;">"loggamma_Intercept"</span>]</span>
 <span id="cb72-5">plot_df_item2 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
@@ -8627,27 +10088,27 @@ font-style: inherit;">"Item"</span>)</span>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-3_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img"></p>
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-3_files/figure-html/unnamed-chunk-39-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
 </div>
 </div>
 </section>
-<section id="bp-の効果" class="level4" data-number="4.2.3">
-<h4 data-number="4.2.3" class="anchored" data-anchor-id="bp-の効果"><span class="header-section-number">4.2.3</span> BP の効果</h4>
+<section id="flc-の効果" class="level4" data-number="4.2.2">
+<h4 data-number="4.2.2" class="anchored" data-anchor-id="flc-の効果"><span class="header-section-number">4.2.2</span> FLC の効果</h4>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb73" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ranef</span>(BP_FLC_2PL)<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>BP_level</span></code></pre></div>
+font-style: inherit;">$</span>FLC_level</span></code></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>, , eta_Intercept
 
-      Estimate Est.Error      Q2.5    Q97.5
-1  0.007889654  4.124892 -7.860757 8.101992
-2  0.023810809  4.282680 -7.933993 8.227188
-3 -0.008288463  4.179635 -8.013634 7.894939</code></pre>
+     Estimate Est.Error      Q2.5    Q97.5
+1 -0.01367187  4.034668 -7.907516 8.200159
+2  0.02511441  4.146893 -8.081726 7.960670
+3  0.01255282  4.036578 -7.732230 7.740534</code></pre>
 </div>
 </div>
 <div class="cell">
@@ -8657,7 +10118,7 @@ font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ranef</span>(BP_FLC_2PL)<span class="sc" style="color: #5E5E5E;
 background-color: null;
-font-style: inherit;">$</span>BP_level</span>
+font-style: inherit;">$</span>FLC_level</span>
 <span id="cb75-2">posterior_means <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> ranef_item2[,<span class="dv" style="color: #AD0000;
@@ -8770,6 +10231,149 @@ font-style: inherit;">"Item"</span>)</span>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
+<p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-3_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="bp-の効果" class="level4" data-number="4.2.3">
+<h4 data-number="4.2.3" class="anchored" data-anchor-id="bp-の効果"><span class="header-section-number">4.2.3</span> BP の効果</h4>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb76" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ranef</span>(BP_FLC_2PL)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>BP_level</span></code></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>, , eta_Intercept
+
+      Estimate Est.Error      Q2.5    Q97.5
+1  0.007889654  4.124892 -7.860757 8.101992
+2  0.023810809  4.282680 -7.933993 8.227188
+3 -0.008288463  4.179635 -8.013634 7.894939</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb78" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1">ranef_item2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ranef</span>(BP_FLC_2PL)<span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">$</span>BP_level</span>
+<span id="cb78-2">posterior_means <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_item2[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"eta_Intercept"</span>]</span>
+<span id="cb78-3">lower_bounds <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_item2[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">3</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"eta_Intercept"</span>]</span>
+<span id="cb78-4">upper_bounds <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> ranef_item2[,<span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">4</span>,<span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"eta_Intercept"</span>]</span>
+<span id="cb78-5">plot_df_item2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">data.frame</span>(</span>
+<span id="cb78-6">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">item =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">rownames</span>(ranef_item2),</span>
+<span id="cb78-7">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">mean =</span> posterior_means,</span>
+<span id="cb78-8">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">lower =</span> lower_bounds,</span>
+<span id="cb78-9">  <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">upper =</span> upper_bounds</span>
+<span id="cb78-10">)</span>
+<span id="cb78-11">p_PL2 <span class="ot" style="color: #003B4F;
+background-color: null;
+font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">ggplot</span>(plot_df_item2, <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> mean, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> item)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb78-12">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb78-13">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">geom_errorbar</span>(<span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">aes</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xmin =</span> lower, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">xmax =</span> upper), <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">width =</span> <span class="fl" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">0.2</span>) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb78-14">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">axis.text.x =</span> <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">element_text</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">angle =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">90</span>, <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">hjust =</span> <span class="dv" style="color: #AD0000;
+background-color: null;
+font-style: inherit;">1</span>)) <span class="sc" style="color: #5E5E5E;
+background-color: null;
+font-style: inherit;">+</span></span>
+<span id="cb78-15">  <span class="fu" style="color: #4758AB;
+background-color: null;
+font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">title =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"2PL Model"</span>,</span>
+<span id="cb78-16">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Posterior Estimate"</span>,</span>
+<span id="cb78-17">       <span class="at" style="color: #657422;
+background-color: null;
+font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
+background-color: null;
+font-style: inherit;">"Item"</span>)</span>
+<span id="cb78-18">p_PL2</span></code></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
 <p><img src="https://puniupa.github.io/posts/Cocosiru/hirosaki1-3_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
@@ -8779,16 +10383,16 @@ font-style: inherit;">"Item"</span>)</span>
 </section>
 <section id="pl-モデル-5" class="level3" data-number="4.3">
 <h3 data-number="4.3" class="anchored" data-anchor-id="pl-モデル-5"><span class="header-section-number">4.3</span> 1PL モデル</h3>
-<div class="sourceCode" id="cb76" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode" id="cb79" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(brms)</span>
-<span id="cb76-2"></span>
-<span id="cb76-3">formula_1PL <span class="ot" style="color: #003B4F;
+<span id="cb79-2"></span>
+<span id="cb79-3">formula_1PL <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">bf</span>(</span>
-<span id="cb76-4">  res <span class="sc" style="color: #5E5E5E;
+<span id="cb79-4">  res <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">~</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -8811,20 +10415,20 @@ background-color: null;
 font-style: inherit;">1</span><span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">|</span>BP_level)</span>
-<span id="cb76-5">)</span>
-<span id="cb76-6"></span>
-<span id="cb76-7">FLC_BP_1PL <span class="ot" style="color: #003B4F;
+<span id="cb79-5">)</span>
+<span id="cb79-6"></span>
+<span id="cb79-7">FLC_BP_1PL <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">brm</span>(</span>
-<span id="cb76-8">  <span class="at" style="color: #657422;
+<span id="cb79-8">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">formula =</span> formula_1PL,</span>
-<span id="cb76-9">  <span class="at" style="color: #657422;
+<span id="cb79-9">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">data =</span> df_IRT_long,</span>
-<span id="cb76-10">  <span class="at" style="color: #657422;
+<span id="cb79-10">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">family =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -8835,7 +10439,7 @@ background-color: null;
 font-style: inherit;">link =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"logit"</span>),</span>
-<span id="cb76-11">  <span class="at" style="color: #657422;
+<span id="cb79-11">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">chains =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
@@ -8848,8 +10452,8 @@ background-color: null;
 font-style: inherit;">iter =</span> <span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">8000</span></span>
-<span id="cb76-12">)</span>
-<span id="cb76-13"><span class="fu" style="color: #4758AB;
+<span id="cb79-12">)</span>
+<span id="cb79-13"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">saveRDS</span>(FLC_BP_1PL, <span class="st" style="color: #20794D;
 background-color: null;
@@ -8857,58 +10461,58 @@ font-style: inherit;">"FLC_BP_1PL.rds"</span>)</span></code></pre></div>
 <section id="項目パラメータ-2" class="level4" data-number="4.3.1">
 <h4 data-number="4.3.1" class="anchored" data-anchor-id="項目パラメータ-2"><span class="header-section-number">4.3.1</span> 項目パラメータ</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb77" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb80" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(ggplot2)</span>
-<span id="cb77-2">ranef_item <span class="ot" style="color: #003B4F;
+<span id="cb80-2">ranef_item <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ranef</span>(FLC_BP_1PL)<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>item</span>
-<span id="cb77-3">posterior_means <span class="ot" style="color: #003B4F;
+<span id="cb80-3">posterior_means <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> ranef_item[,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>]</span>
-<span id="cb77-4">lower_bounds <span class="ot" style="color: #003B4F;
+<span id="cb80-4">lower_bounds <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> ranef_item[,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>]</span>
-<span id="cb77-5">upper_bounds <span class="ot" style="color: #003B4F;
+<span id="cb80-5">upper_bounds <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> ranef_item[,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>]</span>
-<span id="cb77-6">plot_df_item <span class="ot" style="color: #003B4F;
+<span id="cb80-6">plot_df_item <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">data.frame</span>(</span>
-<span id="cb77-7">  <span class="at" style="color: #657422;
+<span id="cb80-7">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">item =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">rownames</span>(ranef_item),</span>
-<span id="cb77-8">  <span class="at" style="color: #657422;
+<span id="cb80-8">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">mean =</span> posterior_means,</span>
-<span id="cb77-9">  <span class="at" style="color: #657422;
+<span id="cb80-9">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">lower =</span> lower_bounds,</span>
-<span id="cb77-10">  <span class="at" style="color: #657422;
+<span id="cb80-10">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">upper =</span> upper_bounds</span>
-<span id="cb77-11">)</span>
-<span id="cb77-12">p_PL1 <span class="ot" style="color: #003B4F;
+<span id="cb80-11">)</span>
+<span id="cb80-12">p_PL1 <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -8921,12 +10525,12 @@ background-color: null;
 font-style: inherit;">y =</span> item)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb77-13">  <span class="fu" style="color: #4758AB;
+<span id="cb80-13">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb77-14">  <span class="fu" style="color: #4758AB;
+<span id="cb80-14">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_errorbar</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -8941,7 +10545,7 @@ background-color: null;
 font-style: inherit;">0.2</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb77-15">  <span class="fu" style="color: #4758AB;
+<span id="cb80-15">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -8958,29 +10562,29 @@ background-color: null;
 font-style: inherit;">1</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb77-16">  <span class="fu" style="color: #4758AB;
+<span id="cb80-16">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">title =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">NULL</span>,</span>
-<span id="cb77-17">       <span class="at" style="color: #657422;
+<span id="cb80-17">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Posterior Estimate"</span>,</span>
-<span id="cb77-18">       <span class="at" style="color: #657422;
+<span id="cb80-18">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"項目パラメータ"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb77-19">  <span class="fu" style="color: #4758AB;
+<span id="cb80-19">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(</span>
-<span id="cb77-20">    <span class="at" style="color: #657422;
+<span id="cb80-20">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">axis.text =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -8991,7 +10595,7 @@ background-color: null;
 font-style: inherit;">24</span>),  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 軸の目盛りの文字サイズ</span></span>
-<span id="cb77-21">    <span class="at" style="color: #657422;
+<span id="cb80-21">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9002,7 +10606,7 @@ background-color: null;
 font-style: inherit;">30</span>),   <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 軸ラベルの文字サイズ</span></span>
-<span id="cb77-22">    <span class="at" style="color: #657422;
+<span id="cb80-22">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">legend.text =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9013,7 +10617,7 @@ background-color: null;
 font-style: inherit;">36</span>),  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 凡例のテキストサイズ</span></span>
-<span id="cb77-23">    <span class="at" style="color: #657422;
+<span id="cb80-23">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">legend.title =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9024,7 +10628,7 @@ background-color: null;
 font-style: inherit;">24</span>),  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 凡例のタイトルサイズ</span></span>
-<span id="cb77-24">    <span class="at" style="color: #657422;
+<span id="cb80-24">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">plot.margin =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9039,8 +10643,8 @@ background-color: null;
 font-style: inherit;">10</span>)  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 右側の余白を50ポイントに設定</span></span>
-<span id="cb77-25">  )</span>
-<span id="cb77-26">p_PL1</span></code></pre></div>
+<span id="cb80-25">  )</span>
+<span id="cb80-26">p_PL1</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -9053,59 +10657,59 @@ font-style: inherit;"># 右側の余白を50ポイントに設定</span></span>
 <section id="flc" class="level4" data-number="4.3.2">
 <h4 data-number="4.3.2" class="anchored" data-anchor-id="flc"><span class="header-section-number">4.3.2</span> FLC</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb78" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><span class="fu" style="color: #4758AB;
+<div class="sourceCode cell-code" id="cb81" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb81-1"><span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">library</span>(dplyr)</span>
-<span id="cb78-2">ranef_BP_level <span class="ot" style="color: #003B4F;
+<span id="cb81-2">ranef_BP_level <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ranef</span>(FLC_BP_1PL)<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>FLC_level</span>
-<span id="cb78-3">posterior_means <span class="ot" style="color: #003B4F;
+<span id="cb81-3">posterior_means <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> ranef_BP_level[,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>]</span>
-<span id="cb78-4">lower_bounds <span class="ot" style="color: #003B4F;
+<span id="cb81-4">lower_bounds <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> ranef_BP_level[,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>]</span>
-<span id="cb78-5">upper_bounds <span class="ot" style="color: #003B4F;
+<span id="cb81-5">upper_bounds <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> ranef_BP_level[,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>]</span>
-<span id="cb78-6">plot_df_BP_level <span class="ot" style="color: #003B4F;
+<span id="cb81-6">plot_df_BP_level <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">data.frame</span>(</span>
-<span id="cb78-7">  <span class="at" style="color: #657422;
+<span id="cb81-7">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">BP_level =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">rownames</span>(ranef_BP_level),</span>
-<span id="cb78-8">  <span class="at" style="color: #657422;
+<span id="cb81-8">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">mean =</span> posterior_means,</span>
-<span id="cb78-9">  <span class="at" style="color: #657422;
+<span id="cb81-9">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">lower =</span> lower_bounds,</span>
-<span id="cb78-10">  <span class="at" style="color: #657422;
+<span id="cb81-10">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">upper =</span> upper_bounds</span>
-<span id="cb78-11">)</span>
-<span id="cb78-12"></span>
-<span id="cb78-13">plot_df_BP_level <span class="ot" style="color: #003B4F;
+<span id="cb81-11">)</span>
+<span id="cb81-12"></span>
+<span id="cb81-13">plot_df_BP_level <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> plot_df_BP_level <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -9120,7 +10724,7 @@ background-color: null;
 font-style: inherit;">rank =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">row_number</span>())</span>
-<span id="cb78-14">p_PL1_BP_level <span class="ot" style="color: #003B4F;
+<span id="cb81-14">p_PL1_BP_level <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9133,12 +10737,12 @@ background-color: null;
 font-style: inherit;">y =</span> rank)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb78-15">  <span class="fu" style="color: #4758AB;
+<span id="cb81-15">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb78-16">  <span class="fu" style="color: #4758AB;
+<span id="cb81-16">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_errorbar</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9153,7 +10757,7 @@ background-color: null;
 font-style: inherit;">0.2</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb78-17">  <span class="fu" style="color: #4758AB;
+<span id="cb81-17">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -9170,29 +10774,29 @@ background-color: null;
 font-style: inherit;">1</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb78-18">  <span class="fu" style="color: #4758AB;
+<span id="cb81-18">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">title =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">NULL</span>,</span>
-<span id="cb78-19">       <span class="at" style="color: #657422;
+<span id="cb81-19">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Posterior Estimate"</span>,</span>
-<span id="cb78-20">       <span class="at" style="color: #657422;
+<span id="cb81-20">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"FLC Level"</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb78-21">  <span class="fu" style="color: #4758AB;
+<span id="cb81-21">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(</span>
-<span id="cb78-22">    <span class="at" style="color: #657422;
+<span id="cb81-22">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">axis.text =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9203,7 +10807,7 @@ background-color: null;
 font-style: inherit;">24</span>),  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 軸の目盛りの文字サイズ</span></span>
-<span id="cb78-23">    <span class="at" style="color: #657422;
+<span id="cb81-23">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9214,7 +10818,7 @@ background-color: null;
 font-style: inherit;">30</span>),   <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 軸ラベルの文字サイズ</span></span>
-<span id="cb78-24">    <span class="at" style="color: #657422;
+<span id="cb81-24">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">legend.text =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9225,7 +10829,7 @@ background-color: null;
 font-style: inherit;">36</span>),  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 凡例のテキストサイズ</span></span>
-<span id="cb78-25">    <span class="at" style="color: #657422;
+<span id="cb81-25">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">legend.title =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9236,7 +10840,7 @@ background-color: null;
 font-style: inherit;">24</span>),  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 凡例のタイトルサイズ</span></span>
-<span id="cb78-26">    <span class="at" style="color: #657422;
+<span id="cb81-26">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">plot.margin =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9251,8 +10855,8 @@ background-color: null;
 font-style: inherit;">10</span>)  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 右側の余白を50ポイントに設定</span></span>
-<span id="cb78-27">  )</span>
-<span id="cb78-28">p_PL1_BP_level</span></code></pre></div>
+<span id="cb81-27">  )</span>
+<span id="cb81-28">p_PL1_BP_level</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -9265,56 +10869,56 @@ font-style: inherit;"># 右側の余白を50ポイントに設定</span></span>
 <section id="bp" class="level4" data-number="4.3.3">
 <h4 data-number="4.3.3" class="anchored" data-anchor-id="bp"><span class="header-section-number">4.3.3</span> BP</h4>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb79" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1">ranef_BP_level <span class="ot" style="color: #003B4F;
+<div class="sourceCode cell-code" id="cb82" style="background: #f1f3f5;"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1">ranef_BP_level <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">ranef</span>(FLC_BP_1PL)<span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">$</span>BP_level</span>
-<span id="cb79-2">posterior_means <span class="ot" style="color: #003B4F;
+<span id="cb82-2">posterior_means <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> ranef_BP_level[,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>]</span>
-<span id="cb79-3">lower_bounds <span class="ot" style="color: #003B4F;
+<span id="cb82-3">lower_bounds <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> ranef_BP_level[,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">3</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>]</span>
-<span id="cb79-4">upper_bounds <span class="ot" style="color: #003B4F;
+<span id="cb82-4">upper_bounds <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> ranef_BP_level[,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">4</span>,<span class="dv" style="color: #AD0000;
 background-color: null;
 font-style: inherit;">1</span>]</span>
-<span id="cb79-5">plot_df_BP_level <span class="ot" style="color: #003B4F;
+<span id="cb82-5">plot_df_BP_level <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">data.frame</span>(</span>
-<span id="cb79-6">  <span class="at" style="color: #657422;
+<span id="cb82-6">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">BP_level =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">rownames</span>(ranef_BP_level),</span>
-<span id="cb79-7">  <span class="at" style="color: #657422;
+<span id="cb82-7">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">mean =</span> posterior_means,</span>
-<span id="cb79-8">  <span class="at" style="color: #657422;
+<span id="cb82-8">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">lower =</span> lower_bounds,</span>
-<span id="cb79-9">  <span class="at" style="color: #657422;
+<span id="cb82-9">  <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">upper =</span> upper_bounds</span>
-<span id="cb79-10">)</span>
-<span id="cb79-11"></span>
-<span id="cb79-12">plot_df_BP_level <span class="ot" style="color: #003B4F;
+<span id="cb82-10">)</span>
+<span id="cb82-11"></span>
+<span id="cb82-12">plot_df_BP_level <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> plot_df_BP_level <span class="sc" style="color: #5E5E5E;
 background-color: null;
@@ -9329,7 +10933,7 @@ background-color: null;
 font-style: inherit;">rank =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">row_number</span>())</span>
-<span id="cb79-13">p_PL1_BP_level <span class="ot" style="color: #003B4F;
+<span id="cb82-13">p_PL1_BP_level <span class="ot" style="color: #003B4F;
 background-color: null;
 font-style: inherit;">&lt;-</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9342,12 +10946,12 @@ background-color: null;
 font-style: inherit;">y =</span> rank)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb79-14">  <span class="fu" style="color: #4758AB;
+<span id="cb82-14">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_point</span>() <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb79-15">  <span class="fu" style="color: #4758AB;
+<span id="cb82-15">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">geom_errorbar</span>(<span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9362,7 +10966,7 @@ background-color: null;
 font-style: inherit;">0.2</span>) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb79-16">  <span class="fu" style="color: #4758AB;
+<span id="cb82-16">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(<span class="at" style="color: #657422;
 background-color: null;
@@ -9379,29 +10983,29 @@ background-color: null;
 font-style: inherit;">1</span>)) <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb79-17">  <span class="fu" style="color: #4758AB;
+<span id="cb82-17">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">labs</span>(<span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">title =</span> <span class="cn" style="color: #8f5902;
 background-color: null;
 font-style: inherit;">NULL</span>,</span>
-<span id="cb79-18">       <span class="at" style="color: #657422;
+<span id="cb82-18">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">x =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"Posterior Estimate"</span>,</span>
-<span id="cb79-19">       <span class="at" style="color: #657422;
+<span id="cb82-19">       <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">y =</span> <span class="st" style="color: #20794D;
 background-color: null;
 font-style: inherit;">"BP Level"</span>)  <span class="sc" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;">+</span></span>
-<span id="cb79-20">  <span class="fu" style="color: #4758AB;
+<span id="cb82-20">  <span class="fu" style="color: #4758AB;
 background-color: null;
 font-style: inherit;">theme</span>(</span>
-<span id="cb79-21">    <span class="at" style="color: #657422;
+<span id="cb82-21">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">axis.text =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9412,7 +11016,7 @@ background-color: null;
 font-style: inherit;">24</span>),  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 軸の目盛りの文字サイズ</span></span>
-<span id="cb79-22">    <span class="at" style="color: #657422;
+<span id="cb82-22">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">axis.title =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9423,7 +11027,7 @@ background-color: null;
 font-style: inherit;">30</span>),   <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 軸ラベルの文字サイズ</span></span>
-<span id="cb79-23">    <span class="at" style="color: #657422;
+<span id="cb82-23">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">legend.text =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9434,7 +11038,7 @@ background-color: null;
 font-style: inherit;">36</span>),  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 凡例のテキストサイズ</span></span>
-<span id="cb79-24">    <span class="at" style="color: #657422;
+<span id="cb82-24">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">legend.title =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9445,7 +11049,7 @@ background-color: null;
 font-style: inherit;">24</span>),  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 凡例のタイトルサイズ</span></span>
-<span id="cb79-25">    <span class="at" style="color: #657422;
+<span id="cb82-25">    <span class="at" style="color: #657422;
 background-color: null;
 font-style: inherit;">plot.margin =</span> <span class="fu" style="color: #4758AB;
 background-color: null;
@@ -9460,8 +11064,8 @@ background-color: null;
 font-style: inherit;">10</span>)  <span class="co" style="color: #5E5E5E;
 background-color: null;
 font-style: inherit;"># 右側の余白を50ポイントに設定</span></span>
-<span id="cb79-26">  )</span>
-<span id="cb79-27">p_PL1_BP_level</span></code></pre></div>
+<span id="cb82-26">  )</span>
+<span id="cb82-27">p_PL1_BP_level</span></code></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -28320,7 +29924,7 @@ Durmus, A., Guillin, A., and Monmarché, P. (2021). <a href="https://doi.org/10.
 </div></section></div> ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_generator.html</guid>
-  <pubDate>Sun, 01 Jun 2025 13:36:58 GMT</pubDate>
+  <pubDate>Wed, 04 Jun 2025 11:13:24 GMT</pubDate>
 </item>
 <item>
   <title>１次元での収束の証明</title>
@@ -28444,7 +30048,7 @@ No matching items
 </section></div> ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_convergence.html</guid>
-  <pubDate>Sun, 01 Jun 2025 13:36:58 GMT</pubDate>
+  <pubDate>Wed, 04 Jun 2025 11:13:24 GMT</pubDate>
 </item>
 <item>
   <title>脱出時刻の分析</title>
@@ -28729,7 +30333,7 @@ Lang, S. (1999). <em><a href="https://doi.org/10.1007/978-1-4757-3083-8">Complex
 </div></section></div> ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/1d_exit.html</guid>
-  <pubDate>Sun, 01 Jun 2025 13:36:58 GMT</pubDate>
+  <pubDate>Wed, 04 Jun 2025 11:13:24 GMT</pubDate>
 </item>
 <item>
   <title>生成作用素の収束の証明</title>
@@ -28782,7 +30386,7 @@ Lang, S. (1999). <em><a href="https://doi.org/10.1007/978-1-4757-3083-8">Complex
  ]]></description>
   <category>ノート</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/Background/note.html</guid>
-  <pubDate>Sun, 01 Jun 2025 13:36:58 GMT</pubDate>
+  <pubDate>Wed, 04 Jun 2025 11:13:24 GMT</pubDate>
 </item>
 <item>
   <title>Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities</title>
@@ -28821,7 +30425,7 @@ Lang, S. (1999). <em><a href="https://doi.org/10.1007/978-1-4757-3083-8">Complex
  ]]></description>
   <category>ドラフト</category>
   <guid>https://puniupa.github.io/posts/Spike-and-slab/spiky-density.html</guid>
-  <pubDate>Sun, 01 Jun 2025 13:36:58 GMT</pubDate>
+  <pubDate>Wed, 04 Jun 2025 11:13:24 GMT</pubDate>
 </item>
 </channel>
 </rss>

@@ -16,7 +16,7 @@ format:
   html: 
     code-fold: false
     execute:
-      cache: true
+      cache: false
     fig-width: 10
     fig-height: 8
     fig-format: "png"
@@ -51,6 +51,7 @@ kable(head(df))
 
 ```{r}
 df_IRT_long <- readRDS("df_IRT_long.rds")
+df_IRT_long <- df_IRT_long[df_IRT_long$FLCΣ > 0, ]
 kable(head(df_IRT_long))
 ```
 
@@ -68,9 +69,239 @@ filtered_df <- filtered_df[!is.na(filtered_df$BP), ]
 kable(head(filtered_df))
 ```
 
+### 視覚化
+
+```{r}
+#| warning: false
+#| echo: false
+#| fig-cap: "不安感への応答"
+library(ggplot2)
+
+df_long_plot_不安感 <- data.frame(
+  BP = df_IRT_long$BP[df_IRT_long$item == "不安感" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10],
+  FLCΣ = df_IRT_long$FLCΣ[df_IRT_long$item == "不安感" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10],
+  res = df_IRT_long$res[df_IRT_long$item == "不安感" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10]
+)
+
+df_long_plot_不安感$colors <- ifelse(df_long_plot_不安感$res == 1, "blue", "red")
+
+# 散布図の作成
+ggplot(df_long_plot_不安感, aes(x = BP, y = FLCΣ, color = colors)) +
+  geom_point(aes(alpha = ifelse(colors == "blue", 0.7, 0.5)), size = 2) +
+  # 回帰直線を追加
+  # geom_smooth(method = "lm", color = "red", se = TRUE) +
+  geom_hline(yintercept = 2, color = "red", linetype = "dashed") +
+  geom_hline(yintercept = 1, color = "red", linetype = "dashed") +
+  geom_vline(xintercept = 0.7, color = "red", linetype = "dashed") +
+  geom_vline(xintercept = 0.9, color = "red", linetype = "dashed") +
+  theme_minimal() +
+  labs(
+    title = "不安感への応答",
+    x = "BP",
+    y = "FLCΣ"
+  ) +
+  theme(
+    text = element_text(family = "HiraKakuPro-W3"),
+    axis.text = element_text(size = 24),
+    axis.title = element_text(size = 36)
+  ) + 
+  xlim(0, 2.5) +
+  ylim(0, 9) +
+  guides(color = FALSE) +
+  guides(alpha = FALSE)
+```
+
+```{r}
+#| warning: false
+#| echo: false
+#| fig-cap: "抑うつ感への応答"
+library(ggplot2)
+
+df_long_plot_抑うつ感 <- data.frame(
+  BP = df_IRT_long$BP[df_IRT_long$item == "抑うつ感" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10],
+  FLCΣ = df_IRT_long$FLCΣ[df_IRT_long$item == "抑うつ感" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10],
+  res = df_IRT_long$res[df_IRT_long$item == "抑うつ感" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10]
+)
+
+df_long_plot_抑うつ感$colors <- ifelse(df_long_plot_抑うつ感$res == 1, "blue", "red")
+
+# 散布図の作成
+ggplot(df_long_plot_抑うつ感, aes(x = BP, y = FLCΣ, color = colors)) +
+  geom_point(aes(alpha = ifelse(colors == "blue", 0.7, 0.5)), size = 2) +
+  # 回帰直線を追加
+  # geom_smooth(method = "lm", color = "red", se = TRUE) +
+  geom_hline(yintercept = 2, color = "red", linetype = "dashed") +
+  geom_hline(yintercept = 1, color = "red", linetype = "dashed") +
+  geom_vline(xintercept = 0.7, color = "red", linetype = "dashed") +
+  geom_vline(xintercept = 0.9, color = "red", linetype = "dashed") +
+  theme_minimal() +
+  labs(
+    title = "抑うつ感への応答",
+    x = "BP",
+    y = "FLCΣ"
+  ) +
+  theme(
+    text = element_text(family = "HiraKakuPro-W3"),
+    axis.text = element_text(size = 24),
+    axis.title = element_text(size = 36)
+  ) + 
+  xlim(0, 2.5) +
+  ylim(0, 9) +
+  guides(color = FALSE) +
+  guides(alpha = FALSE)
+```
+
+```{r}
+#| warning: false
+#| echo: false
+#| fig-cap: "疲労感への応答"
+library(ggplot2)
+
+df_long_plot_疲労感 <- data.frame(
+  BP = df_IRT_long$BP[df_IRT_long$item == "疲労感" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10],
+  FLCΣ = df_IRT_long$FLCΣ[df_IRT_long$item == "疲労感" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10],
+  res = df_IRT_long$res[df_IRT_long$item == "疲労感" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10]
+)
+
+df_long_plot_疲労感$colors <- ifelse(df_long_plot_疲労感$res == 1, "blue", "red")
+
+# 散布図の作成
+ggplot(df_long_plot_疲労感, aes(x = BP, y = FLCΣ, color = colors)) +
+  geom_point(aes(alpha = ifelse(colors == "blue", 0.7, 0.5)), size = 2) +
+  # 回帰直線を追加
+  # geom_smooth(method = "lm", color = "red", se = TRUE) +
+  geom_hline(yintercept = 2, color = "red", linetype = "dashed") +
+  geom_hline(yintercept = 1, color = "red", linetype = "dashed") +
+  geom_vline(xintercept = 0.7, color = "red", linetype = "dashed") +
+  geom_vline(xintercept = 0.9, color = "red", linetype = "dashed") +
+  theme_minimal() +
+  labs(
+    title = "疲労感への応答",
+    x = "BP",
+    y = "FLCΣ"
+  ) +
+  theme(
+    text = element_text(family = "HiraKakuPro-W3"),
+    axis.text = element_text(size = 24),
+    axis.title = element_text(size = 36)
+  ) + 
+  xlim(0, 2.5) +
+  ylim(0, 9) +
+  guides(color = FALSE) +
+  guides(alpha = FALSE)
+```
+
+```{r}
+#| warning: false
+#| echo: false
+#| fig-cap: "イライラ感への応答"
+library(ggplot2)
+
+df_long_plot_イライラ感 <- data.frame(
+  BP = df_IRT_long$BP[df_IRT_long$item == "イライラ感" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10],
+  FLCΣ = df_IRT_long$FLCΣ[df_IRT_long$item == "イライラ感" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10],
+  res = df_IRT_long$res[df_IRT_long$item == "イライラ感" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10]
+)
+
+df_long_plot_イライラ感$colors <- ifelse(df_long_plot_イライラ感$res == 1, "blue", "red")
+
+# 散布図の作成
+ggplot(df_long_plot_イライラ感, aes(x = BP, y = FLCΣ, color = colors)) +
+  geom_point(aes(alpha = ifelse(colors == "blue", 0.7, 0.5)), size = 2) +
+  # 回帰直線を追加
+  # geom_smooth(method = "lm", color = "red", se = TRUE) +
+  geom_hline(yintercept = 2, color = "red", linetype = "dashed") +
+  geom_hline(yintercept = 1, color = "red", linetype = "dashed") +
+  geom_vline(xintercept = 0.7, color = "red", linetype = "dashed") +
+  geom_vline(xintercept = 0.9, color = "red", linetype = "dashed") +
+  theme_minimal() +
+  labs(
+    title = "イライラ感への応答",
+    x = "BP",
+    y = "FLCΣ"
+  ) +
+  theme(
+    text = element_text(family = "HiraKakuPro-W3"),
+    axis.text = element_text(size = 24),
+    axis.title = element_text(size = 36)
+  ) + 
+  xlim(0, 2.5) +
+  ylim(0, 9) +
+  guides(color = FALSE) +
+  guides(alpha = FALSE)
+```
+
+```{r}
+#| warning: false
+#| echo: false
+#| fig-cap: "活気への応答"
+library(ggplot2)
+
+df_long_plot_活気 <- data.frame(
+  BP = df_IRT_long$BP[df_IRT_long$item == "活気" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10],
+  FLCΣ = df_IRT_long$FLCΣ[df_IRT_long$item == "活気" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10],
+  res = df_IRT_long$res[df_IRT_long$item == "活気" & !is.na(df_IRT_long$BP) & !is.na(df_IRT_long$FLCΣ) & !is.na(df_IRT_long$res) & df_IRT_long$BP <= 3 & df_IRT_long$FLCΣ <= 10]
+)
+
+df_long_plot_活気$colors <- ifelse(df_long_plot_活気$res == 1, "blue", "red")
+
+# 散布図の作成
+ggplot(df_long_plot_活気, aes(x = BP, y = FLCΣ, color = colors)) +
+  geom_point(aes(alpha = ifelse(colors == "blue", 0.7, 0.5)), size = 2) +
+  # 回帰直線を追加
+  # geom_smooth(method = "lm", color = "red", se = TRUE) +
+  geom_hline(yintercept = 2, color = "red", linetype = "dashed") +
+  geom_hline(yintercept = 1, color = "red", linetype = "dashed") +
+  geom_vline(xintercept = 0.7, color = "red", linetype = "dashed") +
+  geom_vline(xintercept = 0.9, color = "red", linetype = "dashed") +
+  theme_minimal() +
+  labs(
+    title =  "活気への応答",
+    x = "BP",
+    y = "FLCΣ"
+  ) +
+  theme(
+    text = element_text(family = "HiraKakuPro-W3"),
+    axis.text = element_text(size = 24),
+    axis.title = element_text(size = 36)
+  ) + 
+  xlim(0, 2.5) +
+  ylim(0, 9) +
+  guides(color = FALSE) +
+  guides(alpha = FALSE)
+```
+
+### 個人内での応答傾向
+
+```{r}
+resp_df <- df[c("活気", "疲労感", "抑うつ感", "不安感", "イライラ感")]
+# NAがある行を除外
+resp_df_no_na <- resp_df[complete.cases(resp_df), ]
+
+# 各行で4を超えている値の数をカウント
+count_vector <- apply(resp_df_no_na, 1, function(row) sum(row > 4))
+
+library(ggplot2)
+
+# count_vector をデータフレームに変換
+count_df <- data.frame(count = count_vector)
+
+# 棒グラフの作成
+ggplot(count_df, aes(x = factor(count))) +
+  geom_bar() +
+  labs(
+    title = "4を超える値の数の分布",
+    x = "4を超える値の数",
+    y = "頻度"
+  ) +
+  theme_minimal() +
+  scale_x_discrete(limits = c("0", "1", "2", "3", "4", "5")) +
+  ylim(0,70)
+```
+
 ## 項目応答モデル
 
-### 1PL モデルの推定
+### 値を直接入れた 1PL モデル
 
 ```r
 library(brms)
@@ -102,7 +333,18 @@ summary(FLC_BP_1PL)
 ranef(FLC_BP_1PL)
 ```
 
-### 判別分析
+### 条件付き効果
+
+```{r}
+conditional_effects(FLC_BP_1PL, effects = "BP")
+```
+
+```{r}
+conditional_effects(FLC_BP_1PL, effects = "FLCΣ")
+```
+
+
+### 直接の値による判別分析
 
 ```{r}
 library(dplyr)
@@ -156,9 +398,140 @@ for (threshold in param) {
 library(ggplot2)
 
 ggplot(data.frame(x = x, y = y), aes(x = x, y = y)) +
-  geom_point() +
+  geom_point(size = 2) +
   geom_line() +
   theme_minimal() +
   labs(x = "False Positive Rate", y = "True Positive Rate") +
   lims(x = c(0, 1), y = c(0, 1))
 ```
+
+```{r}
+#| output: false
+#| warning: false
+logit <- function(x) {
+  return(log(x / (1 - x)))
+}
+
+logistic <- function(x) {
+  return(1 / (1 + exp(-x)))
+}
+
+library(dplyr)
+df_IRT_long <- df_IRT_long %>%
+  mutate(prediction = logistic(discrimination_score))
+
+library(pROC)
+```
+
+```{r}
+roc_obj <- roc(response = df_IRT_long$res, predictor = df_IRT_long$prediction)
+plot(roc_obj)
+
+auc(roc_obj)
+```
+
+### 個人ごとの切片も入れてみる
+
+```{r}
+library(brms)
+FLC_BP_id_1PL <- readRDS("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/rdb/fit_1PL_cov.rds")
+
+summary(FLC_BP_id_1PL)
+```
+
+### 後知恵判別分析
+
+```{r}
+ran_ef_list <- ranef(FLC_BP_id_1PL)$item[,1,]
+ran_id_list <- ranef(FLC_BP_id_1PL)$id[,1,]
+
+df_IRT_long$ran_ef <- ran_ef_list[match(df_IRT_long$item, names(ran_ef_list))]
+df_IRT_long$ran_id <- ran_id_list[match(df_IRT_long$id, names(ran_id_list))]
+
+beta_0 <- -2.98
+beta_FLC <- -0.12
+beta_BP <- 0.61
+
+df_IRT_long$discrimination_score <- beta_0 + beta_FLC * df_IRT_long$FLCΣ + beta_BP * df_IRT_long$BP + df_IRT_long$ran_ef + df_IRT_long$ran_id
+
+df_IRT_long <- df_IRT_long[!is.na(df_IRT_long$discrimination_score),]
+
+summary(df_IRT_long$discrimination_score)
+```
+
+```{r}
+param <- seq(-5.07, 1.92, 0.001)
+x <- c()
+y <- c()
+
+for (threshold in param) {
+  res_predicted <- df_IRT_long$discrimination_score > threshold
+
+  is_false <- res_predicted != df_IRT_long$res
+  is_true <- res_predicted == df_IRT_long$res
+  
+  x <- append(x, mean(is_false[df_IRT_long$res == 0], na.rm = TRUE))
+  y <- append(y, mean(is_true[df_IRT_long$res == 1], na.rm = TRUE))
+}
+
+library(ggplot2)
+
+ggplot(data.frame(x = x, y = y), aes(x = x, y = y)) +
+  geom_point(size = 2) +
+  geom_line() +
+  theme_minimal() +
+  labs(x = "False Positive Rate", y = "True Positive Rate") +
+  lims(x = c(0, 1), y = c(0, 1))
+```
+
+```{r}
+sum(y) / ((1.92 + 5.07) / 0.01)
+```
+
+```{r}
+library(dplyr)
+df_IRT_long <- df_IRT_long %>%
+  mutate(prediction = logistic(discrimination_score))
+```
+
+```{r}
+library(pROC)
+roc_obj <- roc(response = df_IRT_long$res, predictor = df_IRT_long$prediction)
+plot(roc_obj)
+
+auc(roc_obj)
+```
+
+### 個人ごとの係数を見てみよう
+
+```{r}
+library(ggplot2)
+ranef_id <- ranef(FLC_BP_id_1PL)$id
+posterior_means <- ranef_id[,1,1]
+lower_bounds <- ranef_id[,3,1]
+upper_bounds <- ranef_id[,4,1]
+plot_df_id <- data.frame(
+  id = rownames(ranef_id),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+
+plot_df_id <- plot_df_id %>% arrange(mean) %>% mutate(rank = row_number())
+p_PL1_id <- ggplot(plot_df_id, aes(x = mean, y = rank)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+    legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+    legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+    # plot.margin = margin(r = 20)  # 右側の余白を50ポイントに設定
+  ) +
+  labs(title = "Posterior Means and 95% Credible Intervals for Individuals",
+       x = "b",
+       y = "Individual (ID)")
+p_PL1_id
+```
+
+クラスタリングするだけでも精度が出そうだな．
