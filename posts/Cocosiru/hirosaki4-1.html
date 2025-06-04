@@ -8,7 +8,7 @@
 
 <meta name="author" content="司馬博文">
 
-<title>１次元での収束の証明 – ぷにうぱ</title>
+<title>弘前データ４：フローラスキャンデータの探索 – ぷにうぱ</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -21,6 +21,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -32,8 +67,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../../">
 <link href="../../assets/ぷにうぱ.jpg" rel="icon" type="image/jpeg">
-<script src="../../site_libs/quarto-listing/list.min.js"></script>
-<script src="../../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../../site_libs/quarto-html/popper.min.js"></script>
@@ -69,35 +102,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-lst-spiky .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-image','listing-date','listing-subtitle',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-lst-spiky'] = new List('listing-lst-spiky', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Zen+Kurenaido&amp;display=swap" rel="stylesheet">
@@ -137,13 +141,13 @@ window.Quarto = {
 </script>
 
 <link rel="stylesheet" href="../../assets/styles.css">
-<meta property="og:title" content="１次元での収束の証明 – ぷにうぱ">
-<meta property="og:description" content="Spike-and-Slab prior からの効率的なサンプリング">
-<meta property="og:image" content="https://puniupa.github.io/posts/Spike-and-slab/assets/ぷにうぱ.jpg">
+<meta property="og:title" content="弘前データ４：フローラスキャンデータの探索 – ぷにうぱ">
+<meta property="og:description" content="hirosaki2.qmd では BP と LAB の関係のモデリング， hirosaki3.qmd では \(\Sigma\)-FLC と LOX-1 の関係をモデリングした． ここではフローラスキャンデータの探索を行う．">
+<meta property="og:image" content="https://puniupa.github.io/posts/Cocosiru/assets/ぷにうぱ.jpg">
 <meta property="og:site_name" content="ぷにうぱ">
-<meta name="twitter:title" content="１次元での収束の証明 – ぷにうぱ">
-<meta name="twitter:description" content="Spike-and-Slab prior からの効率的なサンプリング">
-<meta name="twitter:image" content="https://puniupa.github.io/posts/Spike-and-slab/assets/ぷにうぱ.jpg">
+<meta name="twitter:title" content="弘前データ４：フローラスキャンデータの探索 – ぷにうぱ">
+<meta name="twitter:description" content="hirosaki2.qmd では BP と LAB の関係のモデリング， hirosaki3.qmd では \(\Sigma\)-FLC と LOX-1 の関係をモデリングした． ここではフローラスキャンデータの探索を行う．">
+<meta name="twitter:image" content="https://puniupa.github.io/posts/Cocosiru/assets/ぷにうぱ.jpg">
 <meta name="twitter:card" content="summary_large_image">
 </head>
 
@@ -188,15 +192,7 @@ window.Quarto = {
     <h2 id="toc-title">目次</h2>
    
   <ul>
-  <li><a href="#設定" id="toc-設定" class="nav-link active" data-scroll-target="#設定"><span class="header-section-number">1</span> 設定</a></li>
-  <li><a href="#強生成作用素-a-の核" id="toc-強生成作用素-a-の核" class="nav-link" data-scroll-target="#強生成作用素-a-の核"><span class="header-section-number">2</span> 強生成作用素 <span class="math inline">\(A\)</span> の核</a></li>
-  <li><a href="#収束の証明" id="toc-収束の証明" class="nav-link" data-scroll-target="#収束の証明"><span class="header-section-number">3</span> 収束の証明</a>
-  <ul class="collapse">
-  <li><a href="#絶対連続緩和の構成背景" id="toc-絶対連続緩和の構成背景" class="nav-link" data-scroll-target="#絶対連続緩和の構成背景"><span class="header-section-number">3.1</span> 絶対連続緩和の構成（背景）</a></li>
-  <li><a href="#sec-8-8-9" id="toc-sec-8-8-9" class="nav-link" data-scroll-target="#sec-8-8-9"><span class="header-section-number">3.2</span> 条件 (8.8), (8.9) の充足</a></li>
-  <li><a href="#条件-8.10-の充足" id="toc-条件-8.10-の充足" class="nav-link" data-scroll-target="#条件-8.10-の充足"><span class="header-section-number">3.3</span> 条件 (8.10) の充足</a></li>
-  <li><a href="#条件-8.11-の充足" id="toc-条件-8.11-の充足" class="nav-link" data-scroll-target="#条件-8.11-の充足"><span class="header-section-number">3.4</span> 条件 (8.11) の充足</a></li>
-  </ul></li>
+  <li><a href="#個人の応答を予測できたら面白い" id="toc-個人の応答を予測できたら面白い" class="nav-link active" data-scroll-target="#個人の応答を予測できたら面白い"><span class="header-section-number">1</span> 個人の応答を予測できたら面白い</a></li>
   </ul>
 </nav>
     </div>
@@ -205,12 +201,8 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">１次元での収束の証明</h1>
-<p class="subtitle lead">Spike-and-Slab prior からの効率的なサンプリング</p>
-  <div class="quarto-categories">
-    <div class="quarto-category">ノート</div>
-  </div>
-  </div>
+<h1 class="title">弘前データ４：フローラスキャンデータの探索</h1>
+</div>
 
 
 
@@ -223,165 +215,516 @@ window.Quarto = {
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">日付</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">5/24/2025</p>
+    </div>
+  </div>
   
     
   </div>
   
+<div>
+  <div class="abstract">
+    <div class="block-title">はじめに</div>
+    <p><a href="../../posts/Cocosiru/hirosaki2.html"><code>hirosaki2.qmd</code></a> では BP と LAB の関係のモデリング， <a href="../../posts/Cocosiru/hirosaki3.html"><code>hirosaki3.qmd</code></a> では <span class="math inline">\(\Sigma\)</span>-FLC と LOX-1 の関係をモデリングした． ここではフローラスキャンデータの探索を行う．</p>
+  </div>
+</div>
 
 
 </header>
 
 
-<div class="hidden">
-<p>A Blog Entry on Bayesian Computation by an Applied Mathematician</p>
-<p>$$</p>
-<p>$$</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"df.rds"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> df[<span class="fu">is.na</span>(df<span class="sc">$</span><span class="st">`</span><span class="at">BP備考</span><span class="st">`</span>), ]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(df))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 1%">
+<col style="width: 3%">
+<col style="width: 4%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 1%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+<col style="width: 1%">
+<col style="width: 1%">
+<col style="width: 4%">
+<col style="width: 2%">
+<col style="width: 2%">
+<col style="width: 3%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">受付番号</th>
+<th style="text-align: right;">受診日年齢</th>
+<th style="text-align: right;">性別</th>
+<th style="text-align: right;">Weight</th>
+<th style="text-align: right;">BP</th>
+<th style="text-align: right;">FLCΣ</th>
+<th style="text-align: left;">BP備考</th>
+<th style="text-align: right;">判別式</th>
+<th style="text-align: right;">LOX-1_H</th>
+<th style="text-align: right;">LAB_H</th>
+<th style="text-align: right;">LOX-index_H</th>
+<th style="text-align: left;">タイプ</th>
+<th style="text-align: right;">多様性</th>
+<th style="text-align: right;">item1</th>
+<th style="text-align: right;">item2</th>
+<th style="text-align: right;">item3</th>
+<th style="text-align: right;">item4</th>
+<th style="text-align: right;">item5</th>
+<th style="text-align: right;">item6</th>
+<th style="text-align: right;">item7</th>
+<th style="text-align: right;">item8</th>
+<th style="text-align: right;">item9</th>
+<th style="text-align: right;">item10</th>
+<th style="text-align: right;">item11</th>
+<th style="text-align: right;">item12</th>
+<th style="text-align: right;">item13</th>
+<th style="text-align: right;">item14</th>
+<th style="text-align: right;">item15</th>
+<th style="text-align: right;">item16</th>
+<th style="text-align: right;">item17</th>
+<th style="text-align: right;">item18</th>
+<th style="text-align: right;">BP_A_flag</th>
+<th style="text-align: left;">年代</th>
+<th style="text-align: right;">活気</th>
+<th style="text-align: right;">イライラ感</th>
+<th style="text-align: right;">疲労感</th>
+<th style="text-align: right;">不安感</th>
+<th style="text-align: right;">抑うつ感</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">76.3</td>
+<td style="text-align: right;">1.10</td>
+<td style="text-align: right;">1.95</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-2.974</td>
+<td style="text-align: right;">136</td>
+<td style="text-align: right;">3.8</td>
+<td style="text-align: right;">517</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">40代</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">6</td>
+<td style="text-align: right;">30</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">59.5</td>
+<td style="text-align: right;">0.76</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-2.776</td>
+<td style="text-align: right;">46</td>
+<td style="text-align: right;">2.2</td>
+<td style="text-align: right;">101</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">30代</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">6</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">51</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">76.6</td>
+<td style="text-align: right;">1.69</td>
+<td style="text-align: right;">2.58</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-2.377</td>
+<td style="text-align: right;">78</td>
+<td style="text-align: right;">3.2</td>
+<td style="text-align: right;">250</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">50代</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">7</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">47</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">43.2</td>
+<td style="text-align: right;">0.56</td>
+<td style="text-align: right;">0.55</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-3.048</td>
+<td style="text-align: right;">40</td>
+<td style="text-align: right;">2.7</td>
+<td style="text-align: right;">108</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">40代</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: right;">10</td>
+<td style="text-align: right;">39</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">61.9</td>
+<td style="text-align: right;">0.52</td>
+<td style="text-align: right;">0.64</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-3.165</td>
+<td style="text-align: right;">54</td>
+<td style="text-align: right;">2.4</td>
+<td style="text-align: right;">130</td>
+<td style="text-align: left;">B</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">30代</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: right;">11</td>
+<td style="text-align: right;">55</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">61.0</td>
+<td style="text-align: right;">0.89</td>
+<td style="text-align: right;">2.64</td>
+<td style="text-align: left;">NA</td>
+<td style="text-align: right;">-3.708</td>
+<td style="text-align: right;">60</td>
+<td style="text-align: right;">3.1</td>
+<td style="text-align: right;">186</td>
+<td style="text-align: left;">E</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">50代</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div id="listing-lst-spiky" class="listing quarto-float quarto-figure quarto-figure-left quarto-listing quarto-listing-container-grid anchored">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="JUUzJTgzJTg5JUUzJTgzJUE5JUUzJTgzJTk1JUUzJTgzJTg4" data-listing-file-modified-sort="1749041371542" data-listing-reading-time-sort="1" data-listing-word-count-sort="24">
-<a href="../../posts/Spike-and-slab/spiky-density.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Asymptotic Analysis of the Piecewise Deterministic Monte Carlo on Spiked Densities
-</h5>
 </div>
-</div></a>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df_IRT_long <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"df_IRT_long.rds"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>df_IRT_long <span class="ot">&lt;-</span> df_IRT_long[df_IRT_long<span class="sc">$</span>FLCΣ <span class="sc">&gt;</span> <span class="dv">0</span>, ]</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(<span class="fu">head</span>(df_IRT_long))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;"></th>
+<th style="text-align: right;">id</th>
+<th style="text-align: right;">BP</th>
+<th style="text-align: right;">FLCΣ</th>
+<th style="text-align: left;">item</th>
+<th style="text-align: right;">response</th>
+<th style="text-align: right;">res</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">活気</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">イライラ感</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">疲労感</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">不安感</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.47</td>
+<td style="text-align: right;">0.81</td>
+<td style="text-align: left;">抑うつ感</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">11</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">1.10</td>
+<td style="text-align: right;">1.95</td>
+<td style="text-align: left;">活気</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
 </div>
-<div class="g-col-1" data-index="1" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1749041371539" data-listing-reading-time-sort="4" data-listing-word-count-sort="755">
-<a href="../../posts/Spike-and-slab/1d_generator.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-１次元での生成作用素の形の証明
-</h5>
-<div class="card-subtitle listing-subtitle">
-Spike-and-Slab prior からの効率的なサンプリング
+</div>
+<section id="個人の応答を予測できたら面白い" class="level2" data-number="1">
+<h2 data-number="1" class="anchored" data-anchor-id="個人の応答を予測できたら面白い"><span class="header-section-number">1</span> 個人の応答を予測できたら面白い</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: パッケージ 'brms' はバージョン 4.3.1 の R の下で造られました</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 要求されたパッケージ Rcpp をロード中です </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading 'brms' package (version 2.21.0). Useful instructions
+can be found by typing help('brms'). A more detailed introduction
+to the package is available through vignette('brms_overview').</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+ 次のパッケージを付け加えます: 'brms' </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code> 以下のオブジェクトは 'package:stats' からマスクされています:
+
+    ar</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fit_1PL_cov <span class="ot">&lt;-</span> <span class="fu">readRDS</span>(<span class="st">"../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/rdb/fit_1PL_cov.rds"</span>)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(fit_1PL_cov)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: There were 26 divergent transitions after warmup. Increasing
+adapt_delta above 0.8 may help. See
+http://mc-stan.org/misc/warnings.html#divergent-transitions-after-warmup</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code> Family: bernoulli 
+  Links: mu = logit 
+Formula: 高スコア割合 ~ 1 + (1 | item) + (1 | id) + BP + FLCΣ 
+   Data: df_IRT_long (Number of observations: 2877) 
+  Draws: 4 chains, each with iter = 8000; warmup = 4000; thin = 1;
+         total post-warmup draws = 16000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 576) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     1.77      0.14     1.51     2.05 1.00     5609     9809
+
+~item (Number of levels: 5) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     0.52      0.31     0.19     1.39 1.00     4148     3588
+
+Regression Coefficients:
+          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept    -2.96      0.37    -3.70    -2.22 1.00     6032     4383
+BP            0.61      0.26     0.11     1.13 1.00    10057     5684
+FLCΣ        -0.12      0.07    -0.26     0.00 1.00    10961     5397
+
+Draws were sampled using sampling(NUTS). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).</code></pre>
 </div>
 </div>
-</div></a>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>ran_id_list <span class="ot">&lt;-</span> <span class="fu">ranef</span>(fit_1PL_cov)<span class="sc">$</span>id[,<span class="dv">1</span>,]</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>df_IRT_long<span class="sc">$</span>ran_id <span class="ot">&lt;-</span> ran_id_list[<span class="fu">match</span>(df_IRT_long<span class="sc">$</span>id, <span class="fu">names</span>(ran_id_list))]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="g-col-1" data-index="2" data-categories="JUUzJTgzJThFJUUzJTgzJUJDJUUzJTgzJTg4" data-listing-file-modified-sort="1749041371536" data-listing-reading-time-sort="3" data-listing-word-count-sort="437">
-<a href="../../posts/Spike-and-slab/1d_exit.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-脱出時刻の分析
-</h5>
-<div class="card-subtitle listing-subtitle">
-Spike-and-Slab prior からの効率的なサンプリング
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div>
-<section id="設定" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="設定"><span class="header-section-number">1</span> 設定</h2>
-<p>密度 <span class="math display">\[
-p_\epsilon(x)=(1-\gamma)p(x)+\frac{\gamma}{\epsilon}p\left(\frac{x}{\epsilon}\right)
-\]</span> を対象にした Zig-Zag 過程 <span class="math inline">\((Z^\epsilon_t)_{t\in\mathbb{N}}\)</span> は拡張生成作用素 <span class="math display">\[
-\widehat{A}_\epsilon f(x,v)=(v|f'(z))+\lambda_n(x)\biggr(f(x,-v)-f(x,v)\biggl)
-\]</span> <span class="math display">\[
-\lambda_n(x)=(v|-\partial_x\log p_\epsilon(x))_+
-\]</span> をもち，核は <span class="math inline">\(C^\infty_c(\mathbb{R}^2)\)</span> に取れる．</p>
-<p>一方で極限だと思われる Sticky Zig-Zag 過程 <span class="math inline">\((Z_t)_{t\in\mathbb{N}}\)</span> は拡張生成作用素 <span class="math display">\[
-\widehat{A}_0f(x,v)=
-\begin{cases}
-  (v|f'(z))+\lambda(x)\biggr(f(x,-v)-f(x,v)\biggl) &amp; x\ne(0,0)\\
-  \kappa\biggr(\frac{1}{2}f(0,+v)+\frac{1}{2}f(0,-v)-f(0,0)\biggl) &amp; x=(0,0)
-\end{cases}
-\]</span> <span class="math display">\[
-\lambda(x)=(v|-\partial_x\log p(x))_+,\qquad\kappa^{-1}:=\frac{\gamma}{1-\gamma}\sqrt{2\pi\sigma^2}
-\]</span> をもつ．定義域は <span class="math display">\[
-\mathcal{D}(\widehat{A})=\left\{f:E_0\to\mathbb{R}\,\middle|\,
-\begin{array}{l}
-\{0\}\times\mathbb{R}\,\text{上を除いて絶対連続}\\
-\{0\}\times(-\infty,0)\,\text{では右連続}\\
-\{0\}\times(0,\infty)\,\text{では左連続}\\
-\text{残った2つの右極限は}\,f(0,0)\,\text{に一致する}
-\end{array}
-\right\}.
-\]</span></p>
-<p>無限遠 <span class="math inline">\(\epsilon\to0\)</span> では，「吸着点」<span class="math inline">\((0,0)\)</span> が創発されると見る．</p>
-<p>この見方は直感的であるが，<span class="math inline">\(E_0\)</span> には特別な位相が入っていることに注意．<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> そのため <span class="math inline">\(x=0\)</span> でジャンプしていても <span class="math inline">\(E_0\)</span> 上では連続関数になる．これは <span class="math inline">\(E_0\)</span> では通常の方法では絶対に <span class="math inline">\(x=0\)</span> に辿り着いてはいけないためである．</p>
-<p>生成作用素 <span class="math inline">\(\widehat{A}_0\)</span> に登場する <span class="math inline">\(f'\)</span> は <span class="math inline">\(x=0\)</span> では片側微分である．</p>
-</section>
-<section id="強生成作用素-a-の核" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="強生成作用素-a-の核"><span class="header-section-number">2</span> 強生成作用素 <span class="math inline">\(A\)</span> の核</h2>
-<p>後続の証明（特に <a href="#sec-8-8-9" class="quarto-xref">Section&nbsp;3.2</a> ）が成功するには， 特に <span class="math inline">\(\widehat{A}_\epsilon f_\epsilon\)</span> が <span class="math inline">\(Af\)</span> に有界収束するためには， <span class="math inline">\(\mathcal{D}(A)\)</span> の核として，<span class="math inline">\(x=0\)</span> 以外で <span class="math inline">\(C^1\)</span>-級でコンパクト台を持つ関数の全体が取れることが必要である．</p>
-</section>
-<section id="収束の証明" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="収束の証明"><span class="header-section-number">3</span> 収束の証明</h2>
-<p><span class="math inline">\(\mathcal{D}(A)\)</span> の核から，任意に <span class="math inline">\((\mathbb{R}\setminus\{0\})\times\mathbb{R}\)</span> 上 <span class="math inline">\(C^1\)</span>-級でコンパクト台を持つ関数 <span class="math inline">\(f\)</span> を取る．</p>
-<p><span class="math inline">\(f_\epsilon\in\mathcal{D}(\widehat{A}_\epsilon)\)</span> を満たす関数 <span class="math inline">\(f_\epsilon\)</span> であって，各点で <span class="math display">\[
-f_\epsilon\to f\qquad(\epsilon\searrow0)
-\]</span> が起こるものは構成できるが，一様収束は決して成り立たせることができない．</p>
-<p>そもそも <span class="math inline">\(f_\epsilon\in\mathcal{D}(\widehat{A}_\epsilon)\)</span> であるためには， <span class="math display">\[
-x\mapsto f_\epsilon(x,+1),\qquad x\mapsto f_\epsilon(x,-1)
-\]</span> がそれぞれ絶対連続であれば良いことに注意．</p>
-<section id="絶対連続緩和の構成背景" class="level3" data-number="3.1">
-<h3 data-number="3.1" class="anchored" data-anchor-id="絶対連続緩和の構成背景"><span class="header-section-number">3.1</span> 絶対連続緩和の構成（<a href="../../posts/Spike-and-slab/Background/1d_convergence1.html">背景</a>）</h3>
-<p><span class="math inline">\(f(-,+1)\)</span> を <span class="math inline">\((0,\epsilon^p)\)</span> 上でのみ，<span class="math inline">\(f(-,-1)\)</span> を <span class="math inline">\((-\epsilon^p,0)\)</span> でのみ変更して，<span class="math inline">\(f_\epsilon\)</span> を定める．</p>
-<p>具体的には，<span class="math inline">\(f(0,+1),f(\epsilon^p,+1)\)</span> を線型に補間した関数を <span class="math inline">\(f_\epsilon(-,+1)\)</span> とする．</p>
-<p>この際，関数 <span class="math inline">\(x\mapsto f_\epsilon(x,v)\)</span> は２点を除いて微分可能であるため，特に絶対連続である．従って <span class="math inline">\(f_\epsilon\in\mathcal{D}(\widehat{A}_\epsilon)\)</span> である．</p>
-<p>加えてこのとき，<span class="math inline">\(0\)</span> の近傍で一様には収束しないことだけ注意して， <span class="math display">\[
-f_\epsilon(x,v)\xrightarrow{\epsilon\to0}f(x,v),\qquad (x,v)\in\overline{E}\setminus\{(0_-,-1),(0_+,+1)\}
-\]</span> が成り立つ．<span class="math inline">\((0_-,-1),(0_+,+1)\)</span> というのは復帰用の点で，この点に確率が集積することはないため，のちの証明で問題が起こることはないのである．</p>
-</section>
-<section id="sec-8-8-9" class="level3" data-number="3.2">
-<h3 data-number="3.2" class="anchored" data-anchor-id="sec-8-8-9"><span class="header-section-number">3.2</span> 条件 (8.8), (8.9) の充足</h3>
-<p>これは <span class="math inline">\(\{f_\epsilon\}\)</span> と <span class="math inline">\(\{\widehat{A}_\epsilon f_\epsilon\}\)</span> が有界ならば良い．</p>
-<p>これは <span class="math inline">\(f_\epsilon\)</span> が区分的に <span class="math inline">\(C^1\)</span>-級でコンパクト台を持てば成り立つ．</p>
-</section>
-<section id="条件-8.10-の充足" class="level3" data-number="3.3">
-<h3 data-number="3.3" class="anchored" data-anchor-id="条件-8.10-の充足"><span class="header-section-number">3.3</span> 条件 (8.10) の充足</h3>
-<p>特定の部分を除いて <span class="math inline">\(f\)</span> と <span class="math inline">\(f_\epsilon\)</span> の値は一致するので，次のように評価できる：</p>
-<p><span class="math display">\[\begin{align*}
-  &amp;\qquad\operatorname{E}\biggl[\biggl|f_\epsilon(Z_\epsilon(t))-f(Z_\epsilon(t))\biggr|\biggr]\\
-  &amp;=\operatorname{E}\biggl[1_{\left\{X_\epsilon(t)\in(0,\epsilon^p),V_\epsilon(t)=+1\right\}}\lvert f_\epsilon(Z_\epsilon(t))-f(Z_\epsilon(t))\rvert\biggr]\\
-  &amp;\qquad+\operatorname{E}\biggl[1_{\left\{X_\epsilon(t)\in(-\epsilon^,0),V_\epsilon(t)=-1\right\}}\lvert f_\epsilon(Z_\epsilon(t))-f(Z_\epsilon(t))\rvert\biggr]\\
-  &amp;&lt;\operatorname{P}[0&lt;X_\epsilon(t)&lt;\epsilon^p,V_\epsilon(t)=+1]2\Delta f(0,+1)+\operatorname{P}[-\epsilon^p&lt;X_\epsilon(t)&lt;0,V_\epsilon(t)=-1]2\Delta f(0,-1)\\
-\end{align*}\]</span></p>
-<p>今回は <span class="math inline">\(X_\epsilon(t)\)</span> の確率が <span class="math inline">\(0\)</span> に集積するスピードは <span class="math inline">\(O(\epsilon^{-1})\)</span> であるため，<span class="math inline">\(p&gt;1\)</span> と取れば良いが，一般の場合に関しても十分に速く収束する <span class="math inline">\(\epsilon\mapsto\delta(\epsilon)\)</span> を取ることで， <span class="math display">\[
-\operatorname{P}[-\delta(\epsilon)&lt;X_\epsilon(t)&lt;\delta(\epsilon)]\xrightarrow{\epsilon\to0}0
-\]</span> を満たすようにできる．</p>
-</section>
-<section id="条件-8.11-の充足" class="level3" data-number="3.4">
-<h3 data-number="3.4" class="anchored" data-anchor-id="条件-8.11-の充足"><span class="header-section-number">3.4</span> 条件 (8.11) の充足</h3>
-<p><span class="math display">\[\begin{align*}
-  &amp;\qquad\operatorname{E}\biggl[\widehat{A}_\epsilon f_\epsilon(Z_\epsilon(t))-Af(Z_\epsilon(t))\biggr]\\
-  &amp;\le\operatorname{E}\biggl[1_{\left\{X_\epsilon(t)\ne 0\right\}}\biggl|(V_\epsilon(t)|f_\epsilon'(Z_\epsilon(t))-f'(Z_\epsilon(t)))\biggr|\biggr]\\
-  &amp;\qquad+\operatorname{E}\biggl[1_{\left\{X_\epsilon(t)\ne 0\right\}}\biggl|\lambda_\epsilon(Z_\epsilon(t))\biggr(f_\epsilon(X_\epsilon(t),-V_\epsilon(t))-f(Z_\epsilon(t))\biggl)\\
-  &amp;\qquad\quad\qquad\quad-\lambda(Z_\epsilon(t))\biggr(f(X_\epsilon(t),-V_\epsilon(t))-f(Z_\epsilon(t))\biggl)\biggr|\biggr]\\
-  &amp;\qquad+\operatorname{E}\biggl[1_{\left\{X_\epsilon(t)=0\right\}}\biggl|(V_\epsilon(t)|f'_\epsilon(Z_\epsilon(t)))+\\
-  &amp;\qquad\quad\qquad\quad\lambda_\epsilon(Z_\epsilon(t))\biggr(f_\epsilon(0,-V_\epsilon(t))-f_\epsilon(0,+V_\epsilon(t))\biggl)\\
-  &amp;\qquad\quad\qquad\quad-\kappa\biggr(\frac{1}{2}f(0_+,+V_\epsilon(t))+\frac{1}{2}f(0_-,-V_\epsilon(t))-f(Z_\epsilon(t))\biggl)\biggr|\biggr]\\
-\end{align*}\]</span></p>
-<p><span class="math inline">\(f'_\epsilon(0,V_\epsilon(t))\)</span> は <span class="math inline">\(0\)</span> にはできる．吸着する状態 <span class="math inline">\((0,\pm1)\)</span> は本質的に１つなので，そこでの <span class="math inline">\(f\)</span> の値は同一である．</p>
-<p>２つのポイントが効いてくる</p>
-<ul>
-<li><span class="math inline">\(\lambda_\epsilon\)</span> が <span class="math inline">\(0\)</span> で消えるか？</li>
-<li><span class="math inline">\(p_\epsilon\)</span> が対称かどうか？</li>
-</ul>
 
 
-
-</section>
 </section>
 
-
-<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1"><p><span class="math inline">\((-\infty,0),(0,\infty)\)</span> 内の開集合と，<span class="math inline">\(v&gt;0\)</span> のときは <span class="math inline">\((-a,0]\subset U\;(U\overset{\mathrm{open}}{\subset}\mathbb{R}^+)\)</span> の形も開集合になる．<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";
