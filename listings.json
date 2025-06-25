@@ -17,8 +17,8 @@
       "/posts/Cocosiru/hirosaki1-3.html",
       "/posts/Cocosiru/hirosaki1-2.html",
       "/posts/Cocosiru/hirosaki1-1.html",
-      "/posts/Cocosiru/hirosaki4-1.html",
       "/posts/Cocosiru/hirosaki4.html",
+      "/posts/Cocosiru/hirosaki4-1.html",
       "/posts/Cocosiru/hirosaki3.html",
       "/posts/Cocosiru/hirosaki1-4.html",
       "/posts/Cocosiru/hirosaki1-5.html"
@@ -42,9 +42,11 @@
     ]
   },
   {
-    "listing": "/posts/Cocosiru/hirosaki2.html",
+    "listing": "/posts/Spike-and-slab/1d_convergence.html",
     "items": [
-      "/posts/Cocosiru/hirosaki1.html"
+      "/posts/Spike-and-slab/spiky-density.html",
+      "/posts/Spike-and-slab/1d_generator.html",
+      "/posts/Spike-and-slab/1d_exit.html"
     ]
   },
   {
@@ -54,11 +56,9 @@
     ]
   },
   {
-    "listing": "/posts/Spike-and-slab/1d_convergence.html",
+    "listing": "/posts/Cocosiru/hirosaki2.html",
     "items": [
-      "/posts/Spike-and-slab/spiky-density.html",
-      "/posts/Spike-and-slab/1d_generator.html",
-      "/posts/Spike-and-slab/1d_exit.html"
+      "/posts/Cocosiru/hirosaki1.html"
     ]
   },
   {
@@ -88,8 +88,8 @@
     "items": [
       "/posts/2024/AI/各国の生成AI関連政策.html",
       "/posts/2024/Blog/Seoul1.html",
-      "/posts/2024/AI/TDL.html",
       "/posts/2024/Blog/うぱgithub挑戦.html",
+      "/posts/2024/AI/TDL.html",
       "/posts/2024/Brain/TakemiLab.html",
       "/posts/2024/Tech/ffmpeg.html",
       "/posts/2024/AI/Journalism.html",
