@@ -1,0 +1,203 @@
+---
+title: "弘前データ２ー１：BP の階層モデリング"
+subtitle: "LAB との関係に服薬という交絡がある"
+author: "司馬博文"
+date: 6/25/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+fig-align: center
+abstract: |
+  ここでは BP と LAB の関係のモデリングを行う．
+  [`hirosaki3.qmd`](hirosaki3.qmd) では $\Sigma$-FLC と LOX-1 の関係をモデリングする．
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: false
+    # fig-width: 10
+    # fig-height: 8
+listing:
+  - id: hirosaki-listing
+    type: grid
+    sort: false
+    contents:
+      - "hirosaki1.qmd"
+    page-size: 3
+    image-height: 100%
+    grid-columns: 1
+---
+
+```{r}
+library(readxl)
+library(knitr)
+df <- readRDS("df.rds")
+df <- df[is.na(df$`BP備考`), ]
+kable(head(df))
+```
+
+```{r}
+df_IRT_long <- readRDS("df_IRT_long.rds")
+df_IRT_long <- df_IRT_long[df_IRT_long$FLCΣ > 0, ]
+kable(head(df_IRT_long))
+```
+
+## 服薬により統制
+
+### `med` 変数じゃダメかも？
+
+```r
+library(brms)
+formula <- bf(
+  BP ~ 1 + (LAB | med)
+)
+fit <- brm(
+  formula,
+  data = df,
+  family = gaussian(),
+  chains = 4,
+  iter = 8000,
+  cores = 4
+)
+```
+
+```{r}
+#| echo: false
+#| output: false
+library(brms)
+library(ggplot2)
+fit <- readRDS("./2-1/fit_med.rds")
+```
+
+```{r}
+ranef(fit)$med
+```
+
+### `med` 変数だが年代でも変えてみる
+
+```r
+library(brms)
+formula <- bf(
+  BP ~ 1 + (1 + LAB | med_col:年代)
+)
+fit <- brm(
+  formula,
+  data = df,
+  family = gaussian(),
+  chains = 4,
+  iter = 8000,
+  cores = 4
+)
+```
+
+```{r}
+#| echo: false
+#| output: false
+library(brms)
+fit <- readRDS("./2-1/fit_med_age.rds")
+```
+
+```{r}
+#| layout-ncol: 2
+# データフレームの作成
+plot_data <- data.frame(
+  年代 = 1:12,  # 数値として扱う（20代=1, 30代=2, ...）
+  効果 = ranef(fit)$`med_col:年代`[,1,"LAB"]
+)
+
+# プロット
+ggplot(plot_data[1:6,], aes(x = 年代, y = 効果)) +
+  # 回帰直線
+  geom_smooth(method = "lm", color = "black", se = TRUE) +
+  # 大きな赤い点
+  geom_point(color = "#E15759", size = 4) +
+  theme_minimal() +
+  labs(title = NULL,
+       x = "年代",
+       y = "LAB のランダム係数") +
+  theme(
+    text = element_text(family = "BIZUDGothic-Regular", size = 16),
+    # axis.text = element_text(size = 34),
+    # axis.title = element_text(size = 45),
+    # plot.title = element_text(size = 45)
+  ) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "black") +
+  scale_x_continuous(
+    breaks = 1:6,
+    labels = c("30代", "40代", "50代", "60代", "70代", "80代")
+  )
+  # coord_fixed(ratio = 70)
+
+ggplot(plot_data[7:12,], aes(x = 年代, y = 効果)) +
+  # 回帰直線
+  geom_smooth(method = "lm", color = "black", se = TRUE) +
+  # 大きな赤い点
+  geom_point(color = "#E15759", size = 4) +
+  theme_minimal() +
+  labs(title = NULL,
+       x = "年代",
+       y = "LAB のランダム係数") +
+  theme(
+    text = element_text(family = "BIZUDGothic-Regular", size = 16),
+    # axis.text = element_text(size = 34),
+    # axis.title = element_text(size = 45),
+    # plot.title = element_text(size = 45)
+  ) +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "black") +
+  scale_x_continuous(
+    breaks = 7:12,
+    labels = c("30代", "40代", "50代", "60代", "70代", "80代")
+  )
+  # coord_fixed(ratio = 70)
+```
+
+```{r}
+sum(!is.na(df$med_col))
+```
+
+```{r}
+sum(df$med_col == "あり", na.rm = TRUE)
+```
+
+```{r}
+sum(df$med_col == "なし", na.rm = TRUE)
+```
+
+```{r}
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+# 年代別の服薬者数と非服薬者数をカウント
+med_counts <- df %>%
+  filter(!is.na(med_col)) %>%
+  group_by(年代) %>%
+  summarise(
+    服薬者数 = sum(med_col == "あり", na.rm = TRUE),
+    非服薬者数 = sum(med_col == "なし", na.rm = TRUE)
+  ) %>%
+  # 長い形式に変換
+  pivot_longer(
+    cols = c(服薬者数, 非服薬者数),
+    names_to = "服薬状況",
+    values_to = "人数"
+  )
+
+# 統合されたプロット
+ggplot(med_counts, aes(x = 年代, y = 人数, fill = 服薬状況)) +
+  geom_bar(stat = "identity", position = "dodge", width = 0.7) +
+  scale_fill_manual(values = c("服薬者数" = "#E15759", "非服薬者数" = "#59A14F")) +
+  theme_minimal() +
+  labs(title = NULL,
+       x = "年代",
+       y = "人数",
+       fill = "服薬状況") +
+  theme(
+    text = element_text(family = "BIZUDGothic-Regular", size = 16),
+    legend.position = "top"
+  )
+```
+

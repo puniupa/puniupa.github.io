@@ -22,3 +22,88 @@ format:
     fig-width: 10
     fig-height: 8
 ---
+
+```{r}
+library(readxl)
+library(knitr)
+df <- readRDS("df.rds")
+df <- df[is.na(df$`BP備考`), ]
+kable(head(df))
+```
+
+```{r}
+df_IRT_long <- readRDS("df_IRT_long.rds")
+df_IRT_long <- df_IRT_long[df_IRT_long$FLCΣ > 0, ]
+kable(head(df_IRT_long))
+```
+
+```{r}
+library(ggplot2)
+library(dplyr)
+
+# 男性のデータ
+df_plot <- df %>%
+  filter(!is.na(FLCΣ), !is.na(年代))
+
+# 2つのプロットを横に並べる
+ggplot(df_plot, aes(x = 年代, y = FLCΣ)) +
+  geom_boxplot(fill = "skyblue", alpha = 0.5) +
+  geom_jitter(width = 0.2, alpha = 0.1) +
+  theme_minimal() +
+  labs(title = "年代別のFLCΣの分布",
+       x = "年代",
+       y = "FLCΣ") +
+  theme(
+    text = element_text(family = "BIZUDGothic-Regular", size = 12),
+    axis.text = element_text(size = 34),
+    axis.title = element_text(size = 45),
+    title = element_text(size = 45)
+  ) +
+  scale_y_continuous(limits = c(0,5))
+
+```
+
+```{r}
+#| layout-ncol: 2
+
+library(ggplot2)
+library(dplyr)
+
+# 男性のデータ
+df_male <- df %>%
+  filter(!is.na(FLCΣ), !is.na(年代), sex == 1)
+
+# 女性のデータ  
+df_female <- df %>%
+  filter(!is.na(FLCΣ), !is.na(年代), sex == 2)
+
+# 2つのプロットを横に並べる
+plot1 <- ggplot(df_male, aes(x = 年代, y = FLCΣ)) +
+  geom_boxplot(fill = "skyblue", alpha = 0.5) +
+  geom_jitter(width = 0.2, alpha = 0.1) +
+  theme_minimal() +
+  labs(title = "年代別のFLCΣの分布（男性）",
+       x = "年代",
+       y = "FLCΣ") +
+  theme(
+    text = element_text(family = "BIZUDGothic-Regular", size = 12)
+  ) +
+  scale_y_continuous(limits = c(0,5))
+
+plot2 <- ggplot(df_female, aes(x = 年代, y = FLCΣ)) +
+  geom_boxplot(fill = "#E15759", alpha = 0.5) +
+  geom_jitter(width = 0.2, alpha = 0.1) +
+  theme_minimal() +
+  labs(title = "年代別のFLCΣの分布（女性）",
+       x = "年代",
+       y = "FLCΣ") +
+  theme(
+    text = element_text(family = "BIZUDGothic-Regular", size = 12)
+  ) +
+  scale_y_continuous(limits = c(0,5))
+
+
+plot1
+plot2
+
+```

@@ -1,6 +1,6 @@
 ---
 title: "弘前データ２：BP の階層モデリング"
-subtitle: "LAB との関係に服薬という行楽がある"
+subtitle: "まずは簡単な回帰を実行"
 author: "司馬博文"
 date: 4/29/2025
 number-sections: true
@@ -14,6 +14,8 @@ fig-align: center
 abstract: |
   ここでは BP と LAB の関係のモデリングを行う．
   [`hirosaki3.qmd`](hirosaki3.qmd) では $\Sigma$-FLC と LOX-1 の関係をモデリングする．
+  ここでは簡単な回帰を実行した．
+  年代により逆転する変動係数が推定された．
 format:
   html: 
     code-fold: false

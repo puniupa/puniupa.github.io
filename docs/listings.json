@@ -71,7 +71,8 @@
       "/posts/Cocosiru/hirosaki4.html",
       "/posts/Cocosiru/hirosaki3.html",
       "/posts/Cocosiru/hirosaki1-4.html",
-      "/posts/Cocosiru/hirosaki1-5.html"
+      "/posts/Cocosiru/hirosaki1-5.html",
+      "/posts/Cocosiru/hirosaki2-1.html"
     ]
   },
   {
@@ -97,6 +98,12 @@
   },
   {
     "listing": "/posts/Cocosiru/hirosaki2.html",
+    "items": [
+      "/posts/Cocosiru/hirosaki1.html"
+    ]
+  },
+  {
+    "listing": "/posts/Cocosiru/hirosaki2-1.html",
     "items": [
       "/posts/Cocosiru/hirosaki1.html"
     ]
