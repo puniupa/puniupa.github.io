@@ -44,7 +44,7 @@ library(readxl)
 library(knitr)
 df_raw <- read_excel("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/資料/Hirosaki2.xlsx", sheet = "統合_最終")
 
-df <- df_raw[, c("受付番号", "受診日年齢", "性別", "Weight", "BP", "FLCΣ", "BP備考", "判別式", "LOX-1_H", "LAB_H", "LOX-index_H", "タイプ", "多様性", paste0("item", 1:18), "BMI／Body_Mass_Index")]
+df <- df_raw[, c("受付番号", "受診日年齢", "性別", "Weight", "BP", "FLCΣ", "BP備考", "判別式", "LOX-1_H", "LAB_H", "LOX-index_H", "タイプ", "多様性", paste0("item", 1:18), "BMI／Body_Mass_Index", "現在、病院からもらって飲んでいるお薬はありますか。")]
 
 df$BP_A_flag <- as.numeric(grepl("A", df$`BP備考`))
 df <- df[df$BP_A_flag == 0, ]
@@ -190,7 +190,7 @@ df$抑うつ感 <- ifelse(
 #| output: false
 #| echo: false
 
-df <- df %>% select(-c(paste0("item", 1:18), "BP_A_flag")) %>% rename(id = 受付番号, age = 受診日年齢, sex = 性別, LOX = `LOX-1_H`, LAB = LAB_H, LOX_Index = `LOX-index_H`, type = タイプ, diversity = 多様性, BMI = `BMI／Body_Mass_Index`)
+df <- df %>% select(-c(paste0("item", 1:18), "BP_A_flag")) %>% rename(id = 受付番号, age = 受診日年齢, sex = 性別, LOX = `LOX-1_H`, LAB = LAB_H, LOX_Index = `LOX-index_H`, type = タイプ, diversity = 多様性, BMI = `BMI／Body_Mass_Index`, med = `現在、病院からもらって飲んでいるお薬はありますか。`)
 df$type <- as.factor(df$type)
 df$diversity <- as.factor(df$diversity)
 

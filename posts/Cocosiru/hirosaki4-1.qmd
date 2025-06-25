@@ -67,6 +67,19 @@ ggplot(df, aes(x = type, fill = diversity)) +
   ))
 ```
 
+```{r}
+library(ggplot2)
+
+ggplot(df, aes(x = type)) +
+  geom_histogram(stat = "count", fill = "skyblue", color = "black") +
+  theme_minimal() +
+  labs(title = "タイプのヒストグラム",
+       x = "タイプ",
+       y = "頻度") +
+  theme(text = element_text(family = "HiraKakuPro-W3"),
+        plot.title = element_text(hjust = 0.5))
+```
+
 * 明らかに type A は diversity 1 が少ない．
 
 ### 散布図
@@ -93,7 +106,7 @@ ggplot(df, aes(x = BP, y = FLCΣ, color = diversity)) +
   theme_minimal()
 ```
 
-### BP の予測
+### BP の予測：全部切片にしてみる
 
 ```r
 library(brms)
@@ -106,6 +119,85 @@ fit_BP <- brm(
   data = df,
   family = gaussian(),
   iter = 8000, chains = 4, cores = 4)
+```
+
+```{r}
+#| output: false
+#| echo: false
+library(brms)
+fit_BP <- readRDS("./4-1/fit_BP.rds")
+```
+
+```{r}
+ranef(fit_BP)$`type:diversity`
+```
+
+```{r}
+ranef <- ranef(fit_BP)$`type:diversity`
+posterior_means <- ranef[,1,"Intercept"]
+lower_bounds <- ranef[,3,"Intercept"]
+upper_bounds <- ranef[,4,"Intercept"]
+plot_df <- data.frame(
+  type = rownames(ranef),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p <- ggplot(plot_df, aes(x = mean, y = type)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = NULL,
+       x = "Posterior Estimate",
+       y = NULL)
+p
+```
+
+### BP の予測：多様性，ただしタイプごと
+
+```r
+library(brms)
+bf <- bf(
+  BP ~ (type|diversity)
+)
+
+fit_BP_diversity <- brm(
+  formula = bf,
+  data = df,
+  family = gaussian(),
+  iter = 8000, chains = 4, cores = 4)
+```
+
+```{r}
+#| output: false
+#| echo: false
+library(brms)
+fit_BP_diversity <- readRDS("./4-1/fit_BP_diversity.rds")
+```
+
+```{r}
+ranef(fit_BP_diversity)$diversity
+```
+
+```{r}
+ranef <- ranef(fit_BP_diversity)$diversity
+posterior_means <- ranef[,1,"Intercept"]
+lower_bounds <- ranef[,3,"Intercept"]
+upper_bounds <- ranef[,4,"Intercept"]
+plot_df <- data.frame(
+  diversity = rownames(ranef),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+p <- ggplot(plot_df, aes(x = mean, y = diversity)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = NULL,
+       x = "Posterior Estimate",
+       y = NULL)
+p
 ```
 
 ## 個人の応答を予測できたら面白い
@@ -176,12 +268,180 @@ p
 
 ```r
 formula_1PL_cov <- bf(
-  res ~ 1 + (1|item) + (type|BP) + FLCΣ
+  res ~ 1 + (1|item) + (BP|type) + FLCΣ
 )
-fit_1PL_cov <- brm(
+fit_1PL_cov_type <- brm(
   formula = formula_1PL_cov,
   data = df_IRT_long,
   family = brmsfamily("bernoulli", link = "logit"),
   iter = 8000, chains = 4, cores = 4
 )
 ```
+
+```{r}
+#| echo: false
+fit_1PL_cov_type <- readRDS("./4-1/fit_1PL_cov_type.rds")
+```
+
+```{r}
+conditional_effects(fit_1PL_cov_type , effects = "FLCΣ")
+```
+
+```{r}
+ranefs <- ranef(fit_1PL_cov_type)$type
+posterior_means <- ranefs[,1,"BP"]
+lower_bounds <- ranefs[,3,"BP"]
+upper_bounds <- ranefs[,4,"BP"]
+plot_df <- data.frame(
+  type = rownames(ranefs),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+
+p <- ggplot(plot_df, aes(x = mean, y = type)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = NULL,
+       x = "Posterior Estimate",
+       y = "Type") +
+  theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+    legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+    legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+    plot.margin = margin(r = 20, l = 10)  # 右側の余白を50ポイントに設定
+  )
+p
+```
+
+### 応答曲線は！？
+
+```{r}
+#| output: false
+ran_ef_list <- ranef(fit_1PL_cov_type)$item[,1,]
+ran_coef0_list <- ranef(fit_1PL_cov_type)$type[,1,"Intercept"]
+ran_coef1_list <- ranef(fit_1PL_cov_type)$type[,1,"BP"]
+
+a <- -1.62
+b <- -0.09
+
+df_IRT_long$ran_ef <- ran_ef_list[match(df_IRT_long$item, names(ran_ef_list))]
+df_IRT_long$ran_coef0 <- ran_coef0_list[match(df_IRT_long$type, names(ran_coef0_list))]
+df_IRT_long$ran_coef1 <- ran_coef1_list[match(df_IRT_long$type, names(ran_coef1_list))]
+
+df_IRT_long$pred_prob <- plogis(a + df_IRT_long$ran_ef + df_IRT_long$ran_coef0 + df_IRT_long$ran_coef1 * df_IRT_long$BP + b * df_IRT_long$FLCΣ)
+library(pROC)
+roc_obj <- roc(df_IRT_long$res, df_IRT_long$pred_prob)
+```
+
+```{r}
+plot(roc_obj)
+roc_obj$auc
+```
+
+### くそ，もっと AUC 上がらないのか？
+
+```r
+formula_type2 <- bf(
+  res ~ 1 + (1|item) + (BP+FLCΣ|type)
+)
+fit_type2 <- brm(
+  formula = formula_type2,
+  data = df_IRT_long,
+  family = brmsfamily("bernoulli", link = "logit"),
+  iter = 8000, chains = 4, cores = 4
+)
+```
+
+```{r}
+#| echo: false
+fit_type2 <- readRDS("./4-1/fit_type2.rds")
+```
+
+```{r}
+ranefs <- ranef(fit_type2)$type
+posterior_means <- ranefs[,1,"BP"]
+lower_bounds <- ranefs[,3,"BP"]
+upper_bounds <- ranefs[,4,"BP"]
+plot_df <- data.frame(
+  type = rownames(ranefs),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+
+p <- ggplot(plot_df, aes(x = mean, y = type)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = NULL,
+       x = "Posterior Estimate",
+       y = "Type") +
+  theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+    legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+    legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+    plot.margin = margin(r = 20, l = 10)  # 右側の余白を50ポイントに設定
+  )
+p
+```
+
+```{r}
+ranefs <- ranef(fit_type2)$type
+posterior_means <- ranefs[,1,"FLCΣ"]
+lower_bounds <- ranefs[,3,"FLCΣ"]
+upper_bounds <- ranefs[,4,"FLCΣ"]
+plot_df <- data.frame(
+  type = rownames(ranefs),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+
+p <- ggplot(plot_df, aes(x = mean, y = type)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1)) +
+  labs(title = NULL,
+       x = "Posterior Estimate",
+       y = "Type") +
+  theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+    legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+    legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+    plot.margin = margin(r = 20, l = 10)  # 右側の余白を50ポイントに設定
+  )
+p
+```
+
+### 応答曲線上がれ！
+
+```{r}
+#| output: false
+ran_ef_list <- ranef(fit_type2)$item[,1,]
+ran_coef0_list <- ranef(fit_type2)$type[,1,"Intercept"]
+ran_coef1_list <- ranef(fit_type2)$type[,1,"BP"]
+ran_coef2_list <- ranef(fit_type2)$type[,1,"FLCΣ"]
+
+a <- -1.62
+
+df_IRT_long$ran_ef <- ran_ef_list[match(df_IRT_long$item, names(ran_ef_list))]
+df_IRT_long$ran_coef0 <- ran_coef0_list[match(df_IRT_long$type, names(ran_coef0_list))]
+df_IRT_long$ran_coef1 <- ran_coef1_list[match(df_IRT_long$type, names(ran_coef1_list))]
+df_IRT_long$ran_coef2 <- ran_coef2_list[match(df_IRT_long$type, names(ran_coef2_list))]
+
+df_IRT_long$pred_prob <- plogis(a + df_IRT_long$ran_ef + df_IRT_long$ran_coef0 + df_IRT_long$ran_coef1 * df_IRT_long$BP + df_IRT_long$ran_coef2 * df_IRT_long$FLCΣ)
+library(pROC)
+roc_obj <- roc(df_IRT_long$res, df_IRT_long$pred_prob)
+```
+
+```{r}
+plot(roc_obj)
+roc_obj$auc
+```
+
+いや，上がることは上がるんだよな……．
