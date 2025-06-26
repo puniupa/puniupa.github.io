@@ -1,0 +1,177 @@
+---
+title: "弘前データ解析１-６：BP のみによる予測"
+subtitle: "ARMS バイオマーカーは質問表応答も予測するか？"
+author: "司馬博文"
+date: 6/25/2025
+date-modified: 6/25/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+fig-align: center
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: false
+    fig-width: 10
+    fig-height: 8
+    fig-format: "png"
+    fig-dpi: 300
+    fig-font-family: "Hiragino Sans"
+abstract: |
+  [`hirosaki1-3.qmd`](hirosaki1-3.qmd) では BP と $\Sigma$-FLC が高いほど項目応答確率が上がることを見た．しかしこれは先行研究 [@Wake+2022] と食い違う．2×2 で見たり，交差項を考えたりすることで，この構造をさらに詳しくみる．
+
+  元論文のロジスティック解析では，（クレアチン補正した）BP と $\Sigma$-FLC の値を正規化せず，そのままのスケールを保つことで discrimination score を構成し，これを cut-off value $-0.096$ で２値判別することで，AUC $0.912$ を達成している．
+---
+
+## 導入
+
+### 備考データの除去
+
+$\Sigma$-FLC の備考データも取り除く．
+
+```{r}
+library(readxl)
+library(knitr)
+df <- readRDS("df.rds")
+df <- df[is.na(df$`BP備考`), ]
+dim(df)
+```
+
+
+```{r}
+kable(head(df))
+```
+
+に対して長形式のデータは次の通り：
+
+```{r}
+df_IRT_long <- readRDS("df_IRT_long.rds")
+df_IRT_long <- df_IRT_long[df_IRT_long$FLCΣ > 0, ]
+kable(head(df_IRT_long))
+```
+
+## BP のみによる予測
+
+```r
+library(brms)
+formula <- bf(
+  res ~ 1 + (1 | item) + (1 | id) + BP
+)
+prior_1PL <-  prior("normal(0,3)", class="sd", group = "id") + prior("normal(0,3)", class="sd", group = "item")
+fit_1PL <- brm(
+  formula = formula,
+  data = df_IRT_long,
+  family = brmsfamily("bernoulli", link = "logit"),
+  prior = prior_1PL,
+  chains = 4, cores = 4, iter = 8000
+)
+```
+
+```{r}
+#| echo: false
+#| output: false
+library(brms)
+fit_1PL <- readRDS("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Files/fit_1PL.rds")
+```
+
+
+### 後知恵判別分析の実行
+
+```{r}
+ran_ef_list <- ranef(fit_1PL)$item[,1,]
+ran_id_list <- ranef(fit_1PL)$id[,1,]
+
+df_IRT_long$ran_ef <- ran_ef_list[match(df_IRT_long$item, names(ran_ef_list))]
+df_IRT_long$ran_id <- ran_id_list[match(df_IRT_long$id, names(ran_id_list))]
+
+beta_0 <- -2.97
+beta_BP <- 0.32
+
+df_IRT_long$discrimination_score <- beta_0 + beta_BP * df_IRT_long$BP + df_IRT_long$ran_ef + df_IRT_long$ran_id
+
+df_IRT_long <- df_IRT_long[!is.na(df_IRT_long$discrimination_score),]
+
+summary(df_IRT_long$discrimination_score)
+```
+
+```{r}
+param <- seq(-4.1, 2.05, 0.001)
+x <- c()
+y <- c()
+
+for (threshold in param) {
+  res_predicted <- df_IRT_long$discrimination_score > threshold
+
+  is_false <- res_predicted != df_IRT_long$res
+  is_true <- res_predicted == df_IRT_long$res
+  
+  x <- append(x, mean(is_false[df_IRT_long$res == 0], na.rm = TRUE))
+  y <- append(y, mean(is_true[df_IRT_long$res == 1], na.rm = TRUE))
+}
+
+library(ggplot2)
+
+ggplot(data.frame(x = x, y = y), aes(x = x, y = y)) +
+  geom_point(size = 2) +
+  geom_line() +
+  theme_minimal() +
+  labs(x = "False Positive Rate", y = "True Positive Rate") +
+  lims(x = c(0, 1), y = c(0, 1))
+```
+
+```{r}
+logistic <- function(x) {
+  return(1 / (1 + exp(-x)))
+}
+
+library(dplyr)
+df_IRT_long <- df_IRT_long %>%
+  mutate(prediction = logistic(discrimination_score))
+```
+
+```{r}
+library(pROC)
+roc_obj <- roc(response = df_IRT_long$res, predictor = df_IRT_long$prediction)
+plot(roc_obj)
+
+auc(roc_obj)
+```
+
+### 個人ごとの係数を見てみよう
+
+```{r}
+library(ggplot2)
+ranef_id <- ranef(fit_1PL)$id
+posterior_means <- ranef_id[,1,1]
+lower_bounds <- ranef_id[,3,1]
+upper_bounds <- ranef_id[,4,1]
+plot_df_id <- data.frame(
+  id = rownames(ranef_id),
+  mean = posterior_means,
+  lower = lower_bounds,
+  upper = upper_bounds
+)
+
+plot_df_id <- plot_df_id %>% arrange(mean) %>% mutate(rank = row_number())
+p_PL1_id <- ggplot(plot_df_id, aes(x = mean, y = rank)) +
+  geom_point() +
+  geom_errorbar(aes(xmin = lower, xmax = upper), width = 0.2) +
+  theme(
+    axis.text = element_text(size = 24),  # 軸の目盛りの文字サイズ
+    axis.title = element_text(size = 30),   # 軸ラベルの文字サイズ
+    legend.text = element_text(size = 36),  # 凡例のテキストサイズ
+    legend.title = element_text(size = 24),  # 凡例のタイトルサイズ
+    # plot.margin = margin(r = 20)  # 右側の余白を50ポイントに設定
+  ) +
+  labs(title = "Posterior Means and 95% Credible Intervals for Individuals",
+       x = "b",
+       y = "Individual (ID)")
+p_PL1_id
+```
+
+クラスタリングするだけでも精度が出そうだな．
