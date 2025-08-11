@@ -23,7 +23,11 @@
       "/posts/Cocosiru/hirosaki1-4.html",
       "/posts/Cocosiru/hirosaki1-5.html",
       "/posts/Cocosiru/hirosaki2-1.html",
-      "/posts/Cocosiru/hirosaki1-6.html"
+      "/posts/Cocosiru/hirosaki1-6.html",
+      "/posts/Cocosiru/hirosaki5-2.html",
+      "/posts/Cocosiru/hirosaki5-1.html",
+      "/posts/Cocosiru/hirosaki5-3.html",
+      "/posts/Cocosiru/hirosaki5-4.html"
     ]
   },
   {
@@ -44,15 +48,7 @@
     ]
   },
   {
-    "listing": "/posts/Spike-and-slab/1d_convergence.html",
-    "items": [
-      "/posts/Spike-and-slab/spiky-density.html",
-      "/posts/Spike-and-slab/1d_generator.html",
-      "/posts/Spike-and-slab/1d_exit.html"
-    ]
-  },
-  {
-    "listing": "/posts/Cocosiru/hirosaki2-1.html",
+    "listing": "/posts/Cocosiru/hirosaki2.html",
     "items": [
       "/posts/Cocosiru/hirosaki1.html"
     ]
@@ -64,9 +60,17 @@
     ]
   },
   {
-    "listing": "/posts/Cocosiru/hirosaki2.html",
+    "listing": "/posts/Cocosiru/hirosaki2-1.html",
     "items": [
       "/posts/Cocosiru/hirosaki1.html"
+    ]
+  },
+  {
+    "listing": "/posts/Spike-and-slab/1d_convergence.html",
+    "items": [
+      "/posts/Spike-and-slab/spiky-density.html",
+      "/posts/Spike-and-slab/1d_generator.html",
+      "/posts/Spike-and-slab/1d_exit.html"
     ]
   },
   {
