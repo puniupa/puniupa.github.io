@@ -1,0 +1,305 @@
+---
+title: "弘前データ５：BART による BP 予測"
+author: "司馬博文"
+date: 8/11/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+fig-align: center
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: false
+    fig-width: 10
+    fig-height: 8
+---
+
+```{r}
+#| output: false
+library(readxl)
+library(knitr)
+df <- readRDS("df.rds")
+library(showtext)
+showtext_auto()
+```
+
+備考は全て外し，`LOX_Index` と `判別式` も説明変数としては考慮しない．
+
+```{r}
+#| output: false
+library(dplyr)
+df_filtered <- df %>%
+  filter(is.na(BP備考), type != "D") %>%
+  select(-c(BP備考, LOX_Index, 判別式, id, med_col, 年代)) %>%
+  droplevels()
+```
+
+## CART モデル
+
+### 回帰モデル
+
+```{r}
+library(rpart)
+library(rpart.plot)
+
+control_params <- rpart.control(maxdepth = 5)
+
+cart_model <- rpart(
+  BP ~ .,        # 目的変数を5クラスのものに変更
+  data = df_filtered,
+  method = "anova",       # 分類なので "class" のまま
+  control = control_params
+)
+printcp(cart_model)
+```
+
+```{r}
+# 決定木を可視化
+rpart.plot(cart_model, 
+           type = 4,             # ノードのラベル表示形式
+           extra = 101,          # 各ノードにレコードの割合(%)と目的変数の平均値を表示
+           under = TRUE,           # 分岐の下に箱を表示
+           fallen.leaves = TRUE, # 最終ノード（葉）をグラフの下部に揃える
+           box.palette = "auto"  # ノードの色を自動で設定
+          )
+```
+
+初っ端から「女性ならばほとんど Type B だ」と決めつけているのが面白い．
+
+### モデル評価
+
+```{r}
+# モデルを使って予測値を計算
+predictions <- predict(cart_model, newdata = df_filtered)
+
+# 実際値と予測値のデータフレームを作成
+results <- data.frame(
+  Actual = df_filtered$BP,
+  Predicted = predictions
+)
+
+# ggplot2を使った可視化例
+library(ggplot2)
+
+ggplot(results, aes(x = Predicted, y = Actual)) +
+  geom_point(alpha = 0.6) +                               # 点をプロット
+  geom_abline(color = "red", linetype = "dashed", size = 1) + # y=xの線を引く
+  labs(
+    title = "予測値 vs. 実際値 プロット",
+    x = "モデルによる予測値 (Predicted)",
+    y = "実際の観測値 (Actual)"
+  ) +
+  theme_minimal()
+```
+
+### 分類モデル
+
+```{r}
+sum(df$BP > 1.2, na.rm = TRUE) / sum(!is.na(df$BP))
+```
+
+```{r}
+library(rpart)
+library(rpart.plot)
+
+df$BP_flag <- case_when(
+  df$BP > 1.2 ~ 2,
+  df$BP <= 1.2 ~ 1
+) %>%
+factor(levels = c(1, 2), labels = c("Normal", "High"))
+
+df_filtered <- df %>%
+  filter(is.na(BP備考)) %>%
+  select(-c(BP備考, LOX_Index, 判別式, id, med_col, 年代, BP))
+
+# df_filtered からモデルを構築
+# BP_level ~ . は、「BP_level を他の全ての変数で説明する」という意味
+cart_model <- rpart(
+  BP_flag ~ .,
+  data = df_filtered,
+  method = "class" # 分類問題なので "class" を指定
+)
+
+# 結果の要約を表示
+printcp(cart_model)
+
+# 決定木を可視化
+rpart.plot(
+  cart_model,
+  type = 4,           # ノードの表示スタイル
+  extra = 104,        # 各ノードに所属するクラスの割合を表示 (例: L/M/H -> 239/12/0)
+  box.palette = "BuGn", # カラーパレット
+  branch.lty = 3,     # 枝の線の種類
+  shadow.col = "gray", # 影の色
+  nn = TRUE           # ノード番号を表示
+)
+
+```
+
+```{r}
+# 予測値を取得
+predictions <- predict(cart_model, newdata = df_filtered, type = "class")
+
+# 混同行列を作成
+confusion_matrix <- table(Actual = df_filtered$BP_flag, Predicted = predictions)
+print(confusion_matrix)
+
+# 正答率を計算
+accuracy <- sum(predictions == df_filtered$BP_flag, na.rm = TRUE) / sum(!is.na(df_filtered$BP_flag))
+cat("正答率:", round(accuracy * 100, 2), "%\n")
+```
+
+正答率は 90.6% から 91.15% になるだけである．つまり，上位 12 % の BP 者を決定木的に予測することは，与えられた説明変数からはほとんど無理なタスクである．
+
+### 3分類モデル
+
+```{r}
+#| output: false
+library(dplyr)
+df$BP_level <- case_when(
+  df$BP > 0.9 ~ 3,
+  df$BP > 0.6 & df$BP <= 0.9 ~ 2,
+  df$BP <= 0.6 ~ 1
+) %>%
+factor(levels = c(1, 2, 3), labels = c("<= 0.6", "0.6 ~ 0.9", "> 0.9"))
+```
+
+```{r}
+sum(df$BP > 0.9, na.rm = TRUE) / sum(!is.na(df$BP))
+sum(df$BP > 0.6 & df$BP <= 0.9, na.rm = TRUE) / sum(!is.na(df$BP))
+sum(df$BP <= 0.6, na.rm = TRUE) / sum(!is.na(df$BP))
+```
+
+```{r}
+library(ggplot2)
+
+ggplot(subset(df, !is.na(BP_level)), aes(x = BP_level, fill = BP_level)) +
+  geom_bar(stat = "count", alpha = 0.8) +
+  geom_text(data = subset(df, !is.na(BP_level)), aes(label = scales::percent(..count../sum(..count..), accuracy = 0.1)), stat = "count", size = 24) +
+  scale_fill_brewer(palette = "Set2") +
+  labs(
+    title = "BP値の度数分布（3つのbinに分割）",
+    x = "BP値の範囲",
+    y = "度数",
+    fill = "BP値の範囲"
+  ) +
+  theme_minimal() +
+  theme(
+    axis.text.x = element_text(size = 15, vjust = 3),
+    legend.position = "none",
+  )
+```
+
+
+```{r}
+library(rpart)
+library(rpart.plot)
+
+df_filtered <- df %>%
+  filter(is.na(BP備考)) %>%
+  select(-c(BP備考, LOX_Index, 判別式, id, med_col, age, BP, BP_flag))
+
+control_params <- rpart.control(maxdepth = 3)
+# BP_level ~ . は、「BP_level を他の全ての変数で説明する」という意味
+cart_model <- rpart(
+  BP_level ~ .,
+  data = df_filtered,
+  method = "class", # 分類問題なので "class" を指定
+  control = control_params
+)
+
+# 結果の要約を表示
+printcp(cart_model)
+
+# 決定木を可視化
+rpart.plot(
+  cart_model,
+  type = 4,           # ノードの表示スタイル
+  extra = 104,        # 各ノードに所属するクラスの割合を表示 (例: L/M/H -> 239/12/0)
+  box.palette = "BuGn", # カラーパレット
+  branch.lty = 3,     # 枝の線の種類
+  shadow.col = "gray", # 影の色
+  nn = TRUE           # ノード番号を表示
+)
+
+```
+
+```{r}
+# 予測値を取得
+predictions <- predict(cart_model, newdata = df_filtered, type = "class")
+
+# 混同行列を作成
+confusion_matrix <- table(Actual = df_filtered$BP_level, Predicted = predictions)
+print(confusion_matrix)
+
+# 正答率を計算
+accuracy <- sum(predictions == df_filtered$BP_level, na.rm = TRUE) / sum(!is.na(df_filtered$BP_level))
+cat("正答率:", round(accuracy * 100, 2), "%\n")
+```
+
+## BART による変数選択
+
+
+### モデル構築
+
+```{r}
+df_filtered <- df %>%
+  filter(is.na(BP備考)) %>%
+  select(-c(BP備考, LOX_Index, 判別式, id, med_col, 年代, BP_level, BP_flag))
+```
+
+```{r}
+#| output: false
+library(dbarts)
+
+# 説明変数と被説明変数を準備
+x_vars <- df_filtered[, !(names(df_filtered) %in% "BP")]
+y_var <- df_filtered$BP
+
+# 欠損値を含む行を削除
+complete_cases <- complete.cases(x_vars, y_var)
+x_vars_clean <- x_vars[complete_cases, ]
+y_var_clean <- y_var[complete_cases]
+
+# BARTモデルの実行
+bart_model <- bart(
+  x.train = x_vars_clean, 
+  y.train = y_var_clean,
+  # power = 5.0,
+  # base = 0.7
+)
+```
+
+```{r}
+summary(bart_model)
+```
+
+### 変数選択
+
+```{r}
+# 1. 変数ごと（列ごと）に使用回数を合計する
+# colSums() を使って、1000回のMCMCステップでのカウントを各変数について合計します。
+var_importance_scores <- colSums(bart_model$varcount)
+
+# 2. 結果を重要度の降順でソートする
+sorted_importance <- sort(var_importance_scores, decreasing = TRUE)
+
+# ソートされた結果の確認
+print(sorted_importance)
+
+# 3. barplot() を使ってプロットする (より見やすいプロット)
+# barplot() の方がこの種のデータには適しています。
+# las=2 は、変数名が重ならないように軸ラベルを垂直にします。
+par(mar = c(6, 4, 4, 2) + 0.1) # 下側のマージンを広げてラベルを表示
+barplot(sorted_importance, 
+        las = 2, 
+        main = "BARTによる変数重要度",
+        ylab = "合計使用回数",
+        xlab = "",
+        col = "skyblue")
+```

@@ -1,0 +1,153 @@
+---
+title: "弘前データ５：BART による LAB 予測"
+author: "司馬博文"
+date: 8/11/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+fig-align: center
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: false
+    fig-width: 10
+    fig-height: 8
+---
+
+```{r}
+#| output: false
+library(readxl)
+library(knitr)
+df <- readRDS("df.rds")
+library(showtext)
+showtext_auto()
+```
+
+備考は全て外し，`LOX_Index` と `判別式` も説明変数としては考慮しない．
+
+```{r}
+#| output: false
+library(dplyr)
+df_filtered <- df %>%
+  filter(is.na(BP備考), type != "D") %>%
+  select(-c(BP備考, LOX_Index, 判別式, id, med_col, 年代)) %>%
+  droplevels()
+```
+
+## CART モデル
+
+```{r}
+library(rpart)
+library(rpart.plot)
+
+
+# 目的変数が5クラスになっても、式は同じ
+# rpartが自動で多クラス分類として扱ってくれる
+control_params <- rpart.control(maxdepth = 3)
+
+cart_model_LAB <- rpart(
+  LAB ~ .,        # 目的変数を5クラスのものに変更
+  data = df_filtered,
+  method = "anova",       # 分類なので "class" のまま
+  # control = control_params
+)
+printcp(cart_model_LAB)
+```
+
+```{r}
+# 決定木を可視化
+rpart.plot(cart_model_LAB, 
+           type = 4,             # ノードのラベル表示形式
+           extra = 101,          # 各ノードにレコードの割合(%)と目的変数の平均値を表示
+           under = TRUE,           # 分岐の下に箱を表示
+           fallen.leaves = TRUE, # 最終ノード（葉）をグラフの下部に揃える
+           box.palette = "auto"  # ノードの色を自動で設定
+          )
+```
+
+sex を使っていない点は面白い．
+
+### モデル評価
+
+```{r}
+# モデルを使って予測値を計算
+predictions <- predict(cart_model_LAB, newdata = df_filtered)
+
+# 実際値と予測値のデータフレームを作成
+results <- data.frame(
+  Actual = df_filtered$LAB,
+  Predicted = predictions
+)
+
+# ggplot2を使った可視化例
+library(ggplot2)
+
+ggplot(results, aes(x = Predicted, y = Actual)) +
+  geom_point(alpha = 0.6) +                               # 点をプロット
+  geom_abline(color = "red", linetype = "dashed", size = 1) + # y=xの線を引く
+  labs(
+    title = "予測値 vs. 実際値 プロット",
+    x = "モデルによる予測値 (Predicted)",
+    y = "実際の観測値 (Actual)"
+  ) +
+  theme_minimal()
+```
+
+## BART による変数選択
+
+```{r}
+# 必要なライブラリを読み込みます
+library(dbarts)
+library(ggplot2)
+library(dplyr) # データ操作のために読み込みます
+
+# --- ステップ1: データの準備 ---
+# dbartsは説明変数(x)と目的変数(y)を別々に要求します
+
+# 目的変数yを準備
+y_train <- df_filtered$LAB
+
+# 説明変数xを準備 (LAB列を除いた全ての列)
+x_train <- df_filtered %>% 
+  select(-LAB)
+
+# --- ステップ2: BARTモデルの学習 ---
+# x_trainとy_trainを使ってモデルを学習します
+# ntree: 使用する木の数, ndpost: サンプリングする回数
+# 処理に少し時間がかかることがあります
+set.seed(123) # 結果の再現性のため
+bart_model <- bart(x.train = x_train, y.train = y_train)
+```
+
+```{r}
+# ステップ1: varcountから分割回数のデータを抽出
+# bart_model$varcount は行列なので、データフレームに変換します
+varcount_matrix <- bart_model$varcount
+
+# ステップ2: 変数ごとに分割回数を合計する
+# colSums() を使って、列（変数）ごとに合計値（全体の重要度）を計算します
+total_varcount <- colSums(varcount_matrix)
+
+# ステップ3: プロット用にデータを整形する
+# 計算結果をプロットしやすいデータフレームに変換します
+var_importance_df <- data.frame(
+  Variable = names(total_varcount),
+  Importance_Count = total_varcount
+)
+
+# ステップ4: ggplot2で見やすくプロットする
+ggplot(var_importance_df, aes(x = reorder(Variable, Importance_Count), y = Importance_Count)) +
+  geom_bar(stat = "identity", fill = "salmon") +
+  coord_flip() + # 横向きの棒グラフ
+  labs(
+    title = "BARTによる変数重要度 (varcountの合計)",
+    x = "変数",
+    y = "分岐に使われた合計回数 (Total Split Count)"
+  ) +
+  theme_minimal()
+``` 

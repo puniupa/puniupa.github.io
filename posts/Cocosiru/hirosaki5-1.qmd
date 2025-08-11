@@ -1,0 +1,256 @@
+---
+title: "弘前データ５：BART によるフローラタイプ予測"
+author: "司馬博文"
+date: 8/11/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+fig-align: center
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: false
+    fig-width: 10
+    fig-height: 8
+---
+
+```{r}
+#| output: false
+library(readxl)
+library(knitr)
+df <- readRDS("df.rds")
+library(showtext)
+showtext_auto()
+```
+
+備考は全て外し，`LOX_Index` と `判別式` も説明変数としては考慮しない．
+
+```{r}
+#| output: false
+library(dplyr)
+df_filtered <- df %>%
+  filter(is.na(BP備考), type != "D") %>%
+  select(-c(BP備考, LOX_Index, 判別式, id, med_col, 年代)) %>%
+  droplevels()
+```
+
+## CART モデル
+
+```{r}
+library(rpart)
+library(rpart.plot)
+
+
+# 目的変数が5クラスになっても、式は同じ
+# rpartが自動で多クラス分類として扱ってくれる
+cart_model_5class <- rpart(
+  type ~ .,        # 目的変数を5クラスのものに変更
+  data = df_filtered,
+  method = "class"       # 分類なので "class" のまま
+)
+printcp(cart_model_5class)
+```
+
+```{r}
+# 決定木を可視化
+rpart.plot(
+  cart_model_5class,
+  type = 4,
+  extra = 104,           # 各ノードのクラス別サンプル数を表示
+  box.palette = "auto",  # 色を自動で設定
+  shadow.col = "gray",
+  nn = TRUE
+)
+```
+
+初っ端から「女性ならばほとんど Type B だ」と決めつけているのが面白い．
+
+## 男女で違う CART モデルを推定する
+
+男性の場合正答率が６割しか出ないが，女性の場合は８割出る．これは女性の方に C, E type がないためである．
+
+### 男性の場合
+
+「 BMI が小さくて多様性が３ならば A タイプ」というルールは変わらないようである．
+
+```{r}
+library(rpart)
+library(rpart.plot)
+
+df_male <- df_filtered %>%
+  filter(sex == 1)
+
+# 目的変数が5クラスになっても、式は同じ
+# rpartが自動で多クラス分類として扱ってくれる
+cart_model_5class <- rpart(
+  type ~ .,        # 目的変数を5クラスのものに変更
+  data = df_male,
+  method = "class"       # 分類なので "class" のまま
+)
+printcp(cart_model_5class)
+```
+
+```{r}
+# 決定木を可視化
+rpart.plot(
+  cart_model_5class,
+  type = 4,
+  extra = 104,           # 各ノードのクラス別サンプル数を表示
+  box.palette = "auto",  # 色を自動で設定
+  shadow.col = "gray",
+  nn = TRUE
+)
+```
+
+```{r}
+# 予測値を取得
+predictions <- predict(cart_model_5class, newdata = df_male, type = "class")
+
+# 混同行列を作成
+confusion_matrix <- table(Actual = df_male$type, Predicted = predictions)
+print(confusion_matrix)
+
+# 正答率を計算
+accuracy <- sum(predictions == df_male$type, na.rm = TRUE) / sum(!is.na(df_male$type))
+cat("正答率:", round(accuracy * 100, 2), "%\n")
+```
+
+58% の正解率が 71% になる．
+
+### 女性の場合
+
+```{r}
+library(rpart)
+library(rpart.plot)
+
+df_female <- df_filtered %>%
+  filter(sex == 2)
+
+# 目的変数が5クラスになっても、式は同じ
+# rpartが自動で多クラス分類として扱ってくれる
+cart_model_5class <- rpart(
+  type ~ .,        # 目的変数を5クラスのものに変更
+  data = df_female,
+  method = "class"       # 分類なので "class" のまま
+)
+printcp(cart_model_5class)
+```
+
+```{r}
+# 決定木を可視化
+rpart.plot(
+  cart_model_5class,
+  type = 4,
+  extra = 104,           # 各ノードのクラス別サンプル数を表示
+  box.palette = "auto",  # 色を自動で設定
+  shadow.col = "gray",
+  nn = TRUE
+)
+```
+
+```{r}
+# 予測値を取得
+predictions <- predict(cart_model_5class, newdata = df_female, type = "class")
+
+# 混同行列を作成
+confusion_matrix <- table(Actual = df_female$type, Predicted = predictions)
+print(confusion_matrix)
+
+# 正答率を計算
+accuracy <- sum(predictions == df_female$type, na.rm = TRUE) / sum(!is.na(df_female$type))
+cat("正答率:", round(accuracy * 100, 2), "%\n")
+```
+
+これは正答の個数が，タイプ B 259 人から，261 人になっただけ．
+
+## BART による変数選択
+
+### 推定
+
+```{r}
+#| output: false
+library(BART)
+
+# 説明変数と被説明変数を準備
+x_vars <- df_filtered[, !(names(df_filtered) %in% c("type"))]
+y_var <- df_filtered$type
+
+# 欠損値を含む行を削除
+complete_cases <- complete.cases(x_vars, y_var)
+x_vars_clean <- x_vars[complete_cases, ]
+y_var_clean <- y_var[complete_cases]
+
+# x を必ず base::data.frame に
+x_train <- as.data.frame(x_vars_clean)  # tibble/data.table/sparse -> NG なので明示変換
+
+# y は 1..K の整数
+y <- droplevels(y_var_clean)
+K <- nlevels(y)  # K = 4
+```
+
+```r
+fit <- BART::mbart(
+  x.train = x_train,
+  y.train = y_int,
+  x.test  = x_train,     # 例として同データで
+  type    = "lbart",      # or "pbart"
+  power = 3.0
+)
+```
+
+```{r}
+fit <- readRDS("bart_fit_5class.rds")
+# 予測と混同行列
+p <- matrix(fit$prob.test.mean, ncol = K, byrow = TRUE)
+pred <- factor(levels(y)[max.col(p)], levels = levels(y))
+table(truth = y, pred = pred)
+```
+
+```{r}
+sum(y == pred) / length(y)
+```
+
+### 変数重要度の出力
+
+```{r}
+# 変数重要度を計算・描画
+# fit$varcount に各変数が使用された回数の情報が入っている
+var_counts_list <- fit$varcount  # リスト形式
+var_counts_combined <- (var_counts_list[[1]] + var_counts_list[[2]] + var_counts_list[[3]]) / 3  # 2カテゴリの平均
+var_counts <- colMeans(var_counts_combined)  # MCMCの全ステップで平均
+
+var_counts_sorted <- sort(var_counts, decreasing = TRUE)
+
+# 上位15件などをプロット
+barplot(head(var_counts_sorted, 10),
+        horiz = TRUE,
+        las = 1, # y軸ラベルを水平に
+        main = "Variable Importance (BART)",
+        xlab = "Inclusion Frequency")
+```
+
+### タイプごとの重要度
+
+```{r}
+# カテゴリごとの変数重要度
+var_counts_cat1 <- colMeans(var_counts_list[[1]])  # A vs その他
+var_counts_cat2 <- colMeans(var_counts_list[[2]])  # B vs その他
+var_counts_cat3 <- colMeans(var_counts_list[[3]])  # C vs その他
+
+# 比較
+comparison_df <- data.frame(
+  Variable = names(var_counts_cat1),
+  A = var_counts_cat1,
+  B = var_counts_cat2,
+  C = var_counts_cat3,
+  Overall = var_counts
+)
+
+# 上位10件を表示
+head(comparison_df[order(comparison_df$Overall, decreasing = TRUE), ], 10)
+```
