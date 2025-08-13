@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://puniupa.github.io/index.html</loc>
-    <lastmod>2025-03-26T03:10:20.918Z</lastmod>
+    <lastmod>2025-03-31T05:20:09.908Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/static/AllCategories.html</loc>
@@ -94,7 +94,7 @@
   </url>
   <url>
     <loc>https://puniupa.github.io/notes.html</loc>
-    <lastmod>2025-04-26T07:51:30.234Z</lastmod>
+    <lastmod>2025-04-14T08:13:17.050Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/Spike-and-slab/spiky-density.html</loc>
@@ -142,7 +142,7 @@
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/Cocosiru/hirosaki0.html</loc>
-    <lastmod>2025-08-11T03:59:01.201Z</lastmod>
+    <lastmod>2025-08-13T06:42:52.146Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/Cocosiru/hirosaki1.html</loc>
@@ -198,18 +198,30 @@
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/Cocosiru/hirosaki5-1.html</loc>
-    <lastmod>2025-08-11T11:21:33.090Z</lastmod>
+    <lastmod>2025-08-13T06:38:05.355Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/Cocosiru/hirosaki5-2.html</loc>
-    <lastmod>2025-08-11T12:21:23.985Z</lastmod>
+    <lastmod>2025-08-13T06:38:05.355Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/Cocosiru/hirosaki5-3.html</loc>
-    <lastmod>2025-08-11T12:12:44.299Z</lastmod>
+    <lastmod>2025-08-13T06:38:05.355Z</lastmod>
   </url>
   <url>
     <loc>https://puniupa.github.io/posts/Cocosiru/hirosaki5-4.html</loc>
-    <lastmod>2025-08-11T12:03:51.953Z</lastmod>
+    <lastmod>2025-08-13T06:38:05.356Z</lastmod>
+  </url>
+  <url>
+    <loc>https://puniupa.github.io/posts/Cocosiru/hirosaki6-1.html</loc>
+    <lastmod>2025-08-13T07:44:34.823Z</lastmod>
+  </url>
+  <url>
+    <loc>https://puniupa.github.io/posts/Cocosiru/hirosaki6-2.html</loc>
+    <lastmod>2025-08-13T09:52:31.257Z</lastmod>
+  </url>
+  <url>
+    <loc>https://puniupa.github.io/posts/Cocosiru/hirosaki6-3.html</loc>
+    <lastmod>2025-08-13T09:57:52.798Z</lastmod>
   </url>
 </urlset>

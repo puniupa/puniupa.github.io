@@ -1,0 +1,363 @@
+---
+title: "弘前データ６：法定検診項目＋ストレスチェックにより，５タイプを予測する方法"
+author: "司馬博文"
+date: 8/13/2025
+number-sections: true
+code-fold: true
+bibliography: 
+  - ../../assets/2023.bib
+  - ../../assets/2024.bib
+  - ../../assets/2025.bib
+csl: ../../assets/apalike.csl
+fig-align: center
+format:
+  html: 
+    code-fold: false
+    execute:
+      cache: false
+    fig-width: 10
+    fig-height: 8
+---
+
+```{r}
+#| output: false
+#| echo: false
+library(readxl)
+library(knitr)
+library(showtext)
+showtext_auto()
+df_raw <- read_excel("../../../Desktop/Mentalism/3-BayesianDataAnalysis/Cocosiru/資料/Hirosaki2.xlsx", sheet = "統合_最終")
+```
+
+```{r}
+#| output: false
+#| echo: false
+legacy_list <- c("受付番号", "受診日年齢", "性別", "Weight", "BP", "FLCΣ", "BP備考", "判別式", "LOX-1_H", "LAB_H", "LOX-index_H", "タイプ", "多様性", paste0("item", 1:18), "BMI／Body_Mass_Index", "現在、病院からもらって飲んでいるお薬はありますか。", "健康1_3_1_高脂血症_服薬")
+new_list <- c("赤血球数　　　　　　　　", "ヘモグロビン　　　　　　", "ＨｂＡ１ｃ／ＮＧＳＰ　　", "ＡＳＴ（ＧＯＴ）　　　　", "ＡＬＴ（ＧＰＴ）　　　　", "γ－ＧＴ　　　　　　　　", "総コレステロール　　　　", "ＴＧ（中性脂肪）　　　　", "血清血糖　　　　　　　　", "ＨＤＬコレステロール　　", "ＬＤＬコレステロール　　", "尿糖定性　　　　　　　　", "最高血圧", "最低血圧", "喫煙飲酒5_1_飲酒状況", "喫煙飲酒5_3_喫煙状況", "運動習慣6_1_フレイル_軽い体操", "朝食")
+df <- df_raw[, c(legacy_list, new_list)]
+```
+
+```{r}
+#| output: false
+#| echo: false
+df$BP <- ifelse(df$BP < 0, -1 * df$BP, df$BP)
+df$判別式 <- as.numeric(gsub("[()]", "", df$判別式))
+library(dplyr)
+# ストレスチェックの前処理
+
+item_sum <- df$item1 + df$item2 + df$item3
+score_activity <- function(x) {
+  case_when(
+    x == 3 ~ 5,
+    x >= 4 & x <= 5 ~ 4,
+    x >= 6 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 2,
+    x >= 10 & x <= 12 ~ 1,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$活気 <- score_activity(item_sum)
+
+item_sum <- df$item4 + df$item5 + df$item6
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 4,
+    x >= 10 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 8 ~ 3,
+    x >= 9 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$イライラ感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item7 + df$item8 + df$item9
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x >= 4 & x <= 5 ~ 2,
+    x >= 6 & x <= 8 ~ 3,
+    x >= 9 & x <= 11 ~ 4,
+    x == 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$疲労感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item10 + df$item11 + df$item12
+score_activity_m <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 9 ~ 4,
+    x >= 10 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 3 ~ 1,
+    x == 4 ~ 2,
+    x >= 5 & x <= 7 ~ 3,
+    x >= 8 & x <= 10 ~ 4,
+    x >= 11 & x <= 12 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$不安感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+
+item_sum <- df$item13 + df$item14 + df$item15 + df$item16 + df$item17 + df$item18
+score_activity_m <- function(x) {
+  case_when(
+    x == 6 ~ 1,
+    x >= 7 & x <= 8 ~ 2,
+    x >= 9 & x <= 12 ~ 3,
+    x >= 13 & x <= 16 ~ 4,
+    x >= 17 & x <= 24 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+score_activity_f <- function(x) {
+  case_when(
+    x == 6 ~ 1,
+    x >= 7 & x <= 8 ~ 2,
+    x >= 9 & x <= 12 ~ 3,
+    x >= 13 & x <= 17 ~ 4,
+    x >= 18 & x <= 24 ~ 5,
+    TRUE ~ NA_real_  # それ以外の値の場合はNA
+  )
+}
+df$抑うつ感 <- ifelse(
+  df$性別 == 1,
+  score_activity_m(item_sum),  # 男性用の関数
+  score_activity_f(item_sum)   # 女性用の関数
+)
+```
+
+```{r}
+#| output: false
+#| echo: false
+df <- df %>% select(-paste0("item", 1:18)) %>% rename(id = 受付番号, age = 受診日年齢, sex = 性別, LOX = `LOX-1_H`, LAB = LAB_H, LOX_Index = `LOX-index_H`, type = タイプ, diversity = 多様性, BMI = `BMI／Body_Mass_Index`, med = `現在、病院からもらって飲んでいるお薬はありますか。`, med_col = `健康1_3_1_高脂血症_服薬`, RedBloodCell = `赤血球数　　　　　　　　`, Hemoglobin = `ヘモグロビン　　　　　　`, HbA1c = `ＨｂＡ１ｃ／ＮＧＳＰ　　`, AST = `ＡＳＴ（ＧＯＴ）　　　　`, ALT = `ＡＬＴ（ＧＰＴ）　　　　`, gammaGT = `γ－ＧＴ　　　　　　　　`, TotalCholesterol = `総コレステロール　　　　`, TG = `ＴＧ（中性脂肪）　　　　`, BloodSugar = `血清血糖　　　　　　　　`, HDL = `ＨＤＬコレステロール　　`, LDL = `ＬＤＬコレステロール　　`, UrineSugar = `尿糖定性　　　　　　　　`, SystolicBP = `最高血圧`, DiastolicBP = `最低血圧`, drink = `喫煙飲酒5_1_飲酒状況`, smoke = `喫煙飲酒5_3_喫煙状況`, exercise = `運動習慣6_1_フレイル_軽い体操`, breakfast = `朝食`)
+```
+
+```{r}
+#| output: false
+#| echo: false
+df$type <- as.factor(df$type)
+df$diversity <- as.factor(df$diversity)
+df$UrineSugar  <- case_when(
+  df$UrineSugar == "（－）　　　　　　　" ~ "-1",
+  df$UrineSugar == "（２＋）　　　　　　" ~ "2",
+  df$UrineSugar == "（３＋）　　　　　　" ~ "3",
+  df$UrineSugar == "（＋）　　　　　　　" ~ "1",
+  df[[28]] == "（±）　　　　　　　" ~ "0",
+  TRUE ~ df[[28]]  # その他の値はそのまま
+)
+df$UrineSugar <- as.factor(df$UrineSugar)
+df$drink <- case_when(
+  df$drink == "飲まない" ~ 0,
+  df$drink == "以前飲んでいた" ~ 1,
+  df$drink == "現在飲んでいる" ~ 2
+)
+df$drink <- as.factor(df$drink)
+df$smoke <- case_when(
+  df$smoke == "吸ったことがない" ~ 0,
+  df$smoke == "以前は吸っていた" ~ 1,
+  df$smoke == "吸っている" ~ 2
+)
+df$smoke <- as.factor(df$smoke)
+df$exercise <- case_when(
+  df$exercise == "していない" ~ 0,
+  df$exercise == "週に1日以下" ~ 1,
+  df$exercise == "週に2～4日" ~ 2,
+  df$exercise == "週に5～6日" ~ 3,
+  df$exercise == "毎日" ~ 4
+)
+df$exercise <- as.factor(df$exercise)
+```
+
+備考は全て外し，`LOX_Index` と `判別式` も説明変数としては考慮しない．
+
+```{r}
+#| echo: false
+library(dplyr)
+df_filtered <- df %>%
+  # filter(is.na(BP備考), type != "D") %>%
+  select(-c(BP備考, LOX_Index, 判別式, id, med_col, diversity, BP, FLCΣ))
+
+# df_filtered <- df_filtered %>%
+#   mutate(type = case_when(
+#       type == "B" ~ "B",
+#       TRUE ~ "N"  # B, C, D, Eを全てNに変更
+#     )) %>%
+#   # factor型に変換し、レベルを明示的に指定
+#   mutate(type = factor(type, levels = c("B", "N"))) %>%
+#   droplevels()
+
+kable(head(df_filtered))
+```
+
+## CART モデル
+
+
+```{r}
+library(rpart)
+library(rpart.plot)
+
+# 目的変数が5クラスになっても、式は同じ
+# rpartが自動で多クラス分類として扱ってくれる
+cart_model_5class <- rpart(
+  type ~ .,        # 目的変数を5クラスのものに変更
+  data = df_filtered,
+  method = "class",
+  control = rpart.control(cp = 0.001)
+)
+printcp(cart_model_5class)
+```
+
+```{r}
+# 決定木を可視化
+rpart.plot(
+  cart_model_5class,
+  type = 4,
+  extra = 104,           # 各ノードのクラス別サンプル数を表示
+  box.palette = "auto",  # 色を自動で設定
+  shadow.col = "gray",
+  nn = TRUE
+)
+```
+
+
+やはり最初から「女性ならばほとんど Type B だ」と決めつけている．
+
+## 男女で違う CART モデルを推定する
+
+男性の場合正答率が６割しか出ないが，女性の場合は８割出る．これは女性の方に C, E type がないためである．
+
+### 男性の場合
+
+「 BMI が小さくて多様性が３ならば A タイプ」というルールは変わらないようである．
+
+```{r}
+library(rpart)
+library(rpart.plot)
+
+df_male <- df_filtered %>%
+  filter(sex == 1)
+
+# 目的変数が5クラスになっても、式は同じ
+# rpartが自動で多クラス分類として扱ってくれる
+cart_model_5class <- rpart(
+  type ~ .,        # 目的変数を5クラスのものに変更
+  data = df_male,
+  method = "class"
+)
+printcp(cart_model_5class)
+```
+
+```{r}
+# 決定木を可視化
+rpart.plot(
+  cart_model_5class,
+  type = 4,
+  extra = 104,           # 各ノードのクラス別サンプル数を表示
+  box.palette = "auto",  # 色を自動で設定
+  shadow.col = "gray",
+  nn = TRUE
+)
+```
+
+```{r}
+# 予測値を取得
+predictions <- predict(cart_model_5class, newdata = df_male, type = "class")
+
+# 混同行列を作成
+confusion_matrix <- table(Actual = df_male$type, Predicted = predictions)
+print(confusion_matrix)
+
+# 正答率を計算
+accuracy <- sum(predictions == df_male$type, na.rm = TRUE) / sum(!is.na(df_male$type))
+cat("正答率:", round(accuracy * 100, 2), "%\n")
+```
+
+58% の正解率が 71% になる．
+
+### 女性の場合
+
+```{r}
+library(rpart)
+library(rpart.plot)
+
+df_female <- df_filtered %>%
+  filter(sex == 2)
+
+# 目的変数が5クラスになっても、式は同じ
+# rpartが自動で多クラス分類として扱ってくれる
+cart_model_5class <- rpart(
+  type ~ .,        # 目的変数を5クラスのものに変更
+  data = df_female,
+  method = "class",
+  control = rpart.control(cp = 0.001)
+)
+printcp(cart_model_5class)
+```
+
+```{r}
+# 決定木を可視化
+rpart.plot(
+  cart_model_5class,
+  type = 4,
+  extra = 104,           # 各ノードのクラス別サンプル数を表示
+  box.palette = "auto",  # 色を自動で設定
+  shadow.col = "gray",
+  nn = TRUE
+)
+```
+
+```{r}
+# 予測値を取得
+predictions <- predict(cart_model_5class, newdata = df_female, type = "class")
+
+# 混同行列を作成
+confusion_matrix <- table(Actual = df_female$type, Predicted = predictions)
+print(confusion_matrix)
+
+# 正答率を計算
+accuracy <- sum(predictions == df_female$type, na.rm = TRUE) / sum(!is.na(df_female$type))
+cat("正答率:", round(accuracy * 100, 2), "%\n")
+```
+
+少ない変数でやったときはタイプ B 259 人から，261 人になっただけだったが，今回はもう少し増えるようだ．
